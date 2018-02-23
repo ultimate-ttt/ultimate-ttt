@@ -15,10 +15,6 @@ You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-ti
 
 This app was mainly made for learning how to use React, Redux and CSS Grid and also because I always wanted to make my own implementation of this game.
 
-## Contributions
-
-Contributions are welcome via pull requests.
-
 ## Set up dev environment
 
 Install yarn if you haven't already
@@ -50,6 +46,10 @@ To deploy the latest version to GitHub Pages
 ```
 yarn deploy
 ```
+
+## Contributions
+
+Contributions are welcome via pull requests.
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
