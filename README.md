@@ -47,7 +47,7 @@ To deploy the latest version to GitHub Pages
 yarn deploy
 ```
 
-## Contributions
+## Contribute
 
 Contributions are welcome via pull requests.
 
