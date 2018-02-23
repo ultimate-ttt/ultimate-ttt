@@ -6,7 +6,7 @@ The game consists of nine tic-tac-toe boards arranged in a 3x3 grid. Every move 
 
 ## Demo
 
-![demo](https://user-images.githubusercontent.com/16801528/36613495-f50f6e1a-18d9-11e8-8e05-832089e7bef1.gif)
+![2018-02-23 22 18 21](https://user-images.githubusercontent.com/16801528/36617426-af1bc562-18e7-11e8-8572-4212bb8688d2.gif)
 
 You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
 
