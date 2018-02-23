@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
