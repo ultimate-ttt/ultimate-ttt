@@ -1,0 +1,12 @@
+.small-board {
+    display: grid;
+    grid-template-columns: 5vh 5vh 5vh;
+    grid-template-rows: 5vh 5vh 5vh;
+    grid-gap: 1vh;
+}
+
+.small-board-finished {
+    display: grid;
+    grid-template-columns: 17vh;
+    grid-template-rows: 17vh;
+}
