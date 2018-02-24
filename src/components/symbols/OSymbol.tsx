@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './symbols.css';
 
 interface OSymbolProps {
     bigSymbol?: boolean;

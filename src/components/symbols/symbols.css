@@ -1,0 +1,78 @@
+.material-icons.big-symbol.o { font-size: 8em; }
+.material-icons.big-symbol.x { font-size: 9em; }
+.material-icons.big-symbol.no-winner { font-size: 10em; }
+.material-icons { font-size: 2em; }
+
+/* Animations */
+.animate-x-big-symbol {
+    animation-duration: 0.75s;
+    animation-name: add-icon-big-x;
+}
+
+.animate-o-big-symbol {
+    animation-duration: 0.75s;
+    animation-name: add-icon-big-o;
+}
+
+.animate-no-winner-big-symbol {
+    animation-duration: 0.75s;
+    animation-name: add-icon-big-no-winner;
+}
+
+.animate-o, .animate-x {
+    /*color: green;*/
+    animation-duration: 0.75s;
+    animation-name: add-icon;
+}
+
+@keyframes add-icon {
+    0%   {font-size: 4em; }
+    25%  {font-size: 1em;}
+    60% {font-size: 2.5em;}
+    100% {font-size: 2em;}
+}
+
+@keyframes add-icon-big-x {
+    0% {
+        font-size: 18em;
+    }
+    25% {
+        font-size: 5em;
+    }
+    60% {
+        font-size: 12em;
+    }
+    100% {
+        font-size: 9em;
+    }
+}
+
+@keyframes add-icon-big-o {
+    0% {
+        font-size: 18em;
+    }
+    25% {
+        font-size: 5em;
+    }
+    60% {
+        font-size: 12em;
+    }
+    100% {
+        font-size: 8em;
+    }
+}
+
+@keyframes add-icon-big-no-winner {
+    0% {
+        font-size: 18em;
+    }
+    25% {
+        font-size: 5em;
+    }
+    60% {
+        font-size: 12em;
+    }
+    100% {
+        font-size: 10em;
+    }
+}
