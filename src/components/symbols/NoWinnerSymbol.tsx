@@ -14,7 +14,7 @@ export class NoWinnerSymbol extends React.Component<NoWinnerSymbolProps, NoWinne
 
     render() {
         return (
-            <i className="material-icons bigSymbol no-winner">remove</i>
+            <i className="material-icons big-symbol no-winner animate-no-winner-big-symbol">remove</i>
         );
     }
 }
