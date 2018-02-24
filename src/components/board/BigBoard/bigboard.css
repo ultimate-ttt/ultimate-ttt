@@ -1,8 +1,8 @@
 .big-board {
     display: grid;
-    grid-template-columns: 15vh 15vh 15vh;
-    grid-template-rows: 15vh 15vh 15vh;
-    grid-gap: 1vh;
+    grid-template-columns: 12.5vh 12.5vh 12.5vh;
+    grid-template-rows: 12.5vh 12.5vh 12.5vh;
+    grid-gap: 2vh;
 }
 
 @media(min-width: 34em) {
