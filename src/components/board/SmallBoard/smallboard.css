@@ -13,7 +13,6 @@
 
 @media(min-width: 34em) {
     .small-board {
-        background-color: green;
         grid-template-columns: 6vh 6vh 6vh;
         grid-template-rows: 6vh 6vh 6vh;
     }
