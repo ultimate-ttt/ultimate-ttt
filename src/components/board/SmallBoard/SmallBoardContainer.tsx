@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { SmallBoard } from './';
+import { SmallBoard } from './SmallBoard';
 import { getWinResult } from '../../../util/CheckBoard';
 import { getSmallBoard } from '../../../util/GetSmallBoard';
 import { AppState } from '../../../state/AppState';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BigBoard } from './board/BigBoard';
+import { BigBoard } from './board/BigBoard/BigBoard';
 import GameFinishedContainer from './GameFinishedContainer';
 
 interface AppProps {
