@@ -32,6 +32,7 @@ export class Tile extends React.Component<TileProps, TileState> {
 
         this.getValue = this.getValue.bind( this );
         this.handleClick = this.handleClick.bind( this );
+        this.getRoundnessClass = this.getRoundnessClass.bind( this );
     }
 
     getValue() {
@@ -58,12 +59,35 @@ export class Tile extends React.Component<TileProps, TileState> {
         }
     }
 
+    getRoundnessClass() {
+        const {player, isSmallBoardFinished, value} = this.props;
+
+        let isCircle;
+        let isSquare;
+        if (isSmallBoardFinished) {
+            isCircle = value === TileValue.Circle;
+            isSquare = value === TileValue.Cross;
+        } else {
+            isCircle = player === Player.Circle;
+            isSquare = player === Player.Cross;
+        }
+
+        if (isCircle) {
+            return 'circle';
+        } else if (isSquare) {
+            return 'square';
+        } else {
+            return '';
+        }
+    }
+
     render() {
         const tileValue = this.getValue();
         const color = this.props.shouldDisplayIndicator ? 'indicator' : 'normal';
+        const roundnessClass = this.getRoundnessClass();
 
         return (
-            <div className={'box ' + color} onClick={this.handleClick}>
+            <div className={`box ${color} ${roundnessClass}`} onClick={this.handleClick}>
                 {tileValue}
             </div>
         );
