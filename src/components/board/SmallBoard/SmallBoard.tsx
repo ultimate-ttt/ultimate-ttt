@@ -24,32 +24,46 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
         this.createTiles = this.createTiles.bind( this );
     }
 
+    getUnfinishedTileContainer( x: number, y: number, bigBoardPoint: Point ) {
+        return (
+            <TileContainer
+                key={x.toString() + y.toString()}
+                smallBoardPoint={{x, y}}
+                bigBoardPoint={bigBoardPoint}
+            />
+        );
+    }
+
+    getFinishedTileContainer( bigBoardPoint: Point, winningPlayer: Player ) {
+        return (
+            <TileContainer
+                key={1}
+                bigBoardPoint={bigBoardPoint}
+                value={playerToTileValue( winningPlayer, true )}
+                isSmallBoardFinished={true}
+            />
+        );
+    }
+
+    getUnfinishedSmallBoard( bigBoardPoint: Point ) {
+        let rows = [];
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                rows.push( this.getUnfinishedTileContainer( i, j, bigBoardPoint ) );
+            }
+        }
+        return rows;
+    }
+
     createTiles() {
         const {x, y, isFinished, winningPlayer} = this.props;
         const bigBoardPoint: Point = {x: x, y: y};
 
         let rows = [];
         if (!isFinished) {
-            for (let i = 0; i < 3; i++) {
-                for (let j = 0; j < 3; j++) {
-                    rows.push( (
-                        <TileContainer
-                            key={i.toString() + j.toString()}
-                            smallBoardPoint={{x: i, y: j}}
-                            bigBoardPoint={bigBoardPoint}
-                        />
-                    ) );
-                }
-            }
+            rows = this.getUnfinishedSmallBoard( bigBoardPoint );
         } else {
-            rows.push( (
-                <TileContainer
-                    key={1}
-                    bigBoardPoint={bigBoardPoint}
-                    value={playerToTileValue( winningPlayer!, true )}
-                    isSmallBoardFinished={true}
-                />
-            ) );
+            rows.push( this.getFinishedTileContainer( bigBoardPoint, winningPlayer! ) );
         }
 
         return rows;
