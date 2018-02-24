@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { default as TileContainer } from './TileContainer';
+import { default as TileContainer } from './Tile/TileContainer';
 import { Point } from '../../util/Point';
 import { Player } from '../../state/AppState';
 import { playerToTileValue } from '../../util/PlayerToTile';

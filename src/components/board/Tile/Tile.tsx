@@ -1,10 +1,11 @@
 import * as React from 'react';
 import 'material-design-icons/iconfont/material-icons.css';
-import { Player, TileValue } from '../../state/AppState';
-import { XSymbol } from '../symbols/XSymbol';
-import { OSymbol } from '../symbols/OSymbol';
-import { Point } from '../../util/Point';
-import { NoWinnerSymbol } from '../symbols/NoWinnerSymbol';
+import { Player, TileValue } from '../../../state/AppState';
+import { XSymbol } from '../../symbols/XSymbol';
+import { OSymbol } from '../../symbols/OSymbol';
+import { Point } from '../../../util/Point';
+import { NoWinnerSymbol } from '../../symbols/NoWinnerSymbol';
+import './tile.css';
 
 // TODO: Does this component have too many props?
 interface TileProps {
@@ -12,7 +13,7 @@ interface TileProps {
     smallBoardPoint?: Point;
     onTileClicked?: ( bigBoard: Point, smallBoard: Point, player: Player, value: TileValue, allowed: boolean ) => void;
     value?: TileValue;
-    player?: Player; // Wouldn't need to know player
+    player?: Player;
     shouldDisplayIndicator?: boolean;
     isSmallBoardFinished?: boolean;
 }
@@ -77,7 +78,7 @@ export class Tile extends React.Component<TileProps, TileState> {
         } else if (isSquare) {
             return 'square';
         } else {
-            return '';
+            return 'no-winner';
         }
     }
 

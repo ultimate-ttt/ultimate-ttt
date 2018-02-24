@@ -1,16 +1,16 @@
-import { changePlayer } from '../../state/game/gameAction';
-import { registerMove } from '../../state/moves/moveAction';
-import { Point } from '../../util/Point';
-import { isMoveAllowed } from '../../util/MoveAllowed';
-import { arePointsEqual } from '../../util/Point';
-import { Tile as StateTile, Move, Player, TileValue, AppState } from '../../state/AppState';
-import { addSymbol } from '../../state/tiles/tileAction';
+import { changePlayer } from '../../../state/game/gameAction';
+import { registerMove } from '../../../state/moves/moveAction';
+import { Point } from '../../../util/Point';
+import { isMoveAllowed } from '../../../util/MoveAllowed';
+import { arePointsEqual } from '../../../util/Point';
+import { Tile as StateTile, Move, Player, TileValue, AppState } from '../../../state/AppState';
+import { addSymbol } from '../../../state/tiles/tileAction';
 import { connect } from 'react-redux';
 import { Tile } from './Tile';
-import { getSmallBoard } from '../../util/GetSmallBoard';
-import { getWinResult } from '../../util/CheckBoard';
+import { getSmallBoard } from '../../../util/GetSmallBoard';
+import { getWinResult } from '../../../util/CheckBoard';
 import { batchActions } from 'redux-batched-actions';
-import { reduceEachSmallBoardToOneValue } from '../../util/ReduceBoard';
+import { reduceEachSmallBoardToOneValue } from '../../../util/ReduceBoard';
 
 const getTileValue = ( tiles: StateTile[], bigBoardPoint: Point, smallBoardPoint: Point ) => {
     const index = tiles.findIndex( ( tile ) => {
