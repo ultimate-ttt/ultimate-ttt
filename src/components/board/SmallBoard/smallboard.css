@@ -1,12 +1,24 @@
 .small-board {
     display: grid;
-    grid-template-columns: 5vh 5vh 5vh;
-    grid-template-rows: 5vh 5vh 5vh;
+    grid-template-columns: 4vh 4vh 4vh;
+    grid-template-rows: 4vh 4vh 4vh;
     grid-gap: 1vh;
 }
 
 .small-board-finished {
     display: grid;
-    grid-template-columns: 17vh;
-    grid-template-rows: 17vh;
+    grid-template-columns: 15vh;
+    grid-template-rows: 15vh;
+}
+
+@media(min-width: 34em) {
+    .small-board {
+        grid-template-columns: 6vh 6vh 6vh;
+        grid-template-rows: 6vh 6vh 6vh;
+    }
+
+    .small-board-finished {
+        grid-template-columns: 20vh;
+        grid-template-rows: 20vh;
+    }
 }
