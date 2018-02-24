@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './symbols.css';
+import './symbolAnimations.css';
 
 interface XSymbolProps {
     bigSymbol?: boolean;
