@@ -1,20 +1,27 @@
-import { cloneState, GenericAction, TileValue } from '../AppState';
+import { cloneState, GenericAction, Tile, TileValue } from '../AppState';
 import { ADD_SYMBOL } from './tileAction';
 import { arePointsEqual } from '../../util/Point';
 
+const getSmallBoardTiles = ( x: number, y: number ) => {
+    const smallBoard = [];
+    for (let tileX = 0; tileX < 3; tileX++) {
+        for (let tileY = 0; tileY < 3; tileY++) {
+            smallBoard.push( {
+                                 bigBoardPoint: {x, y},
+                                 smallBoardPoint: {x: tileX, y: tileY},
+                                 value: TileValue.Empty
+                             } );
+        }
+    }
+    return smallBoard;
+};
+
 const getInitialTiles = () => {
-    let state = [];
+    let state: Tile[] = [];
     for (let x = 0; x < 3; x++) {
         for (let y = 0; y < 3; y++) {
-            for (let tileX = 0; tileX < 3; tileX++) {
-                for (let tileY = 0; tileY < 3; tileY++) {
-                    state.push( {
-                                    bigBoardPoint: {x, y},
-                                    smallBoardPoint: {x: tileX, y: tileY},
-                                    value: TileValue.Empty
-                                } );
-                }
-            }
+            const smallBoardTiles = getSmallBoardTiles( x, y );
+            smallBoardTiles.forEach( ( el ) => state.push( el ) );
         }
     }
     return state;

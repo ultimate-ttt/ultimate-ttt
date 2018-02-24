@@ -37,9 +37,7 @@ const getWinResultForPlayer = ( player: Player, board: Tile[] ) => {
 export const getWinResult = ( board: Tile[] ) => {
     const hasCrossWon = getWinResultForPlayer( Player.Cross, board );
     const hasCircleWon = getWinResultForPlayer( Player.Circle, board );
-    const isBoardFull = board.every( ( element ) => {
-        return element.value !== TileValue.Empty;
-    } );
+    const boardIsFull = board.every( ( element ) => { return element.value !== TileValue.Empty; } );
 
     if (hasCrossWon) {
         return {
@@ -51,7 +49,7 @@ export const getWinResult = ( board: Tile[] ) => {
             isFinished: true,
             winningPlayer: Player.Circle
         };
-    } else if (isBoardFull) {
+    } else if (boardIsFull) {
         return {
             isFinished: true,
             winningPlayer: null
