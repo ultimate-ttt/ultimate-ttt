@@ -1,14 +1,14 @@
 .small-board {
     display: grid;
-    grid-template-columns: 4vh 4vh 4vh;
-    grid-template-rows: 4vh 4vh 4vh;
+    grid-template-columns: 3.5vh 3.5vh 3.5vh;
+    grid-template-rows: 3.5vh 3.5vh 3.5vh;
     grid-gap: 1vh;
 }
 
 .small-board-finished {
     display: grid;
-    grid-template-columns: 15vh;
-    grid-template-rows: 15vh;
+    grid-template-columns: 12.5vh;
+    grid-template-rows: 12.5vh;
 }
 
 @media(min-width: 34em) {
