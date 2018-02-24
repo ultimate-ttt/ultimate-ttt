@@ -40,7 +40,7 @@ yarn test
 
 And finally start the app
 ```
-yarn run
+yarn
 ```
 
 ## Deployment
