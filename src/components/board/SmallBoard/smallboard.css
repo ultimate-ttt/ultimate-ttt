@@ -11,7 +11,7 @@
     grid-template-rows: 12.5vh;
 }
 
-@media(min-width: 34em) {
+@media(min-width: 35em) {
     .small-board {
         grid-template-columns: 6vh 6vh 6vh;
         grid-template-rows: 6vh 6vh 6vh;

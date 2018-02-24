@@ -70,7 +70,7 @@
     }
 }
 
-@media(min-width: 34em) {
+@media(min-width: 35em) {
     @keyframes add-icon {
         0%   {font-size: 4em; }
         25%  {font-size: 1em;}
