@@ -5,7 +5,7 @@
     grid-gap: 2vh;
 }
 
-@media(min-width: 34em) {
+@media(min-width: 35em) {
     .big-board {
         grid-template-columns: 20vh 20vh 20vh;
         grid-template-rows: 20vh 20vh 20vh;
