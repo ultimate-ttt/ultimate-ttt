@@ -1,4 +1,4 @@
 language: node_js
 node_js:
   - "stable"
-after_script: "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+after_script: "jest --coverage --coverageReporters=text-lcov | coveralls"
