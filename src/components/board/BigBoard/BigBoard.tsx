@@ -1,5 +1,6 @@
 import * as React from 'react';
-import SmallBoardContainer from './SmallBoardContainer';
+import SmallBoardContainer from '../SmallBoard/SmallBoardContainer';
+import './BigBoard.css';
 
 interface BigBoardProps {
 }
