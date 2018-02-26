@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
+import * as classNames from 'classnames';
 
 interface OSymbolProps {
     bigSymbol?: boolean;
@@ -21,14 +22,16 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
     }
 
     render() {
-        const bigSymbolClass = this.props.bigSymbol ? 'big-symbol' : '';
-        let animateClass = this.props.shouldAnimate ? 'animate-o' : '';
-        if (animateClass.length > 0 && this.props.bigSymbol) {
-            animateClass += `-${bigSymbolClass}`;
-        }
+        const {bigSymbol, shouldAnimate} = this.props;
+        var iconClass = classNames({
+                                        'material-icons o': true,
+                                        'big-symbol': bigSymbol,
+                                        'animate-o': shouldAnimate && !bigSymbol,
+                                        'animate-o-big-symbol': shouldAnimate && bigSymbol
+                                      });
 
         return (
-            <i className={`material-icons o ${bigSymbolClass} ${animateClass}`}>panorama_fish_eye</i>
+            <i className={iconClass}>panorama_fish_eye</i>
         );
     }
 }
