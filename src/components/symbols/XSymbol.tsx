@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
+import * as classNames from 'classnames';
 
 interface XSymbolProps {
     bigSymbol?: boolean;
@@ -21,14 +22,16 @@ export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
     }
 
     render() {
-        const bigSymbolClass = this.props.bigSymbol ? 'big-symbol' : '';
-        let animateClass = this.props.shouldAnimate ? 'animate-x' : '';
-        if (animateClass.length > 0 && this.props.bigSymbol) {
-            animateClass += `-${bigSymbolClass}`;
-        }
+        const {bigSymbol, shouldAnimate} = this.props;
+        var iconClass = classNames({
+                                       'material-icons x': true,
+                                       'big-symbol': bigSymbol,
+                                       'animate-x': shouldAnimate && !bigSymbol,
+                                       'animate-x-big-symbol': shouldAnimate && bigSymbol
+                                   });
 
         return (
-            <i className={`material-icons x ${bigSymbolClass} ${animateClass}`}>clear</i>
+            <i className={iconClass}>clear</i>
         );
     }
 }
