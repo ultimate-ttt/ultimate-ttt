@@ -1,4 +1,4 @@
-import { Tile, TileValue } from '../state/AppState';
+import { cloneState, Tile, TileValue } from '../state/AppState';
 import { getSmallBoard } from './GetSmallBoard';
 import { getWinResult } from './CheckBoard';
 import { playerToTileValue } from './PlayerToTile';
@@ -6,7 +6,7 @@ import { arePointsEqual } from './Point';
 
 export const reduceEachSmallBoardToOneValue = ( completeBoard: Tile[] ) => {
 
-    let newBoard = JSON.parse( JSON.stringify( completeBoard ) );
+    let newBoard = cloneState(completeBoard ) ;
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {

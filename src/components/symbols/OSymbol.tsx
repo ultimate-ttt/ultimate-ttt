@@ -21,6 +21,7 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
     }
 
     render() {
+        // TODO: use Classnames instead
         const bigSymbolClass = this.props.bigSymbol ? 'big-symbol' : '';
         let animateClass = this.props.shouldAnimate ? 'animate-o' : '';
         if (animateClass.length > 0 && this.props.bigSymbol) {
