@@ -36,13 +36,13 @@ const isSmallBoardFinished = ( smallBoard: StateTile[] ) => {
 
 const mapStateToProps = ( state: AppState, ownProps: any ) => {
 
-    const lastSmallBoardPoint = getLastSmallBoardPoint( state.moves );
-    const smallBoardLastMovePointsTo = getSmallBoard( state.tiles, lastSmallBoardPoint );
-    const isSmallBoardLastMovePointsToFinished = isSmallBoardFinished( smallBoardLastMovePointsTo );
-
-    const isBigBoardFinished = getWinResult( reduceEachSmallBoardToOneValue( state.tiles ) ).isFinished;
-
     if (!ownProps.isSmallBoardFinished) {
+        const lastSmallBoardPoint = getLastSmallBoardPoint( state.moves );
+        const smallBoardLastMovePointsTo = getSmallBoard( state.tiles, lastSmallBoardPoint );
+        const isSmallBoardLastMovePointsToFinished = isSmallBoardFinished( smallBoardLastMovePointsTo );
+
+        const isBigBoardFinished = getWinResult( reduceEachSmallBoardToOneValue( state.tiles ) ).isFinished;
+
         return {
             value: getTileValue( state.tiles, ownProps.bigBoardPoint, ownProps.smallBoardPoint ),
             player: state.game.currentPlayer,
@@ -54,6 +54,7 @@ const mapStateToProps = ( state: AppState, ownProps: any ) => {
     return {};
 };
 
+// TODO: refactor this thing => remove logic from here
 const mapDispatchToProps = ( dispatch: Function ) => {
     return {
         onTileClicked: ( bigBoardPoint: Point, smallBoardPoint: Point,
@@ -71,5 +72,5 @@ const mapDispatchToProps = ( dispatch: Function ) => {
     };
 };
 
-// TODO find out Type for connect?
+// tslint:disable-next-line: no-any
 export default connect<any>( mapStateToProps, mapDispatchToProps )( Tile );
