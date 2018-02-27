@@ -12,6 +12,12 @@ import { getWinResult } from '../../../util/CheckBoard';
 import { batchActions } from 'redux-batched-actions';
 import { reduceEachSmallBoardToOneValue } from '../../../util/ReduceBoard';
 
+type OwnProps = {
+    bigBoardPoint: Point;
+    smallBoardPoint: Point;
+    isSmallBoardFinished: boolean;
+};
+
 const getTileValue = ( tiles: StateTile[], bigBoardPoint: Point, smallBoardPoint: Point ) => {
     const index = tiles.findIndex( ( tile ) => {
         return arePointsEqual( tile.bigBoardPoint, bigBoardPoint )
@@ -34,7 +40,7 @@ const isSmallBoardFinished = ( smallBoard: StateTile[] ) => {
     return winResult.isFinished;
 };
 
-const mapStateToProps = ( state: AppState, ownProps: any ) => {
+const mapStateToProps = ( state: AppState, ownProps: OwnProps ) => {
 
     const lastSmallBoardPoint = getLastSmallBoardPoint( state.moves );
     const smallBoardLastMovePointsTo = getSmallBoard( state.tiles, lastSmallBoardPoint );
@@ -71,5 +77,5 @@ const mapDispatchToProps = ( dispatch: Function ) => {
     };
 };
 
-// TODO find out Type for connect?
+// tslint:disable-next-line: no-any
 export default connect<any>( mapStateToProps, mapDispatchToProps )( Tile );
