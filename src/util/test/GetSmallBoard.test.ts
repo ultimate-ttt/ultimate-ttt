@@ -1,4 +1,4 @@
-import { TileValue } from '../../state/AppState';
+import { Tile, TileValue } from '../../state/AppState';
 import { getSmallBoard } from '../GetSmallBoard';
 
 const getTile = ( boardX: number, boardY: number, value: TileValue ) => {
@@ -40,7 +40,7 @@ describe( 'getSmallBoard', function () {
         ];
         smallBoardCircleWins.forEach((el) => el.bigBoardPoint = {x: 0, y: 1});
 
-        let bigBoard: any[] = [];
+        let bigBoard: Tile[] = [];
         smallBoardCircleWins.forEach((el) => bigBoard.push(el));
         smallBoardCrossWins.forEach((el) => bigBoard.push(el));
 
