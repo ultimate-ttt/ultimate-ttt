@@ -1,15 +1,18 @@
+import 'jsdom-global/register';
 import * as React from 'react';
-import * as Enzyme from 'enzyme';
+import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import { mount, ReactWrapper, configure } from 'enzyme';
 import { OSymbol } from './OSymbol';
-import { shallowToJson } from 'enzyme-to-json';
-import * as Adapter from 'enzyme-adapter-react-16';
-import { shallow } from 'enzyme';
+
+configure( {adapter: new ReactSixteenAdapter()} );
 
 describe( 'OSymbol', () => {
-    it('matches its snapshot', () => {
-        Enzyme.configure({ adapter: new Adapter() });
+    // tslint:disable-next-line no-any
+    let component: ReactWrapper<any, {}>;
 
-        const osymbol = shallow(<OSymbol/>);
-        expect(shallowToJson(osymbol)).toMatchSnapshot();
-    });
-});
+    it( 'matches its snapshot', () => {
+        component = mount( <OSymbol/> );
+        expect( component ).not.toBeNull();
+    } );
+
+} );
