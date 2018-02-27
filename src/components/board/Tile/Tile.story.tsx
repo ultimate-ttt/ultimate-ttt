@@ -1,20 +1,21 @@
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select, withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { Tile } from './Tile';
-import { Player, TileValue } from '../../../state/AppState';
+import { TileValue } from '../../../state/AppState';
 
-const stories = storiesOf( 'CiTile', module );
+const stories = storiesOf( 'Tile', module );
 stories.addDecorator( withKnobs );
 
 stories.add( 'CiTile', () => (
     <div className="small-board">
         <Tile
-        value={select( 'Value', TileValue, TileValue.Empty )}
-        currentPlayer={select( 'Current Player', Player, Player.Circle )}
-        onTileClicked={() => {
-            console.log( 'tile Clicked' );
-        }}
-    />
+            value={select( 'Value', TileValue, TileValue.Empty )}
+            isCircle={boolean( 'isCircle', false )}
+            onTileClicked={() => {
+                console.log( 'tile Clicked' );
+            }}
+            isClickable={boolean( 'Is Clickable', false )}
+        />
     </div>
 ) );

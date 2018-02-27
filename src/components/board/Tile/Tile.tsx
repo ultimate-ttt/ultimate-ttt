@@ -1,15 +1,21 @@
 import * as React from 'react';
 import 'material-design-icons/iconfont/material-icons.css';
-import { Player, TileValue } from '../../../state/AppState';
+import { TileValue } from '../../../state/AppState';
 // import { XSymbol } from '../../symbols/XSymbol';
 // import { OSymbol } from '../../symbols/OSymbol';
-//import { NoWinnerSymbol } from '../../symbols/NoWinnerSymbol';
+// import { NoWinnerSymbol } from '../../symbols/NoWinnerSymbol';
 import './tile.css';
+import { XSymbol } from '../../symbols/XSymbol';
+import { OSymbol } from '../../symbols/OSymbol';
+import { NoWinnerSymbol } from '../../symbols/NoWinnerSymbol';
+
+
 
 interface TileProps {
     onTileClicked: () => void;
     value: TileValue;
-    currentPlayer: Player
+    isCircle: boolean;
+    isClickable: boolean;
 }
 
 interface TileState {
@@ -20,24 +26,21 @@ export class Tile extends React.Component<TileProps, TileState> {
     constructor( props: TileProps ) {
         super( props );
 
-        // this.getValue = this.getValue.bind( this );
-        // this.handleClick = this.handleClick.bind( this );
-        // this.getRoundnessClass = this.getRoundnessClass.bind( this );
+        this.getValue = this.getValue.bind(this);
     }
 
-    // getValue() {
-    //     const {value, isSmallBoardFinished} = this.props;
-    //
-    //     if (value === TileValue.Cross) {
-    //         return <XSymbol bigSymbol={isSmallBoardFinished!}/>;
-    //     } else if (value === TileValue.Circle) {
-    //         return <OSymbol bigSymbol={isSmallBoardFinished!}/>;
-    //     } else if (value === TileValue.Destroyed) {
-    //         return <NoWinnerSymbol/>;
-    //     } else {
-    //         return '';
-    //     }
-    // }
+    getValue() {
+        switch(this.props.value){
+            case TileValue.Cross:
+                return <XSymbol/>;
+            case TileValue.Circle:
+                return <OSymbol/>;
+            case TileValue.Empty:
+                return '';
+            case TileValue.Destroyed:
+                return <NoWinnerSymbol/>;
+        }
+    }
     //
     // handleClick() {
     //     const {
@@ -72,14 +75,12 @@ export class Tile extends React.Component<TileProps, TileState> {
     // }
 
     render() {
-        const {value, onTileClicked} = this.props;
-        //const tileValue = this.getValue();
-        const color = 'indicator';//this.props.shouldDisplayIndicator ? 'indicator' : 'normal';
-        const roundnessClass = 'circle';//this.getRoundnessClass();
-
+        const {onTileClicked, isCircle, isClickable} = this.props;
+        const color = isClickable ? 'indicator' : 'normal';
+        const roundness = isCircle ? 'circle' : 'square';
         return (
-            <div className={`box ${color} ${roundnessClass}`} onClick={onTileClicked}>
-                {value}
+            <div className={`box ${color} ${roundness}`} onClick={onTileClicked}>
+                {this.getValue()}
             </div>
         );
     }
