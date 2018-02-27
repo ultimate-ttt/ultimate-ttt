@@ -8,9 +8,13 @@ const stories = storiesOf( 'CiTile', module );
 stories.addDecorator( withKnobs );
 
 stories.add( 'CiTile', () => (
-   <Tile
-       value={select( 'Value', TileValue, TileValue.Empty )}
-       currentPlayer={select( 'Current Player', Player, Player.Circle )}
-       onTileClicked={() => {console.log('tile Clicked')}}
-   />
+    <div className="small-board">
+        <Tile
+        value={select( 'Value', TileValue, TileValue.Empty )}
+        currentPlayer={select( 'Current Player', Player, Player.Circle )}
+        onTileClicked={() => {
+            console.log( 'tile Clicked' );
+        }}
+    />
+    </div>
 ) );
