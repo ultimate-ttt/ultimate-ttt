@@ -10,7 +10,7 @@ interface AppRootState {
 
 export class App extends React.Component<AppProps, AppRootState> {
 
-    constructor( props: any ) {
+    constructor( props: AppProps ) {
         super( props );
     }
 

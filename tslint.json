@@ -29,11 +29,11 @@
             "static-before-instance",
             "variables-before-functions"
         ],
-        "no-any": false,
+        "no-any": true,
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
-            false,
+            true,
             "log",
             "error",
             "debug",
@@ -65,9 +65,7 @@
         "radix": true,
         "semicolon": [true, "always"],
         "switch-default": false,
-
         "trailing-comma": false,
-
         "triple-equals": [ true, "allow-null-check" ],
         "typedef": [
             true,
