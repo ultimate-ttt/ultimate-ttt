@@ -12,4 +12,5 @@ const mapStateToProps = ( state: AppState ) => {
     };
 };
 
+// tslint:disable-next-line no-any
 export default connect<any>( mapStateToProps )( GameFinished );
