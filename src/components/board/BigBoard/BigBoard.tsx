@@ -42,21 +42,21 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
     }
 
     createSmallBoards() {
-        const {currentPlayer, allTiles, /*activeBoards*/} = this.props;
+        const {currentPlayer, allTiles, activeBoards} = this.props;
         const rows = [];
 
         for (let x = 0; x < 3; x++) {
             for (let y = 0; y < 3; y++) {
 
                 const tiles = allTiles.filter( t => arePointsEqual( t.bigBoardPoint, {x, y} ) );
-                // let isActive = this.isBoardActive( x, y, activeBoards );
+                let isActive = this.isBoardActive( x, y, activeBoards );
 
                 rows.push(
                     <SmallBoard
                         key={`x: ${x}/ Y: ${y}`}
                         x={x}
                         y={y}
-                        isActive={true}
+                        isActive={isActive}
                         currentPlayer={currentPlayer}
                         tiles={tiles}
                         onTileClicked={
