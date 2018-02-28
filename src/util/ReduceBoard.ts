@@ -1,10 +1,10 @@
-import { cloneState, Tile, TileValue } from '../state/AppState';
+import { cloneState, TileInformation, TileValue } from '../state/AppState';
 import { getSmallBoard } from './GetSmallBoard';
 import { getWinResult } from './CheckBoard';
 import { playerToTileValue } from './PlayerToTile';
 import { arePointsEqual } from './Point';
 
-export const reduceEachSmallBoardToOneValue = ( completeBoard: Tile[] ) => {
+export const reduceEachSmallBoardToOneValue = ( completeBoard: TileInformation[] ) => {
 
     let newBoard = cloneState(completeBoard ) ;
 
@@ -15,13 +15,13 @@ export const reduceEachSmallBoardToOneValue = ( completeBoard: Tile[] ) => {
 
             const isBoardFull = smallBoard.filter( ( el ) => el.value === TileValue.Empty ).length === 0;
             const tileValue = playerToTileValue( winResult.winningPlayer!, isBoardFull );
-            const newTile: Tile = {
+            const newTile: TileInformation = {
                 bigBoardPoint: {x: i, y: j},
                 smallBoardPoint: {x: i, y: j},
                 value: tileValue,
             };
 
-            newBoard = newBoard.filter( ( el: Tile ) => !arePointsEqual( el.bigBoardPoint, {x: i, y: j} ) );
+            newBoard = newBoard.filter( ( el: TileInformation ) => !arePointsEqual( el.bigBoardPoint, {x: i, y: j} ) );
             newBoard.push( newTile );
         }
     }
