@@ -37,7 +37,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
                     key={`${tile.smallBoardPoint.x}-${tile.smallBoardPoint.y}`}
                     value={tile.value}
                     isCircle={isCircle}
-                    isClickable={isActive && tile.value !== TileValue.Empty}
+                    isClickable={isActive && tile.value === TileValue.Empty}
                     onTileClicked={() => {
                         onTileClicked( tile.smallBoardPoint.x, tile.smallBoardPoint.y );
                     }}
