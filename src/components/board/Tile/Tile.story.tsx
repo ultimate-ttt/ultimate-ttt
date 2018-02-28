@@ -7,10 +7,51 @@ import { TileValue } from '../../../state/AppState';
 const stories = storiesOf( 'Tile', module );
 stories.addDecorator( withKnobs );
 
-stories.add( 'CiTile', () => (
+// FIXME: enum value not transferred to Tile As Enum
+stories.add( 'Tile Customisable', () => (
     <div className="small-board">
         <Tile
             value={select( 'Value', TileValue, TileValue.Empty )}
+            isCircle={boolean( 'isCircle', false )}
+            onTileClicked={() => {
+                console.log( 'tile Clicked' );
+            }}
+            isClickable={boolean( 'Is Clickable', false )}
+        />
+    </div>
+) );
+
+stories.add( 'Tile Circle', () => (
+    <div className="small-board">
+        <Tile
+            value={TileValue.Circle}
+            isCircle={boolean( 'isCircle', false )}
+            onTileClicked={() => {
+                console.log( 'tile Clicked' );
+            }}
+            isClickable={boolean( 'Is Clickable', false )}
+        />
+    </div>
+) );
+
+stories.add( 'Tile Cross', () => (
+    <div className="small-board">
+        <Tile
+            value={TileValue.Cross}
+            isCircle={boolean( 'isCircle', false )}
+            onTileClicked={() => {
+                console.log( 'tile Clicked' );
+            }}
+            isClickable={boolean( 'Is Clickable', false )}
+        />
+    </div>
+) );
+
+
+stories.add( 'Tile Destoryed', () => (
+    <div className="small-board">
+        <Tile
+            value={TileValue.Destroyed}
             isCircle={boolean( 'isCircle', false )}
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
