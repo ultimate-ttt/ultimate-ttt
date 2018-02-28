@@ -47,7 +47,6 @@ stories.add( 'Tile Cross', () => (
     </div>
 ) );
 
-
 stories.add( 'Tile Destoryed', () => (
     <div className="small-board-finished">
         <Tile
