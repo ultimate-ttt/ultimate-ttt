@@ -8,7 +8,7 @@ import './tile.css';
 import 'material-design-icons/iconfont/material-icons.css';
 
 interface TileProps {
-    onTileClicked: () => void;
+    onTileClicked?: () => void;
     value: TileValue;
     isCircle: boolean;
     isClickable: boolean;
@@ -48,12 +48,14 @@ export class Tile extends React.Component<TileProps, TileState> {
         }
 
         return (
-            <div className={`box ${color} ${roundness}`}
-                 onClick={() => {
-                     if (isClickable) {
-                         onTileClicked();
-                     }
-                 }}>
+            <div
+                className={`box ${color} ${roundness}`}
+                onClick={() => {
+                    if (isClickable && onTileClicked) {
+                        onTileClicked();
+                    }
+                }}
+            >
                 {this.getValue()}
             </div>
         );
