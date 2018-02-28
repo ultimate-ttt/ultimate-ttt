@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BigBoard } from './board/BigBoard/BigBoard';
+import BigBoard from './board/BigBoard/BigBoard';
 import GameFinishedContainer from './GameFinishedContainer';
 
 interface AppProps {
@@ -17,8 +17,8 @@ export class App extends React.Component<AppProps, AppRootState> {
     render() {
         return (
             <div className="center">
-                <GameFinishedContainer />
-                <BigBoard />
+                <GameFinishedContainer/>
+                <BigBoard/>
             </div>
         );
     }

@@ -4,6 +4,7 @@ export interface AppState {
     tiles: TileInformation[];
     game: {currentPlayer: Player};
     moves: Move[];
+    activeBoards: Point[];
 }
 
 export interface TileInformation {
