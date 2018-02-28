@@ -49,7 +49,7 @@ stories.add( 'Tile Cross', () => (
 
 
 stories.add( 'Tile Destoryed', () => (
-    <div className="small-board">
+    <div className="small-board-finished">
         <Tile
             value={TileValue.Destroyed}
             isCircle={boolean( 'isCircle', false )}

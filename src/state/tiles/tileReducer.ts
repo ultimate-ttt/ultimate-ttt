@@ -1,4 +1,4 @@
-import { cloneState, GenericAction, Tile, TileValue } from '../AppState';
+import { cloneState, GenericAction, TileInformation, TileValue } from '../AppState';
 import { ADD_SYMBOL } from './tileAction';
 import { arePointsEqual } from '../../util/Point';
 
@@ -17,7 +17,7 @@ const getSmallBoardTiles = ( x: number, y: number ) => {
 };
 
 const getInitialTiles = () => {
-    let state: Tile[] = [];
+    let state: TileInformation[] = [];
     for (let x = 0; x < 3; x++) {
         for (let y = 0; y < 3; y++) {
             const smallBoardTiles = getSmallBoardTiles( x, y );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SmallBoardContainer from '../SmallBoard/SmallBoardContainer';
+// import SmallBoardContainer from '../SmallBoard/SmallBoardContainer';
 import './bigboard.css';
 
 interface BigBoardProps {
@@ -17,18 +17,19 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
     }
 
     createSmallBoards() {
-        let rows = [];
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                rows.push( (
-                    <SmallBoardContainer
-                        key={i.toString() + j.toString()}
-                        x={i}
-                        y={j}
-                    />) );
-            }
-        }
-        return rows;
+        // let rows = [];
+        // for (let i = 0; i < 3; i++) {
+        //     for (let j = 0; j < 3; j++) {
+        //         rows.push( (
+        //             <SmallBoardContainer
+        //                 key={i.toString() + j.toString()}
+        //                 x={i}
+        //                 y={j}
+        //             />) );
+        //     }
+        // }
+        // return rows;
+        return 'run';
     }
 
     render() {

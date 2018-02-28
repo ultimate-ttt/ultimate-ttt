@@ -1,6 +1,6 @@
 import { arePointsEqual, Point } from './Point';
-import { Tile } from '../state/AppState';
+import { TileInformation } from '../state/AppState';
 
-export const getSmallBoard = ( allTiles: Tile[], pointInBigBoard: Point ) => {
-    return allTiles.filter( ( el: Tile ) => arePointsEqual( el.bigBoardPoint, pointInBigBoard ) );
+export const getSmallBoard = ( allTiles: TileInformation[], pointInBigBoard: Point ) => {
+    return allTiles.filter( ( el: TileInformation ) => arePointsEqual( el.bigBoardPoint, pointInBigBoard ) );
 };

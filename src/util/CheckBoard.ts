@@ -1,4 +1,4 @@
-import { Player, Tile, TileValue } from '../state/AppState';
+import { Player, TileInformation, TileValue } from '../state/AppState';
 import { playerToTileValue } from './PlayerToTile';
 
 export interface WinResult {
@@ -6,11 +6,11 @@ export interface WinResult {
     winningPlayer: Player; // null if it is a draw
 }
 
-const countInLine = ( player: Player, row: Tile[] ) =>
+const countInLine = ( player: Player, row: TileInformation[] ) =>
     row.filter( el => el.value === playerToTileValue( player ) ).length;
-const hasWonLine = ( player: Player, row: Tile[] ) => countInLine( player, row ) === 3;
+const hasWonLine = ( player: Player, row: TileInformation[] ) => countInLine( player, row ) === 3;
 
-const getWinResultForPlayer = ( player: Player, board: Tile[] ) => {
+const getWinResultForPlayer = ( player: Player, board: TileInformation[] ) => {
     return [
         {line: 'row0', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.y === 0 ) )},
         {line: 'row1', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.y === 1 ) )},
@@ -34,7 +34,7 @@ const getWinResultForPlayer = ( player: Player, board: Tile[] ) => {
 };
 
 // The method doesn't check if the input of the board is valid.
-export const getWinResult = ( board: Tile[] ) => {
+export const getWinResult = ( board: TileInformation[] ) => {
     const hasCrossWon = getWinResultForPlayer( Player.Cross, board );
     const hasCircleWon = getWinResultForPlayer( Player.Circle, board );
     const boardIsFull = board.every( ( element ) => { return element.value !== TileValue.Empty; } );
