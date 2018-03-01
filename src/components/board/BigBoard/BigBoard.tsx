@@ -6,11 +6,13 @@ import './bigboard.css';
 import { arePointsEqual } from '../../../util';
 import { Point } from '../../../util/Point';
 import { connect } from 'react-redux';
+import { playerMoved } from '../../../state/game/gameAction';
 
 interface BigBoardProps {
     currentPlayer: Player;
     allTiles: TileInformation[];
     activeBoards: Point[];
+    onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) => void;
 }
 
 interface BigBoardState {
@@ -42,7 +44,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
     }
 
     createSmallBoards() {
-        const {currentPlayer, allTiles, activeBoards} = this.props;
+        const {currentPlayer, allTiles, activeBoards, onPlayerMoved} = this.props;
         const rows = [];
 
         for (let x = 0; x < 3; x++) {
@@ -61,7 +63,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
                         tiles={tiles}
                         onTileClicked={
                             ( tileX: number, tileY: number ) => {
-                                console.log( `Bigboard: ${x}/${y} => clickedTile ${tileX}/${tileY}` );
+                                onPlayerMoved( x, y, tileX, tileY );
                             }
                         }
                     />
@@ -88,6 +90,9 @@ const mapStateToProps = ( state: AppState ) => ({
 });
 
 // tslint:disable-next-line: no-any
-const mapDispatchToProps = ( dispatch: any ) => ({});
+const mapDispatchToProps = ( dispatch: any ) => ({
+    onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) =>
+        dispatch( playerMoved( boardX, boardY, tileX, tileY ) )
+});
 
 export default connect( mapStateToProps, mapDispatchToProps )( BigBoard );
