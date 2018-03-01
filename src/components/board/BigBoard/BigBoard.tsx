@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
-import { AppState, Player, TileInformation, TileValue } from '../../../state/AppState';
+import { AppState, Player, SmallBoardInformation } from '../../../state/AppState';
 
 import './bigboard.css';
 import { arePointsEqual } from '../../../util';
@@ -10,7 +10,7 @@ import { playerMoved } from '../../../state/game/gameAction';
 
 interface BigBoardProps {
     currentPlayer: Player;
-    allTiles: TileInformation[];
+    board: SmallBoardInformation[];
     activeBoards: Point[];
     onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) => void;
 }
@@ -44,31 +44,34 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
     }
 
     createSmallBoards() {
-        const {currentPlayer, allTiles, activeBoards, onPlayerMoved} = this.props;
+        const {currentPlayer, board, activeBoards, onPlayerMoved} = this.props;
         const rows = [];
 
         for (let x = 0; x < 3; x++) {
             for (let y = 0; y < 3; y++) {
 
-                const tiles = allTiles.filter( t => arePointsEqual( t.bigBoardPoint, {x, y} ) );
-                let isActive = this.isBoardActive( x, y, activeBoards );
+                const smallBoard = board.find( t => arePointsEqual( t.point, {x, y} ) );
 
-                rows.push(
-                    <SmallBoard
-                        key={`x: ${x}/ Y: ${y}`}
-                        x={x}
-                        y={y}
-                        isActive={isActive}
-                        currentPlayer={currentPlayer}
-                        tiles={tiles}
-                        winningPlayer={TileValue.Circle} // TODO: use correct value
-                        onTileClicked={
-                            ( tileX: number, tileY: number ) => {
-                                onPlayerMoved( x, y, tileX, tileY );
+                if (smallBoard) {
+                    let isActive = this.isBoardActive( x, y, activeBoards );
+
+                    rows.push(
+                        <SmallBoard
+                            key={`x: ${x}/ Y: ${y}`}
+                            x={x}
+                            y={y}
+                            isActive={isActive}
+                            currentPlayer={currentPlayer}
+                            tiles={smallBoard.tiles}
+                            winningPlayer={smallBoard.value} // TODO: use correct value
+                            onTileClicked={
+                                ( tileX: number, tileY: number ) => {
+                                    onPlayerMoved( x, y, tileX, tileY );
+                                }
                             }
-                        }
-                    />
-                );
+                        />
+                    );
+                }
             }
         }
 
@@ -86,7 +89,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
 
 const mapStateToProps = ( state: AppState ) => ({
     currentPlayer: state.game.currentPlayer,
-    allTiles: state.tiles,
+    board: state.board,
     activeBoards: state.activeBoards,
 });
 
