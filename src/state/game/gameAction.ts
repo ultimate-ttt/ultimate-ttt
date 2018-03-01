@@ -19,7 +19,7 @@ export const playerMoved = ( boardX: number, boardY: number, tileX: number, tile
 });
 
 export const playerMovedValid = ( boardX: number, boardY: number, tileX: number, tileY: number, player: Player ) => ({
-    type: PLAYER_MOVED,
+    type: PLAYER_MOVED_VALID,
     payload: {
         boardX,
         boardY,
