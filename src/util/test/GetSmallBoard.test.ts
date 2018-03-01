@@ -10,7 +10,7 @@ const getTile = ( boardX: number, boardY: number, value: TileValue ) => {
 };
 
 describe( 'getSmallBoard', function () {
-    it('should return the right 9 tiles from the big board', () => {
+    it('should return the right 9 board from the big board', () => {
         const smallBoardCrossWins = [
             getTile( 0, 0, TileValue.Cross ),
             getTile( 0, 1, TileValue.Cross ),

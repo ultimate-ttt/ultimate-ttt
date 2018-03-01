@@ -1,10 +1,16 @@
 import { Point } from '../util/Point';
 
 export interface AppState {
-    tiles: TileInformation[];
-    game: {currentPlayer: Player};
+    board: SmallBoardInformation[];
+    game: { currentPlayer: Player };
     moves: Move[];
     activeBoards: Point[];
+}
+
+export interface SmallBoardInformation {
+    point: Point;
+    tiles: TileInformation[];
+    value: TileValue;
 }
 
 export interface TileInformation {
