@@ -1,6 +1,6 @@
 import tileReducer from './tileReducer';
-import { Player } from '../AppState';
-import { addSymbol } from './tileAction';
+import { TileValue } from '../AppState';
+import { setTileValue } from './tileAction';
 
 describe( 'tileReducer', () => {
     it( 'should return init state', () => {
@@ -12,16 +12,16 @@ describe( 'tileReducer', () => {
     it( 'should add symbol of Circle Player', () => {
         const bigBoardPoint = {x: 0, y: 0};
         const smallBoardPoint = {x: 0, y: 0};
-        const action = addSymbol( bigBoardPoint, smallBoardPoint, Player.Circle );
+        const action = setTileValue( bigBoardPoint, smallBoardPoint, TileValue.Circle );
         let newState = tileReducer( undefined, action );
 
-        expect( newState[0].value ).toEqual( Player.Circle );
+        expect( newState[0].value ).toEqual( TileValue.Circle );
     } );
 
     it( 'should add symbol of Cross Player', () => {
         const bigBoardPoint = {x: 0, y: 0};
         const smallBoardPoint = {x: 2, y: 1};
-        const action = addSymbol( bigBoardPoint, smallBoardPoint, Player.Cross );
+        const action = setTileValue( bigBoardPoint, smallBoardPoint, TileValue.Cross );
         const newState = tileReducer( undefined, action );
 
         const editedTile = newState.find( ( element ) => {
@@ -32,6 +32,6 @@ describe( 'tileReducer', () => {
         } );
 
         expect( editedTile ).not.toBeUndefined();
-        expect( editedTile!.value ).toEqual( Player.Cross );
+        expect( editedTile!.value ).toEqual( TileValue.Cross );
     } );
 } );

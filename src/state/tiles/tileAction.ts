@@ -1,9 +1,9 @@
-import { Player } from '../AppState';
+import { TileValue } from '../AppState';
 import { Point } from '../../util/Point';
 
-export const ADD_SYMBOL = 'tile-reducer/tile-changed';
+export const SET_TILE_VALUE = 'tile-reducer/set-tile-value';
 
-export const addSymbol = ( bigBoardPoint: Point, smallBoardPoint: Point, player: Player ) => ({
-    type: ADD_SYMBOL,
-    payload: { bigBoardPoint, smallBoardPoint, player }
+export const setTileValue = ( bigBoardPoint: Point, smallBoardPoint: Point, tileValue: TileValue ) => ({
+    type: SET_TILE_VALUE,
+    payload: {bigBoardPoint, smallBoardPoint, tileValue}
 });

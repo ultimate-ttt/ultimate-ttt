@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
-import { AppState, Player, TileInformation } from '../../../state/AppState';
+import { AppState, Player, TileInformation, TileValue } from '../../../state/AppState';
 
 import './bigboard.css';
 import { arePointsEqual } from '../../../util';
@@ -61,6 +61,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
                         isActive={isActive}
                         currentPlayer={currentPlayer}
                         tiles={tiles}
+                        winningPlayer={TileValue.Circle} // TODO: use correct value
                         onTileClicked={
                             ( tileX: number, tileY: number ) => {
                                 onPlayerMoved( x, y, tileX, tileY );
@@ -92,7 +93,7 @@ const mapStateToProps = ( state: AppState ) => ({
 // tslint:disable-next-line: no-any
 const mapDispatchToProps = ( dispatch: any ) => ({
     onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) =>
-        dispatch( playerMoved( boardX, boardY, tileX, tileY ) )
+        dispatch( playerMoved( {x: boardX, y: boardY}, {x: tileX, y: tileY} ) )
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( BigBoard );
