@@ -10,7 +10,7 @@ const getTile = ( boardX: number, boardY: number, value: TileValue ) => {
     };
 };
 
-const copyArray = (array: any) => {
+const copyArray = (array: Tile[]) => {
     return JSON.parse( JSON.stringify( array ) );
 };
 
