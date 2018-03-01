@@ -16,7 +16,7 @@ const copyArray = ( array: any ) => {
 
 describe( 'reduceBoard', () => {
 
-    it( 'should reduce a board with ALL small boards won to 9 tiles with one value', () => {
+    it( 'should reduce a board with ALL small boards won to 9 board with one value', () => {
         const smallBoardCrossWins = [
             getTile( 0, 0, TileValue.Cross ),
             getTile( 0, 1, TileValue.Cross ),
@@ -113,7 +113,7 @@ describe( 'reduceBoard', () => {
         expect( actualResult ).toEqual( expectedResult );
     } );
 
-    it( 'should reduce a board with SOME small boards won to 9 tiles with one value', () => {
+    it( 'should reduce a board with SOME small boards won to 9 board with one value', () => {
         const smallBoardCrossWins = [
             getTile( 0, 0, TileValue.Cross ),
             getTile( 0, 1, TileValue.Cross ),

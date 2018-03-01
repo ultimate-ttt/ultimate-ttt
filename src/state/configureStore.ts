@@ -1,7 +1,7 @@
 import { AppState } from './AppState';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
-import tileReducer from './tiles/tileReducer';
+import boardReducer from './board/boardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import gameReducer from './game/gameReducer';
 import moveReducer from './moves/moveReducer';
@@ -14,7 +14,7 @@ import playerMovedSaga from './sagas/MoveValidationSaga';
 const rootreducer = combineReducers<AppState>(
     {
         game: gameReducer,
-        tiles: tileReducer,
+        board: boardReducer,
         moves: moveReducer,
         activeBoards: activeBoardReducer
     } );

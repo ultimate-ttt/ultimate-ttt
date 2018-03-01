@@ -1,10 +1,10 @@
-import tileReducer from './tileReducer';
+import boardReducer from './boardReducer';
 import { TileValue } from '../AppState';
-import { setTileValue } from './tileAction';
+import { setTileValue } from './boardActions';
 
-describe( 'tileReducer', () => {
+describe( 'boardReducer', () => {
     it( 'should return init state', () => {
-        let initState = tileReducer( undefined, {type: 'init'} );
+        let initState = boardReducer( undefined, {type: 'init'} );
         expect( initState ).not.toBeNull();
         expect( initState ).not.toBeUndefined();
     } );
@@ -13,7 +13,7 @@ describe( 'tileReducer', () => {
         const bigBoardPoint = {x: 0, y: 0};
         const smallBoardPoint = {x: 0, y: 0};
         const action = setTileValue( bigBoardPoint, smallBoardPoint, TileValue.Circle );
-        let newState = tileReducer( undefined, action );
+        let newState = boardReducer( undefined, action );
 
         expect( newState[0].value ).toEqual( TileValue.Circle );
     } );
@@ -22,7 +22,7 @@ describe( 'tileReducer', () => {
         const bigBoardPoint = {x: 0, y: 0};
         const smallBoardPoint = {x: 2, y: 1};
         const action = setTileValue( bigBoardPoint, smallBoardPoint, TileValue.Cross );
-        const newState = tileReducer( undefined, action );
+        const newState = boardReducer( undefined, action );
 
         const editedTile = newState.find( ( element ) => {
             return element.smallBoardPoint.x === smallBoardPoint.x

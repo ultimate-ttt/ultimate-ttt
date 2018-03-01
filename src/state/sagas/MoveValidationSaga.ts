@@ -2,7 +2,7 @@ import { put, select, takeEvery } from 'redux-saga/effects';
 import { changePlayer, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
 import { AppState } from '../AppState';
 import { registerMove } from '../moves/moveAction';
-import { setTileValue } from '../tiles/tileAction';
+import { setTileValue } from '../board/boardActions';
 import { playerToTileValue } from '../../util';
 
 const getCurrentPlayer = ( state: AppState ) => state.game.currentPlayer;
