@@ -1,5 +1,5 @@
 import { cloneState, GenericAction, TileInformation, TileValue } from '../AppState';
-import { ADD_SYMBOL } from './tileAction';
+import { SET_TILE_VALUE } from './tileAction';
 import { arePointsEqual } from '../../util/Point';
 
 const getSmallBoardTiles = ( x: number, y: number ) => {
@@ -32,14 +32,14 @@ const initialState = getInitialTiles();
 const tileReducer = ( state = initialState, action: GenericAction ) => {
     switch (action.type) {
 
-        case ADD_SYMBOL: {
+        case SET_TILE_VALUE: {
             let clone = cloneState( state );
 
             const index = clone.findIndex( tile => {
                 return arePointsEqual( tile.bigBoardPoint, action.payload.bigBoardPoint )
                     && arePointsEqual( tile.smallBoardPoint, action.payload.smallBoardPoint );
             } );
-            clone[index].value = action.payload.player;
+            clone[index].value = action.payload.tileValue;
             return clone;
         }
     }

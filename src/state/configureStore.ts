@@ -9,7 +9,7 @@ import { enableBatching } from 'redux-batched-actions';
 import activeBoardReducer from './activeBoards/activeBoardsReducer';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import moveValidationSaga from './sagas/MoveValidationSaga';
+import playerMovedSaga from './sagas/MoveValidationSaga';
 
 const rootreducer = combineReducers<AppState>(
     {
@@ -40,7 +40,7 @@ export function configureStore() {
 function* rootSaga() {
     yield all(
         [
-            fork( moveValidationSaga ),
+            fork( playerMovedSaga ),
         ]
     );
 }
