@@ -2,14 +2,14 @@ import { put, select, takeEvery } from 'redux-saga/effects';
 import { changePlayer, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
 import { AppState, SmallBoardInformation, TileValue } from '../AppState';
 import { registerMove } from '../moves/moveAction';
-import { setBoardValue, setTileValue } from '../board/boardActions';
+import { calculateBoardValue, setTileValue } from '../board/boardActions';
 import { arePointsEqual, playerToTileValue } from '../../util';
 import { setActiveBoards } from '../activeBoards/activeBoardActions';
-import { getWinResult } from '../../util/CheckBoard';
 
 const getCurrentPlayer = ( state: AppState ) => state.game.currentPlayer;
-const getBoards = ( state: AppState ) => state.board;
+
 const getLastMove = ( state: AppState ) => state.moves[state.moves.length - 1];
+const getBoards = ( state: AppState ) => state.board;
 
 function* playerMoved( action: PlayerMovedAction ) {
     const {boardPoint, tilePoint} = action.payload;
@@ -20,17 +20,9 @@ function* playerMoved( action: PlayerMovedAction ) {
     yield put( registerMove( boardPoint, tilePoint, currentPlayer ) );
     yield put( setTileValue( boardPoint, tilePoint, tileValue ) );
     yield put( changePlayer() );
+    yield put( calculateBoardValue( boardPoint ) );
 
-    // TODO separate method
     const boards = yield select( getBoards );
-    // TODO Re NAME
-    const betroffenesBoard = boards.find( ( board: SmallBoardInformation ) =>
-                                              arePointsEqual( board.point, boardPoint ) ).tiles;
-    const winResult = getWinResult( betroffenesBoard ); // TODO: do It correctly
-    if (winResult.isFinished) {
-        const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer!, true );
-        yield put( setBoardValue( boardPoint, newSmallBoardTileValue ) );
-    }
 
     // TODO Separate
     let activeBoards = [tilePoint];
