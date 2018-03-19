@@ -1,9 +1,8 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
-import { AppState, GenericAction, SmallBoardInformation, TileValue } from '../AppState';
+import { GenericAction, SmallBoardInformation, TileValue } from '../AppState';
 import { arePointsEqual } from '../../util';
 import { CALCULATE_ACTIVE_BOARDS, setActiveBoards } from '../activeBoards/activeBoardActions';
-
-const getBoards = ( state: AppState ) => state.board;
+import { getBoards } from '../selectors/AppStateSelectors';
 
 function* calculateactiveBoards( action: GenericAction ) {
     const boards = yield select( getBoards );
