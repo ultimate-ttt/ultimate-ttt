@@ -54,7 +54,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
 
         const isCircle = currentPlayer === Player.Circle;
 
-        if (winningPlayer && winningPlayer !== TileValue.Empty) {
+        if (winningPlayer !== null && winningPlayer !== undefined && winningPlayer !== TileValue.Empty) {
             return (
                 <div key={`Small-Board-${x},${y}`} className="small-board-finished">
                     <Tile
