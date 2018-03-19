@@ -9,7 +9,6 @@ import { getWinResult } from '../../util/CheckBoard';
 
 const getCurrentPlayer = ( state: AppState ) => state.game.currentPlayer;
 const getBoards = ( state: AppState ) => state.board;
-const isBeginningOfGame = ( state: AppState ) => state.moves.length === 1;
 const getLastMove = ( state: AppState ) => state.moves[state.moves.length - 1];
 
 function* playerMoved( action: PlayerMovedAction ) {
@@ -34,19 +33,16 @@ function* playerMoved( action: PlayerMovedAction ) {
     }
 
     // TODO Separate
-    const isStartOfGame = yield select( isBeginningOfGame );
     let activeBoards = [tilePoint];
-    if (!isStartOfGame) { // TODO do I need this?
-        const lastMove = yield select( getLastMove );
-        const boardLastMovePointsTo = boards.find( ( board: SmallBoardInformation ) =>
-                                                       arePointsEqual( board.point, lastMove.smallBoardPoint ) );
-        const boardIsFinished = boardLastMovePointsTo.value !== TileValue.Empty;
-        if (boardIsFinished) {
-            // todo activate all boards that are not finished
-            const allUnfinishedBoards = boards.filter( ( board: SmallBoardInformation ) =>
-                                                           board.value === TileValue.Empty );
-            activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.point );
-        }
+    const lastMove = yield select( getLastMove );
+    const boardLastMovePointsTo = boards.find( ( board: SmallBoardInformation ) =>
+                                                   arePointsEqual( board.point, lastMove.smallBoardPoint ) );
+    const boardIsFinished = boardLastMovePointsTo.value !== TileValue.Empty;
+    if (boardIsFinished) {
+        // todo activate all boards that are not finished
+        const allUnfinishedBoards = boards.filter( ( board: SmallBoardInformation ) =>
+                                                       board.value === TileValue.Empty );
+        activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.point );
     }
 
     // TODO if small board last move points to has a value other than TileValue.Empty then all should be active.
