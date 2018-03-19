@@ -26,6 +26,7 @@ export class Tile extends React.Component<TileProps, TileState> {
     }
 
     getValue() {
+        // TODO: animation is not correct: merge css to this branch?
         switch (this.props.value) {
             case TileValue.Cross:
                 return <XSymbol/>;
@@ -40,6 +41,7 @@ export class Tile extends React.Component<TileProps, TileState> {
 
     render() {
         const {onTileClicked, isCircle, isClickable, value} = this.props;
+        // TODO: Not empty tiles that are not clickable should also be indicated
         const color = isClickable ? 'indicator' : 'normal';
         let roundness = isCircle ? 'circle' : 'square';
 

@@ -1,18 +1,20 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { changePlayer, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
-import { AppState } from '../AppState';
+import { AppState, SmallBoardInformation, TileValue } from '../AppState';
 import { registerMove } from '../moves/moveAction';
 import { setBoardValue, setTileValue } from '../board/boardActions';
-import { playerToTileValue } from '../../util';
+import { arePointsEqual, playerToTileValue } from '../../util';
 import { setActiveBoards } from '../activeBoards/activeBoardActions';
+import { getWinResult } from '../../util/CheckBoard';
 
 const getCurrentPlayer = ( state: AppState ) => state.game.currentPlayer;
-// const getBoards = ( state: AppState ) => state.board;
+const getBoards = ( state: AppState ) => state.board;
+const isBeginningOfGame = ( state: AppState ) => state.moves.length === 1;
+const getLastMove = ( state: AppState ) => state.moves[state.moves.length - 1];
 
 function* playerMoved( action: PlayerMovedAction ) {
     const {boardPoint, tilePoint} = action.payload;
     const currentPlayer = yield select( getCurrentPlayer );
-    // const boards = yield select( getBoards );
 
     const tileValue = playerToTileValue( currentPlayer );
 
@@ -20,12 +22,35 @@ function* playerMoved( action: PlayerMovedAction ) {
     yield put( setTileValue( boardPoint, tilePoint, tileValue ) );
     yield put( changePlayer() );
 
-    const isBoardWon = true; // TODO: do It correctly
-    if (isBoardWon) {
-        yield put( setBoardValue( boardPoint, currentPlayer ) );
+    // TODO separate method
+    const boards = yield select( getBoards );
+    // TODO Re NAME
+    const betroffenesBoard = boards.find( ( board: SmallBoardInformation ) =>
+                                              arePointsEqual( board.point, boardPoint ) ).tiles;
+    const winResult = getWinResult( betroffenesBoard ); // TODO: do It correctly
+    if (winResult.isFinished) {
+        const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer!, true );
+        yield put( setBoardValue( boardPoint, newSmallBoardTileValue ) );
     }
 
-    yield put( setActiveBoards( [tilePoint] ) ); // TODO: check if all boards should be active
+    // TODO Separate
+    const isStartOfGame = yield select( isBeginningOfGame );
+    let activeBoards = [tilePoint];
+    if (!isStartOfGame) { // TODO do I need this?
+        const lastMove = yield select( getLastMove );
+        const boardLastMovePointsTo = boards.find( ( board: SmallBoardInformation ) =>
+                                                       arePointsEqual( board.point, lastMove.smallBoardPoint ) );
+        const boardIsFinished = boardLastMovePointsTo.value !== TileValue.Empty;
+        if (boardIsFinished) {
+            // todo activate all boards that are not finished
+            const allUnfinishedBoards = boards.filter( ( board: SmallBoardInformation ) =>
+                                                           board.value === TileValue.Empty );
+            activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.point );
+        }
+    }
+
+    // TODO if small board last move points to has a value other than TileValue.Empty then all should be active.
+    yield put( setActiveBoards( activeBoards ) ); // TODO: check if all boards should be active
 }
 
 function* playerMovedSaga() {

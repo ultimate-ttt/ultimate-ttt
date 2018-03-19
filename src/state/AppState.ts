@@ -13,6 +13,7 @@ export interface SmallBoardInformation {
     value: TileValue;
 }
 
+// TODO rename according to clean code: no data type in name. What name to choose then?
 export interface TileInformation {
     bigBoardPoint: Point;
     smallBoardPoint: Point;

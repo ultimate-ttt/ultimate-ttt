@@ -47,7 +47,7 @@ stories.add( 'Tile Cross', () => (
     </div>
 ) );
 
-stories.add( 'Tile Destoryed', () => (
+stories.add( 'Tile Destroyed', () => (
     <div className="small-board-finished">
         <Tile
             value={TileValue.Destroyed}
