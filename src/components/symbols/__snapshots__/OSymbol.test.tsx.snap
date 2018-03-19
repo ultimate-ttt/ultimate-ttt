@@ -2,7 +2,7 @@
 
 exports[`OSymbol matches its snapshot 1`] = `
 <i
-  className="material-icons o  animate-o"
+  className="material-icons o animate-o"
 >
   panorama_fish_eye
 </i>
