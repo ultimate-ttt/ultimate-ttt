@@ -8,7 +8,7 @@ interface SmallBoardProps {
     y: number;
     isActive: boolean; // is this the board where the next move will happen?
     currentPlayer: Player; // the Player who will play next
-    winningPlayer?: TileValue; // the Player who have won this Board or undefined / null if no one has won
+    winningPlayer?: TileValue; // the Player who have won this Board or null if no one has won
     tiles: TileInformation[];
     onTileClicked: ( x: number, y: number ) => void;
 }
