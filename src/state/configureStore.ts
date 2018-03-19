@@ -11,6 +11,7 @@ import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
 import playerMovedSaga from './sagas/MoveValidationSaga';
 import boardCalculationSaga from './sagas/boardCalculationSaga';
+import activeBoardsCalculationSaga from './sagas/activeBoardsCalculationSaga';
 
 const rootreducer = combineReducers<AppState>(
     {
@@ -42,7 +43,8 @@ function* rootSaga() {
     yield all(
         [
             fork( playerMovedSaga ),
-            fork(boardCalculationSaga)
+            fork(boardCalculationSaga),
+            fork(activeBoardsCalculationSaga)
         ]
     );
 }
