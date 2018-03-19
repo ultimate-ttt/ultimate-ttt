@@ -1,12 +1,10 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { changePlayer, checkGameFinished, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
-import { AppState } from '../AppState';
 import { registerMove } from '../moves/moveAction';
 import { calculateBoardValue, setTileValue } from '../board/boardActions';
 import { playerToTileValue } from '../../util';
 import { calculateActiveBoards } from '../activeBoards/activeBoardActions';
-
-const getCurrentPlayer = ( state: AppState ) => state.game.currentPlayer;
+import { getCurrentPlayer } from '../selectors/AppStateSelectors';
 
 function* playerMoved( action: PlayerMovedAction ) {
     const {boardPoint, tilePoint} = action.payload;
