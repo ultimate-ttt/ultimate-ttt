@@ -4,6 +4,7 @@ import { AppState } from '../AppState';
 import { registerMove } from '../moves/moveAction';
 import { setTileValue } from '../board/boardActions';
 import { playerToTileValue } from '../../util';
+import { setActiveBoards } from '../activeBoards/activeBoardActions';
 
 const getCurrentPlayer = ( state: AppState ) => state.game.currentPlayer;
 
@@ -15,6 +16,8 @@ function* playerMoved( action: PlayerMovedAction ) {
     yield put( registerMove( boardPoint, tilePoint, currentPlayer ) );
     yield put( setTileValue( boardPoint, tilePoint, tileValue ) );
     yield put( changePlayer() );
+
+    yield put( setActiveBoards( [tilePoint] ) );
 }
 
 function* playerMovedSaga() {
