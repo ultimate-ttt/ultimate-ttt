@@ -1,17 +1,18 @@
 import * as React from 'react';
-import { Player } from '../state/AppState';
+import { AppState, Player } from '../state/AppState';
+import { connect } from 'react-redux';
 
-interface GameFinishedProps {
-    isGameFinished?: boolean;
-    winner?: Player;
+interface GameFinishedTextProps {
+    isGameFinished: boolean;
+    winner: Player;
 }
 
-interface GameFinishedState {
+interface GameFinishedTextState {
 }
 
-export class GameFinished extends React.Component<GameFinishedProps, GameFinishedState> {
+class GameFinishedText extends React.Component<GameFinishedTextProps, GameFinishedTextState> {
 
-    constructor( props: GameFinishedProps ) {
+    constructor( props: GameFinishedTextProps ) {
         super( props );
     }
 
@@ -41,3 +42,13 @@ export class GameFinished extends React.Component<GameFinishedProps, GameFinishe
         );
     }
 }
+
+const mapStateToProps = ( state: AppState ) => ({
+    isGameFinished: state.game.isFinished,
+    winner: state.game.winningPlayer
+});
+
+// tslint:disable-next-line: no-any
+const mapDispatchToProps = ( dispatch: any ) => ({});
+
+export default connect( mapStateToProps, mapDispatchToProps )( GameFinishedText );

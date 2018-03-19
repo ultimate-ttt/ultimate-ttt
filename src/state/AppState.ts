@@ -2,9 +2,15 @@ import { Point } from '../util/Point';
 
 export interface AppState {
     board: SmallBoardInformation[];
-    game: { currentPlayer: Player };
+    game: GameState;
     moves: Move[];
     activeBoards: Point[];
+}
+
+export interface GameState {
+    currentPlayer: Player;
+    isFinished: boolean;
+    winningPlayer?: Player | undefined;
 }
 
 export interface SmallBoardInformation {

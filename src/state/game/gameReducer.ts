@@ -1,8 +1,10 @@
-import { cloneState, GenericAction, Player } from '../AppState';
-import { CHANGE_PLAYER } from '../game/gameAction';
+import { cloneState, GameState, GenericAction, Player } from '../AppState';
+import { CHANGE_PLAYER, GAME_FINISHED } from '../game/gameAction';
 
-const initialState = {
-    currentPlayer: Player.Cross
+const initialState: GameState = {
+    currentPlayer: Player.Cross,
+    isFinished: false,
+    winningPlayer:  undefined,
 };
 
 const gameReducer = ( state = initialState, action: GenericAction ) => {
@@ -16,6 +18,14 @@ const gameReducer = ( state = initialState, action: GenericAction ) => {
             } else {
                 clone.currentPlayer = Player.Cross;
             }
+
+            return clone;
+        }
+        case GAME_FINISHED: {
+            let clone = cloneState( state );
+
+            clone.isFinished = true;
+            clone.winningPlayer = action.payload;
 
             return clone;
         }
