@@ -1,5 +1,5 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
-import { changePlayer, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
+import { changePlayer, checkGameFinished, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
 import { AppState } from '../AppState';
 import { registerMove } from '../moves/moveAction';
 import { calculateBoardValue, setTileValue } from '../board/boardActions';
@@ -19,6 +19,7 @@ function* playerMoved( action: PlayerMovedAction ) {
     yield put( changePlayer() );
     yield put( calculateBoardValue( boardPoint ) );
     yield put( calculateActiveBoards( tilePoint ) );
+    yield put( checkGameFinished() );
 }
 
 function* playerMovedSaga() {
