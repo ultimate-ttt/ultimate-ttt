@@ -12,6 +12,7 @@ import { all, fork } from 'redux-saga/effects';
 import playerMovedSaga from './sagas/MoveValidationSaga';
 import boardCalculationSaga from './sagas/boardCalculationSaga';
 import activeBoardsCalculationSaga from './sagas/activeBoardsCalculationSaga';
+import checkGameFinishedSaga from './sagas/checkGameFinishedSaga';
 
 const rootreducer = combineReducers<AppState>(
     {
@@ -44,7 +45,8 @@ function* rootSaga() {
         [
             fork( playerMovedSaga ),
             fork(boardCalculationSaga),
-            fork(activeBoardsCalculationSaga)
+            fork(activeBoardsCalculationSaga),
+            fork(checkGameFinishedSaga)
         ]
     );
 }
