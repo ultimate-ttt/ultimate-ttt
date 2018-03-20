@@ -6,7 +6,7 @@ import { Tile } from '../Tile/Tile';
 interface SmallBoardProps {
     x: number;
     y: number;
-    isMoveAllowed: boolean; // is this the board where the next move will happen?
+    isMoveAllowed: boolean;
     currentPlayer: Player; // the Player who will play next
     winningPlayer: TileValue; // the Player who have won this Board or null if no one has won
     tiles: SmallTileInformation[];
