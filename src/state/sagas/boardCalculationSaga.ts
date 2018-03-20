@@ -15,7 +15,7 @@ function* calculateWinningBoard( action: GenericAction ) {
             arePointsEqual( board.point, boardPoint )
     ).tiles;
 
-    const winResult = getWinResult( affectedBoard ); // TODO: do It correctly
+    const winResult = getWinResult( affectedBoard );
     if (winResult.isFinished) {
         const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer!, true );
         yield put( setBoardValue( boardPoint, newSmallBoardTileValue ) );

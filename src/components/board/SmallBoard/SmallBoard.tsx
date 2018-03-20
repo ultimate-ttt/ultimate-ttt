@@ -8,7 +8,7 @@ interface SmallBoardProps {
     y: number;
     isActive: boolean; // is this the board where the next move will happen?
     currentPlayer: Player; // the Player who will play next
-    winningPlayer?: TileValue; // the Player who have won this Board or null if no one has won
+    winningPlayer: TileValue; // the Player who have won this Board or null if no one has won
     tiles: TileInformation[];
     onTileClicked: ( x: number, y: number ) => void;
 }
@@ -54,7 +54,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
 
         const isCircle = currentPlayer === Player.Circle;
 
-        if (winningPlayer !== null && winningPlayer !== undefined && winningPlayer !== TileValue.Empty) {
+        if (winningPlayer !== TileValue.Empty) {
             return (
                 <div key={`Small-Board-${x},${y}`} className="small-board-finished">
                     <Tile

@@ -17,7 +17,7 @@ function* playerMoved( action: PlayerMovedAction ) {
     yield put( changePlayer() );
     yield put( calculateBoardValue( boardPoint ) );
     yield put( calculateActiveBoards( tilePoint ) );
-    yield put( checkGameFinished() );
+    yield put( checkGameFinished() ); // TODO: maybe calculateBoardValue should call checkGameFinished.
 }
 
 function* playerMovedSaga() {

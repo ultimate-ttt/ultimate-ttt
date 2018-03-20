@@ -4,7 +4,7 @@ import { arePointsEqual } from '../../util';
 import { CALCULATE_ACTIVE_BOARDS, setActiveBoards } from '../activeBoards/activeBoardActions';
 import { getBoards } from '../selectors/AppStateSelectors';
 
-function* calculateactiveBoards( action: GenericAction ) {
+function* calculateActiveBoards( action: GenericAction ) {
     const boards = yield select( getBoards );
     const lastMove = action.payload;
 
@@ -20,11 +20,11 @@ function* calculateactiveBoards( action: GenericAction ) {
         activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.point );
     }
 
-    yield put( setActiveBoards( activeBoards ) ); // TODO: check if all boards should be active
+    yield put( setActiveBoards( activeBoards ) );
 }
 
 function* activeBoardsCalculationSaga() {
-    yield takeEvery( CALCULATE_ACTIVE_BOARDS, calculateactiveBoards );
+    yield takeEvery( CALCULATE_ACTIVE_BOARDS, calculateActiveBoards );
 }
 
 export default activeBoardsCalculationSaga;
