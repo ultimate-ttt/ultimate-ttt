@@ -17,13 +17,16 @@ describe( 'boardReducer', () => {
         const action = setTileValue( boardPosition, tilePosition, TileValue.Circle );
         let newState = boardReducer( undefined, action );
 
-        const board = newState.find((board) => {
+        const foundBoard = newState.find((board) => {
             return arePointsEqual(board.position, boardPosition);
         } );
-        const tile = board!.tiles.find((tile) => {
+        const foundTile = foundBoard!.tiles.find((tile) => {
            return arePointsEqual(tile.position, tilePosition);
         });
-        expect(tile!.value).toEqual( TileValue.Circle );
+
+        expect(foundTile).not.toBeUndefined();
+        expect(foundTile!.value).not.toBeUndefined();
+        expect(foundTile!.value).toEqual( TileValue.Circle );
     } );
 
     it( 'should add symbol of Cross Player', () => {
@@ -32,13 +35,15 @@ describe( 'boardReducer', () => {
         const action = setTileValue( boardPosition, tilePosition, TileValue.Cross );
         let newState = boardReducer( undefined, action );
 
-        const board = newState.find((board) => {
+        const foundBoard = newState.find((board) => {
             return arePointsEqual(board.position, boardPosition);
         } );
-        const tile = board!.tiles.find((tile) => {
+        const foundTile = foundBoard!.tiles.find((tile) => {
             return arePointsEqual(tile.position, tilePosition);
         });
-        expect(tile!.value).not.toBeUndefined();
-        expect(tile!.value).toEqual( TileValue.Cross );
+
+        expect(foundTile).not.toBeUndefined();
+        expect(foundTile!.value).not.toBeUndefined();
+        expect(foundTile!.value).toEqual( TileValue.Cross );
     } );
 } );
