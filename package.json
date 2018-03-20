@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
-    "enzyme-to-json": "^3.3.1",
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/addon-knobs": "^3.2.14",
     "@storybook/addon-links": "^3.3.14",
