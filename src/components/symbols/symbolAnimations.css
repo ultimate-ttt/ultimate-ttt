@@ -19,92 +19,108 @@
 }
 
 @keyframes add-icon {
-    0%   {font-size: 4.5em; }
-    25%  {font-size: 1em;}
-    50% {font-size: 2.5em;}
-    100% {font-size: 1.5em;}
+    0% {
+        font-size: 4.5rem;
+    }
+    25% {
+        font-size: 1rem;
+    }
+    50% {
+        font-size: 2.5rem;
+    }
+    100% {
+        font-size: 1.5rem;
+    }
 }
 
 @keyframes add-icon-big-x {
     0% {
-        font-size: 18em;
+        font-size: 18rem;
     }
     25% {
-        font-size: 6em;
+        font-size: 6rem;
     }
     60% {
-        font-size: 13em;
+        font-size: 13rem;
     }
     100% {
-        font-size: 8em;
+        font-size: 8rem;
     }
 }
 
 @keyframes add-icon-big-o {
     0% {
-        font-size: 18em;
+        font-size: 18rem;
     }
     25% {
-        font-size: 5em;
+        font-size: 5rem;
     }
     60% {
-        font-size: 10em;
+        font-size: 10rem;
     }
     100% {
-        font-size: 6em;
+        font-size: 6rem;
     }
 }
 
 @keyframes add-icon-big-no-winner {
     0% {
-        font-size: 18em;
+        font-size: 18rem;
     }
     25% {
-        font-size: 5em;
+        font-size: 5rem;
     }
     60% {
-        font-size: 12em;
+        font-size: 12rem;
     }
     100% {
-        font-size: 10em;
+        font-size: 10rem;
     }
 }
 
-@media(min-width: 35em) {
+@media (min-width: 35em) {
     @keyframes add-icon {
-        0%   {font-size: 4em; }
-        25%  {font-size: 1em;}
-        60% {font-size: 2.5em;}
-        100% {font-size: 2em;}
+        0% {
+            font-size: 4rem;
+        }
+        25% {
+            font-size: 1rem;
+        }
+        60% {
+            font-size: 2.5rem;
+        }
+        100% {
+            font-size: 2rem;
+        }
     }
 
     @keyframes add-icon-big-x {
         0% {
-            font-size: 18em;
+            font-size: 18rem;
         }
         25% {
-            font-size: 5em;
+            font-size: 5rem;
         }
         60% {
-            font-size: 12em;
+            font-size: 12rem;
         }
         100% {
-            font-size: 9em;
+            font-size: 9rem;
         }
     }
 
     @keyframes add-icon-big-o {
         0% {
-            font-size: 18em;
+            font-size: 18rem;
         }
         25% {
-            font-size: 5em;
+            font-size: 5rem;
         }
         60% {
-            font-size: 12em;
+            font-size: 12rem;
         }
         100% {
-            font-size: 8em;
+            font-size: 8rem;
         }
     }
 }
