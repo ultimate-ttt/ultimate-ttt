@@ -1,16 +1,23 @@
-import { put, takeEvery } from 'redux-saga/effects';
-import { GenericAction, Player } from '../AppState';
+import { put, select, takeEvery } from 'redux-saga/effects';
+import { GenericAction, SmallBoardInformation } from '../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from '../game/gameAction';
+import { getBoards } from '../selectors/AppStateSelectors';
+import { getWinResult } from '../../util/CheckBoard';
 
 function* checkIfGameFinished( action: GenericAction ) {
-    // const boards = yield select( getBoards );
-    // TODO: calculate correctly
+    const boards = yield select( getBoards );
 
-    const isGameFinished = false;
-    const winningPlayer = Player.Cross;
+    // TODO: make this map more beautiful or change the params that the getWinResult function takes
+    const mappedBoards = boards.map( (smallBoard: SmallBoardInformation) => {
+        return {smallBoardPoint: smallBoard.point, value: smallBoard.value};
+    });
+    const winResult = getWinResult(mappedBoards);
+
+    const isGameFinished = winResult.isFinished;
+    const winningPlayer = winResult.winningPlayer;
 
     if (isGameFinished) {
-        yield put( gameFinished( winningPlayer ) );
+        yield put( gameFinished( winningPlayer! ) );
     }
 }
 
