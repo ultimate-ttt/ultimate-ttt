@@ -61,6 +61,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
                         value={winningPlayer}
                         isCircle={winningPlayer === TileValue.Circle}
                         isClickable={false}
+                        isBig={true}
                     />
                 </div>
             );
