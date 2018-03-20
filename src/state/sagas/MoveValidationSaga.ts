@@ -12,8 +12,6 @@ function* playerMoved( action: PlayerMovedAction ) {
 
     const tileValue = playerToTileValue( currentPlayer );
 
-    // TODO: case game finished should be added somehow.
-
     yield put( registerMove( boardPoint, tilePoint, currentPlayer ) );
     yield put( setTileValue( boardPoint, tilePoint, tileValue ) );
     yield put( changePlayer() );

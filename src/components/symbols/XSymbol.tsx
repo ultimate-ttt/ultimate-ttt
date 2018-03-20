@@ -22,6 +22,7 @@ export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
     }
 
     render() {
+        // TODO: is there a case where it shouldn't animate?
         const {bigSymbol, shouldAnimate} = this.props;
         var iconClass = classNames( {
                                         'material-icons x': true,
