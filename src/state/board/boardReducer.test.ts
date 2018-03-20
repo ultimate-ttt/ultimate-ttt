@@ -9,25 +9,25 @@ describe( 'boardReducer', () => {
     } );
 
     // it( 'should add symbol of Circle Player', () => {
-    //     const bigBoardPoint = {x: 0, y: 0};
-    //     const smallBoardPoint = {x: 0, y: 0};
-    //     const action = setTileValue( bigBoardPoint, smallBoardPoint, TileValue.Circle );
+    //     const boardPosition = {x: 0, y: 0};
+    //     const tilePosition = {x: 0, y: 0};
+    //     const action = setTileValue( boardPosition, tilePosition, TileValue.Circle );
     //     let newState = boardReducer( undefined, action );
     //
     //     expect( newState[0].value ).toEqual( TileValue.Circle );
     // } );
     //
     // it( 'should add symbol of Cross Player', () => {
-    //     const bigBoardPoint = {x: 0, y: 0};
-    //     const smallBoardPoint = {x: 2, y: 1};
-    //     const action = setTileValue( bigBoardPoint, smallBoardPoint, TileValue.Cross );
+    //     const boardPosition = {x: 0, y: 0};
+    //     const tilePosition = {x: 2, y: 1};
+    //     const action = setTileValue( boardPosition, tilePosition, TileValue.Cross );
     //     const newState = boardReducer( undefined, action );
     //
     //     const editedTile = newState.find( ( element ) => {
-    //         return element.smallBoardPoint.x === smallBoardPoint.x
-    //             && element.smallBoardPoint.y === smallBoardPoint.y
-    //             && element.bigBoardPoint.x === bigBoardPoint.x
-    //             && element.bigBoardPoint.y === bigBoardPoint.y;
+    //         return element.tilePosition.x === tilePosition.x
+    //             && element.tilePosition.y === tilePosition.y
+    //             && element.boardPosition.x === boardPosition.x
+    //             && element.boardPosition.y === boardPosition.y;
     //     } );
     //
     //     expect( editedTile ).not.toBeUndefined();

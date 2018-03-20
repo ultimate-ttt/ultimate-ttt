@@ -12,7 +12,7 @@ function* calculateWinningBoard( action: GenericAction ) {
 
     const affectedBoard = boards.find(
         ( board: SmallBoardInformation ) =>
-            arePointsEqual( board.point, boardPoint )
+            arePointsEqual( board.position, boardPoint )
     ).tiles;
 
     const winResult = getWinResult( affectedBoard );

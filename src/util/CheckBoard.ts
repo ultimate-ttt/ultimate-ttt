@@ -12,19 +12,19 @@ const hasWonLine = ( player: Player, row: TileInformation[] ) => countInLine( pl
 
 const getWinResultForPlayer = ( player: Player, board: TileInformation[] ) => {
     return [
-        {line: 'row0', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.y === 0 ) )},
-        {line: 'row1', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.y === 1 ) )},
-        {line: 'row2', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.y === 2 ) )},
-        {line: 'column0', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.x === 0 ) )},
-        {line: 'column1', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.x === 1 ) )},
-        {line: 'column2', won: hasWonLine( player, board.filter( el => el.smallBoardPoint.x === 2 ) )},
+        {line: 'row0', won: hasWonLine( player, board.filter( el => el.position.y === 0 ) )},
+        {line: 'row1', won: hasWonLine( player, board.filter( el => el.position.y === 1 ) )},
+        {line: 'row2', won: hasWonLine( player, board.filter( el => el.position.y === 2 ) )},
+        {line: 'column0', won: hasWonLine( player, board.filter( el => el.position.x === 0 ) )},
+        {line: 'column1', won: hasWonLine( player, board.filter( el => el.position.x === 1 ) )},
+        {line: 'column2', won: hasWonLine( player, board.filter( el => el.position.x === 2 ) )},
         {
             line: 'leftSlant',
-            won: hasWonLine( player, board.filter( el => el.smallBoardPoint.x === el.smallBoardPoint.y ) )
+            won: hasWonLine( player, board.filter( el => el.position.x === el.position.y ) )
         },
         {
             line: 'rightSlant',
-            won: hasWonLine( player, board.filter( el => el.smallBoardPoint.x + el.smallBoardPoint.y === 2 ) )
+            won: hasWonLine( player, board.filter( el => el.position.x + el.position.y === 2 ) )
         },
     ].reduce(
         ( answer, nextCheck ) => {

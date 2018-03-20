@@ -13,17 +13,17 @@ export interface GameState {
     winningPlayer?: Player | undefined;
 }
 
-export interface SmallBoardInformation {
-    point: Point;
-    tiles: TileInformation[];
+export interface TileInformation {
+    position: Point;
     value: TileValue;
 }
 
-// TODO rename according to clean code: no data type in name. What name to choose then?
-export interface TileInformation {
-    bigBoardPoint: Point;
-    smallBoardPoint: Point;
-    value: TileValue;
+export interface SmallBoardInformation extends TileInformation {
+    tiles: SmallTileInformation[];
+}
+
+export interface SmallTileInformation extends TileInformation {
+    boardPosition: Point;
 }
 
 export enum TileValue {
@@ -39,15 +39,15 @@ export enum Player {
 }
 
 export interface Move {
-    bigBoardPoint: Point;
-    smallBoardPoint: Point;
+    boardPosition: Point;
+    tilePosition: Point;
     player: Player;
     moveNumber: number;
 }
 
 export interface GenericAction {
     type: string;
-// tslint:disable-next-line: no-any
+    // tslint:disable-next-line: no-any
     payload?: any;
 }
 

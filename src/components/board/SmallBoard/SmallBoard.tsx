@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Player, TileInformation, TileValue } from '../../../state/AppState';
+import { Player, SmallTileInformation, TileValue } from '../../../state/AppState';
 import './smallboard.css';
 import { Tile } from '../Tile/Tile';
 
@@ -9,7 +9,7 @@ interface SmallBoardProps {
     isMoveAllowed: boolean; // is this the board where the next move will happen?
     currentPlayer: Player; // the Player who will play next
     winningPlayer: TileValue; // the Player who have won this Board or null if no one has won
-    tiles: TileInformation[];
+    tiles: SmallTileInformation[];
     onTileClicked: ( x: number, y: number ) => void;
 }
 
@@ -25,7 +25,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
         this.getTiles = this.getTiles.bind( this );
     }
 
-    getTiles( tiles: TileInformation[],
+    getTiles( tiles: SmallTileInformation[],
               isCircle: boolean,
               isMoveAllowed: boolean,
               onTileClicked: ( x: number, y: number ) => void ) {
@@ -34,12 +34,12 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
         tiles.forEach( tile => {
             rows.push(
                 <Tile
-                    key={`${tile.smallBoardPoint.x}-${tile.smallBoardPoint.y}`}
+                    key={`${tile.position.x}-${tile.position.y}`}
                     value={tile.value}
                     isCircle={isCircle}
                     isClickable={isMoveAllowed && tile.value === TileValue.Empty}
                     onTileClicked={() => {
-                        onTileClicked( tile.smallBoardPoint.x, tile.smallBoardPoint.y );
+                        onTileClicked( tile.position.x, tile.position.y );
                     }}
                 />
             );
