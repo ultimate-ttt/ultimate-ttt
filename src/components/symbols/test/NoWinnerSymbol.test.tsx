@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
-import { NoWinnerSymbol } from './NoWinnerSymbol';
+import { NoWinnerSymbol } from '../NoWinnerSymbol';
 
 configure( {adapter: new ReactSixteenAdapter()} );
 
