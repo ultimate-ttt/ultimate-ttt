@@ -24,22 +24,16 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
         super( props );
 
         this.createSmallBoards = this.createSmallBoards.bind( this );
-        this.isBoardActive = this.isBoardActive.bind( this );
+        this.isMoveOnBoardAllowed = this.isMoveOnBoardAllowed.bind( this );
     }
 
-    isBoardActive( x: number, y: number, activeBoards: Point[] ) {
+    isMoveOnBoardAllowed( x: number, y: number, activeBoards: Point[] ) {
 
         if (!activeBoards) {
             return false;
         }
-        let isActive = false;
 
-        activeBoards.forEach( board => {
-            if (arePointsEqual( {x, y}, board )) {
-                isActive = true;
-            }
-        } );
-
+        const isActive = activeBoards.some( board => arePointsEqual( {x, y}, board ));
         return isActive;
     }
 
@@ -53,14 +47,14 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
                 const smallBoard = board.find( t => arePointsEqual( t.point, {x, y} ) );
 
                 if (smallBoard) {
-                    let isActive = this.isBoardActive( x, y, activeBoards );
+                    const isMoveAllowed = this.isMoveOnBoardAllowed( x, y, activeBoards );
 
                     rows.push(
                         <SmallBoard
                             key={`x: ${x}/ Y: ${y}`}
                             x={x}
                             y={y}
-                            isActive={isActive}
+                            isMoveAllowed={isMoveAllowed}
                             currentPlayer={currentPlayer}
                             tiles={smallBoard.tiles}
                             winningPlayer={smallBoard.value} // TODO: use correct value

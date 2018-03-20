@@ -6,7 +6,7 @@ import { Tile } from '../Tile/Tile';
 interface SmallBoardProps {
     x: number;
     y: number;
-    isActive: boolean; // is this the board where the next move will happen?
+    isMoveAllowed: boolean; // is this the board where the next move will happen?
     currentPlayer: Player; // the Player who will play next
     winningPlayer: TileValue; // the Player who have won this Board or null if no one has won
     tiles: TileInformation[];
@@ -27,7 +27,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
 
     getTiles( tiles: TileInformation[],
               isCircle: boolean,
-              isActive: boolean,
+              isMoveAllowed: boolean,
               onTileClicked: ( x: number, y: number ) => void ) {
         const rows: JSX.Element[] = [];
 
@@ -37,7 +37,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
                     key={`${tile.smallBoardPoint.x}-${tile.smallBoardPoint.y}`}
                     value={tile.value}
                     isCircle={isCircle}
-                    isClickable={isActive && tile.value === TileValue.Empty}
+                    isClickable={isMoveAllowed && tile.value === TileValue.Empty}
                     onTileClicked={() => {
                         onTileClicked( tile.smallBoardPoint.x, tile.smallBoardPoint.y );
                     }}
@@ -49,12 +49,10 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
     }
 
     render() {
+        const {x, y, winningPlayer, currentPlayer, tiles, isMoveAllowed, onTileClicked} = this.props;
 
-        const {x, y, winningPlayer, currentPlayer, tiles, isActive, onTileClicked} = this.props;
-
-        const isCircle = currentPlayer === Player.Circle;
-
-        if (winningPlayer !== TileValue.Empty) {
+        const boardIsFinished = winningPlayer !== TileValue.Empty;
+        if (boardIsFinished) {
             return (
                 <div key={`Small-Board-${x},${y}`} className="small-board-finished">
                     <Tile
@@ -67,13 +65,14 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
             );
         }
 
+        const isCircle = currentPlayer === Player.Circle;
         return (
             <div className="small-board">
                 {
                     this.getTiles(
                         tiles,
                         isCircle,
-                        isActive,
+                        isMoveAllowed,
                         onTileClicked
                     )
                 }
