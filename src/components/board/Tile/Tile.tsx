@@ -27,7 +27,6 @@ export class Tile extends React.Component<TileProps, TileState> {
     }
 
     getValue() {
-        // TODO: animation is not correct: merge css to this branch?
         const {isBig} = this.props;
         switch (this.props.value) {
             case TileValue.Cross:

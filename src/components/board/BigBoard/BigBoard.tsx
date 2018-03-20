@@ -28,14 +28,12 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
     }
 
     isMoveOnBoardAllowed( x: number, y: number, activeBoards: Point[] ) {
-
         if (!activeBoards) {
             return false;
         }
 
-        // todo: rename.
-        const isActive = activeBoards.some( board => arePointsEqual( {x, y}, board ));
-        return isActive;
+        const thePlayedOnBoardIsActive = activeBoards.some( board => arePointsEqual( {x, y}, board ));
+        return thePlayedOnBoardIsActive;
     }
 
     createSmallBoards() {
@@ -58,7 +56,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
                             isMoveAllowed={isMoveAllowed}
                             currentPlayer={currentPlayer}
                             tiles={smallBoard.tiles}
-                            winningPlayer={smallBoard.value} // TODO: use correct value
+                            winningPlayer={smallBoard.value}
                             onTileClicked={
                                 ( tileX: number, tileY: number ) => {
                                     onPlayerMoved( x, y, tileX, tileY );
