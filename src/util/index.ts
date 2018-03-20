@@ -1,5 +1,5 @@
-import { playerToTileValue } from 'src/util/PlayerToTile';
-import { arePointsEqual } from 'src/util/Point';
+import { arePointsEqual } from './Point';
+import { playerToTileValue } from './PlayerToTile';
 
 export {
     playerToTileValue,
