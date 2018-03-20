@@ -15,10 +15,10 @@ describe( 'moveReducer', () => {
         const action = registerMove(bigBoardPoint, smallBoardPoint, Player.Cross);
         let newState = moveReducer(undefined, action);
 
-        expect(newState[0].bigBoardPoint.x).toEqual(1);
-        expect(newState[0].bigBoardPoint.y).toEqual(2);
-        expect(newState[0].smallBoardPoint.x).toEqual(2);
-        expect(newState[0].smallBoardPoint.y).toEqual(2);
+        expect(newState[0].boardPosition.x).toEqual( 1);
+        expect(newState[0].boardPosition.y).toEqual( 2);
+        expect(newState[0].tilePosition.x).toEqual( 2);
+        expect(newState[0].tilePosition.y).toEqual( 2);
         expect(newState[0].player).toEqual(Player.Cross);
 
         expect(newState[0].moveNumber).toEqual(1);

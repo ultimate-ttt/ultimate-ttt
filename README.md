@@ -17,28 +17,41 @@ You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-ti
 
 <img src="https://user-images.githubusercontent.com/16801528/36629951-37a825b2-195e-11e8-95f7-9c52f95695ec.gif" width="500">
 
+## Why
+
+This app was mainly made for learning how to use React, Redux and CSS Grid and also because I always wanted to make my own implementation of this game.
+
 ## Set up dev environment
-### Prerequisites
 
-- [NodeJS](https://nodejs.org/en/)
-- [yarn](https://yarnpkg.com/en/docs/install)
+Install yarn if you haven't already
 
-### Actual Set up
+For macOS via Homebrew: (see [here](https://yarnpkg.com/en/docs/install) for other platforms/ways)
+```
+brew install yarn
+```
 
 Install dependencies
 ```
 yarn install
 ```
 
-Now you can run the tests and start the app 
+Check if everything works correctly 
 ```
 yarn test
+```
+
+And finally start the app
+```
 yarn start
 ```
 
 ## Deployment
 
-When checking in/merging to master, the latest version of the app gets automatically deployed to Github Pages.
+To deploy the latest version to GitHub Pages
+
+```
+yarn deploy
+```
 
 ## Contribute
 

@@ -12,14 +12,14 @@ describe( 'gameReducer', () => {
     describe( 'changePlayer', () => {
         it( 'should change player from X to O', () => {
             const action = changePlayer();
-            let newState = gameReducer( {currentPlayer: Player.Cross}, action );
+            let newState = gameReducer( {currentPlayer: Player.Cross, isFinished: false}, action );
 
             expect( newState.currentPlayer ).toEqual( Player.Circle );
         } );
 
         it( 'should change player from O to X', () => {
             const action = changePlayer();
-            let newState = gameReducer( {currentPlayer: Player.Circle}, action );
+            let newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
 
             expect( newState.currentPlayer ).toEqual( Player.Cross );
         } );

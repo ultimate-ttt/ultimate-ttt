@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`OSymbol matches its snapshot 1`] = `
-<i
-  className="material-icons o animate-o"
->
-  panorama_fish_eye
-</i>
-`;
