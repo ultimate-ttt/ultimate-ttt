@@ -22,7 +22,7 @@
     "build": "react-scripts-ts build",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts-ts test --env=jsdom",
+    "test": "react-scripts-ts test --env=jsdom --coverage",
     "eject": "react-scripts-ts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
