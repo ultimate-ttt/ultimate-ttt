@@ -1,7 +1,7 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction, SmallBoardInformation, TileValue } from '../AppState';
 import { arePointsEqual } from '../../util';
-import { CALCULATE_ACTIVE_BOARDS, setActiveBoards } from '../activeBoards/activeBoardActions';
+import { CALCULATE_ALLOWED_BOARDS, setAllowedBoards } from '../activeBoards/activeBoardActions';
 import { getBoards } from '../selectors/AppStateSelectors';
 
 function* calculateActiveBoards( action: GenericAction ) {
@@ -20,11 +20,11 @@ function* calculateActiveBoards( action: GenericAction ) {
         activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.position );
     }
 
-    yield put( setActiveBoards( activeBoards ) );
+    yield put( setAllowedBoards( activeBoards ) );
 }
 
 function* activeBoardsCalculationSaga() {
-    yield takeEvery( CALCULATE_ACTIVE_BOARDS, calculateActiveBoards );
+    yield takeEvery( CALCULATE_ALLOWED_BOARDS, calculateActiveBoards );
 }
 
 export default activeBoardsCalculationSaga;

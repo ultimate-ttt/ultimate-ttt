@@ -3,7 +3,7 @@ import { GenericAction } from '../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from '../game/gameAction';
 import { getBoards } from '../selectors/AppStateSelectors';
 import { getWinResult } from '../../util/CheckBoard';
-import { setActiveBoards } from '../activeBoards/activeBoardActions';
+import { setAllowedBoards } from '../activeBoards/activeBoardActions';
 
 function* checkIfGameFinished( action: GenericAction ) {
     const boards = yield select( getBoards );
@@ -14,7 +14,7 @@ function* checkIfGameFinished( action: GenericAction ) {
 
     if (isGameFinished) {
         yield put( gameFinished( winningPlayer! ) );
-        yield put( setActiveBoards( [] ) );
+        yield put( setAllowedBoards( [] ) );
     }
 }
 
