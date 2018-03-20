@@ -33,6 +33,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
             return false;
         }
 
+        // todo: rename.
         const isActive = activeBoards.some( board => arePointsEqual( {x, y}, board ));
         return isActive;
     }
@@ -44,7 +45,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
         for (let x = 0; x < 3; x++) {
             for (let y = 0; y < 3; y++) {
 
-                const smallBoard = board.find( t => arePointsEqual( t.point, {x, y} ) );
+                const smallBoard = board.find( tile => arePointsEqual( tile.position, {x, y} ) );
 
                 if (smallBoard) {
                     const isMoveAllowed = this.isMoveOnBoardAllowed( x, y, activeBoards );

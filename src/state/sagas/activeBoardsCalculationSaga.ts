@@ -10,14 +10,14 @@ function* calculateActiveBoards( action: GenericAction ) {
 
     let activeBoards = [lastMove];
     const boardLastMovePointsTo = boards.find( ( board: SmallBoardInformation ) =>
-                                                   arePointsEqual( board.point, lastMove ) );
+                                                   arePointsEqual( board.position, lastMove ) );
     const boardIsFinished = boardLastMovePointsTo.value !== TileValue.Empty;
     if (boardIsFinished) {
         const allUnfinishedBoards = boards.filter(
             ( board: SmallBoardInformation ) =>
                 board.value === TileValue.Empty
         );
-        activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.point );
+        activeBoards = allUnfinishedBoards.map( ( board: SmallBoardInformation ) => board.position );
     }
 
     yield put( setActiveBoards( activeBoards ) );

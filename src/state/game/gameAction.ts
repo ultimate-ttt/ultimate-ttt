@@ -16,6 +16,7 @@ export const gameFinished = ( winningPlayer?: Player ) => ({
     type: GAME_FINISHED,
     payload: winningPlayer
 });
+
 export const checkGameFinished = (  ) => ({
     type: CHECK_GAME_FINISHED
 });
@@ -29,22 +30,9 @@ export const playerMoved = ( boardPoint: Point, tilePoint: Point ): PlayerMovedA
 });
 
 export interface PlayerMovedAction {
-
     type: string;
-
     payload: {
         boardPoint: Point
         tilePoint: Point
     };
 }
-
-export const playerMovedValid = ( boardX: number, boardY: number, tileX: number, tileY: number, player: Player ) => ({
-    type: PLAYER_MOVED_VALID,
-    payload: {
-        boardX,
-        boardY,
-        tileX,
-        tileY,
-        player
-    }
-});

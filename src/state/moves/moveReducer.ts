@@ -10,8 +10,8 @@ const moveReducer = ( state = initialState, action: GenericAction ) => {
 
             const {bigBoardPoint, smallBoardPoint, player} = action.payload;
             clone.push( {
-                bigBoardPoint: bigBoardPoint,
-                smallBoardPoint: smallBoardPoint,
+                boardPosition: bigBoardPoint,
+                tilePosition: smallBoardPoint,
                 player: player,
                 moveNumber: clone.length + 1
             } );
