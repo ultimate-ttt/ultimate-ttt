@@ -1,23 +1,20 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
-import { GenericAction, SmallBoardInformation } from '../AppState';
+import { GenericAction } from '../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from '../game/gameAction';
 import { getBoards } from '../selectors/AppStateSelectors';
 import { getWinResult } from '../../util/CheckBoard';
+import { setActiveBoards } from '../activeBoards/activeBoardActions';
 
 function* checkIfGameFinished( action: GenericAction ) {
     const boards = yield select( getBoards );
 
-    // TODO: make this map more beautiful or change the params that the getWinResult function takes
-    const mappedBoards = boards.map( (smallBoard: SmallBoardInformation) => {
-        return {smallBoardPoint: smallBoard.point, value: smallBoard.value};
-    });
-    const winResult = getWinResult(mappedBoards);
-
+    const winResult = getWinResult( boards );
     const isGameFinished = winResult.isFinished;
     const winningPlayer = winResult.winningPlayer;
 
     if (isGameFinished) {
         yield put( gameFinished( winningPlayer! ) );
+        yield put( setActiveBoards( [] ) );
     }
 }
 
