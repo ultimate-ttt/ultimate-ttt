@@ -1,11 +1,11 @@
 import * as React from 'react';
+import 'material-design-icons/iconfont/material-icons.css';
 import { TileValue } from '../../../state/AppState';
 import { XSymbol } from '../../symbols/XSymbol';
 import { OSymbol } from '../../symbols/OSymbol';
 import { NoWinnerSymbol } from '../../symbols/NoWinnerSymbol';
 
 import './tile.css';
-import 'material-design-icons/iconfont/material-icons.css';
 
 interface TileProps {
     onTileClicked?: () => void;
