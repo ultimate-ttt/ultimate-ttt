@@ -43,10 +43,9 @@ export class Tile extends React.Component<TileProps, TileState> {
 
     render() {
         const {onTileClicked, isCircle, isClickable, value} = this.props;
-        // TODO: Not empty tiles that are not clickable should also be indicated
         const color = isClickable ? 'indicator' : 'normal';
-        let roundness = isCircle ? 'circle' : 'square';
 
+        let roundness = isCircle ? 'circle' : 'square';
         if (value === TileValue.Destroyed) {
             roundness = 'no-winner';
         }
