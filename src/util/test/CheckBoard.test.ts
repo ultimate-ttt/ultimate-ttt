@@ -3,8 +3,7 @@ import { Player, TileValue } from '../../state/AppState';
 
 const getTile = ( boardX: number, boardY: number, value: TileValue ) => {
     return {
-        bigBoardPoint: {x: 1, y: 1},
-        smallBoardPoint: {x: boardX, y: boardY},
+        position: {x: boardX, y: boardY},
         value: value
     };
 };
@@ -245,10 +244,6 @@ describe( 'getWinResult', () => {
             getTile( 2, 1, TileValue.Empty ),
             getTile( 2, 2, TileValue.Empty ),
         ];
-        input.forEach((el) => {
-            el.bigBoardPoint.x = el.smallBoardPoint.x;
-            el.bigBoardPoint.y = el.smallBoardPoint.y;
-        });
 
         const result = getWinResult( input );
         expect (result.isFinished).toEqual(true);
@@ -269,10 +264,6 @@ describe( 'getWinResult', () => {
             getTile( 2, 1, TileValue.Circle ),
             getTile( 2, 2, TileValue.Circle ),
         ];
-        input.forEach((el) => {
-            el.bigBoardPoint.x = el.smallBoardPoint.x;
-            el.bigBoardPoint.y = el.smallBoardPoint.y;
-        });
 
         const result = getWinResult( input );
         expect (result.isFinished).toEqual(true);
@@ -293,10 +284,6 @@ describe( 'getWinResult', () => {
             getTile( 2, 1, TileValue.Circle ),
             getTile( 2, 2, TileValue.Empty ),
         ];
-        input.forEach((el) => {
-            el.bigBoardPoint.x = el.smallBoardPoint.x;
-            el.bigBoardPoint.y = el.smallBoardPoint.y;
-        });
 
         const result = getWinResult( input );
         expect (result.isFinished).toEqual(false);
@@ -317,10 +304,6 @@ describe( 'getWinResult', () => {
             getTile( 2, 1, TileValue.Destroyed ),
             getTile( 2, 2, TileValue.Destroyed ),
         ];
-        input.forEach((el) => {
-            el.bigBoardPoint.x = el.smallBoardPoint.x;
-            el.bigBoardPoint.y = el.smallBoardPoint.y;
-        });
 
         const result = getWinResult( input );
         expect (result.isFinished).toEqual(true);

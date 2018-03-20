@@ -1,15 +1,16 @@
 import * as React from 'react';
-import { default as TileContainer } from '../Tile/TileContainer';
-import { Point } from '../../../util/Point';
-import { Player } from '../../../state/AppState';
-import { playerToTileValue } from '../../../util/PlayerToTile';
+import { Player, SmallTileInformation, TileValue } from '../../../state/AppState';
 import './smallboard.css';
+import { Tile } from '../Tile/Tile';
 
 interface SmallBoardProps {
     x: number;
     y: number;
-    isFinished?: boolean;
-    winningPlayer?: Player;
+    isMoveAllowed: boolean;
+    currentPlayer: Player; // the Player who will play next
+    winningPlayer: TileValue; // the Player who have won this Board or null if no one has won
+    tiles: SmallTileInformation[];
+    onTileClicked: ( x: number, y: number ) => void;
 }
 
 interface SmallBoardState {
@@ -21,63 +22,62 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
     constructor( props: SmallBoardProps ) {
         super( props );
 
-        this.createTiles = this.createTiles.bind( this );
+        this.getTiles = this.getTiles.bind( this );
     }
 
-    getUnfinishedTileContainer( x: number, y: number, bigBoardPoint: Point ) {
-        return (
-            <TileContainer
-                key={x.toString() + y.toString()}
-                smallBoardPoint={{x, y}}
-                bigBoardPoint={bigBoardPoint}
-            />
-        );
-    }
+    getTiles( tiles: SmallTileInformation[],
+              isCircle: boolean,
+              isMoveAllowed: boolean,
+              onTileClicked: ( x: number, y: number ) => void ) {
+        const rows: JSX.Element[] = [];
 
-    getFinishedTileContainer( bigBoardPoint: Point, winningPlayer: Player ) {
-        return (
-            <TileContainer
-                key={1}
-                bigBoardPoint={bigBoardPoint}
-                value={playerToTileValue( winningPlayer, true )}
-                isSmallBoardFinished={true}
-            />
-        );
-    }
-
-    getUnfinishedSmallBoard( bigBoardPoint: Point ) {
-        let rows = [];
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                rows.push( this.getUnfinishedTileContainer( i, j, bigBoardPoint ) );
-            }
-        }
-        return rows;
-    }
-
-    createTiles() {
-        const {x, y, isFinished, winningPlayer} = this.props;
-        const bigBoardPoint: Point = {x: x, y: y};
-
-        let rows = [];
-        if (!isFinished) {
-            rows = this.getUnfinishedSmallBoard( bigBoardPoint );
-        } else {
-            rows.push( this.getFinishedTileContainer( bigBoardPoint, winningPlayer! ) );
-        }
+        tiles.forEach( tile => {
+            rows.push(
+                <Tile
+                    key={`${tile.position.x}-${tile.position.y}`}
+                    value={tile.value}
+                    isCircle={isCircle}
+                    isClickable={isMoveAllowed && tile.value === TileValue.Empty}
+                    onTileClicked={() => {
+                        onTileClicked( tile.position.x, tile.position.y );
+                    }}
+                />
+            );
+        } );
 
         return rows;
     }
 
     render() {
-        const tiles = this.createTiles();
-        const smallBoardClassName = this.props.isFinished ? 'small-board-finished' : 'small-board';
-        // TODO: Don't construct Tiles myself but get them from State?
+        const {x, y, winningPlayer, currentPlayer, tiles, isMoveAllowed, onTileClicked} = this.props;
 
+        const boardIsFinished = winningPlayer !== TileValue.Empty;
+        if (boardIsFinished) {
+            return (
+                <div key={`Small-Board-${x},${y}`} className="small-board-finished">
+                    <Tile
+                        value={winningPlayer}
+                        isCircle={winningPlayer === TileValue.Circle}
+                        isClickable={false}
+                        isBig={true}
+                    />
+                </div>
+            );
+        }
+
+        const isCircle = currentPlayer === Player.Circle;
         return (
-            <div className={smallBoardClassName}>
-                {tiles}
+            <div className="small-board">
+                {
+                    this.getTiles(
+                        tiles,
+                        isCircle,
+                        isMoveAllowed,
+                        onTileClicked
+                    )
+                }
             </div>
         );
+
     }
 }
