@@ -1,5 +1,5 @@
 import gameReducer from './gameReducer';
-import { changePlayer } from './gameAction';
+import { changePlayer, gameFinished } from './gameAction';
 import { Player } from '../AppState';
 
 describe( 'gameReducer', () => {
@@ -24,4 +24,17 @@ describe( 'gameReducer', () => {
             expect( newState.currentPlayer ).toEqual( Player.Cross );
         } );
     } );
+
+    describe('finishGame', () => {
+       it('should change the state of the game according to the action', () => {
+          const action = gameFinished(Player.Circle);
+          let newState = gameReducer({currentPlayer: Player.Circle, isFinished: false}, action);
+
+          expect(newState.isFinished).toBe(true);
+          expect(newState.winningPlayer).toEqual(Player.Circle);
+          // TODO: Cross.
+       });
+
+       // TODO: null version.
+    });
 } );
