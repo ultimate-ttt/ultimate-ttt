@@ -25,16 +25,29 @@ describe( 'gameReducer', () => {
         } );
     } );
 
-    describe('finishGame', () => {
-       it('should change the state of the game according to the action', () => {
-          const action = gameFinished(Player.Circle);
-          let newState = gameReducer({currentPlayer: Player.Circle, isFinished: false}, action);
+    describe( 'finishGame', () => {
+        it( 'should change the state of the game according to the action, winning: Circle', () => {
+            const  action = gameFinished( Player.Circle );
+            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
 
-          expect(newState.isFinished).toBe(true);
-          expect(newState.winningPlayer).toEqual(Player.Circle);
-          // TODO: Cross.
-       });
+            expect( newState.isFinished ).toBe( true );
+            expect( newState.winningPlayer ).toEqual( Player.Circle );
+        } );
 
-       // TODO: null version.
-    });
+        it( 'should change the state of the game according to the action, winning: Cross', () => {
+            const action = gameFinished( Player.Cross );
+            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
+
+            expect( newState.isFinished ).toBe( true );
+            expect( newState.winningPlayer ).toEqual( Player.Cross );
+        } );
+
+        it( 'should change the state of the game according to the action, draw', () => {
+            const action = gameFinished( null! );
+            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
+
+            expect( newState.isFinished ).toBe( true );
+            expect( newState.winningPlayer ).toEqual( null );
+        } );
+    } );
 } );
