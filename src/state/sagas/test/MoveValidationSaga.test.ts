@@ -10,7 +10,7 @@ import { CALCULATE_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions'
 
 // TODO: rename to lowercase (test and actual file)
 // TODO: boardPoint / bigBoardPoint / boardPosition: einheitlicher Name. (Code Refactoring)
-describe( 'MoveValidationSage', () => {
+describe( 'MoveValidationSaga', () => {
         it( 'should dispatch at least the following actions, order not tested', () => {
             return expectSaga( playerMovedSaga )
                 .provide([
