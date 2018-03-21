@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`boardCalculationSaga should match snapshot 1`] = `
+Object {
+  "fork": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "tile-reducer/calculate-board-value",
+          "@@redux-saga-test-plan/json/function/calculateWinningBoard",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          Object {
+            "payload": Object {
+              "x": 1,
+              "y": 0,
+            },
+            "type": "tile-reducer/calculate-board-value",
+          },
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/<anonymous>",
+      },
+    },
+  ],
+  "put": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "payload": Object {
+            "boardPosition": Object {
+              "x": 1,
+              "y": 0,
+            },
+            "tileValue": 0,
+          },
+          "type": "tile-reducer/set-board-value",
+        },
+        "channel": null,
+      },
+    },
+  ],
+  "select": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "SELECT": Object {
+        "args": Array [],
+        "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
+      },
+    },
+  ],
+  "take": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "tile-reducer/calculate-board-value",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "tile-reducer/calculate-board-value",
+      },
+    },
+  ],
+}
+`;
