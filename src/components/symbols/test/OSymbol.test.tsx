@@ -19,14 +19,14 @@ describe( 'OSymbol', () => {
 
     it( 'should have material-icons, o and animate-o class by default', () => {
         const component = shallow( <OSymbol/> );
-        expect( component.find( '.material-icons .o .animate-o' ) ).toHaveLength( 1 );
-        expect( component.find( '.big-symbol' ) ).toHaveLength( 0 );
+        expect(component.find('i').props().className).toContain('material-icons o animate-o');
+        expect( component.find( 'i' ).props().className ).not.toContain( 'big-symbol');
     } );
 
     it( 'should have animate-o-big-symbol class with and bigSymbol=true', () => {
         const component = shallow( <OSymbol bigSymbol={true}/> );
-        expect( component.find( '.animate-o-big-symbol' ) ).toHaveLength( 1 );
-        expect( component.find( '.animate-o' ) ).toHaveLength( 0 );
-        expect( component.find( '.big-symbol' ) ).toHaveLength( 1 );
+        expect(component.find('i').props().className).toContain('animate-o-big-symbol');
+        expect(component.find('i').props().className).toContain('big-symbol');
+        expect( component.find( 'i' ).props().className ).not.toContainEqual( 'animate-o');
     } );
 } );
