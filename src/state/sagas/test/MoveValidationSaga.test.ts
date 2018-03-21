@@ -1,17 +1,17 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import playerMovedSaga from './MoveValidationSaga';
-import { getCurrentPlayer } from '../selectors/AppStateSelectors';
-import { Player } from '../AppState';
-import { CHANGE_PLAYER, CHECK_GAME_FINISHED, PLAYER_MOVED } from '../game/gameAction';
+import playerMovedSaga from '../MoveValidationSaga';
+import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
+import { Player } from '../../AppState';
+import { CHANGE_PLAYER, CHECK_GAME_FINISHED, PLAYER_MOVED } from '../../game/gameAction';
 import { select } from 'redux-saga/effects';
-import { REGISTER_MOVE } from '../moves/moveAction';
-import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../board/boardActions';
-import { CALCULATE_ALLOWED_BOARDS } from '../activeBoards/activeBoardActions';
+import { REGISTER_MOVE } from '../../moves/moveAction';
+import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../../board/boardActions';
+import { CALCULATE_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
 
 // TODO: rename to lowercase (test and actual file)
 // TODO: boardPoint / bigBoardPoint / boardPosition: einheitlicher Name. (Code Refactoring)
 describe( 'MoveValidationSage', () => {
-        it( 'should dispatch the following actions', () => {
+        it( 'should dispatch at least the following actions, order not tested', () => {
             return expectSaga( playerMovedSaga )
                 .provide([
                     [select(getCurrentPlayer), Player.Cross]
@@ -27,7 +27,7 @@ describe( 'MoveValidationSage', () => {
                 .run();
         } );
 
-        // if more put effects happen: this catches it
+        // if more put effects happen: this catches it + this checks for the order
         it('should match snapshot', () => {
             return expectSaga(playerMovedSaga)
                 .provide([
