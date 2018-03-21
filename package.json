@@ -26,7 +26,6 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0",
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/addon-knobs": "^3.2.14",
     "@storybook/addon-links": "^3.3.14",
@@ -47,11 +46,13 @@
     "@types/storybook__react": "^3.0.5",
     "babel-core": "^6.26.0",
     "coveralls": "^3.0.0",
+    "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "gh-pages": "^1.1.0",
     "jest-junit-reporter": "^1.1.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
+    "redux-saga-test-plan": "^3.5.1",
     "typescript": "^2.7.1"
   }
 }
