@@ -3,7 +3,7 @@ import boardCalculationSaga from '../boardCalculationSaga';
 import { getBoards } from '../../selectors/AppStateSelectors';
 import { select } from 'redux-saga/effects';
 import { CALCULATE_BOARD_VALUE, SET_BOARD_VALUE } from '../../board/boardActions';
-import boardStateMock from './boardMock.test';
+import boardStateMock from './finishedBoardMock';
 import { Player } from '../../AppState';
 
 describe( 'boardCalculationSaga', () => {
