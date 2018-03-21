@@ -20,8 +20,8 @@ Object {
         "args": Array [
           Object {
             "payload": Object {
-              "x": 1,
-              "y": 0,
+              "x": 2,
+              "y": 1,
             },
             "type": "tile-reducer/calculate-board-value",
           },
@@ -38,8 +38,8 @@ Object {
         "action": Object {
           "payload": Object {
             "boardPosition": Object {
-              "x": 1,
-              "y": 0,
+              "x": 2,
+              "y": 1,
             },
             "tileValue": 0,
           },

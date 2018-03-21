@@ -7,7 +7,7 @@ import boardStateMock from './boardMock.test';
 import { Player } from '../../AppState';
 
 describe( 'boardCalculationSaga', () => {
-    it( 'should dispatch at least the following actions, order not tested', () => {
+    it( 'should dispatch the set board value for the board with the Cross Player', () => {
         return expectSaga( boardCalculationSaga )
             .provide([
                          [select(getBoards), boardStateMock]
@@ -23,7 +23,7 @@ describe( 'boardCalculationSaga', () => {
             .provide([
                          [select(getBoards), boardStateMock]
                      ])
-            .dispatch( {type: CALCULATE_BOARD_VALUE, payload: {x: 1, y: 0}} )
+            .dispatch( {type: CALCULATE_BOARD_VALUE, payload: {x: 2, y: 1}} )
             .run()
             .then((result) => {
                 expect(result.toJSON()).toMatchSnapshot();
