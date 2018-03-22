@@ -8,7 +8,65 @@
 
 This is a board game made with React & Redux. 
 
-The game consists of nine tic-tac-toe boards arranged in a 3x3 grid. Every move on a small board sends the opponent to an equivalent on the big board. If you win a small board you get a position on the big board. And with three small boards in a row you win the game. [Wikipedia](https://en.m.wikipedia.org/wiki/Ultimate_tic-tac-toe)
+## Game Rules
+There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3** won tic-tac-toe boards **positioned in a row.** 
+
+But here's the **twist**
+
+_Every move on a small board sends the opponent to the equivalent on the big board._
+
+**Example:** Let's say we have this big board with 9 small boards. (the initial game state)
+
+```
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+```
+And the first player makes this move in one of the small boards:
+```
+[ ][X][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+```
+The second player can in the next turn only play in the tiles that are marked with a `!`. This are tiles from the board that is equivalent to the position of the last move. 
+```
+[ ][ ][ ]   [!][!][!]   [ ][ ][ ]
+[ ][ ][ ]   [!][!][!]   [ ][ ][ ]
+[ ][ ][ ]   [!][!][!]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][X][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+```
+
+But let's say that we are already later in the game and this board is already won (three in a row). The next player can then play in all boards that are not won yet. (marked with `!`)
+
+(_note: of course later in the game there would be the same amount of X's and O's on the board => this is just for illustration purposes_)
+```
+[!][!][!]   [O][ ][ ]   [!][!][!]
+[!][!][!]   [ ][O][ ]   [!][!][!]
+[!][!][!]   [ ][ ][O]   [!][!][!]
+
+[!][!][!]   [!][!][!]   [!][!][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+
+[!][!][!]   [!][!][!]   [!][X][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+```
 
 ## Demo
 
@@ -16,10 +74,6 @@ Here is a quick demo of me showing the game mechanics.
 You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
 
 <img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
-
-## Why
-
-This app was mainly made for learning how to use React, Redux and CSS Grid and also because I always wanted to make my own implementation of this game.
 
 ## Set up dev environment
 
