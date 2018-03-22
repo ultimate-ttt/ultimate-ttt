@@ -1,9 +1,9 @@
 // this not a finished board
 /*
- with the following situation: (empty = not finished)
- X X
-   O
-   O
+ with the following situation: ( . = not finished )
+ X X .
+ . O .
+ . O .
  */
 const unfinishedBoardMock = [
     {
