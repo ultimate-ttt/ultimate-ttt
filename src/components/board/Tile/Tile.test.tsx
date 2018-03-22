@@ -34,15 +34,27 @@ describe( 'Tile', () => {
         } );
 
         it( 'should have a big XSymbol child if it is big and the Value is X', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true}
-                                             isBig={true} value={TileValue.Cross}/> );
+            const component = shallow( (
+                                           <Tile
+                                               isClickable={false}
+                                               isCircle={true}
+                                               isBig={true}
+                                               value={TileValue.Cross}
+                                           />)
+            );
             expect( component.children( 'XSymbol' ) ).toHaveLength( 1 );
             expect( component.children( 'XSymbol' ).prop( 'bigSymbol' ) ).toEqual( true );
         } );
 
         it( 'should have a big OSymbol child if it is big and the Value is O', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true}
-                                             isBig={true} value={TileValue.Circle}/> );
+            const component = shallow( (
+                                           <Tile
+                                               isClickable={false}
+                                               isCircle={true}
+                                               isBig={true}
+                                               value={TileValue.Circle}
+                                           />)
+            );
             expect( component.children( 'OSymbol' ) ).toHaveLength( 1 );
             expect( component.children( 'OSymbol' ).prop( 'bigSymbol' ) ).toEqual( true );
         } );
@@ -50,10 +62,17 @@ describe( 'Tile', () => {
 
     describe( 'click event', () => {
         it( 'should call the click method if it is clickable and it was clicked', () => {
+            // tslint:disable:no-empty
             const tileClicked = jest.fn( () => {
+
             } );
-            const component = shallow( <Tile isClickable={true} isCircle={true}
-                                             value={TileValue.Empty} onTileClicked={tileClicked}/> );
+            const component = shallow( (
+                                           <Tile
+                                               isClickable={true}
+                                               isCircle={true}
+                                               value={TileValue.Empty}
+                                               onTileClicked={tileClicked}
+                                           />) );
 
             component.simulate( 'click' );
             expect( tileClicked ).toHaveBeenCalledTimes( 1 );
@@ -62,8 +81,13 @@ describe( 'Tile', () => {
         it( 'should NOT call the click method if it is clicked and it is not clickable', () => {
             const tileClicked = jest.fn( () => {
             } );
-            const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Empty}
-                                             onTileClicked={tileClicked}/> );
+            const component = shallow( (
+                                           <Tile
+                                               isClickable={false}
+                                               isCircle={true}
+                                               value={TileValue.Empty}
+                                               onTileClicked={tileClicked}
+                                           />) );
 
             component.simulate( 'click' );
             expect( tileClicked ).toHaveBeenCalledTimes( 0 );
