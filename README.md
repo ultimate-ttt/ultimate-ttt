@@ -11,8 +11,7 @@ This is a board game made with React & Redux.
 ## Game Rules
 There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
 
-But here's the **twist**
-
+But here's the **twist:**
 _Every move on a small board sends the opponent to the equivalent on the big board._
 
 ### Practical Example
