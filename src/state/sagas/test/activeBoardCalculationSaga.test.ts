@@ -3,14 +3,14 @@ import { select } from 'redux-saga/effects';
 import { getBoards } from '../../selectors/AppStateSelectors';
 import { CALCULATE_ALLOWED_BOARDS, SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
 import activeBoardsCalculationSaga from '../activeBoardsCalculationSaga';
-import finishedBoardMock from './finishedBoardMock';
 import unfinishedBoardMock from './unfinishedBoardMock';
+import { circleFinishedBoardMock } from './finishedBoardMock';
 
 describe( 'activeBoardCalculationSaga', () => {
     it( 'should dispatch setAllowedBoard Action, normal case', () => {
         return expectSaga( activeBoardsCalculationSaga )
             .provide( [
-                          [select( getBoards ), finishedBoardMock]
+                          [select( getBoards ), circleFinishedBoardMock]
                       ] )
             .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
             .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} )
@@ -35,7 +35,7 @@ describe( 'activeBoardCalculationSaga', () => {
     it( 'should match snapshot', () => {
         return expectSaga( activeBoardsCalculationSaga )
             .provide( [
-                          [select( getBoards ), finishedBoardMock]
+                          [select( getBoards ), circleFinishedBoardMock]
                       ] )
             .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
             .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} ) // TODO maybe this needs to be switched to 0,2
