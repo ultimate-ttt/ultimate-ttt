@@ -1,37 +1,47 @@
-// import { expectSaga } from 'redux-saga-test-plan';
-// import { CALCULATE_BOARD_VALUE, SET_BOARD_VALUE } from '../../board/boardActions';
-// import { select } from 'redux-saga/effects';
-// import { getBoards } from '../../selectors/AppStateSelectors';
-// import boardStateMock from './boardMock.test';
-// import boardCalculationSaga from '../boardCalculationSaga';
+import { expectSaga } from 'redux-saga-test-plan';
+import { select } from 'redux-saga/effects';
+import { getBoards } from '../../selectors/AppStateSelectors';
+import { CALCULATE_ALLOWED_BOARDS, SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
+import activeBoardsCalculationSaga from '../activeBoardsCalculationSaga';
+import finishedBoardMock from './finishedBoardMock';
+import unfinishedBoardMock from './unfinishedBoardMock';
 
 describe( 'activeBoardCalculationSaga', () => {
     it( 'should dispatch setAllowedBoard Action, normal case', () => {
-        // return expectSaga( boardCalculationSaga )
-        //     .provide([
-        //                  [select(getBoards), boardStateMock]
-        //              ])
-        //     .put({type: SET_BOARD_VALUE, payload: {boardPosition: {x: 1, y: 0}, tileValue: Player.Cross}})
-        //     .dispatch( {type: CALCULATE_BOARD_VALUE, payload: {x: 1, y: 0}} ) // TODO maybe this needs to be switched to 0,1
-        //     .run();
+        return expectSaga( activeBoardsCalculationSaga )
+            .provide( [
+                          [select( getBoards ), finishedBoardMock]
+                      ] )
+            .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
+            .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} )
+            .run();
     } );
 
-    it('should set allowedBoards to all unfinished small boards when small board the last move points to is finished',
-       () => {
-
-    });
-
+    it( 'should set allowedBoards to all unfinished small boards when small board the last move points to is finished',
+        () => {
+            // these values depend on the unfinished board mock.
+            return expectSaga( activeBoardsCalculationSaga )
+                .provide( [
+                              [select( getBoards ), unfinishedBoardMock]
+                          ] )
+                .put( {
+                          type: SET_ALLOWED_BOARDS,
+                          payload: [{x: 0, y: 2}, {x: 1, y: 0}, {x: 1, y: 2}, {x: 2, y: 0}, {x: 2, y: 2}]} )
+                .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 1}} )
+                .run();
+        } );
 
     // if more put effects happen: this catches it + this checks for the order
-    it('should match snapshot', () => {
-        // return expectSaga(boardCalculationSaga)
-        //     .provide([
-        //                  [select(getBoards), boardStateMock]
-        //              ])
-        //     .dispatch( {type: CALCULATE_BOARD_VALUE, payload: {x: 2, y: 1}} )
-        //     .run()
-        //     .then((result) => {
-        //         expect(result.toJSON()).toMatchSnapshot();
-        //     });
-    });
+    it( 'should match snapshot', () => {
+        return expectSaga( activeBoardsCalculationSaga )
+            .provide( [
+                          [select( getBoards ), finishedBoardMock]
+                      ] )
+            .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
+            .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} ) // TODO maybe this needs to be switched to 0,2
+            .run()
+            .then( ( result ) => {
+                expect( result.toJSON() ).toMatchSnapshot();
+            } );
+    } );
 } );

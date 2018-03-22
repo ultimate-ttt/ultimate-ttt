@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoveValidationSage should match snapshot 1`] = `
+exports[`MoveValidationSaga should match snapshot 1`] = `
 Object {
   "fork": Array [
     Object {
