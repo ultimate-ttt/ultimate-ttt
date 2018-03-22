@@ -99,14 +99,6 @@ And finally start the app
 yarn start
 ```
 
-## Deployment
-
-To deploy the latest version to GitHub Pages
-
-```
-yarn deploy
-```
-
 ## Contribute
 
 Contributions are welcome via pull requests.
