@@ -1,15 +1,29 @@
 import { Point } from '../util/Point';
 
 export interface AppState {
-    tiles: Tile[];
-    game: {currentPlayer: Player};
+    board: SmallBoardInformation[];
+    game: GameState;
     moves: Move[];
+    activeBoards: Point[];
 }
 
-export interface Tile {
-    bigBoardPoint: Point;
-    smallBoardPoint: Point;
+export interface GameState {
+    currentPlayer: Player;
+    isFinished: boolean;
+    winningPlayer?: Player | undefined;
+}
+
+export interface TileInformation {
+    position: Point;
     value: TileValue;
+}
+
+export interface SmallBoardInformation extends TileInformation {
+    tiles: SmallTileInformation[];
+}
+
+export interface SmallTileInformation extends TileInformation {
+    boardPosition: Point;
 }
 
 export enum TileValue {
@@ -25,8 +39,8 @@ export enum Player {
 }
 
 export interface Move {
-    bigBoardPoint: Point;
-    smallBoardPoint: Point;
+    boardPosition: Point;
+    tilePosition: Point;
     player: Player;
     moveNumber: number;
 }

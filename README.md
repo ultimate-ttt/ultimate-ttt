@@ -8,37 +8,96 @@
 
 This is a board game made with React & Redux. 
 
-The game consists of nine tic-tac-toe boards arranged in a 3x3 grid. Every move on a small board sends the opponent to an equivalent on the big board. If you win a small board you get a position on the big board. And with three small boards in a row you win the game. [Wikipedia](https://en.m.wikipedia.org/wiki/Ultimate_tic-tac-toe)
+## Game Rules
+There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
+
+But here's the **twist:**
+_Every move on a small board sends the opponent to the equivalent on the big board._
+
+### Practical Example
+Let's say we have this big board with 9 small boards. (the initial game state)
+
+```
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+```
+And the first player makes this move in one of the small boards:
+```
+[ ][X][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+```
+The second player can in the next turn only play in the tiles that are marked with a `!`. This are tiles from the small board that is equivalent to the position of the last move. 
+```
+[ ][ ][ ]   [!][!][!]   [ ][ ][ ]
+[ ][ ][ ]   [!][!][!]   [ ][ ][ ]
+[ ][ ][ ]   [!][!][!]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+
+[ ][ ][ ]   [ ][ ][ ]   [ ][X][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+[ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
+```
+
+But let's say that we are already later in the game and this board is already won (three in a row). The next player can then play in all boards that are not won yet. (marked with `!`)
+
+(_note: of course later in the game there would be the same amount of X's and O's on the board => this is just for illustration purposes_)
+```
+[!][!][!]   [O][ ][ ]   [!][!][!]
+[!][!][!]   [ ][O][ ]   [!][!][!]
+[!][!][!]   [ ][ ][O]   [!][!][!]
+
+[!][!][!]   [!][!][!]   [!][!][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+
+[!][!][!]   [!][!][!]   [!][X][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+[!][!][!]   [!][!][!]   [!][!][!]
+```
 
 ## Demo
 
 Here is a quick demo of me showing the game mechanics.
 You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
 
-<img src="https://user-images.githubusercontent.com/16801528/36629951-37a825b2-195e-11e8-95f7-9c52f95695ec.gif" width="500">
+<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
 
 ## Set up dev environment
-### Prerequisites
 
-- [NodeJS](https://nodejs.org/en/)
-- [yarn](https://yarnpkg.com/en/docs/install)
+Install yarn if you haven't already
 
-### Actual Set up
+For macOS via Homebrew: (see [here](https://yarnpkg.com/en/docs/install) for other platforms/ways)
+```
+brew install yarn
+```
 
 Install dependencies
 ```
 yarn install
 ```
 
-Now you can run the tests and start the app 
+Check if everything works correctly 
 ```
 yarn test
-yarn start
 ```
 
-## Deployment
-
-When checking in/merging to master, the latest version of the app gets automatically deployed to Github Pages.
+And finally start the app
+```
+yarn start
+```
 
 ## Contribute
 

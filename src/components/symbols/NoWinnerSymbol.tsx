@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
-import * as classNames from 'classnames';
 
 interface NoWinnerSymbolProps {
 }
@@ -16,14 +15,8 @@ export class NoWinnerSymbol extends React.Component<NoWinnerSymbolProps, NoWinne
     }
 
     render() {
-        var iconClass = classNames({
-                                       'material-icons': true,
-                                       'big-symbol': true,
-                                       'no-winner': true,
-                                       'animate-no-winner-big-symbol': true
-                                   });
         return (
-            <i className={iconClass}>remove</i>
+            <i className="material-icons big-symbol no-winner animate-no-winner-big-symbol">remove</i>
         );
     }
 }
