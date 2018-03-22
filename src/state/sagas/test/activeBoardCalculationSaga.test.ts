@@ -17,7 +17,8 @@ describe( 'activeBoardCalculationSaga', () => {
             .run();
     } );
 
-    it( 'should set allowedBoards to all unfinished small boards when small board the last move points to is finished',
+    it( 'should set allowedBoards to all unfinished small boards ' +
+        'when small board the last move points to is finished',
         () => {
             // these values depend on the unfinished board mock.
             return expectSaga( activeBoardsCalculationSaga )
@@ -38,7 +39,8 @@ describe( 'activeBoardCalculationSaga', () => {
                           [select( getBoards ), circleFinishedBoardMock]
                       ] )
             .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
-            .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} ) // TODO maybe this needs to be switched to 0,2
+            .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} )
+            // TODO maybe this needs to be switched to 0,2
             .run()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
