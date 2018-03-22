@@ -15,7 +15,8 @@ But here's the **twist**
 
 _Every move on a small board sends the opponent to the equivalent on the big board._
 
-**Example:** Let's say we have this big board with 9 small boards. (the initial game state)
+### Practical Example
+Let's say we have this big board with 9 small boards. (the initial game state)
 
 ```
 [ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
