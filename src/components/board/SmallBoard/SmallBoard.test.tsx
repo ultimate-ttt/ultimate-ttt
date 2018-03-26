@@ -20,7 +20,6 @@ describe( 'SmallBoard', () => {
 
         } );
 
-        // TODO: I think this can be safely removed from the AppState and SmallTileInformation. Isn't get needed.
         const boardPosition = {x: 0, y: 0};
         // TODO: switch x and y in some of the tiles? Depends on issue #22
         const smallTileInformation = [
@@ -66,6 +65,7 @@ describe( 'SmallBoard', () => {
         expect( component.children( 'Tile' ) ).toHaveLength( 9 );
         expect( component.children( 'Tile' ).at( 1 ).prop( 'value' ) ).toEqual( TileValue.Cross );
         expect( component.children( 'Tile' ).at( 8 ).prop( 'value' ) ).toEqual( TileValue.Circle );
+        expect( component.children( 'Tile' ).findWhere( tile => tile.key().length > 0 ) ).toHaveLength( 9 );
     } );
 
     it( 'should make tiles not clickable if they are full', () => {
@@ -133,9 +133,9 @@ describe( 'SmallBoard', () => {
 
         const boardPosition = {x: 2, y: 2};
         const smallTileInformation = [
-            getSmallTile( boardPosition, {x: 0, y: 0}, TileValue.Empty ),
-            getSmallTile( boardPosition, {x: 0, y: 1}, TileValue.Empty ),
-            getSmallTile( boardPosition, {x: 0, y: 2}, TileValue.Empty ),
+            getSmallTile( boardPosition, {x: 0, y: 0}, TileValue.Cross ),
+            getSmallTile( boardPosition, {x: 0, y: 1}, TileValue.Cross ),
+            getSmallTile( boardPosition, {x: 0, y: 2}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 1, y: 0}, TileValue.Empty ),
             getSmallTile( boardPosition, {x: 1, y: 1}, TileValue.Empty ),
             getSmallTile( boardPosition, {x: 1, y: 2}, TileValue.Empty ),
@@ -204,7 +204,32 @@ describe( 'SmallBoard', () => {
                     .findWhere( tile => tile.prop( 'isCircle' ) === true ) ).toHaveLength( 9 );
     } );
 
-    it( 'should call onTileClicked if tile was clicked', () => {
+    it( 'should have class small-board-finished when small board is finished', () => {
+        // tslint:disable:no-empty
+        const clicked = jest.fn( () => {
+
+        } );
+
+        const boardPosition = {x: 2, y: 2};
+        const smallTileInformation = [
+            getSmallTile( boardPosition, {x: 0, y: 0}, TileValue.Cross ),
+            getSmallTile( boardPosition, {x: 0, y: 1}, TileValue.Cross ),
+            getSmallTile( boardPosition, {x: 0, y: 2}, TileValue.Cross ),
+            getSmallTile( boardPosition, {x: 1, y: 0}, TileValue.Empty ),
+            getSmallTile( boardPosition, {x: 1, y: 1}, TileValue.Empty ),
+            getSmallTile( boardPosition, {x: 1, y: 2}, TileValue.Empty ),
+            getSmallTile( boardPosition, {x: 2, y: 0}, TileValue.Empty ),
+            getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
+            getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
+        ];
+        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Cross}
+                                               tiles={smallTileInformation}
+                                               currentPlayer={Player.Cross} isMoveAllowed={false} x={2} y={2}/> );
+
+        expect( component.hasClass( 'small-board-finished' ) ).toBe( true );
+    } );
+
+    it( 'should have class small-board in normal state', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
 
@@ -224,14 +249,8 @@ describe( 'SmallBoard', () => {
         ];
         const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
                                                tiles={smallTileInformation}
-                                               currentPlayer={Player.Circle} isMoveAllowed={true} x={2} y={2}/> );
+                                               currentPlayer={Player.Cross} isMoveAllowed={false} x={2} y={2}/> );
 
-        component.children('Tile').at(0).simulate('click');
-        // TODO click simulation doesn't work yet.
-        expect( clicked).toHaveBeenCalledTimes(1);
+        expect( component.hasClass( 'small-board' ) ).toBe( true );
     } );
-
-    it('should have class small-board-finished when small board is finished');
-
-    it('should have class small-board in normal state');
 } );
