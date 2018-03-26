@@ -17,12 +17,12 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
 
     render() {
         const {bigSymbol} = this.props;
-        var iconClass = classNames({
+        var iconClass = classNames( {
                                         'material-icons o': true,
                                         'big-symbol': bigSymbol,
                                         'animate-o': !bigSymbol,
                                         'animate-o-big-symbol': bigSymbol
-                                      });
+                                    } );
 
         return (
             <i className={iconClass}>panorama_fish_eye</i>

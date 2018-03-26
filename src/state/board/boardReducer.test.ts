@@ -6,7 +6,7 @@ import { arePointsEqual } from '../../util';
 describe( 'boardReducer', () => {
 
     it( 'should return init state', () => {
-        let initState = boardReducer( undefined, {type: 'init'} );
+        const initState = boardReducer( undefined, {type: 'init'} );
         expect( initState ).not.toBeNull();
         expect( initState ).not.toBeUndefined();
     } );
@@ -15,7 +15,7 @@ describe( 'boardReducer', () => {
         const boardPosition = {x: 0, y: 0};
         const tilePosition = {x: 0, y: 0};
         const action = setTileValue( boardPosition, tilePosition, TileValue.Circle );
-        let newState = boardReducer( undefined, action );
+        const newState = boardReducer( undefined, action );
 
         const foundBoard = newState.find((board) => {
             return arePointsEqual(board.position, boardPosition);
@@ -33,7 +33,7 @@ describe( 'boardReducer', () => {
         const boardPosition = {x: 0, y: 0};
         const tilePosition = {x: 0, y: 0};
         const action = setTileValue( boardPosition, tilePosition, TileValue.Cross );
-        let newState = boardReducer( undefined, action );
+        const newState = boardReducer( undefined, action );
 
         const foundBoard = newState.find((board) => {
             return arePointsEqual(board.position, boardPosition);
