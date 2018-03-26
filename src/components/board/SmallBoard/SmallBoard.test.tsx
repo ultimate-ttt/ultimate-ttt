@@ -43,7 +43,6 @@ describe( 'SmallBoard', () => {
     it( 'should display 9 tiles with the given values', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 1, y: 1};
@@ -71,7 +70,6 @@ describe( 'SmallBoard', () => {
     it( 'should make tiles not clickable if they are full', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 1, y: 1};
@@ -90,18 +88,14 @@ describe( 'SmallBoard', () => {
                                                tiles={smallTileInformation}
                                                currentPlayer={Player.Cross} isMoveAllowed={true} x={1} y={1}/> );
 
-        expect( component.children( 'Tile' ).at( 1 )
-                    .prop( 'isClickable' ) ).toEqual( false );
-        expect( component.children( 'Tile' ).at( 4 )
-                    .prop( 'isClickable' ) ).toEqual( false );
-        expect( component.children( 'Tile' ).at( 8 )
-                    .prop( 'isClickable' ) ).toEqual( false );
+        expect( component.children( 'Tile' ).at( 1 ).prop( 'isClickable' ) ).toEqual( false );
+        expect( component.children( 'Tile' ).at( 4 ).prop( 'isClickable' ) ).toEqual( false );
+        expect( component.children( 'Tile' ).at( 8 ).prop( 'isClickable' ) ).toEqual( false );
     } );
 
     it( 'should make tiles not clickable if the move is not allowed', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 2, y: 2};
@@ -128,7 +122,6 @@ describe( 'SmallBoard', () => {
     it( 'should only add one tile if the board is won and that should be a big tile', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 2, y: 2};
@@ -155,7 +148,6 @@ describe( 'SmallBoard', () => {
     it( 'should add isCircle=false when currentPlayer is Cross', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 2, y: 2};
@@ -181,7 +173,6 @@ describe( 'SmallBoard', () => {
     it( 'should add isCircle=true when currentPlayer is Circle', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 2, y: 2};
@@ -207,7 +198,6 @@ describe( 'SmallBoard', () => {
     it( 'should have class small-board-finished when small board is finished', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 2, y: 2};
@@ -232,7 +222,6 @@ describe( 'SmallBoard', () => {
     it( 'should have class small-board in normal state', () => {
         // tslint:disable:no-empty
         const clicked = jest.fn( () => {
-
         } );
 
         const boardPosition = {x: 2, y: 2};
