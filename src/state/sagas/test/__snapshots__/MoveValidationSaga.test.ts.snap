@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoveValidationSaga should match snapshot 1`] = `
+Object {
+  "fork": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "game/player-moved",
+          "@@redux-saga-test-plan/json/function/playerMoved",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          Object {
+            "payload": Object {
+              "boardPoint": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "tilePoint": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            "type": "game/player-moved",
+          },
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/<anonymous>",
+      },
+    },
+  ],
+  "put": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "payload": Object {
+            "bigBoardPoint": Object {
+              "x": 1,
+              "y": 1,
+            },
+            "player": 0,
+            "smallBoardPoint": Object {
+              "x": 2,
+              "y": 2,
+            },
+          },
+          "type": "move-reducer/move-registered",
+        },
+        "channel": null,
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "payload": Object {
+            "boardPosition": Object {
+              "x": 1,
+              "y": 1,
+            },
+            "tilePosition": Object {
+              "x": 2,
+              "y": 2,
+            },
+            "tileValue": 0,
+          },
+          "type": "tile-reducer/set-tile-value",
+        },
+        "channel": null,
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "payload": Object {},
+          "type": "game-reducer/player-changed",
+        },
+        "channel": null,
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "payload": Object {
+            "x": 1,
+            "y": 1,
+          },
+          "type": "tile-reducer/calculate-board-value",
+        },
+        "channel": null,
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "payload": Object {
+            "x": 2,
+            "y": 2,
+          },
+          "type": "activeBoardReducer/calculate-allowed-boards",
+        },
+        "channel": null,
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "type": "game/check-game-finished",
+        },
+        "channel": null,
+      },
+    },
+  ],
+  "select": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "SELECT": Object {
+        "args": Array [],
+        "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
+      },
+    },
+  ],
+  "take": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "game/player-moved",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "game/player-moved",
+      },
+    },
+  ],
+}
+`;
