@@ -33,9 +33,17 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Empty ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Empty ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={true} x={0} y={0}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={true}
+                                           x={0}
+                                           y={0}
+                                       />
+                                   ) );
 
         expect( component ).not.toBeNull();
     } );
@@ -57,9 +65,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Empty ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={true} x={1} y={1}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={true}
+                                           x={1}
+                                           y={1}
+                                       />) );
 
         expect( component.children( 'Tile' ) ).toHaveLength( 9 );
         expect( component.children( 'Tile' ).at( 1 ).prop( 'value' ) ).toEqual( TileValue.Cross );
@@ -84,9 +99,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Empty ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={true} x={1} y={1}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={true}
+                                           x={1}
+                                           y={1}
+                                       />) );
 
         expect( component.children( 'Tile' ).at( 1 ).prop( 'isClickable' ) ).toEqual( false );
         expect( component.children( 'Tile' ).at( 4 ).prop( 'isClickable' ) ).toEqual( false );
@@ -110,9 +132,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={false} x={2} y={2}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={false}
+                                           x={2}
+                                           y={2}
+                                       />) );
 
         expect( component.children( 'Tile' )
                     .findWhere( tile => tile.prop( 'isClickable' ) === false ) )
@@ -136,9 +165,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Cross}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={false} x={2} y={2}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Cross}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={false}
+                                           x={2}
+                                           y={2}
+                                       />) );
 
         expect( component.children( 'Tile' ) ).toHaveLength( 1 );
         expect( component.children( 'Tile' ).prop( 'isBig' ) ).toEqual( true );
@@ -162,9 +198,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={true} x={2} y={2}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={true}
+                                           x={2}
+                                           y={2}
+                                       />) );
 
         expect( component.children( 'Tile' )
                     .findWhere( tile => tile.prop( 'isCircle' ) === false ) ).toHaveLength( 9 );
@@ -187,9 +230,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Circle} isMoveAllowed={true} x={2} y={2}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Circle}
+                                           isMoveAllowed={true}
+                                           x={2}
+                                           y={2}
+                                       />) );
 
         expect( component.children( 'Tile' )
                     .findWhere( tile => tile.prop( 'isCircle' ) === true ) ).toHaveLength( 9 );
@@ -212,9 +262,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Cross}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={false} x={2} y={2}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Cross}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={false}
+                                           x={2}
+                                           y={2}
+                                       />) );
 
         expect( component.hasClass( 'small-board-finished' ) ).toBe( true );
     } );
@@ -236,9 +293,16 @@ describe( 'SmallBoard', () => {
             getSmallTile( boardPosition, {x: 2, y: 1}, TileValue.Cross ),
             getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
         ];
-        const component = shallow( <SmallBoard onTileClicked={clicked} winningPlayer={TileValue.Empty}
-                                               tiles={smallTileInformation}
-                                               currentPlayer={Player.Cross} isMoveAllowed={false} x={2} y={2}/> );
+        const component = shallow( (
+                                       <SmallBoard
+                                           onTileClicked={clicked}
+                                           winningPlayer={TileValue.Empty}
+                                           tiles={smallTileInformation}
+                                           currentPlayer={Player.Cross}
+                                           isMoveAllowed={false}
+                                           x={2}
+                                           y={2}
+                                       />) );
 
         expect( component.hasClass( 'small-board' ) ).toBe( true );
     } );
