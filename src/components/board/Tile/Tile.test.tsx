@@ -97,43 +97,42 @@ describe( 'Tile', () => {
     describe( 'how rounded it should be shown', () => {
         it( 'should have the square class if it is not a circle', () => {
             const component = shallow( <Tile isClickable={true} isCircle={false} value={TileValue.Empty}/> );
-            expect( component.hasClass('square') ).toBe(true);
-            expect( component.hasClass('circle')).toBe(false)
-            expect( component.hasClass('no-winner')).toBe(false);
+            expect( component.hasClass( 'square' ) ).toBe( true );
+            expect( component.hasClass( 'circle' ) ).toBe( false );
+            expect( component.hasClass( 'no-winner' ) ).toBe( false );
         } );
 
         it( 'should have the circle class if it is a circle', () => {
             const component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Empty}/> );
-            expect( component.hasClass('circle') ).toBe(true);
-            expect( component.hasClass('square') ).toBe(false);
-            expect( component.hasClass('no-winner') ).toBe(false);
+            expect( component.hasClass( 'circle' ) ).toBe( true );
+            expect( component.hasClass( 'square' ) ).toBe( false );
+            expect( component.hasClass( 'no-winner' ) ).toBe( false );
         } );
 
         it( 'should have the no-winner class if the tileValue is Destroyed', () => {
             let component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Destroyed}/> );
-            expect( component.hasClass('no-winner') ).toBe(true);
-            expect( component.hasClass('circle') ).toBe(false);
-            expect( component.hasClass('square') ).toBe(false);
-
+            expect( component.hasClass( 'no-winner' ) ).toBe( true );
+            expect( component.hasClass( 'circle' ) ).toBe( false );
+            expect( component.hasClass( 'square' ) ).toBe( false );
 
             component = shallow( <Tile isClickable={true} isCircle={false} value={TileValue.Destroyed}/> );
-            expect( component.hasClass('no-winner') ).toBe(true);
-            expect( component.hasClass('circle') ).toBe(false);
-            expect( component.hasClass('square') ).toBe(false);
+            expect( component.hasClass( 'no-winner' ) ).toBe( true );
+            expect( component.hasClass( 'circle' ) ).toBe( false );
+            expect( component.hasClass( 'square' ) ).toBe( false );
         } );
     } );
 
     describe( 'indicator or no indicator', () => {
         it( 'should have the indicator class if it is clickable', () => {
             const component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Empty}/> );
-            expect( component.hasClass('indicator') ).toBe(true);
-            expect( component.hasClass('normal') ).toBe(false);
+            expect( component.hasClass( 'indicator' ) ).toBe( true );
+            expect( component.hasClass( 'normal' ) ).toBe( false );
         } );
 
         it( 'should have the normal class if it is not clickable', () => {
             const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Empty}/> );
-            expect( component.hasClass('normal') ).toBe(true);
-            expect( component.hasClass('indicator') ).toBe(false);
+            expect( component.hasClass( 'normal' ) ).toBe( true );
+            expect( component.hasClass( 'indicator' ) ).toBe( false );
         } );
     } );
 

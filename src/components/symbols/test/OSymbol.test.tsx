@@ -29,6 +29,6 @@ describe( 'OSymbol', () => {
         const component = shallow( <OSymbol bigSymbol={true}/> );
         expect(component.find('i').hasClass('animate-o-big-symbol')).toBe(true);
         expect(component.find('i').hasClass('big-symbol')).toBe(true);
-        expect(component.find('i').hasClass('animate-o')).toBe(false)
+        expect(component.find('i').hasClass('animate-o')).toBe(false);
     } );
 } );

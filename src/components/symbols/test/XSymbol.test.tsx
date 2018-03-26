@@ -29,6 +29,6 @@ describe( 'XSymbol', () => {
         const component = shallow( <XSymbol bigSymbol={true}/> );
         expect(component.find('i').hasClass('animate-x-big-symbol')).toBe(true);
         expect(component.find('i').hasClass('big-symbol')).toBe(true);
-        expect(component.find('i').hasClass('animate-x')).toBe(false)
+        expect(component.find('i').hasClass('animate-x')).toBe(false);
     } );
 } );
