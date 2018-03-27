@@ -17,7 +17,7 @@ function* calculateWinningBoard( action: GenericAction ) {
 
     const winResult = getWinResult( affectedBoard );
     if (winResult.isFinished) {
-        const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer!, true );
+        const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer, true );
         yield put( setBoardValue( boardPoint, newSmallBoardTileValue ) );
     }
 }
