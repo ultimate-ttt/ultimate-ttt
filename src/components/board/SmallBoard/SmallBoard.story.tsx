@@ -15,8 +15,8 @@ function getSmallTile( boardPosition: Point, position: Point, value: TileValue )
 }
 
 stories.add( 'SmallBoard Empty', () => {
-    const clicked = (x: number, y: number) => {
-        console.log('clicked:' + x + y);
+    const clicked = ( x: number, y: number ) => {
+        console.log( 'clicked:' + x + y );
     };
     const boardPosition = {x: 0, y: 0};
     const smallTileInformation = [
@@ -36,16 +36,17 @@ stories.add( 'SmallBoard Empty', () => {
             onTileClicked={clicked}
             winningPlayer={TileValue.Empty}
             tiles={smallTileInformation}
-            currentPlayer={select('currentPlayer', Player,  Player.Circle)}
-            isMoveAllowed={boolean('isMoveAllowed', true)}
+            currentPlayer={select( 'currentPlayer', Player, Player.Circle )}
+            isMoveAllowed={boolean( 'isMoveAllowed', true )}
             x={0}
-            y={0} />
+            y={0}
+        />
     );
-});
+} );
 
 stories.add( 'SmallBoard With Values', () => {
-    const clicked = (x: number, y: number) => {
-        console.log('clicked: ' + x + y);
+    const clicked = ( x: number, y: number ) => {
+        console.log( 'clicked: ' + x + y );
     };
 
     const boardPosition = {x: 1, y: 1};
@@ -66,16 +67,17 @@ stories.add( 'SmallBoard With Values', () => {
             onTileClicked={clicked}
             winningPlayer={TileValue.Empty}
             tiles={smallTileInformation}
-            currentPlayer={select('currentPlayer', Player,  Player.Circle)}
-            isMoveAllowed={boolean('isMoveAllowed', true)}
+            currentPlayer={select( 'currentPlayer', Player, Player.Circle )}
+            isMoveAllowed={boolean( 'isMoveAllowed', true )}
             x={0}
-            y={0} />
+            y={0}
+        />
     );
-});
+} );
 
-stories.add('Smallboard won', () => {
-    const clicked = (x: number, y: number) => {
-        console.log('clicked:' + x + y);
+stories.add( 'Smallboard won', () => {
+    const clicked = ( x: number, y: number ) => {
+        console.log( 'clicked:' + x + y );
     };
 
     const boardPosition = {x: 2, y: 2};
@@ -91,7 +93,7 @@ stories.add('Smallboard won', () => {
         getSmallTile( boardPosition, {x: 2, y: 2}, TileValue.Circle ),
     ];
 
-    return(
+    return (
         <SmallBoard
             onTileClicked={clicked}
             winningPlayer={TileValue.Cross}
@@ -99,6 +101,7 @@ stories.add('Smallboard won', () => {
             currentPlayer={Player.Cross}
             isMoveAllowed={false}
             x={2}
-            y={2} />
+            y={2}
+        />
     );
-});
+} );
