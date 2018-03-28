@@ -38,7 +38,7 @@ describe( 'MoveValidationSaga', () => {
             .put( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 2}} )
             .put( {type: CHECK_GAME_FINISHED} )
             .dispatch( {type: PLAYER_MOVED, payload: {boardPoint: {x: 1, y: 1}, tilePoint: {x: 2, y: 2}}} )
-            .run();
+            .silentRun();
     } );
 
     // if more put effects happen: this catches it + this checks for the order
@@ -48,7 +48,7 @@ describe( 'MoveValidationSaga', () => {
                           [select( getCurrentPlayer ), Player.Cross]
                       ] )
             .dispatch( {type: PLAYER_MOVED, payload: {boardPoint: {x: 1, y: 1}, tilePoint: {x: 2, y: 2}}} )
-            .run()
+            .silentRun()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
             } );
