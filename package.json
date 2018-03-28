@@ -20,7 +20,7 @@
     "build": "react-scripts-ts build",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts-ts test --env=jsdom --coverage",
+    "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom='[\"src/**/*.{tsx,js,ts,jsx}\",\"!src/**/*.story.tsx\", \"!src/registerServiceWorker.js\", \"!src/index.js\"]'",
     "eject": "react-scripts-ts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
