@@ -9,7 +9,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-scripts-ts": "2.14.0",
+    "react-scripts-ts": "2.13.0",
     "react-tooltip": "^3.4.0",
     "redux": "^3.7.2",
     "redux-batched-actions": "^0.2.1",
