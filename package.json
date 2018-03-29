@@ -31,7 +31,7 @@
       "!<rootDir>/node_modules/",
       "!src/**/*.story.{js,jsx,ts,tsx}",
       "!src/index.{ts,tsx}",
-      "!src/**/*Mocks.{ts,tsx}",
+      "!src/**/*Mock.{ts,tsx}",
       "!src/registerServiceWorker.{ts,tsx}"
     ]
   },
