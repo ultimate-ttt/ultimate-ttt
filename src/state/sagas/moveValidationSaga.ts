@@ -3,7 +3,7 @@ import { changePlayer, checkGameFinished, PLAYER_MOVED, PlayerMovedAction } from
 import { registerMove } from '../moves/moveAction';
 import { calculateBoardValue, setTileValue } from '../board/boardActions';
 import { playerToTileValue } from '../../util';
-import { calculateActiveBoards } from '../activeBoards/activeBoardActions';
+import { calculateActiveBoards } from '../activeBoards/activeBoardsActions';
 import { getCurrentPlayer } from '../selectors/AppStateSelectors';
 
 function* playerMoved( action: PlayerMovedAction ) {
