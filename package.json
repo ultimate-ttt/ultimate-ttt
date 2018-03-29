@@ -20,10 +20,20 @@
     "build": "react-scripts-ts build",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom='[\"src/**/*.{tsx,js,ts,jsx}\",\"!src/**/*.story.tsx\", \"!src/registerServiceWorker.js\", \"!src/index.js\"]'",
+    "test": "react-scripts-ts test --env=jsdom --coverage",
     "eject": "react-scripts-ts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!src/**/*.story.{js,jsx,ts,tsx}",
+      "!src/index.{ts,tsx}",
+      "!src/**/*Mocks.{ts,tsx}",
+      "!src/registerServiceWorker.{ts,tsx}"
+    ]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.14",
