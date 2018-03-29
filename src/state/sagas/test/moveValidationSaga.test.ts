@@ -6,7 +6,7 @@ import { CHANGE_PLAYER, CHECK_GAME_FINISHED, PLAYER_MOVED } from '../../game/gam
 import { select } from 'redux-saga/effects';
 import { REGISTER_MOVE } from '../../moves/moveAction';
 import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../../board/boardActions';
-import { CALCULATE_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
+import { CALCULATE_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
 
 describe( 'moveValidationSaga', () => {
     it( 'should dispatch at least the following actions, order not tested', () => {
