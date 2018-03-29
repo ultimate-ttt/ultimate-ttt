@@ -2,9 +2,9 @@ language: node_js
 node_js:
   - "stable"
 script:
-  - npm install codecov -g
-  - npm test
-  - npm run build
+  - yarn global add codecov
+  - yarn test
+  - yarn build
 after_success:
   - codecov
 deploy:
