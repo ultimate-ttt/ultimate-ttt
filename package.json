@@ -25,6 +25,16 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!src/**/*.story.{js,jsx,ts,tsx}",
+      "!src/index.{ts,tsx}",
+      "!src/**/*Mock.{ts,tsx}",
+      "!src/registerServiceWorker.{ts,tsx}"
+    ]
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/addon-knobs": "^3.2.14",
@@ -53,6 +63,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^3.5.1",
-    "typescript": "^2.7.1"
+    "typescript": "^2.7.1",
+    "ts-jest": "22.4.2"
   }
 }
