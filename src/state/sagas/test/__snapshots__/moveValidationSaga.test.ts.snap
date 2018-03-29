@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoveValidationSaga should match snapshot 1`] = `
+exports[`moveValidationSaga should match snapshot 1`] = `
 Object {
   "fork": Array [
     Object {
@@ -20,11 +20,11 @@ Object {
         "args": Array [
           Object {
             "payload": Object {
-              "boardPoint": Object {
+              "boardPosition": Object {
                 "x": 1,
                 "y": 1,
               },
-              "tilePoint": Object {
+              "tilePosition": Object {
                 "x": 2,
                 "y": 2,
               },
@@ -43,12 +43,12 @@ Object {
       "PUT": Object {
         "action": Object {
           "payload": Object {
-            "bigBoardPoint": Object {
+            "boardPosition": Object {
               "x": 1,
               "y": 1,
             },
             "player": 0,
-            "smallBoardPoint": Object {
+            "tilePosition": Object {
               "x": 2,
               "y": 2,
             },
