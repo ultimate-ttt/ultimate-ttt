@@ -9,7 +9,7 @@ import { enableBatching } from 'redux-batched-actions';
 import activeBoardReducer from './activeBoards/activeBoardsReducer';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import playerMovedSaga from './sagas/MoveValidationSaga';
+import playerMovedSaga from './sagas/moveValidationSaga';
 import boardCalculationSaga from './sagas/boardCalculationSaga';
 import activeBoardsCalculationSaga from './sagas/activeBoardsCalculationSaga';
 import checkGameFinishedSaga from './sagas/checkGameFinishedSaga';
