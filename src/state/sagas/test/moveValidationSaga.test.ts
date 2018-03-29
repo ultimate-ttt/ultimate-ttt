@@ -8,7 +8,6 @@ import { REGISTER_MOVE } from '../../moves/moveAction';
 import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../../board/boardActions';
 import { CALCULATE_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
 
-// TODO: boardPoint / bigBoardPoint / boardPosition: einheitlicher Name. (Code Refactoring)
 describe( 'moveValidationSaga', () => {
     it( 'should dispatch at least the following actions, order not tested', () => {
         return expectSaga( playerMovedSaga )
@@ -19,8 +18,8 @@ describe( 'moveValidationSaga', () => {
                       type: REGISTER_MOVE,
                       payload:
                           {
-                              bigBoardPoint: {x: 1, y: 1},
-                              smallBoardPoint: {x: 2, y: 2},
+                              boardPosition: {x: 1, y: 1},
+                              tilePosition: {x: 2, y: 2},
                               player: Player.Cross
                           }
                   } )
@@ -36,7 +35,7 @@ describe( 'moveValidationSaga', () => {
             .put( {type: CALCULATE_BOARD_VALUE, payload: {x: 1, y: 1}} )
             .put( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 2}} )
             .put( {type: CHECK_GAME_FINISHED} )
-            .dispatch( {type: PLAYER_MOVED, payload: {boardPoint: {x: 1, y: 1}, tilePoint: {x: 2, y: 2}}} )
+            .dispatch( {type: PLAYER_MOVED, payload: {boardPosition: {x: 1, y: 1}, tilePosition: {x: 2, y: 2}}} )
             .run();
     } );
 
@@ -46,7 +45,7 @@ describe( 'moveValidationSaga', () => {
             .provide( [
                           [select( getCurrentPlayer ), Player.Cross]
                       ] )
-            .dispatch( {type: PLAYER_MOVED, payload: {boardPoint: {x: 1, y: 1}, tilePoint: {x: 2, y: 2}}} )
+            .dispatch( {type: PLAYER_MOVED, payload: {boardPosition: {x: 1, y: 1}, tilePosition: {x: 2, y: 2}}} )
             .run()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
