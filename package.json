@@ -25,6 +25,16 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!src/**/*.story.{js,jsx,ts,tsx}",
+      "!src/index.{ts,tsx}",
+      "!src/**/*Mocks.{ts,tsx}",
+      "!src/registerServiceWorker.{ts,tsx}"
+    ]
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/addon-knobs": "^3.2.14",
