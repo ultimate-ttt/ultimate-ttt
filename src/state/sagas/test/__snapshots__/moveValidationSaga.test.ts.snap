@@ -109,7 +109,7 @@ Object {
             "x": 2,
             "y": 2,
           },
-          "type": "activeBoardReducer/calculate-allowed-boards",
+          "type": "activeBoardsReducer/calculate-allowed-boards",
         },
         "channel": null,
       },
