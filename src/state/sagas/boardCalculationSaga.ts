@@ -6,19 +6,19 @@ import { arePointsEqual, playerToTileValue } from '../../util';
 import { getBoards } from '../selectors/AppStateSelectors';
 
 function* calculateWinningBoard( action: GenericAction ) {
-    const boardPoint = action.payload;
+    const boardPosition = action.payload;
 
     const boards = yield select( getBoards );
 
     const affectedBoard = boards.find(
         ( board: SmallBoardInformation ) =>
-            arePointsEqual( board.position, boardPoint )
+            arePointsEqual( board.position, boardPosition )
     ).tiles;
 
     const winResult = getWinResult( affectedBoard );
     if (winResult.isFinished) {
         const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer!, true );
-        yield put( setBoardValue( boardPoint, newSmallBoardTileValue ) );
+        yield put( setBoardValue( boardPosition, newSmallBoardTileValue ) );
     }
 }
 
