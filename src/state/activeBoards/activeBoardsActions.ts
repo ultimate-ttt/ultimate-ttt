@@ -1,7 +1,7 @@
 import { Point } from '../../util/Point';
 
-export const SET_ALLOWED_BOARDS = 'activeBoardReducer/set-allowed-boards';
-export const CALCULATE_ALLOWED_BOARDS = 'activeBoardReducer/calculate-allowed-boards';
+export const SET_ALLOWED_BOARDS = 'activeBoardsReducer/set-allowed-boards';
+export const CALCULATE_ALLOWED_BOARDS = 'activeBoardsReducer/calculate-allowed-boards';
 
 export const setAllowedBoards = ( boards: Point[], ) => ({
     type: SET_ALLOWED_BOARDS,
