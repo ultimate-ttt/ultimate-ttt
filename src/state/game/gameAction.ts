@@ -12,7 +12,7 @@ export const changePlayer = () => ({
     payload: {}
 });
 
-export const gameFinished = ( winningPlayer?: Player ) => ({
+export const gameFinished = ( winningPlayer?: Player | null ) => ({
     type: GAME_FINISHED,
     payload: winningPlayer
 });
