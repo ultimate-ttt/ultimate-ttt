@@ -8,10 +8,10 @@ const moveReducer = ( state = initialState, action: GenericAction ) => {
         case REGISTER_MOVE: {
             let clone = cloneState( state );
 
-            const {bigBoardPoint, smallBoardPoint, player} = action.payload;
+            const {boardPosition: boardPosition, tilePosition: tilePosition, player} = action.payload;
             clone.push( {
-                boardPosition: bigBoardPoint,
-                tilePosition: smallBoardPoint,
+                boardPosition: boardPosition,
+                tilePosition: tilePosition,
                 player: player,
                 moveNumber: clone.length + 1
             } );

@@ -1,6 +1,6 @@
 import { Player, TileValue } from '../state/AppState';
 
-export const playerToTileValue = ( player: Player, isForFullSmallBoard: boolean = false ) => {
+export const playerToTileValue = ( player: Player | null, isForFullSmallBoard: boolean = false ) => {
     if (player === Player.Cross) {
         return TileValue.Cross;
     } else if (player === Player.Circle) {

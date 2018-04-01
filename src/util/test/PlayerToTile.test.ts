@@ -5,7 +5,7 @@ describe( 'playerToTileValue', () => {
     it( 'should return an empty tile when player is null', () => {
         const input = null;
         const expectedResult = TileValue.Empty;
-        const actualResult = playerToTileValue( input! );
+        const actualResult = playerToTileValue( input );
         expect( actualResult ).toEqual( expectedResult );
     } );
 
@@ -26,7 +26,7 @@ describe( 'playerToTileValue', () => {
     it( 'should return TileValue Destroyed when player is null and small board is fulll', () => {
         const input = null;
         const expectedResult = TileValue.Destroyed;
-        const actualResult = playerToTileValue( input!, true );
+        const actualResult = playerToTileValue( input, true );
         expect( actualResult ).toEqual( expectedResult );
     } );
 

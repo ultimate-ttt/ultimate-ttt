@@ -4,7 +4,7 @@ import { getBoards } from '../../selectors/AppStateSelectors';
 import { select } from 'redux-saga/effects';
 import { CHECK_GAME_FINISHED, GAME_FINISHED } from '../../game/gameAction';
 import { Player } from '../../AppState';
-import { SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
+import { SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
 import { circleFinishedBoardMock, crossFinishedBoardMock } from './finishedBoardMock';
 import unfinishedBoardMock from './unfinishedBoardMock';
 
