@@ -1,4 +1,4 @@
-import { select, withKnobs, boolean } from '@storybook/addon-knobs';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { Tile } from './Tile';
@@ -17,6 +17,19 @@ stories.add( 'Tile Customisable', () => (
                 console.log( 'tile Clicked' );
             }}
             isClickable={boolean( 'Is Clickable', false )}
+        />
+    </div>
+) );
+
+stories.add( 'Tile Clickable', () => (
+    <div className="small-board">
+        <Tile
+            value={TileValue.Empty}
+            isCircle={boolean( 'isCircle', false )}
+            onTileClicked={() => {
+                console.log( 'tile Clicked' );
+            }}
+            isClickable={true}
         />
     </div>
 ) );
