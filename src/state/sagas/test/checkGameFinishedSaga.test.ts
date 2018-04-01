@@ -19,7 +19,7 @@ describe( 'checkGameFinishedSaga', () => {
                 .put( {type: GAME_FINISHED, payload: Player.Circle} )
                 .put( {type: SET_ALLOWED_BOARDS, payload: []} )
                 .dispatch( {type: CHECK_GAME_FINISHED} )
-                .run();
+                .silentRun();
         } );
 
     it( 'should dispatch gameFinished action with Cross and setAllowedBoards to no board ' +
@@ -32,7 +32,7 @@ describe( 'checkGameFinishedSaga', () => {
             .put( {type: GAME_FINISHED, payload: Player.Cross} )
             .put( {type: SET_ALLOWED_BOARDS, payload: []} )
             .dispatch( {type: CHECK_GAME_FINISHED} )
-            .run();
+            .silentRun();
     } );
 
     it( 'should dispatch no action if the game is not finished', () => {
@@ -41,7 +41,7 @@ describe( 'checkGameFinishedSaga', () => {
                           [select( getBoards ), unfinishedBoardMock]
                       ] )
             .dispatch( {type: CHECK_GAME_FINISHED} )
-            .run();
+            .silentRun();
     } );
 
     // if more put effects happen: this catches it + this checks for the order
@@ -51,7 +51,7 @@ describe( 'checkGameFinishedSaga', () => {
                           [select( getBoards ), circleFinishedBoardMock]
                       ] )
             .dispatch( {type: CHECK_GAME_FINISHED} )
-            .run()
+            .silentRun()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
             } );
