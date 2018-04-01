@@ -43,7 +43,7 @@ Object {
       "PUT": Object {
         "action": Object {
           "payload": Array [],
-          "type": "activeBoardReducer/set-allowed-boards",
+          "type": "activeBoardsReducer/set-allowed-boards",
         },
         "channel": null,
       },
