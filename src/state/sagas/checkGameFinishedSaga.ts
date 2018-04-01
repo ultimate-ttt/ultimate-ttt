@@ -13,7 +13,7 @@ function* checkIfGameFinished( action: GenericAction ) {
     const winningPlayer = winResult.winningPlayer;
 
     if (isGameFinished) {
-        yield put( gameFinished( winningPlayer! ) );
+        yield put( gameFinished( winningPlayer ) );
         yield put( setAllowedBoards( [] ) );
     }
 }
