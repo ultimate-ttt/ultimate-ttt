@@ -48,7 +48,7 @@ describe( 'SmallBoard', () => {
         expect( component ).not.toBeNull();
     } );
 
-    describe('unfinished smallboard', () => {
+    describe( 'unfinished smallboard', () => {
         it( 'should display 9 tiles with the given values', () => {
             // tslint:disable:no-empty
             const clicked = jest.fn( () => {
@@ -149,7 +149,6 @@ describe( 'SmallBoard', () => {
                 .toHaveLength( 9 );
         } );
 
-
         it( 'should add isCircle=false when currentPlayer is Cross', () => {
             // tslint:disable:no-empty
             const clicked = jest.fn( () => {
@@ -213,9 +212,9 @@ describe( 'SmallBoard', () => {
             expect( component.children( 'Tile' )
                         .findWhere( tile => tile.prop( 'isCircle' ) === true ) ).toHaveLength( 9 );
         } );
-    });
+    } );
 
-    describe('finished smallboard', () => {
+    describe( 'finished smallboard', () => {
 
         it( 'should only add one tile if the board is won and that should be a big tile', () => {
             // tslint:disable:no-empty
@@ -250,9 +249,9 @@ describe( 'SmallBoard', () => {
             expect( component.children( 'Tile' ).prop( 'value' ) ).toEqual( TileValue.Cross );
         } );
 
-    });
+    } );
 
-    describe('css classes', () => {
+    describe( 'css classes', () => {
 
         it( 'should have class small-board-finished when small board is finished', () => {
             // tslint:disable:no-empty
@@ -315,5 +314,5 @@ describe( 'SmallBoard', () => {
 
             expect( component.hasClass( 'small-board' ) ).toBe( true );
         } );
-    });
+    } );
 } );
