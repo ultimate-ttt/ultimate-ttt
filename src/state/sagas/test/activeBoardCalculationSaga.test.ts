@@ -1,7 +1,7 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 import { getBoards } from '../../selectors/AppStateSelectors';
-import { CALCULATE_ALLOWED_BOARDS, SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardActions';
+import { CALCULATE_ALLOWED_BOARDS, SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
 import activeBoardsCalculationSaga from '../activeBoardsCalculationSaga';
 import unfinishedBoardMock from './unfinishedBoardMock';
 import { circleFinishedBoardMock } from './finishedBoardMock';
@@ -14,7 +14,7 @@ describe( 'activeBoardCalculationSaga', () => {
                       ] )
             .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
             .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} )
-            .run();
+            .silentRun();
     } );
 
     it( 'should set allowedBoards to all unfinished small boards ' +
@@ -29,7 +29,7 @@ describe( 'activeBoardCalculationSaga', () => {
                           type: SET_ALLOWED_BOARDS,
                           payload: [{x: 0, y: 2}, {x: 1, y: 0}, {x: 1, y: 2}, {x: 2, y: 0}, {x: 2, y: 2}]} )
                 .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 1}} )
-                .run();
+                .silentRun();
         } );
 
     // if more put effects happen: this catches it + this checks for the order
@@ -41,7 +41,7 @@ describe( 'activeBoardCalculationSaga', () => {
             .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
             .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} )
             // TODO maybe this needs to be switched to 0,2
-            .run()
+            .silentRun()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
             } );

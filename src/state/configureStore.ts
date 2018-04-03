@@ -5,10 +5,10 @@ import boardReducer from './board/boardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import gameReducer from './game/gameReducer';
 import moveReducer from './moves/moveReducer';
-import activeBoardReducer from './activeBoards/activeBoardsReducer';
+import activeBoardsReducer from './activeBoards/activeBoardsReducer';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import playerMovedSaga from './sagas/MoveValidationSaga';
+import playerMovedSaga from './sagas/moveValidationSaga';
 import boardCalculationSaga from './sagas/boardCalculationSaga';
 import activeBoardsCalculationSaga from './sagas/activeBoardsCalculationSaga';
 import checkGameFinishedSaga from './sagas/checkGameFinishedSaga';
@@ -18,7 +18,7 @@ const rootreducer = combineReducers<AppState>(
         game: gameReducer,
         board: boardReducer,
         moves: moveReducer,
-        activeBoards: activeBoardReducer
+        activeBoards: activeBoardsReducer
     } );
 
 export function configureStore() {

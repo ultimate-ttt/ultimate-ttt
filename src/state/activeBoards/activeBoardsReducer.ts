@@ -1,6 +1,6 @@
 import { Point } from '../../util/Point';
 import { GenericAction } from '../AppState';
-import { SET_ALLOWED_BOARDS } from './activeBoardActions';
+import { SET_ALLOWED_BOARDS } from './activeBoardsActions';
 
 const getAllPoints = () => {
     let points: Point[] = [];
@@ -16,7 +16,7 @@ const getAllPoints = () => {
 
 const initialState: Point[] = getAllPoints();
 
-const activeBoardReducer = ( state = initialState, action: GenericAction ) => {
+const activeBoardsReducer = ( state = initialState, action: GenericAction ) => {
     switch (action.type) {
         case SET_ALLOWED_BOARDS: {
             return action.payload;
@@ -27,4 +27,4 @@ const activeBoardReducer = ( state = initialState, action: GenericAction ) => {
     }
 };
 
-export default activeBoardReducer;
+export default activeBoardsReducer;
