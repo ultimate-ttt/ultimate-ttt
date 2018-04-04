@@ -5,7 +5,6 @@ import boardReducer from './board/boardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import gameReducer from './game/gameReducer';
 import moveReducer from './moves/moveReducer';
-import { enableBatching } from 'redux-batched-actions';
 import activeBoardsReducer from './activeBoards/activeBoardsReducer';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
@@ -31,7 +30,7 @@ export function configureStore() {
         sagaMiddleware
     ];
     const middleware = applyMiddleware( ...middleWaresToApply );
-    const store = createStore( enableBatching( rootreducer ), composeWithDevTools(
+    const store = createStore( (rootreducer), composeWithDevTools(
         middleware
     ) );
 
@@ -44,9 +43,9 @@ function* rootSaga() {
     yield all(
         [
             fork( playerMovedSaga ),
-            fork(boardCalculationSaga),
-            fork(activeBoardsCalculationSaga),
-            fork(checkGameFinishedSaga)
+            fork( boardCalculationSaga ),
+            fork( activeBoardsCalculationSaga ),
+            fork( checkGameFinishedSaga )
         ]
     );
 }
