@@ -10,9 +10,7 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-scripts-ts": "2.14.0",
-    "react-tooltip": "^3.4.0",
     "redux": "^3.7.2",
-    "redux-batched-actions": "^0.2.1",
     "redux-saga": "^0.16.0"
   },
   "scripts": {
@@ -32,7 +30,8 @@
       "!src/**/*.story.{js,jsx,ts,tsx}",
       "!src/index.{ts,tsx}",
       "!src/**/*Mock.{ts,tsx}",
-      "!src/registerServiceWorker.{ts,tsx}"
+      "!src/registerServiceWorker.{ts,tsx}",
+      "!src/state/configureStore.ts"
     ]
   },
   "devDependencies": {
