@@ -1,6 +1,6 @@
 import * as React from 'react';
 import BigBoard from './board/BigBoard/BigBoard';
-import GameFinishedText from './GameFinished';
+import GameFinishedText from './GameFinishedText/GameFinishedText';
 
 interface AppProps {
 }

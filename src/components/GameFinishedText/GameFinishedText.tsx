@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppState, Player } from '../state/AppState';
+import { AppState, Player } from '../../state/AppState';
 import { connect } from 'react-redux';
 
 interface GameFinishedTextProps {
@@ -10,7 +10,7 @@ interface GameFinishedTextProps {
 interface GameFinishedTextState {
 }
 
-class GameFinishedText extends React.Component<GameFinishedTextProps, GameFinishedTextState> {
+export class GameFinishedText extends React.Component<GameFinishedTextProps, GameFinishedTextState> {
 
     constructor( props: GameFinishedTextProps ) {
         super( props );
@@ -19,11 +19,11 @@ class GameFinishedText extends React.Component<GameFinishedTextProps, GameFinish
     getPlayerText( player: Player, isGameFinished: boolean ) {
         if (isGameFinished) {
             if (player === Player.Circle) {
-                return 'Circle wins';
+                return 'Circle wins!';
             } else if (player === Player.Cross) {
-                return 'Cross wins';
+                return 'Cross wins!';
             } else {
-                return `It's a draw.`;
+                return `It's a draw!`;
             }
         }
         return '';
@@ -32,7 +32,7 @@ class GameFinishedText extends React.Component<GameFinishedTextProps, GameFinish
     render() {
         const {isGameFinished, winner} = this.props;
 
-        const text = isGameFinished ? 'Game Ends.' : '';
+        const text = isGameFinished ? 'Game Ends:' : '';
         const winnerText = this.getPlayerText( winner!, isGameFinished! );
 
         return (

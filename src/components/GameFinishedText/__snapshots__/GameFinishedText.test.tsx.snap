@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BigBoard should match snapshot when circle wins 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameFinishedText
+    isGameFinished={true}
+    winner={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "Game Ends:",
+        " ",
+        "Circle wins!",
+      ],
+      "className": "text-center",
+    },
+    "ref": null,
+    "rendered": Array [
+      "Game Ends:",
+      " ",
+      "Circle wins!",
+    ],
+    "type": "p",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Game Ends:",
+          " ",
+          "Circle wins!",
+        ],
+        "className": "text-center",
+      },
+      "ref": null,
+      "rendered": Array [
+        "Game Ends:",
+        " ",
+        "Circle wins!",
+      ],
+      "type": "p",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`BigBoard should match snapshot when cross wins 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameFinishedText
+    isGameFinished={true}
+    winner={0}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "Game Ends:",
+        " ",
+        "Cross wins!",
+      ],
+      "className": "text-center",
+    },
+    "ref": null,
+    "rendered": Array [
+      "Game Ends:",
+      " ",
+      "Cross wins!",
+    ],
+    "type": "p",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Game Ends:",
+          " ",
+          "Cross wins!",
+        ],
+        "className": "text-center",
+      },
+      "ref": null,
+      "rendered": Array [
+        "Game Ends:",
+        " ",
+        "Cross wins!",
+      ],
+      "type": "p",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`BigBoard should match snapshot when draw 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameFinishedText
+    isGameFinished={true}
+    winner={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "Game Ends:",
+        " ",
+        "It's a draw!",
+      ],
+      "className": "text-center",
+    },
+    "ref": null,
+    "rendered": Array [
+      "Game Ends:",
+      " ",
+      "It's a draw!",
+    ],
+    "type": "p",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Game Ends:",
+          " ",
+          "It's a draw!",
+        ],
+        "className": "text-center",
+      },
+      "ref": null,
+      "rendered": Array [
+        "Game Ends:",
+        " ",
+        "It's a draw!",
+      ],
+      "type": "p",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`BigBoard should match snapshot when no one wins 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameFinishedText
+    isGameFinished={false}
+    winner={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "",
+        " ",
+        "",
+      ],
+      "className": "text-center",
+    },
+    "ref": null,
+    "rendered": Array [
+      "",
+      " ",
+      "",
+    ],
+    "type": "p",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "",
+          " ",
+          "",
+        ],
+        "className": "text-center",
+      },
+      "ref": null,
+      "rendered": Array [
+        "",
+        " ",
+        "",
+      ],
+      "type": "p",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
