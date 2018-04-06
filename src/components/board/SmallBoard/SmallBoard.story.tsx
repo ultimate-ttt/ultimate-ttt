@@ -106,7 +106,6 @@ stories.add( 'Smallboard won cross', () => {
     );
 } );
 
-
 stories.add( 'Smallboard won circle', () => {
     const clicked = ( x: number, y: number ) => {
         console.log( 'clicked:' + x + y );
@@ -137,7 +136,6 @@ stories.add( 'Smallboard won circle', () => {
         />
     );
 } );
-
 
 stories.add( 'Smallboard won no winner', () => {
     const clicked = ( x: number, y: number ) => {
