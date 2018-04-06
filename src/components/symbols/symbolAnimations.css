@@ -1,4 +1,4 @@
-/*.animate-x-big-symbol {
+.animate-x-big-symbol {
     animation-duration: 0.75s;
     animation-name: add-icon-big-x;
 }
@@ -20,107 +20,60 @@
 
 @keyframes add-icon {
     0% {
-        font-size: 4.5rem;
+        font-size: 10vmin;
     }
     25% {
-        font-size: 1rem;
+        font-size: 2vmin;
     }
     50% {
-        font-size: 2.5rem;
+        font-size: 7vmin;
     }
     100% {
-        font-size: 1.5rem;
+        font-size: 5vmin;
     }
 }
 
 @keyframes add-icon-big-x {
     0% {
-        font-size: 18rem;
+        font-size: 39vmin;
     }
     25% {
-        font-size: 6rem;
+        font-size: 8vmin;
     }
     60% {
-        font-size: 13rem;
+        font-size: 29vmin;
     }
     100% {
-        font-size: 8rem;
+        font-size: 23vmin;
     }
 }
 
 @keyframes add-icon-big-o {
     0% {
-        font-size: 18rem;
+        font-size: 30vmin;
     }
     25% {
-        font-size: 5rem;
+        font-size: 8vmin;
     }
     60% {
-        font-size: 10rem;
+        font-size: 23vmin;
     }
     100% {
-        font-size: 6rem;
+        font-size: 17vmin;
     }
 }
 
 @keyframes add-icon-big-no-winner {
     0% {
-        font-size: 18rem;
+        font-size: 39vmin;
     }
     25% {
-        font-size: 5rem;
+        font-size: 8vmin;
     }
     60% {
-        font-size: 12rem;
+        font-size: 29vmin;
     }
     100% {
-        font-size: 10rem;
+        font-size: 23vmin;
     }
 }
-
-@media (min-width: 35em) {
-    @keyframes add-icon {
-        0% {
-            font-size: 4rem;
-        }
-        25% {
-            font-size: 1rem;
-        }
-        60% {
-            font-size: 2.5rem;
-        }
-        100% {
-            font-size: 2rem;
-        }
-    }
-
-    @keyframes add-icon-big-x {
-        0% {
-            font-size: 18rem;
-        }
-        25% {
-            font-size: 5rem;
-        }
-        60% {
-            font-size: 12rem;
-        }
-        100% {
-            font-size: 9rem;
-        }
-    }
-
-    @keyframes add-icon-big-o {
-        0% {
-            font-size: 18rem;
-        }
-        25% {
-            font-size: 5rem;
-        }
-        60% {
-            font-size: 12rem;
-        }
-        100% {
-            font-size: 8rem;
-        }
-    }
-}*/
