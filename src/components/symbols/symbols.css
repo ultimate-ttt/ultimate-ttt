@@ -1,11 +1,4 @@
-.material-icons.big-symbol.o { font-size: 6em; }
-.material-icons.big-symbol.x { font-size: 8em; }
-.material-icons.big-symbol.no-winner { font-size: 10em; }
-.material-icons { font-size: 1.5em; }
-
-@media(min-width: 35em) {
-    .material-icons.big-symbol.o { font-size: 8em; }
-    .material-icons.big-symbol.x { font-size: 9em; }
-    .material-icons.big-symbol.no-winner { font-size: 10em; }
-    .material-icons { font-size: 2em; }
-}
+.material-icons.big-symbol.o { font-size: 17vmin; }
+.material-icons.big-symbol.x { font-size: 23vmin; }
+.material-icons.big-symbol.no-winner { font-size: 23vmin; }
+.material-icons { font-size: 5vmin; }

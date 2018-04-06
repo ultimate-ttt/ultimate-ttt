@@ -1,14 +1,7 @@
-.big-board {
-    display: grid;
-    grid-template-columns: 12.5vh 12.5vh 12.5vh;
-    grid-template-rows: 12.5vh 12.5vh 12.5vh;
-    grid-gap: 2vh;
-}
 
-@media(min-width: 35em) {
     .big-board {
-        grid-template-columns: 20vh 20vh 20vh;
-        grid-template-rows: 20vh 20vh 20vh;
-        grid-gap: 4vh;
+        display: grid;
+        grid-template-columns: 20vmin 20vmin 20vmin;
+        grid-template-rows: 20vmin 20vmin 20vmin;
+        grid-gap: 2vmin;
     }
-}
