@@ -1,24 +1,13 @@
+
 .small-board {
     display: grid;
-    grid-template-columns: 3.5vh 3.5vh 3.5vh;
-    grid-template-rows: 3.5vh 3.5vh 3.5vh;
-    grid-gap: 1vh;
+    grid-template-columns: 6vmin 6vmin 6vmin;
+    grid-template-rows: 6vmin 6vmin 6vmin;
+    grid-gap: 1vmin;
 }
 
 .small-board-finished {
     display: grid;
-    grid-template-columns: 12.5vh;
-    grid-template-rows: 12.5vh;
-}
-
-@media(min-width: 35em) {
-    .small-board {
-        grid-template-columns: 6vh 6vh 6vh;
-        grid-template-rows: 6vh 6vh 6vh;
-    }
-
-    .small-board-finished {
-        grid-template-columns: 20vh;
-        grid-template-rows: 20vh;
-    }
+    grid-template-columns: 20vmin;
+    grid-template-rows: 20vmin;
 }
