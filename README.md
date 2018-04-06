@@ -101,7 +101,8 @@ yarn start
 
 ## Contribute
 
-Contributions are welcome via pull requests.
+Any type of feedback, pull request or issue is welcome.
+
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
