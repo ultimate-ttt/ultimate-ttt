@@ -75,33 +75,16 @@ You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-ti
 
 <img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
 
-## Set up dev environment
+## Run locally
+It's easy to run a local instance of this game - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
 
-Install yarn if you haven't already
-
-For macOS via Homebrew: (see [here](https://yarnpkg.com/en/docs/install) for other platforms/ways)
-```
-brew install yarn
-```
-
-Install dependencies
-```
-yarn install
-```
-
-Check if everything works correctly 
-```
-yarn test
-```
-
-And finally start the app
-```
-yarn start
-```
+- `yarn test` for tests
+- `yarn start` to run
+- `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
 
 ## Contribute
 
-Any type of feedback, pull request or issue is welcome.
+Any type of feedback, pull request or issue is welcome. Follow the "Run locally" section of this documentation to learn how to debug the project.
 
 
 ## License
