@@ -76,7 +76,7 @@ You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-ti
 <img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
 
 ## Supported browsers
-All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that is. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)
+All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that is. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
 
 ## Run locally
 It's easy to run a local instance of this game - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
