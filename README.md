@@ -6,7 +6,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/maracuja-juice/ultimate-tic-tac-react.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react/branch/master/graph/badge.svg)](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react)
 
-This is a board game made with React & Redux. 
+This is a board game made with React, Redux & CSS Grid. 
 
 ## Game Rules
 There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
@@ -70,38 +70,24 @@ But let's say that we are already later in the game and this board is already wo
 
 ## Demo
 
-Here is a quick demo of me showing the game mechanics.
+Here is a quick demo of the game mechanics.
 You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
 
 <img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
 
-## Set up dev environment
+## Supported browsers
+All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that is. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
 
-Install yarn if you haven't already
+## Run locally
+It's easy to run a local instance of this game - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
 
-For macOS via Homebrew: (see [here](https://yarnpkg.com/en/docs/install) for other platforms/ways)
-```
-brew install yarn
-```
-
-Install dependencies
-```
-yarn install
-```
-
-Check if everything works correctly 
-```
-yarn test
-```
-
-And finally start the app
-```
-yarn start
-```
+- `yarn test` for tests
+- `yarn start` to run
+- `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
 
 ## Contribute
 
-Any type of feedback, pull request or issue is welcome.
+Any type of feedback, pull request or issue is welcome. Follow the "Run locally" section of this documentation to learn how to debug the project.
 
 
 ## License
