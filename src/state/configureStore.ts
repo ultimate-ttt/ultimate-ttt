@@ -1,6 +1,5 @@
 import { AppState } from './AppState';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-import logger from 'redux-logger';
 import boardReducer from './board/boardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import gameReducer from './game/gameReducer';
@@ -26,9 +25,14 @@ export function configureStore() {
     const sagaMiddleware = createSagaMiddleware();
 
     const middleWaresToApply = [
-        logger,
         sagaMiddleware
     ];
+
+    if (process.env.NODE_ENV === `development`) {
+        const {logger} = require( `redux-logger` );
+        middleWaresToApply.push( logger );
+    }
+
     const middleware = applyMiddleware( ...middleWaresToApply );
     const store = createStore( (rootreducer), composeWithDevTools(
         middleware
