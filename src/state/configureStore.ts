@@ -1,7 +1,7 @@
 import { AppState } from './AppState';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import boardReducer from './board/boardReducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import gameReducer from './game/gameReducer';
 import moveReducer from './moves/moveReducer';
 import activeBoardsReducer from './activeBoards/activeBoardsReducer';
