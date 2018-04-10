@@ -1,4 +1,9 @@
-# Ultimate Tic Tac Toe
+<h1 align="center"> Ultimate Tic-Tac-Toe</h1>
+
+<p align="center">
+  <img src="https://github.com/maracuja-juice/ultimate-tic-tac-react/blob/master/public/android-chrome-192x192.png"
+width="150" />
+</p>
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues)
 [![Build Status](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react.svg?branch=master)](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react)
