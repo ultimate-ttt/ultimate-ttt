@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { AppState, Player } from '../../state/AppState';
 import { connect } from 'react-redux';
+import { XSymbol } from '../symbols/XSymbol';
+import { OSymbol } from '../symbols/OSymbol';
 
 interface GameFinishedTextProps {
     isGameFinished: boolean;
@@ -19,9 +21,9 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
     getPlayerText( player: Player, isGameFinished: boolean ) {
         if (isGameFinished) {
             if (player === Player.Circle) {
-                return 'Circle wins!';
+                return (<><OSymbol shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
-                return 'Cross wins!';
+                return (<><XSymbol shouldAnimate={false}/> wins!</>);
             } else {
                 return `It's a draw!`;
             }
@@ -32,12 +34,11 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
     render() {
         const {isGameFinished, winner} = this.props;
 
-        const text = isGameFinished ? 'Game Ends:' : '';
-        const winnerText = this.getPlayerText( winner!, isGameFinished! );
+        const winnerText = this.getPlayerText( winner, isGameFinished );
 
         return (
-            <p className="text-center">
-                {text} {winnerText}
+            <p className="text-center text-game-ends">
+                {winnerText}
             </p>
         );
     }
