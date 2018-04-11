@@ -3,6 +3,7 @@ import { AppState, Player } from '../../state/AppState';
 import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
+import { Confetti } from 'react-dom-confetti';
 
 interface GameFinishedTextProps {
     isGameFinished: boolean;
@@ -37,10 +38,14 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
         const winnerText = this.getPlayerText( winner, isGameFinished );
 
         return (
-            <p className="text-center text-game-ends">
-                {winnerText}
-            </p>
+            <>
+                <p className="text-center text-game-ends">
+                    {winnerText}
+                </p>
+                <Confetti active={isGameFinished} />
+            </>
         );
+
     }
 }
 
