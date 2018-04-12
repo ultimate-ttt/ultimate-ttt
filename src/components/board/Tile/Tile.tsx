@@ -10,7 +10,7 @@ import './tile.css';
 interface TileProps {
     onTileClicked?: () => void;
     value: TileValue;
-    isCircle: boolean;
+    isTileRound: boolean;
     isClickable: boolean;
     isBig?: boolean;
 }
@@ -41,10 +41,10 @@ export class Tile extends React.Component<TileProps, TileState> {
     }
 
     render() {
-        const {onTileClicked, isCircle, isClickable, value} = this.props;
+        const {onTileClicked, isTileRound, isClickable, value} = this.props;
         const color = isClickable ? 'indicator' : 'normal';
 
-        let roundness = isCircle ? 'circle' : 'square';
+        let roundness = isTileRound ? 'circle' : 'square';
         if (value === TileValue.Destroyed) {
             roundness = 'no-winner';
         }
