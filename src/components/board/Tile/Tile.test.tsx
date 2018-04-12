@@ -8,28 +8,28 @@ configure( {adapter: new ReactSixteenAdapter()} );
 
 describe( 'Tile', () => {
     it( 'should not explode', () => {
-        const component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Empty}/> );
+        const component = shallow( <Tile isClickable={true} isTileRound={true} value={TileValue.Empty}/> );
         expect( component ).not.toBeNull();
     } );
 
     describe( 'display of symbol', () => {
         it( 'should display an XSymbol if the value is X', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Cross}/> );
+            const component = shallow( <Tile isClickable={false} isTileRound={true} value={TileValue.Cross}/> );
             expect( component.children( 'XSymbol' ) ).toHaveLength( 1 );
         } );
 
         it( 'should display an OSymbol if the value is O', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Circle}/> );
+            const component = shallow( <Tile isClickable={false} isTileRound={true} value={TileValue.Circle}/> );
             expect( component.children( 'OSymbol' ) ).toHaveLength( 1 );
         } );
 
         it( 'should display nothing if the value is empty', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Empty}/> );
+            const component = shallow( <Tile isClickable={false} isTileRound={true} value={TileValue.Empty}/> );
             expect( component.children() ).toHaveLength( 0 );
         } );
 
         it( 'should display a no winner symbol if the value is destroyed', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Destroyed}/> );
+            const component = shallow( <Tile isClickable={false} isTileRound={true} value={TileValue.Destroyed}/> );
             expect( component.children( 'NoWinnerSymbol' ) ).toHaveLength( 1 );
         } );
 
@@ -37,7 +37,7 @@ describe( 'Tile', () => {
             const component = shallow( (
                                            <Tile
                                                isClickable={false}
-                                               isCircle={true}
+                                               isTileRound={true}
                                                isBig={true}
                                                value={TileValue.Cross}
                                            />)
@@ -50,7 +50,7 @@ describe( 'Tile', () => {
             const component = shallow( (
                                            <Tile
                                                isClickable={false}
-                                               isCircle={true}
+                                               isTileRound={true}
                                                isBig={true}
                                                value={TileValue.Circle}
                                            />)
@@ -69,7 +69,7 @@ describe( 'Tile', () => {
             const component = shallow( (
                                            <Tile
                                                isClickable={true}
-                                               isCircle={true}
+                                               isTileRound={true}
                                                value={TileValue.Empty}
                                                onTileClicked={tileClicked}
                                            />) );
@@ -84,7 +84,7 @@ describe( 'Tile', () => {
             const component = shallow( (
                                            <Tile
                                                isClickable={false}
-                                               isCircle={true}
+                                               isTileRound={true}
                                                value={TileValue.Empty}
                                                onTileClicked={tileClicked}
                                            />) );
@@ -96,26 +96,26 @@ describe( 'Tile', () => {
 
     describe( 'how rounded it should be shown', () => {
         it( 'should have the square class if it is not a circle', () => {
-            const component = shallow( <Tile isClickable={true} isCircle={false} value={TileValue.Empty}/> );
+            const component = shallow( <Tile isClickable={true} isTileRound={false} value={TileValue.Empty}/> );
             expect( component.hasClass( 'square' ) ).toBe( true );
             expect( component.hasClass( 'circle' ) ).toBe( false );
             expect( component.hasClass( 'no-winner' ) ).toBe( false );
         } );
 
         it( 'should have the circle class if it is a circle', () => {
-            const component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Empty}/> );
+            const component = shallow( <Tile isClickable={true} isTileRound={true} value={TileValue.Empty}/> );
             expect( component.hasClass( 'circle' ) ).toBe( true );
             expect( component.hasClass( 'square' ) ).toBe( false );
             expect( component.hasClass( 'no-winner' ) ).toBe( false );
         } );
 
         it( 'should have the no-winner class if the tileValue is Destroyed', () => {
-            let component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Destroyed}/> );
+            let component = shallow( <Tile isClickable={true} isTileRound={true} value={TileValue.Destroyed}/> );
             expect( component.hasClass( 'no-winner' ) ).toBe( true );
             expect( component.hasClass( 'circle' ) ).toBe( false );
             expect( component.hasClass( 'square' ) ).toBe( false );
 
-            component = shallow( <Tile isClickable={true} isCircle={false} value={TileValue.Destroyed}/> );
+            component = shallow( <Tile isClickable={true} isTileRound={false} value={TileValue.Destroyed}/> );
             expect( component.hasClass( 'no-winner' ) ).toBe( true );
             expect( component.hasClass( 'circle' ) ).toBe( false );
             expect( component.hasClass( 'square' ) ).toBe( false );
@@ -124,13 +124,13 @@ describe( 'Tile', () => {
 
     describe( 'indicator or no indicator', () => {
         it( 'should have the indicator class if it is clickable', () => {
-            const component = shallow( <Tile isClickable={true} isCircle={true} value={TileValue.Empty}/> );
+            const component = shallow( <Tile isClickable={true} isTileRound={true} value={TileValue.Empty}/> );
             expect( component.hasClass( 'indicator' ) ).toBe( true );
             expect( component.hasClass( 'normal' ) ).toBe( false );
         } );
 
         it( 'should have the normal class if it is not clickable', () => {
-            const component = shallow( <Tile isClickable={false} isCircle={true} value={TileValue.Empty}/> );
+            const component = shallow( <Tile isClickable={false} isTileRound={true} value={TileValue.Empty}/> );
             expect( component.hasClass( 'normal' ) ).toBe( true );
             expect( component.hasClass( 'indicator' ) ).toBe( false );
         } );
