@@ -29,6 +29,7 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
                 return `It's a draw!`;
             }
         }
+
         return '';
     }
 
@@ -37,22 +38,19 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
 
         let winnerText = this.getPlayerText( winner, isGameFinished );
 
-        const smallerText = {
-            'font-size': '3.5vmin'
-        };
-
         const confettiConfig = {
-            elementCount: 200,
-            spread: 200,
-            angle: 270
+            elementCount: 180,
+            spread: 360,
+            startVelocity: 25,
+            decay: 0.95
         };
 
         return (
             <div className="flex-middle">
-                <p style={smallerText}>
+                <p style={{fontSize: '3.5vmin'}}>
                     {winnerText}
                 </p>
-                <div>
+                <div className="center">
                     <Confetti config={confettiConfig} active={isGameFinished}/>
                 </div>
             </div>
