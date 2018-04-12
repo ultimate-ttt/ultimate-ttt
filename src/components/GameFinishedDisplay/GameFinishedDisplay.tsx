@@ -5,15 +5,15 @@ import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
 
-interface GameFinishedTextProps {
+interface GameFinishedDisplayProps {
     isGameFinished: boolean;
     winner: Player;
 }
 
-interface GameFinishedTextState {
+interface GameFinishedDisplayState {
 }
 
-export class GameFinishedDisplay extends React.Component<GameFinishedTextProps, GameFinishedTextState> {
+export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
 
     constructor( props: GameFinishedTextProps ) {
         super( props );
