@@ -2,10 +2,12 @@ import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
 import * as classNames from 'classnames';
+import { CSSProperties } from 'react';
 
 interface OSymbolProps {
     bigSymbol?: boolean;
     shouldAnimate?: boolean;
+    style?: CSSProperties;
 }
 
 interface OSymbolState {
@@ -22,7 +24,7 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
     }
 
     render() {
-        const {bigSymbol, shouldAnimate} = this.props;
+        const {bigSymbol, shouldAnimate, style} = this.props;
         var iconClass = classNames( {
                                         'material-icons o': true,
                                         'big-symbol': bigSymbol,
@@ -31,7 +33,7 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
                                     } );
 
         return (
-            <i className={iconClass}>panorama_fish_eye</i>
+            <i style={style} className={iconClass} aria-label="Circle Symbol">panorama_fish_eye</i>
         );
     }
 }

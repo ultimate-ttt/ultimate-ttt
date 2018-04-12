@@ -19,24 +19,39 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
         super( props );
     }
 
-    getPlayerText( player: Player, isGameFinished: boolean ) {
+    getWinnerText( player: Player, isGameFinished: boolean ) {
+
         if (isGameFinished) {
+            const fontSize = {
+                fontSize: '4.5vmin'
+            };
             if (player === Player.Circle) {
-                return (<><OSymbol shouldAnimate={false}/> wins!</>);
+                return (<><OSymbol style={fontSize} shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
-                return (<><XSymbol shouldAnimate={false}/> wins!</>);
+                return (<><XSymbol style={fontSize} shouldAnimate={false}/> wins!</>);
             } else {
                 return `It's a draw!`;
             }
         }
 
-        return '';
+        return <><XSymbol shouldAnimate={false}/>some text</>;
+    }
+
+    getHiddenStyle( isGameFinished: boolean ) {
+        if (!isGameFinished) {
+            return {
+                visibility: 'hidden'
+            };
+        }
+        return {};
     }
 
     render() {
         const {isGameFinished, winner} = this.props;
 
-        let winnerText = this.getPlayerText( winner, isGameFinished );
+        const winnerText = this.getWinnerText( winner, isGameFinished );
+        // so that the board doesn't go down when I show the winner text
+        const hiddenStyle = this.getHiddenStyle( isGameFinished );
 
         const confettiConfig = {
             elementCount: 180,
@@ -46,7 +61,7 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
         };
 
         return (
-            <div className="flex-middle">
+            <div className="flex-middle" style={hiddenStyle}>
                 <p style={{fontSize: '3.5vmin'}}>
                     {winnerText}
                 </p>

@@ -2,10 +2,12 @@ import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
 import * as classNames from 'classnames';
+import { CSSProperties } from 'react';
 
 interface XSymbolProps {
     bigSymbol?: boolean;
     shouldAnimate?: boolean;
+    style?: CSSProperties;
 }
 
 interface XSymbolState {
@@ -22,7 +24,7 @@ export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
     }
 
     render() {
-        const {bigSymbol, shouldAnimate} = this.props;
+        const {bigSymbol, shouldAnimate, style} = this.props;
         var iconClass = classNames( {
                                         'material-icons x': true,
                                         'big-symbol': bigSymbol,
@@ -30,7 +32,7 @@ export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
                                         'animate-x-big-symbol': bigSymbol && shouldAnimate
                                     } );
         return (
-            <i className={iconClass}>clear</i>
+            <i style={style} className={iconClass} aria-label="Cross Symbol">clear</i>
         );
     }
 }
