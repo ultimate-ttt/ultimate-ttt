@@ -6,7 +6,9 @@ html, body {
 
     overflow: hidden;
 
-    font-family: Ubuntu, Helvetica, "Helvetica Neue", sans-serif;
+    /* Got this from medium: https://medium.design/system-shock-6b1dc6d6596f */
+    font-family: -apple-system, ".SFNSText-Regular",
+    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 }
 
 .center {
@@ -27,25 +29,4 @@ html, body {
 
 .vertical-middle {
     vertical-align: middle;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Montserrat Regular'), url(//brick.a.ssl.fastly.net/fonts/montserrat/300.woff) format('woff')
-}
-
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Roboto-Regular'), url(//brick.a.ssl.fastly.net/fonts/roboto/400.woff) format('woff')
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Ubuntu'), url(//brick.a.ssl.fastly.net/fonts/ubuntu/400.woff) format('woff')
 }
