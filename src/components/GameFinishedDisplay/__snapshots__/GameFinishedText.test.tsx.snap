@@ -4,7 +4,7 @@ exports[`BigBoard should match snapshot when circle wins 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <GameFinishedText
+  Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
     winner={1}
   />,
@@ -71,7 +71,7 @@ exports[`BigBoard should match snapshot when cross wins 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <GameFinishedText
+  Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
     winner={0}
   />,
@@ -138,7 +138,7 @@ exports[`BigBoard should match snapshot when draw 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <GameFinishedText
+  Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
     winner={null}
   />,
@@ -205,7 +205,7 @@ exports[`BigBoard should match snapshot when no one wins 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <GameFinishedText
+  Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={false}
     winner={null}
   />,
