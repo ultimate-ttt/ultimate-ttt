@@ -20,7 +20,7 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
     }
 
     getPlayerText( player: Player, isGameFinished: boolean ) {
-       // if (isGameFinished) {
+        if (isGameFinished) {
             if (player === Player.Circle) {
                 return (<><OSymbol shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
@@ -28,8 +28,8 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
             } else {
                 return `It's a draw!`;
             }
-       // }
-        // return '';
+        }
+        return '';
     }
 
     render() {
@@ -37,13 +37,25 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
 
         let winnerText = this.getPlayerText( winner, isGameFinished );
 
+        const smallerText = {
+            'font-size': '3.5vmin'
+        };
+
+        const confettiConfig = {
+            elementCount: 200,
+            spread: 200,
+            angle: 270
+        };
+
         return (
-            <>
-                <p className="text-center text-game-ends">
+            <div className="flex-middle">
+                <p style={smallerText}>
                     {winnerText}
-                    <Confetti active={isGameFinished}/>
                 </p>
-            </>
+                <div>
+                    <Confetti config={confettiConfig} active={isGameFinished}/>
+                </div>
+            </div>
         );
 
     }
@@ -51,10 +63,7 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
 
 const mapStateToProps = ( state: AppState ) => ({
     isGameFinished: state.game.isFinished,
-    winner: state.game.winningPlayer
+    winner: state.game.winningPlayer,
 });
 
-// tslint:disable-next-line: no-any
-const mapDispatchToProps = ( dispatch: any ) => ({});
-
-export default connect( mapStateToProps, mapDispatchToProps )( GameFinishedText );
+export default connect( mapStateToProps )( GameFinishedText );

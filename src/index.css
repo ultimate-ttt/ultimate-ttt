@@ -20,8 +20,9 @@ html, body {
     text-align: center;
 }
 
-.text-game-ends {
-    font-size: 3.5vmin;
+.flex-middle {
+    display: flex;
+    justify-content: center;
 }
 
 .vertical-middle {
