@@ -3,7 +3,7 @@ import { AppState, Player } from '../../state/AppState';
 import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
-import { Confetti } from 'react-dom-confetti';
+import Confetti from 'react-dom-confetti';
 
 interface GameFinishedTextProps {
     isGameFinished: boolean;
@@ -20,7 +20,7 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
     }
 
     getPlayerText( player: Player, isGameFinished: boolean ) {
-        if (isGameFinished) {
+       // if (isGameFinished) {
             if (player === Player.Circle) {
                 return (<><OSymbol shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
@@ -28,21 +28,21 @@ export class GameFinishedText extends React.Component<GameFinishedTextProps, Gam
             } else {
                 return `It's a draw!`;
             }
-        }
-        return '';
+       // }
+        // return '';
     }
 
     render() {
         const {isGameFinished, winner} = this.props;
 
-        const winnerText = this.getPlayerText( winner, isGameFinished );
+        let winnerText = this.getPlayerText( winner, isGameFinished );
 
         return (
             <>
                 <p className="text-center text-game-ends">
                     {winnerText}
+                    <Confetti active={isGameFinished}/>
                 </p>
-                <Confetti active={isGameFinished} />
             </>
         );
 
