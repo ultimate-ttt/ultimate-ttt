@@ -13,7 +13,7 @@ interface GameFinishedTextProps {
 interface GameFinishedTextState {
 }
 
-export class GameFinishedText extends React.Component<GameFinishedTextProps, GameFinishedTextState> {
+export class GameFinishedDisplay extends React.Component<GameFinishedTextProps, GameFinishedTextState> {
 
     constructor( props: GameFinishedTextProps ) {
         super( props );
@@ -79,4 +79,4 @@ const mapStateToProps = ( state: AppState ) => ({
     winner: state.game.winningPlayer,
 });
 
-export default connect( mapStateToProps )( GameFinishedText );
+export default connect( mapStateToProps )( GameFinishedDisplay );
