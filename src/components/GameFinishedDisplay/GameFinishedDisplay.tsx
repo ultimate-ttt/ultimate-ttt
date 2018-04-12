@@ -15,7 +15,7 @@ interface GameFinishedDisplayState {
 
 export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
 
-    constructor( props: GameFinishedTextProps ) {
+    constructor( props: GameFinishedDisplayProps ) {
         super( props );
     }
 
