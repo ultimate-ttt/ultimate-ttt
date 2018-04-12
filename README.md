@@ -41,7 +41,7 @@ And the first player makes this move in one of the small boards:
 [ ][ ][ ]
 [ ][ ][ ]
 ```
-The second player can in the next turn only play in the tiles that are marked with a `!`. This are tiles from the small board that is equivalent to the position of the last move. 
+The second player can in the next turn only play in the tiles that are marked with a `!`. These are tiles from the small board that is equivalent to the position of the last move. 
 ```
 [ ][ ][ ]   [!][!][!]   [ ][ ][ ]
 [ ][ ][ ]   [!][!][!]   [ ][ ][ ]
