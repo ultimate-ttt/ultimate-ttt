@@ -9,7 +9,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-scripts-ts": "2.14.0",
+    "react-scripts-ts": "2.15.1",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0"
   },
