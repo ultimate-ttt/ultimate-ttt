@@ -54,9 +54,9 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         const hiddenStyle = this.getHiddenStyle( isGameFinished );
 
         const confettiConfig = {
-            elementCount: 180,
+            elementCount: 50,
             spread: 360,
-            startVelocity: 25,
+            startVelocity: 20,
             decay: 0.95
         };
 
