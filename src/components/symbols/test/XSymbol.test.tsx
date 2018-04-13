@@ -32,7 +32,6 @@ describe( 'XSymbol', () => {
         expect(component.find('i').hasClass('animate-x')).toBe(false);
     } );
 
-
     it( `shouldn't have animate classes with shouldAnimate=false`, () => {
         let component = shallow( <XSymbol bigSymbol={true} shouldAnimate={false}/> );
         expect(component.find('i').hasClass('animate-o-big-symbol')).toBe(false);
