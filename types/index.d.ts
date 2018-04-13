@@ -1,5 +1,6 @@
 declare module 'react-github-corner' {
     import * as React from 'react';
+    import { CSSProperties } from 'react';
 
     interface GithubCornerProps {
         href?: string;
@@ -9,7 +10,7 @@ declare module 'react-github-corner' {
         bannerColor?: string;
         ariaLabel?: string;
         className?: string;
-        svgStyle?: object;
+        svgStyle?: CSSProperties;
     }
 
     export default class GithubCorner extends React.Component<GithubCornerProps, any> {}
