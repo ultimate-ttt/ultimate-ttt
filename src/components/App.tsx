@@ -1,6 +1,7 @@
 import * as React from 'react';
 import BigBoard from './board/BigBoard/BigBoard';
 import GameFinishedText from './GameFinishedText/GameFinishedText';
+import GithubCorner from 'react-github-corner';
 
 interface AppProps {
 }
@@ -16,10 +17,19 @@ export class App extends React.Component<AppProps, AppRootState> {
 
     render() {
         return (
-            <div className="center">
-                <GameFinishedText/>
-                <BigBoard/>
-            </div>
+            <>
+                <GithubCorner
+                    href="https://github.com/maracuja-juice/ultimate-tic-tac-react"
+                    bannerColor="#008891"
+                    octoColor="#fff"
+                    size={80}
+                    direction="right"
+                />
+                <div className="center">
+                    <GameFinishedText/>
+                    <BigBoard/>
+                </div>
+            </>
         );
     }
 }
