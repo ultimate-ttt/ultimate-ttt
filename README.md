@@ -11,7 +11,14 @@ width="150" />
 [![Greenkeeper badge](https://badges.greenkeeper.io/maracuja-juice/ultimate-tic-tac-react.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react/branch/master/graph/badge.svg)](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react)
 
-This is a board game made with React, Redux & CSS Grid. 
+
+## Demo
+
+Here is a quick demo of the game mechanics.
+You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
+
+<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
+
 
 ## Game Rules
 There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
@@ -72,13 +79,6 @@ But let's say that we are already later in the game and this board is already wo
 [!][!][!]   [!][!][!]   [!][!][!]
 [!][!][!]   [!][!][!]   [!][!][!]
 ```
-
-## Demo
-
-Here is a quick demo of the game mechanics.
-You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
-
-<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
 
 ## Supported browsers
 All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that is. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
