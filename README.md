@@ -8,7 +8,7 @@ width="150" alt="tic tac toe logo" />
 
 <div align="center">
   
-  Ultimate Tic-Tac-Toe browser implementation using React, Redux and CSS Grid.
+  A browser game implementation of ultimate tic-tac-toe using React, Redux and CSS Grid.
   
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues)
 [![Build Status](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react.svg?branch=master)](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react)
