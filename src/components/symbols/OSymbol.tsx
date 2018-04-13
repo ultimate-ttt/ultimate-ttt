@@ -18,8 +18,10 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
 
     render() {
         const {bigSymbol} = this.props;
-        var iconClass = classNames( {
-                                        'icon-circle o': true,
+        const iconClass = classNames( {
+                                        'icon-o': true,
+                                        'material-icons': true,
+                                        'o': true,
                                         'big-symbol': bigSymbol,
                                         'animate-o': !bigSymbol,
                                         'animate-o-big-symbol': bigSymbol

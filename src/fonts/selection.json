@@ -22,7 +22,7 @@
       "properties": {
         "order": 25,
         "id": 1,
-        "name": "cross-symbol",
+        "name": "x",
         "prevSize": 32,
         "code": 10060
       },
@@ -51,13 +51,40 @@
       "properties": {
         "order": 24,
         "id": 0,
-        "name": "circle-symbol",
+        "name": "o",
         "prevSize": 32,
         "code": 9711
       },
       "setIdx": 0,
       "setId": 5,
       "iconIdx": 1
+    },
+    {
+      "icon": {
+        "paths": [
+          "M810 554h-596v-84h596v84z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "remove"
+        ],
+        "defaultCode": 57691,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "remove",
+        "id": 617,
+        "order": 26,
+        "prevSize": 24,
+        "code": 57691,
+        "name": "no-winner"
+      },
+      "setIdx": 2,
+      "setId": 3,
+      "iconIdx": 617
     }
   ],
   "height": 1024,
@@ -79,7 +106,8 @@
         "baseline": 6.25,
         "whitespace": 50
       },
-      "embed": false
+      "embed": false,
+      "autoHost": true
     },
     "imagePref": {
       "prefix": "icon-",
