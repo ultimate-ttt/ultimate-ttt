@@ -13,7 +13,6 @@ interface OSymbolProps {
 interface OSymbolState {
 }
 
-// TODO add new tests
 export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
     public static defaultProps: Partial<OSymbolProps> = {
         shouldAnimate: true
