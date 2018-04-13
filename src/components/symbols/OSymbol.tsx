@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
+import '../../fonts/icons.css';
 import * as classNames from 'classnames';
 import { CSSProperties } from 'react';
 
@@ -24,15 +25,17 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
 
     render() {
         const {bigSymbol, shouldAnimate, style} = this.props;
-        var iconClass = classNames( {
-                                        'material-icons o': true,
+        const iconClass = classNames( {
+                                        'icon-o': true,
+                                        'material-icons': true,
+                                        'o': true,
                                         'big-symbol': bigSymbol,
                                         'animate-o': !bigSymbol && shouldAnimate,
                                         'animate-o-big-symbol': bigSymbol && shouldAnimate
                                     } );
 
         return (
-            <i style={style} className={iconClass} aria-label="Circle Symbol">panorama_fish_eye</i>
+            <i style={style} className={iconClass} aria-label="Circle Symbol" />
         );
     }
 }
