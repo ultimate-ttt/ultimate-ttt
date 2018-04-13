@@ -48,9 +48,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />
@@ -131,9 +131,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />,
@@ -148,9 +148,9 @@ ShallowWrapper {
             "active": true,
             "config": Object {
               "decay": 0.95,
-              "elementCount": 180,
+              "elementCount": 100,
               "spread": 360,
-              "startVelocity": 25,
+              "startVelocity": 15,
             },
           },
           "ref": null,
@@ -196,9 +196,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />
@@ -279,9 +279,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />,
@@ -296,9 +296,9 @@ ShallowWrapper {
               "active": true,
               "config": Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               },
             },
             "ref": null,
@@ -369,9 +369,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />
@@ -452,9 +452,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />,
@@ -469,9 +469,9 @@ ShallowWrapper {
             "active": true,
             "config": Object {
               "decay": 0.95,
-              "elementCount": 180,
+              "elementCount": 100,
               "spread": 360,
-              "startVelocity": 25,
+              "startVelocity": 15,
             },
           },
           "ref": null,
@@ -517,9 +517,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />
@@ -600,9 +600,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />,
@@ -617,9 +617,9 @@ ShallowWrapper {
               "active": true,
               "config": Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               },
             },
             "ref": null,
@@ -680,9 +680,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />
@@ -717,9 +717,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />,
@@ -734,9 +734,9 @@ ShallowWrapper {
             "active": true,
             "config": Object {
               "decay": 0.95,
-              "elementCount": 180,
+              "elementCount": 100,
               "spread": 360,
-              "startVelocity": 25,
+              "startVelocity": 15,
             },
           },
           "ref": null,
@@ -772,9 +772,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />
@@ -809,9 +809,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />,
@@ -826,9 +826,9 @@ ShallowWrapper {
               "active": true,
               "config": Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               },
             },
             "ref": null,
@@ -894,9 +894,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />
@@ -966,9 +966,9 @@ ShallowWrapper {
             config={
               Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               }
             }
           />,
@@ -983,9 +983,9 @@ ShallowWrapper {
             "active": false,
             "config": Object {
               "decay": 0.95,
-              "elementCount": 180,
+              "elementCount": 100,
               "spread": 360,
-              "startVelocity": 25,
+              "startVelocity": 15,
             },
           },
           "ref": null,
@@ -1026,9 +1026,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />
@@ -1098,9 +1098,9 @@ ShallowWrapper {
               config={
                 Object {
                   "decay": 0.95,
-                  "elementCount": 180,
+                  "elementCount": 100,
                   "spread": 360,
-                  "startVelocity": 25,
+                  "startVelocity": 15,
                 }
               }
             />,
@@ -1115,9 +1115,9 @@ ShallowWrapper {
               "active": false,
               "config": Object {
                 "decay": 0.95,
-                "elementCount": 180,
+                "elementCount": 100,
                 "spread": 360,
-                "startVelocity": 25,
+                "startVelocity": 15,
               },
             },
             "ref": null,
