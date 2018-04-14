@@ -15,3 +15,22 @@ declare module 'react-github-corner' {
 
     export default class GithubCorner extends React.Component<GithubCornerProps, any> {}
 }
+
+declare module 'react-dom-confetti' {
+    import * as React from 'react';
+
+    interface ConfettiConfig {
+        angle?: number;
+        spread?: number;
+        startVelocity?: number;
+        elementCount?: number;
+        decay?: number;
+    }
+
+    interface ConfettiProps {
+        active: boolean;
+        config?: ConfettiConfig;
+    }
+
+    export default class Confetti extends React.Component<ConfettiProps, any> {}
+}

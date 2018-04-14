@@ -31,4 +31,14 @@ describe( 'XSymbol', () => {
         expect(component.find('i').hasClass('big-symbol')).toBe(true);
         expect(component.find('i').hasClass('animate-x')).toBe(false);
     } );
+
+    it( `shouldn't have animate classes with shouldAnimate=false`, () => {
+        let component = shallow( <XSymbol bigSymbol={true} shouldAnimate={false}/> );
+        expect(component.find('i').hasClass('animate-o-big-symbol')).toBe(false);
+        expect(component.find('i').hasClass('animate-o')).toBe(false);
+
+        component = shallow( <XSymbol shouldAnimate={false}/> );
+        expect(component.find('i').hasClass('animate-o-big-symbol')).toBe(false);
+        expect(component.find('i').hasClass('animate-o')).toBe(false);
+    } );
 } );
