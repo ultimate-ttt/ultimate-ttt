@@ -31,4 +31,14 @@ describe( 'OSymbol', () => {
         expect(component.find('i').hasClass('big-symbol')).toBe(true);
         expect(component.find('i').hasClass('animate-o')).toBe(false);
     } );
+
+    it( `shouldn't have animate classes with shouldAnimate=false`, () => {
+        let component = shallow( <OSymbol bigSymbol={true} shouldAnimate={false}/> );
+        expect(component.find('i').hasClass('animate-o-big-symbol')).toBe(false);
+        expect(component.find('i').hasClass('animate-o')).toBe(false);
+
+        component = shallow( <OSymbol shouldAnimate={false}/> );
+        expect(component.find('i').hasClass('animate-o-big-symbol')).toBe(false);
+        expect(component.find('i').hasClass('animate-o')).toBe(false);
+    } );
 } );
