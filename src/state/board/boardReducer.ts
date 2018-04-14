@@ -1,6 +1,7 @@
 import { cloneState, GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../AppState';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
 import { arePointsEqual } from '../../util/Point';
+import { RESTART_GAME } from '../game/gameAction';
 
 const getSmallBoardTiles = ( boardX: number, boardY: number ) => {
     let tiles: SmallTileInformation[] = [];
@@ -61,6 +62,9 @@ const boardReducer = ( state = initialState, action: GenericAction ) => {
             smallBoard.value = action.payload.tileValue;
 
             return clone;
+        }
+        case RESTART_GAME: {
+            return initialState;
         }
     }
 

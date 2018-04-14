@@ -4,10 +4,13 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
+import { restartGame } from '../../state/game/gameAction';
+import Button from 'material-ui/Button';
 
 interface GameFinishedDisplayProps {
     isGameFinished: boolean;
     winner: Player;
+    restartGame: () => void;
 }
 
 interface GameFinishedDisplayState {
@@ -49,7 +52,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
     }
 
     render() {
-        const {isGameFinished, winner} = this.props;
+        const {isGameFinished, winner, restartGame} = this.props;
 
         const winnerText = this.getWinnerText( winner, isGameFinished );
         // so that the board doesn't go down when I show the winner text
@@ -63,15 +66,22 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         };
 
         return (
-            <div className="flex-middle" style={hiddenStyle}>
-                <p style={{fontSize: '3.5vmin'}}>
-                    {winnerText}
-                </p>
-                <div className="center">
-                    <Confetti config={confettiConfig} active={isGameFinished}/>
+            <>
+                <div className="flex-middle" style={hiddenStyle}>
+                    <p style={{fontSize: '3.5vmin'}}>
+                        {winnerText}
+                    </p>
+                    <div className="center">
+                        <Confetti config={confettiConfig} active={isGameFinished}/>
+                    </div>
                 </div>
-            </div>
+                <Button color="primary" onClick={restartGame}>
+                    Restart (icon)
+                </Button>
+            </>
         );
+        // TODO move button to it's own component??? or somehow else make the logic better here...
+        // because this component seems to be doing too much when it also restarts the game...
 
     }
 }
@@ -81,4 +91,10 @@ const mapStateToProps = ( state: AppState ) => ({
     winner: state.game.winningPlayer,
 });
 
-export default connect( mapStateToProps )( GameFinishedDisplay );
+// tslint:disable-next-line: no-any
+const mapDispatchToProps = ( dispatch: any ) => ({
+    restartGame: () =>
+        dispatch( restartGame() )
+});
+
+export default connect( mapStateToProps, mapDispatchToProps )( GameFinishedDisplay );

@@ -1,10 +1,10 @@
 import { cloneState, GameState, GenericAction, Player } from '../AppState';
-import { CHANGE_PLAYER, GAME_FINISHED } from '../game/gameAction';
+import { CHANGE_PLAYER, GAME_FINISHED, RESTART_GAME } from '../game/gameAction';
 
 const initialState: GameState = {
     currentPlayer: Player.Cross,
     isFinished: false,
-    winningPlayer:  undefined,
+    winningPlayer: undefined,
 };
 
 const gameReducer = ( state = initialState, action: GenericAction ) => {
@@ -29,11 +29,13 @@ const gameReducer = ( state = initialState, action: GenericAction ) => {
 
             return clone;
         }
-
-        default: {
-            return state;
+        case RESTART_GAME: {
+            return initialState;
         }
+
     }
+
+    return state;
 };
 
 export default gameReducer;
