@@ -1,12 +1,29 @@
-# Ultimate Tic Tac Toe
 
+<p align="center">
+  <img src="https://github.com/maracuja-juice/ultimate-tic-tac-react/blob/master/public/android-chrome-192x192.png"
+width="150" alt="tic tac toe logo" />
+</p>
+<h1 align="center">Ultimate Tic-Tac-Toe</h1>
+
+
+<div align="center">
+  
+  A browser game implementation of ultimate tic-tac-toe using React, Redux and CSS Grid.
+  
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues)
 [![Build Status](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react.svg?branch=master)](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react)
 [![Maintainability](https://api.codeclimate.com/v1/badges/563d045ede94fda03570/maintainability)](https://codeclimate.com/github/maracuja-juice/ultimate-tic-tac-react/maintainability)
 [![Greenkeeper badge](https://badges.greenkeeper.io/maracuja-juice/ultimate-tic-tac-react.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react/branch/master/graph/badge.svg)](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react)
 
-This is a board game made with React, Redux & CSS Grid. 
+</div>
+
+## Demo
+
+Here is a quick demo of the game mechanics.
+You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
+
+<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" alt="demo of the game" width="500">
 
 ## Game Rules
 There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
@@ -36,7 +53,7 @@ And the first player makes this move in one of the small boards:
 [ ][ ][ ]
 [ ][ ][ ]
 ```
-The second player can in the next turn only play in the tiles that are marked with a `!`. This are tiles from the small board that is equivalent to the position of the last move. 
+The second player can in the next turn only play in the tiles that are marked with a `!`. These are tiles from the small board that are equivalent to the position of the last move. 
 ```
 [ ][ ][ ]   [!][!][!]   [ ][ ][ ]
 [ ][ ][ ]   [!][!][!]   [ ][ ][ ]
@@ -67,13 +84,6 @@ But let's say that we are already later in the game and this board is already wo
 [!][!][!]   [!][!][!]   [!][!][!]
 [!][!][!]   [!][!][!]   [!][!][!]
 ```
-
-## Demo
-
-Here is a quick demo of the game mechanics.
-You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
-
-<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" width="500">
 
 ## Supported browsers
 All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that is. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
