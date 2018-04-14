@@ -1,7 +1,7 @@
 import * as React from 'react';
 import BigBoard from './board/BigBoard/BigBoard';
-import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
 import GithubCorner from 'react-github-corner';
+import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
 
 interface AppProps {
 }
