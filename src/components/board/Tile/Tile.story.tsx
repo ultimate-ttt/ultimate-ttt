@@ -12,7 +12,7 @@ stories.add( 'Tile Customisable', () => (
     <div className="small-board">
         <Tile
             value={select( 'Value', TileValue, TileValue.Empty )}
-            isCircle={boolean( 'isCircle', false )}
+            isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
@@ -25,7 +25,7 @@ stories.add( 'Tile Clickable', () => (
     <div className="small-board">
         <Tile
             value={TileValue.Empty}
-            isCircle={boolean( 'isCircle', false )}
+            isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
@@ -38,7 +38,7 @@ stories.add( 'Tile Circle', () => (
     <div className="small-board">
         <Tile
             value={TileValue.Circle}
-            isCircle={boolean( 'isCircle', false )}
+            isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
@@ -51,7 +51,7 @@ stories.add( 'Tile Cross', () => (
     <div className="small-board">
         <Tile
             value={TileValue.Cross}
-            isCircle={boolean( 'isCircle', false )}
+            isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
@@ -64,7 +64,7 @@ stories.add( 'Tile Destroyed', () => (
     <div className="small-board-finished">
         <Tile
             value={TileValue.Destroyed}
-            isCircle={boolean( 'isCircle', false )}
+            isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
