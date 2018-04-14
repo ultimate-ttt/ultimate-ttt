@@ -23,6 +23,12 @@ export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
         super( props );
     }
 
+    shouldComponentUpdate(nextProps: XSymbolProps) {
+        const differentSize = this.props.bigSymbol !== nextProps.bigSymbol;
+        const differentStyle = this.props.style !== nextProps.style;
+        return differentSize || differentStyle;
+    }
+
     render() {
         const {bigSymbol, shouldAnimate, style} = this.props;
         const iconClass = classNames( {
