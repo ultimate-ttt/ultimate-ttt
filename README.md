@@ -23,7 +23,7 @@ width="150" alt="tic tac toe logo" />
 Here is a quick demo of the game mechanics.
 You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
 
-<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" alt="demo of the game" width="500">
+<img src="https://user-images.githubusercontent.com/16801528/38771159-2815f1ec-401e-11e8-8edb-157b58403761.gif" alt="demo of the game" width="500">
 
 ## Game Rules
 There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
