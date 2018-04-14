@@ -12,8 +12,7 @@
     "react-redux": "^5.0.6",
     "react-scripts-ts": "2.15.1",
     "redux": "^3.7.2",
-    "redux-saga": "^0.16.0",
-    "why-did-you-update": "^0.1.1"
+    "redux-saga": "^0.16.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -65,6 +64,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^3.5.1",
     "ts-jest": "22.4.2",
-    "typescript": "^2.7.1"
+    "typescript": "^2.7.1",
+    "why-did-you-update": "^0.1.1"
   }
 }
