@@ -34,6 +34,8 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
             }
         }
 
+        // this will be hidden
+        // it's there so that the board doesn't shift down when it's displayed
         return <><XSymbol shouldAnimate={false}/>some text</>;
     }
 
@@ -52,16 +54,20 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         const winnerText = this.getWinnerText( winner, isGameFinished );
         // so that the board doesn't go down when I show the winner text
         const hiddenStyle = this.getHiddenStyle( isGameFinished );
+        // otherwise the text sticks all the way to the top in safari.
+        const marginTop = {
+            marginTop: '1em'
+        };
 
         const confettiConfig = {
-            elementCount: 100,
+            elementCount: 250,
             spread: 360,
-            startVelocity: 15,
-            decay: 0.95
+            startVelocity: 35,
+            decay: 0.97
         };
 
         return (
-            <div className="flex-middle" style={hiddenStyle}>
+            <div className="flex-middle" style={Object.assign(hiddenStyle, marginTop)}>
                 <p style={{fontSize: '3.5vmin'}}>
                     {winnerText}
                 </p>
