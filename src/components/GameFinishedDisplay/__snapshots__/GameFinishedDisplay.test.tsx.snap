@@ -57,9 +57,7 @@ ShallowWrapper {
         </div>,
       ],
       "className": "flex-middle",
-      "style": Object {
-        "marginTop": "1em",
-      },
+      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -207,9 +205,7 @@ ShallowWrapper {
           </div>,
         ],
         "className": "flex-middle",
-        "style": Object {
-          "marginTop": "1em",
-        },
+        "style": Object {},
       },
       "ref": null,
       "rendered": Array [
@@ -382,9 +378,7 @@ ShallowWrapper {
         </div>,
       ],
       "className": "flex-middle",
-      "style": Object {
-        "marginTop": "1em",
-      },
+      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -532,9 +526,7 @@ ShallowWrapper {
           </div>,
         ],
         "className": "flex-middle",
-        "style": Object {
-          "marginTop": "1em",
-        },
+        "style": Object {},
       },
       "ref": null,
       "rendered": Array [
@@ -697,9 +689,7 @@ ShallowWrapper {
         </div>,
       ],
       "className": "flex-middle",
-      "style": Object {
-        "marginTop": "1em",
-      },
+      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -791,9 +781,7 @@ ShallowWrapper {
           </div>,
         ],
         "className": "flex-middle",
-        "style": Object {
-          "marginTop": "1em",
-        },
+        "style": Object {},
       },
       "ref": null,
       "rendered": Array [
@@ -916,7 +904,6 @@ ShallowWrapper {
       ],
       "className": "flex-middle",
       "style": Object {
-        "marginTop": "1em",
         "visibility": "hidden",
       },
     },
@@ -1049,7 +1036,6 @@ ShallowWrapper {
         ],
         "className": "flex-middle",
         "style": Object {
-          "marginTop": "1em",
           "visibility": "hidden",
         },
       },
