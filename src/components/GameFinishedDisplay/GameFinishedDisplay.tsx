@@ -54,10 +54,6 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         const winnerText = this.getWinnerText( winner, isGameFinished );
         // so that the board doesn't go down when I show the winner text
         const hiddenStyle = this.getHiddenStyle( isGameFinished );
-        // otherwise the text sticks all the way to the top in safari.
-        const marginTop = {
-            marginTop: '1em'
-        };
 
         const confettiConfig = {
             elementCount: 250,
@@ -67,7 +63,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         };
 
         return (
-            <div className="flex-middle" style={Object.assign(hiddenStyle, marginTop)}>
+            <div className="flex-middle" style={hiddenStyle}>
                 <p style={{fontSize: '3.5vmin'}}>
                     {winnerText}
                 </p>
