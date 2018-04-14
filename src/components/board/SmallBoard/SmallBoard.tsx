@@ -36,7 +36,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
                 <Tile
                     key={`${tile.position.x}-${tile.position.y}`}
                     value={tile.value}
-                    isCircle={isCircle}
+                    isTileRound={isCircle}
                     isClickable={isMoveAllowed && tile.value === TileValue.Empty}
                     onTileClicked={() => {
                         onTileClicked( tile.position.x, tile.position.y );
@@ -57,7 +57,7 @@ export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState
                 <div key={`Small-Board-${x},${y}`} className="small-board-finished">
                     <Tile
                         value={winningPlayer}
-                        isCircle={winningPlayer === TileValue.Circle}
+                        isTileRound={winningPlayer === TileValue.Circle}
                         isClickable={false}
                         isBig={true}
                     />

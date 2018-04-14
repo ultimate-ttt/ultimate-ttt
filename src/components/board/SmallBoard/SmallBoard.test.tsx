@@ -149,7 +149,7 @@ describe( 'SmallBoard', () => {
                 .toHaveLength( 9 );
         } );
 
-        it( 'should add isCircle=false when currentPlayer is Cross', () => {
+        it( 'should add isTileRound=false when currentPlayer is Cross', () => {
             // tslint:disable:no-empty
             const clicked = jest.fn( () => {
             } );
@@ -178,10 +178,10 @@ describe( 'SmallBoard', () => {
                                            />) );
 
             expect( component.children( 'Tile' )
-                        .findWhere( tile => tile.prop( 'isCircle' ) === false ) ).toHaveLength( 9 );
+                        .findWhere( tile => tile.prop( 'isTileRound' ) === false ) ).toHaveLength( 9 );
         } );
 
-        it( 'should add isCircle=true when currentPlayer is Circle', () => {
+        it( 'should add isTileRound=true when currentPlayer is Circle', () => {
             // tslint:disable:no-empty
             const clicked = jest.fn( () => {
             } );
@@ -210,7 +210,7 @@ describe( 'SmallBoard', () => {
                                            />) );
 
             expect( component.children( 'Tile' )
-                        .findWhere( tile => tile.prop( 'isCircle' ) === true ) ).toHaveLength( 9 );
+                        .findWhere( tile => tile.prop( 'isTileRound' ) === true ) ).toHaveLength( 9 );
         } );
     } );
 
