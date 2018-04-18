@@ -8,6 +8,6 @@
 
 .small-board-finished {
     display: grid;
-    grid-template-columns: 20vmin;
-    grid-template-rows: 20vmin;
+    grid-template-columns: 19vmin;
+    grid-template-rows: 19vmin;
 }
