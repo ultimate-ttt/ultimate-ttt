@@ -1,5 +1,6 @@
 import { cloneState, GameState, GenericAction, Player } from '../AppState';
-import { CHANGE_PLAYER, GAME_FINISHED, RESTART_GAME } from '../game/gameAction';
+import { CHANGE_PLAYER, GAME_FINISHED } from '../game/gameAction';
+import { RESTART_GAME } from '../commonAction';
 
 const initialState: GameState = {
     currentPlayer: Player.Cross,

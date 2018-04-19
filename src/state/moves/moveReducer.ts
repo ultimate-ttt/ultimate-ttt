@@ -1,6 +1,6 @@
 import { cloneState, GenericAction, Move } from '../AppState';
 import { REGISTER_MOVE } from './moveAction';
-import { RESTART_GAME } from '../game/gameAction';
+import { RESTART_GAME } from '../commonAction';
 
 const initialState: Move[] = [];
 
