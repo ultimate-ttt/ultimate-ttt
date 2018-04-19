@@ -9,13 +9,11 @@ export const CHECK_GAME_FINISHED = 'game/check-game-finished';
 export const RESTART_GAME = 'restart-game';
 
 export const changePlayer = () => ({
-    type: CHANGE_PLAYER,
-    payload: {}
+    type: CHANGE_PLAYER
 });
 
 export const restartGame = () => ({
-    type: RESTART_GAME,
-    payload: {}
+    type: RESTART_GAME
 });
 
 export const gameFinished = ( winningPlayer?: Player | null ) => ({
