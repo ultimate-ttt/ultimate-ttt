@@ -1,7 +1,7 @@
 import { cloneState, GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../AppState';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
 import { arePointsEqual } from '../../util/Point';
-import { RESTART_GAME } from '../game/gameAction';
+import { RESTART_GAME } from '../commonAction';
 
 const getSmallBoardTiles = ( boardX: number, boardY: number ) => {
     let tiles: SmallTileInformation[] = [];

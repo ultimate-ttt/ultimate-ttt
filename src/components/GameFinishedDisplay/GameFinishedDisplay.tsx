@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
-import { restartGame } from '../../state/game/gameAction';
 import Button from 'material-ui/Button';
+import { restartGame } from '../../state/commonAction';
 
 interface GameFinishedDisplayProps {
     isGameFinished: boolean;

@@ -6,14 +6,9 @@ export const PLAYER_MOVED = 'game/player-moved';
 export const PLAYER_MOVED_VALID = 'game/player-moved-valid';
 export const GAME_FINISHED = 'game/game-finished';
 export const CHECK_GAME_FINISHED = 'game/check-game-finished';
-export const RESTART_GAME = 'restart-game';
 
 export const changePlayer = () => ({
     type: CHANGE_PLAYER
-});
-
-export const restartGame = () => ({
-    type: RESTART_GAME
 });
 
 export const gameFinished = ( winningPlayer?: Player | null ) => ({
