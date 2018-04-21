@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { BigBoard } from './BigBoard';
 import { Player } from '../../../state/AppState';
-import unfinishedBoardMock from '../../../state/sagas/test/unfinishedBoardMock';
+import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
+import { BigBoard } from './BigBoard';
 
 configure( {adapter: new ReactSixteenAdapter()} );
 

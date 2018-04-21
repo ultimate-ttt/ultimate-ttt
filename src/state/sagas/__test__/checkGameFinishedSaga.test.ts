@@ -5,8 +5,8 @@ import { select } from 'redux-saga/effects';
 import { CHECK_GAME_FINISHED, GAME_FINISHED } from '../../game/gameAction';
 import { Player } from '../../AppState';
 import { SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
-import { circleFinishedBoardMock, crossFinishedBoardMock } from './finishedBoardMock';
-import unfinishedBoardMock from './unfinishedBoardMock';
+import { circleFinishedBoardMock, crossFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
+import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
 
 describe( 'checkGameFinishedSaga', () => {
     it( 'should dispatch gameFinished action with Circle and' +

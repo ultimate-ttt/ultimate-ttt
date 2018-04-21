@@ -5,8 +5,6 @@ import { OSymbol } from '../OSymbol';
 
 configure( {adapter: new ReactSixteenAdapter()} );
 
-// TODO: update tests of O, X and No-Winner, add snapshots.
-
 describe( 'OSymbol', () => {
     it( 'should not explode', () => {
         const component = shallow( <OSymbol/> );
