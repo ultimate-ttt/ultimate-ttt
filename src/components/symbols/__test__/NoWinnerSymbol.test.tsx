@@ -11,7 +11,10 @@ describe( 'NoWinnerSymbol', () => {
         expect( component ).not.toBeNull();
     } );
 
-    // TODO snapshot tests.
+    it( 'should match snapshot', () => {
+        const noWinnerSymbol = shallow( <NoWinnerSymbol/> );
+        expect( noWinnerSymbol ).toMatchSnapshot();
+    } );
 
     it( 'should have i element with some kind of icon', () => {
         const component = shallow( <NoWinnerSymbol/> );
@@ -21,9 +24,8 @@ describe( 'NoWinnerSymbol', () => {
 
     it( 'should have icon-no-winner, no-winner and big-symbol class by default', () => {
         const component = shallow( <NoWinnerSymbol/> );
-        // TODO: hasClass method
-        expect( component.find( '.icon-no-winner' ) ).toHaveLength( 1 );
-        expect( component.find( '.big-symbol' ) ).toHaveLength( 1 );
-        expect( component.find( '.no-winner' ) ).toHaveLength( 1 );
+        expect( component.find( 'i' ).hasClass('icon-no-winner')).toBe(true);
+        expect( component.find( 'i' ).hasClass('big-symbol')).toBe(true);
+        expect( component.find( 'i' ).hasClass('no-winner') ).toBe(true);
     } );
 } );

@@ -3,8 +3,8 @@ import { select } from 'redux-saga/effects';
 import { getBoards } from '../../selectors/AppStateSelectors';
 import { CALCULATE_ALLOWED_BOARDS, SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
 import activeBoardsCalculationSaga from '../activeBoardsCalculationSaga';
-import unfinishedBoardMock from './unfinishedBoardMock';
-import { circleFinishedBoardMock } from './finishedBoardMock';
+import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
+import { circleFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
 
 describe( 'activeBoardCalculationSaga', () => {
     it( 'should dispatch setAllowedBoard Action, normal case', () => {
