@@ -1,5 +1,3 @@
-/* later TODO: use css variables and calculate the value? How high is the browser support? */
-
 .big-symbol.animate-x {
     animation-duration: 0.75s;
     animation-name: add-icon-big-x;
