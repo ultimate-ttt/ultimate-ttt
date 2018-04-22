@@ -2,7 +2,8 @@ import * as React from 'react';
 import BigBoard from './board/BigBoard/BigBoard';
 import GithubCorner from 'react-github-corner';
 import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
-import 'typeface-roboto';
+// import individual material component styles here.
+import '@material/button/dist/mdc.button.min.css';
 
 interface AppProps {
 }
