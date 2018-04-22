@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
-import Button from 'material-ui/Button';
-import { restartGame } from '../../state/commonAction';
+import { restartGame as restartAction } from '../../state/commonAction';
+import { Button } from 'rmwc/Button';
 
 interface GameFinishedDisplayProps {
     isGameFinished: boolean;
@@ -20,6 +20,8 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
 
     constructor( props: GameFinishedDisplayProps ) {
         super( props );
+
+        this.tryRestart = this.tryRestart.bind( this );
     }
 
     getWinnerText( player: Player, isGameFinished: boolean ) {
@@ -51,11 +53,18 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         return {};
     }
 
+    tryRestart() {
+        if (this.props.isGameFinished) {
+            this.props.restartGame();
+        }
+    }
+
     render() {
-        const {isGameFinished, winner, restartGame} = this.props;
+        const {isGameFinished, winner} = this.props;
 
         const winnerText = this.getWinnerText( winner, isGameFinished );
         // so that the board doesn't go down when I show the winner text
+        // TODO: make some kind of transition from hidden to visible
         const hiddenStyle = this.getHiddenStyle( isGameFinished );
 
         const confettiConfig = {
@@ -65,24 +74,21 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
             decay: 0.97
         };
 
+        // TODO improve styling of button on smaller screens!!
+        const combinedStyle = Object.assign( hiddenStyle, {fontSize: '3.5vmin'} );
         return (
             <>
-                <div className="flex-middle" style={hiddenStyle}>
-                    <p style={{fontSize: '3.5vmin'}}>
-                        {winnerText}
-                    </p>
-                    <div className="center">
-                        <Confetti config={confettiConfig} active={isGameFinished}/>
-                    </div>
+                <p style={combinedStyle} className="flex-middle">
+                    <span style={{paddingRight: '0.5em'}}>{winnerText}</span>
+                    <Button raised={true} onClick={this.tryRestart}>
+                        Restart
+                    </Button>
+                </p>
+                <div className="center">
+                    <Confetti config={confettiConfig} active={isGameFinished}/>
                 </div>
-                <Button color="primary" onClick={restartGame}>
-                    Restart (icon)
-                </Button>
             </>
         );
-        // TODO move button to it's own component??? or somehow else make the logic better here...
-        // because this component seems to be doing too much when it also restarts the game...
-
     }
 }
 
@@ -94,7 +100,7 @@ const mapStateToProps = ( state: AppState ) => ({
 // tslint:disable-next-line: no-any
 const mapDispatchToProps = ( dispatch: any ) => ({
     restartGame: () =>
-        dispatch( restartGame() )
+        dispatch( restartAction() )
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( GameFinishedDisplay );

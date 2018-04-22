@@ -16,3 +16,6 @@ declare module 'react-dom-confetti' {
 
     export default class Confetti extends React.Component<ConfettiProps, any> {}
 }
+
+// use any until typescript is natively supported by rmwc.
+declare module 'rmwc/Button';
