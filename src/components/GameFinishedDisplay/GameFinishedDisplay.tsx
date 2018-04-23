@@ -5,7 +5,9 @@ import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
 import { restartGame as restartAction } from '../../state/commonAction';
+import * as classNames from 'classnames';
 import { Button } from 'rmwc/Button';
+import './gameFinished.css';
 
 interface GameFinishedDisplayProps {
     isGameFinished: boolean;
@@ -28,8 +30,8 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
 
         if (isGameFinished) {
             const fontSize = {
-                fontSize: '4.5vmin'
-            };
+                fontSize: '5vmin'
+            }; // TODO: change this to use CSS!!
             if (player === Player.Circle) {
                 return (<><OSymbol style={fontSize} shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
@@ -44,15 +46,6 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         return <><XSymbol shouldAnimate={false}/>some text</>;
     }
 
-    getHiddenStyle( isGameFinished: boolean ) {
-        if (!isGameFinished) {
-            return {
-                visibility: 'hidden'
-            };
-        }
-        return {};
-    }
-
     tryRestart() {
         if (this.props.isGameFinished) {
             this.props.restartGame();
@@ -61,31 +54,34 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
 
     render() {
         const {isGameFinished, winner} = this.props;
-
         const winnerText = this.getWinnerText( winner, isGameFinished );
-        // so that the board doesn't go down when I show the winner text
-        // TODO: make some kind of transition from hidden to visible
-        const hiddenStyle = this.getHiddenStyle( isGameFinished );
 
-        const confettiConfig = {
-            elementCount: 250,
-            spread: 360,
-            startVelocity: 35,
-            decay: 0.97
-        };
+        const textContainerClass = classNames( {
+                                                   'restart-alignment': true,
+                                                   'hidden': !isGameFinished,
+                                                   'visible': isGameFinished
+                                               } );
 
-        // TODO improve styling of button on smaller screens!!
-        const combinedStyle = Object.assign( hiddenStyle, {fontSize: '3.5vmin'} );
         return (
             <>
-                <p style={combinedStyle} className="flex-middle">
-                    <span style={{paddingRight: '0.5em'}}>{winnerText}</span>
-                    <Button raised={true} onClick={this.tryRestart}>
+                <div className={textContainerClass}>
+                    <p className="winner-text">
+                        {winnerText}
+                    </p>
+                    <Button dense={true} raised={true} onClick={this.tryRestart}>
                         Restart
                     </Button>
-                </p>
+                </div>
                 <div className="center">
-                    <Confetti config={confettiConfig} active={isGameFinished}/>
+                    <Confetti
+                        config={{
+                            elementCount: 250,
+                            spread: 360,
+                            startVelocity: 35,
+                            decay: 0.97
+                        }}
+                        active={isGameFinished}
+                    />
                 </div>
             </>
         );
