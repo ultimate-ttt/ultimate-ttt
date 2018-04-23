@@ -11,17 +11,21 @@ describe( 'NoWinnerSymbol', () => {
         expect( component ).not.toBeNull();
     } );
 
+    it( 'should match snapshot', () => {
+        const noWinnerSymbol = shallow( <NoWinnerSymbol/> );
+        expect( noWinnerSymbol ).toMatchSnapshot();
+    } );
+
     it( 'should have i element with some kind of icon', () => {
         const component = shallow( <NoWinnerSymbol/> );
         expect( component.find( 'i' ) ).toHaveLength( 1 );
         expect( component.find( 'i' ).text() ).not.toBeUndefined();
     } );
 
-    it( 'should have material-icons, no-winner, animate-no-winner-big-symbol, and big-symbol class by default', () => {
+    it( 'should have icon-no-winner, no-winner and big-symbol class by default', () => {
         const component = shallow( <NoWinnerSymbol/> );
-        expect( component.find( '.material-icons' ) ).toHaveLength( 1 );
-        expect( component.find( '.no-winner' ) ).toHaveLength( 1 );
-        expect( component.find( '.animate-no-winner-big-symbol' ) ).toHaveLength( 1 );
-        expect( component.find( '.big-symbol' ) ).toHaveLength( 1 );
+        expect( component.find( 'i' ).hasClass('icon-no-winner')).toBe(true);
+        expect( component.find( 'i' ).hasClass('big-symbol')).toBe(true);
+        expect( component.find( 'i' ).hasClass('no-winner') ).toBe(true);
     } );
 } );

@@ -7266,9 +7266,9 @@ react-docgen@^2.20.0:
     node-dir "^0.1.10"
     recast "^0.12.6"
 
-react-dom-confetti@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/react-dom-confetti/-/react-dom-confetti-0.0.8.tgz#0acb780c36e5faa8dfea40e90c133e752c948fb3"
+react-dom-confetti@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/react-dom-confetti/-/react-dom-confetti-0.0.9.tgz#963eb69dbe8ce3cca9e30fb7898e8f9f7b7598b7"
   dependencies:
     dom-confetti "~0.0.7"
 
@@ -8703,9 +8703,9 @@ ts-jest@22.0.1:
     source-map-support "^0.5.0"
     yargs "^10.0.3"
 
-ts-jest@22.4.2:
-  version "22.4.2"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.4.2.tgz#2137bc0899b14dfb1d58257ee10b18ab8a2d92c5"
+ts-jest@22.4.4:
+  version "22.4.4"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.4.4.tgz#7b5c0abb2188fe7170840df9f80e78659aaf8a24"
   dependencies:
     babel-core "^6.26.0"
     babel-plugin-istanbul "^4.1.4"

@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "ultimate-tic-tac-react",
   "version": "0.1.0",
   "homepage": "http://maracuja-juice.github.io/ultimate-tic-tac-react",
   "private": true,
@@ -7,8 +7,8 @@
     "classnames": "^2.2.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-dom-confetti": "^0.0.8",
     "react-github-corner": "^2.3.0",
+    "react-dom-confetti": "^0.0.9",
     "react-redux": "^5.0.6",
     "react-scripts-ts": "2.15.1",
     "redux": "^3.7.2",
@@ -18,12 +18,10 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts-ts test --env=jsdom --coverage",
+    "test:watch": "react-scripts-ts test --watch",
     "eject": "react-scripts-ts eject",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -64,7 +62,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^3.5.1",
-    "ts-jest": "22.4.2",
+    "ts-jest": "22.4.4",
     "typescript": "^2.7.1"
   }
 }
