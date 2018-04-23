@@ -1,7 +1,13 @@
-.material-icons.big-symbol.o { font-size: 17vmin; }
-.material-icons.big-symbol.x { font-size: 23vmin; }
-.material-icons.big-symbol.no-winner { font-size: 23vmin; }
-.material-icons { font-size: 5vmin; }
+.o {
+    vertical-align: middle;
+    font-size: 6vmin;
+}
 
-.o { vertical-align: middle; }
-.x { vertical-align: middle; }
+.x {
+    vertical-align: middle;
+    font-size: 7vmin;
+}
+
+.big-symbol.o { font-size: 21vmin; }
+.big-symbol.x { font-size: 30vmin; }
+.big-symbol.no-winner { font-size: 29vmin; }
