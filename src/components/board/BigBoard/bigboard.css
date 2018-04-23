@@ -1,7 +1,0 @@
-
-    .big-board {
-        display: grid;
-        grid-template-columns: 20vmin 20vmin 20vmin;
-        grid-template-rows: 20vmin 20vmin 20vmin;
-        grid-gap: 2vmin;
-    }
