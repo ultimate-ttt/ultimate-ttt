@@ -56,7 +56,7 @@ describe( 'GameFinished', function () {
     it( 'should match snapshot when no one wins', () => {
         // tslint:disable:no-empty
         const restart = () => {
-        }; // TODO: fix tslint!!!
+        };
         const gameFinishedIndicator = shallow( (
                                                    <GameFinishedDisplay
                                                        restartGame={restart}
