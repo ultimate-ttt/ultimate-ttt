@@ -26,7 +26,7 @@ You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-ti
 <img src="https://user-images.githubusercontent.com/16801528/38771159-2815f1ec-401e-11e8-8edb-157b58403761.gif" alt="demo of the game" width="500">
 
 ## Game Rules
-There are 9 normal tic-tac-toe boards. You win a small tic-tac-toe board with 3 of your marks in a row. (_diagonal, vertical or horizontal_) 
+There are 9 normal tic-tac-toe boards. You win a small tic-tac-toe board if you have 3 of your marks in a row. (_diagonal, vertical or horizontal_) 
 And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** (_diagonal, vertical or horizontal_)
 
 But here's the **twist:**
