@@ -1,79 +1,100 @@
-.animate-x-big-symbol {
+.big-symbol.animate-x {
     animation-duration: 0.75s;
     animation-name: add-icon-big-x;
 }
 
-.animate-o-big-symbol {
+@keyframes add-icon-big-x {
+    0% {
+        font-size: 46vmin;
+    }
+    25% {
+        font-size: 15vmin;
+    }
+    60% {
+        font-size: 36vmin;
+    }
+    100% {
+        font-size: 30vmin;
+    }
+}
+
+.big-symbol.animate-o {
     animation-duration: 0.75s;
     animation-name: add-icon-big-o;
 }
 
-.animate-no-winner-big-symbol {
+@keyframes add-icon-big-o {
+    0% {
+        font-size: 34vmin;
+    }
+    25% {
+        font-size: 12vmin;
+    }
+    60% {
+        font-size: 27vmin;
+    }
+    100% {
+        font-size: 21vmin;
+    }
+}
+
+/* No winner is always animated */
+.big-symbol.no-winner {
     animation-duration: 0.75s;
     animation-name: add-icon-big-no-winner;
 }
 
-.animate-o, .animate-x {
-    animation-duration: 0.75s;
-    animation-name: add-icon;
-}
-
-@keyframes add-icon {
-    0% {
-        font-size: 10vmin;
-    }
-    25% {
-        font-size: 2vmin;
-    }
-    50% {
-        font-size: 7vmin;
-    }
-    100% {
-        font-size: 5vmin;
-    }
-}
-
-@keyframes add-icon-big-x {
-    0% {
-        font-size: 39vmin;
-    }
-    25% {
-        font-size: 8vmin;
-    }
-    60% {
-        font-size: 29vmin;
-    }
-    100% {
-        font-size: 23vmin;
-    }
-}
-
-@keyframes add-icon-big-o {
-    0% {
-        font-size: 30vmin;
-    }
-    25% {
-        font-size: 8vmin;
-    }
-    60% {
-        font-size: 23vmin;
-    }
-    100% {
-        font-size: 17vmin;
-    }
-}
-
 @keyframes add-icon-big-no-winner {
     0% {
-        font-size: 39vmin;
+        font-size: 45vmin;
     }
     25% {
-        font-size: 8vmin;
+        font-size: 14vmin;
     }
     60% {
-        font-size: 29vmin;
+        font-size: 35vmin;
     }
     100% {
-        font-size: 23vmin;
+        font-size: 29vmin;
+    }
+}
+
+.animate-x {
+    animation-duration: 0.75s;
+    animation-name: add-icon-x;
+}
+
+@keyframes add-icon-x {
+    0% {
+        font-size: 12vmin;
+    }
+    25% {
+        font-size: 4vmin;
+    }
+    50% {
+        font-size: 9vmin;
+    }
+    100% {
+        font-size: 7vmin;
+    }
+}
+
+.animate-o {
+    animation-duration: 0.75s;
+    animation-name: add-icon-o;
+}
+
+@keyframes add-icon-o {
+    0% {
+        font-size: 11vmin;
+    }
+    25% {
+        font-size: 3vmin;
+    }
+    50% {
+        font-size: 8vmin;
+    }
+    100% {
+        font-size: 6vmin;
     }
 }

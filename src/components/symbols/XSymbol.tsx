@@ -33,11 +33,9 @@ export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
         const {bigSymbol, shouldAnimate, style} = this.props;
         const iconClass = classNames( {
                                         'icon-x': true,
-                                        'material-icons': true,
                                         'x': true,
                                         'big-symbol': bigSymbol,
-                                        'animate-x': !bigSymbol && shouldAnimate,
-                                        'animate-x-big-symbol': bigSymbol && shouldAnimate
+                                        'animate-x': shouldAnimate,
                                     } );
         return (
             <i style={style} className={iconClass} aria-label="Cross Symbol" />

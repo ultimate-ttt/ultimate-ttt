@@ -20,13 +20,14 @@ width="150" alt="tic tac toe logo" />
 
 ## Demo
 
-Here is a quick demo of the game mechanics.
+Below you see a quick demo of the game mechanics.
 You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
 
-<img src="https://user-images.githubusercontent.com/16801528/37793352-bb6eefd8-2e0e-11e8-8b0c-5d94e9b2b727.gif" alt="demo of the game" width="500">
+<img src="https://user-images.githubusercontent.com/16801528/38771159-2815f1ec-401e-11e8-8edb-157b58403761.gif" alt="demo of the game" width="500">
 
 ## Game Rules
-There are 9 normal tic-tac-toe board. You win a small tic-tac-toe board like in a normal tic tac toe. And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** 
+There are 9 normal tic-tac-toe boards. You win a small tic-tac-toe board if you have 3 of your marks in a row. (_diagonal, vertical or horizontal_) 
+And you win the **game** if you have **3 won** tic-tac-toe boards **positioned in a row.** (_diagonal, vertical or horizontal_)
 
 But here's the **twist:**
 _Every move on a small board sends the opponent to the equivalent on the big board._
@@ -68,7 +69,7 @@ The second player can in the next turn only play in the tiles that are marked wi
 [ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
 ```
 
-But let's say that we are already later in the game and this board is already won (three in a row). The next player can then play in all boards that are not won yet. (marked with `!`)
+But let's say that we are already later in the game and the equivalent board is already won (_three marks in a row_). The next player can then play in **all** boards* that are **not won** yet. (marked with `!`)
 
 (_note: of course later in the game there would be the same amount of X's and O's on the board => this is just for illustration purposes_)
 ```
@@ -86,7 +87,7 @@ But let's say that we are already later in the game and this board is already wo
 ```
 
 ## Supported browsers
-All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that is. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
+All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that are. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
 
 ## Run locally
 It's easy to run a local instance of this game - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
