@@ -24,6 +24,14 @@ export class Tile extends React.Component<TileProps, TileState> {
         this.getValue = this.getValue.bind( this );
     }
 
+    shouldComponentUpdate(nextProps: TileProps) {
+        const differentValue = this.props.value !== nextProps.value;
+        const differentRoundness = this.props.isTileRound !== nextProps.isTileRound;
+        const differentSize = this.props.isBig !== nextProps.isBig;
+        const differentClickability = this.props.isClickable !== nextProps.isClickable;
+        return differentValue || differentRoundness || differentSize || differentClickability;
+    }
+
     getValue() {
         const {isBig} = this.props;
         switch (this.props.value) {
