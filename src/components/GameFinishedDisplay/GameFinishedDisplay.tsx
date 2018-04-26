@@ -86,7 +86,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
                         {winnerText}
                     </p>
                     <Button dense={true} raised={true} onClick={this.tryRestart}>
-                        Restart
+                        Play Again
                     </Button>
                 </div>
                 <div className="center">
