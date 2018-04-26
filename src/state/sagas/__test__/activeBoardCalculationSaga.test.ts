@@ -40,7 +40,6 @@ describe( 'activeBoardCalculationSaga', () => {
                       ] )
             .put( {type: SET_ALLOWED_BOARDS, payload: [{x: 2, y: 0}]} )
             .dispatch( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 0}} )
-            // TODO maybe this needs to be switched to 0,2
             .silentRun()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
