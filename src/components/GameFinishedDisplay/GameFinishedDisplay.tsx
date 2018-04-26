@@ -16,12 +16,16 @@ interface GameFinishedDisplayProps {
 }
 
 interface GameFinishedDisplayState {
+    lastWinner: Player | null;
+    wasGameOnceFinished: boolean;
 }
 
 export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
 
     constructor( props: GameFinishedDisplayProps ) {
         super( props );
+
+        this.state = {lastWinner: null, wasGameOnceFinished: false};
 
         this.tryRestart = this.tryRestart.bind( this );
     }
@@ -42,19 +46,32 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         }
 
         // this will be hidden
-        // it's there so that the board doesn't shift down when it's displayed
-        return <><XSymbol shouldAnimate={false}/>some text</>;
+        // it's there so that the board doesn't shift down when the finished text is displayed
+        return 'reservation';
     }
 
     tryRestart() {
         if (this.props.isGameFinished) {
+            // for the ease out to work.
+            // otherwise the "reservation" text gets rendered before it's eased out
+            this.setState( {
+                               lastWinner: this.props.winner,
+                               wasGameOnceFinished: true
+                           } );
             this.props.restartGame();
         }
     }
 
     render() {
         const {isGameFinished, winner} = this.props;
-        const winnerText = this.getWinnerText( winner, isGameFinished );
+        const {wasGameOnceFinished, lastWinner} = this.state;
+
+        let winnerText;
+        if (!isGameFinished && wasGameOnceFinished) {
+            winnerText = this.getWinnerText( lastWinner!, wasGameOnceFinished );
+        } else {
+            winnerText = this.getWinnerText( winner, isGameFinished );
+        }
 
         const textContainerClass = classNames( {
                                                    'restart-alignment': true,
