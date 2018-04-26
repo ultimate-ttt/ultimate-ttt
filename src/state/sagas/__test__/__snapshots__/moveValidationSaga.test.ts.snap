@@ -82,7 +82,6 @@ Object {
       "@@redux-saga/IO": true,
       "PUT": Object {
         "action": Object {
-          "payload": Object {},
           "type": "game-reducer/player-changed",
         },
         "channel": null,
