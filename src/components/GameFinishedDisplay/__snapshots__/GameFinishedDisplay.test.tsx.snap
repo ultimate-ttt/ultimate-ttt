@@ -47,7 +47,7 @@ ShallowWrapper {
             stroked={false}
             unelevated={false}
           >
-            Restart
+            Play Again
           </Button>
         </div>,
         <div
@@ -97,7 +97,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>,
           ],
           "className": "restart-alignment visible",
@@ -167,7 +167,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Restart",
+              "children": "Play Again",
               "dense": true,
               "onClick": [Function],
               "raised": true,
@@ -175,7 +175,7 @@ ShallowWrapper {
               "unelevated": false,
             },
             "ref": null,
-            "rendered": "Restart",
+            "rendered": "Play Again",
             "type": [Function],
           },
         ],
@@ -254,7 +254,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>
           </div>,
           <div
@@ -304,7 +304,7 @@ ShallowWrapper {
                 stroked={false}
                 unelevated={false}
               >
-                Restart
+                Play Again
               </Button>,
             ],
             "className": "restart-alignment visible",
@@ -374,7 +374,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Restart",
+                "children": "Play Again",
                 "dense": true,
                 "onClick": [Function],
                 "raised": true,
@@ -382,7 +382,7 @@ ShallowWrapper {
                 "unelevated": false,
               },
               "ref": null,
-              "rendered": "Restart",
+              "rendered": "Play Again",
               "type": [Function],
             },
           ],
@@ -487,7 +487,7 @@ ShallowWrapper {
             stroked={false}
             unelevated={false}
           >
-            Restart
+            Play Again
           </Button>
         </div>,
         <div
@@ -537,7 +537,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>,
           ],
           "className": "restart-alignment visible",
@@ -607,7 +607,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Restart",
+              "children": "Play Again",
               "dense": true,
               "onClick": [Function],
               "raised": true,
@@ -615,7 +615,7 @@ ShallowWrapper {
               "unelevated": false,
             },
             "ref": null,
-            "rendered": "Restart",
+            "rendered": "Play Again",
             "type": [Function],
           },
         ],
@@ -694,7 +694,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>
           </div>,
           <div
@@ -744,7 +744,7 @@ ShallowWrapper {
                 stroked={false}
                 unelevated={false}
               >
-                Restart
+                Play Again
               </Button>,
             ],
             "className": "restart-alignment visible",
@@ -814,7 +814,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Restart",
+                "children": "Play Again",
                 "dense": true,
                 "onClick": [Function],
                 "raised": true,
@@ -822,7 +822,7 @@ ShallowWrapper {
                 "unelevated": false,
               },
               "ref": null,
-              "rendered": "Restart",
+              "rendered": "Play Again",
               "type": [Function],
             },
           ],
@@ -917,7 +917,7 @@ ShallowWrapper {
             stroked={false}
             unelevated={false}
           >
-            Restart
+            Play Again
           </Button>
         </div>,
         <div
@@ -957,7 +957,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>,
           ],
           "className": "restart-alignment visible",
@@ -981,7 +981,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Restart",
+              "children": "Play Again",
               "dense": true,
               "onClick": [Function],
               "raised": true,
@@ -989,7 +989,7 @@ ShallowWrapper {
               "unelevated": false,
             },
             "ref": null,
-            "rendered": "Restart",
+            "rendered": "Play Again",
             "type": [Function],
           },
         ],
@@ -1058,7 +1058,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>
           </div>,
           <div
@@ -1098,7 +1098,7 @@ ShallowWrapper {
                 stroked={false}
                 unelevated={false}
               >
-                Restart
+                Play Again
               </Button>,
             ],
             "className": "restart-alignment visible",
@@ -1122,7 +1122,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Restart",
+                "children": "Play Again",
                 "dense": true,
                 "onClick": [Function],
                 "raised": true,
@@ -1130,7 +1130,7 @@ ShallowWrapper {
                 "unelevated": false,
               },
               "ref": null,
-              "rendered": "Restart",
+              "rendered": "Play Again",
               "type": [Function],
             },
           ],
@@ -1216,12 +1216,7 @@ ShallowWrapper {
           <p
             className="winner-text"
           >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              some text
-            </UNDEFINED>
+            reservation
           </p>
           <Button
             dense={true}
@@ -1230,7 +1225,7 @@ ShallowWrapper {
             stroked={false}
             unelevated={false}
           >
-            Restart
+            Play Again
           </Button>
         </div>,
         <div
@@ -1261,12 +1256,7 @@ ShallowWrapper {
             <p
               className="winner-text"
             >
-              <UNDEFINED>
-                <XSymbol
-                  shouldAnimate={false}
-                />
-                some text
-              </UNDEFINED>
+              reservation
             </p>,
             <Button
               dense={true}
@@ -1275,7 +1265,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>,
           ],
           "className": "restart-alignment hidden",
@@ -1287,44 +1277,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <UNDEFINED>
-                <XSymbol
-                  shouldAnimate={false}
-                />
-                some text
-              </UNDEFINED>,
+              "children": "reservation",
               "className": "winner-text",
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "children": Array [
-                  <XSymbol
-                    shouldAnimate={false}
-                  />,
-                  "some text",
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "shouldAnimate": false,
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "some text",
-              ],
-              "type": Symbol(react.fragment),
-            },
+            "rendered": "reservation",
             "type": "p",
           },
           Object {
@@ -1332,7 +1289,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Restart",
+              "children": "Play Again",
               "dense": true,
               "onClick": [Function],
               "raised": true,
@@ -1340,7 +1297,7 @@ ShallowWrapper {
               "unelevated": false,
             },
             "ref": null,
-            "rendered": "Restart",
+            "rendered": "Play Again",
             "type": [Function],
           },
         ],
@@ -1400,12 +1357,7 @@ ShallowWrapper {
             <p
               className="winner-text"
             >
-              <UNDEFINED>
-                <XSymbol
-                  shouldAnimate={false}
-                />
-                some text
-              </UNDEFINED>
+              reservation
             </p>
             <Button
               dense={true}
@@ -1414,7 +1366,7 @@ ShallowWrapper {
               stroked={false}
               unelevated={false}
             >
-              Restart
+              Play Again
             </Button>
           </div>,
           <div
@@ -1445,12 +1397,7 @@ ShallowWrapper {
               <p
                 className="winner-text"
               >
-                <UNDEFINED>
-                  <XSymbol
-                    shouldAnimate={false}
-                  />
-                  some text
-                </UNDEFINED>
+                reservation
               </p>,
               <Button
                 dense={true}
@@ -1459,7 +1406,7 @@ ShallowWrapper {
                 stroked={false}
                 unelevated={false}
               >
-                Restart
+                Play Again
               </Button>,
             ],
             "className": "restart-alignment hidden",
@@ -1471,44 +1418,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <UNDEFINED>
-                  <XSymbol
-                    shouldAnimate={false}
-                  />
-                  some text
-                </UNDEFINED>,
+                "children": "reservation",
                 "className": "winner-text",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "children": Array [
-                    <XSymbol
-                      shouldAnimate={false}
-                    />,
-                    "some text",
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "shouldAnimate": false,
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  "some text",
-                ],
-                "type": Symbol(react.fragment),
-              },
+              "rendered": "reservation",
               "type": "p",
             },
             Object {
@@ -1516,7 +1430,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Restart",
+                "children": "Play Again",
                 "dense": true,
                 "onClick": [Function],
                 "raised": true,
@@ -1524,7 +1438,7 @@ ShallowWrapper {
                 "unelevated": false,
               },
               "ref": null,
-              "rendered": "Restart",
+              "rendered": "Play Again",
               "type": [Function],
             },
           ],
