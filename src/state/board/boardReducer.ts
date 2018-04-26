@@ -3,7 +3,7 @@ import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
 import { arePointsEqual, Point } from '../../util/Point';
 import { RESTART_GAME } from '../commonAction';
 
-const getSmallBoardTiles = ( boardX: number, boardY: number ) => {
+const getInitialSmallBoardTiles = ( boardX: number, boardY: number ) => {
     let tiles: SmallTileInformation[] = [];
     for (let x = 0; x < 3; x++) {
         for (let y = 0; y < 3; y++) {
@@ -24,7 +24,7 @@ const getInitialState = () => {
             state.push( {
                             value: TileValue.Empty,
                             position: {x, y},
-                            tiles: getSmallBoardTiles( x, y )
+                            tiles: getInitialSmallBoardTiles( x, y )
                         } );
         }
     }
