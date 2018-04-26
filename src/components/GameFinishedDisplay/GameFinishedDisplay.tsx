@@ -47,7 +47,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
 
         // this will be hidden
         // it's there so that the board doesn't shift down when the finished text is displayed
-        return <><XSymbol/>reservation</>;
+        return <><XSymbol shouldAnimate={false}/>reservation</>;
     }
 
     tryRestart() {
