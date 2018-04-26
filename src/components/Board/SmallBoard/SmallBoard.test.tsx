@@ -21,7 +21,6 @@ describe( 'SmallBoard', () => {
         } );
 
         const boardPosition = {x: 0, y: 0};
-        // TODO: switch x and y in some of the tiles? Depends on issue #22
         const smallTileInformation = [
             getSmallTile( boardPosition, {x: 0, y: 0}, TileValue.Empty ),
             getSmallTile( boardPosition, {x: 0, y: 1}, TileValue.Empty ),

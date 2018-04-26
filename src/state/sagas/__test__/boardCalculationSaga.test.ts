@@ -14,7 +14,6 @@ describe( 'boardCalculationSaga', () => {
                      ])
             .put({type: SET_BOARD_VALUE, payload: {boardPosition: {x: 0, y: 1}, tileValue: Player.Cross}})
             .dispatch( {type: CALCULATE_BOARD_VALUE, payload: {x: 0, y: 1}} )
-            // TODO maybe this needs to be switched to 1,0
             .silentRun();
     } );
 
