@@ -1,6 +1,6 @@
 import { cloneState, GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../AppState';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
-import { arePointsEqual } from '../../util/Point';
+import { arePointsEqual, Point } from '../../util/Point';
 import { RESTART_GAME } from '../commonAction';
 
 const getSmallBoardTiles = ( boardX: number, boardY: number ) => {
@@ -31,6 +31,13 @@ const getInitialState = () => {
     return state;
 };
 
+const getSmallBoard = (bigBoard: SmallBoardInformation[], boardPosition: Point) => {
+    const smallBoardIndex = bigBoard.findIndex( board => {
+        return arePointsEqual( board.position, boardPosition );
+    } );
+    return bigBoard[smallBoardIndex];
+};
+
 const initialState = getInitialState();
 
 const boardReducer = ( state = initialState, action: GenericAction ) => {
@@ -39,11 +46,7 @@ const boardReducer = ( state = initialState, action: GenericAction ) => {
         case SET_TILE_VALUE: {
             let clone = cloneState( state );
 
-            const smallBoardIndex = clone.findIndex( board => {
-                return arePointsEqual( board.position, action.payload.boardPosition );
-            } );
-            const smallBoard = clone[smallBoardIndex];
-
+            const smallBoard = getSmallBoard(clone, action.payload.boardPosition);
             const tileIndex = smallBoard.tiles.findIndex( tile => {
                 return arePointsEqual( tile.position, action.payload.tilePosition );
             } );
@@ -54,11 +57,7 @@ const boardReducer = ( state = initialState, action: GenericAction ) => {
         case SET_BOARD_VALUE: {
             let clone = cloneState( state );
 
-            const smallBoardIndex = clone.findIndex( board => {
-                return arePointsEqual( board.position, action.payload.boardPosition );
-            } );
-
-            const smallBoard = clone[smallBoardIndex];
+            const smallBoard = getSmallBoard(clone, action.payload.boardPosition);
             smallBoard.value = action.payload.tileValue;
 
             return clone;
