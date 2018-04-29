@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BigBoard from './board/BigBoard/BigBoard';
+import BigBoard from './Board/BigBoard/BigBoard';
 import GithubCorner from 'react-github-corner';
 import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
 
