@@ -1,6 +1,7 @@
 import { Point } from '../../util/Point';
 import { GenericAction } from '../AppState';
 import { SET_ALLOWED_BOARDS } from './activeBoardsActions';
+import { RESTART_GAME } from '../commonAction';
 
 const getAllPoints = () => {
     let points: Point[] = [];
@@ -20,6 +21,9 @@ const activeBoardsReducer = ( state = initialState, action: GenericAction ) => {
     switch (action.type) {
         case SET_ALLOWED_BOARDS: {
             return action.payload;
+        }
+        case RESTART_GAME: {
+            return initialState;
         }
         default: {
             return state;
