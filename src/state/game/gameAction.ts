@@ -8,8 +8,7 @@ export const GAME_FINISHED = 'game/game-finished';
 export const CHECK_GAME_FINISHED = 'game/check-game-finished';
 
 export const changePlayer = () => ({
-    type: CHANGE_PLAYER,
-    payload: {}
+    type: CHANGE_PLAYER
 });
 
 export const gameFinished = ( winningPlayer?: Player | null ) => ({
