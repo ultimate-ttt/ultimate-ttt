@@ -4,27 +4,38 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
+import { restartGame } from '../../state/commonAction';
+import { Button } from 'rmwc/Button';
+import './gameFinished.css';
 
 interface GameFinishedDisplayProps {
     isGameFinished: boolean;
     winner: Player;
+    onRestartGame: () => void;
 }
 
 interface GameFinishedDisplayState {
+    winnerClassAttribute: string;
+    winnerText: string | JSX.Element;
 }
 
 export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
 
     constructor( props: GameFinishedDisplayProps ) {
         super( props );
+
+        this.tryRestart = this.tryRestart.bind( this );
+        this.getWinnerText = this.getWinnerText.bind( this );
+
+        this.state = {winnerClassAttribute: 'hidden', winnerText: this.getWinnerText( Player.Circle, false )};
     }
 
     getWinnerText( player: Player, isGameFinished: boolean ) {
 
         if (isGameFinished) {
             const fontSize = {
-                fontSize: '4.5vmin'
-            };
+                fontSize: '5vmin'
+            }; // TODO: change this to use CSS!!
             if (player === Player.Circle) {
                 return (<><OSymbol style={fontSize} shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
@@ -35,44 +46,63 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         }
 
         // this will be hidden
-        // it's there so that the board doesn't shift down when it's displayed
-        return <><XSymbol shouldAnimate={false}/>some text</>;
+        // it's there so that the board doesn't shift down when the finished text is displayed
+        return <><XSymbol shouldAnimate={false}/>reservation</>;
     }
 
-    getHiddenStyle( isGameFinished: boolean ) {
-        if (!isGameFinished) {
-            return {
-                visibility: 'hidden'
-            };
+    componentWillReceiveProps( nextProps: GameFinishedDisplayProps ) {
+        if (nextProps.isGameFinished) {
+            this.setState( {
+                               winnerClassAttribute: 'visible',
+                               winnerText: this.getWinnerText( nextProps.winner, nextProps.isGameFinished )
+                           } );
         }
-        return {};
+    }
+
+    tryRestart() {
+        if (this.props.isGameFinished) {
+            // for the ease out to work.
+            // otherwise the "reservation" text gets rendered before it's eased out
+            this.setState( prevState => {
+                return {
+                    ...prevState,
+                    winnerClassAttribute: 'hidden'
+                };
+            } );
+
+            this.props.onRestartGame();
+        }
     }
 
     render() {
-        const {isGameFinished, winner} = this.props;
+        const {isGameFinished} = this.props;
+        const {winnerClassAttribute, winnerText} = this.state;
 
-        const winnerText = this.getWinnerText( winner, isGameFinished );
-        // so that the board doesn't go down when I show the winner text
-        const hiddenStyle = this.getHiddenStyle( isGameFinished );
-
-        const confettiConfig = {
-            elementCount: 250,
-            spread: 360,
-            startVelocity: 35,
-            decay: 0.97
-        };
+        const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
 
         return (
-            <div className="flex-middle" style={hiddenStyle}>
-                <p style={{fontSize: '3.5vmin'}}>
-                    {winnerText}
-                </p>
-                <div className="center">
-                    <Confetti config={confettiConfig} active={isGameFinished}/>
+            <>
+                <div className={textContainerClass}>
+                    <p className="winner-text">
+                        {winnerText}
+                    </p>
+                    <Button dense={true} raised={true} onClick={this.tryRestart}>
+                        Play Again
+                    </Button>
                 </div>
-            </div>
+                <div className="center">
+                    <Confetti
+                        config={{
+                            elementCount: 250,
+                            spread: 360,
+                            startVelocity: 35,
+                            decay: 0.97
+                        }}
+                        active={isGameFinished}
+                    />
+                </div>
+            </>
         );
-
     }
 }
 
@@ -81,4 +111,10 @@ const mapStateToProps = ( state: AppState ) => ({
     winner: state.game.winningPlayer,
 });
 
-export default connect( mapStateToProps )( GameFinishedDisplay );
+// tslint:disable-next-line: no-any
+const mapDispatchToProps = ( dispatch: any ) => ({
+    onRestartGame: () =>
+        dispatch( restartGame() )
+});
+
+export default connect( mapStateToProps, mapDispatchToProps )( GameFinishedDisplay );

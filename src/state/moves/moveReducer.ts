@@ -1,5 +1,6 @@
 import { cloneState, GenericAction, Move } from '../AppState';
 import { REGISTER_MOVE } from './moveAction';
+import { RESTART_GAME } from '../commonAction';
 
 const initialState: Move[] = [];
 
@@ -17,6 +18,9 @@ const moveReducer = ( state = initialState, action: GenericAction ) => {
             } );
 
             return clone;
+        }
+        case RESTART_GAME: {
+            return initialState;
         }
 
         default: {
