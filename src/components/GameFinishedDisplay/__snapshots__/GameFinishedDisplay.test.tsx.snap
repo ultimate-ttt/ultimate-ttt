@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
+    onRestartGame={[Function]}
     winner={1}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -18,28 +19,32 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        <p
-          style={
-            Object {
-              "fontSize": "3.5vmin",
-            }
-          }
+        <div
+          className="restart-alignment hidden"
         >
-          <UNDEFINED>
-            <OSymbol
-              shouldAnimate={false}
-              style={
-                Object {
-                  "fontSize": "4.5vmin",
-                }
-              }
-            />
-             wins!
-          </UNDEFINED>
-        </p>,
+          <p
+            className="winner-text"
+          >
+            <UNDEFINED>
+              <XSymbol
+                shouldAnimate={false}
+              />
+              reservation
+            </UNDEFINED>
+          </p>
+          <Button
+            dense={true}
+            onClick={[Function]}
+            raised={true}
+            stroked={false}
+            unelevated={false}
+          >
+            Play Again
+          </Button>
+        </div>,
         <div
           className="center"
         >
@@ -56,8 +61,6 @@ ShallowWrapper {
           />
         </div>,
       ],
-      "className": "flex-middle",
-      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -66,60 +69,94 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
-            <OSymbol
-              shouldAnimate={false}
-              style={
-                Object {
-                  "fontSize": "4.5vmin",
-                }
-              }
-            />
-             wins!
-          </UNDEFINED>,
-          "style": Object {
-            "fontSize": "3.5vmin",
-          },
+          "children": Array [
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>,
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>,
+          ],
+          "className": "restart-alignment hidden",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <OSymbol
-                shouldAnimate={false}
-                style={
-                  Object {
-                    "fontSize": "4.5vmin",
-                  }
-                }
-              />,
-              " wins!",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>,
+              "className": "winner-text",
+            },
+            "ref": null,
+            "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "shouldAnimate": false,
-                "style": Object {
-                  "fontSize": "4.5vmin",
-                },
+                "children": Array [
+                  <XSymbol
+                    shouldAnimate={false}
+                  />,
+                  "reservation",
+                ],
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "shouldAnimate": false,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "reservation",
+              ],
+              "type": Symbol(react.fragment),
             },
-            " wins!",
-          ],
-          "type": Symbol(react.fragment),
-        },
-        "type": "p",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Play Again",
+              "dense": true,
+              "onClick": [Function],
+              "raised": true,
+              "stroked": false,
+              "unelevated": false,
+            },
+            "ref": null,
+            "rendered": "Play Again",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -160,34 +197,38 @@ ShallowWrapper {
         "type": "div",
       },
     ],
-    "type": "div",
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <p
-            style={
-              Object {
-                "fontSize": "3.5vmin",
-              }
-            }
+          <div
+            className="restart-alignment hidden"
           >
-            <UNDEFINED>
-              <OSymbol
-                shouldAnimate={false}
-                style={
-                  Object {
-                    "fontSize": "4.5vmin",
-                  }
-                }
-              />
-               wins!
-            </UNDEFINED>
-          </p>,
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>
+          </div>,
           <div
             className="center"
           >
@@ -204,8 +245,6 @@ ShallowWrapper {
             />
           </div>,
         ],
-        "className": "flex-middle",
-        "style": Object {},
       },
       "ref": null,
       "rendered": Array [
@@ -214,60 +253,94 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
-              <OSymbol
-                shouldAnimate={false}
-                style={
-                  Object {
-                    "fontSize": "4.5vmin",
-                  }
-                }
-              />
-               wins!
-            </UNDEFINED>,
-            "style": Object {
-              "fontSize": "3.5vmin",
-            },
+            "children": Array [
+              <p
+                className="winner-text"
+              >
+                <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>
+              </p>,
+              <Button
+                dense={true}
+                onClick={[Function]}
+                raised={true}
+                stroked={false}
+                unelevated={false}
+              >
+                Play Again
+              </Button>,
+            ],
+            "className": "restart-alignment hidden",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": Array [
-                <OSymbol
-                  shouldAnimate={false}
-                  style={
-                    Object {
-                      "fontSize": "4.5vmin",
-                    }
-                  }
-                />,
-                " wins!",
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>,
+                "className": "winner-text",
+              },
+              "ref": null,
+              "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "shouldAnimate": false,
-                  "style": Object {
-                    "fontSize": "4.5vmin",
-                  },
+                  "children": Array [
+                    <XSymbol
+                      shouldAnimate={false}
+                    />,
+                    "reservation",
+                  ],
                 },
                 "ref": null,
-                "rendered": null,
-                "type": [Function],
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "shouldAnimate": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "reservation",
+                ],
+                "type": Symbol(react.fragment),
               },
-              " wins!",
-            ],
-            "type": Symbol(react.fragment),
-          },
-          "type": "p",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Play Again",
+                "dense": true,
+                "onClick": [Function],
+                "raised": true,
+                "stroked": false,
+                "unelevated": false,
+              },
+              "ref": null,
+              "rendered": "Play Again",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
@@ -308,7 +381,7 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": "div",
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -327,6 +400,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
+    onRestartGame={[Function]}
     winner={0}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -339,28 +413,32 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        <p
-          style={
-            Object {
-              "fontSize": "3.5vmin",
-            }
-          }
+        <div
+          className="restart-alignment hidden"
         >
-          <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-              style={
-                Object {
-                  "fontSize": "4.5vmin",
-                }
-              }
-            />
-             wins!
-          </UNDEFINED>
-        </p>,
+          <p
+            className="winner-text"
+          >
+            <UNDEFINED>
+              <XSymbol
+                shouldAnimate={false}
+              />
+              reservation
+            </UNDEFINED>
+          </p>
+          <Button
+            dense={true}
+            onClick={[Function]}
+            raised={true}
+            stroked={false}
+            unelevated={false}
+          >
+            Play Again
+          </Button>
+        </div>,
         <div
           className="center"
         >
@@ -377,8 +455,6 @@ ShallowWrapper {
           />
         </div>,
       ],
-      "className": "flex-middle",
-      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -387,60 +463,94 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-              style={
-                Object {
-                  "fontSize": "4.5vmin",
-                }
-              }
-            />
-             wins!
-          </UNDEFINED>,
-          "style": Object {
-            "fontSize": "3.5vmin",
-          },
+          "children": Array [
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>,
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>,
+          ],
+          "className": "restart-alignment hidden",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <XSymbol
-                shouldAnimate={false}
-                style={
-                  Object {
-                    "fontSize": "4.5vmin",
-                  }
-                }
-              />,
-              " wins!",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>,
+              "className": "winner-text",
+            },
+            "ref": null,
+            "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "shouldAnimate": false,
-                "style": Object {
-                  "fontSize": "4.5vmin",
-                },
+                "children": Array [
+                  <XSymbol
+                    shouldAnimate={false}
+                  />,
+                  "reservation",
+                ],
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "shouldAnimate": false,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "reservation",
+              ],
+              "type": Symbol(react.fragment),
             },
-            " wins!",
-          ],
-          "type": Symbol(react.fragment),
-        },
-        "type": "p",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Play Again",
+              "dense": true,
+              "onClick": [Function],
+              "raised": true,
+              "stroked": false,
+              "unelevated": false,
+            },
+            "ref": null,
+            "rendered": "Play Again",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -481,34 +591,38 @@ ShallowWrapper {
         "type": "div",
       },
     ],
-    "type": "div",
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <p
-            style={
-              Object {
-                "fontSize": "3.5vmin",
-              }
-            }
+          <div
+            className="restart-alignment hidden"
           >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-                style={
-                  Object {
-                    "fontSize": "4.5vmin",
-                  }
-                }
-              />
-               wins!
-            </UNDEFINED>
-          </p>,
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>
+          </div>,
           <div
             className="center"
           >
@@ -525,8 +639,6 @@ ShallowWrapper {
             />
           </div>,
         ],
-        "className": "flex-middle",
-        "style": Object {},
       },
       "ref": null,
       "rendered": Array [
@@ -535,60 +647,94 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-                style={
-                  Object {
-                    "fontSize": "4.5vmin",
-                  }
-                }
-              />
-               wins!
-            </UNDEFINED>,
-            "style": Object {
-              "fontSize": "3.5vmin",
-            },
+            "children": Array [
+              <p
+                className="winner-text"
+              >
+                <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>
+              </p>,
+              <Button
+                dense={true}
+                onClick={[Function]}
+                raised={true}
+                stroked={false}
+                unelevated={false}
+              >
+                Play Again
+              </Button>,
+            ],
+            "className": "restart-alignment hidden",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": Array [
-                <XSymbol
-                  shouldAnimate={false}
-                  style={
-                    Object {
-                      "fontSize": "4.5vmin",
-                    }
-                  }
-                />,
-                " wins!",
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>,
+                "className": "winner-text",
+              },
+              "ref": null,
+              "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "shouldAnimate": false,
-                  "style": Object {
-                    "fontSize": "4.5vmin",
-                  },
+                  "children": Array [
+                    <XSymbol
+                      shouldAnimate={false}
+                    />,
+                    "reservation",
+                  ],
                 },
                 "ref": null,
-                "rendered": null,
-                "type": [Function],
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "shouldAnimate": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "reservation",
+                ],
+                "type": Symbol(react.fragment),
               },
-              " wins!",
-            ],
-            "type": Symbol(react.fragment),
-          },
-          "type": "p",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Play Again",
+                "dense": true,
+                "onClick": [Function],
+                "raised": true,
+                "stroked": false,
+                "unelevated": false,
+              },
+              "ref": null,
+              "rendered": "Play Again",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
@@ -629,7 +775,7 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": "div",
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -648,6 +794,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
+    onRestartGame={[Function]}
     winner={null}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -660,18 +807,32 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        <p
-          style={
-            Object {
-              "fontSize": "3.5vmin",
-            }
-          }
+        <div
+          className="restart-alignment hidden"
         >
-          It's a draw!
-        </p>,
+          <p
+            className="winner-text"
+          >
+            <UNDEFINED>
+              <XSymbol
+                shouldAnimate={false}
+              />
+              reservation
+            </UNDEFINED>
+          </p>
+          <Button
+            dense={true}
+            onClick={[Function]}
+            raised={true}
+            stroked={false}
+            unelevated={false}
+          >
+            Play Again
+          </Button>
+        </div>,
         <div
           className="center"
         >
@@ -688,8 +849,6 @@ ShallowWrapper {
           />
         </div>,
       ],
-      "className": "flex-middle",
-      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -698,14 +857,94 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "It's a draw!",
-          "style": Object {
-            "fontSize": "3.5vmin",
-          },
+          "children": Array [
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>,
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>,
+          ],
+          "className": "restart-alignment hidden",
         },
         "ref": null,
-        "rendered": "It's a draw!",
-        "type": "p",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>,
+              "className": "winner-text",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <XSymbol
+                    shouldAnimate={false}
+                  />,
+                  "reservation",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "shouldAnimate": false,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "reservation",
+              ],
+              "type": Symbol(react.fragment),
+            },
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Play Again",
+              "dense": true,
+              "onClick": [Function],
+              "raised": true,
+              "stroked": false,
+              "unelevated": false,
+            },
+            "ref": null,
+            "rendered": "Play Again",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -746,24 +985,38 @@ ShallowWrapper {
         "type": "div",
       },
     ],
-    "type": "div",
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <p
-            style={
-              Object {
-                "fontSize": "3.5vmin",
-              }
-            }
+          <div
+            className="restart-alignment hidden"
           >
-            It's a draw!
-          </p>,
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>
+          </div>,
           <div
             className="center"
           >
@@ -780,8 +1033,6 @@ ShallowWrapper {
             />
           </div>,
         ],
-        "className": "flex-middle",
-        "style": Object {},
       },
       "ref": null,
       "rendered": Array [
@@ -790,14 +1041,94 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "It's a draw!",
-            "style": Object {
-              "fontSize": "3.5vmin",
-            },
+            "children": Array [
+              <p
+                className="winner-text"
+              >
+                <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>
+              </p>,
+              <Button
+                dense={true}
+                onClick={[Function]}
+                raised={true}
+                stroked={false}
+                unelevated={false}
+              >
+                Play Again
+              </Button>,
+            ],
+            "className": "restart-alignment hidden",
           },
           "ref": null,
-          "rendered": "It's a draw!",
-          "type": "p",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>,
+                "className": "winner-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <XSymbol
+                      shouldAnimate={false}
+                    />,
+                    "reservation",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "shouldAnimate": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "reservation",
+                ],
+                "type": Symbol(react.fragment),
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Play Again",
+                "dense": true,
+                "onClick": [Function],
+                "raised": true,
+                "stroked": false,
+                "unelevated": false,
+              },
+              "ref": null,
+              "rendered": "Play Again",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
@@ -838,7 +1169,7 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": "div",
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -857,6 +1188,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={false}
+    onRestartGame={[Function]}
     winner={null}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -869,23 +1201,32 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        <p
-          style={
-            Object {
-              "fontSize": "3.5vmin",
-            }
-          }
+        <div
+          className="restart-alignment hidden"
         >
-          <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-            />
-            some text
-          </UNDEFINED>
-        </p>,
+          <p
+            className="winner-text"
+          >
+            <UNDEFINED>
+              <XSymbol
+                shouldAnimate={false}
+              />
+              reservation
+            </UNDEFINED>
+          </p>
+          <Button
+            dense={true}
+            onClick={[Function]}
+            raised={true}
+            stroked={false}
+            unelevated={false}
+          >
+            Play Again
+          </Button>
+        </div>,
         <div
           className="center"
         >
@@ -902,10 +1243,6 @@ ShallowWrapper {
           />
         </div>,
       ],
-      "className": "flex-middle",
-      "style": Object {
-        "visibility": "hidden",
-      },
     },
     "ref": null,
     "rendered": Array [
@@ -914,47 +1251,94 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-            />
-            some text
-          </UNDEFINED>,
-          "style": Object {
-            "fontSize": "3.5vmin",
-          },
+          "children": Array [
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>,
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>,
+          ],
+          "className": "restart-alignment hidden",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <XSymbol
-                shouldAnimate={false}
-              />,
-              "some text",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>,
+              "className": "winner-text",
+            },
+            "ref": null,
+            "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "shouldAnimate": false,
+                "children": Array [
+                  <XSymbol
+                    shouldAnimate={false}
+                  />,
+                  "reservation",
+                ],
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "shouldAnimate": false,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "reservation",
+              ],
+              "type": Symbol(react.fragment),
             },
-            "some text",
-          ],
-          "type": Symbol(react.fragment),
-        },
-        "type": "p",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Play Again",
+              "dense": true,
+              "onClick": [Function],
+              "raised": true,
+              "stroked": false,
+              "unelevated": false,
+            },
+            "ref": null,
+            "rendered": "Play Again",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -995,29 +1379,38 @@ ShallowWrapper {
         "type": "div",
       },
     ],
-    "type": "div",
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <p
-            style={
-              Object {
-                "fontSize": "3.5vmin",
-              }
-            }
+          <div
+            className="restart-alignment hidden"
           >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              some text
-            </UNDEFINED>
-          </p>,
+            <p
+              className="winner-text"
+            >
+              <UNDEFINED>
+                <XSymbol
+                  shouldAnimate={false}
+                />
+                reservation
+              </UNDEFINED>
+            </p>
+            <Button
+              dense={true}
+              onClick={[Function]}
+              raised={true}
+              stroked={false}
+              unelevated={false}
+            >
+              Play Again
+            </Button>
+          </div>,
           <div
             className="center"
           >
@@ -1034,10 +1427,6 @@ ShallowWrapper {
             />
           </div>,
         ],
-        "className": "flex-middle",
-        "style": Object {
-          "visibility": "hidden",
-        },
       },
       "ref": null,
       "rendered": Array [
@@ -1046,47 +1435,94 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              some text
-            </UNDEFINED>,
-            "style": Object {
-              "fontSize": "3.5vmin",
-            },
+            "children": Array [
+              <p
+                className="winner-text"
+              >
+                <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>
+              </p>,
+              <Button
+                dense={true}
+                onClick={[Function]}
+                raised={true}
+                stroked={false}
+                unelevated={false}
+              >
+                Play Again
+              </Button>,
+            ],
+            "className": "restart-alignment hidden",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": Array [
-                <XSymbol
-                  shouldAnimate={false}
-                />,
-                "some text",
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <UNDEFINED>
+                  <XSymbol
+                    shouldAnimate={false}
+                  />
+                  reservation
+                </UNDEFINED>,
+                "className": "winner-text",
+              },
+              "ref": null,
+              "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "shouldAnimate": false,
+                  "children": Array [
+                    <XSymbol
+                      shouldAnimate={false}
+                    />,
+                    "reservation",
+                  ],
                 },
                 "ref": null,
-                "rendered": null,
-                "type": [Function],
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "shouldAnimate": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "reservation",
+                ],
+                "type": Symbol(react.fragment),
               },
-              "some text",
-            ],
-            "type": Symbol(react.fragment),
-          },
-          "type": "p",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Play Again",
+                "dense": true,
+                "onClick": [Function],
+                "raised": true,
+                "stroked": false,
+                "unelevated": false,
+              },
+              "ref": null,
+              "rendered": "Play Again",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
@@ -1127,7 +1563,7 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": "div",
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {
