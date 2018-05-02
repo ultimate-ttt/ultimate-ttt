@@ -54,7 +54,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         if (nextProps.isGameFinished) {
             this.setState( {
                                winnerClassAttribute: 'visible',
-                               component: this.getWinnerText( nextProps.winner, nextProps.isGameFinished )
+                               winnerText: this.getWinnerText( nextProps.winner, nextProps.isGameFinished )
                            } );
         }
     }
