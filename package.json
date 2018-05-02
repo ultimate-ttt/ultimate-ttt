@@ -32,15 +32,7 @@
       "!src/**/*Mock.{ts,tsx}",
       "!src/registerServiceWorker.{ts,tsx}",
       "!src/state/configureStore.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
+    ]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.14",
