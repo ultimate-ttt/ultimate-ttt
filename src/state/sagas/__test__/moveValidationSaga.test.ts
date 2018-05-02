@@ -31,7 +31,7 @@ describe( 'moveValidationSaga', () => {
                           tileValue: Player.Cross
                       }
                   } )
-            .put( {type: CHANGE_PLAYER, payload: {}} )
+            .put( {type: CHANGE_PLAYER} )
             .put( {type: CALCULATE_BOARD_VALUE, payload: {x: 1, y: 1}} )
             .put( {type: CALCULATE_ALLOWED_BOARDS, payload: {x: 2, y: 2}} )
             .put( {type: CHECK_GAME_FINISHED} )

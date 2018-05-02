@@ -12,7 +12,8 @@
     "react-redux": "^5.0.6",
     "react-scripts-ts": "2.15.1",
     "redux": "^3.7.2",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "rmwc": "^1.5.4"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -46,11 +47,11 @@
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^5.0.14",
-    "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.5",
     "@types/storybook__addon-actions": "^3.0.1",
     "@types/storybook__addon-knobs": "^3.2.1",
     "@types/storybook__addon-links": "^3.0.2",
+    "@types/node": "^9.6.7",
     "@types/storybook__react": "^3.0.5",
     "babel-core": "^6.26.0",
     "coveralls": "^3.0.0",
