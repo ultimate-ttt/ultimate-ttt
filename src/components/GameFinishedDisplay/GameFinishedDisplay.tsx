@@ -4,20 +4,19 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import Confetti from 'react-dom-confetti';
-import { restartGame as restartAction } from '../../state/commonAction';
-import * as classNames from 'classnames';
+import { restartGame } from '../../state/commonAction';
 import { Button } from 'rmwc/Button';
 import './gameFinished.css';
 
 interface GameFinishedDisplayProps {
     isGameFinished: boolean;
     winner: Player;
-    restartGame: () => void;
+    onRestartGame: () => void;
 }
 
 interface GameFinishedDisplayState {
-    lastWinner: Player | null;
-    wasGameOnceFinished: boolean;
+    winnerClassAttribute: string;
+    component: string | JSX.Element;
 }
 
 export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
@@ -25,9 +24,10 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
     constructor( props: GameFinishedDisplayProps ) {
         super( props );
 
-        this.state = {lastWinner: null, wasGameOnceFinished: false};
-
         this.tryRestart = this.tryRestart.bind( this );
+        this.getWinnerText = this.getWinnerText.bind( this );
+
+        this.state = {winnerClassAttribute: 'hidden', component: this.getWinnerText( Player.Circle, false )};
     }
 
     getWinnerText( player: Player, isGameFinished: boolean ) {
@@ -50,40 +50,41 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         return <><XSymbol shouldAnimate={false}/>reservation</>;
     }
 
+    componentWillReceiveProps( nextProps: GameFinishedDisplayProps ) {
+        if (nextProps.isGameFinished) {
+            this.setState( {
+                               winnerClassAttribute: 'visible',
+                               component: this.getWinnerText( nextProps.winner, nextProps.isGameFinished )
+                           } );
+        }
+    }
+
     tryRestart() {
         if (this.props.isGameFinished) {
             // for the ease out to work.
             // otherwise the "reservation" text gets rendered before it's eased out
-            this.setState( {
-                               lastWinner: this.props.winner,
-                               wasGameOnceFinished: true
-                           } );
-            this.props.restartGame();
+            this.setState( prevState => {
+                return {
+                    ...prevState,
+                    winnerClassAttribute: 'hidden'
+                };
+            } );
+
+            this.props.onRestartGame();
         }
     }
 
     render() {
-        const {isGameFinished, winner} = this.props;
-        const {wasGameOnceFinished, lastWinner} = this.state;
+        const {isGameFinished} = this.props;
+        const {winnerClassAttribute, component} = this.state;
 
-        let winnerText;
-        if (!isGameFinished && wasGameOnceFinished) {
-            winnerText = this.getWinnerText( lastWinner!, wasGameOnceFinished );
-        } else {
-            winnerText = this.getWinnerText( winner, isGameFinished );
-        }
-
-        const textContainerClass = classNames( {
-                                                   'restart-alignment': true,
-                                                   'hidden': !isGameFinished,
-                                                   'visible': isGameFinished
-                                               } );
+        const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
 
         return (
             <>
                 <div className={textContainerClass}>
                     <p className="winner-text">
-                        {winnerText}
+                        {component}
                     </p>
                     <Button dense={true} raised={true} onClick={this.tryRestart}>
                         Play Again
@@ -112,8 +113,8 @@ const mapStateToProps = ( state: AppState ) => ({
 
 // tslint:disable-next-line: no-any
 const mapDispatchToProps = ( dispatch: any ) => ({
-    restartGame: () =>
-        dispatch( restartAction() )
+    onRestartGame: () =>
+        dispatch( restartGame() )
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( GameFinishedDisplay );
