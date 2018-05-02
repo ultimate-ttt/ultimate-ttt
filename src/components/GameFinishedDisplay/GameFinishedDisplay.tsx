@@ -16,7 +16,7 @@ interface GameFinishedDisplayProps {
 
 interface GameFinishedDisplayState {
     winnerClassAttribute: string;
-    component: string | JSX.Element;
+    winnerText: string | JSX.Element;
 }
 
 export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
@@ -27,7 +27,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         this.tryRestart = this.tryRestart.bind( this );
         this.getWinnerText = this.getWinnerText.bind( this );
 
-        this.state = {winnerClassAttribute: 'hidden', component: this.getWinnerText( Player.Circle, false )};
+        this.state = {winnerClassAttribute: 'hidden', winnerText: this.getWinnerText( Player.Circle, false )};
     }
 
     getWinnerText( player: Player, isGameFinished: boolean ) {
@@ -76,7 +76,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
 
     render() {
         const {isGameFinished} = this.props;
-        const {winnerClassAttribute, component} = this.state;
+        const {winnerClassAttribute, winnerText} = this.state;
 
         const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
 
@@ -84,7 +84,7 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
             <>
                 <div className={textContainerClass}>
                     <p className="winner-text">
-                        {component}
+                        {winnerText}
                     </p>
                     <Button dense={true} raised={true} onClick={this.tryRestart}>
                         Play Again
