@@ -14,7 +14,7 @@ describe( 'GameFinished', function () {
         };
         const gameFinishedIndicator = shallow( (
                                                    <GameFinishedDisplay
-                                                       restartGame={restart}
+                                                       onRestartGame={restart}
                                                        isGameFinished={true}
                                                        winner={null!}
                                                    />
@@ -29,7 +29,7 @@ describe( 'GameFinished', function () {
         };
         const gameFinishedIndicator = shallow( (
                                                    <GameFinishedDisplay
-                                                       restartGame={restart}
+                                                       onRestartGame={restart}
                                                        isGameFinished={true}
                                                        winner={Player.Circle}
                                                    />
@@ -44,7 +44,7 @@ describe( 'GameFinished', function () {
         };
         const gameFinishedIndicator = shallow( (
                                                    <GameFinishedDisplay
-                                                       restartGame={restart}
+                                                       onRestartGame={restart}
                                                        isGameFinished={true}
                                                        winner={Player.Cross}
                                                    />
@@ -59,7 +59,7 @@ describe( 'GameFinished', function () {
         };
         const gameFinishedIndicator = shallow( (
                                                    <GameFinishedDisplay
-                                                       restartGame={restart}
+                                                       onRestartGame={restart}
                                                        isGameFinished={false}
                                                        winner={null!}
                                                    />
