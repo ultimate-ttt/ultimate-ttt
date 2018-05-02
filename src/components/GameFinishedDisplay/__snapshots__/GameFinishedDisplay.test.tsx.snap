@@ -6,7 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
-    restartGame={[Function]}
+    onRestartGame={[Function]}
     winner={1}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -400,7 +400,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
-    restartGame={[Function]}
+    onRestartGame={[Function]}
     winner={0}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -794,7 +794,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
-    restartGame={[Function]}
+    onRestartGame={[Function]}
     winner={null}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -1188,7 +1188,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={false}
-    restartGame={[Function]}
+    onRestartGame={[Function]}
     winner={null}
   />,
   Symbol(enzyme.__renderer__): Object {
