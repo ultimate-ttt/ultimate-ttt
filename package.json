@@ -8,7 +8,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-github-corner": "^2.3.0",
-    "react-dom-confetti": "^0.0.9",
+    "react-dom-confetti": "^0.0.10",
     "react-redux": "^5.0.6",
     "react-scripts-ts": "2.15.1",
     "redux": "^3.7.2",
