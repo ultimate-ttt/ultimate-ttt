@@ -3138,10 +3138,6 @@ doctrine@^2.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-confetti@~0.0.7:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/dom-confetti/-/dom-confetti-0.0.11.tgz#755bd77544202e38573d26463cd00cf648263a60"
-
 dom-converter@~0.1:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.1.4.tgz#a45ef5727b890c9bffe6d7c876e7b19cb0e17f3b"
@@ -7284,12 +7280,6 @@ react-docgen@^3.0.0-beta11:
     doctrine "^2.0.0"
     node-dir "^0.1.10"
     recast "^0.12.6"
-
-react-dom-confetti@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/react-dom-confetti/-/react-dom-confetti-0.0.9.tgz#963eb69dbe8ce3cca9e30fb7898e8f9f7b7598b7"
-  dependencies:
-    dom-confetti "~0.0.7"
 
 react-dom@^16.2.0:
   version "16.3.2"

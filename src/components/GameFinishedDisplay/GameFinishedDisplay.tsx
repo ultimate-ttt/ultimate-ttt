@@ -3,7 +3,6 @@ import { AppState, Player } from '../../state/AppState';
 import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
-import Confetti from 'react-dom-confetti';
 import { restartGame } from '../../state/commonAction';
 import { Button } from 'rmwc/Button';
 import './gameFinished.css';
@@ -75,13 +74,11 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
     }
 
     render() {
-        const {isGameFinished} = this.props;
         const {winnerClassAttribute, winnerText} = this.state;
 
         const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
 
         return (
-            <>
                 <div className={textContainerClass}>
                     <p className="winner-text">
                         {winnerText}
@@ -90,18 +87,6 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
                         Play Again
                     </Button>
                 </div>
-                <div className="center">
-                    <Confetti
-                        config={{
-                            elementCount: 250,
-                            spread: 360,
-                            startVelocity: 35,
-                            decay: 0.97
-                        }}
-                        active={isGameFinished}
-                    />
-                </div>
-            </>
         );
     }
 }
