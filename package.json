@@ -50,7 +50,7 @@
     "@types/storybook__addon-actions": "^3.0.1",
     "@types/storybook__addon-knobs": "^3.2.1",
     "@types/storybook__addon-links": "^3.0.2",
-    "@types/node": "^9.6.7",
+    "@types/node": "^10.0.7",
     "@types/storybook__react": "^3.0.5",
     "babel-core": "^6.26.0",
     "coveralls": "^3.0.0",
