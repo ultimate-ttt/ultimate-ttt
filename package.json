@@ -9,7 +9,7 @@
     "react-dom": "^16.2.0",
     "react-github-corner": "^2.3.0",
     "react-redux": "^5.0.6",
-    "react-scripts-ts": "2.15.1",
+    "react-scripts-ts": "2.16.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "rmwc": "^1.5.4"
