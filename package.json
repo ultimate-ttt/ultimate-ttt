@@ -54,7 +54,7 @@
     "@types/storybook__react": "^3.0.5",
     "babel-core": "^6.26.0",
     "coveralls": "^3.0.0",
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.1.1",
     "gh-pages": "^1.1.0",
     "jest-junit-reporter": "^1.1.0",
