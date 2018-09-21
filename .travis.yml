@@ -7,13 +7,6 @@ script:
   - yarn build
 after_success:
   - codecov
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $github_token
-  local_dir: build
-  on:
-    branch: master
 notifications:
   email: false
   webhooks: https://www.travisbuddy.com/?insertMode=update
