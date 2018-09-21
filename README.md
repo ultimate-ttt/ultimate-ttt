@@ -21,7 +21,7 @@ width="150" alt="tic tac toe logo" />
 ## Demo
 
 Below you see a quick demo of the game mechanics.
-You can test it out yourself [here](https://maracuja-juice.github.io/ultimate-tic-tac-react/)
+You can test it out yourself [here](https://ultimatettt.netlify.com/)
 
 <img src="https://user-images.githubusercontent.com/16801528/38771159-2815f1ec-401e-11e8-8edb-157b58403761.gif" alt="demo of the game" width="500">
 
