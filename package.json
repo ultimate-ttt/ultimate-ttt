@@ -56,11 +56,9 @@
     "coveralls": "^3.0.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest-junit-reporter": "^1.1.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^3.5.1",
-    "ts-jest": "23.10.1",
     "typescript": "^2.7.1"
   }
 }

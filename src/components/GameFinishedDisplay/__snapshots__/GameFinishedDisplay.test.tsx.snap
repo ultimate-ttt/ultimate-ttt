@@ -2,7 +2,6 @@
 
 exports[`GameFinished should match snapshot when circle wins 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
@@ -13,6 +12,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -35,8 +35,8 @@ ShallowWrapper {
         <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
-          stroked={false}
           unelevated={false}
         >
           Play Again
@@ -99,8 +99,8 @@ ShallowWrapper {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
-          "stroked": false,
           "unelevated": false,
         },
         "ref": null,
@@ -130,8 +130,8 @@ ShallowWrapper {
           <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
-            stroked={false}
             unelevated={false}
           >
             Play Again
@@ -194,8 +194,8 @@ ShallowWrapper {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
-            "stroked": false,
             "unelevated": false,
           },
           "ref": null,
@@ -210,15 +210,26 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;
 
 exports[`GameFinished should match snapshot when cross wins 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
@@ -229,6 +240,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -251,8 +263,8 @@ ShallowWrapper {
         <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
-          stroked={false}
           unelevated={false}
         >
           Play Again
@@ -315,8 +327,8 @@ ShallowWrapper {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
-          "stroked": false,
           "unelevated": false,
         },
         "ref": null,
@@ -346,8 +358,8 @@ ShallowWrapper {
           <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
-            stroked={false}
             unelevated={false}
           >
             Play Again
@@ -410,8 +422,8 @@ ShallowWrapper {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
-            "stroked": false,
             "unelevated": false,
           },
           "ref": null,
@@ -426,15 +438,26 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;
 
 exports[`GameFinished should match snapshot when draw 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
@@ -445,6 +468,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -467,8 +491,8 @@ ShallowWrapper {
         <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
-          stroked={false}
           unelevated={false}
         >
           Play Again
@@ -531,8 +555,8 @@ ShallowWrapper {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
-          "stroked": false,
           "unelevated": false,
         },
         "ref": null,
@@ -562,8 +586,8 @@ ShallowWrapper {
           <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
-            stroked={false}
             unelevated={false}
           >
             Play Again
@@ -626,8 +650,8 @@ ShallowWrapper {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
-            "stroked": false,
             "unelevated": false,
           },
           "ref": null,
@@ -642,15 +666,26 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;
 
 exports[`GameFinished should match snapshot when no one wins 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={false}
@@ -661,6 +696,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -683,8 +719,8 @@ ShallowWrapper {
         <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
-          stroked={false}
           unelevated={false}
         >
           Play Again
@@ -747,8 +783,8 @@ ShallowWrapper {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
-          "stroked": false,
           "unelevated": false,
         },
         "ref": null,
@@ -778,8 +814,8 @@ ShallowWrapper {
           <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
-            stroked={false}
             unelevated={false}
           >
             Play Again
@@ -842,8 +878,8 @@ ShallowWrapper {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
-            "stroked": false,
             "unelevated": false,
           },
           "ref": null,
@@ -858,8 +894,20 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;
