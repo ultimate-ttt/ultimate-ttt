@@ -7,7 +7,7 @@ ShallowWrapper {
     isGameFinished={true}
     onRestartGame={[Function]}
     winner={1}
-  />,
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -24,23 +24,23 @@ ShallowWrapper {
       "children": Array [
         <p
           className="winner-text"
-        >
-          <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-            />
-            reservation
-          </UNDEFINED>
-        </p>,
+>
+          <Unknown>
+                    <XSymbol
+                              shouldAnimate={false}
+                    />
+                    reservation
+          </Unknown>
+</p>,
         <Button
           dense={true}
           onClick={[Function]}
           outlined={false}
           raised={true}
           unelevated={false}
-        >
+>
           Play Again
-        </Button>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -51,12 +51,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
+          "children": <Unknown>
             <XSymbol
-              shouldAnimate={false}
+                        shouldAnimate={false}
             />
             reservation
-          </UNDEFINED>,
+</Unknown>,
           "className": "winner-text",
         },
         "ref": null,
@@ -68,7 +68,7 @@ ShallowWrapper {
             "children": Array [
               <XSymbol
                 shouldAnimate={false}
-              />,
+/>,
               "reservation",
             ],
           },
@@ -119,23 +119,23 @@ ShallowWrapper {
         "children": Array [
           <p
             className="winner-text"
-          >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              reservation
-            </UNDEFINED>
-          </p>,
+>
+            <Unknown>
+                        <XSymbol
+                                    shouldAnimate={false}
+                        />
+                        reservation
+            </Unknown>
+</p>,
           <Button
             dense={true}
             onClick={[Function]}
             outlined={false}
             raised={true}
             unelevated={false}
-          >
+>
             Play Again
-          </Button>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -146,12 +146,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
+            "children": <Unknown>
               <XSymbol
-                shouldAnimate={false}
+                            shouldAnimate={false}
               />
               reservation
-            </UNDEFINED>,
+</Unknown>,
             "className": "winner-text",
           },
           "ref": null,
@@ -163,7 +163,7 @@ ShallowWrapper {
               "children": Array [
                 <XSymbol
                   shouldAnimate={false}
-                />,
+/>,
                 "reservation",
               ],
             },
@@ -222,8 +222,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
@@ -235,7 +233,7 @@ ShallowWrapper {
     isGameFinished={true}
     onRestartGame={[Function]}
     winner={0}
-  />,
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -252,23 +250,23 @@ ShallowWrapper {
       "children": Array [
         <p
           className="winner-text"
-        >
-          <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-            />
-            reservation
-          </UNDEFINED>
-        </p>,
+>
+          <Unknown>
+                    <XSymbol
+                              shouldAnimate={false}
+                    />
+                    reservation
+          </Unknown>
+</p>,
         <Button
           dense={true}
           onClick={[Function]}
           outlined={false}
           raised={true}
           unelevated={false}
-        >
+>
           Play Again
-        </Button>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -279,12 +277,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
+          "children": <Unknown>
             <XSymbol
-              shouldAnimate={false}
+                        shouldAnimate={false}
             />
             reservation
-          </UNDEFINED>,
+</Unknown>,
           "className": "winner-text",
         },
         "ref": null,
@@ -296,7 +294,7 @@ ShallowWrapper {
             "children": Array [
               <XSymbol
                 shouldAnimate={false}
-              />,
+/>,
               "reservation",
             ],
           },
@@ -347,23 +345,23 @@ ShallowWrapper {
         "children": Array [
           <p
             className="winner-text"
-          >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              reservation
-            </UNDEFINED>
-          </p>,
+>
+            <Unknown>
+                        <XSymbol
+                                    shouldAnimate={false}
+                        />
+                        reservation
+            </Unknown>
+</p>,
           <Button
             dense={true}
             onClick={[Function]}
             outlined={false}
             raised={true}
             unelevated={false}
-          >
+>
             Play Again
-          </Button>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -374,12 +372,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
+            "children": <Unknown>
               <XSymbol
-                shouldAnimate={false}
+                            shouldAnimate={false}
               />
               reservation
-            </UNDEFINED>,
+</Unknown>,
             "className": "winner-text",
           },
           "ref": null,
@@ -391,7 +389,7 @@ ShallowWrapper {
               "children": Array [
                 <XSymbol
                   shouldAnimate={false}
-                />,
+/>,
                 "reservation",
               ],
             },
@@ -450,8 +448,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
@@ -463,7 +459,7 @@ ShallowWrapper {
     isGameFinished={true}
     onRestartGame={[Function]}
     winner={null}
-  />,
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -480,23 +476,23 @@ ShallowWrapper {
       "children": Array [
         <p
           className="winner-text"
-        >
-          <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-            />
-            reservation
-          </UNDEFINED>
-        </p>,
+>
+          <Unknown>
+                    <XSymbol
+                              shouldAnimate={false}
+                    />
+                    reservation
+          </Unknown>
+</p>,
         <Button
           dense={true}
           onClick={[Function]}
           outlined={false}
           raised={true}
           unelevated={false}
-        >
+>
           Play Again
-        </Button>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -507,12 +503,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
+          "children": <Unknown>
             <XSymbol
-              shouldAnimate={false}
+                        shouldAnimate={false}
             />
             reservation
-          </UNDEFINED>,
+</Unknown>,
           "className": "winner-text",
         },
         "ref": null,
@@ -524,7 +520,7 @@ ShallowWrapper {
             "children": Array [
               <XSymbol
                 shouldAnimate={false}
-              />,
+/>,
               "reservation",
             ],
           },
@@ -575,23 +571,23 @@ ShallowWrapper {
         "children": Array [
           <p
             className="winner-text"
-          >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              reservation
-            </UNDEFINED>
-          </p>,
+>
+            <Unknown>
+                        <XSymbol
+                                    shouldAnimate={false}
+                        />
+                        reservation
+            </Unknown>
+</p>,
           <Button
             dense={true}
             onClick={[Function]}
             outlined={false}
             raised={true}
             unelevated={false}
-          >
+>
             Play Again
-          </Button>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -602,12 +598,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
+            "children": <Unknown>
               <XSymbol
-                shouldAnimate={false}
+                            shouldAnimate={false}
               />
               reservation
-            </UNDEFINED>,
+</Unknown>,
             "className": "winner-text",
           },
           "ref": null,
@@ -619,7 +615,7 @@ ShallowWrapper {
               "children": Array [
                 <XSymbol
                   shouldAnimate={false}
-                />,
+/>,
                 "reservation",
               ],
             },
@@ -678,8 +674,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
@@ -691,7 +685,7 @@ ShallowWrapper {
     isGameFinished={false}
     onRestartGame={[Function]}
     winner={null}
-  />,
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -708,23 +702,23 @@ ShallowWrapper {
       "children": Array [
         <p
           className="winner-text"
-        >
-          <UNDEFINED>
-            <XSymbol
-              shouldAnimate={false}
-            />
-            reservation
-          </UNDEFINED>
-        </p>,
+>
+          <Unknown>
+                    <XSymbol
+                              shouldAnimate={false}
+                    />
+                    reservation
+          </Unknown>
+</p>,
         <Button
           dense={true}
           onClick={[Function]}
           outlined={false}
           raised={true}
           unelevated={false}
-        >
+>
           Play Again
-        </Button>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -735,12 +729,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UNDEFINED>
+          "children": <Unknown>
             <XSymbol
-              shouldAnimate={false}
+                        shouldAnimate={false}
             />
             reservation
-          </UNDEFINED>,
+</Unknown>,
           "className": "winner-text",
         },
         "ref": null,
@@ -752,7 +746,7 @@ ShallowWrapper {
             "children": Array [
               <XSymbol
                 shouldAnimate={false}
-              />,
+/>,
               "reservation",
             ],
           },
@@ -803,23 +797,23 @@ ShallowWrapper {
         "children": Array [
           <p
             className="winner-text"
-          >
-            <UNDEFINED>
-              <XSymbol
-                shouldAnimate={false}
-              />
-              reservation
-            </UNDEFINED>
-          </p>,
+>
+            <Unknown>
+                        <XSymbol
+                                    shouldAnimate={false}
+                        />
+                        reservation
+            </Unknown>
+</p>,
           <Button
             dense={true}
             onClick={[Function]}
             outlined={false}
             raised={true}
             unelevated={false}
-          >
+>
             Play Again
-          </Button>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -830,12 +824,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UNDEFINED>
+            "children": <Unknown>
               <XSymbol
-                shouldAnimate={false}
+                            shouldAnimate={false}
               />
               reservation
-            </UNDEFINED>,
+</Unknown>,
             "className": "winner-text",
           },
           "ref": null,
@@ -847,7 +841,7 @@ ShallowWrapper {
               "children": Array [
                 <XSymbol
                   shouldAnimate={false}
-                />,
+/>,
                 "reservation",
               ],
             },
@@ -906,8 +900,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
