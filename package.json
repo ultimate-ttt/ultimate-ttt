@@ -59,6 +59,6 @@
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^3.7.0",
-    "typescript": "^2.9.2"
+    "typescript": "^3.1.3"
   }
 }
