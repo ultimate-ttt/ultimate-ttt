@@ -6,6 +6,7 @@ export const PLAYER_MOVED = 'game/player-moved';
 export const PLAYER_MOVED_VALID = 'game/player-moved-valid';
 export const GAME_FINISHED = 'game/game-finished';
 export const CHECK_GAME_FINISHED = 'game/check-game-finished';
+export const SAVE_GAME_STATE_TO_SERVER = 'game/save-game-state-to-server';
 
 export const changePlayer = () => ({
     type: CHANGE_PLAYER
@@ -18,6 +19,10 @@ export const gameFinished = ( winningPlayer?: Player | null ) => ({
 
 export const checkGameFinished = (  ) => ({
     type: CHECK_GAME_FINISHED
+});
+
+export const saveGameStateToServer = () => ({
+    type: SAVE_GAME_STATE_TO_SERVER
 });
 
 export const playerMoved = ( boardPosition: Point, tilePosition: Point ): PlayerMovedAction => ({
