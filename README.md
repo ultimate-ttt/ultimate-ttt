@@ -10,11 +10,11 @@ width="150" alt="tic tac toe logo" />
   
   A browser game implementation of ultimate tic-tac-toe using React, Redux and CSS Grid.
   
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues)
-[![Build Status](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react.svg?branch=master)](https://travis-ci.org/maracuja-juice/ultimate-tic-tac-react)
-[![Maintainability](https://api.codeclimate.com/v1/badges/563d045ede94fda03570/maintainability)](https://codeclimate.com/github/maracuja-juice/ultimate-tic-tac-react/maintainability)
-[![Greenkeeper badge](https://badges.greenkeeper.io/maracuja-juice/ultimate-tic-tac-react.svg)](https://greenkeeper.io/)
-[![codecov](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react/branch/master/graph/badge.svg)](https://codecov.io/gh/maracuja-juice/ultimate-tic-tac-react)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ultimate-ttt/ultimate-ttt/issues)
+[![Build Status](https://travis-ci.org/ultimate-ttt/ultimate-ttt.svg?branch=master)](https://travis-ci.org/ultimate-ttt/ultimate-ttt)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6bb7039b187c7489e449/maintainability)](https://codeclimate.com/github/ultimate-ttt/ultimate-ttt/maintainability)
+[![Greenkeeper badge](https://badges.greenkeeper.io/ultimate-ttt/ultimate-ttt.svg)](https://greenkeeper.io/)
+[![codecov](https://codecov.io/gh/ultimate-ttt/ultimate-ttt/branch/master/graph/badge.svg)](https://codecov.io/gh/ultimate-ttt/ultimate-ttt)
 
 </div>
 
