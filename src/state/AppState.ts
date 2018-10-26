@@ -10,6 +10,7 @@ export interface AppState {
 export interface GameState {
     currentPlayer: Player;
     isFinished: boolean;
+    isReplay: boolean;
     winningPlayer?: Player | undefined;
 }
 
