@@ -11,11 +11,11 @@ describe( 'FinishedGameStateSelectors', () => {
             expect( selected ).toBe( 'X' );
         } );
 
-        it( 'should return Y when player is 1', () => {
+        it( 'should return O when player is 1', () => {
             const winningPlayer = 1;
 
             const selected = getWinningPlayerAsString.resultFunc( winningPlayer );
-            expect( selected ).toBe( 'Y' );
+            expect( selected ).toBe( 'O' );
         } );
 
         it( 'should return null when player is null', () => {
