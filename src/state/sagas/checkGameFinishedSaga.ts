@@ -1,9 +1,10 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../AppState';
-import { CHECK_GAME_FINISHED, gameFinished, saveFinishedGameData } from '../game/gameAction';
-import { getBoards } from '../selectors/AppStateSelectors';
+import { CHECK_GAME_FINISHED, gameFinished } from '../game/gameAction';
+import { getBoards, getFinishedGameData } from '../selectors/AppStateSelectors';
 import { getWinResult } from '../../util/CheckBoard';
 import { setAllowedBoards } from '../activeBoards/activeBoardsActions';
+import { saveGameData } from './saveFinishedGameDataActions';
 
 function* checkIfGameFinished( action: GenericAction ) {
     const boards = yield select( getBoards );
@@ -15,7 +16,7 @@ function* checkIfGameFinished( action: GenericAction ) {
     if (isGameFinished) {
         yield put( gameFinished( winningPlayer ) );
         yield put( setAllowedBoards( [] ) );
-        yield put( saveFinishedGameData() );
+        yield put( saveGameData( yield select( getFinishedGameData ) ) );
     }
 }
 

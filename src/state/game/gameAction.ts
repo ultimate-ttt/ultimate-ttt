@@ -21,10 +21,6 @@ export const checkGameFinished = (  ) => ({
     type: CHECK_GAME_FINISHED
 });
 
-export const saveFinishedGameData = () => ({
-    type: SAVE_FINISHED_GAME_DATA
-});
-
 export const playerMoved = ( boardPosition: Point, tilePosition: Point ): PlayerMovedAction => ({
     type: PLAYER_MOVED,
     payload: {
