@@ -48,6 +48,15 @@ Object {
         "channel": null,
       },
     },
+    Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "type": "save-game-data/save-game-data",
+        },
+        "channel": null,
+      },
+    },
   ],
   "select": Array [
     Object {

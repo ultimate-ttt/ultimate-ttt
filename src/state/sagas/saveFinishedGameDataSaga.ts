@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 import {
     SAVE_GAME_DATA,
     SaveGameDataAction,
@@ -6,10 +6,15 @@ import {
     saveGameDataPending,
     saveGameDataRejected
 } from './saveFinishedGameDataActions';
+import { getFinishedGameData } from '../selectors/FinishedGameStateSelectors';
 
 function* saveFinishedGameData( action: SaveGameDataAction ) {
+    const gameData = yield select( getFinishedGameData );
+
     yield put( saveGameDataPending() );
+
     // TODO: how can I make this better with environment variables?
+    // or if not possible, at least export the function so that it's unit testable
     const host = window.location.host;
     let apiUrl;
     if (host.includes( 'localhost' ) || host.includes( 'deploy' )) {
@@ -18,24 +23,19 @@ function* saveFinishedGameData( action: SaveGameDataAction ) {
         apiUrl = 'https://ultimatettt.azurewebsites.net/api/SaveGameFinishedData';
     }
 
-    try {
-        const response = yield fetch( apiUrl, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify( action.gameData )
-        } );
+    const response = yield fetch( apiUrl, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( gameData )
+    } );
 
-        if (!response.ok) {
-            yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
-        } else {
-            yield put( saveGameDataFulfilled() );
-        }
-
-    } catch (error) {
-        yield put( saveGameDataRejected( error.message ) );
+    if (!response.ok) {
+        yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
+    } else {
+        yield put( saveGameDataFulfilled() );
     }
 }
 
