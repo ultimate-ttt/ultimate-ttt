@@ -5,7 +5,7 @@ export const getWinningPlayerAsString = createSelector( [getWinningPlayer], (win
     if (winningPlayer === 0) {
         return 'X';
     } else if (winningPlayer === 1) {
-        return 'Y';
+        return 'O';
     } else if (winningPlayer === null) {
         return null;
     } else {

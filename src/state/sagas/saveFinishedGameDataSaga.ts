@@ -16,12 +16,14 @@ function* saveFinishedGameData( action: SaveGameDataAction ) {
     // TODO: how can I make this better with environment variables?
     // or if not possible, at least export the function so that it's unit testable
     const host = window.location.host;
+    console.log(host)
     let apiUrl;
     if (host.includes( 'localhost' ) || host.includes( 'deploy' )) {
         apiUrl = 'https://ultimatettt-test.azurewebsites.net/api/SaveGameFinishedData';
     } else {
         apiUrl = 'https://ultimatettt.azurewebsites.net/api/SaveGameFinishedData';
     }
+    console.log(apiUrl);
 
     const response = yield fetch( apiUrl, {
         method: 'POST',
