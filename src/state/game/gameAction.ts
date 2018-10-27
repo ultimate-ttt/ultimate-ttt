@@ -6,7 +6,6 @@ export const PLAYER_MOVED = 'game/player-moved';
 export const PLAYER_MOVED_VALID = 'game/player-moved-valid';
 export const GAME_FINISHED = 'game/game-finished';
 export const CHECK_GAME_FINISHED = 'game/check-game-finished';
-export const SAVE_FINISHED_GAME_DATA = 'game/save-finished-game-data';
 
 export const changePlayer = () => ({
     type: CHANGE_PLAYER
