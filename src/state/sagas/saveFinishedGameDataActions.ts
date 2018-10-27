@@ -1,6 +1,6 @@
 import { Move, SmallBoardInformation } from '../AppState';
 
-export const SAVE_GAME_DATA = 'save-game-data/save-game-data-pending';
+export const SAVE_GAME_DATA = 'save-game-data/save-game-data';
 export const SAVE_GAME_DATA_PENDING = 'save-game-data/save-game-data-pending';
 export const SAVE_GAME_DATA_FULFILLED = 'save-game-data/save-game-data-fulfilled';
 export const SAVE_GAME_DATA_REJECTED = 'save-game-data/save-game-data-rejected';
@@ -10,7 +10,7 @@ type GameData = {
     gameState: SmallBoardInformation[],
     moves: Move[],
     isReplay: boolean
-}
+};
 
 export const saveGameData = ( gameData: GameData ): SaveGameDataAction => ({
     type: SAVE_GAME_DATA,
@@ -21,9 +21,8 @@ export const saveGameDataPending = ( ): SaveGameDataPendingAction => ({
     type: SAVE_GAME_DATA_PENDING
 });
 
-export const saveGameDataFulfilled = ( sucessful: boolean ): SaveGameDataFulfilledAction => ({
+export const saveGameDataFulfilled = ( ): SaveGameDataFulfilledAction => ({
     type: SAVE_GAME_DATA_FULFILLED,
-    sucessful
 });
 
 export const saveGameDataRejected = ( errorMessage: string ): SaveGameDataRejectedAction => ({
@@ -42,7 +41,6 @@ export interface SaveGameDataPendingAction {
 
 export interface SaveGameDataFulfilledAction {
     type: string;
-    sucessful: boolean;
 }
 
 export interface SaveGameDataRejectedAction {
