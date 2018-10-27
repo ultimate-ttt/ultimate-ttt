@@ -7,6 +7,7 @@ import { Player } from '../../AppState';
 import { SET_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
 import { circleFinishedBoardMock, crossFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
 import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
+import { SAVE_GAME_DATA } from '../saveFinishedGameDataActions';
 
 describe( 'checkGameFinishedSaga', () => {
     it( 'should dispatch gameFinished action with Circle and' +
@@ -18,6 +19,7 @@ describe( 'checkGameFinishedSaga', () => {
                           ] )
                 .put( {type: GAME_FINISHED, payload: Player.Circle} )
                 .put( {type: SET_ALLOWED_BOARDS, payload: []} )
+                .put( {type: SAVE_GAME_DATA})
                 .dispatch( {type: CHECK_GAME_FINISHED} )
                 .silentRun();
         } );
@@ -31,6 +33,7 @@ describe( 'checkGameFinishedSaga', () => {
                       ] )
             .put( {type: GAME_FINISHED, payload: Player.Cross} )
             .put( {type: SET_ALLOWED_BOARDS, payload: []} )
+            .put( {type: SAVE_GAME_DATA})
             .dispatch( {type: CHECK_GAME_FINISHED} )
             .silentRun();
     } );
