@@ -11,7 +11,7 @@ import playerMovedSaga from './sagas/moveValidationSaga';
 import boardCalculationSaga from './sagas/boardCalculationSaga';
 import activeBoardsCalculationSaga from './sagas/activeBoardsCalculationSaga';
 import checkGameFinishedSaga from './sagas/checkGameFinishedSaga';
-import saveFinishedGameDataSaga from './sagas/saveFinishedGameData';
+import saveFinishedGameDataSaga from './sagas/saveFinishedGameDataSaga';
 
 const rootreducer = combineReducers<AppState>(
     {
