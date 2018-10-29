@@ -11,7 +11,7 @@ export interface GameState {
     currentPlayer: Player;
     isFinished: boolean;
     isReplay: boolean;
-    winningPlayer?: Player | undefined | null;
+    winningPlayer?: Player | null;
 }
 
 export interface TileInformation {
