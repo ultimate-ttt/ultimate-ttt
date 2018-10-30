@@ -34,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
     "@storybook/addon-actions": "^4.0.0",
     "@storybook/addon-knobs": "^4.0.0",
     "@storybook/addon-links": "^4.0.0",
@@ -52,13 +53,14 @@
     "@types/storybook__addon-knobs": "^3.3.1",
     "@types/storybook__addon-links": "^3.3.2",
     "@types/storybook__react": "^3.0.9",
-    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "coveralls": "^3.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^3.7.0",
+    "ts-loader": "^5.2.2",
     "typescript": "^3.1.3"
   }
 }
