@@ -1,12 +1,12 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import playerMovedSaga from '../moveValidationSaga';
-import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
-import { Player } from '../../AppState';
-import { CHANGE_PLAYER, CHECK_GAME_FINISHED, PLAYER_MOVED } from '../../game/gameAction';
+import playerMovedSaga from './moveValidationSaga';
+import { getCurrentPlayer } from '../selectors/AppStateSelectors';
+import { Player } from '../AppState';
+import { CHANGE_PLAYER, CHECK_GAME_FINISHED, PLAYER_MOVED } from '../game/gameAction';
 import { select } from 'redux-saga/effects';
-import { REGISTER_MOVE } from '../../moves/moveAction';
-import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../../board/boardActions';
-import { CALCULATE_ALLOWED_BOARDS } from '../../activeBoards/activeBoardsActions';
+import { REGISTER_MOVE } from './moveAction';
+import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../board/boardActions';
+import { CALCULATE_ALLOWED_BOARDS } from '../activeBoards/activeBoardsActions';
 
 describe( 'moveValidationSaga', () => {
     it( 'should dispatch at least the following actions, order not tested', () => {

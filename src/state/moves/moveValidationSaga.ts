@@ -1,6 +1,6 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { changePlayer, checkGameFinished, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
-import { registerMove } from '../moves/moveAction';
+import { registerMove } from './moveAction';
 import { calculateBoardValue, setTileValue } from '../board/boardActions';
 import { playerToTileValue } from '../../util';
 import { calculateActiveBoards } from '../activeBoards/activeBoardsActions';

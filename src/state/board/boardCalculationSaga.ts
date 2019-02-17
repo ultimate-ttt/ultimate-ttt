@@ -1,6 +1,6 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction, SmallBoardInformation } from '../AppState';
-import { CALCULATE_BOARD_VALUE, setBoardValue } from '../board/boardActions';
+import { CALCULATE_BOARD_VALUE, setBoardValue } from './boardActions';
 import { getWinResult } from '../../util/CheckBoard';
 import { arePointsEqual, playerToTileValue } from '../../util';
 import { getBoards } from '../selectors/AppStateSelectors';
