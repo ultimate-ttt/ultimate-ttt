@@ -37,7 +37,6 @@ describe( 'FinishedGameStateSelectors', () => {
         it( 'should return an object with all necessary gameData', () => {
             const mockParameters = {
                 winningPlayer: 'X',
-                isReplay: false,
                 boards: circleFinishedBoardMock,
                 moves: [{
                     boardPosition: {x: 0, y: 0},
@@ -48,13 +47,13 @@ describe( 'FinishedGameStateSelectors', () => {
             };
 
             // @ts-ignore
-            const selected = getFinishedGameData.resultFunc( mockParameters.winningPlayer, mockParameters.isReplay,
-                                                             mockParameters.boards, mockParameters.moves );
+            const selected = getFinishedGameData.resultFunc( mockParameters.winningPlayer, mockParameters.boards,
+                                                             mockParameters.moves );
+
             const expectedSelection = {
                 winner: mockParameters.winningPlayer,
                 gameState: mockParameters.boards,
-                moves: mockParameters.moves,
-                isReplay: mockParameters.isReplay
+                moves: mockParameters.moves
             };
             expect(selected).toEqual(expectedSelection);
         } );

@@ -1,7 +1,5 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import saveFinishedGameDataSaga from './saveFinishedGameDataSaga';
-import { getFinishedGameData } from '../selectors/FinishedGameStateSelectors';
-import { select } from 'redux-saga/effects';
 import { circleFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
 import { Player } from '../AppState';
 import {
@@ -21,35 +19,28 @@ const mockResponse = ( status: number, statusText: string, response: BodyInit ) 
     } );
 };
 
+const finishedGameDataMock = {
+    winner: 'X',
+    gameState: circleFinishedBoardMock,
+    moves: [{
+        boardPosition: {x: 0, y: 0},
+        tilePosition: {x: 0, y: 0},
+        player: Player.Cross,
+        moveNumber: 1
+    }]
+};
+
 describe( 'saveFinishedGameDataSaga', () => {
     it( 'should make a successful fetch call', () => {
         window.location.host = 'localhost';
         window.fetch = jest.fn().mockImplementation(
             () => Promise.resolve( mockResponse( 200, '', '' ) ) );
 
-        const finishedGameDataMock = {
-            winner: 'X',
-            gameState: circleFinishedBoardMock,
-            moves: [{
-                boardPosition: {x: 0, y: 0},
-                tilePosition: {x: 0, y: 0},
-                player: Player.Cross,
-                moveNumber: 1
-            }],
-            isReplay: false
-        };
-
         return expectSaga( saveFinishedGameDataSaga )
-            .provide( [
-                          [select( getFinishedGameData ), finishedGameDataMock]
-                      ] )
             .put( {type: SAVE_GAME_DATA_PENDING} )
             .put( {type: SAVE_GAME_DATA_FULFILLED} )
-            .dispatch( {type: SAVE_GAME_DATA} )
+            .dispatch( {type: SAVE_GAME_DATA, payload: finishedGameDataMock} )
             .silentRun();
-
-        // TODO: get the following thing to work with mockImplementation:
-        // expect(window.fetch).toHaveBeenCalledTimes(1);
     } );
 
     it( 'should dispatch error when there is an error in the fetch call', () => {
@@ -57,25 +48,10 @@ describe( 'saveFinishedGameDataSaga', () => {
         window.fetch = jest.fn().mockImplementation(
             () => Promise.resolve( mockResponse( 500, 'error', '' ) ) );
 
-        const finishedGameDataMock = {
-            winner: 'X',
-            gameState: circleFinishedBoardMock,
-            moves: [{
-                boardPosition: {x: 0, y: 0},
-                tilePosition: {x: 0, y: 0},
-                player: Player.Cross,
-                moveNumber: 1
-            }],
-            isReplay: false
-        };
-
         return expectSaga( saveFinishedGameDataSaga )
-            .provide( [
-                          [select( getFinishedGameData ), finishedGameDataMock]
-                      ] )
             .put( {type: SAVE_GAME_DATA_PENDING} )
-            .put( {type: SAVE_GAME_DATA_REJECTED, errorMessage: '500: error'} )
-            .dispatch( {type: SAVE_GAME_DATA} )
+            .put( {type: SAVE_GAME_DATA_REJECTED, payload: '500: error'} )
+            .dispatch( {type: SAVE_GAME_DATA, payload: finishedGameDataMock} )
             .silentRun();
     } );
 
@@ -84,25 +60,11 @@ describe( 'saveFinishedGameDataSaga', () => {
         window.fetch = jest.fn().mockImplementation(
             () => Promise.resolve( mockResponse( 500, 'error', '' ) ) );
 
-        const finishedGameDataMock = {
-            winner: 'X',
-            gameState: circleFinishedBoardMock,
-            moves: [{
-                boardPosition: {x: 0, y: 0},
-                tilePosition: {x: 0, y: 0},
-                player: Player.Cross,
-                moveNumber: 1
-            }],
-            isReplay: false
-        };
-
         return expectSaga( saveFinishedGameDataSaga )
-            .provide( [
-                          [select( getFinishedGameData ), finishedGameDataMock]
-                      ] )
+
             .put( {type: SAVE_GAME_DATA_PENDING} )
-            .put( {type: SAVE_GAME_DATA_REJECTED, errorMessage: '500: error'} )
-            .dispatch( {type: SAVE_GAME_DATA} )
+            .put( {type: SAVE_GAME_DATA_REJECTED, payload: '500: error'} )
+            .dispatch( {type: SAVE_GAME_DATA, payload: finishedGameDataMock} )
             .silentRun()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
@@ -114,25 +76,10 @@ describe( 'saveFinishedGameDataSaga', () => {
         window.fetch = jest.fn().mockImplementation(
             () => Promise.resolve( mockResponse( 200, '', '' ) ) );
 
-        const finishedGameDataMock = {
-            winner: 'X',
-            gameState: circleFinishedBoardMock,
-            moves: [{
-                boardPosition: {x: 0, y: 0},
-                tilePosition: {x: 0, y: 0},
-                player: Player.Cross,
-                moveNumber: 1
-            }],
-            isReplay: false
-        };
-
         return expectSaga( saveFinishedGameDataSaga )
-            .provide( [
-                          [select( getFinishedGameData ), finishedGameDataMock]
-                      ] )
             .put( {type: SAVE_GAME_DATA_PENDING} )
             .put( {type: SAVE_GAME_DATA_FULFILLED} )
-            .dispatch( {type: SAVE_GAME_DATA} )
+            .dispatch( {type: SAVE_GAME_DATA, payload: finishedGameDataMock} )
             .silentRun()
             .then( ( result ) => {
                 expect( result.toJSON() ).toMatchSnapshot();
