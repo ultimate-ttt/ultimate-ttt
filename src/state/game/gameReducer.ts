@@ -5,7 +5,6 @@ import { RESTART_GAME } from '../commonAction';
 const initialState: GameState = {
     currentPlayer: Player.Cross,
     isFinished: false,
-    isReplay: false,
     winningPlayer: undefined,
 };
 
@@ -32,7 +31,6 @@ const gameReducer = ( state = initialState, action: GenericAction ) => {
             return clone;
         }
         case RESTART_GAME: {
-            initialState.isReplay = true;
             return initialState;
         }
 

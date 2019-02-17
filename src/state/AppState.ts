@@ -5,12 +5,20 @@ export interface AppState {
     game: GameState;
     moves: Move[];
     activeBoards: Point[];
+    finishedGames: FinishedGameState[];
+}
+
+export interface FinishedGameState {
+    winner?: Player | null;
+    gameState: SmallBoardInformation[];
+    moves: Move[];
+    saveState: 'pending' | 'rejected' | 'fulfilled' | '';
+    errorMessage: 'string';
 }
 
 export interface GameState {
     currentPlayer: Player;
     isFinished: boolean;
-    isReplay: boolean;
     winningPlayer?: Player | null;
 }
 

@@ -5,6 +5,7 @@ import { getBoards } from '../selectors/AppStateSelectors';
 import { getWinResult } from '../../util/CheckBoard';
 import { setAllowedBoards } from '../activeBoards/activeBoardsActions';
 import { saveGameData } from '../finishedGames/saveFinishedGameDataActions';
+import { getFinishedGameData } from '../selectors/FinishedGameStateSelectors';
 
 function* checkIfGameFinished( action: GenericAction ) {
     const boards = yield select( getBoards );
@@ -16,7 +17,7 @@ function* checkIfGameFinished( action: GenericAction ) {
     if (isGameFinished) {
         yield put( gameFinished( winningPlayer ) );
         yield put( setAllowedBoards( [] ) );
-        yield put( saveGameData( ) );
+        yield put( saveGameData( yield select( getFinishedGameData ) ) );
     }
 }
 

@@ -1,10 +1,13 @@
+import { FinishedGameState } from '../AppState';
+
 export const SAVE_GAME_DATA = 'save-game-data/save-game-data';
 export const SAVE_GAME_DATA_PENDING = 'save-game-data/save-game-data-pending';
 export const SAVE_GAME_DATA_FULFILLED = 'save-game-data/save-game-data-fulfilled';
 export const SAVE_GAME_DATA_REJECTED = 'save-game-data/save-game-data-rejected';
 
-export const saveGameData = ( ): SaveGameDataAction => ({
-    type: SAVE_GAME_DATA
+export const saveGameData = ( finishedGame: FinishedGameState ): SaveGameDataAction => ({
+    type: SAVE_GAME_DATA,
+    payload: finishedGame
 });
 
 export const saveGameDataPending = ( ): SaveGameDataPendingAction => ({
@@ -17,11 +20,12 @@ export const saveGameDataFulfilled = ( ): SaveGameDataFulfilledAction => ({
 
 export const saveGameDataRejected = ( errorMessage: string ): SaveGameDataRejectedAction => ({
     type: SAVE_GAME_DATA_REJECTED,
-    errorMessage
+    payload: errorMessage
 });
 
 export interface SaveGameDataAction {
     type: string;
+    payload: FinishedGameState;
 }
 
 export interface SaveGameDataPendingAction {
@@ -34,5 +38,5 @@ export interface SaveGameDataFulfilledAction {
 
 export interface SaveGameDataRejectedAction {
     type: string;
-    errorMessage: string;
+    payload: string;
 }

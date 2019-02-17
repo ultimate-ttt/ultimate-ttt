@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getBoards, getIsReplay, getMoves, getWinningPlayer } from './AppStateSelectors';
+import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
 
 export const getWinningPlayerAsString = createSelector( [getWinningPlayer], (winningPlayer => {
     if (winningPlayer === 0) {
@@ -14,12 +14,11 @@ export const getWinningPlayerAsString = createSelector( [getWinningPlayer], (win
 }) );
 
 export const getFinishedGameData = createSelector(
-    [getWinningPlayerAsString, getIsReplay, getBoards, getMoves],
-    ( winningPlayer, isReplay, boards, moves ) => {
+    [getWinningPlayerAsString, getBoards, getMoves],
+    ( winningPlayer, boards, moves ) => {
         return {
             winner: winningPlayer,
             gameState: boards,
-            isReplay,
             moves
         };
     } );
