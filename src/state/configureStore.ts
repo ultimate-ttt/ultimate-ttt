@@ -12,13 +12,15 @@ import boardCalculationSaga from './board/boardCalculationSaga';
 import activeBoardsCalculationSaga from './activeBoards/activeBoardsCalculationSaga';
 import checkGameFinishedSaga from './game/checkGameFinishedSaga';
 import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
+import finishedGameReducer from './finishedGames/finishedGameReducer';
 
 const rootreducer = combineReducers<AppState>(
     {
         game: gameReducer,
         board: boardReducer,
         moves: moveReducer,
-        activeBoards: activeBoardsReducer
+        activeBoards: activeBoardsReducer,
+        finishedGames: finishedGameReducer
     } );
 
 export function configureStore() {

@@ -13,14 +13,14 @@ describe( 'gameReducer', () => {
     describe( 'changePlayer', () => {
         it( 'should change player from X to O', () => {
             const action = changePlayer();
-            let newState = gameReducer( {currentPlayer: Player.Cross, isFinished: false, isReplay: false}, action );
+            let newState = gameReducer( {currentPlayer: Player.Cross, isFinished: false}, action );
 
             expect( newState.currentPlayer ).toEqual( Player.Circle );
         } );
 
         it( 'should change player from O to X', () => {
             const action = changePlayer();
-            let newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false, isReplay: false}, action );
+            let newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
 
             expect( newState.currentPlayer ).toEqual( Player.Cross );
         } );
@@ -29,7 +29,7 @@ describe( 'gameReducer', () => {
     describe( 'finishGame', () => {
         it( 'should change the state of the game according to the action, winning: Circle', () => {
             const  action = gameFinished( Player.Circle );
-            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false, isReplay: false}, action );
+            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
 
             expect( newState.isFinished ).toBe( true );
             expect( newState.winningPlayer ).toEqual( Player.Circle );
@@ -37,7 +37,7 @@ describe( 'gameReducer', () => {
 
         it( 'should change the state of the game according to the action, winning: Cross', () => {
             const action = gameFinished( Player.Cross );
-            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false, isReplay: false}, action );
+            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
 
             expect( newState.isFinished ).toBe( true );
             expect( newState.winningPlayer ).toEqual( Player.Cross );
@@ -45,7 +45,7 @@ describe( 'gameReducer', () => {
 
         it( 'should change the state of the game according to the action, draw', () => {
             const action = gameFinished( null! );
-            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false, isReplay: false}, action );
+            const newState = gameReducer( {currentPlayer: Player.Circle, isFinished: false}, action );
 
             expect( newState.isFinished ).toBe( true );
             expect( newState.winningPlayer ).toEqual( null );
@@ -55,10 +55,9 @@ describe( 'gameReducer', () => {
     describe('restartGame', () => {
        it('should return the initial state', () => {
           const action = restartGame();
-          const newState = gameReducer({currentPlayer: Player.Circle, isFinished: true, isReplay: false}, action);
+          const newState = gameReducer({currentPlayer: Player.Circle, isFinished: true}, action);
 
           expect(newState.isFinished).toBe(false);
-          expect(newState.isReplay).toBe(true); // not same as the initial state but that's how it should be
           expect(newState.currentPlayer).toBe(Player.Cross);
           expect(newState.winningPlayer).toBe(undefined);
        });
