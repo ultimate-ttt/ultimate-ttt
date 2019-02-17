@@ -13,19 +13,23 @@ function* saveFinishedGameData( action: SaveGameDataAction ) {
 
     const apiUrl = getApiUrl();
 
-    const response = yield fetch( apiUrl, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( action.payload )
-    } );
+    try {
+        const response = yield fetch( apiUrl, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( action.payload )
+        } );
 
-    if (response.ok) {
-        yield put( saveGameDataFulfilled() );
-    } else {
-        yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
+        if (response.ok) {
+            yield put( saveGameDataFulfilled() );
+        } else {
+            yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
+        }
+    } catch (e) {
+        yield put( saveGameDataRejected( `Request not successful: ${e}` ) );
     }
 }
 
