@@ -28,6 +28,7 @@ const finishedGameReducer = ( state = initialState, action: GenericAction ) => {
             let lastElement = clone[clone.length - 1];
             lastElement.saveState = 'rejected';
             lastElement.errorMessage = action.payload;
+            clone[clone.length -1 ] = lastElement;
             return clone;
         }
         case SAVE_GAME_DATA_FULFILLED: {
