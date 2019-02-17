@@ -12,7 +12,7 @@ export interface FinishedGameState {
     winner?: Player | null;
     gameState: SmallBoardInformation[];
     moves: Move[];
-    saveState: 'pending' | 'rejected' | 'fulfilled' | '';
+    saveState: string;
     errorMessage: string;
 }
 

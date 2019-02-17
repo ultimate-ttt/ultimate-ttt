@@ -32,8 +32,8 @@ describe( 'finishedGameReducer', () => {
                 player: 0,
                 moveNumber: 1
             }],
-        saveState: "pending",
-        errorMessage: ""
+        saveState: 'pending',
+        errorMessage: ''
     };
 
     describe( 'saveGameData', () => {

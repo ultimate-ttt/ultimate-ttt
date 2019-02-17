@@ -37,4 +37,3 @@ export const circleFinishedGameMock = {
             moveNumber: 1
         }]
 };
-
