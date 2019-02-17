@@ -7,17 +7,20 @@ import moveReducer from './moves/moveReducer';
 import activeBoardsReducer from './activeBoards/activeBoardsReducer';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import playerMovedSaga from './sagas/moveValidationSaga';
-import boardCalculationSaga from './sagas/boardCalculationSaga';
-import activeBoardsCalculationSaga from './sagas/activeBoardsCalculationSaga';
-import checkGameFinishedSaga from './sagas/checkGameFinishedSaga';
+import playerMovedSaga from './moves/moveValidationSaga';
+import boardCalculationSaga from './board/boardCalculationSaga';
+import activeBoardsCalculationSaga from './activeBoards/activeBoardsCalculationSaga';
+import checkGameFinishedSaga from './game/checkGameFinishedSaga';
+import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
+import finishedGameReducer from './finishedGames/finishedGameReducer';
 
 const rootreducer = combineReducers<AppState>(
     {
         game: gameReducer,
         board: boardReducer,
         moves: moveReducer,
-        activeBoards: activeBoardsReducer
+        activeBoards: activeBoardsReducer,
+        finishedGames: finishedGameReducer
     } );
 
 export function configureStore() {
@@ -49,7 +52,8 @@ function* rootSaga() {
             fork( playerMovedSaga ),
             fork( boardCalculationSaga ),
             fork( activeBoardsCalculationSaga ),
-            fork( checkGameFinishedSaga )
+            fork( checkGameFinishedSaga ),
+            fork( saveFinishedGameDataSaga )
         ]
     );
 }

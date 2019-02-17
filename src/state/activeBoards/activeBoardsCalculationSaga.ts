@@ -1,7 +1,7 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction, SmallBoardInformation, TileValue } from '../AppState';
 import { arePointsEqual } from '../../util';
-import { CALCULATE_ALLOWED_BOARDS, setAllowedBoards } from '../activeBoards/activeBoardsActions';
+import { CALCULATE_ALLOWED_BOARDS, setAllowedBoards } from './activeBoardsActions';
 import { getBoards } from '../selectors/AppStateSelectors';
 
 function* calculateActiveBoards( action: GenericAction ) {

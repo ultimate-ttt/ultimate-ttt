@@ -1,5 +1,5 @@
 import { cloneState, GameState, GenericAction, Player } from '../AppState';
-import { CHANGE_PLAYER, GAME_FINISHED } from '../game/gameAction';
+import { CHANGE_PLAYER, GAME_FINISHED } from './gameAction';
 import { RESTART_GAME } from '../commonAction';
 
 const initialState: GameState = {
