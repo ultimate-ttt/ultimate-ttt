@@ -22,10 +22,10 @@ function* saveFinishedGameData( action: SaveGameDataAction ) {
         body: JSON.stringify( action.payload )
     } );
 
-    if (!response.ok) {
-        yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
-    } else {
+    if (response.ok) {
         yield put( saveGameDataFulfilled() );
+    } else {
+        yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
     }
 }
 
