@@ -1,15 +1,15 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import saveFinishedGameDataSaga from '../saveFinishedGameDataSaga';
-import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
+import saveFinishedGameDataSaga from './saveFinishedGameDataSaga';
+import { getFinishedGameData } from '../selectors/FinishedGameStateSelectors';
 import { select } from 'redux-saga/effects';
-import { circleFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
-import { Player } from '../../AppState';
+import { circleFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { Player } from '../AppState';
 import {
     SAVE_GAME_DATA,
     SAVE_GAME_DATA_FULFILLED,
     SAVE_GAME_DATA_PENDING,
     SAVE_GAME_DATA_REJECTED
-} from '../saveFinishedGameDataActions';
+} from './saveFinishedGameDataActions';
 
 const mockResponse = ( status: number, statusText: string, response: BodyInit ) => {
     return new Response( response, {
