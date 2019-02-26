@@ -11,7 +11,7 @@
     "react-redux": "^5.0.7",
     "react-scripts-ts": "^3.1.0",
     "redux": "^4.0.1",
-    "redux-saga": "^0.16.2",
+    "redux-saga": "^1.0.2",
     "reselect": "^4.0.0",
     "rmwc": "^3.0.5"
   },
