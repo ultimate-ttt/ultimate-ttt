@@ -2,6 +2,8 @@ import { AppState } from './AppState';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import boardReducer from './board/boardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import gameReducer from './game/gameReducer';
 import moveReducer from './moves/moveReducer';
 import activeBoardsReducer from './activeBoards/activeBoardsReducer';
@@ -35,9 +37,16 @@ export function configureStore() {
         const {logger} = require( `redux-logger` );
         middleWaresToApply.push( logger );
     }
-
     const middleware = applyMiddleware( ...middleWaresToApply );
-    const store = createStore( (rootreducer), composeWithDevTools(
+
+    const persistConfig = {
+        key: 'finishedGames',
+        whitelist: ['finishedGames'],
+        storage
+    };
+
+    const persistedReducer = persistReducer( persistConfig, rootreducer );
+    const store = createStore( (persistedReducer), composeWithDevTools(
         middleware
     ) );
 
