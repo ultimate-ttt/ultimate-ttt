@@ -10,6 +10,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -32,15 +33,13 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Button
+        <Unknown
           dense={true}
           onClick={[Function]}
-          outlined={false}
           raised={true}
-          unelevated={false}
 >
           Play Again
-</Button>,
+</Unknown>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -94,18 +93,20 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
-          "outlined": false,
           "raised": true,
-          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": [Function],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "withRipple(Button)",
+          "render": [Function],
+        },
       },
     ],
     "type": "div",
@@ -127,15 +128,13 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Button
+          <Unknown
             dense={true}
             onClick={[Function]}
-            outlined={false}
             raised={true}
-            unelevated={false}
 >
             Play Again
-</Button>,
+</Unknown>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -189,18 +188,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
-            "outlined": false,
             "raised": true,
-            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": [Function],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "withRipple(Button)",
+            "render": [Function],
+          },
         },
       ],
       "type": "div",
@@ -210,9 +211,13 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
           },
           "getDerivedStateFromProps": true,
           "getSnapshotBeforeUpdate": true,
@@ -223,6 +228,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -236,6 +242,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -258,15 +265,13 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Button
+        <Unknown
           dense={true}
           onClick={[Function]}
-          outlined={false}
           raised={true}
-          unelevated={false}
 >
           Play Again
-</Button>,
+</Unknown>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -320,18 +325,20 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
-          "outlined": false,
           "raised": true,
-          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": [Function],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "withRipple(Button)",
+          "render": [Function],
+        },
       },
     ],
     "type": "div",
@@ -353,15 +360,13 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Button
+          <Unknown
             dense={true}
             onClick={[Function]}
-            outlined={false}
             raised={true}
-            unelevated={false}
 >
             Play Again
-</Button>,
+</Unknown>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -415,18 +420,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
-            "outlined": false,
             "raised": true,
-            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": [Function],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "withRipple(Button)",
+            "render": [Function],
+          },
         },
       ],
       "type": "div",
@@ -436,9 +443,13 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
           },
           "getDerivedStateFromProps": true,
           "getSnapshotBeforeUpdate": true,
@@ -449,6 +460,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -462,6 +474,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -484,15 +497,13 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Button
+        <Unknown
           dense={true}
           onClick={[Function]}
-          outlined={false}
           raised={true}
-          unelevated={false}
 >
           Play Again
-</Button>,
+</Unknown>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -546,18 +557,20 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
-          "outlined": false,
           "raised": true,
-          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": [Function],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "withRipple(Button)",
+          "render": [Function],
+        },
       },
     ],
     "type": "div",
@@ -579,15 +592,13 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Button
+          <Unknown
             dense={true}
             onClick={[Function]}
-            outlined={false}
             raised={true}
-            unelevated={false}
 >
             Play Again
-</Button>,
+</Unknown>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -641,18 +652,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
-            "outlined": false,
             "raised": true,
-            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": [Function],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "withRipple(Button)",
+            "render": [Function],
+          },
         },
       ],
       "type": "div",
@@ -662,9 +675,13 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
           },
           "getDerivedStateFromProps": true,
           "getSnapshotBeforeUpdate": true,
@@ -675,6 +692,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -688,6 +706,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -710,15 +729,13 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Button
+        <Unknown
           dense={true}
           onClick={[Function]}
-          outlined={false}
           raised={true}
-          unelevated={false}
 >
           Play Again
-</Button>,
+</Unknown>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -772,18 +789,20 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
-          "outlined": false,
           "raised": true,
-          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": [Function],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "withRipple(Button)",
+          "render": [Function],
+        },
       },
     ],
     "type": "div",
@@ -805,15 +824,13 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Button
+          <Unknown
             dense={true}
             onClick={[Function]}
-            outlined={false}
             raised={true}
-            unelevated={false}
 >
             Play Again
-</Button>,
+</Unknown>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -867,18 +884,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
-            "outlined": false,
             "raised": true,
-            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": [Function],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "withRipple(Button)",
+            "render": [Function],
+          },
         },
       ],
       "type": "div",
@@ -888,9 +907,13 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
           },
           "getDerivedStateFromProps": true,
           "getSnapshotBeforeUpdate": true,
@@ -901,5 +924,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

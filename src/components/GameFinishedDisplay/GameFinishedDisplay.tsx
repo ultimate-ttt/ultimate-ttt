@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import { restartGame } from '../../state/commonAction';
-import { Button } from 'rmwc/Button';
+import { Button } from '@rmwc/button';
 import './gameFinished.css';
 
 interface GameFinishedDisplayProps {

@@ -1,7 +1,7 @@
 :root {
-    /* TODO: add my colors as CSS variables and use them everywhere!! */
-
-    --mdc-theme-primary: #008891;
+    --tropical-teal: #008891;
+    --incremental-blue: #0F3057;
+    --mdc-theme-primary: var(--tropical-teal);
 }
 
 html, body {

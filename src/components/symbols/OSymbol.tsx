@@ -9,12 +9,10 @@ interface OSymbolProps {
     bigSymbol?: boolean;
     shouldAnimate?: boolean;
     style?: CSSProperties;
+    cssClasses?: string;
 }
 
-interface OSymbolState {
-}
-
-export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
+export class OSymbol extends React.Component<OSymbolProps> {
     public static defaultProps: Partial<OSymbolProps> = {
         shouldAnimate: true
     };
@@ -24,16 +22,16 @@ export class OSymbol extends React.Component<OSymbolProps, OSymbolState> {
     }
 
     render() {
-        const {bigSymbol, shouldAnimate, style} = this.props;
+        const {bigSymbol, shouldAnimate, style, cssClasses} = this.props;
         const iconClass = classNames( {
-                                        'icon-o': true,
-                                        'o': true,
-                                        'big-symbol': bigSymbol,
-                                        'animate-o': shouldAnimate
-                                    } );
+                                          'icon-o': true,
+                                          'o': true,
+                                          'big-symbol': bigSymbol,
+                                          'animate-o': shouldAnimate
+                                      } );
 
         return (
-            <i style={style} className={iconClass} aria-label="Circle Symbol" />
+            <i style={style} className={iconClass + ' ' + cssClasses} aria-label="Circle Symbol"/>
         );
     }
 }
