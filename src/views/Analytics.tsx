@@ -9,6 +9,7 @@ export class Analytics extends React.Component<AnalyticsProps> {
     render() {
         return (
             <div className="center">
+
                 <BigBoard analysisMode={true}/>
             </div>
         );
