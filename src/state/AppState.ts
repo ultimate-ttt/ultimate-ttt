@@ -10,6 +10,7 @@ export interface AppState {
 
 export interface FinishedGameState {
     id?: string;
+    date: Date;
     winner?: Player | null;
     gameState: SmallBoardInformation[];
     moves: Move[];
