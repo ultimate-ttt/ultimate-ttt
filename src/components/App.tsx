@@ -1,17 +1,12 @@
 import * as React from 'react';
-import BigBoard from './Board/BigBoard/BigBoard';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
-import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';
+import { Game } from '../views/Game';
+import { Analytics } from '../views/Analytics';
 
-interface AppProps {
-}
-
-interface AppRootState {
-}
-
-export class App extends React.Component<AppProps, AppRootState> {
+export class App extends React.Component {
 
     constructor( props: any ) {
         super( props );
@@ -27,11 +22,14 @@ export class App extends React.Component<AppProps, AppRootState> {
                     size={80}
                     direction="right"
                 />
-                <div className="center">
-                    <GameFinishedDisplay />
-                    <BigBoard/>
-                </div>
+                <Router>
+                    <div>
+                        <Route exact={true} path="/" component={Game}/>
+                        <Route exact={true} path="/analytics" component={Analytics}/>
+                    </div>
+                </Router>
             </>
+
         );
-    }
+    } // <!-- <Route exact path="/analytics/:gameId" component={Analytics}/> -->
 }

@@ -16,10 +16,7 @@ interface BigBoardProps {
     analysisMode?: boolean;
 }
 
-interface BigBoardState {
-}
-
-export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
+export class BigBoard extends React.Component<BigBoardProps> {
 
     constructor( props: BigBoardProps ) {
         super( props );
@@ -33,8 +30,8 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
             return false;
         }
 
-        const thePlayedOnBoardIsActive = activeBoards.some( board => arePointsEqual( {x, y}, board ) );
-        return thePlayedOnBoardIsActive;
+        const theBoardPlayedOnIsActive = activeBoards.some( board => arePointsEqual( {x, y}, board ) );
+        return theBoardPlayedOnIsActive;
     }
 
     createSmallBoards() {
