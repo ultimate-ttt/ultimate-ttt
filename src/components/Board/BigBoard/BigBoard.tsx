@@ -85,7 +85,6 @@ export class BigBoard extends React.Component<BigBoardProps> {
     }
 }
 
-// TODO make it possible to depend on different state tree
 const mapStateToProps = ( state: AppState ) => ({
     currentPlayer: state.game.currentPlayer,
     board: state.board,

@@ -3,7 +3,6 @@ import { Point } from '../../util/Point';
 
 export const CHANGE_PLAYER = 'game/player-changed';
 export const PLAYER_MOVED = 'game/player-moved';
-export const PLAYER_MOVED_VALID = 'game/player-moved-valid';
 export const GAME_FINISHED = 'game/game-finished';
 export const CHECK_GAME_FINISHED = 'game/check-game-finished';
 
