@@ -13,6 +13,7 @@ interface BigBoardProps {
     board: SmallBoardInformation[];
     activeBoards: Point[];
     onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) => void;
+    analysisMode?: boolean;
 }
 
 interface BigBoardState {
@@ -32,12 +33,12 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
             return false;
         }
 
-        const thePlayedOnBoardIsActive = activeBoards.some( board => arePointsEqual( {x, y}, board ));
+        const thePlayedOnBoardIsActive = activeBoards.some( board => arePointsEqual( {x, y}, board ) );
         return thePlayedOnBoardIsActive;
     }
 
     createSmallBoards() {
-        const {currentPlayer, board, activeBoards, onPlayerMoved} = this.props;
+        const {currentPlayer, board, activeBoards, onPlayerMoved, analysisMode} = this.props;
         const rows = [];
 
         for (let x = 0; x < 3; x++) {
@@ -48,6 +49,17 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
                 if (smallBoard) {
                     const isMoveAllowed = this.isMoveOnBoardAllowed( x, y, activeBoards );
 
+                    let onTileClicked;
+                    if (analysisMode) {
+                        // tslint:disable-next-line
+                        onTileClicked = ( tileX: number, tileY: number ) => {
+                        };
+                    } else {
+                        onTileClicked = ( tileX: number, tileY: number ) => {
+                            onPlayerMoved( x, y, tileX, tileY );
+                        };
+                    }
+
                     rows.push(
                         <SmallBoard
                             key={`x: ${x}/ Y: ${y}`}
@@ -57,11 +69,7 @@ export class BigBoard extends React.Component<BigBoardProps, BigBoardState> {
                             currentPlayer={currentPlayer}
                             tiles={smallBoard.tiles}
                             winningPlayer={smallBoard.value}
-                            onTileClicked={
-                                ( tileX: number, tileY: number ) => {
-                                    onPlayerMoved( x, y, tileX, tileY );
-                                }
-                            }
+                            onTileClicked={onTileClicked}
                         />
                     );
                 }
