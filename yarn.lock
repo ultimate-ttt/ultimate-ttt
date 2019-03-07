@@ -1741,17 +1741,27 @@
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-actions/-/storybook__addon-actions-3.4.1.tgz#8f90d76b023b58ee794170f2fe774a3fddda2c1d"
 
-"@types/storybook__addon-knobs@^3.3.1":
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/@types/storybook__addon-knobs/-/storybook__addon-knobs-3.4.1.tgz#36a9ff38c50b00b198bfdc04f6c0aaf747e0ed86"
+"@types/storybook__addon-knobs@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/storybook__addon-knobs/-/storybook__addon-knobs-4.0.2.tgz#473a1c3984cef1d4c4088304f5a4d53b9dfcac92"
+  integrity sha512-eqJ9fTBRJs77uxayQ9NpmeFbbEnYCg+rK5X6EQzx89M6lB9U/TG6fBTsn4DAameYRN9rrR9nRJu8CSNB6unQXQ==
   dependencies:
     "@types/react" "*"
+    "@types/storybook__react" "*"
 
 "@types/storybook__addon-links@^3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-links/-/storybook__addon-links-3.3.2.tgz#913f6dae27903da7b1f117e9b51ca473770dba50"
   dependencies:
     "@types/react" "*"
+
+"@types/storybook__react@*":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/storybook__react/-/storybook__react-4.0.1.tgz#b6320c9d027b8ee7ef1445fef8b4cba196d48ace"
+  integrity sha512-knkZErqv8Iy2QbebqBa5tsy2itIMKdO6bcQ7C19nmgTc+j1pnQhXCGcVyARzAQ1/NAuSYudSWQAKG+plgK7hyQ==
+  dependencies:
+    "@types/react" "*"
+    "@types/webpack-env" "*"
 
 "@types/storybook__react@^3.0.9":
   version "3.0.9"
