@@ -13,6 +13,8 @@ interface AppRootState {
 
 export class App extends React.Component<AppProps, AppRootState> {
 
+    lightBlue = window.getComputedStyle(document.body).getPropertyValue('--tropical-teal').trim();
+
     constructor( props: any ) {
         super( props );
     }
@@ -22,7 +24,7 @@ export class App extends React.Component<AppProps, AppRootState> {
             <>
                 <GithubCorner
                     href="https://github.com/maracuja-juice/ultimate-tic-tac-react"
-                    bannerColor="#008891"
+                    bannerColor={this.lightBlue}
                     octoColor="#fff"
                     size={80}
                     direction="right"
