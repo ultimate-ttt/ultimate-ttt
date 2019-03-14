@@ -12,7 +12,6 @@ width="150" alt="tic tac toe logo" />
   
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ultimate-ttt/ultimate-ttt/issues)
 [![Build Status](https://travis-ci.org/ultimate-ttt/ultimate-ttt.svg?branch=master)](https://travis-ci.org/ultimate-ttt/ultimate-ttt)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6bb7039b187c7489e449/maintainability)](https://codeclimate.com/github/ultimate-ttt/ultimate-ttt/maintainability)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ultimate-ttt/ultimate-ttt.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/ultimate-ttt/ultimate-ttt/branch/master/graph/badge.svg)](https://codecov.io/gh/ultimate-ttt/ultimate-ttt)
 
