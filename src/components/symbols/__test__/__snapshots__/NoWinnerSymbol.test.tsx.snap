@@ -52,7 +52,7 @@ ShallowWrapper {
             "calledByRenderer": false,
           },
           "getDerivedStateFromProps": Object {
-            "hasShouldComponentUpdateBug": true,
+            "hasShouldComponentUpdateBug": false,
           },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
