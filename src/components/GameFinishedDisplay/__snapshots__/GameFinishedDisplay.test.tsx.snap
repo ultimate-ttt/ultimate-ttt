@@ -33,13 +33,15 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Unknown
+        <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
+          unelevated={false}
 >
           Play Again
-</Unknown>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -93,20 +95,18 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
+          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "displayName": "withRipple(Button)",
-          "render": [Function],
-        },
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -128,13 +128,15 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Unknown
+          <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
+            unelevated={false}
 >
             Play Again
-</Unknown>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -188,20 +190,18 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
+            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "displayName": "withRipple(Button)",
-            "render": [Function],
-          },
+          "type": [Function],
         },
       ],
       "type": "div",
@@ -265,13 +265,15 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Unknown
+        <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
+          unelevated={false}
 >
           Play Again
-</Unknown>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -325,20 +327,18 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
+          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "displayName": "withRipple(Button)",
-          "render": [Function],
-        },
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -360,13 +360,15 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Unknown
+          <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
+            unelevated={false}
 >
             Play Again
-</Unknown>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -420,20 +422,18 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
+            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "displayName": "withRipple(Button)",
-            "render": [Function],
-          },
+          "type": [Function],
         },
       ],
       "type": "div",
@@ -497,13 +497,15 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Unknown
+        <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
+          unelevated={false}
 >
           Play Again
-</Unknown>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -557,20 +559,18 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
+          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "displayName": "withRipple(Button)",
-          "render": [Function],
-        },
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -592,13 +592,15 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Unknown
+          <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
+            unelevated={false}
 >
             Play Again
-</Unknown>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -652,20 +654,18 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
+            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "displayName": "withRipple(Button)",
-            "render": [Function],
-          },
+          "type": [Function],
         },
       ],
       "type": "div",
@@ -729,13 +729,15 @@ ShallowWrapper {
                     reservation
           </Unknown>
 </p>,
-        <Unknown
+        <Button
           dense={true}
           onClick={[Function]}
+          outlined={false}
           raised={true}
+          unelevated={false}
 >
           Play Again
-</Unknown>,
+</Button>,
       ],
       "className": "restart-alignment hidden",
     },
@@ -789,20 +791,18 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": "Play Again",
           "dense": true,
           "onClick": [Function],
+          "outlined": false,
           "raised": true,
+          "unelevated": false,
         },
         "ref": null,
         "rendered": "Play Again",
-        "type": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "displayName": "withRipple(Button)",
-          "render": [Function],
-        },
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -824,13 +824,15 @@ ShallowWrapper {
                         reservation
             </Unknown>
 </p>,
-          <Unknown
+          <Button
             dense={true}
             onClick={[Function]}
+            outlined={false}
             raised={true}
+            unelevated={false}
 >
             Play Again
-</Unknown>,
+</Button>,
         ],
         "className": "restart-alignment hidden",
       },
@@ -884,20 +886,18 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": "Play Again",
             "dense": true,
             "onClick": [Function],
+            "outlined": false,
             "raised": true,
+            "unelevated": false,
           },
           "ref": null,
           "rendered": "Play Again",
-          "type": Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "displayName": "withRipple(Button)",
-            "render": [Function],
-          },
+          "type": [Function],
         },
       ],
       "type": "div",

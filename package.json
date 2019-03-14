@@ -13,7 +13,7 @@
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",
-    "rmwc": "^5.1.8"
+    "rmwc": "^3.0.5"
   },
   "scripts": {
     "start": "react-scripts-ts start",

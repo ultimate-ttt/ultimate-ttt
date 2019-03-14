@@ -3,12 +3,8 @@ import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { Player } from '../../state/AppState';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
-// @ts-ignore
-import rmwcTestPolyfill from '@rmwc/base/test-polyfill';
 
 configure( {adapter: new ReactSixteenAdapter()} );
-
-rmwcTestPolyfill();
 
 describe( 'GameFinished', function () {
 
