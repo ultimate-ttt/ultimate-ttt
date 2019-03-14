@@ -8,7 +8,6 @@ configure( {adapter: new ReactSixteenAdapter()} );
 
 describe( 'GameFinished', function () {
 
-
     it( 'should match snapshot when draw', () => {
         // tslint:disable:no-empty
         const restart = () => {

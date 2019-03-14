@@ -76,14 +76,14 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
 
         return (
-                <div className={textContainerClass}>
-                    <p className="winner-text">
-                        {winnerText}
-                    </p>
-                    <Button dense={true} raised={true} onClick={this.tryRestart}>
-                        Play Again
-                    </Button>
-                </div>
+            <div className={textContainerClass}>
+                <p className="winner-text">
+                    {winnerText}
+                </p>
+                <Button dense={true} raised={true} onClick={this.tryRestart}>
+                    Play Again
+                </Button>
+            </div>
         );
     }
 }
