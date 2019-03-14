@@ -14,7 +14,6 @@ const tileValues = {
     Destroyed: TileValue.Destroyed
 };
 
-// FIXME: enum value not transferred to Tile As Enum
 stories.add( 'Tile Customisable', () => (
     <div className="small-board">
         <Tile
