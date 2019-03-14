@@ -8,6 +8,8 @@ import { Point } from '../../../util/Point';
 const stories = storiesOf( 'SmallBoard', module );
 stories.addDecorator( withKnobs );
 
+const boardValues = {Circle: Player.Circle, Cross: Player.Cross};
+
 function getSmallTile( boardPosition: Point, position: Point, value: TileValue ) {
     return {
         boardPosition, position, value
@@ -36,7 +38,7 @@ stories.add( 'SmallBoard Empty', () => {
             onTileClicked={clicked}
             winningPlayer={TileValue.Empty}
             tiles={smallTileInformation}
-            currentPlayer={select( 'currentPlayer', Player, Player.Circle )}
+            currentPlayer={select( 'currentPlayer', boardValues, Player.Circle )}
             isMoveAllowed={boolean( 'isMoveAllowed', true )}
             x={0}
             y={0}
@@ -67,7 +69,7 @@ stories.add( 'SmallBoard With Values', () => {
             onTileClicked={clicked}
             winningPlayer={TileValue.Empty}
             tiles={smallTileInformation}
-            currentPlayer={select( 'currentPlayer', Player, Player.Circle )}
+            currentPlayer={select( 'currentPlayer', boardValues, Player.Circle )}
             isMoveAllowed={boolean( 'isMoveAllowed', true )}
             x={0}
             y={0}

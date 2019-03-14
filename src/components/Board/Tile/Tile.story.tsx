@@ -7,16 +7,23 @@ import { TileValue } from '../../../state/AppState';
 const stories = storiesOf( 'Tile', module );
 stories.addDecorator( withKnobs );
 
+const tileValues = {
+    Empty: TileValue.Empty,
+    Cross: TileValue.Cross,
+    Circle: TileValue.Circle,
+    Destroyed: TileValue.Destroyed
+};
+
 // FIXME: enum value not transferred to Tile As Enum
 stories.add( 'Tile Customisable', () => (
     <div className="small-board">
         <Tile
-            value={select( 'Value', TileValue, TileValue.Empty )}
+            value={select( 'Value', tileValues, TileValue.Empty )}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
-                console.log( 'tile Clicked' );
+                console.log( 'Tile Clicked' );
             }}
-            isClickable={boolean( 'Is Clickable', false )}
+            isClickable={boolean( 'isClickable', false )}
         />
     </div>
 ) );
@@ -27,7 +34,7 @@ stories.add( 'Tile Clickable', () => (
             value={TileValue.Empty}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
-                console.log( 'tile Clicked' );
+                console.log( 'Tile Clicked' );
             }}
             isClickable={true}
         />
@@ -42,7 +49,7 @@ stories.add( 'Tile Circle', () => (
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
-            isClickable={boolean( 'Is Clickable', false )}
+            isClickable={boolean( 'isClickable', false )}
         />
     </div>
 ) );
@@ -55,7 +62,7 @@ stories.add( 'Tile Cross', () => (
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
-            isClickable={boolean( 'Is Clickable', false )}
+            isClickable={boolean( 'isClickable', false )}
         />
     </div>
 ) );
@@ -68,7 +75,7 @@ stories.add( 'Tile Destroyed', () => (
             onTileClicked={() => {
                 console.log( 'tile Clicked' );
             }}
-            isClickable={boolean( 'Is Clickable', false )}
+            isClickable={boolean( 'isClickable', false )}
         />
     </div>
 ) );
