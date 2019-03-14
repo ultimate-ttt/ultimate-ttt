@@ -21,8 +21,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "aria-label": "Circle Symbol",
-      "className": "icon-o o animate-o undefined",
-      "style": undefined,
+      "className": "icon-o o animate-o",
     },
     "ref": null,
     "rendered": null,
@@ -35,8 +34,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "aria-label": "Circle Symbol",
-        "className": "icon-o o animate-o undefined",
-        "style": undefined,
+        "className": "icon-o o animate-o",
       },
       "ref": null,
       "rendered": null,
@@ -89,8 +87,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "aria-label": "Circle Symbol",
-      "className": "icon-o o undefined",
-      "style": undefined,
+      "className": "icon-o o",
     },
     "ref": null,
     "rendered": null,
@@ -103,8 +100,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "aria-label": "Circle Symbol",
-        "className": "icon-o o undefined",
-        "style": undefined,
+        "className": "icon-o o",
       },
       "ref": null,
       "rendered": null,
@@ -158,8 +154,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "aria-label": "Circle Symbol",
-      "className": "icon-o o big-symbol animate-o undefined",
-      "style": undefined,
+      "className": "icon-o o big-symbol animate-o",
     },
     "ref": null,
     "rendered": null,
@@ -172,8 +167,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "aria-label": "Circle Symbol",
-        "className": "icon-o o big-symbol animate-o undefined",
-        "style": undefined,
+        "className": "icon-o o big-symbol animate-o",
       },
       "ref": null,
       "rendered": null,

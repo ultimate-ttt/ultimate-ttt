@@ -22,7 +22,6 @@ ShallowWrapper {
     "props": Object {
       "aria-label": "Cross Symbol",
       "className": "icon-x x animate-x",
-      "style": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -36,7 +35,6 @@ ShallowWrapper {
       "props": Object {
         "aria-label": "Cross Symbol",
         "className": "icon-x x animate-x",
-        "style": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -90,7 +88,6 @@ ShallowWrapper {
     "props": Object {
       "aria-label": "Cross Symbol",
       "className": "icon-x x",
-      "style": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -104,7 +101,6 @@ ShallowWrapper {
       "props": Object {
         "aria-label": "Cross Symbol",
         "className": "icon-x x",
-        "style": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -159,7 +155,6 @@ ShallowWrapper {
     "props": Object {
       "aria-label": "Cross Symbol",
       "className": "icon-x x big-symbol animate-x",
-      "style": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -173,7 +168,6 @@ ShallowWrapper {
       "props": Object {
         "aria-label": "Cross Symbol",
         "className": "icon-x x big-symbol animate-x",
-        "style": undefined,
       },
       "ref": null,
       "rendered": null,
