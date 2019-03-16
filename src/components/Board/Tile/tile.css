@@ -1,13 +1,14 @@
 .normal {
-    background-color: #0F3057;
+    background-color: var(--incremental-blue);
 }
 
 .indicator {
-    background-color: #008891;
+    background-color: var(--tropical-teal);
 }
 
 .box {
     color: #fff;
+
     /* Align Content Vertically & Horizontally */
     display: flex;
     align-items: center;

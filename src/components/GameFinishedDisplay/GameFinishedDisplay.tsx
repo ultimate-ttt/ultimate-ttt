@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { XSymbol } from '../symbols/XSymbol';
 import { OSymbol } from '../symbols/OSymbol';
 import { restartGame } from '../../state/commonAction';
-import { Button } from 'rmwc/Button';
+import { Button } from '@rmwc/button';
 import './gameFinished.css';
 
 interface GameFinishedDisplayProps {
@@ -32,13 +32,10 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
     getWinnerText( player: Player, isGameFinished: boolean ) {
 
         if (isGameFinished) {
-            const fontSize = {
-                fontSize: '5vmin'
-            }; // TODO: change this to use CSS!!
             if (player === Player.Circle) {
-                return (<><OSymbol style={fontSize} shouldAnimate={false}/> wins!</>);
+                return (<><OSymbol className="winner-symbol" shouldAnimate={false}/> wins!</>);
             } else if (player === Player.Cross) {
-                return (<><XSymbol style={fontSize} shouldAnimate={false}/> wins!</>);
+                return (<><XSymbol className="winner-symbol" shouldAnimate={false}/> wins!</>);
             } else {
                 return `It's a draw!`;
             }
@@ -79,14 +76,14 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
 
         return (
-                <div className={textContainerClass}>
-                    <p className="winner-text">
-                        {winnerText}
-                    </p>
-                    <Button dense={true} raised={true} onClick={this.tryRestart}>
-                        Play Again
-                    </Button>
-                </div>
+            <div className={textContainerClass}>
+                <p className="winner-text">
+                    {winnerText}
+                </p>
+                <Button dense={true} raised={true} onClick={this.tryRestart}>
+                    Play Again
+                </Button>
+            </div>
         );
     }
 }

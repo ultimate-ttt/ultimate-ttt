@@ -5,6 +5,10 @@
     margin-right: 1em;
 }
 
+.game-finished {
+    font-size: 5vmin;
+}
+
 .restart-alignment {
     display: flex;
     justify-content: center;
