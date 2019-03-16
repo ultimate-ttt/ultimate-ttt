@@ -6,7 +6,7 @@ import './bigboard.css';
 import { arePointsEqual } from '../../../util';
 import { Point } from '../../../util/Point';
 import { connect } from 'react-redux';
-import { playerMoved } from '../../../state/game/gameAction';
+import { playerMoved } from '../../../state/currentGame/game/gameAction';
 
 interface BigBoardProps {
     currentPlayer: Player;

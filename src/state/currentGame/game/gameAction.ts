@@ -1,5 +1,5 @@
-import { Player } from '../AppState';
-import { Point } from '../../util/Point';
+import { Player } from '../../AppState';
+import { Point } from '../../../util/Point';
 
 export const CHANGE_PLAYER = 'game/player-changed';
 export const PLAYER_MOVED = 'game/player-moved';

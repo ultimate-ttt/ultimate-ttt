@@ -1,7 +1,7 @@
 import moveReducer from './moveReducer';
 import { registerMove } from './moveAction';
-import { Player } from '../AppState';
-import { restartGame } from '../commonAction';
+import { Player } from '../../AppState';
+import { restartGame } from '../../commonAction';
 
 describe( 'moveReducer', () => {
     it( 'should return init state', () => {

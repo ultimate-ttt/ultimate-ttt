@@ -1,7 +1,7 @@
-import { Point } from '../../util/Point';
-import { GenericAction } from '../AppState';
+import { Point } from '../../../util/Point';
+import { GenericAction } from '../../AppState';
 import { SET_ALLOWED_BOARDS } from './activeBoardsActions';
-import { RESTART_GAME } from '../commonAction';
+import { RESTART_GAME } from '../../commonAction';
 
 const getAllPoints = () => {
     let points: Point[] = [];

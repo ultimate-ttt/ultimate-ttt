@@ -1,7 +1,7 @@
 import gameReducer from './gameReducer';
 import { changePlayer, gameFinished } from './gameAction';
-import { Player } from '../AppState';
-import { restartGame } from '../commonAction';
+import { Player } from '../../AppState';
+import { restartGame } from '../../commonAction';
 
 describe( 'gameReducer', () => {
     it( 'should return init state', () => {

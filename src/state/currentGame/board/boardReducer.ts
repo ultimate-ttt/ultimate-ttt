@@ -1,7 +1,7 @@
-import { cloneState, GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../AppState';
+import { cloneState, GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../../AppState';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
-import { arePointsEqual, Point } from '../../util/Point';
-import { RESTART_GAME } from '../commonAction';
+import { arePointsEqual, Point } from '../../../util/Point';
+import { RESTART_GAME } from '../../commonAction';
 
 const getInitialSmallBoardTiles = ( boardX: number, boardY: number ) => {
     let tiles: SmallTileInformation[] = [];

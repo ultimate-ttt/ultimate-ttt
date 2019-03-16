@@ -1,7 +1,7 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import playerMovedSaga from './moveValidationSaga';
-import { getCurrentPlayer } from '../selectors/AppStateSelectors';
-import { Player } from '../AppState';
+import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
+import { Player } from '../../AppState';
 import { CHANGE_PLAYER, CHECK_GAME_FINISHED, PLAYER_MOVED } from '../game/gameAction';
 import { select } from 'redux-saga/effects';
 import { REGISTER_MOVE } from './moveAction';

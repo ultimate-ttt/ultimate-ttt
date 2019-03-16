@@ -1,11 +1,16 @@
 import { Point } from '../util/Point';
 
 export interface AppState {
+    currentGame: GameInformation;
+    finishedGames: FinishedGameState[];
+    analysisGame: AnalysisGame
+}
+
+export interface GameInformation {
     board: SmallBoardInformation[];
     game: GameState;
     moves: Move[];
     activeBoards: Point[];
-    finishedGames: FinishedGameState[];
 }
 
 export interface FinishedGameState {
@@ -16,6 +21,10 @@ export interface FinishedGameState {
     moves: Move[];
     saveState: string;
     errorMessage: string;
+}
+
+export interface AnalysisGame extends GameInformation {
+    id?: string;
 }
 
 export interface GameState {

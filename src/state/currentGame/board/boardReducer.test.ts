@@ -1,9 +1,9 @@
 import boardReducer from './boardReducer';
 import { setTileValue } from './boardActions';
-import { TileValue } from '../AppState';
-import { arePointsEqual } from '../../util';
-import { restartGame } from '../commonAction';
-import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { TileValue } from '../../AppState';
+import { arePointsEqual } from '../../../util';
+import { restartGame } from '../../commonAction';
+import { crossFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
 
 describe( 'boardReducer', () => {
 

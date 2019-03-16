@@ -1,9 +1,9 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
-import { GenericAction, SmallBoardInformation } from '../AppState';
+import { GenericAction, SmallBoardInformation } from '../../AppState';
 import { CALCULATE_BOARD_VALUE, setBoardValue } from './boardActions';
-import { getWinResult } from '../../util/CheckBoard';
-import { arePointsEqual, playerToTileValue } from '../../util';
-import { getBoards } from '../selectors/AppStateSelectors';
+import { getWinResult } from '../../../util/CheckBoard';
+import { arePointsEqual, playerToTileValue } from '../../../util';
+import { getBoards } from '../../selectors/AppStateSelectors';
 
 function* calculateWinningBoard( action: GenericAction ) {
     const boardPosition = action.payload;

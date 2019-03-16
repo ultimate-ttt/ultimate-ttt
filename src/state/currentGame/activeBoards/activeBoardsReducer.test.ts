@@ -1,6 +1,6 @@
 import activeBoardsReducer from './activeBoardsReducer';
 import { setAllowedBoards } from './activeBoardsActions';
-import { restartGame } from '../commonAction';
+import { restartGame } from '../../commonAction';
 
 describe( 'activeBoardsReducer', () => {
 

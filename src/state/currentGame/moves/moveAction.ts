@@ -1,5 +1,5 @@
-import { Player } from '../AppState';
-import { Point } from '../../util/Point';
+import { Player } from '../../AppState';
+import { Point } from '../../../util/Point';
 
 export const REGISTER_MOVE = 'move-reducer/move-registered';
 

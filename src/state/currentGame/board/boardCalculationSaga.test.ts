@@ -1,10 +1,10 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import boardCalculationSaga from './boardCalculationSaga';
-import { getBoards } from '../selectors/AppStateSelectors';
+import { getBoards } from '../../selectors/AppStateSelectors';
 import { select } from 'redux-saga/effects';
 import { CALCULATE_BOARD_VALUE, SET_BOARD_VALUE } from './boardActions';
-import { Player } from '../AppState';
-import unfinishedBoardMock from '../../__mocks__/unfinishedBoardMock';
+import { Player } from '../../AppState';
+import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
 
 describe( 'boardCalculationSaga', () => {
     it( 'should dispatch the set board value for the board with the Cross Player', () => {

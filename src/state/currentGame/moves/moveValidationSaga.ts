@@ -2,9 +2,9 @@ import { put, select, takeEvery } from 'redux-saga/effects';
 import { changePlayer, checkGameFinished, PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
 import { registerMove } from './moveAction';
 import { calculateBoardValue, setTileValue } from '../board/boardActions';
-import { playerToTileValue } from '../../util';
+import { playerToTileValue } from '../../../util';
 import { calculateActiveBoards } from '../activeBoards/activeBoardsActions';
-import { getCurrentPlayer } from '../selectors/AppStateSelectors';
+import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
 
 function* playerMoved( action: PlayerMovedAction ) {
     const {boardPosition, tilePosition} = action.payload;

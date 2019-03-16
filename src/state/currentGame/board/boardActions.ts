@@ -1,5 +1,5 @@
-import { TileValue } from '../AppState';
-import { Point } from '../../util/Point';
+import { TileValue } from '../../AppState';
+import { Point } from '../../../util/Point';
 
 export const SET_TILE_VALUE = 'tile-reducer/set-tile-value';
 export const SET_BOARD_VALUE = 'tile-reducer/set-board-value';
