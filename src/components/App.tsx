@@ -5,19 +5,9 @@ import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';
 
-interface AppProps {
-}
-
-interface AppRootState {
-}
-
-export class App extends React.Component<AppProps, AppRootState> {
+export class App extends React.Component {
 
     lightBlue = window.getComputedStyle(document.body).getPropertyValue('--tropical-teal').trim();
-
-    constructor( props: any ) {
-        super( props );
-    }
 
     render() {
         return (

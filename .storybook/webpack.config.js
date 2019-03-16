@@ -1,5 +1,11 @@
 const path = require('path');
 
+// FIXME: bug when starting up:
+/*
+File '/.../node_modules/redux-persist/es/integration/react.js'
+is not under 'rootDir' '/.../src'.
+'rootDir' is expected to contain all source files
+ */
 module.exports = ({config}) => {
     config.module.rules.push({
         test: /\.scss$/,
