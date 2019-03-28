@@ -8,6 +8,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -21,7 +22,6 @@ ShallowWrapper {
     "props": Object {
       "aria-label": "Cross Symbol",
       "className": "icon-x x animate-x",
-      "style": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -35,7 +35,6 @@ ShallowWrapper {
       "props": Object {
         "aria-label": "Cross Symbol",
         "className": "icon-x x animate-x",
-        "style": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -46,11 +45,17 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
           },
-          "getDerivedStateFromProps": true,
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -59,6 +64,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -70,6 +76,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -83,7 +90,6 @@ ShallowWrapper {
     "props": Object {
       "aria-label": "Cross Symbol",
       "className": "icon-x x",
-      "style": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -97,7 +103,6 @@ ShallowWrapper {
       "props": Object {
         "aria-label": "Cross Symbol",
         "className": "icon-x x",
-        "style": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -108,11 +113,17 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
           },
-          "getDerivedStateFromProps": true,
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -121,6 +132,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -133,6 +145,7 @@ ShallowWrapper {
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -146,7 +159,6 @@ ShallowWrapper {
     "props": Object {
       "aria-label": "Cross Symbol",
       "className": "icon-x x big-symbol animate-x",
-      "style": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -160,7 +172,6 @@ ShallowWrapper {
       "props": Object {
         "aria-label": "Cross Symbol",
         "className": "icon-x x big-symbol animate-x",
-        "style": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -171,11 +182,17 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
           },
-          "getDerivedStateFromProps": true,
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -184,5 +201,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

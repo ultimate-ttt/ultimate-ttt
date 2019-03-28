@@ -1,23 +1,21 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
-// import individual material component styles here.
-import '@material/button/dist/mdc.button.min.css';
 import { Game } from '../views/Game';
 import { Analytics } from '../views/Analytics';
+// import individual material component styles here.
+import '@material/button/dist/mdc.button.min.css';
 
 export class App extends React.Component {
 
-    constructor( props: any ) {
-        super( props );
-    }
+    lightBlue = window.getComputedStyle(document.body).getPropertyValue('--tropical-teal').trim();
 
     render() {
         return (
             <>
                 <GithubCorner
                     href="https://github.com/maracuja-juice/ultimate-tic-tac-react"
-                    bannerColor="#008891"
+                    bannerColor={this.lightBlue}
                     octoColor="#fff"
                     size={80}
                     direction="right"

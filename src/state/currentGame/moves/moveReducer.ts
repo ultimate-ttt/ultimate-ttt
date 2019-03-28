@@ -1,23 +1,31 @@
+<<<<<<< HEAD:src/state/currentGame/moves/moveReducer.ts
 import { cloneState, GenericAction, Move } from '../../AppState';
 import { REGISTER_MOVE } from './moveAction';
 import { RESTART_GAME } from '../../commonAction';
+=======
+import { GenericAction, Move } from '../AppState';
+import { REGISTER_MOVE } from './moveAction';
+import { RESTART_GAME } from '../commonAction';
+import produce from 'immer';
+>>>>>>> master:src/state/moves/moveReducer.ts
 
 const initialState: Move[] = [];
 
 const moveReducer = ( state = initialState, action: GenericAction ) => {
     switch (action.type) {
         case REGISTER_MOVE: {
-            let clone = cloneState( state );
-
             const {boardPosition: boardPosition, tilePosition: tilePosition, player} = action.payload;
-            clone.push( {
-                boardPosition: boardPosition,
-                tilePosition: tilePosition,
-                player: player,
-                moveNumber: clone.length + 1
+
+            const newState = produce( state, draftState => {
+                draftState.push( {
+                                     boardPosition: boardPosition,
+                                     tilePosition: tilePosition,
+                                     player: player,
+                                     moveNumber: draftState.length + 1
+                                 } );
             } );
 
-            return clone;
+            return newState;
         }
         case RESTART_GAME: {
             return initialState;
