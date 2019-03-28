@@ -23,11 +23,13 @@ export class App extends React.Component {
                 <Router>
                     <div>
                         <Route exact={true} path="/" component={Game}/>
+                        /* TODO Maybe two different components? */
                         <Route exact={true} path="/analytics" component={Analytics}/>
+                        <Route exact={true} path="/analytics/:gameId" component={Analytics} />
                     </div>
                 </Router>
             </>
 
         );
-    } // <!-- <Route exact path="/analytics/:gameId" component={Analytics}/> -->
+    }
 }

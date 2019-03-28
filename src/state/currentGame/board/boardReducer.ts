@@ -1,9 +1,5 @@
-<<<<<<< HEAD:src/state/currentGame/board/boardReducer.ts
-import { cloneState, GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../../AppState';
-=======
+import { GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../../AppState';
 import produce from 'immer';
-import { GenericAction, SmallBoardInformation, SmallTileInformation, TileValue } from '../AppState';
->>>>>>> master:src/state/board/boardReducer.ts
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
 import { arePointsEqual, Point } from '../../../util/Point';
 import { RESTART_GAME } from '../../commonAction';

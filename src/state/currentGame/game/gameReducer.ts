@@ -1,13 +1,7 @@
-<<<<<<< HEAD:src/state/currentGame/game/gameReducer.ts
-import { cloneState, GameState, GenericAction, Player } from '../../AppState';
+import { GameState, GenericAction, Player } from '../../AppState';
 import { CHANGE_PLAYER, GAME_FINISHED } from './gameAction';
 import { RESTART_GAME } from '../../commonAction';
-=======
-import { GameState, GenericAction, Player } from '../AppState';
-import { CHANGE_PLAYER, GAME_FINISHED } from './gameAction';
-import { RESTART_GAME } from '../commonAction';
 import produce from 'immer';
->>>>>>> master:src/state/game/gameReducer.ts
 
 const initialState: GameState = {
     currentPlayer: Player.Cross,

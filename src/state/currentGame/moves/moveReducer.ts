@@ -1,13 +1,7 @@
-<<<<<<< HEAD:src/state/currentGame/moves/moveReducer.ts
-import { cloneState, GenericAction, Move } from '../../AppState';
+import { GenericAction, Move } from '../../AppState';
 import { REGISTER_MOVE } from './moveAction';
 import { RESTART_GAME } from '../../commonAction';
-=======
-import { GenericAction, Move } from '../AppState';
-import { REGISTER_MOVE } from './moveAction';
-import { RESTART_GAME } from '../commonAction';
 import produce from 'immer';
->>>>>>> master:src/state/moves/moveReducer.ts
 
 const initialState: Move[] = [];
 
