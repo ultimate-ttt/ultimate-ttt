@@ -1,6 +1,6 @@
 import boardReducer from './boardReducer';
 import { setTileValue } from './boardActions';
-import { TileValue } from '../AppState';
+import { SmallBoardInformation, SmallTileInformation, TileValue } from '../AppState';
 import { arePointsEqual } from '../../util';
 import { restartGame } from '../commonAction';
 import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
@@ -20,10 +20,10 @@ describe( 'boardReducer', () => {
             const action = setTileValue( boardPosition, tilePosition, TileValue.Circle );
             const newState = boardReducer( undefined, action );
 
-            const foundBoard = newState.find((board) => {
+            const foundBoard = newState.find((board: SmallBoardInformation) => {
                 return arePointsEqual(board.position, boardPosition);
             } );
-            const foundTile = foundBoard!.tiles.find((tile) => {
+            const foundTile = foundBoard!.tiles.find((tile: SmallTileInformation) => {
                 return arePointsEqual(tile.position, tilePosition);
             });
 
@@ -38,10 +38,10 @@ describe( 'boardReducer', () => {
             const action = setTileValue( boardPosition, tilePosition, TileValue.Cross );
             const newState = boardReducer( undefined, action );
 
-            const foundBoard = newState.find((board) => {
+            const foundBoard = newState.find((board: SmallBoardInformation) => {
                 return arePointsEqual(board.position, boardPosition);
             } );
-            const foundTile = foundBoard!.tiles.find((tile) => {
+            const foundTile = foundBoard!.tiles.find((tile: SmallTileInformation) => {
                 return arePointsEqual(tile.position, tilePosition);
             });
 

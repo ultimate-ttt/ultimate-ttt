@@ -9,6 +9,8 @@ export interface AppState {
 }
 
 export interface FinishedGameState {
+    id?: string;
+    date: Date;
     winner?: Player | null;
     gameState: SmallBoardInformation[];
     moves: Move[];
@@ -58,8 +60,4 @@ export interface GenericAction {
     type: string;
     // tslint:disable-next-line: no-any
     payload?: any;
-}
-
-export function cloneState<T>( state: T ): T {
-    return JSON.parse( JSON.stringify( state ) );
 }

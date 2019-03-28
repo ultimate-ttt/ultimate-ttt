@@ -34,11 +34,11 @@ describe( 'saveFinishedGameDataSaga', () => {
     it( 'should make a successful fetch call', () => {
         window.location.host = 'localhost';
         window.fetch = jest.fn().mockImplementation(
-            () => Promise.resolve( mockResponse( 200, '', '' ) ) );
+            () => Promise.resolve( mockResponse( 200, '', '132' ) ) );
 
         return expectSaga( saveFinishedGameDataSaga )
             .put( {type: SAVE_GAME_DATA_PENDING} )
-            .put( {type: SAVE_GAME_DATA_FULFILLED} )
+            .put( {type: SAVE_GAME_DATA_FULFILLED, payload: '132'} )
             .dispatch( {type: SAVE_GAME_DATA, payload: finishedGameDataMock} )
             .silentRun();
     } );
@@ -74,11 +74,11 @@ describe( 'saveFinishedGameDataSaga', () => {
     it( 'should match snapshot when receiving okay', () => {
         window.location.host = 'localhost';
         window.fetch = jest.fn().mockImplementation(
-            () => Promise.resolve( mockResponse( 200, '', '' ) ) );
+            () => Promise.resolve( mockResponse( 200, '', '132' ) ) );
 
         return expectSaga( saveFinishedGameDataSaga )
             .put( {type: SAVE_GAME_DATA_PENDING} )
-            .put( {type: SAVE_GAME_DATA_FULFILLED} )
+            .put( {type: SAVE_GAME_DATA_FULFILLED, payload: '132'} )
             .dispatch( {type: SAVE_GAME_DATA, payload: finishedGameDataMock} )
             .silentRun()
             .then( ( result ) => {

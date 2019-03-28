@@ -14,8 +14,9 @@ export const saveGameDataPending = ( ): SaveGameDataPendingAction => ({
     type: SAVE_GAME_DATA_PENDING
 });
 
-export const saveGameDataFulfilled = ( ): SaveGameDataFulfilledAction => ({
+export const saveGameDataFulfilled = ( gameId: string ): SaveGameDataFulfilledAction => ({
     type: SAVE_GAME_DATA_FULFILLED,
+    payload: gameId
 });
 
 export const saveGameDataRejected = ( errorMessage: string ): SaveGameDataRejectedAction => ({
@@ -34,6 +35,7 @@ export interface SaveGameDataPendingAction {
 
 export interface SaveGameDataFulfilledAction {
     type: string;
+    payload: string;
 }
 
 export interface SaveGameDataRejectedAction {

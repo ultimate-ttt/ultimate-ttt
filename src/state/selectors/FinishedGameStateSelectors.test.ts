@@ -53,7 +53,8 @@ describe( 'FinishedGameStateSelectors', () => {
             const expectedSelection = {
                 winner: mockParameters.winningPlayer,
                 gameState: mockParameters.boards,
-                moves: mockParameters.moves
+                moves: mockParameters.moves,
+                date: new Date(),
             };
             expect(selected).toEqual(expectedSelection);
         } );

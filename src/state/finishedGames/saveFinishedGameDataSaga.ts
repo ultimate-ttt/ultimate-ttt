@@ -24,7 +24,8 @@ function* saveFinishedGameData( action: SaveGameDataAction ) {
         } );
 
         if (response.ok) {
-            yield put( saveGameDataFulfilled() );
+            const gameId = yield response.text();
+            yield put( saveGameDataFulfilled(gameId) );
         } else {
             yield put( saveGameDataRejected( `${response.status}: ${response.statusText}` ) );
         }
