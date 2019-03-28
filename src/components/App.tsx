@@ -14,7 +14,7 @@ export class App extends React.Component {
         return (
             <>
                 <GithubCorner
-                    href="https://github.com/maracuja-juice/ultimate-tic-tac-react"
+                    href="https://github.com/ultimate-ttt/ultimate-ttt"
                     bannerColor={this.lightBlue}
                     octoColor="#fff"
                     size={80}

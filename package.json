@@ -1,7 +1,7 @@
 {
   "name": "ultimate-tic-tac-react",
   "version": "0.1.0",
-  "homepage": "http://maracuja-juice.github.io/ultimate-tic-tac-react",
+  "homepage": "https://github.com/ultimate-ttt/ultimate-ttt",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
