@@ -20,6 +20,7 @@ stories.add( 'Tile Customisable', () => (
             value={select( 'Value', tileValues, TileValue.Empty )}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
+                // tslint:disable-next-line: no-console
                 console.log( 'Tile Clicked' );
             }}
             isClickable={boolean( 'isClickable', false )}
@@ -33,6 +34,7 @@ stories.add( 'Tile Clickable', () => (
             value={TileValue.Empty}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
+                // tslint:disable-next-line: no-console
                 console.log( 'Tile Clicked' );
             }}
             isClickable={true}
@@ -46,7 +48,8 @@ stories.add( 'Tile Circle', () => (
             value={TileValue.Circle}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
-                console.log( 'tile Clicked' );
+                // tslint:disable-next-line: no-console
+                console.log( 'Tile Clicked' );
             }}
             isClickable={boolean( 'isClickable', false )}
         />
@@ -59,7 +62,8 @@ stories.add( 'Tile Cross', () => (
             value={TileValue.Cross}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
-                console.log( 'tile Clicked' );
+                // tslint:disable-next-line: no-console
+                console.log( 'Tile Clicked' );
             }}
             isClickable={boolean( 'isClickable', false )}
         />
@@ -72,7 +76,8 @@ stories.add( 'Tile Destroyed', () => (
             value={TileValue.Destroyed}
             isTileRound={boolean( 'isTileRound', false )}
             onTileClicked={() => {
-                console.log( 'tile Clicked' );
+                // tslint:disable-next-line: no-console
+                console.log( 'Tile Clicked' );
             }}
             isClickable={boolean( 'isClickable', false )}
         />

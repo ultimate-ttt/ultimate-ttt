@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
 import { Game } from '../views/Game';
 import Analysis from '../views/Analysis';
+
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';
+import '@material/list/dist/mdc.list.css';
 
 export class App extends React.Component {
 

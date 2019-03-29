@@ -1,0 +1,20 @@
+.analysisLayout {
+    display: grid;
+    margin-top: 0.5vmin;
+    grid-gap: 0.5vmin;
+    grid-template-areas: "moveList game";
+
+    /*align-items: center;
+    justify-content: center;*/
+
+}
+
+.moveList {
+    overflow-y: scroll;
+    grid-area: moveList;
+}
+
+.analysisGame {
+    grid-area: game;
+    align-self: center;
+}

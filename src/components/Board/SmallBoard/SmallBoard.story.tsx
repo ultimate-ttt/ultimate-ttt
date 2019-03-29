@@ -18,6 +18,7 @@ function getSmallTile( boardPosition: Point, position: Point, value: TileValue )
 
 stories.add( 'SmallBoard Empty', () => {
     const clicked = ( x: number, y: number ) => {
+        // tslint:disable-next-line: no-console
         console.log( 'clicked:' + x + y );
     };
     const boardPosition = {x: 0, y: 0};
@@ -48,6 +49,7 @@ stories.add( 'SmallBoard Empty', () => {
 
 stories.add( 'SmallBoard With Values', () => {
     const clicked = ( x: number, y: number ) => {
+        // tslint:disable-next-line: no-console
         console.log( 'clicked: ' + x + y );
     };
 
@@ -79,6 +81,7 @@ stories.add( 'SmallBoard With Values', () => {
 
 stories.add( 'Smallboard won cross', () => {
     const clicked = ( x: number, y: number ) => {
+        // tslint:disable-next-line: no-console
         console.log( 'clicked:' + x + y );
     };
 
@@ -110,6 +113,7 @@ stories.add( 'Smallboard won cross', () => {
 
 stories.add( 'Smallboard won circle', () => {
     const clicked = ( x: number, y: number ) => {
+        // tslint:disable-next-line: no-console
         console.log( 'clicked:' + x + y );
     };
 
@@ -141,6 +145,7 @@ stories.add( 'Smallboard won circle', () => {
 
 stories.add( 'Smallboard won no winner', () => {
     const clicked = ( x: number, y: number ) => {
+        // tslint:disable-next-line: no-console
         console.log( 'clicked:' + x + y );
     };
 

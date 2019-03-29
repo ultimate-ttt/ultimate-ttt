@@ -9,7 +9,7 @@ configure( {adapter: new ReactSixteenAdapter()} );
 describe( 'GameFinished', function () {
 
     it( 'should match snapshot when draw', () => {
-        // tslint:disable:no-empty
+        // tslint:disable-next-line:no-empty
         const restart = () => {
         };
         const gameFinishedIndicator = shallow( (
@@ -24,7 +24,7 @@ describe( 'GameFinished', function () {
     } );
 
     it( 'should match snapshot when circle wins', () => {
-        // tslint:disable:no-empty
+        // tslint:disable-next-line:no-empty
         const restart = () => {
         };
         const gameFinishedIndicator = shallow( (
@@ -39,7 +39,7 @@ describe( 'GameFinished', function () {
     } );
 
     it( 'should match snapshot when cross wins', () => {
-        // tslint:disable:no-empty
+        // tslint:disable-next-line:no-empty
         const restart = () => {
         };
         const gameFinishedIndicator = shallow( (
@@ -54,7 +54,7 @@ describe( 'GameFinished', function () {
     } );
 
     it( 'should match snapshot when no one wins', () => {
-        // tslint:disable:no-empty
+        // tslint:disable-next-line:no-empty
         const restart = () => {
         };
         const gameFinishedIndicator = shallow( (
