@@ -20,17 +20,7 @@ interface GameFinishedDisplayState {
 
 export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProps, GameFinishedDisplayState> {
 
-    constructor( props: GameFinishedDisplayProps ) {
-        super( props );
-
-        this.tryRestart = this.tryRestart.bind( this );
-        this.getWinnerText = this.getWinnerText.bind( this );
-
-        this.state = {winnerClassAttribute: 'hidden', winnerText: this.getWinnerText( Player.Circle, false )};
-    }
-
-    getWinnerText( player: Player, isGameFinished: boolean ) {
-
+    static getWinnerText( player: Player, isGameFinished: boolean ) {
         if (isGameFinished) {
             if (player === Player.Circle) {
                 return (<><OSymbol className="winner-symbol" shouldAnimate={false}/> wins!</>);
@@ -46,16 +36,27 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
         return <><XSymbol shouldAnimate={false}/>reservation</>;
     }
 
-    componentWillReceiveProps( nextProps: GameFinishedDisplayProps ) {
+    static getDerivedStateFromProps( nextProps: GameFinishedDisplayProps ) {
         if (nextProps.isGameFinished) {
-            this.setState( {
-                               winnerClassAttribute: 'visible',
-                               winnerText: this.getWinnerText( nextProps.winner, nextProps.isGameFinished )
-                           } );
+            return {
+                winnerClassAttribute: 'visible',
+                winnerText: GameFinishedDisplay.getWinnerText( nextProps.winner, nextProps.isGameFinished )
+            };
         }
+
+        return null;
     }
 
-    tryRestart() {
+    constructor( props: GameFinishedDisplayProps ) {
+        super( props );
+
+        this.state = {
+            winnerClassAttribute: 'hidden',
+            winnerText: GameFinishedDisplay.getWinnerText( Player.Circle, false )
+        };
+    }
+
+    tryRestart = () => {
         if (this.props.isGameFinished) {
             // for the ease out to work.
             // otherwise the "reservation" text gets rendered before it's eased out

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
 import { Game } from '../views/Game';
-import { Analytics } from '../views/Analytics';
+import Analysis from '../views/Analysis';
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';
 
@@ -23,12 +23,11 @@ export class App extends React.Component {
                 <Router>
                     <div>
                         <Route exact={true} path="/" component={Game}/>
-                        <Route exact={true} path="/analytics" component={Analytics}/>
-                        <Route exact={true} path="/analytics/:gameId" component={Analytics} />
+                        <Route exact={true} path="/analysis/:gameId" component={Analysis} />
                     </div>
                 </Router>
             </>
 
-        ); /* TODO Maybe two different components for analytics? */
+        ); /* TODO two different components for analytics? */
     }
 }

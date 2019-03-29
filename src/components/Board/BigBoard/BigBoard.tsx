@@ -18,14 +18,7 @@ interface BigBoardProps {
 
 export class BigBoard extends React.Component<BigBoardProps> {
 
-    constructor( props: BigBoardProps ) {
-        super( props );
-
-        this.createSmallBoards = this.createSmallBoards.bind( this );
-        this.isMoveOnBoardAllowed = this.isMoveOnBoardAllowed.bind( this );
-    }
-
-    isMoveOnBoardAllowed( x: number, y: number, activeBoards: Point[] ) {
+    isMoveOnBoardAllowed = ( x: number, y: number, activeBoards: Point[] ) => {
         if (!activeBoards) {
             return false;
         }
@@ -34,7 +27,7 @@ export class BigBoard extends React.Component<BigBoardProps> {
         return theBoardPlayedOnIsActive;
     }
 
-    createSmallBoards() {
+    createSmallBoards = () => {
         const {currentPlayer, board, activeBoards, onPlayerMoved, movesAllowed} = this.props;
         const rows = [];
 
@@ -85,6 +78,7 @@ export class BigBoard extends React.Component<BigBoardProps> {
     }
 }
 
+// TODO move connection to higher order component!
 const mapStateToProps = ( state: AppState ) => ({
     currentPlayer: state.currentGame.game.currentPlayer,
     board: state.currentGame.board,

@@ -7,3 +7,6 @@ export const getCurrentPlayer = ( state: AppState ) => state.currentGame.game.cu
 export const getWinningPlayer = ( state: AppState ) => state.currentGame.game.winningPlayer;
 
 export const getMoves = ( state: AppState ) => state.currentGame.moves;
+
+// TODO?
+export const getFinishedGame = (state: AppState, id: string) => state.finishedGames.find(g => g.id === id);

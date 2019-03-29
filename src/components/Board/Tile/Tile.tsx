@@ -13,18 +13,9 @@ interface TileProps {
     isBig?: boolean;
 }
 
-interface TileState {
-}
+export class Tile extends React.Component<TileProps> {
 
-export class Tile extends React.Component<TileProps, TileState> {
-
-    constructor( props: TileProps ) {
-        super( props );
-
-        this.getValue = this.getValue.bind( this );
-    }
-
-    getValue() {
+    getValue = () => {
         const {isBig} = this.props;
         switch (this.props.value) {
             case TileValue.Cross:

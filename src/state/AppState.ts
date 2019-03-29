@@ -23,8 +23,12 @@ export interface FinishedGameState {
     errorMessage: string;
 }
 
-export interface AnalysisGame extends GameInformation {
+export interface AnalysisGame {
     id?: string;
+    board?: SmallBoardInformation[];
+    game?: GameState;
+    moves?: Move[];
+    activeBoards?: Point[];
 }
 
 export interface GameState {

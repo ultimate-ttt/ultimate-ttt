@@ -14,17 +14,21 @@ import activeBoardsCalculationSaga from './currentGame/activeBoards/activeBoards
 import checkGameFinishedSaga from './currentGame/game/checkGameFinishedSaga';
 import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
 import finishedGameReducer from './finishedGames/finishedGameReducer';
+import { AppState, GameInformation } from './AppState';
+import { analysisGameReducer } from './analysisGame/analysisGameReducer';
+import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
 
-const currentGameReducer = combineReducers( {
+const currentGameReducer = combineReducers<GameInformation>( {
                                                 game: gameReducer,
                                                 board: boardReducer,
                                                 moves: moveReducer,
                                                 activeBoards: activeBoardsReducer
                                             } );
-const rootreducer = combineReducers(
+const rootreducer = combineReducers<AppState>(
     {
         currentGame: currentGameReducer,
-        finishedGames: finishedGameReducer
+        finishedGames: finishedGameReducer,
+        analysisGame: analysisGameReducer
     } );
 
 export function configureStore() {
@@ -64,7 +68,8 @@ function* rootSaga() {
             fork( boardCalculationSaga ),
             fork( activeBoardsCalculationSaga ),
             fork( checkGameFinishedSaga ),
-            fork( saveFinishedGameDataSaga )
+            fork( saveFinishedGameDataSaga ),
+            fork( loadFinishedGameSaga )
         ]
     );
 }

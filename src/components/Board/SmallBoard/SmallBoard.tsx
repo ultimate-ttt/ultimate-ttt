@@ -13,22 +13,12 @@ interface SmallBoardProps {
     onTileClicked: ( x: number, y: number ) => void;
 }
 
-interface SmallBoardState {
+export class SmallBoard extends React.Component<SmallBoardProps> {
 
-}
-
-export class SmallBoard extends React.Component<SmallBoardProps, SmallBoardState> {
-
-    constructor( props: SmallBoardProps ) {
-        super( props );
-
-        this.getTiles = this.getTiles.bind( this );
-    }
-
-    getTiles( tiles: SmallTileInformation[],
-              isCircle: boolean,
-              isMoveAllowed: boolean,
-              onTileClicked: ( x: number, y: number ) => void ) {
+    getTiles = ( tiles: SmallTileInformation[],
+                 isCircle: boolean,
+                 isMoveAllowed: boolean,
+                 onTileClicked: ( x: number, y: number ) => void ) => {
         const rows: JSX.Element[] = [];
 
         tiles.forEach( tile => {
