@@ -1,13 +1,7 @@
-import { AnalysisGame, GenericAction } from '../AppState';
+import { GenericAction } from '../AppState';
 import { SET_ANALYSIS_GAME } from './analysisGameActions';
 
-const initialState: AnalysisGame = {
-    board: undefined,
-    activeBoards: undefined,
-    game: undefined,
-    id: undefined,
-    moves: undefined
-};
+const initialState = {};
 
 export const analysisGameReducer = ( state = initialState, action: GenericAction ) => {
     switch (action.type) {

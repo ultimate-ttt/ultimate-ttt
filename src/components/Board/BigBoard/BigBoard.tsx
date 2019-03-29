@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
-import { AppState, Player, SmallBoardInformation } from '../../../state/AppState';
-
-import './bigboard.css';
+import { Player, SmallBoardInformation } from '../../../state/AppState';
 import { arePointsEqual } from '../../../util';
 import { Point } from '../../../util/Point';
-import { connect } from 'react-redux';
-import { playerMoved } from '../../../state/currentGame/game/gameAction';
+import './bigboard.css';
 
 interface BigBoardProps {
     currentPlayer: Player;
@@ -77,18 +74,3 @@ export class BigBoard extends React.Component<BigBoardProps> {
         );
     }
 }
-
-// TODO move connection to higher order component!
-const mapStateToProps = ( state: AppState ) => ({
-    currentPlayer: state.currentGame.game.currentPlayer,
-    board: state.currentGame.board,
-    activeBoards: state.currentGame.activeBoards,
-});
-
-// tslint:disable-next-line: no-any
-const mapDispatchToProps = ( dispatch: any ) => ({
-    onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) =>
-        dispatch( playerMoved( {x: boardX, y: boardY}, {x: tileX, y: tileY} ) )
-});
-
-export default connect( mapStateToProps, mapDispatchToProps )( BigBoard );

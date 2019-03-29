@@ -1,7 +1,7 @@
 .analysisLayout {
     display: grid;
     margin-top: 0.5vmin;
-    grid-gap: 0.5vmin;
+    grid-gap: 2vmin;
     grid-template-areas: "moveList game";
 
     /*align-items: center;
@@ -11,6 +11,9 @@
 
 .moveList {
     overflow-y: scroll;
+    min-width: 30vmin;
+    max-height: 42vmin;
+    border: 1px solid black;
     grid-area: moveList;
 }
 

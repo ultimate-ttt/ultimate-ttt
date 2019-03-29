@@ -1,4 +1,4 @@
-import { AppState } from '../AppState';
+import { AnalysisGame, AppState, Player } from '../AppState';
 
 export const getBoards = ( state: AppState ) => state.currentGame.board;
 
@@ -8,5 +8,21 @@ export const getWinningPlayer = ( state: AppState ) => state.currentGame.game.wi
 
 export const getMoves = ( state: AppState ) => state.currentGame.moves;
 
-// TODO?
-export const getFinishedGame = (state: AppState, id: string) => state.finishedGames.find(g => g.id === id);
+export const getFinishedGame = ( state: AppState, id: string ): AnalysisGame | undefined => {
+    const finishedGame = state.finishedGames.find( g => g.id === id );
+    if (finishedGame) {
+        return {
+            moves: finishedGame.moves,
+            game: {
+                currentPlayer: finishedGame.winner ? finishedGame.winner : Player.Unknown,
+                winningPlayer: finishedGame.winner,
+                isFinished: true
+            },
+            activeBoards: [],
+            board: finishedGame.gameState,
+            id: finishedGame.id!
+        };
+    }
+
+    return undefined;
+};

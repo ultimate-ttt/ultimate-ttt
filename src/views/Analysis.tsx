@@ -1,16 +1,20 @@
 import * as React from 'react';
-import BigBoard from '../components/Board/BigBoard/BigBoard';
+import { ReactNode } from 'react';
+import { BigBoard } from '../components/Board/BigBoard/BigBoard';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
-import { AppState, Move } from '../state/AppState';
+import { AppState, Move, Player, SmallBoardInformation } from '../state/AppState';
 import { loadFinishedGame } from '../state/analysisGame/analysisGameActions';
 import { List, ListItem } from '@rmwc/list';
-import { ReactNode } from 'react';
 import './analysis.css';
+import { Point } from '../util/Point';
 
 interface AnalysisProps {
     onLoad: ( id: string ) => void;
     moves?: Move[];
+    board: SmallBoardInformation[];
+    activeBoards: Point[];
+    currentPlayer: Player;
 }
 
 export class Analysis extends React.Component<AnalysisProps & RouteComponentProps<{ id: string }>> {
@@ -26,19 +30,17 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
         const moveList: ReactNode[] = [];
 
         moves!.forEach( m => {
-            if (m.moveNumber < 25) {
-                moveList.push(
-                    <ListItem key={m.moveNumber}>
-                        Player: {m.player} Move: {m.moveNumber}
-                    </ListItem>
-                );
-            }
+            moveList.push(
+                <ListItem key={m.moveNumber}>
+                    Player: {m.player} Move: {m.moveNumber}
+                </ListItem>
+            );
         } );
         return moveList;
     }
 
     render() {
-        const {moves} = this.props;
+        const {moves, board, activeBoards, currentPlayer} = this.props;
 
         return (
             <div className="center">
@@ -49,7 +51,15 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                         </List>
                     </div>}
                     <div className="analysisGame">
-                        <BigBoard movesAllowed={false}/>
+                        {moves && <BigBoard
+                            // tslint:disable-next-line:no-empty
+                            onPlayerMoved={() => {
+                            }}
+                            board={board}
+                            activeBoards={activeBoards}
+                            currentPlayer={currentPlayer}
+                            movesAllowed={false}
+                        />}
                     </div>
                 </div>
             </div>
@@ -58,7 +68,10 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
 }
 
 const mapStateToProps = ( state: AppState ) => ({
-    moves: state.analysisGame.moves
+    moves: state.analysisGame.moves,
+    board: state.analysisGame.board,
+    activeBoards: state.analysisGame.activeBoards,
+    currentPlayer: state.analysisGame.game ? state.analysisGame.game.currentPlayer : Player.Unknown
 });
 
 // tslint:disable-next-line: no-any

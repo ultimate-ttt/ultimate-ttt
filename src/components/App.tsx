@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
-import { Game } from '../views/Game';
+import Game from '../views/Game';
 import Analysis from '../views/Analysis';
 
 // import individual material component styles here.

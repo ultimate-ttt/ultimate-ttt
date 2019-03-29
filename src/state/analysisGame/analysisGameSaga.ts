@@ -4,6 +4,8 @@ import { LOAD_FINISHED_GAME, setAnalysisGame } from './analysisGameActions';
 import { getFinishedGame } from '../selectors/AppStateSelectors';
 
 function* loadFinishedGame( action: GenericAction ) {
+
+    // TODO: this is not in the correct format!
     const finishedGame = yield select( getFinishedGame, action.payload );
 
     // TODO if no results in selector: try over network

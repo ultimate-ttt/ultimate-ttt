@@ -24,11 +24,11 @@ export interface FinishedGameState {
 }
 
 export interface AnalysisGame {
-    id?: string;
-    board?: SmallBoardInformation[];
-    game?: GameState;
-    moves?: Move[];
-    activeBoards?: Point[];
+    id: string;
+    board: SmallBoardInformation[];
+    game: GameState;
+    moves: Move[];
+    activeBoards: Point[];
 }
 
 export interface GameState {
@@ -57,9 +57,11 @@ export enum TileValue {
     Destroyed = 3
 }
 
+// TODO find a better solution for null/undefined problem!!
 export enum Player {
     Cross = 0,
-    Circle = 1
+    Circle = 1,
+    Unknown = 2
 }
 
 export interface Move {
