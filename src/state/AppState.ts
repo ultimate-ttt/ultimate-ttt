@@ -3,7 +3,7 @@ import { Point } from '../util/Point';
 export interface AppState {
     currentGame: GameInformation;
     finishedGames: FinishedGameState[];
-    analysisGame: AnalysisGame
+    analysisGame: AnalysisGame;
 }
 
 export interface GameInformation {

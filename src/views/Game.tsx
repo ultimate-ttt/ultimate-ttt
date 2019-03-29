@@ -11,7 +11,7 @@ export class Game extends React.Component<GameProps> {
         return (
             <div className="center">
                 <GameFinishedDisplay />
-                <BigBoard/>
+                <BigBoard movesAllowed={true}/>
             </div>
         );
     }

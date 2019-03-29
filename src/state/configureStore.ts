@@ -1,4 +1,3 @@
-import { AppState } from './AppState';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import boardReducer from './currentGame/board/boardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
@@ -16,12 +15,15 @@ import checkGameFinishedSaga from './currentGame/game/checkGameFinishedSaga';
 import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
 import finishedGameReducer from './finishedGames/finishedGameReducer';
 
-const rootreducer = combineReducers<AppState>(
+const currentGameReducer = combineReducers( {
+                                                game: gameReducer,
+                                                board: boardReducer,
+                                                moves: moveReducer,
+                                                activeBoards: activeBoardsReducer
+                                            } );
+const rootreducer = combineReducers(
     {
-        game: gameReducer,
-        board: boardReducer,
-        moves: moveReducer,
-        activeBoards: activeBoardsReducer,
+        currentGame: currentGameReducer,
         finishedGames: finishedGameReducer
     } );
 

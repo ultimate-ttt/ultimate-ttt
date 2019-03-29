@@ -89,8 +89,8 @@ export class GameFinishedDisplay extends React.Component<GameFinishedDisplayProp
 }
 
 const mapStateToProps = ( state: AppState ) => ({
-    isGameFinished: state.game.isFinished,
-    winner: state.game.winningPlayer,
+    isGameFinished: state.currentGame.game.isFinished,
+    winner: state.currentGame.game.winningPlayer,
 });
 
 // tslint:disable-next-line: no-any

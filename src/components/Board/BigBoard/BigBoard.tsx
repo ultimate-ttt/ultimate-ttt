@@ -13,7 +13,7 @@ interface BigBoardProps {
     board: SmallBoardInformation[];
     activeBoards: Point[];
     onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) => void;
-    analysisMode?: boolean;
+    movesAllowed?: boolean;
 }
 
 export class BigBoard extends React.Component<BigBoardProps> {
@@ -35,7 +35,7 @@ export class BigBoard extends React.Component<BigBoardProps> {
     }
 
     createSmallBoards() {
-        const {currentPlayer, board, activeBoards, onPlayerMoved, analysisMode} = this.props;
+        const {currentPlayer, board, activeBoards, onPlayerMoved, movesAllowed} = this.props;
         const rows = [];
 
         for (let x = 0; x < 3; x++) {
@@ -47,7 +47,7 @@ export class BigBoard extends React.Component<BigBoardProps> {
                     const isMoveAllowed = this.isMoveOnBoardAllowed( x, y, activeBoards );
 
                     let onTileClicked;
-                    if (analysisMode) {
+                    if (!movesAllowed) {
                         // tslint:disable-next-line
                         onTileClicked = ( tileX: number, tileY: number ) => {
                         };
@@ -86,9 +86,9 @@ export class BigBoard extends React.Component<BigBoardProps> {
 }
 
 const mapStateToProps = ( state: AppState ) => ({
-    currentPlayer: state.game.currentPlayer,
-    board: state.board,
-    activeBoards: state.activeBoards,
+    currentPlayer: state.currentGame.game.currentPlayer,
+    board: state.currentGame.board,
+    activeBoards: state.currentGame.activeBoards,
 });
 
 // tslint:disable-next-line: no-any
