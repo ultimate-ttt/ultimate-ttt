@@ -4,13 +4,15 @@ import { BigBoard } from '../components/Board/BigBoard/BigBoard';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { AppState, Move, Player, SmallBoardInformation } from '../state/AppState';
-import { loadFinishedGame } from '../state/analysisGame/analysisGameActions';
+import { loadFinishedGame, moveForwardInHistory } from '../state/analysisGame/analysisGameActions';
 import { List, SimpleListItem } from '@rmwc/list';
 import './analysis.css';
 import { Point } from '../util/Point';
+import { CustomEventT } from '@rmwc/types';
 
 interface AnalysisProps {
     onLoad: ( id: string ) => void;
+    moveForwardInHistory: ( numberOfMoves: number ) => void;
     moves?: Move[];
     board: SmallBoardInformation[];
     activeBoards: Point[];
@@ -46,13 +48,20 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                     graphic={{icon: this.playerAsString( m.player ), size: 'large'}}
                     text={'Move ' + m.moveNumber}
                     secondaryText={
-                        'Board ' + m.boardPosition.x + '/' + m.boardPosition.y + ' - ' +
-                        'Field ' + m.tilePosition.x + '/' + m.tilePosition.y
+                        'Board ' + m.boardPosition.y + '/' + m.boardPosition.x + ' - ' +
+                        'Field ' + m.tilePosition.y + '/' + m.tilePosition.x
                     }
                 />
             );
         } );
         return moveList;
+    }
+
+    changeDisplayedMove = ( event: CustomEventT<number> ) => {
+        const {currentMove} = this.props;
+        const moveNumber = event.detail + 1;
+        // TODO move backwards -> moveNumber - currentMove = negative -> backwards.
+        this.props.moveForwardInHistory( moveNumber - currentMove );
     }
 
     render() {
@@ -62,7 +71,7 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
             <div className="center">
                 <div className="analysisLayout">
                     {moves && <div className="moveList">
-                        <List twoLine={true}>
+                        <List twoLine={true} onAction={this.changeDisplayedMove}>
                             {this.getMoves()}
                         </List>
                     </div>}
@@ -87,14 +96,16 @@ const mapStateToProps = ( state: AppState ) => ({
     moves: state.analysisGame.moves,
     board: state.analysisGame.board,
     activeBoards: state.analysisGame.activeBoards,
-    currentPlayer: state.analysisGame.game ? state.analysisGame.game.currentPlayer : Player.Unknown,
+    currentPlayer: state.analysisGame.game.currentPlayer,
     currentMove: state.analysisGame.currentMove
 });
 
 // tslint:disable-next-line: no-any
 const mapDispatchToProps = ( dispatch: any ) => ({
     onLoad: ( id: string ) =>
-        dispatch( loadFinishedGame( id ) )
+        dispatch( loadFinishedGame( id ) ),
+    moveForwardInHistory: ( numberOfMoves: number ) =>
+        dispatch( moveForwardInHistory( numberOfMoves ) )
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( Analysis );

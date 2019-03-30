@@ -60,8 +60,7 @@ export enum TileValue {
 
 export enum Player {
     Cross = 0,
-    Circle = 1,
-    Unknown = 2 // TODO find a better solution for null/undefined problem!!
+    Circle = 1
 }
 
 export interface Move {

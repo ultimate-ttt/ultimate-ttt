@@ -15,7 +15,7 @@ export const getFinishedGame = ( state: AppState, id: string ): AnalysisGame | u
             moves: finishedGame.moves,
             currentMove: 1,
             game: {
-                currentPlayer: finishedGame.winner ? finishedGame.winner : Player.Unknown,
+                currentPlayer: Player.Circle,
                 winningPlayer: finishedGame.winner,
                 isFinished: true
             },
