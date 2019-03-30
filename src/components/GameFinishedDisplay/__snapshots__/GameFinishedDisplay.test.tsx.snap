@@ -27,10 +27,11 @@ ShallowWrapper {
           className="winner-text"
 >
           <Unknown>
-                    <XSymbol
+                    <OSymbol
+                              className="winner-symbol"
                               shouldAnimate={false}
                     />
-                    reservation
+                     wins!
           </Unknown>
 </p>,
         <Unknown
@@ -41,7 +42,7 @@ ShallowWrapper {
           Play Again
 </Unknown>,
       ],
-      "className": "restart-alignment hidden",
+      "className": "restart-alignment visible",
     },
     "ref": null,
     "rendered": Array [
@@ -51,10 +52,11 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <Unknown>
-            <XSymbol
+            <OSymbol
+                        className="winner-symbol"
                         shouldAnimate={false}
             />
-            reservation
+             wins!
 </Unknown>,
           "className": "winner-text",
         },
@@ -65,10 +67,11 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "children": Array [
-              <XSymbol
+              <OSymbol
+                className="winner-symbol"
                 shouldAnimate={false}
 />,
-              "reservation",
+              " wins!",
             ],
           },
           "ref": null,
@@ -78,13 +81,14 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "className": "winner-symbol",
                 "shouldAnimate": false,
               },
               "ref": null,
               "rendered": null,
               "type": [Function],
             },
-            "reservation",
+            " wins!",
           ],
           "type": Symbol(react.fragment),
         },
@@ -122,10 +126,11 @@ ShallowWrapper {
             className="winner-text"
 >
             <Unknown>
-                        <XSymbol
+                        <OSymbol
+                                    className="winner-symbol"
                                     shouldAnimate={false}
                         />
-                        reservation
+                         wins!
             </Unknown>
 </p>,
           <Unknown
@@ -136,7 +141,7 @@ ShallowWrapper {
             Play Again
 </Unknown>,
         ],
-        "className": "restart-alignment hidden",
+        "className": "restart-alignment visible",
       },
       "ref": null,
       "rendered": Array [
@@ -146,10 +151,11 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <Unknown>
-              <XSymbol
+              <OSymbol
+                            className="winner-symbol"
                             shouldAnimate={false}
               />
-              reservation
+               wins!
 </Unknown>,
             "className": "winner-text",
           },
@@ -160,10 +166,11 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "children": Array [
-                <XSymbol
+                <OSymbol
+                  className="winner-symbol"
                   shouldAnimate={false}
 />,
-                "reservation",
+                " wins!",
               ],
             },
             "ref": null,
@@ -173,13 +180,14 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
+                  "className": "winner-symbol",
                   "shouldAnimate": false,
                 },
                 "ref": null,
                 "rendered": null,
                 "type": [Function],
               },
-              "reservation",
+              " wins!",
             ],
             "type": Symbol(react.fragment),
           },
@@ -262,9 +270,10 @@ ShallowWrapper {
 >
           <Unknown>
                     <XSymbol
+                              className="winner-symbol"
                               shouldAnimate={false}
                     />
-                    reservation
+                     wins!
           </Unknown>
 </p>,
         <Unknown
@@ -275,7 +284,7 @@ ShallowWrapper {
           Play Again
 </Unknown>,
       ],
-      "className": "restart-alignment hidden",
+      "className": "restart-alignment visible",
     },
     "ref": null,
     "rendered": Array [
@@ -286,9 +295,10 @@ ShallowWrapper {
         "props": Object {
           "children": <Unknown>
             <XSymbol
+                        className="winner-symbol"
                         shouldAnimate={false}
             />
-            reservation
+             wins!
 </Unknown>,
           "className": "winner-text",
         },
@@ -300,9 +310,10 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <XSymbol
+                className="winner-symbol"
                 shouldAnimate={false}
 />,
-              "reservation",
+              " wins!",
             ],
           },
           "ref": null,
@@ -312,13 +323,14 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "className": "winner-symbol",
                 "shouldAnimate": false,
               },
               "ref": null,
               "rendered": null,
               "type": [Function],
             },
-            "reservation",
+            " wins!",
           ],
           "type": Symbol(react.fragment),
         },
@@ -357,9 +369,10 @@ ShallowWrapper {
 >
             <Unknown>
                         <XSymbol
+                                    className="winner-symbol"
                                     shouldAnimate={false}
                         />
-                        reservation
+                         wins!
             </Unknown>
 </p>,
           <Unknown
@@ -370,7 +383,7 @@ ShallowWrapper {
             Play Again
 </Unknown>,
         ],
-        "className": "restart-alignment hidden",
+        "className": "restart-alignment visible",
       },
       "ref": null,
       "rendered": Array [
@@ -381,9 +394,10 @@ ShallowWrapper {
           "props": Object {
             "children": <Unknown>
               <XSymbol
+                            className="winner-symbol"
                             shouldAnimate={false}
               />
-              reservation
+               wins!
 </Unknown>,
             "className": "winner-text",
           },
@@ -395,9 +409,10 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <XSymbol
+                  className="winner-symbol"
                   shouldAnimate={false}
 />,
-                "reservation",
+                " wins!",
               ],
             },
             "ref": null,
@@ -407,13 +422,14 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
+                  "className": "winner-symbol",
                   "shouldAnimate": false,
                 },
                 "ref": null,
                 "rendered": null,
                 "type": [Function],
               },
-              "reservation",
+              " wins!",
             ],
             "type": Symbol(react.fragment),
           },
@@ -494,12 +510,7 @@ ShallowWrapper {
         <p
           className="winner-text"
 >
-          <Unknown>
-                    <XSymbol
-                              shouldAnimate={false}
-                    />
-                    reservation
-          </Unknown>
+          It's a draw!
 </p>,
         <Unknown
           dense={true}
@@ -509,7 +520,7 @@ ShallowWrapper {
           Play Again
 </Unknown>,
       ],
-      "className": "restart-alignment hidden",
+      "className": "restart-alignment visible",
     },
     "ref": null,
     "rendered": Array [
@@ -518,44 +529,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Unknown>
-            <XSymbol
-                        shouldAnimate={false}
-            />
-            reservation
-</Unknown>,
+          "children": "It's a draw!",
           "className": "winner-text",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <XSymbol
-                shouldAnimate={false}
-/>,
-              "reservation",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "shouldAnimate": false,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            "reservation",
-          ],
-          "type": Symbol(react.fragment),
-        },
+        "rendered": "It's a draw!",
         "type": "p",
       },
       Object {
@@ -589,12 +567,7 @@ ShallowWrapper {
           <p
             className="winner-text"
 >
-            <Unknown>
-                        <XSymbol
-                                    shouldAnimate={false}
-                        />
-                        reservation
-            </Unknown>
+            It's a draw!
 </p>,
           <Unknown
             dense={true}
@@ -604,7 +577,7 @@ ShallowWrapper {
             Play Again
 </Unknown>,
         ],
-        "className": "restart-alignment hidden",
+        "className": "restart-alignment visible",
       },
       "ref": null,
       "rendered": Array [
@@ -613,44 +586,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Unknown>
-              <XSymbol
-                            shouldAnimate={false}
-              />
-              reservation
-</Unknown>,
+            "children": "It's a draw!",
             "className": "winner-text",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": Array [
-                <XSymbol
-                  shouldAnimate={false}
-/>,
-                "reservation",
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "shouldAnimate": false,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "reservation",
-            ],
-            "type": Symbol(react.fragment),
-          },
+          "rendered": "It's a draw!",
           "type": "p",
         },
         Object {
