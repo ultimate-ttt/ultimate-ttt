@@ -48,8 +48,14 @@ export const analysisGameReducer = ( state = initialState, action: GenericAction
                     }
                 } );
 
-                const lastMove = movesToApply[movesToApply.length - 1].tilePosition;
-                draftState.activeBoards = getNewActiveBoards( lastMove, draftState.board );
+                const lastAppliedMove = movesToApply[movesToApply.length - 1];
+                const lastGameMove = draftState.moves[draftState.moves.length - 1];
+                const isLastAppliedMoveTheLastGameMove = lastAppliedMove.moveNumber === lastGameMove.moveNumber;
+                if (isLastAppliedMoveTheLastGameMove) {
+                    draftState.activeBoards = [];
+                } else {
+                    draftState.activeBoards = getNewActiveBoards( lastAppliedMove.tilePosition, draftState.board );
+                }
             } );
             return newState;
         }
