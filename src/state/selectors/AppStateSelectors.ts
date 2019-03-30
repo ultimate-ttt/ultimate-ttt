@@ -13,6 +13,7 @@ export const getFinishedGame = ( state: AppState, id: string ): AnalysisGame | u
     if (finishedGame) {
         return {
             moves: finishedGame.moves,
+            currentMove: 1,
             game: {
                 currentPlayer: finishedGame.winner ? finishedGame.winner : Player.Unknown,
                 winningPlayer: finishedGame.winner,

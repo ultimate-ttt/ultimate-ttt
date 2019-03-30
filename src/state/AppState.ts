@@ -29,6 +29,7 @@ export interface AnalysisGame {
     game: GameState;
     moves: Move[];
     activeBoards: Point[];
+    currentMove: number;
 }
 
 export interface GameState {
@@ -57,11 +58,10 @@ export enum TileValue {
     Destroyed = 3
 }
 
-// TODO find a better solution for null/undefined problem!!
 export enum Player {
     Cross = 0,
     Circle = 1,
-    Unknown = 2
+    Unknown = 2 // TODO find a better solution for null/undefined problem!!
 }
 
 export interface Move {

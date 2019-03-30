@@ -7,10 +7,11 @@ import Analysis from '../views/Analysis';
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';
 import '@material/list/dist/mdc.list.css';
+import '@rmwc/icon/icon.css';
 
 export class App extends React.Component {
 
-    lightBlue = window.getComputedStyle(document.body).getPropertyValue('--tropical-teal').trim();
+    lightBlue = window.getComputedStyle( document.body ).getPropertyValue( '--tropical-teal' ).trim();
 
     render() {
         return (
@@ -22,12 +23,12 @@ export class App extends React.Component {
                     size={80}
                     direction="right"
                 />
-                <Router>
-                    <div>
-                        <Route exact={true} path="/" component={Game}/>
-                        <Route exact={true} path="/analysis/:gameId" component={Analysis} />
-                    </div>
-                </Router>
+                    <Router>
+                        <div>
+                            <Route exact={true} path="/" component={Game}/>
+                            <Route exact={true} path="/analysis/:id" component={Analysis}/>
+                        </div>
+                    </Router>
             </>
 
         ); /* TODO two different components for analytics? */

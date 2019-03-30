@@ -2,6 +2,7 @@
     --tropical-teal: #008891;
     --incremental-blue: #0F3057;
     --mdc-theme-primary: var(--tropical-teal);
+    --mdc-theme-text-icon-on-background: black;
 }
 
 html, body {

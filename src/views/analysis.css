@@ -1,23 +1,39 @@
 .analysisLayout {
     display: grid;
-    margin-top: 0.5vmin;
-    grid-gap: 2vmin;
-    grid-template-areas: "moveList game";
+    grid-gap: 1em;
+    grid-template-columns: 40vmin auto;
+    grid-template-areas: ". ." "moveList game";
 
     /*align-items: center;
     justify-content: center;*/
 
 }
 
+.mdc-list {
+    padding: 0 !important;
+}
+
 .moveList {
+    padding: 0;
     overflow-y: scroll;
+    max-height: 81vmin;
+    grid-area: moveList;
+    /*
     min-width: 30vmin;
     max-height: 42vmin;
     border: 1px solid black;
-    grid-area: moveList;
+    */
+
+    /*width: 25%;
+    float: left;
+    margin-right: 1em;
+
+    */
 }
 
 .analysisGame {
     grid-area: game;
     align-self: center;
+    /*width: calc(75% - 1em);
+    float: right;*/
 }

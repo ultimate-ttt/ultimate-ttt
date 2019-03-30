@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { AppState, Move, Player, SmallBoardInformation } from '../state/AppState';
 import { loadFinishedGame } from '../state/analysisGame/analysisGameActions';
-import { List, ListItem } from '@rmwc/list';
+import { List, SimpleListItem } from '@rmwc/list';
 import './analysis.css';
 import { Point } from '../util/Point';
 
@@ -15,6 +15,7 @@ interface AnalysisProps {
     board: SmallBoardInformation[];
     activeBoards: Point[];
     currentPlayer: Player;
+    currentMove: number;
 }
 
 export class Analysis extends React.Component<AnalysisProps & RouteComponentProps<{ id: string }>> {
@@ -24,16 +25,31 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
         this.props.onLoad( id );
     }
 
-    getMoves = () => {
-        const {moves} = this.props;
+    playerAsString = ( player: Player ) => {
+        if (player === Player.Cross) {
+            return 'x';
+        } else if (player === Player.Circle) {
+            return 'o';
+        }
+        return undefined;
+    }
 
+    getMoves = () => {
+        const {moves, currentMove} = this.props;
         const moveList: ReactNode[] = [];
 
         moves!.forEach( m => {
             moveList.push(
-                <ListItem key={m.moveNumber}>
-                    Player: {m.player} Move: {m.moveNumber}
-                </ListItem>
+                <SimpleListItem
+                    key={m.moveNumber}
+                    activated={currentMove === m.moveNumber}
+                    graphic={{icon: this.playerAsString( m.player ), size: 'large'}}
+                    text={'Move ' + m.moveNumber}
+                    secondaryText={
+                        'Board ' + m.boardPosition.x + '/' + m.boardPosition.y + ' - ' +
+                        'Field ' + m.tilePosition.x + '/' + m.tilePosition.y
+                    }
+                />
             );
         } );
         return moveList;
@@ -46,7 +62,7 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
             <div className="center">
                 <div className="analysisLayout">
                     {moves && <div className="moveList">
-                        <List>
+                        <List twoLine={true}>
                             {this.getMoves()}
                         </List>
                     </div>}
@@ -71,7 +87,8 @@ const mapStateToProps = ( state: AppState ) => ({
     moves: state.analysisGame.moves,
     board: state.analysisGame.board,
     activeBoards: state.analysisGame.activeBoards,
-    currentPlayer: state.analysisGame.game ? state.analysisGame.game.currentPlayer : Player.Unknown
+    currentPlayer: state.analysisGame.game ? state.analysisGame.game.currentPlayer : Player.Unknown,
+    currentMove: state.analysisGame.currentMove
 });
 
 // tslint:disable-next-line: no-any
