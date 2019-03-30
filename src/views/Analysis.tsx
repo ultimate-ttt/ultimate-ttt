@@ -48,8 +48,8 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                     graphic={{icon: this.playerAsString( m.player ), size: 'large'}}
                     text={'Move ' + m.moveNumber}
                     secondaryText={
-                        'Board ' + m.boardPosition.y + '/' + m.boardPosition.x + ' - ' +
-                        'Field ' + m.tilePosition.y + '/' + m.tilePosition.x
+                        'Board ' + m.boardPosition.x + '/' + m.boardPosition.y + ' - ' +
+                        'Field ' + m.tilePosition.x + '/' + m.tilePosition.y
                     }
                 />
             );
