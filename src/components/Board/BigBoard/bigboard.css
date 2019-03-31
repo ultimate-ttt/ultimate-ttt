@@ -4,11 +4,3 @@
     grid-template-rows: 25vmin 25vmin 25vmin;
     grid-gap: 3vmin;
 }
-
-/* TODO this is temporary. either change to css variables or make two classes.
-.big-board {
-    display: grid;
-    grid-template-columns: 13vmin 13vmin 13vmin;
-    grid-template-rows: 13vmin 13vmin 13vmin;
-    grid-gap: 1.5vmin;
-}*/

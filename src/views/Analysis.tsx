@@ -50,7 +50,7 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                 <SimpleListItem
                     key={m.moveNumber}
                     activated={currentMove === m.moveNumber}
-                    graphic={{icon: this.playerAsString( m.player ), size: 'large'}}
+                    graphic={{icon: this.playerAsString( m.player ), size: 'medium'}}
                     text={'Move ' + m.moveNumber}
                     secondaryText={
                         'Board ' + m.boardPosition.x + '/' + m.boardPosition.y + ' - ' +
@@ -85,7 +85,7 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
             <div className="center">
                 <div className="analysisLayout">
                     {moves && <div className="moveList">
-                        <List twoLine={true} onAction={this.changeDisplayedMove}>
+                        <List twoLine={true} dense={true} onAction={this.changeDisplayedMove}>
                             {this.getMoves()}
                         </List>
                     </div>}

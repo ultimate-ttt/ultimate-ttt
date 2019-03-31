@@ -11,17 +11,3 @@
     grid-template-columns: 25vmin;
     grid-template-rows: 25vmin;
 }
-
-/* TODO this is temporary. either change to css variables or make two classes.
-.small-board {
-    display: grid;
-    grid-template-columns: 4vmin 4vmin 4vmin;
-    grid-template-rows: 4vmin 4vmin 4vmin;
-    grid-gap: 0.5vmin;
-}
-
-.small-board-finished {
-    display: grid;
-    grid-template-columns: 13vmin;
-    grid-template-rows: 13vmin;
-}*/

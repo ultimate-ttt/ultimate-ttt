@@ -1,39 +1,66 @@
+.mdc-list {
+    padding: 0 !important;
+}
+
 .analysisLayout {
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: 40vmin auto;
-    grid-template-areas: ". ." "moveList game";
-
-    /*align-items: center;
-    justify-content: center;*/
-
-}
-
-.mdc-list {
-    padding: 0 !important;
+    grid-template-areas: "moveList" "game";
 }
 
 .moveList {
     padding: 0;
     overflow-y: scroll;
-    max-height: 81vmin;
+    max-height: 65vmin;
     grid-area: moveList;
-    /*
-    min-width: 30vmin;
-    max-height: 42vmin;
-    border: 1px solid black;
-    */
-
-    /*width: 25%;
-    float: left;
-    margin-right: 1em;
-
-    */
 }
 
 .analysisGame {
     grid-area: game;
     align-self: center;
-    /*width: calc(75% - 1em);
-    float: right;*/
+}
+
+@media only screen and (min-width: 660px) and (max-width: 1100px) {
+    .moveList {
+        max-height: 50vmin;
+    }
+
+    .big-board {
+        grid-template-columns: 21vmin 21vmin 21vmin;
+        grid-template-rows: 21vmin 21vmin 21vmin;
+        grid-gap: 1vmin;
+    }
+
+    .small-board {
+        grid-template-columns: 6.5vmin 6.5vmin 6.5vmin;
+        grid-template-rows: 6.5vmin 6.5vmin 6.5vmin;
+    }
+
+    .small-board-finished {
+        grid-template-columns: 20.5vmin;
+        grid-template-rows: 20.5vmin;
+    }
+}
+
+@media only screen and (min-width: 830px) {
+    .moveList {
+        max-height: 35vmin;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .moveList {
+        max-height: 30vmin;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .moveList {
+        max-height: 81vmin;
+    }
+
+    .analysisLayout {
+        grid-template-columns: 30vmin auto;
+        grid-template-areas: "moveList game";
+    }
 }
