@@ -1,5 +1,5 @@
-import { AnalysisGame, GenericAction, Player } from '../AppState';
-import { MOVE_FORWARD_IN_HISTORY, SET_ANALYSIS_GAME } from './analysisGameActions';
+import { AnalysisGame, GenericAction, Player, TileValue } from '../AppState';
+import { MOVE_BACKWARD_IN_HISTORY, MOVE_FORWARD_IN_HISTORY, SET_ANALYSIS_GAME } from './analysisGameActions';
 import produce from 'immer';
 import { arePointsEqual, playerToTileValue } from '../../util';
 import { getWinResult } from '../../util/CheckBoard';
@@ -57,6 +57,33 @@ export const analysisGameReducer = ( state = initialState, action: GenericAction
                     draftState.activeBoards = getNewActiveBoards( lastAppliedMove.tilePosition, draftState.board );
                 }
             } );
+            return newState;
+        }
+        case MOVE_BACKWARD_IN_HISTORY: {
+            const newState = produce(state, draftState => {
+                const movesToMoveBackward = action.payload;
+                draftState.currentMove -= movesToMoveBackward;
+
+                const moveIndex = state.moves.findIndex(m => m.moveNumber === draftState.currentMove);
+                const lastPlayer = state.moves[moveIndex].player;
+                if (lastPlayer === Player.Circle) {
+                    state.game.currentPlayer = Player.Cross;
+                } else {
+                    state.game.currentPlayer = Player.Circle;
+                }
+
+                const movesToApply = state.moves.slice( draftState.currentMove, state.currentMove + 1 );
+                movesToApply.reverse();
+                movesToApply.forEach(m => {
+                    const boardToChange = draftState.board.find( b => arePointsEqual( b.position, m.boardPosition ) );
+                    const tileToChange = boardToChange!.tiles.find( t => arePointsEqual( t.position, m.tilePosition ) );
+                    tileToChange!.value = TileValue.Empty;
+                    boardToChange!.value = TileValue.Empty;
+                });
+
+                const currentMove = draftState.moves[draftState.currentMove - 1];
+                draftState.activeBoards = getNewActiveBoards( currentMove.tilePosition, draftState.board );
+            });
             return newState;
         }
         default: {
