@@ -65,6 +65,11 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
     changeDisplayedMove = ( event: CustomEventT<number> ) => {
         const {currentMove} = this.props;
         const moveNumber = event.detail + 1;
+
+        if (moveNumber === currentMove) {
+            return;
+        }
+
         const amountOfMovesToMove = moveNumber - currentMove;
         if (amountOfMovesToMove <= -1) {
             this.props.moveBackwardInHistory( currentMove - moveNumber );
