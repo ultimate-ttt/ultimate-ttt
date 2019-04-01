@@ -23,7 +23,7 @@ interface AnalysisProps {
   onLoad: (id: string) => void;
   moveForwardInHistory: (numberOfMoves: number) => void;
   moveBackwardInHistory: (numberOfMoves: number) => void;
-  moves?: Move[];
+  reversedMoves?: Move[];
   board: SmallBoardInformation[];
   activeBoards: Point[];
   currentPlayer: Player;
@@ -48,10 +48,10 @@ export class Analysis extends React.Component<
   };
 
   getMoves = () => {
-    const { moves, currentMove } = this.props;
+    const { reversedMoves, currentMove } = this.props;
     const moveList: ReactNode[] = [];
 
-    moves!.forEach((m) => {
+    reversedMoves!.forEach((m: Move) => {
       moveList.push(
         <SimpleListItem
           key={m.moveNumber}
@@ -76,8 +76,10 @@ export class Analysis extends React.Component<
   };
 
   changeDisplayedMove = (event: CustomEventT<number>) => {
-    const { currentMove } = this.props;
-    const moveNumber = event.detail + 1;
+    const { currentMove, reversedMoves } = this.props;
+
+    const numberOfMovesFromEnd = event.detail;
+    const moveNumber = reversedMoves!.length - numberOfMovesFromEnd;
 
     if (moveNumber === currentMove) {
       return;
@@ -92,12 +94,12 @@ export class Analysis extends React.Component<
   };
 
   render() {
-    const { moves, board, activeBoards, currentPlayer } = this.props;
+    const { reversedMoves, board, activeBoards, currentPlayer } = this.props;
 
     return (
       <div className="center">
         <div className="analysisLayout">
-          {moves && (
+          {reversedMoves && (
             <div className="moveList">
               <List
                 twoLine={true}
@@ -109,7 +111,7 @@ export class Analysis extends React.Component<
             </div>
           )}
           <div className="analysisGame">
-            {moves && (
+            {reversedMoves && (
               <BigBoard
                 // tslint:disable-next-line:no-empty
                 onPlayerMoved={() => {}}
@@ -127,7 +129,7 @@ export class Analysis extends React.Component<
 }
 
 const mapStateToProps = (state: AppState) => ({
-  moves: state.analysisGame.moves,
+  reversedMoves: state.analysisGame.moves.slice().reverse(),
   board: state.analysisGame.board,
   activeBoards: state.analysisGame.activeBoards,
   currentPlayer: state.analysisGame.game.currentPlayer,
