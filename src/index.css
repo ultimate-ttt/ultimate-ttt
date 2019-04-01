@@ -6,10 +6,6 @@
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-
     /* Got this from medium: https://medium.design/system-shock-6b1dc6d6596f */
     font-family: -apple-system, ".SFNSText-Regular",
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
@@ -27,6 +23,7 @@ html,body, .center, #root {
 
 .game-wrapper {
     display: grid;
+    overflow: hidden;
 }
 
 .text-center {
