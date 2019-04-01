@@ -25,8 +25,8 @@ export class App extends React.Component {
                 />
                     <Router>
                         <div>
-                            <Route exact={true} path="/" component={Game}/>
                             <Route exact={true} path="/analysis/:id" component={Analysis}/>
+                            <Route path="/" component={Game}/>
                         </div>
                     </Router>
             </>
