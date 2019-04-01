@@ -18,7 +18,7 @@ export const getFinishedGame = (
   if (finishedGame) {
     return {
       moves: finishedGame.moves,
-      currentMove: 1,
+      currentMove: finishedGame.moves.length,
       game: {
         currentPlayer: Player.Circle,
         winningPlayer: finishedGame.winner,
