@@ -39,7 +39,7 @@ describe('FinishedGameStateSelectors', () => {
   describe('getFinishedGameData', () => {
     it('should return an object with all necessary gameData', () => {
       const mockParameters = {
-        winningPlayer: 'X',
+        winningPlayer: 'X' as 'X' | 'O' | null | undefined,
         boards: circleFinishedBoardMock,
         moves: [
           {
@@ -51,7 +51,6 @@ describe('FinishedGameStateSelectors', () => {
         ],
       };
 
-      // @ts-ignore
       const selected = getFinishedGameData.resultFunc(
         mockParameters.winningPlayer,
         mockParameters.boards,
