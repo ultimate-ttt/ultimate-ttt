@@ -122,6 +122,7 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                             // TODO these are not always triggering! Maybe need to be added higher up
                             // Or alternatively some library needs to be used..
 
+                            // TODO: "Right" and "Left" has to be checked for aswell because of IE/Edge..
                             if (event.key === 'ArrowLeft' && currentMove !== 1) {
                                 this.props.moveBackwardInHistory( 1 );
                             }
