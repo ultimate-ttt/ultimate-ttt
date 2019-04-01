@@ -107,6 +107,7 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                     {reversedMoves && (
                         <div className="moveList">
                             <List
+                                // TODO make this it's own component?
                                 twoLine={true}
                                 dense={true}
                                 onAction={this.changeDisplayedMove}
@@ -115,7 +116,21 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
                             </List>
                         </div>
                     )}
-                    <div className="analysisGame">
+                    <div
+                        className="analysisGame"
+                        onKeyDown={( event ) => {
+                            // TODO these are not always triggering! Maybe need to be added higher up
+                            // Or alternatively some library needs to be used..
+
+                            if (event.key === 'ArrowLeft' && currentMove !== 1) {
+                                this.props.moveBackwardInHistory( 1 );
+                            }
+                            if (event.key === 'ArrowRight' && reversedMoves
+                                && reversedMoves[0] && currentMove !== reversedMoves![0].moveNumber) {
+                                this.props.moveForwardInHistory( 1 );
+                            }
+                        }}
+                    >
                         {reversedMoves && (
                             <>
                                 <Button
