@@ -27,11 +27,11 @@ class Game extends React.Component<GameProps> {
         <div className="game-wrapper">
           <GameFinishedDisplay />
           <BigBoard
-              currentPlayer={currentPlayer}
-              board={board}
-              activeBoards={activeBoards}
-              onPlayerMoved={onPlayerMoved}
-              movesAllowed={true}
+            currentPlayer={currentPlayer}
+            board={board}
+            activeBoards={activeBoards}
+            onPlayerMoved={onPlayerMoved}
+            movesAllowed={true}
           />
         </div>
       </div>
