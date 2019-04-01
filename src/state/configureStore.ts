@@ -18,58 +18,50 @@ import { AppState, GameInformation } from './AppState';
 import { analysisGameReducer } from './analysisGame/analysisGameReducer';
 import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
 
-const currentGameReducer = combineReducers<GameInformation>( {
-                                                game: gameReducer,
-                                                board: boardReducer,
-                                                moves: moveReducer,
-                                                activeBoards: activeBoardsReducer
-                                            } );
-const rootreducer = combineReducers<AppState>(
-    {
-        currentGame: currentGameReducer,
-        finishedGames: finishedGameReducer,
-        analysisGame: analysisGameReducer
-    } );
+const currentGameReducer = combineReducers<GameInformation>({
+  game: gameReducer,
+  board: boardReducer,
+  moves: moveReducer,
+  activeBoards: activeBoardsReducer,
+});
+const rootreducer = combineReducers<AppState>({
+  currentGame: currentGameReducer,
+  finishedGames: finishedGameReducer,
+  analysisGame: analysisGameReducer,
+});
 
 export function configureStore() {
+  const sagaMiddleware = createSagaMiddleware();
 
-    const sagaMiddleware = createSagaMiddleware();
+  const middleWaresToApply = [sagaMiddleware];
 
-    const middleWaresToApply = [
-        sagaMiddleware
-    ];
+  if (process.env.NODE_ENV === `development`) {
+    const { logger } = require(`redux-logger`);
+    middleWaresToApply.push(logger);
+  }
+  const middleware = applyMiddleware(...middleWaresToApply);
 
-    if (process.env.NODE_ENV === `development`) {
-        const {logger} = require( `redux-logger` );
-        middleWaresToApply.push( logger );
-    }
-    const middleware = applyMiddleware( ...middleWaresToApply );
+  const persistConfig = {
+    key: 'finishedGames',
+    whitelist: ['finishedGames'],
+    storage,
+  };
 
-    const persistConfig = {
-        key: 'finishedGames',
-        whitelist: ['finishedGames'],
-        storage
-    };
+  const persistedReducer = persistReducer(persistConfig, rootreducer);
+  const store = createStore(persistedReducer, composeWithDevTools(middleware));
 
-    const persistedReducer = persistReducer( persistConfig, rootreducer );
-    const store = createStore( (persistedReducer), composeWithDevTools(
-        middleware
-    ) );
+  sagaMiddleware.run(rootSaga);
 
-    sagaMiddleware.run( rootSaga );
-
-    return store;
+  return store;
 }
 
 function* rootSaga() {
-    yield all(
-        [
-            fork( playerMovedSaga ),
-            fork( boardCalculationSaga ),
-            fork( activeBoardsCalculationSaga ),
-            fork( checkGameFinishedSaga ),
-            fork( saveFinishedGameDataSaga ),
-            fork( loadFinishedGameSaga )
-        ]
-    );
+  yield all([
+    fork(playerMovedSaga),
+    fork(boardCalculationSaga),
+    fork(activeBoardsCalculationSaga),
+    fork(checkGameFinishedSaga),
+    fork(saveFinishedGameDataSaga),
+    fork(loadFinishedGameSaga),
+  ]);
 }

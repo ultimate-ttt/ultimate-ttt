@@ -1,25 +1,29 @@
 import { createSelector } from 'reselect';
 import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
 
-export const getWinningPlayerAsString = createSelector( [getWinningPlayer], (winningPlayer => {
+export const getWinningPlayerAsString = createSelector(
+  [getWinningPlayer],
+  (winningPlayer) => {
     if (winningPlayer === 0) {
-        return 'X';
+      return 'X';
     } else if (winningPlayer === 1) {
-        return 'O';
+      return 'O';
     } else if (winningPlayer === null) {
-        return null;
+      return null;
     } else {
-        return undefined;
+      return undefined;
     }
-}) );
+  },
+);
 
 export const getFinishedGameData = createSelector(
-    [getWinningPlayerAsString, getBoards, getMoves],
-    ( winningPlayer, boards, moves ) => {
-        return {
-            winner: winningPlayer,
-            gameState: boards,
-            moves,
-            date: new Date()
-        };
-    } );
+  [getWinningPlayerAsString, getBoards, getMoves],
+  (winningPlayer, boards, moves) => {
+    return {
+      winner: winningPlayer,
+      gameState: boards,
+      moves,
+      date: new Date(),
+    };
+  },
+);

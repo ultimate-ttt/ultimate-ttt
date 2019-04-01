@@ -5,25 +5,27 @@ import { getWinResult } from '../../../util/CheckBoard';
 import { arePointsEqual, playerToTileValue } from '../../../util';
 import { getBoards } from '../../selectors/AppStateSelectors';
 
-function* calculateWinningBoard( action: GenericAction ) {
-    const boardPosition = action.payload;
+function* calculateWinningBoard(action: GenericAction) {
+  const boardPosition = action.payload;
 
-    const boards = yield select( getBoards );
+  const boards = yield select(getBoards);
 
-    const affectedBoard = boards.find(
-        ( board: SmallBoardInformation ) =>
-            arePointsEqual( board.position, boardPosition )
-    ).tiles;
+  const affectedBoard = boards.find((board: SmallBoardInformation) =>
+    arePointsEqual(board.position, boardPosition),
+  ).tiles;
 
-    const winResult = getWinResult( affectedBoard );
-    if (winResult.isFinished) {
-        const newSmallBoardTileValue = playerToTileValue( winResult.winningPlayer, true );
-        yield put( setBoardValue( boardPosition, newSmallBoardTileValue ) );
-    }
+  const winResult = getWinResult(affectedBoard);
+  if (winResult.isFinished) {
+    const newSmallBoardTileValue = playerToTileValue(
+      winResult.winningPlayer,
+      true,
+    );
+    yield put(setBoardValue(boardPosition, newSmallBoardTileValue));
+  }
 }
 
 function* boardCalculationSaga() {
-    yield takeEvery( CALCULATE_BOARD_VALUE, calculateWinningBoard );
+  yield takeEvery(CALCULATE_BOARD_VALUE, calculateWinningBoard);
 }
 
 export default boardCalculationSaga;

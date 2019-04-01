@@ -7,22 +7,22 @@ import { setAllowedBoards } from '../activeBoards/activeBoardsActions';
 import { saveGameData } from '../../finishedGames/saveFinishedGameDataActions';
 import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
 
-function* checkIfGameFinished( action: GenericAction ) {
-    const boards = yield select( getBoards );
+function* checkIfGameFinished(action: GenericAction) {
+  const boards = yield select(getBoards);
 
-    const winResult = getWinResult( boards );
-    const isGameFinished = winResult.isFinished;
-    const winningPlayer = winResult.winningPlayer;
+  const winResult = getWinResult(boards);
+  const isGameFinished = winResult.isFinished;
+  const winningPlayer = winResult.winningPlayer;
 
-    if (isGameFinished) {
-        yield put( gameFinished( winningPlayer ) );
-        yield put( setAllowedBoards( [] ) );
-        yield put( saveGameData( yield select( getFinishedGameData ) ) );
-    }
+  if (isGameFinished) {
+    yield put(gameFinished(winningPlayer));
+    yield put(setAllowedBoards([]));
+    yield put(saveGameData(yield select(getFinishedGameData)));
+  }
 }
 
 function* checkGameFinishedSaga() {
-    yield takeEvery( CHECK_GAME_FINISHED, checkIfGameFinished );
+  yield takeEvery(CHECK_GAME_FINISHED, checkIfGameFinished);
 }
 
 export default checkGameFinishedSaga;

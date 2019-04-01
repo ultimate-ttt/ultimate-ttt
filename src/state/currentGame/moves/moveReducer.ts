@@ -5,30 +5,34 @@ import produce from 'immer';
 
 const initialState: Move[] = [];
 
-const moveReducer = ( state = initialState, action: GenericAction ) => {
-    switch (action.type) {
-        case REGISTER_MOVE: {
-            const {boardPosition: boardPosition, tilePosition: tilePosition, player} = action.payload;
+const moveReducer = (state = initialState, action: GenericAction) => {
+  switch (action.type) {
+    case REGISTER_MOVE: {
+      const {
+        boardPosition: boardPosition,
+        tilePosition: tilePosition,
+        player,
+      } = action.payload;
 
-            const newState = produce( state, draftState => {
-                draftState.push( {
-                                     boardPosition: boardPosition,
-                                     tilePosition: tilePosition,
-                                     player: player,
-                                     moveNumber: draftState.length + 1
-                                 } );
-            } );
+      const newState = produce(state, (draftState) => {
+        draftState.push({
+          boardPosition: boardPosition,
+          tilePosition: tilePosition,
+          player: player,
+          moveNumber: draftState.length + 1,
+        });
+      });
 
-            return newState;
-        }
-        case RESTART_GAME: {
-            return initialState;
-        }
-
-        default: {
-            return state;
-        }
+      return newState;
     }
+    case RESTART_GAME: {
+      return initialState;
+    }
+
+    default: {
+      return state;
+    }
+  }
 };
 
 export default moveReducer;

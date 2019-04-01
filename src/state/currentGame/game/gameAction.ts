@@ -7,30 +7,33 @@ export const GAME_FINISHED = 'game/game-finished';
 export const CHECK_GAME_FINISHED = 'game/check-game-finished';
 
 export const changePlayer = () => ({
-    type: CHANGE_PLAYER
+  type: CHANGE_PLAYER,
 });
 
-export const gameFinished = ( winningPlayer?: Player | null ) => ({
-    type: GAME_FINISHED,
-    payload: winningPlayer
+export const gameFinished = (winningPlayer?: Player | null) => ({
+  type: GAME_FINISHED,
+  payload: winningPlayer,
 });
 
-export const checkGameFinished = (  ) => ({
-    type: CHECK_GAME_FINISHED
+export const checkGameFinished = () => ({
+  type: CHECK_GAME_FINISHED,
 });
 
-export const playerMoved = ( boardPosition: Point, tilePosition: Point ): PlayerMovedAction => ({
-    type: PLAYER_MOVED,
-    payload: {
-        boardPosition: boardPosition,
-        tilePosition: tilePosition
-    }
+export const playerMoved = (
+  boardPosition: Point,
+  tilePosition: Point,
+): PlayerMovedAction => ({
+  type: PLAYER_MOVED,
+  payload: {
+    boardPosition: boardPosition,
+    tilePosition: tilePosition,
+  },
 });
 
 export interface PlayerMovedAction {
-    type: string;
-    payload: {
-        boardPosition: Point
-        tilePosition: Point
-    };
+  type: string;
+  payload: {
+    boardPosition: Point;
+    tilePosition: Point;
+  };
 }

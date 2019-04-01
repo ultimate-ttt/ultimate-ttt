@@ -7,42 +7,53 @@ import { connect } from 'react-redux';
 import { Point } from '../util/Point';
 
 interface GameProps {
-    currentPlayer: Player;
-    board: SmallBoardInformation[];
-    activeBoards: Point[];
-    onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) => void;
+  currentPlayer: Player;
+  board: SmallBoardInformation[];
+  activeBoards: Point[];
+  onPlayerMoved: (
+    boardX: number,
+    boardY: number,
+    tileX: number,
+    tileY: number,
+  ) => void;
 }
 
 class Game extends React.Component<GameProps> {
+  render() {
+    const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
 
-    render() {
-        const {currentPlayer, board, activeBoards, onPlayerMoved} = this.props;
-
-        return (
-            <div className="center">
-                <GameFinishedDisplay/>
-                <BigBoard
-                    currentPlayer={currentPlayer}
-                    board={board}
-                    activeBoards={activeBoards}
-                    onPlayerMoved={onPlayerMoved}
-                    movesAllowed={true}
-                />
-            </div>
-        );
-    }
+    return (
+      <div className="center">
+        <GameFinishedDisplay />
+        <BigBoard
+          currentPlayer={currentPlayer}
+          board={board}
+          activeBoards={activeBoards}
+          onPlayerMoved={onPlayerMoved}
+          movesAllowed={true}
+        />
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = ( state: AppState ) => ({
-    currentPlayer: state.currentGame.game.currentPlayer,
-    board: state.currentGame.board,
-    activeBoards: state.currentGame.activeBoards,
+const mapStateToProps = (state: AppState) => ({
+  currentPlayer: state.currentGame.game.currentPlayer,
+  board: state.currentGame.board,
+  activeBoards: state.currentGame.activeBoards,
 });
 
 // tslint:disable-next-line: no-any
-const mapDispatchToProps = ( dispatch: any ) => ({
-    onPlayerMoved: ( boardX: number, boardY: number, tileX: number, tileY: number ) =>
-        dispatch( playerMoved( {x: boardX, y: boardY}, {x: tileX, y: tileY} ) )
+const mapDispatchToProps = (dispatch: any) => ({
+  onPlayerMoved: (
+    boardX: number,
+    boardY: number,
+    tileX: number,
+    tileY: number,
+  ) => dispatch(playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY })),
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( Game );
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Game);

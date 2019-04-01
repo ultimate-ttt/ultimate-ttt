@@ -4,67 +4,62 @@ import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { Player } from '../../state/AppState';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
 
-configure( {adapter: new ReactSixteenAdapter()} );
+configure({ adapter: new ReactSixteenAdapter() });
 
-describe( 'GameFinished', function () {
+describe('GameFinished', function() {
+  it('should match snapshot when draw', () => {
+    // tslint:disable-next-line:no-empty
+    const restart = () => {};
+    const gameFinishedIndicator = shallow(
+      <GameFinishedDisplay
+        onRestartGame={restart}
+        isGameFinished={true}
+        winner={null!}
+      />,
+    );
 
-    it( 'should match snapshot when draw', () => {
-        // tslint:disable-next-line:no-empty
-        const restart = () => {
-        };
-        const gameFinishedIndicator = shallow( (
-                                                   <GameFinishedDisplay
-                                                       onRestartGame={restart}
-                                                       isGameFinished={true}
-                                                       winner={null!}
-                                                   />
-                                               ) );
+    expect(gameFinishedIndicator).toMatchSnapshot();
+  });
 
-        expect( gameFinishedIndicator ).toMatchSnapshot();
-    } );
+  it('should match snapshot when circle wins', () => {
+    // tslint:disable-next-line:no-empty
+    const restart = () => {};
+    const gameFinishedIndicator = shallow(
+      <GameFinishedDisplay
+        onRestartGame={restart}
+        isGameFinished={true}
+        winner={Player.Circle}
+      />,
+    );
 
-    it( 'should match snapshot when circle wins', () => {
-        // tslint:disable-next-line:no-empty
-        const restart = () => {
-        };
-        const gameFinishedIndicator = shallow( (
-                                                   <GameFinishedDisplay
-                                                       onRestartGame={restart}
-                                                       isGameFinished={true}
-                                                       winner={Player.Circle}
-                                                   />
-                                               ) );
+    expect(gameFinishedIndicator).toMatchSnapshot();
+  });
 
-        expect( gameFinishedIndicator ).toMatchSnapshot();
-    } );
+  it('should match snapshot when cross wins', () => {
+    // tslint:disable-next-line:no-empty
+    const restart = () => {};
+    const gameFinishedIndicator = shallow(
+      <GameFinishedDisplay
+        onRestartGame={restart}
+        isGameFinished={true}
+        winner={Player.Cross}
+      />,
+    );
 
-    it( 'should match snapshot when cross wins', () => {
-        // tslint:disable-next-line:no-empty
-        const restart = () => {
-        };
-        const gameFinishedIndicator = shallow( (
-                                                   <GameFinishedDisplay
-                                                       onRestartGame={restart}
-                                                       isGameFinished={true}
-                                                       winner={Player.Cross}
-                                                   />
-                                               ) );
+    expect(gameFinishedIndicator).toMatchSnapshot();
+  });
 
-        expect( gameFinishedIndicator ).toMatchSnapshot();
-    } );
+  it('should match snapshot when no one wins', () => {
+    // tslint:disable-next-line:no-empty
+    const restart = () => {};
+    const gameFinishedIndicator = shallow(
+      <GameFinishedDisplay
+        onRestartGame={restart}
+        isGameFinished={false}
+        winner={null!}
+      />,
+    );
 
-    it( 'should match snapshot when no one wins', () => {
-        // tslint:disable-next-line:no-empty
-        const restart = () => {
-        };
-        const gameFinishedIndicator = shallow( (
-                                                   <GameFinishedDisplay
-                                                       onRestartGame={restart}
-                                                       isGameFinished={false}
-                                                       winner={null!}
-                                                   />
-                                               ) );
-
-        expect( gameFinishedIndicator ).toMatchSnapshot();
-    } );
-} );
+    expect(gameFinishedIndicator).toMatchSnapshot();
+  });
+});
