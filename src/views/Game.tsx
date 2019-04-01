@@ -24,14 +24,16 @@ class Game extends React.Component<GameProps> {
 
     return (
       <div className="center">
-        <GameFinishedDisplay />
-        <BigBoard
-          currentPlayer={currentPlayer}
-          board={board}
-          activeBoards={activeBoards}
-          onPlayerMoved={onPlayerMoved}
-          movesAllowed={true}
-        />
+        <div className="game-wrapper">
+          <GameFinishedDisplay />
+          <BigBoard
+              currentPlayer={currentPlayer}
+              board={board}
+              activeBoards={activeBoards}
+              onPlayerMoved={onPlayerMoved}
+              movesAllowed={true}
+          />
+        </div>
       </div>
     );
   }

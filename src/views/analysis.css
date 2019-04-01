@@ -25,18 +25,18 @@
         max-height: 50vmin;
     }
 
-    .big-board {
+    .analysisGame > .big-board {
         grid-template-columns: 21vmin 21vmin 21vmin;
         grid-template-rows: 21vmin 21vmin 21vmin;
         grid-gap: 1vmin;
     }
 
-    .small-board {
+    .analysisGame > .small-board {
         grid-template-columns: 6.5vmin 6.5vmin 6.5vmin;
         grid-template-rows: 6.5vmin 6.5vmin 6.5vmin;
     }
 
-    .small-board-finished {
+    .analysisGame > .small-board-finished {
         grid-template-columns: 20.5vmin;
         grid-template-rows: 20.5vmin;
     }
