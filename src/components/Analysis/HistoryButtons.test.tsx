@@ -9,15 +9,16 @@ configure( {adapter: new ReactSixteenAdapter()} );
 describe( 'HistoryButtons', function () {
     it( 'should match snapshot', () => {
         // tslint:disable:no-empty
-        const moveForwardInHistory = jest.fn((number) => {});
-        const moveBackwardInHistory = jest.fn((number) => {});
+        const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+        const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
         const historyButtons = shallow(
             <HistoryButtons
                 currentMove={1}
                 lastMove={15}
                 moveForwardInHistory={moveForwardInHistory}
-                moveBackwardInHistory={moveBackwardInHistory}/>
+                moveBackwardInHistory={moveBackwardInHistory}
+            />
         );
 
         expect(historyButtons).toMatchSnapshot();
@@ -25,15 +26,16 @@ describe( 'HistoryButtons', function () {
 
     it( 'calls forward when move forward button is clicked', () => {
         // tslint:disable:no-empty
-        const moveForwardInHistory = jest.fn((number) => {});
-        const moveBackwardInHistory = jest.fn((number) => {});
+        const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+        const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
         const historyButtons = shallow(
             <HistoryButtons
                 currentMove={1}
                 lastMove={15}
                 moveForwardInHistory={moveForwardInHistory}
-                moveBackwardInHistory={moveBackwardInHistory}/>
+                moveBackwardInHistory={moveBackwardInHistory}
+            />
         );
 
         const forwardButton = historyButtons.find(Button).at(1);
@@ -44,15 +46,16 @@ describe( 'HistoryButtons', function () {
 
     it( 'calls backward when move backward button is clicked', () => {
         // tslint:disable:no-empty
-        const moveForwardInHistory = jest.fn((number) => {});
-        const moveBackwardInHistory = jest.fn((number) => {});
+        const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+        const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
         const historyButtons = shallow(
             <HistoryButtons
                 currentMove={1}
                 lastMove={15}
                 moveForwardInHistory={moveForwardInHistory}
-                moveBackwardInHistory={moveBackwardInHistory}/>
+                moveBackwardInHistory={moveBackwardInHistory}
+            />
         );
 
         const backwardButton = historyButtons.find(Button).first();

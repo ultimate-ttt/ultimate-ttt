@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './tile.css';
 import { TileValue } from '../../../state/AppState';
-import { XSymbol } from '../../symbols/XSymbol';
-import { OSymbol } from '../../symbols/OSymbol';
-import { NoWinnerSymbol } from '../../symbols/NoWinnerSymbol';
+import { XSymbol } from '../../Symbols/XSymbol';
+import { OSymbol } from '../../Symbols/OSymbol';
+import { NoWinnerSymbol } from '../../Symbols/NoWinnerSymbol';
 
 interface TileProps {
   onTileClicked?: () => void;

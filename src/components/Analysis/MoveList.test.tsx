@@ -37,9 +37,9 @@ describe( 'MoveList', function () {
 
     it( 'should match snapshot', () => {
         // tslint:disable:no-empty
-        const moveForwardInHistory = jest.fn( ( number ) => {
+        const moveForwardInHistory = jest.fn( ( numberOfMoves ) => {
         } );
-        const moveBackwardInHistory = jest.fn( ( number ) => {
+        const moveBackwardInHistory = jest.fn( ( numberOfMoves ) => {
         } );
 
         const moveList = shallow(
@@ -56,9 +56,9 @@ describe( 'MoveList', function () {
 
     it( 'should display amount of moves in list', () => {
         // tslint:disable:no-empty
-        const moveForwardInHistory = jest.fn( ( number ) => {
+        const moveForwardInHistory = jest.fn( ( numberOfMoves ) => {
         } );
-        const moveBackwardInHistory = jest.fn( ( number ) => {
+        const moveBackwardInHistory = jest.fn( ( numberOfMoves ) => {
         } );
 
         const moveList = shallow(

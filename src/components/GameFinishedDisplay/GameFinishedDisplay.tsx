@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { AppState, Player } from '../../state/AppState';
 import { connect } from 'react-redux';
-import { XSymbol } from '../symbols/XSymbol';
-import { OSymbol } from '../symbols/OSymbol';
+import { XSymbol } from '../Symbols/XSymbol';
+import { OSymbol } from '../Symbols/OSymbol';
 import { restartGame } from '../../state/commonAction';
 import { Button } from '@rmwc/button';
 import './gameFinished.css';
