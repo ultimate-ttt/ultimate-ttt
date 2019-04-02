@@ -21,10 +21,22 @@
     align-self: center;
 }
 
+.historyButtons {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    max-height: 10vmin;
+}
+
+.historyButtons > button {
+    margin: 5px;
+}
+
 @media only screen and (min-width: 1100px) {
     .moveList {
         max-height: 81vmin;
         align-self: center;
+        margin-top: 10vmin;
     }
 
     .analysisLayout {

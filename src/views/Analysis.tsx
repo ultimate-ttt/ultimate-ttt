@@ -29,8 +29,9 @@ interface AnalysisProps {
   currentMove: number;
 }
 
-export class Analysis extends React.Component<AnalysisProps & RouteComponentProps<{ id: string }>> {
-
+export class Analysis extends React.Component<
+  AnalysisProps & RouteComponentProps<{ id: string }>
+> {
   componentDidMount = () => {
     const id = this.props.match.params.id;
     this.props.onLoad(id);
@@ -48,16 +49,16 @@ export class Analysis extends React.Component<AnalysisProps & RouteComponentProp
     return (
       <div className="center">
         <div className="analysisLayout">
-          {reversedMoves && (
-            <div className="moveList">
+          <div className="moveList">
+            {reversedMoves && (
               <MoveList
                 currentMove={currentMove}
                 reversedMoves={reversedMoves}
                 moveForwardInHistory={this.props.moveForwardInHistory}
                 moveBackwardInHistory={this.props.moveBackwardInHistory}
               />
-            </div>
-          )}
+            )}
+          </div>
           <div className="analysisGame">
             {reversedMoves && (
               <>

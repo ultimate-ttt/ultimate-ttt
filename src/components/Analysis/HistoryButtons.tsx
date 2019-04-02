@@ -53,7 +53,7 @@ export class HistoryButtons extends React.Component<
     // TODO: icons
 
     return (
-      <>
+      <div className="historyButtons">
         <Button
           disabled={currentMove === 1}
           dense={true}
@@ -70,7 +70,7 @@ export class HistoryButtons extends React.Component<
         >
           Next Move
         </Button>
-      </>
+      </div>
     );
   }
 }
