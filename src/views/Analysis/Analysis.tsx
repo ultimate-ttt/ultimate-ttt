@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BigBoard } from '../components/Board/BigBoard/BigBoard';
+import { BigBoard } from '../../components/Board/BigBoard/BigBoard';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import {
@@ -7,16 +7,16 @@ import {
   Move,
   Player,
   SmallBoardInformation,
-} from '../state/AppState';
+} from '../../state/AppState';
 import {
   loadFinishedGame,
   moveBackwardInHistory,
   moveForwardInHistory,
-} from '../state/analysisGame/analysisGameActions';
+} from '../../state/analysisGame/analysisGameActions';
 import './analysis.css';
-import { Point } from '../util/Point';
-import { HistoryButtons } from '../components/Analysis/HistoryButtons';
-import { MoveList } from '../components/Analysis/MoveList';
+import { Point } from '../../util/Point';
+import { HistoryButtons } from '../../components/Analysis/HistoryButtons';
+import { MoveList } from '../../components/Analysis/MoveList';
 
 interface AnalysisProps {
   onLoad: (id: string) => void;

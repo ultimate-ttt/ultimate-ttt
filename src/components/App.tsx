@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
 import Game from '../views/Game';
-import Analysis from '../views/Analysis';
+import Analysis from '../views/Analysis/Analysis';
 
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';

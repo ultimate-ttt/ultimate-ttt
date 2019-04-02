@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HistoryButtons should match snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HistoryButtons
+    currentMove={1}
+    lastMove={15}
+    moveBackwardInHistory={[Function]}
+    moveForwardInHistory={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          dense={true}
+          disabled={true}
+          onClick={[Function]}
+          raised={true}
+>
+          Previous Move
+</Unknown>,
+        <Unknown
+          dense={true}
+          disabled={false}
+          onClick={[Function]}
+          raised={true}
+>
+          Next Move
+</Unknown>,
+      ],
+      "className": "historyButtons",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Previous Move",
+          "dense": true,
+          "disabled": true,
+          "onClick": [Function],
+          "raised": true,
+        },
+        "ref": null,
+        "rendered": "Previous Move",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "withRipple(Button)",
+          "render": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Next Move",
+          "dense": true,
+          "disabled": false,
+          "onClick": [Function],
+          "raised": true,
+        },
+        "ref": null,
+        "rendered": "Next Move",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "withRipple(Button)",
+          "render": [Function],
+        },
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            dense={true}
+            disabled={true}
+            onClick={[Function]}
+            raised={true}
+>
+            Previous Move
+</Unknown>,
+          <Unknown
+            dense={true}
+            disabled={false}
+            onClick={[Function]}
+            raised={true}
+>
+            Next Move
+</Unknown>,
+        ],
+        "className": "historyButtons",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Previous Move",
+            "dense": true,
+            "disabled": true,
+            "onClick": [Function],
+            "raised": true,
+          },
+          "ref": null,
+          "rendered": "Previous Move",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "withRipple(Button)",
+            "render": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Next Move",
+            "dense": true,
+            "disabled": false,
+            "onClick": [Function],
+            "raised": true,
+          },
+          "ref": null,
+          "rendered": "Next Move",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "withRipple(Button)",
+            "render": [Function],
+          },
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
