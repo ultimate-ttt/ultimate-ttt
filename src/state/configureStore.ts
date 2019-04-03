@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import boardReducer from './currentGame/board/boardReducer';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import gameReducer from './currentGame/game/gameReducer';
