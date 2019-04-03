@@ -68,30 +68,120 @@ describe('MoveList', function() {
 
     expect(moveList.find(List).children().length).toBe(moves.length);
   });
-  /*
-    // TODO this doesn't work yet.. rmwc is probably the problem..
-    it( 'should call backward function with 3 when currentMove is 4 and move 1 is clicked', () => {
-        // tslint:disable:no-empty
-        const moveForwardInHistory = jest.fn( ( number ) => {
-        } );
-        const moveBackwardInHistory = jest.fn( ( number ) => {
-        } );
 
-        const moveList = shallow(
-            <MoveList
-                reversedMoves={moves}
-                currentMove={moves.length}
-                moveForwardInHistory={moveForwardInHistory}
-                moveBackwardInHistory={moveBackwardInHistory}
-            />
-        );
+  it('should set activated to the correct value', () => {
+    // tslint:disable:no-empty
+    const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+    const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-        const elementToClick = moveList.find( List ).childAt( moves.length - 1 );
-        elementToClick.simulate( 'click' );
+    const currentMove = 3;
+    const moveList = shallow(
+      <MoveList
+        reversedMoves={moves}
+        currentMove={currentMove}
+        moveForwardInHistory={moveForwardInHistory}
+        moveBackwardInHistory={moveBackwardInHistory}
+      />,
+    );
 
-        expect( moveForwardInHistory ).toHaveBeenCalledTimes(1); //  moves.length - 1 );
-    } );
+    const moveIndex = moves.findIndex((m) => m.moveNumber === currentMove);
+    const children = moveList.find(List).children();
 
-    // TODO add more tests for backward moving and also for forward moving
-    */
+    for (let i = 0; i < children.length; i++) {
+      const expectedValue = i === moveIndex;
+      expect(children.get(i).props.activated).toBe(expectedValue);
+    }
+  });
+
+  describe('moveBackwardInHistory', () => {
+    it('should call backward function with 3 when currentMove is 4 and move 1 is clicked', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((number) => {});
+      const moveBackwardInHistory = jest.fn((number) => {});
+
+      const moveList = shallow(
+        <MoveList
+          reversedMoves={moves}
+          currentMove={moves.length}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const list = moveList.find(List);
+      list.props().onAction!({
+        detail: moves.findIndex((m) => m.moveNumber === 1),
+      } as any);
+
+      expect(moveBackwardInHistory).toHaveBeenCalledWith(moves.length - 1);
+    });
+
+    it('should call backward function with 1 when currentMove is 3 and move 2 is clicked', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((number) => {});
+      const moveBackwardInHistory = jest.fn((number) => {});
+
+      const moveList = shallow(
+        <MoveList
+          reversedMoves={moves}
+          currentMove={3}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const list = moveList.find(List);
+      list.props().onAction!({
+        detail: moves.findIndex((m) => m.moveNumber === 2),
+      } as any);
+
+      expect(moveBackwardInHistory).toHaveBeenCalledWith(1);
+    });
+  });
+
+  describe('moveForwardInHistory', () => {
+    it('should call forward function with 3 when currentMove is 1 and move 4 is clicked', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((number) => {});
+      const moveBackwardInHistory = jest.fn((number) => {});
+
+      const moveList = shallow(
+        <MoveList
+          reversedMoves={moves}
+          currentMove={1}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const list = moveList.find(List);
+      list.props().onAction!({
+        detail: moves.findIndex((m) => m.moveNumber === 4),
+      } as any);
+
+      expect(moveForwardInHistory).toHaveBeenCalledWith(3);
+    });
+
+    it('should call forward function with 1 when currentMove is 2 and move 3 is clicked', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((number) => {});
+      const moveBackwardInHistory = jest.fn((number) => {});
+
+      const moveList = shallow(
+        <MoveList
+          reversedMoves={moves}
+          currentMove={2}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const list = moveList.find(List);
+      list.props().onAction!({
+        detail: moves.findIndex((m) => m.moveNumber === 3),
+      } as any);
+
+      expect(moveForwardInHistory).toHaveBeenCalledWith(1);
+    });
+  });
 });

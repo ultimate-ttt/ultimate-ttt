@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
+import { configure, mount, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { HistoryButtons } from './HistoryButtons';
 import { Button } from '@rmwc/button';
@@ -24,43 +24,175 @@ describe('HistoryButtons', function() {
     expect(historyButtons).toMatchSnapshot();
   });
 
-  it('calls forward when move forward button is clicked', () => {
-    // tslint:disable:no-empty
-    const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-    const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+  describe('disabled behaviour', () => {
+    it('has a disabled move backward button when current move is 1', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-    const historyButtons = shallow(
-      <HistoryButtons
-        currentMove={1}
-        lastMove={15}
-        moveForwardInHistory={moveForwardInHistory}
-        moveBackwardInHistory={moveBackwardInHistory}
-      />,
-    );
+      const historyButtons = shallow(
+        <HistoryButtons
+          currentMove={1}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
 
-    const forwardButton = historyButtons.find(Button).at(1);
-    forwardButton.simulate('click');
+      const backwardButton = historyButtons.find(Button).get(0);
+      const forwardButton = historyButtons.find(Button).get(1);
 
-    expect(moveForwardInHistory).toHaveBeenCalledWith(1);
+      expect(backwardButton.props.disabled).toBe(true);
+      expect(forwardButton.props.disabled).toBe(false);
+    });
+
+    it('has a disabled move forward button when current move is the last move', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+
+      const historyButtons = shallow(
+        <HistoryButtons
+          currentMove={15}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const backwardButton = historyButtons.find(Button).get(0);
+      const forwardButton = historyButtons.find(Button).get(1);
+
+      expect(backwardButton.props.disabled).toBe(false);
+      expect(forwardButton.props.disabled).toBe(true);
+    });
   });
 
-  it('calls backward when move backward button is clicked', () => {
-    // tslint:disable:no-empty
-    const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-    const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+  describe('click behaviour', () => {
+    it('calls forward when move forward button is clicked', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-    const historyButtons = shallow(
-      <HistoryButtons
-        currentMove={1}
-        lastMove={15}
-        moveForwardInHistory={moveForwardInHistory}
-        moveBackwardInHistory={moveBackwardInHistory}
-      />,
-    );
+      const historyButtons = shallow(
+        <HistoryButtons
+          currentMove={1}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
 
-    const backwardButton = historyButtons.find(Button).first();
-    backwardButton.simulate('click');
+      const forwardButton = historyButtons.find(Button).at(1);
+      forwardButton.simulate('click');
 
-    expect(moveBackwardInHistory).toHaveBeenCalledWith(1);
+      expect(moveForwardInHistory).toHaveBeenCalledWith(1);
+    });
+
+    it('calls backward when move backward button is clicked', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+
+      const historyButtons = shallow(
+        <HistoryButtons
+          currentMove={1}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const backwardButton = historyButtons.find(Button).first();
+      backwardButton.simulate('click');
+
+      expect(moveBackwardInHistory).toHaveBeenCalledWith(1);
+    });
+  });
+
+  describe('keyboard event behaviour', () => {
+    it('calls backward when left arrow is pressed', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+
+      mount(
+        <HistoryButtons
+          currentMove={5}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+      window.dispatchEvent(event);
+
+      expect(moveBackwardInHistory).toHaveBeenCalledWith(1);
+      expect(moveForwardInHistory).toHaveBeenCalledTimes(0);
+    });
+
+    it('calls forward when right arrow is pressed', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+
+      mount(
+        <HistoryButtons
+          currentMove={5}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+      window.dispatchEvent(event);
+
+      expect(moveForwardInHistory).toHaveBeenCalledWith(1);
+      expect(moveBackwardInHistory).toHaveBeenCalledTimes(0);
+    });
+
+    it('doesnt call backward when left arrow is pressed and moveNumber is 1', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+
+      mount(
+        <HistoryButtons
+          currentMove={1}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+      window.dispatchEvent(event);
+
+      expect(moveBackwardInHistory).toHaveBeenCalledTimes(0);
+      expect(moveForwardInHistory).toHaveBeenCalledTimes(0);
+    });
+
+    it('doesnt call forward when right arrow is pressed and moveNumber is the last one', () => {
+      // tslint:disable:no-empty
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+
+      mount(
+        <HistoryButtons
+          currentMove={15}
+          lastMove={15}
+          moveForwardInHistory={moveForwardInHistory}
+          moveBackwardInHistory={moveBackwardInHistory}
+        />,
+      );
+
+      const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+      window.dispatchEvent(event);
+
+      expect(moveBackwardInHistory).toHaveBeenCalledTimes(0);
+      expect(moveForwardInHistory).toHaveBeenCalledTimes(0);
+    });
   });
 });

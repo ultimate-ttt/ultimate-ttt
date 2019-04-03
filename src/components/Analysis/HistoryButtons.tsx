@@ -1,16 +1,14 @@
 import * as React from 'react';
 import { Button } from '@rmwc/button';
 
-interface AnalysisHistoryButtonsProps {
+interface HistoryButtonsProps {
   currentMove: number;
   lastMove: number;
   moveForwardInHistory: (numberOfMoves: number) => void;
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
-export class HistoryButtons extends React.Component<
-  AnalysisHistoryButtonsProps
-> {
+export class HistoryButtons extends React.Component<HistoryButtonsProps> {
   handleEvent = (event: KeyboardEvent) => {
     const {
       currentMove,

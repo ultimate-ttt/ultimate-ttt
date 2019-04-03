@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { BigBoard } from '../components/Board/BigBoard/BigBoard';
-import GameFinishedDisplay from '../components/GameFinishedDisplay/GameFinishedDisplay';
-import { AppState, Player, SmallBoardInformation } from '../state/AppState';
-import { playerMoved } from '../state/currentGame/game/gameAction';
+import { BigBoard } from '../../components/Board/BigBoard/BigBoard';
+import GameFinishedDisplay from '../../components/GameFinishedDisplay/GameFinishedDisplay';
+import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
+import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
-import { Point } from '../util/Point';
+import { Point } from '../../util/Point';
 
 interface GameProps {
   currentPlayer: Player;

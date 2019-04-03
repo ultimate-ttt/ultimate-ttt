@@ -11,21 +11,26 @@ export const getWinningPlayerAsString = createSelector(
       case Winner.Cross:
         return 'X';
       case Winner.Draw:
-        return null;
+        return 'Draw';
       case Winner.None:
         return undefined;
     }
   },
 );
 
+export const getDate = createSelector(
+  [],
+  () => new Date(),
+);
+
 export const getFinishedGameData = createSelector(
-  [getWinningPlayerAsString, getBoards, getMoves],
-  (winningPlayer, boards, moves) => {
+  [getWinningPlayerAsString, getBoards, getMoves, getDate],
+  (winningPlayer, boards, moves, date) => {
     return {
       winner: winningPlayer,
       gameState: boards,
       moves,
-      date: new Date(),
+      date: date,
     };
   },
 );
