@@ -15,7 +15,6 @@ interface BigBoardProps {
     tileX: number,
     tileY: number,
   ) => void;
-  movesAllowed?: boolean;
 }
 
 export class BigBoard extends React.Component<BigBoardProps> {
@@ -31,13 +30,7 @@ export class BigBoard extends React.Component<BigBoardProps> {
   };
 
   createSmallBoards = () => {
-    const {
-      currentPlayer,
-      board,
-      activeBoards,
-      onPlayerMoved,
-      movesAllowed,
-    } = this.props;
+    const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
     const rows = [];
 
     for (let x = 0; x < 3; x++) {
@@ -49,16 +42,6 @@ export class BigBoard extends React.Component<BigBoardProps> {
         if (smallBoard) {
           const isMoveAllowed = this.isMoveOnBoardAllowed(x, y, activeBoards);
 
-          let onTileClicked;
-          if (!movesAllowed) {
-            // tslint:disable-next-line
-            onTileClicked = (tileX: number, tileY: number) => {};
-          } else {
-            onTileClicked = (tileX: number, tileY: number) => {
-              onPlayerMoved(x, y, tileX, tileY);
-            };
-          }
-
           rows.push(
             <SmallBoard
               key={`x: ${x}/ Y: ${y}`}
@@ -68,7 +51,9 @@ export class BigBoard extends React.Component<BigBoardProps> {
               currentPlayer={currentPlayer}
               tiles={smallBoard.tiles}
               winningPlayer={smallBoard.value}
-              onTileClicked={onTileClicked}
+              onTileClicked={(tileX: number, tileY: number) => {
+                onPlayerMoved(x, y, tileX, tileY);
+              }}
             />,
           );
         }

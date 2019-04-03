@@ -1981,7 +1981,6 @@ ShallowWrapper {
                               ]
                 }
                 currentPlayer={0}
-                movesAllowed={true}
                 onPlayerMoved={[Function]}
         />
 </div>,
@@ -2974,7 +2973,6 @@ ShallowWrapper {
                                   ]
             }
             currentPlayer={0}
-            movesAllowed={true}
             onPlayerMoved={[Function]}
 />,
         ],
@@ -3972,7 +3970,6 @@ ShallowWrapper {
               },
             ],
             "currentPlayer": 0,
-            "movesAllowed": true,
             "onPlayerMoved": [Function],
           },
           "ref": null,
@@ -4973,7 +4970,6 @@ ShallowWrapper {
                                       ]
                     }
                     currentPlayer={0}
-                    movesAllowed={true}
                     onPlayerMoved={[Function]}
           />
 </div>,
@@ -5966,7 +5962,6 @@ ShallowWrapper {
                                         ]
               }
               currentPlayer={0}
-              movesAllowed={true}
               onPlayerMoved={[Function]}
 />,
           ],
@@ -6964,7 +6959,6 @@ ShallowWrapper {
                 },
               ],
               "currentPlayer": 0,
-              "movesAllowed": true,
               "onPlayerMoved": [Function],
             },
             "ref": null,

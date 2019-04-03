@@ -46,6 +46,7 @@ export class MoveList extends React.Component<MoveListProps> {
         />,
       );
     });
+
     return moveList;
   };
 

@@ -72,7 +72,6 @@ export class Analysis extends React.Component<AnalysisProps> {
                   board={board}
                   activeBoards={activeBoards}
                   currentPlayer={currentPlayer}
-                  movesAllowed={false}
                 />
               </>
             )}

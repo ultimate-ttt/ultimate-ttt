@@ -31,7 +31,6 @@ export class Game extends React.Component<GameProps> {
             board={board}
             activeBoards={activeBoards}
             onPlayerMoved={onPlayerMoved}
-            movesAllowed={true}
           />
         </div>
       </div>
