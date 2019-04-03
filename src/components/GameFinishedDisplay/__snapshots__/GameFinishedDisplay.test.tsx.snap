@@ -490,7 +490,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={true}
     onRestartGame={[Function]}
-    winner={null}
+    winner={2}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -648,7 +648,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <GameFinishedDisplay
     isGameFinished={false}
     onRestartGame={[Function]}
-    winner={null}
+    winner={3}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

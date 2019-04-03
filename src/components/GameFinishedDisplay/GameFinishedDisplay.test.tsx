@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { Player } from '../../state/AppState';
+import { Winner } from '../../state/AppState';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
 
 configure({ adapter: new ReactSixteenAdapter() });
@@ -14,7 +14,7 @@ describe('GameFinished', function() {
       <GameFinishedDisplay
         onRestartGame={restart}
         isGameFinished={true}
-        winner={null!}
+        winner={Winner.Draw}
       />,
     );
 
@@ -28,7 +28,7 @@ describe('GameFinished', function() {
       <GameFinishedDisplay
         onRestartGame={restart}
         isGameFinished={true}
-        winner={Player.Circle}
+        winner={Winner.Circle}
       />,
     );
 
@@ -42,7 +42,7 @@ describe('GameFinished', function() {
       <GameFinishedDisplay
         onRestartGame={restart}
         isGameFinished={true}
-        winner={Player.Cross}
+        winner={Winner.Cross}
       />,
     );
 
@@ -56,7 +56,7 @@ describe('GameFinished', function() {
       <GameFinishedDisplay
         onRestartGame={restart}
         isGameFinished={false}
-        winner={null!}
+        winner={Winner.None}
       />,
     );
 

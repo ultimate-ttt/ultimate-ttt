@@ -1,9 +1,9 @@
-import { Player, TileInformation, TileValue } from '../state/AppState';
+import { Player, TileInformation, TileValue, Winner } from '../state/AppState';
 import { playerToTileValue } from './PlayerToTile';
 
 export interface WinResult {
   isFinished: boolean;
-  winningPlayer: Player; // null if it is a draw
+  winningPlayer: Winner;
 }
 
 const countInLine = (player: Player, row: TileInformation[]) =>
@@ -70,22 +70,22 @@ export const getWinResult = (board: TileInformation[]) => {
   if (hasCrossWon) {
     return {
       isFinished: true,
-      winningPlayer: Player.Cross,
+      winningPlayer: Winner.Cross,
     };
   } else if (hasCircleWon) {
     return {
       isFinished: true,
-      winningPlayer: Player.Circle,
+      winningPlayer: Winner.Circle,
     };
   } else if (boardIsFull) {
     return {
       isFinished: true,
-      winningPlayer: null,
+      winningPlayer: Winner.Draw,
     };
   } else {
     return {
       isFinished: false,
-      winningPlayer: null,
+      winningPlayer: Winner.None,
     };
   }
 };

@@ -1,5 +1,5 @@
 import { getWinResult } from '../CheckBoard';
-import { Player, TileValue } from '../../state/AppState';
+import { Player, TileValue, Winner } from '../../state/AppState';
 
 const getTile = (boardX: number, boardY: number, value: TileValue) => {
   return {
@@ -26,7 +26,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(false);
-    expect(result.winningPlayer).toEqual(null);
+    expect(result.winningPlayer).toEqual(Winner.None);
   });
 
   it('should indicate that game is finished but no one won', () => {
@@ -46,7 +46,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(null);
+    expect(result.winningPlayer).toEqual(Winner.Draw);
   });
 
   it('should indicate winning result for Cross because of row0', () => {
@@ -66,7 +66,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Cross);
+    expect(result.winningPlayer).toEqual(Winner.Cross);
   });
 
   it('should indicate winning result for Circle because of row0', () => {
@@ -86,7 +86,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Circle);
+    expect(result.winningPlayer).toEqual(Winner.Circle);
   });
 
   it('should indicate winning result for Cross because of row1', () => {
@@ -106,7 +106,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Cross);
+    expect(result.winningPlayer).toEqual(Winner.Cross);
   });
 
   it('should indicate winning result for Cross because of row2', () => {
@@ -126,7 +126,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Cross);
+    expect(result.winningPlayer).toEqual(Winner.Cross);
   });
 
   it('should indicate winning result for Circle because of column0', () => {
@@ -146,7 +146,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Circle);
+    expect(result.winningPlayer).toEqual(Winner.Circle);
   });
 
   it('should indicate winning result for Circle because of column1', () => {
@@ -166,7 +166,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Circle);
+    expect(result.winningPlayer).toEqual(Winner.Circle);
   });
 
   it('should indicate winning result for Cross because of column2', () => {
@@ -186,7 +186,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Cross);
+    expect(result.winningPlayer).toEqual(Winner.Cross);
   });
 
   it('should indicate winning result for Circle because of left slant', () => {
@@ -206,7 +206,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Circle);
+    expect(result.winningPlayer).toEqual(Winner.Circle);
   });
 
   it('should indicate winning result for Circle because of right slant', () => {
@@ -226,7 +226,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(board);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Circle);
+    expect(result.winningPlayer).toEqual(Winner.Circle);
   });
 
   it('should indicate winning result for Circle because of column0, includes destroyed field', () => {
@@ -246,7 +246,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(input);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Circle);
+    expect(result.winningPlayer).toEqual(Winner.Circle);
   });
 
   it('should indicate winning result for Cross because of row0, includes destroyed field', () => {
@@ -266,7 +266,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(input);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(Player.Cross);
+    expect(result.winningPlayer).toEqual(Winner.Cross);
   });
 
   it('should indicate winning result for NO ONE, not finished, includes destroyed field', () => {
@@ -286,7 +286,7 @@ describe('getWinResult', () => {
 
     const result = getWinResult(input);
     expect(result.isFinished).toEqual(false);
-    expect(result.winningPlayer).toEqual(null);
+    expect(result.winningPlayer).toEqual(Winner.None);
   });
 
   it('should indicate winning result for NO ONE but finished, includes destroyed field', () => {
@@ -306,6 +306,6 @@ describe('getWinResult', () => {
 
     const result = getWinResult(input);
     expect(result.isFinished).toEqual(true);
-    expect(result.winningPlayer).toEqual(null);
+    expect(result.winningPlayer).toEqual(Winner.Draw);
   });
 });

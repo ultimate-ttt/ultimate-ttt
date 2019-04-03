@@ -1,9 +1,9 @@
-import { Player, TileValue } from '../../state/AppState';
+import { Player, TileValue, Winner } from '../../state/AppState';
 import { playerToTileValue } from '../PlayerToTile';
 
 describe('playerToTileValue', () => {
-  it('should return an empty tile when player is null', () => {
-    const input = null;
+  it('should return an empty tile when Winner is Draw', () => {
+    const input = Winner.Draw;
     const expectedResult = TileValue.Empty;
     const actualResult = playerToTileValue(input);
     expect(actualResult).toEqual(expectedResult);
@@ -23,8 +23,8 @@ describe('playerToTileValue', () => {
     expect(actualResult).toEqual(expectedResult);
   });
 
-  it('should return TileValue Destroyed when player is null and small board is fulll', () => {
-    const input = null;
+  it('should return TileValue Destroyed when Winner is Draw and small board is full', () => {
+    const input = Winner.Draw;
     const expectedResult = TileValue.Destroyed;
     const actualResult = playerToTileValue(input, true);
     expect(actualResult).toEqual(expectedResult);

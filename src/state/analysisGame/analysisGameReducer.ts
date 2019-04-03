@@ -1,4 +1,10 @@
-import { AnalysisGame, GenericAction, Player, TileValue } from '../AppState';
+import {
+  AnalysisGame,
+  GenericAction,
+  TileValue,
+  Player,
+  Winner,
+} from '../AppState';
 import {
   MOVE_BACKWARD_IN_HISTORY,
   MOVE_FORWARD_IN_HISTORY,
@@ -15,7 +21,7 @@ const initialState: AnalysisGame = {
   activeBoards: [],
   game: {
     isFinished: true,
-    winningPlayer: null,
+    winningPlayer: Winner.None,
     currentPlayer: Player.Cross,
   },
   moves: [],

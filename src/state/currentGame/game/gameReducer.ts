@@ -1,4 +1,4 @@
-import { GameState, GenericAction, Player } from '../../AppState';
+import { GameState, GenericAction, Player, Winner } from '../../AppState';
 import { CHANGE_PLAYER, GAME_FINISHED } from './gameAction';
 import { RESTART_GAME } from '../../commonAction';
 import produce from 'immer';
@@ -6,7 +6,7 @@ import produce from 'immer';
 const initialState: GameState = {
   currentPlayer: Player.Cross,
   isFinished: false,
-  winningPlayer: undefined,
+  winningPlayer: Winner.None,
 };
 
 const gameReducer = (state = initialState, action: GenericAction) => {

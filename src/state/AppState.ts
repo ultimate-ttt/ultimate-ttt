@@ -16,7 +16,7 @@ export interface GameInformation {
 export interface FinishedGameState {
   id?: string;
   date: Date;
-  winner?: Player | null;
+  winner: Winner;
   gameState: SmallBoardInformation[];
   moves: Move[];
   saveState: string;
@@ -35,7 +35,7 @@ export interface AnalysisGame {
 export interface GameState {
   currentPlayer: Player;
   isFinished: boolean;
-  winningPlayer?: Player | null;
+  winningPlayer: Winner;
 }
 
 export interface TileInformation {
@@ -56,6 +56,13 @@ export enum TileValue {
   Circle = 1,
   Empty = 2,
   Destroyed = 3,
+}
+
+export enum Winner {
+  Cross = 0,
+  Circle = 1,
+  Draw = 2,
+  None = 3,
 }
 
 export enum Player {

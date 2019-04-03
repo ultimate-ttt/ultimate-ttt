@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppState, Player } from '../../state/AppState';
+import { AppState, Winner } from '../../state/AppState';
 import { connect } from 'react-redux';
 import { XSymbol } from '../Symbols/XSymbol';
 import { OSymbol } from '../Symbols/OSymbol';
@@ -9,7 +9,7 @@ import './gameFinished.css';
 
 interface GameFinishedDisplayProps {
   isGameFinished: boolean;
-  winner: Player;
+  winner: Winner;
   onRestartGame: () => void;
 }
 
@@ -22,22 +22,26 @@ export class GameFinishedDisplay extends React.Component<
   GameFinishedDisplayProps,
   GameFinishedDisplayState
 > {
-  static getWinnerText(player: Player, isGameFinished: boolean) {
+  static getWinnerText(winner: Winner, isGameFinished: boolean) {
     if (isGameFinished) {
-      if (player === Player.Circle) {
-        return (
-          <>
-            <OSymbol className="winner-symbol" shouldAnimate={false} /> wins!
-          </>
-        );
-      } else if (player === Player.Cross) {
-        return (
-          <>
-            <XSymbol className="winner-symbol" shouldAnimate={false} /> wins!
-          </>
-        );
-      } else {
-        return `It's a draw!`;
+      switch (winner) {
+        case Winner.Circle:
+          return (
+            <>
+              <OSymbol className="winner-symbol" shouldAnimate={false} /> wins!
+            </>
+          );
+        case Winner.Cross:
+          return (
+            <>
+              <XSymbol className="winner-symbol" shouldAnimate={false} /> wins!
+            </>
+          );
+        case Winner.Draw:
+          return `It's a draw!`;
+
+        default:
+          return 'Not finished yet';
       }
     }
 
@@ -70,7 +74,7 @@ export class GameFinishedDisplay extends React.Component<
 
     this.state = {
       winnerClassAttribute: 'hidden',
-      winnerText: GameFinishedDisplay.getWinnerText(Player.Circle, false),
+      winnerText: GameFinishedDisplay.getWinnerText(Winner.None, false),
     };
   }
 

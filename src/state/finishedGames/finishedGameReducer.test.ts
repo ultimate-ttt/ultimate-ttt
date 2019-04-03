@@ -6,7 +6,7 @@ import {
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
 import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
-import { Player } from '../AppState';
+import { Winner } from '../AppState';
 
 describe('finishedGameReducer', () => {
   it('should return init state', () => {
@@ -16,7 +16,7 @@ describe('finishedGameReducer', () => {
   });
 
   const finishedGameMock = {
-    winner: Player.Cross,
+    winner: Winner.Cross,
     date: new Date(),
     gameState: crossFinishedBoardMock,
     // not real data

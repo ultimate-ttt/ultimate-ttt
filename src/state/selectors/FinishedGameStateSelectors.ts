@@ -1,17 +1,19 @@
 import { createSelector } from 'reselect';
 import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
+import { Winner } from '../AppState';
 
 export const getWinningPlayerAsString = createSelector(
   [getWinningPlayer],
-  (winningPlayer) => {
-    if (winningPlayer === 0) {
-      return 'X';
-    } else if (winningPlayer === 1) {
-      return 'O';
-    } else if (winningPlayer === null) {
-      return null;
-    } else {
-      return undefined;
+  (winningPlayer: Winner) => {
+    switch (winningPlayer) {
+      case Winner.Circle:
+        return 'O';
+      case Winner.Cross:
+        return 'X';
+      case Winner.Draw:
+        return null;
+      case Winner.None:
+        return undefined;
     }
   },
 );

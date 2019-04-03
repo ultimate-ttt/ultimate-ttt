@@ -1,4 +1,4 @@
-import { Player } from '../../AppState';
+import { Winner } from '../../AppState';
 import { Point } from '../../../util/Point';
 
 export const CHANGE_PLAYER = 'game/player-changed';
@@ -10,7 +10,7 @@ export const changePlayer = () => ({
   type: CHANGE_PLAYER,
 });
 
-export const gameFinished = (winningPlayer?: Player | null) => ({
+export const gameFinished = (winningPlayer: Winner) => ({
   type: GAME_FINISHED,
   payload: winningPlayer,
 });
