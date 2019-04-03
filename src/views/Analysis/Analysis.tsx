@@ -18,7 +18,7 @@ import { Point } from '../../util/Point';
 import { HistoryButtons } from '../../components/Analysis/HistoryButtons';
 import { MoveList } from '../../components/Analysis/MoveList';
 
-interface AnalysisProps {
+interface AnalysisProps extends RouteComponentProps<{ id: string }> {
   onLoad: (id: string) => void;
   moveForwardInHistory: (numberOfMoves: number) => void;
   moveBackwardInHistory: (numberOfMoves: number) => void;
@@ -29,9 +29,7 @@ interface AnalysisProps {
   currentMove: number;
 }
 
-export class Analysis extends React.Component<
-  AnalysisProps & RouteComponentProps<{ id: string }>
-> {
+export class Analysis extends React.Component<AnalysisProps> {
   componentDidMount = () => {
     const id = this.props.match.params.id;
     this.props.onLoad(id);
