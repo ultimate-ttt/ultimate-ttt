@@ -1,5 +1,5 @@
 import { getWinResult } from '../CheckBoard';
-import { Player, TileValue, Winner } from '../../state/AppState';
+import { TileValue, Winner } from '../../state/AppState';
 
 const getTile = (boardX: number, boardY: number, value: TileValue) => {
   return {
