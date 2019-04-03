@@ -18,7 +18,7 @@ interface GameProps {
   ) => void;
 }
 
-class Game extends React.Component<GameProps> {
+export class Game extends React.Component<GameProps> {
   render() {
     const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
 
