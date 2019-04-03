@@ -96,8 +96,8 @@ describe('MoveList', function() {
   describe('moveBackwardInHistory', () => {
     it('should call backward function with 3 when currentMove is 4 and move 1 is clicked', () => {
       // tslint:disable:no-empty
-      const moveForwardInHistory = jest.fn((number) => {});
-      const moveBackwardInHistory = jest.fn((number) => {});
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
       const moveList = shallow(
         <MoveList
@@ -118,8 +118,8 @@ describe('MoveList', function() {
 
     it('should call backward function with 1 when currentMove is 3 and move 2 is clicked', () => {
       // tslint:disable:no-empty
-      const moveForwardInHistory = jest.fn((number) => {});
-      const moveBackwardInHistory = jest.fn((number) => {});
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
       const moveList = shallow(
         <MoveList
@@ -142,8 +142,8 @@ describe('MoveList', function() {
   describe('moveForwardInHistory', () => {
     it('should call forward function with 3 when currentMove is 1 and move 4 is clicked', () => {
       // tslint:disable:no-empty
-      const moveForwardInHistory = jest.fn((number) => {});
-      const moveBackwardInHistory = jest.fn((number) => {});
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
       const moveList = shallow(
         <MoveList
@@ -164,8 +164,8 @@ describe('MoveList', function() {
 
     it('should call forward function with 1 when currentMove is 2 and move 3 is clicked', () => {
       // tslint:disable:no-empty
-      const moveForwardInHistory = jest.fn((number) => {});
-      const moveBackwardInHistory = jest.fn((number) => {});
+      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
+      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
       const moveList = shallow(
         <MoveList
