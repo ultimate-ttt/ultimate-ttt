@@ -48,25 +48,25 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
       moveBackwardInHistory,
     } = this.props;
 
-    // TODO: icons
-
     return (
-      <div className="historyButtons">
+      <div>
         <Button
           disabled={currentMove === 1}
           dense={true}
           raised={true}
+          icon="arrow-left"
           onClick={() => moveBackwardInHistory(1)}
         >
-          Previous Move
+          Previous
         </Button>
         <Button
           disabled={currentMove === lastMove}
           dense={true}
           raised={true}
+          trailingIcon="arrow-right"
           onClick={() => moveForwardInHistory(1)}
         >
-          Next Move
+          Next
         </Button>
       </div>
     );

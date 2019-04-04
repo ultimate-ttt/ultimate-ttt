@@ -27,21 +27,22 @@ ShallowWrapper {
         <Unknown
           dense={true}
           disabled={true}
+          icon="arrow-left"
           onClick={[Function]}
           raised={true}
 >
-          Previous Move
+          Previous
 </Unknown>,
         <Unknown
           dense={true}
           disabled={false}
           onClick={[Function]}
           raised={true}
+          trailingIcon="arrow-right"
 >
-          Next Move
+          Next
 </Unknown>,
       ],
-      "className": "historyButtons",
     },
     "ref": null,
     "rendered": Array [
@@ -50,14 +51,15 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": "Previous Move",
+          "children": "Previous",
           "dense": true,
           "disabled": true,
+          "icon": "arrow-left",
           "onClick": [Function],
           "raised": true,
         },
         "ref": null,
-        "rendered": "Previous Move",
+        "rendered": "Previous",
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
           "displayName": "withRipple(Button)",
@@ -69,14 +71,15 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": "Next Move",
+          "children": "Next",
           "dense": true,
           "disabled": false,
           "onClick": [Function],
           "raised": true,
+          "trailingIcon": "arrow-right",
         },
         "ref": null,
-        "rendered": "Next Move",
+        "rendered": "Next",
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
           "displayName": "withRipple(Button)",
@@ -96,21 +99,22 @@ ShallowWrapper {
           <Unknown
             dense={true}
             disabled={true}
+            icon="arrow-left"
             onClick={[Function]}
             raised={true}
 >
-            Previous Move
+            Previous
 </Unknown>,
           <Unknown
             dense={true}
             disabled={false}
             onClick={[Function]}
             raised={true}
+            trailingIcon="arrow-right"
 >
-            Next Move
+            Next
 </Unknown>,
         ],
-        "className": "historyButtons",
       },
       "ref": null,
       "rendered": Array [
@@ -119,14 +123,15 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": "Previous Move",
+            "children": "Previous",
             "dense": true,
             "disabled": true,
+            "icon": "arrow-left",
             "onClick": [Function],
             "raised": true,
           },
           "ref": null,
-          "rendered": "Previous Move",
+          "rendered": "Previous",
           "type": Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "withRipple(Button)",
@@ -138,14 +143,15 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": "Next Move",
+            "children": "Next",
             "dense": true,
             "disabled": false,
             "onClick": [Function],
             "raised": true,
+            "trailingIcon": "arrow-right",
           },
           "ref": null,
-          "rendered": "Next Move",
+          "rendered": "Next",
           "type": Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "withRipple(Button)",
