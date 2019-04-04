@@ -3,7 +3,9 @@
 exports[`NoWinnerSymbol should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <NoWinnerSymbol />,
+  Symbol(enzyme.__unrendered__): <NoWinnerSymbol
+    shouldAnimate={true}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -19,7 +21,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "aria-label": "No Winner Symbol",
-      "className": "icon-no-winner big-symbol no-winner",
+      "className": "icon-no-winner big-symbol no-winner animate-no-winner",
     },
     "ref": null,
     "rendered": null,
@@ -32,7 +34,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "aria-label": "No Winner Symbol",
-        "className": "icon-no-winner big-symbol no-winner",
+        "className": "icon-no-winner big-symbol no-winner animate-no-winner",
       },
       "ref": null,
       "rendered": null,

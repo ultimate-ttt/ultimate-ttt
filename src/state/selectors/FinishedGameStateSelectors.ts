@@ -11,7 +11,7 @@ export const getWinningPlayerAsString = createSelector(
       case Winner.Cross:
         return 'X';
       case Winner.Draw:
-        return 'Draw';
+        return null;
       case Winner.None:
         return undefined;
     }

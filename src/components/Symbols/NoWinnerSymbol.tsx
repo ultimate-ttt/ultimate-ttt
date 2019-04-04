@@ -4,23 +4,23 @@ import '../../fonts/icons.css';
 import './symbolAnimations.css';
 import * as classNames from 'classnames';
 
-interface NoWinnerSymbolProps {}
+interface NoWinnerSymbolProps {
+  shouldAnimate?: boolean;
+}
 
-interface NoWinnerSymbolState {}
-
-export class NoWinnerSymbol extends React.Component<
-  NoWinnerSymbolProps,
-  NoWinnerSymbolState
-> {
-  constructor(props: NoWinnerSymbolProps) {
-    super(props);
-  }
+export class NoWinnerSymbol extends React.Component<NoWinnerSymbolProps> {
+  public static defaultProps: Partial<NoWinnerSymbolProps> = {
+    shouldAnimate: true,
+  };
 
   render() {
+    const { shouldAnimate } = this.props;
+
     const iconClass = classNames({
       'icon-no-winner': true,
       'big-symbol': true,
       'no-winner': true,
+      'animate-no-winner': shouldAnimate,
     });
 
     return <i className={iconClass} aria-label="No Winner Symbol" />;

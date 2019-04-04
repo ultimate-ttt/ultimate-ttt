@@ -1,4 +1,4 @@
-.big-symbol.animate-x {
+.big-symbol.animate-x  {
     animation-duration: 0.75s;
     animation-name: add-icon-big-x;
 }
@@ -38,8 +38,7 @@
     }
 }
 
-/* No winner is always animated */
-.big-symbol.no-winner {
+.big-symbol.animate-no-winner {
     animation-duration: 0.75s;
     animation-name: add-icon-big-no-winner;
 }

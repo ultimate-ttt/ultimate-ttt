@@ -3,10 +3,17 @@
     --incremental-blue: #0F3057;
     --mdc-theme-primary: var(--tropical-teal);
     --mdc-theme-text-icon-on-background: black;
+
+    --georgia-peach: #f57170;
+    /*
+    These haven't been used so far.
+    --island-pink: #f77754;
+    --vampire-bite: #c70039;
+    */
 }
 
 html, body {
-    /* Got this from medium: https://medium.design/system-shock-6b1dc6d6596f */
+    /* From medium: https://medium.design/system-shock-6b1dc6d6596f */
     font-family: -apple-system, ".SFNSText-Regular",
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 }

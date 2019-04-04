@@ -1,12 +1,4 @@
-.normal {
-    background-color: var(--incremental-blue);
-}
-
-.indicator {
-    background-color: var(--tropical-teal);
-}
-
-.box {
+.tile {
     color: #fff;
 
     /* Align Content Vertically & Horizontally */
@@ -17,6 +9,18 @@
     /* Firefox. Fixes issue in Firefox where text got automatically selected */
     /* https://stackoverflow.com/questions/6900124/how-to-make-certain-text-not-selectable-with-css */
     -moz-user-select: none
+}
+
+.tile.normal {
+    background-color: var(--incremental-blue);
+}
+
+.tile.indicator {
+    background-color: var(--tropical-teal);
+}
+
+.tile.special {
+    background-color: var(--georgia-peach);
 }
 
 .circle {

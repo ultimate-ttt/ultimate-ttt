@@ -10,16 +10,10 @@ interface XSymbolProps {
   className?: string;
 }
 
-interface XSymbolState {}
-
-export class XSymbol extends React.Component<XSymbolProps, XSymbolState> {
+export class XSymbol extends React.Component<XSymbolProps> {
   public static defaultProps: Partial<XSymbolProps> = {
     shouldAnimate: true,
   };
-
-  constructor(props: XSymbolProps) {
-    super(props);
-  }
 
   render() {
     const { bigSymbol, shouldAnimate, className } = this.props;

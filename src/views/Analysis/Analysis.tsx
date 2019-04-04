@@ -44,6 +44,13 @@ export class Analysis extends React.Component<AnalysisProps> {
       currentMove,
     } = this.props;
 
+    // TODO
+    const currentlyAppliedMove =
+      reversedMoves &&
+      reversedMoves[
+        reversedMoves.findIndex((m) => m.moveNumber === currentMove)!
+      ];
+
     return (
       <div className="center">
         <div className="analysisLayout">
@@ -72,6 +79,15 @@ export class Analysis extends React.Component<AnalysisProps> {
                   board={board}
                   activeBoards={activeBoards}
                   currentPlayer={currentPlayer}
+                  markTileSpecially={{
+                    condition: currentlyAppliedMove !== undefined,
+                    position: currentlyAppliedMove
+                      ? {
+                          boardPosition: currentlyAppliedMove.boardPosition,
+                          tilePosition: currentlyAppliedMove.tilePosition,
+                        }
+                      : undefined,
+                  }}
                 />
               </>
             )}

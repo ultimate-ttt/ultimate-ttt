@@ -82,3 +82,8 @@ export interface GenericAction {
   // tslint:disable-next-line: no-any
   payload?: any;
 }
+
+export interface MarkSpecially {
+  condition: boolean;
+  position?: { boardPosition: Point; tilePosition: Point };
+}

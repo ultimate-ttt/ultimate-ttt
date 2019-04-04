@@ -11,26 +11,44 @@ interface TileProps {
   isTileRound: boolean;
   isClickable: boolean;
   isBig?: boolean;
+  markSpecially?: boolean;
 }
 
 export class Tile extends React.Component<TileProps> {
   getValue = () => {
-    const { isBig } = this.props;
+    const { isBig, markSpecially } = this.props;
+
+    let shouldAnimate = true;
+    if (markSpecially !== undefined) {
+      if (!markSpecially) {
+        shouldAnimate = false;
+      }
+    }
+
     switch (this.props.value) {
       case TileValue.Cross:
-        return <XSymbol bigSymbol={isBig} />;
+        return <XSymbol bigSymbol={isBig} shouldAnimate={shouldAnimate} />;
       case TileValue.Circle:
-        return <OSymbol bigSymbol={isBig} />;
+        return <OSymbol bigSymbol={isBig} shouldAnimate={shouldAnimate} />;
+      case TileValue.Destroyed:
+        return <NoWinnerSymbol shouldAnimate={shouldAnimate} />;
       case TileValue.Empty:
         return '';
-      case TileValue.Destroyed:
-        return <NoWinnerSymbol />;
     }
   };
 
   render() {
-    const { onTileClicked, isTileRound, isClickable, value } = this.props;
-    const color = isClickable ? 'indicator' : 'normal';
+    const {
+      onTileClicked,
+      isTileRound,
+      isClickable,
+      value,
+      markSpecially,
+    } = this.props;
+    let color = isClickable ? 'indicator' : 'normal';
+    if (markSpecially) {
+      color = 'special';
+    }
 
     let roundness = isTileRound ? 'circle' : 'square';
     if (value === TileValue.Destroyed) {
@@ -39,7 +57,7 @@ export class Tile extends React.Component<TileProps> {
 
     return (
       <div
-        className={`box ${color} ${roundness}`}
+        className={`tile ${color} ${roundness}`}
         onClick={() => {
           if (isClickable && onTileClicked) {
             onTileClicked();

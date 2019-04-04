@@ -15,10 +15,6 @@ export class OSymbol extends React.Component<OSymbolProps> {
     shouldAnimate: true,
   };
 
-  constructor(props: OSymbolProps) {
-    super(props);
-  }
-
   render() {
     const { bigSymbol, shouldAnimate, className } = this.props;
     const iconClass = classNames({

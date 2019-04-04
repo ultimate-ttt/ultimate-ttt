@@ -21,11 +21,11 @@ describe('FinishedGameStateSelectors', () => {
       expect(selected).toBe('O');
     });
 
-    it('should return Draw when Winner is draw', () => {
+    it('should return null when Winner is draw', () => {
       const winningPlayer = Winner.Draw;
 
       const selected = getWinningPlayerAsString.resultFunc(winningPlayer);
-      expect(selected).toBe('Draw');
+      expect(selected).toBeNull();
     });
 
     it('should return undefined when winner is none', () => {
@@ -39,7 +39,7 @@ describe('FinishedGameStateSelectors', () => {
   describe('getFinishedGameData', () => {
     it('should return an object with all necessary gameData', () => {
       const mockParameters = {
-        winningPlayer: 'X' as 'X' | 'O' | 'Draw' | undefined,
+        winningPlayer: 'X' as 'X' | 'O' | null | undefined,
         boards: circleFinishedBoardMock,
         moves: [
           {

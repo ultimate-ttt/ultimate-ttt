@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
-import { Player, SmallBoardInformation } from '../../../state/AppState';
+import {
+  MarkSpecially,
+  Player,
+  SmallBoardInformation,
+} from '../../../state/AppState';
 import { arePointsEqual } from '../../../util';
 import { Point } from '../../../util/Point';
 import './bigboard.css';
@@ -15,22 +19,18 @@ interface BigBoardProps {
     tileX: number,
     tileY: number,
   ) => void;
+  markTileSpecially?: MarkSpecially;
 }
 
 export class BigBoard extends React.Component<BigBoardProps> {
-  isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
-    if (!activeBoards) {
-      return false;
-    }
-
-    const theBoardPlayedOnIsActive = activeBoards.some((board) =>
-      arePointsEqual({ x, y }, board),
-    );
-    return theBoardPlayedOnIsActive;
-  };
-
   createSmallBoards = () => {
-    const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
+    const {
+      currentPlayer,
+      board,
+      activeBoards,
+      onPlayerMoved,
+      markTileSpecially,
+    } = this.props;
     const rows = [];
 
     for (let x = 0; x < 3; x++) {
@@ -54,6 +54,10 @@ export class BigBoard extends React.Component<BigBoardProps> {
               onTileClicked={(tileX: number, tileY: number) => {
                 onPlayerMoved(x, y, tileX, tileY);
               }}
+              markTileSpecially={this.getMarkSpecially(markTileSpecially, {
+                x,
+                y,
+              })}
             />,
           );
         }
@@ -61,6 +65,34 @@ export class BigBoard extends React.Component<BigBoardProps> {
     }
 
     return rows;
+  };
+
+  isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
+    if (!activeBoards) {
+      return false;
+    }
+
+    const theBoardPlayedOnIsActive = activeBoards.some((board) =>
+      arePointsEqual({ x, y }, board),
+    );
+    return theBoardPlayedOnIsActive;
+  };
+
+  getMarkSpecially = (
+    markSpecially: MarkSpecially | undefined,
+    point: Point,
+  ) => {
+    if (markSpecially === undefined) {
+      return undefined;
+    }
+
+    if (markSpecially.condition && markSpecially.position) {
+      if (arePointsEqual(point, markSpecially.position.boardPosition)) {
+        return markSpecially;
+      }
+    }
+
+    return { condition: false };
   };
 
   render() {
