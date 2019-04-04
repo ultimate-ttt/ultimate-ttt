@@ -5,7 +5,7 @@
 .analysisLayout {
     display: grid;
     grid-gap: 1em;
-    grid-template-areas: "moveList" "game";
+    grid-template-areas: "moveList" "historyButtons" "game";
     height: 100%;
 }
 
@@ -18,29 +18,28 @@
 
 .analysisGame {
     grid-area: game;
-    align-self: center;
 }
 
 .historyButtons {
-    padding-bottom: 1em;
+    grid-area: historyButtons;
     display: flex;
     justify-content: center;
     max-height: 10vmin;
 }
 
-.historyButtons > button {
+.historyButtons button {
     margin: 5px;
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 560px) and (max-height: 768px), only screen and (min-width: 1350px)  {
     .moveList {
         max-height: 81vmin;
-        align-self: center;
-        margin-top: 10vmin;
     }
 
     .analysisLayout {
         grid-template-columns: minmax(30vmin, 1fr) auto;
-        grid-template-areas: "moveList game";
+        grid-template-rows: minmax(7vmin, 10vmin) 81vmin;
+        grid-template-areas: ". historyButtons" "moveList game";
+        align-items: center;
     }
 }

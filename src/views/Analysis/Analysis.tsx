@@ -64,32 +64,34 @@ export class Analysis extends React.Component<AnalysisProps> {
               />
             )}
           </div>
+          <div className="historyButtons">
+            {reversedMoves && (
+              <HistoryButtons
+                currentMove={currentMove}
+                lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
+                moveForwardInHistory={this.props.moveForwardInHistory}
+                moveBackwardInHistory={this.props.moveBackwardInHistory}
+              />
+            )}
+          </div>
           <div className="analysisGame">
             {reversedMoves && (
-              <>
-                <HistoryButtons
-                  currentMove={currentMove}
-                  lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
-                  moveForwardInHistory={this.props.moveForwardInHistory}
-                  moveBackwardInHistory={this.props.moveBackwardInHistory}
-                />
-                <BigBoard
-                  // tslint:disable-next-line:no-empty
-                  onPlayerMoved={() => {}}
-                  board={board}
-                  activeBoards={activeBoards}
-                  currentPlayer={currentPlayer}
-                  markTileSpecially={{
-                    condition: currentlyAppliedMove !== undefined,
-                    position: currentlyAppliedMove
-                      ? {
-                          boardPosition: currentlyAppliedMove.boardPosition,
-                          tilePosition: currentlyAppliedMove.tilePosition,
-                        }
-                      : undefined,
-                  }}
-                />
-              </>
+              <BigBoard
+                // tslint:disable-next-line:no-empty
+                onPlayerMoved={() => {}}
+                board={board}
+                activeBoards={activeBoards}
+                currentPlayer={currentPlayer}
+                markTileSpecially={{
+                  condition: currentlyAppliedMove !== undefined,
+                  position: currentlyAppliedMove
+                    ? {
+                        boardPosition: currentlyAppliedMove.boardPosition,
+                        tilePosition: currentlyAppliedMove.tilePosition,
+                      }
+                    : undefined,
+                }}
+              />
             )}
           </div>
         </div>

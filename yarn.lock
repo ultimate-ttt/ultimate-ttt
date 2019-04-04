@@ -11613,11 +11613,6 @@ react-focus-lock@^1.17.7:
     prop-types "^15.6.2"
     react-clientside-effect "^1.2.0"
 
-react-github-corner@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
-  integrity sha512-yVh8wtAfVA5CQYn8ygyxtsuCMoyiSEBVnzQJ3ynyWxZ1BzT2MHop4baZn/PnUnU9Yh8mwhLS5Y1RVxM5zNotGw==
-
 react-helmet-async@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-0.2.0.tgz#d20d8725c1dcdcc95d54e281a1040af47c3abffa"
