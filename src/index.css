@@ -1,15 +1,9 @@
 :root {
     --tropical-teal: #008891;
     --incremental-blue: #0F3057;
+    --vampire-bite: #c70039;
     --mdc-theme-primary: var(--tropical-teal);
     --mdc-theme-text-icon-on-background: black;
-
-    --georgia-peach: #f57170;
-    /*
-    These haven't been used so far.
-    --island-pink: #f77754;
-    --vampire-bite: #c70039;
-    */
 }
 
 html, body {
@@ -18,6 +12,7 @@ html, body {
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 
     margin-bottom: 1em;
+    overflow-x: hidden;
 }
 
 html,body, .center, #root {
