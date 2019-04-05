@@ -30,7 +30,7 @@ export class MoveList extends React.Component<MoveListProps> {
         <SimpleListItem
           key={m.moveNumber}
           activated={currentMove === m.moveNumber}
-          graphic={{ icon: this.playerAsString(m.player), size: 'medium' }}
+          graphic={{ icon: this.playerAsString(m.player), size: 'small' }}
           text={'Move ' + m.moveNumber}
           secondaryText={
             'Board ' +
