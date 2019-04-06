@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Button } from '@rmwc/button';
+import { scroller } from 'react-scroll/modules';
+import { moveScrollElementBaseName } from './ScrollElementConstants';
 
 interface HistoryButtonsProps {
   currentMove: number;
@@ -22,6 +24,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
       this.props.currentMove !== 1
     ) {
       moveBackwardInHistory(1);
+      this.scrollToElement(currentMove - 1);
     }
 
     if (
@@ -29,7 +32,17 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
       currentMove !== lastMove
     ) {
       moveForwardInHistory(1);
+      this.scrollToElement(currentMove + 1);
     }
+  };
+
+  scrollToElement = (moveNumberToScrollTo: number) => {
+    scroller.scrollTo(moveScrollElementBaseName + moveNumberToScrollTo, {
+      duration: 300,
+      smooth: true,
+      containerId: 'moveList',
+      offset: -108,
+    });
   };
 
   componentDidMount(): void {
@@ -55,7 +68,10 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
           dense={true}
           raised={true}
           icon="arrow-left"
-          onClick={() => moveBackwardInHistory(1)}
+          onClick={() => {
+            moveBackwardInHistory(1);
+            this.scrollToElement(currentMove - 1);
+          }}
         >
           Previous
         </Button>
@@ -64,7 +80,10 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
           dense={true}
           raised={true}
           trailingIcon="arrow-right"
-          onClick={() => moveForwardInHistory(1)}
+          onClick={() => {
+            moveForwardInHistory(1);
+            this.scrollToElement(currentMove + 1);
+          }}
         >
           Next
         </Button>

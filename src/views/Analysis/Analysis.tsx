@@ -44,7 +44,6 @@ export class Analysis extends React.Component<AnalysisProps> {
       currentMove,
     } = this.props;
 
-    // TODO
     const currentlyAppliedMove =
       reversedMoves &&
       reversedMoves[
@@ -54,7 +53,7 @@ export class Analysis extends React.Component<AnalysisProps> {
     return (
       <div className="center">
         <div className="analysisLayout">
-          <div className="moveList">
+          <div id="moveList" className="moveList">
             {reversedMoves && (
               <MoveList
                 currentMove={currentMove}

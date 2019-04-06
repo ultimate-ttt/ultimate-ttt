@@ -75,50 +75,66 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <SimpleListItem
-          activated={true}
-          graphic={
-                    Object {
-                              "icon": "o",
-                              "size": "medium",
-                            }
-          }
-          secondaryText="Board 0/0 - Field 0/2"
-          text="Move 4"
-/>,
-        <SimpleListItem
-          activated={false}
-          graphic={
-                    Object {
-                              "icon": "x",
-                              "size": "medium",
-                            }
-          }
-          secondaryText="Board 0/1 - Field 0/0"
-          text="Move 3"
-/>,
-        <SimpleListItem
-          activated={false}
-          graphic={
-                    Object {
-                              "icon": "o",
-                              "size": "medium",
-                            }
-          }
-          secondaryText="Board 0/0 - Field 0/1"
-          text="Move 2"
-/>,
-        <SimpleListItem
-          activated={false}
-          graphic={
-                    Object {
-                              "icon": "x",
-                              "size": "medium",
-                            }
-          }
-          secondaryText="Board 0/0 - Field 0/0"
-          text="Move 1"
-/>,
+        <Element
+          name="move-4"
+>
+          <SimpleListItem
+                    activated={true}
+                    graphic={
+                              Object {
+                                        "icon": "o",
+                                        "size": "small",
+                                      }
+                    }
+                    secondaryText="Board 0/0 - Field 0/2"
+                    text="Move 4"
+          />
+</Element>,
+        <Element
+          name="move-3"
+>
+          <SimpleListItem
+                    activated={false}
+                    graphic={
+                              Object {
+                                        "icon": "x",
+                                        "size": "small",
+                                      }
+                    }
+                    secondaryText="Board 0/1 - Field 0/0"
+                    text="Move 3"
+          />
+</Element>,
+        <Element
+          name="move-2"
+>
+          <SimpleListItem
+                    activated={false}
+                    graphic={
+                              Object {
+                                        "icon": "o",
+                                        "size": "small",
+                                      }
+                    }
+                    secondaryText="Board 0/0 - Field 0/1"
+                    text="Move 2"
+          />
+</Element>,
+        <Element
+          name="move-1"
+>
+          <SimpleListItem
+                    activated={false}
+                    graphic={
+                              Object {
+                                        "icon": "x",
+                                        "size": "small",
+                                      }
+                    }
+                    secondaryText="Board 0/0 - Field 0/0"
+                    text="Move 1"
+          />
+</Element>,
       ],
       "dense": true,
       "onAction": [Function],
@@ -129,69 +145,153 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "4",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "activated": true,
-          "graphic": Object {
-            "icon": "o",
-            "size": "medium",
-          },
-          "secondaryText": "Board 0/0 - Field 0/2",
-          "text": "Move 4",
+          "children": <SimpleListItem
+            activated={true}
+            graphic={
+                        Object {
+                                    "icon": "o",
+                                    "size": "small",
+                                  }
+            }
+            secondaryText="Board 0/0 - Field 0/2"
+            text="Move 4"
+/>,
+          "name": "move-4",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activated": true,
+            "graphic": Object {
+              "icon": "o",
+              "size": "small",
+            },
+            "secondaryText": "Board 0/0 - Field 0/2",
+            "text": "Move 4",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
         "instance": null,
         "key": "3",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "activated": false,
-          "graphic": Object {
-            "icon": "x",
-            "size": "medium",
-          },
-          "secondaryText": "Board 0/1 - Field 0/0",
-          "text": "Move 3",
+          "children": <SimpleListItem
+            activated={false}
+            graphic={
+                        Object {
+                                    "icon": "x",
+                                    "size": "small",
+                                  }
+            }
+            secondaryText="Board 0/1 - Field 0/0"
+            text="Move 3"
+/>,
+          "name": "move-3",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activated": false,
+            "graphic": Object {
+              "icon": "x",
+              "size": "small",
+            },
+            "secondaryText": "Board 0/1 - Field 0/0",
+            "text": "Move 3",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
         "instance": null,
         "key": "2",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "activated": false,
-          "graphic": Object {
-            "icon": "o",
-            "size": "medium",
-          },
-          "secondaryText": "Board 0/0 - Field 0/1",
-          "text": "Move 2",
+          "children": <SimpleListItem
+            activated={false}
+            graphic={
+                        Object {
+                                    "icon": "o",
+                                    "size": "small",
+                                  }
+            }
+            secondaryText="Board 0/0 - Field 0/1"
+            text="Move 2"
+/>,
+          "name": "move-2",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activated": false,
+            "graphic": Object {
+              "icon": "o",
+              "size": "small",
+            },
+            "secondaryText": "Board 0/0 - Field 0/1",
+            "text": "Move 2",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
         "instance": null,
         "key": "1",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "activated": false,
-          "graphic": Object {
-            "icon": "x",
-            "size": "medium",
-          },
-          "secondaryText": "Board 0/0 - Field 0/0",
-          "text": "Move 1",
+          "children": <SimpleListItem
+            activated={false}
+            graphic={
+                        Object {
+                                    "icon": "x",
+                                    "size": "small",
+                                  }
+            }
+            secondaryText="Board 0/0 - Field 0/0"
+            text="Move 1"
+/>,
+          "name": "move-1",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activated": false,
+            "graphic": Object {
+              "icon": "x",
+              "size": "small",
+            },
+            "secondaryText": "Board 0/0 - Field 0/0",
+            "text": "Move 1",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
     ],
@@ -204,50 +304,66 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <SimpleListItem
-            activated={true}
-            graphic={
-                        Object {
-                                    "icon": "o",
-                                    "size": "medium",
-                                  }
-            }
-            secondaryText="Board 0/0 - Field 0/2"
-            text="Move 4"
-/>,
-          <SimpleListItem
-            activated={false}
-            graphic={
-                        Object {
-                                    "icon": "x",
-                                    "size": "medium",
-                                  }
-            }
-            secondaryText="Board 0/1 - Field 0/0"
-            text="Move 3"
-/>,
-          <SimpleListItem
-            activated={false}
-            graphic={
-                        Object {
-                                    "icon": "o",
-                                    "size": "medium",
-                                  }
-            }
-            secondaryText="Board 0/0 - Field 0/1"
-            text="Move 2"
-/>,
-          <SimpleListItem
-            activated={false}
-            graphic={
-                        Object {
-                                    "icon": "x",
-                                    "size": "medium",
-                                  }
-            }
-            secondaryText="Board 0/0 - Field 0/0"
-            text="Move 1"
-/>,
+          <Element
+            name="move-4"
+>
+            <SimpleListItem
+                        activated={true}
+                        graphic={
+                                    Object {
+                                                "icon": "o",
+                                                "size": "small",
+                                              }
+                        }
+                        secondaryText="Board 0/0 - Field 0/2"
+                        text="Move 4"
+            />
+</Element>,
+          <Element
+            name="move-3"
+>
+            <SimpleListItem
+                        activated={false}
+                        graphic={
+                                    Object {
+                                                "icon": "x",
+                                                "size": "small",
+                                              }
+                        }
+                        secondaryText="Board 0/1 - Field 0/0"
+                        text="Move 3"
+            />
+</Element>,
+          <Element
+            name="move-2"
+>
+            <SimpleListItem
+                        activated={false}
+                        graphic={
+                                    Object {
+                                                "icon": "o",
+                                                "size": "small",
+                                              }
+                        }
+                        secondaryText="Board 0/0 - Field 0/1"
+                        text="Move 2"
+            />
+</Element>,
+          <Element
+            name="move-1"
+>
+            <SimpleListItem
+                        activated={false}
+                        graphic={
+                                    Object {
+                                                "icon": "x",
+                                                "size": "small",
+                                              }
+                        }
+                        secondaryText="Board 0/0 - Field 0/0"
+                        text="Move 1"
+            />
+</Element>,
         ],
         "dense": true,
         "onAction": [Function],
@@ -258,69 +374,153 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "4",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "activated": true,
-            "graphic": Object {
-              "icon": "o",
-              "size": "medium",
-            },
-            "secondaryText": "Board 0/0 - Field 0/2",
-            "text": "Move 4",
+            "children": <SimpleListItem
+              activated={true}
+              graphic={
+                            Object {
+                                          "icon": "o",
+                                          "size": "small",
+                                        }
+              }
+              secondaryText="Board 0/0 - Field 0/2"
+              text="Move 4"
+/>,
+            "name": "move-4",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activated": true,
+              "graphic": Object {
+                "icon": "o",
+                "size": "small",
+              },
+              "secondaryText": "Board 0/0 - Field 0/2",
+              "text": "Move 4",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": "3",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "activated": false,
-            "graphic": Object {
-              "icon": "x",
-              "size": "medium",
-            },
-            "secondaryText": "Board 0/1 - Field 0/0",
-            "text": "Move 3",
+            "children": <SimpleListItem
+              activated={false}
+              graphic={
+                            Object {
+                                          "icon": "x",
+                                          "size": "small",
+                                        }
+              }
+              secondaryText="Board 0/1 - Field 0/0"
+              text="Move 3"
+/>,
+            "name": "move-3",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activated": false,
+              "graphic": Object {
+                "icon": "x",
+                "size": "small",
+              },
+              "secondaryText": "Board 0/1 - Field 0/0",
+              "text": "Move 3",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": "2",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "activated": false,
-            "graphic": Object {
-              "icon": "o",
-              "size": "medium",
-            },
-            "secondaryText": "Board 0/0 - Field 0/1",
-            "text": "Move 2",
+            "children": <SimpleListItem
+              activated={false}
+              graphic={
+                            Object {
+                                          "icon": "o",
+                                          "size": "small",
+                                        }
+              }
+              secondaryText="Board 0/0 - Field 0/1"
+              text="Move 2"
+/>,
+            "name": "move-2",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activated": false,
+              "graphic": Object {
+                "icon": "o",
+                "size": "small",
+              },
+              "secondaryText": "Board 0/0 - Field 0/1",
+              "text": "Move 2",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": "1",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "activated": false,
-            "graphic": Object {
-              "icon": "x",
-              "size": "medium",
-            },
-            "secondaryText": "Board 0/0 - Field 0/0",
-            "text": "Move 1",
+            "children": <SimpleListItem
+              activated={false}
+              graphic={
+                            Object {
+                                          "icon": "x",
+                                          "size": "small",
+                                        }
+              }
+              secondaryText="Board 0/0 - Field 0/0"
+              text="Move 1"
+/>,
+            "name": "move-1",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activated": false,
+              "graphic": Object {
+                "icon": "x",
+                "size": "small",
+              },
+              "secondaryText": "Board 0/0 - Field 0/0",
+              "text": "Move 1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
       ],

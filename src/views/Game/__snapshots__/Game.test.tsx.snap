@@ -999,7 +999,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <div
-        className="game-wrapper"
+        className="gameWrapper"
 >
         <Connect(GameFinishedDisplay) />
         <BigBoard
@@ -2976,7 +2976,7 @@ ShallowWrapper {
             onPlayerMoved={[Function]}
 />,
         ],
-        "className": "game-wrapper",
+        "className": "gameWrapper",
       },
       "ref": null,
       "rendered": Array [
@@ -3988,7 +3988,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <div
-          className="game-wrapper"
+          className="gameWrapper"
 >
           <Connect(GameFinishedDisplay) />
           <BigBoard
@@ -5965,7 +5965,7 @@ ShallowWrapper {
               onPlayerMoved={[Function]}
 />,
           ],
-          "className": "game-wrapper",
+          "className": "gameWrapper",
         },
         "ref": null,
         "rendered": Array [

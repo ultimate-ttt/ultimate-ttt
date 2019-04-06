@@ -3,6 +3,8 @@ import { List, SimpleListItem } from '@rmwc/list';
 import { CustomEventT } from '@rmwc/types';
 import { Move, Player } from '../../state/AppState';
 import { ReactNode } from 'react';
+import { Element } from 'react-scroll';
+import { moveScrollElementBaseName } from './ScrollElementConstants';
 
 interface MoveListProps {
   reversedMoves: Move[];
@@ -27,23 +29,27 @@ export class MoveList extends React.Component<MoveListProps> {
 
     reversedMoves.forEach((m: Move) => {
       moveList.push(
-        <SimpleListItem
+        <Element
           key={m.moveNumber}
-          activated={currentMove === m.moveNumber}
-          graphic={{ icon: this.playerAsString(m.player), size: 'small' }}
-          text={'Move ' + m.moveNumber}
-          secondaryText={
-            'Board ' +
-            m.boardPosition.x +
-            '/' +
-            m.boardPosition.y +
-            ' - ' +
-            'Field ' +
-            m.tilePosition.x +
-            '/' +
-            m.tilePosition.y
-          }
-        />,
+          name={moveScrollElementBaseName + m.moveNumber}
+        >
+          <SimpleListItem
+            activated={currentMove === m.moveNumber}
+            graphic={{ icon: this.playerAsString(m.player), size: 'small' }}
+            text={'Move ' + m.moveNumber}
+            secondaryText={
+              'Board ' +
+              m.boardPosition.x +
+              '/' +
+              m.boardPosition.y +
+              ' - ' +
+              'Field ' +
+              m.tilePosition.x +
+              '/' +
+              m.tilePosition.y
+            }
+          />
+        </Element>,
       );
     });
 

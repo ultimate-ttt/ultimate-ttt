@@ -84,13 +84,12 @@ describe('MoveList', function() {
       />,
     );
 
-    const moveIndex = moves.findIndex((m) => m.moveNumber === currentMove);
-    const children = moveList.find(List).children();
+    const activatedItems = moveList.find({ activated: true });
+    const deactivatedItems = moveList.find({ activated: false });
 
-    for (let i = 0; i < children.length; i++) {
-      const expectedValue = i === moveIndex;
-      expect(children.get(i).props.activated).toBe(expectedValue);
-    }
+    expect(activatedItems.length).toBe(1);
+    expect(activatedItems.get(0).props.text).toContain(currentMove);
+    expect(deactivatedItems.length).toBe(moves.length - 1);
   });
 
   describe('moveBackwardInHistory', () => {

@@ -1018,6 +1018,7 @@ ShallowWrapper {
 >
         <div
                 className="moveList"
+                id="moveList"
         />
         <div
                 className="historyButtons"
@@ -1037,6 +1038,7 @@ ShallowWrapper {
         "children": Array [
           <div
             className="moveList"
+            id="moveList"
 />,
           <div
             className="historyButtons"
@@ -1056,6 +1058,7 @@ ShallowWrapper {
           "props": Object {
             "children": undefined,
             "className": "moveList",
+            "id": "moveList",
           },
           "ref": null,
           "rendered": null,
@@ -1101,6 +1104,7 @@ ShallowWrapper {
 >
           <div
                     className="moveList"
+                    id="moveList"
           />
           <div
                     className="historyButtons"
@@ -1120,6 +1124,7 @@ ShallowWrapper {
           "children": Array [
             <div
               className="moveList"
+              id="moveList"
 />,
             <div
               className="historyButtons"
@@ -1139,6 +1144,7 @@ ShallowWrapper {
             "props": Object {
               "children": undefined,
               "className": "moveList",
+              "id": "moveList",
             },
             "ref": null,
             "rendered": null,

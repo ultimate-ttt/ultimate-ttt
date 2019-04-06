@@ -24,7 +24,7 @@ export class Game extends React.Component<GameProps> {
 
     return (
       <div className="center">
-        <div className="game-wrapper">
+        <div className="gameWrapper">
           <GameFinishedDisplay />
           <BigBoard
             currentPlayer={currentPlayer}
