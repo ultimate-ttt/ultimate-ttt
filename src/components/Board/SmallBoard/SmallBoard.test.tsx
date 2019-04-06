@@ -2,8 +2,9 @@ import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import { SmallBoard } from './SmallBoard';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { Player, TileValue } from '../../../state/AppState';
+import { MarkSpecially, Player, TileValue } from '../../../state/AppState';
 import { Point } from '../../../util/Point';
+import { Tile } from '../Tile/Tile';
 
 configure({ adapter: new ReactSixteenAdapter() });
 
@@ -39,8 +40,8 @@ describe('SmallBoard', () => {
         tiles={smallTileInformation}
         currentPlayer={Player.Cross}
         isMoveAllowed={true}
-        x={0}
-        y={0}
+        x={boardPosition.x}
+        y={boardPosition.y}
       />,
     );
 
@@ -71,30 +72,27 @@ describe('SmallBoard', () => {
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
           isMoveAllowed={true}
-          x={1}
-          y={1}
+          x={boardPosition.x}
+          y={boardPosition.y}
         />,
       );
 
-      expect(component.children('Tile')).toHaveLength(9);
+      expect(component.find(Tile)).toHaveLength(9);
       expect(
         component
-          .children('Tile')
+          .find(Tile)
           .at(1)
-          .prop('value'),
-      ).toEqual(TileValue.Cross);
+          .props().value,
+      ).toBe(TileValue.Cross);
       expect(
         component
-          .children('Tile')
+          .find(Tile)
           .at(8)
-          .prop('value'),
-      ).toEqual(TileValue.Circle);
-      expect(
-        component.children('Tile').findWhere((tile) => tile.key().length > 0),
-      ).toHaveLength(9);
+          .props().value,
+      ).toBe(TileValue.Circle);
     });
 
-    it('should make tiles not clickable if they are full', () => {
+    it('should make tiles not clickable if they are taken', () => {
       // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
@@ -117,29 +115,29 @@ describe('SmallBoard', () => {
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
           isMoveAllowed={true}
-          x={1}
-          y={1}
+          x={boardPosition.x}
+          y={boardPosition.y}
         />,
       );
 
       expect(
         component
-          .children('Tile')
+          .find(Tile)
           .at(1)
-          .prop('isClickable'),
-      ).toEqual(false);
+          .props().isClickable,
+      ).toBe(false);
       expect(
         component
-          .children('Tile')
+          .find(Tile)
           .at(4)
-          .prop('isClickable'),
-      ).toEqual(false);
+          .props().isClickable,
+      ).toBe(false);
       expect(
         component
-          .children('Tile')
+          .find(Tile)
           .at(8)
-          .prop('isClickable'),
-      ).toEqual(false);
+          .props().isClickable,
+      ).toBe(false);
     });
 
     it('should make tiles not clickable if the move is not allowed', () => {
@@ -165,16 +163,12 @@ describe('SmallBoard', () => {
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
           isMoveAllowed={false}
-          x={2}
-          y={2}
+          x={boardPosition.x}
+          y={boardPosition.y}
         />,
       );
 
-      expect(
-        component
-          .children('Tile')
-          .findWhere((tile) => tile.prop('isClickable') === false),
-      ).toHaveLength(9);
+      expect(component.find({ isClickable: false })).toHaveLength(9);
     });
 
     it('should add isTileRound=false when currentPlayer is Cross', () => {
@@ -205,11 +199,7 @@ describe('SmallBoard', () => {
         />,
       );
 
-      expect(
-        component
-          .children('Tile')
-          .findWhere((tile) => tile.prop('isTileRound') === false),
-      ).toHaveLength(9);
+      expect(component.find({ isTileRound: false })).toHaveLength(9);
     });
 
     it('should add isTileRound=true when currentPlayer is Circle', () => {
@@ -235,16 +225,12 @@ describe('SmallBoard', () => {
           tiles={smallTileInformation}
           currentPlayer={Player.Circle}
           isMoveAllowed={true}
-          x={2}
-          y={2}
+          x={boardPosition.x}
+          y={boardPosition.y}
         />,
       );
 
-      expect(
-        component
-          .children('Tile')
-          .findWhere((tile) => tile.prop('isTileRound') === true),
-      ).toHaveLength(9);
+      expect(component.find({ isTileRound: true })).toHaveLength(9);
     });
   });
 
@@ -272,14 +258,14 @@ describe('SmallBoard', () => {
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
           isMoveAllowed={false}
-          x={2}
-          y={2}
+          x={boardPosition.x}
+          y={boardPosition.y}
         />,
       );
 
       expect(component.children('Tile')).toHaveLength(1);
-      expect(component.children('Tile').prop('isBig')).toEqual(true);
-      expect(component.children('Tile').prop('value')).toEqual(TileValue.Cross);
+      expect(component.find(Tile).props().isBig).toEqual(true);
+      expect(component.find(Tile).props().value).toEqual(TileValue.Cross);
     });
   });
 
@@ -344,6 +330,139 @@ describe('SmallBoard', () => {
       );
 
       expect(component.hasClass('small-board')).toBe(true);
+    });
+  });
+
+  describe('mark tile specially', () => {
+    it('should add markSpecially=false to all tiles when the condition is false', () => {
+      // tslint:disable:no-empty
+      const clicked = jest.fn(() => {});
+
+      const boardPosition = { x: 0, y: 0 };
+      const smallTileInformation = [
+        getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 2, y: 0 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 2, y: 1 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
+      ];
+
+      const markSpecially: MarkSpecially = { condition: false };
+      const component = shallow(
+        <SmallBoard
+          onTileClicked={clicked}
+          winningPlayer={TileValue.Empty}
+          tiles={smallTileInformation}
+          currentPlayer={Player.Cross}
+          isMoveAllowed={false}
+          x={boardPosition.x}
+          y={boardPosition.y}
+          markTileSpecially={markSpecially}
+        />,
+      );
+
+      const speciallyMarkedComponents = component.find({
+        markSpecially: false,
+      });
+      expect(speciallyMarkedComponents).toHaveLength(9);
+    });
+
+    it('should add markSpecially=true to the given tile position', () => {
+      // tslint:disable:no-empty
+      const clicked = jest.fn(() => {});
+
+      const boardPosition = { x: 0, y: 0 };
+      const smallTileInformation = [
+        getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Circle),
+        getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 2, y: 0 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 2, y: 1 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
+      ];
+
+      const markSpecially: MarkSpecially = {
+        condition: true,
+        position: {
+          boardPosition: boardPosition,
+          tilePosition: { x: 0, y: 1 },
+        },
+      };
+      const component = shallow(
+        <SmallBoard
+          onTileClicked={clicked}
+          winningPlayer={TileValue.Empty}
+          tiles={smallTileInformation}
+          currentPlayer={Player.Cross}
+          isMoveAllowed={false}
+          x={boardPosition.x}
+          y={boardPosition.y}
+          markTileSpecially={markSpecially}
+        />,
+      );
+
+      const speciallyMarkedComponents = component.find({ markSpecially: true });
+      expect(speciallyMarkedComponents).toHaveLength(1);
+      expect(
+        component
+          .find(Tile)
+          .at(1)
+          .props().markSpecially,
+      ).toBe(true);
+    });
+
+    it('should add markSpecially to a finished small board', () => {
+      // tslint:disable:no-empty
+      const clicked = jest.fn(() => {});
+
+      const boardPosition = { x: 0, y: 0 };
+      const smallTileInformation = [
+        getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 2, y: 0 }, TileValue.Empty),
+        getSmallTile(boardPosition, { x: 2, y: 1 }, TileValue.Cross),
+        getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
+      ];
+
+      const markSpecially: MarkSpecially = {
+        condition: true,
+        position: {
+          boardPosition: boardPosition,
+          tilePosition: { x: 0, y: 2 },
+        },
+      };
+      const component = shallow(
+        <SmallBoard
+          onTileClicked={clicked}
+          winningPlayer={TileValue.Cross}
+          tiles={smallTileInformation}
+          currentPlayer={Player.Cross}
+          isMoveAllowed={false}
+          x={boardPosition.x}
+          y={boardPosition.y}
+          markTileSpecially={markSpecially}
+        />,
+      );
+
+      const speciallyMarkedComponents = component.find({ markSpecially: true });
+      expect(speciallyMarkedComponents).toHaveLength(1);
+      expect(
+        component
+          .find(Tile)
+          .at(0)
+          .props().markSpecially,
+      ).toBe(true);
     });
   });
 });

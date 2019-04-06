@@ -171,5 +171,19 @@ describe('Tile', () => {
       expect(component.hasClass('normal')).toBe(true);
       expect(component.hasClass('indicator')).toBe(false);
     });
+
+    it('should have the special class if it should be marked specially', () => {
+      const component = shallow(
+        <Tile
+          markSpecially={true}
+          isClickable={true}
+          isTileRound={true}
+          value={TileValue.Empty}
+        />,
+      );
+      expect(component.hasClass('special')).toBe(true);
+      expect(component.hasClass('normal')).toBe(false);
+      expect(component.hasClass('indicator')).toBe(false);
+    });
   });
 });
