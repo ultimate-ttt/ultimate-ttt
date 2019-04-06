@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { configure, mount, shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { HistoryButtons } from './HistoryButtons';
 import { Button } from '@rmwc/button';
@@ -116,7 +116,7 @@ describe('HistoryButtons', function() {
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-      mount(
+      shallow(
         <HistoryButtons
           currentMove={5}
           lastMove={15}
@@ -137,7 +137,7 @@ describe('HistoryButtons', function() {
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-      mount(
+      shallow(
         <HistoryButtons
           currentMove={5}
           lastMove={15}
@@ -158,7 +158,7 @@ describe('HistoryButtons', function() {
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-      mount(
+      shallow(
         <HistoryButtons
           currentMove={1}
           lastMove={15}
@@ -179,7 +179,7 @@ describe('HistoryButtons', function() {
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
-      mount(
+      shallow(
         <HistoryButtons
           currentMove={15}
           lastMove={15}
