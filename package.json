@@ -1,7 +1,7 @@
 {
-  "name": "ultimate-tic-tac-react",
+  "name": "ultimate-ttt",
   "version": "0.1.0",
-  "homepage": "http://maracuja-juice.github.io/",
+  "homepage": "https://playtictactoe.xyz/",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
@@ -66,7 +66,7 @@
     "babel-loader": "^8.0.5",
     "coveralls": "^3.0.3",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-adapter-react-16": "1.11.2",
     "hoist-non-react-statics": "^3.3.0",
     "prettier": "^1.16.4",
     "redux-devtools-extension": "^2.13.8",
