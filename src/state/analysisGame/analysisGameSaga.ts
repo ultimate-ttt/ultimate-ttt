@@ -1,7 +1,7 @@
 import { AnalysisGame, GenericAction } from '../AppState';
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { LOAD_FINISHED_GAME, setAnalysisGame } from './analysisGameActions';
-import { getAnalysisGame } from '../selectors/AppStateSelectors';
+import { getAnalysisGame } from '../selectors/AnalysisGameStateSelectors';
 
 function* loadFinishedGame(action: GenericAction) {
   const finishedGame: AnalysisGame | undefined = yield select(
