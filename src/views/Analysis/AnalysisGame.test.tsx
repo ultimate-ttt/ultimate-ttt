@@ -7,7 +7,7 @@ import { Player } from '../../state/AppState';
 
 configure({ adapter: new ReactSixteenAdapter() });
 
-describe( 'AnalysisGame', () => {
+describe('AnalysisGame', () => {
   it('should match snapshot', () => {
     // tslint:disable:no-empty
     const onLoad = jest.fn((id) => {});

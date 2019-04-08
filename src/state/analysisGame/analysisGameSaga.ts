@@ -5,8 +5,8 @@ import { getAnalysisGame } from '../selectors/AppStateSelectors';
 
 function* loadFinishedGame(action: GenericAction) {
   const finishedGame: AnalysisGame | undefined = yield select(
-      getAnalysisGame,
-      action.payload,
+    getAnalysisGame,
+    action.payload,
   );
   // TODO if no results in selector: try over network
 

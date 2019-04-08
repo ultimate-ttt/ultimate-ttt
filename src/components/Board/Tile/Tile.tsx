@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './tile.css';
+import './Tile.css';
 import { TileValue } from '../../../state/AppState';
 import { XSymbol } from '../../Symbols/XSymbol';
 import { OSymbol } from '../../Symbols/OSymbol';

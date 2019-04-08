@@ -7,7 +7,7 @@ import {
 } from '../../../state/AppState';
 import { arePointsEqual } from '../../../util';
 import { Point } from '../../../util/Point';
-import './bigboard.css';
+import './BigBoard.css';
 
 interface BigBoardProps {
   currentPlayer: Player;

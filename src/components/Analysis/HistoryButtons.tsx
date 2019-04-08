@@ -49,7 +49,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
       lastMove,
       moveForwardInHistory,
       moveBackwardInHistory,
-      onInteraction
+      onInteraction,
     } = this.props;
 
     return (

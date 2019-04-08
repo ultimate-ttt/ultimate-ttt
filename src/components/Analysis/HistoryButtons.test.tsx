@@ -11,7 +11,7 @@ describe('HistoryButtons', function() {
     // tslint:disable:no-empty
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});
     const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-    const onInteraction = jest.fn((newMoveNumber ) => {});
+    const onInteraction = jest.fn((newMoveNumber) => {});
 
     const historyButtons = shallow(
       <HistoryButtons
@@ -31,7 +31,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       const historyButtons = shallow(
         <HistoryButtons
@@ -54,7 +54,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       const historyButtons = shallow(
         <HistoryButtons
@@ -79,7 +79,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       const historyButtons = shallow(
         <HistoryButtons
@@ -101,7 +101,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       const historyButtons = shallow(
         <HistoryButtons
@@ -125,7 +125,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       shallow(
         <HistoryButtons
@@ -148,7 +148,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       shallow(
         <HistoryButtons
@@ -171,7 +171,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       shallow(
         <HistoryButtons
@@ -194,7 +194,7 @@ describe('HistoryButtons', function() {
       // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-      const onInteraction = jest.fn((newMoveNumber ) => {});
+      const onInteraction = jest.fn((newMoveNumber) => {});
 
       shallow(
         <HistoryButtons

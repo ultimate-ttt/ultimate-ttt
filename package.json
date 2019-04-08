@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@storybook/addon-actions": "^5.0.5",
     "@storybook/addon-knobs": "^5.0.5",
     "@storybook/addon-links": "^5.0.5",
     "@storybook/addons": "^5.0.5",
@@ -59,7 +58,6 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-scroll": "^1.5.4",
     "@types/redux-logger": "^3.0.6",
-    "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__addon-knobs": "^4.0.4",
     "@types/storybook__addon-links": "^3.3.4",
     "@types/storybook__react": "^4.0.1",

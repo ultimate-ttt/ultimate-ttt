@@ -1,4 +1,4 @@
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { Player, TileValue } from '../../../state/AppState';
@@ -173,6 +173,66 @@ stories.add('Smallboard won no winner', () => {
       isMoveAllowed={false}
       x={2}
       y={2}
+    />
+  );
+});
+
+stories.add('SmallBoard with specially marked tile', () => {
+  const clicked = (x: number, y: number) => {
+    // tslint:disable-next-line: no-console
+    console.log('clicked: ' + x + y);
+  };
+
+  const boardPosition = { x: 0, y: 0 };
+  const boardFinished = boolean('boardFinished', false);
+  let smallTileInformation;
+  let winningPlayer = TileValue.Empty;
+  if (boardFinished) {
+    smallTileInformation = [
+      getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
+      getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Circle),
+      getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Circle),
+      getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Circle),
+      getSmallTile(boardPosition, { x: 2, y: 0 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 2, y: 1 }, TileValue.Cross),
+      getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
+    ];
+    winningPlayer = TileValue.Circle;
+  } else {
+    smallTileInformation = [
+      getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Cross),
+      getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Circle),
+      getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 2, y: 0 }, TileValue.Cross),
+      getSmallTile(boardPosition, { x: 2, y: 1 }, TileValue.Empty),
+      getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
+    ];
+  }
+
+  return (
+    <SmallBoard
+      onTileClicked={clicked}
+      winningPlayer={winningPlayer}
+      tiles={smallTileInformation}
+      currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
+      isMoveAllowed={boolean('isMoveAllowed', true)}
+      x={0}
+      y={0}
+      markTileSpecially={{
+        condition: true,
+        position: {
+          boardPosition: { x: 0, y: 0 },
+          tilePosition: {
+            x: number('tilePositionX', 0),
+            y: number('tilePositionY', 0),
+          },
+        },
+      }}
     />
   );
 });

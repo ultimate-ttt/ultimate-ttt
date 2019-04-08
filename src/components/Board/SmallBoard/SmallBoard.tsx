@@ -5,7 +5,7 @@ import {
   SmallTileInformation,
   TileValue,
 } from '../../../state/AppState';
-import './smallboard.css';
+import './SmallBoard.css';
 import { Tile } from '../Tile/Tile';
 import { arePointsEqual, Point } from '../../../util/Point';
 

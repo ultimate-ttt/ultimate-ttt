@@ -24,6 +24,7 @@ stories.add('Tile Customisable', () => (
         console.log('Tile Clicked');
       }}
       isClickable={boolean('isClickable', false)}
+      markSpecially={boolean('markSpecially', false)}
     />
   </div>
 ));
@@ -38,6 +39,21 @@ stories.add('Tile Clickable', () => (
         console.log('Tile Clicked');
       }}
       isClickable={true}
+    />
+  </div>
+));
+
+stories.add('Tile Marked Specially', () => (
+  <div className="small-board">
+    <Tile
+      value={TileValue.Empty}
+      isTileRound={boolean('isTileRound', false)}
+      onTileClicked={() => {
+        // tslint:disable-next-line: no-console
+        console.log('Tile Clicked');
+      }}
+      isClickable={boolean('isClickable', false)}
+      markSpecially={true}
     />
   </div>
 ));
