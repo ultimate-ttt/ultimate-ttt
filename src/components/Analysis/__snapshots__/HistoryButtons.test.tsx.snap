@@ -8,6 +8,7 @@ ShallowWrapper {
     lastMove={15}
     moveBackwardInHistory={[Function]}
     moveForwardInHistory={[Function]}
+    onInteraction={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
