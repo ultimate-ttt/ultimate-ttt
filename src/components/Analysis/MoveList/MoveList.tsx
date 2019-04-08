@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { List, SimpleListItem } from '@rmwc/list';
 import { CustomEventT } from '@rmwc/types';
-import { Move, Player } from '../../state/AppState';
+import { Move, Player } from '../../../state/AppState';
 import { ReactNode } from 'react';
 import { Element } from 'react-scroll';
-import { moveScrollElementBaseName } from './ScrollElementConstants';
+import { moveScrollElementBaseName } from '../ScrollElementConstants';
 
 interface MoveListProps {
   reversedMoves: Move[];

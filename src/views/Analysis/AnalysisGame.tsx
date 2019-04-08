@@ -15,8 +15,8 @@ import {
 } from '../../state/analysisGame/analysisGameActions';
 import './AnalysisGame.css';
 import { Point } from '../../util/Point';
-import { HistoryButtons } from '../../components/Analysis/HistoryButtons';
-import { MoveList } from '../../components/Analysis/MoveList';
+import { HistoryButtons } from '../../components/Analysis/HistoryButtons/HistoryButtons';
+import { MoveList } from '../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../components/Analysis/ScrollElementConstants';
 

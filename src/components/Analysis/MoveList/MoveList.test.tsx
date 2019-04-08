@@ -2,7 +2,7 @@ import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { MoveList } from './MoveList';
-import { Move, Player } from '../../state/AppState';
+import { Move, Player } from '../../../state/AppState';
 import { List } from '@rmwc/list';
 
 configure({ adapter: new ReactSixteenAdapter() });
