@@ -13,12 +13,14 @@ import {
   moveBackwardInHistory,
   moveForwardInHistory,
 } from '../../state/analysisGame/analysisGameActions';
-import './analysis.css';
+import './AnalysisGame.css';
 import { Point } from '../../util/Point';
 import { HistoryButtons } from '../../components/Analysis/HistoryButtons';
 import { MoveList } from '../../components/Analysis/MoveList';
+import { scroller } from 'react-scroll/modules';
+import { moveScrollElementBaseName } from '../../components/Analysis/ScrollElementConstants';
 
-interface AnalysisProps extends RouteComponentProps<{ id: string }> {
+interface AnalysisGameProps extends RouteComponentProps<{ id: string }> {
   onLoad: (id: string) => void;
   moveForwardInHistory: (numberOfMoves: number) => void;
   moveBackwardInHistory: (numberOfMoves: number) => void;
@@ -29,10 +31,19 @@ interface AnalysisProps extends RouteComponentProps<{ id: string }> {
   currentMove: number;
 }
 
-export class Analysis extends React.Component<AnalysisProps> {
+export class AnalysisGame extends React.Component<AnalysisGameProps> {
   componentDidMount = () => {
     const id = this.props.match.params.id;
     this.props.onLoad(id);
+  };
+
+  scrollToElement = (moveNumberToScrollTo: number) => {
+    scroller.scrollTo(moveScrollElementBaseName + moveNumberToScrollTo, {
+      duration: 300,
+      smooth: true,
+      containerId: 'moveList',
+      offset: -108,
+    });
   };
 
   render() {
@@ -70,6 +81,7 @@ export class Analysis extends React.Component<AnalysisProps> {
                 lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
                 moveForwardInHistory={this.props.moveForwardInHistory}
                 moveBackwardInHistory={this.props.moveBackwardInHistory}
+                onInteraction={this.scrollToElement}
               />
             )}
           </div>
@@ -119,4 +131,4 @@ const mapDispatchToProps = (dispatch: any) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Analysis);
+)( AnalysisGame);

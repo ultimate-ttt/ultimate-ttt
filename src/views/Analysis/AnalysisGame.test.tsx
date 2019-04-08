@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { Analysis } from './Analysis';
+import { AnalysisGame } from './AnalysisGame';
 import { circleFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
 import { Player } from '../../state/AppState';
 
 configure({ adapter: new ReactSixteenAdapter() });
 
-describe('Analysis', () => {
+describe( 'AnalysisGame', () => {
   it('should match snapshot', () => {
     // tslint:disable:no-empty
     const onLoad = jest.fn((id) => {});
@@ -24,7 +24,7 @@ describe('Analysis', () => {
     };
 
     const analysis = shallow(
-      <Analysis
+      <AnalysisGame
         onLoad={onLoad}
         moveForwardInHistory={moveForwardInHistory}
         moveBackwardInHistory={moveBackwardInHistory}
@@ -57,7 +57,7 @@ describe('Analysis', () => {
     };
 
     shallow(
-      <Analysis
+      <AnalysisGame
         onLoad={onLoad}
         moveForwardInHistory={moveForwardInHistory}
         moveBackwardInHistory={moveBackwardInHistory}

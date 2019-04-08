@@ -10,7 +10,7 @@ export const getWinningPlayer = (state: AppState) =>
 
 export const getMoves = (state: AppState) => state.currentGame.moves;
 
-export const getFinishedGame = (
+export const getAnalysisGame = (
   state: AppState,
   id: string,
 ): AnalysisGame | undefined => {

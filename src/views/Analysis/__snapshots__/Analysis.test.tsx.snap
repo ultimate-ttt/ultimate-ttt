@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Analysis should match snapshot 1`] = `
+exports[`AnalysisGame should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Analysis
+  Symbol(enzyme.__unrendered__): <AnalysisGame
     activeBoards={Array []}
     board={
         Array [
