@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Player, TileValue } from '../../../state/AppState';
 import { SmallBoard } from './SmallBoard';
 import { Point } from '../../../util/Point';
+import { action } from '@storybook/addon-actions';
 
 const stories = storiesOf('SmallBoard', module);
 stories.addDecorator(withKnobs);
@@ -19,10 +20,6 @@ function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {
 }
 
 stories.add('SmallBoard Empty', () => {
-  const clicked = (x: number, y: number) => {
-    // tslint:disable-next-line: no-console
-    console.log('clicked:' + x + y);
-  };
   const boardPosition = { x: 0, y: 0 };
   const smallTileInformation = [
     getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Empty),
@@ -38,7 +35,7 @@ stories.add('SmallBoard Empty', () => {
 
   return (
     <SmallBoard
-      onTileClicked={clicked}
+      onTileClicked={action('onTileClicked')}
       winningPlayer={TileValue.Empty}
       tiles={smallTileInformation}
       currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
@@ -50,11 +47,6 @@ stories.add('SmallBoard Empty', () => {
 });
 
 stories.add('SmallBoard With Values', () => {
-  const clicked = (x: number, y: number) => {
-    // tslint:disable-next-line: no-console
-    console.log('clicked: ' + x + y);
-  };
-
   const boardPosition = { x: 1, y: 1 };
   const smallTileInformation = [
     getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Empty),
@@ -70,7 +62,7 @@ stories.add('SmallBoard With Values', () => {
 
   return (
     <SmallBoard
-      onTileClicked={clicked}
+      onTileClicked={action('onTileClicked')}
       winningPlayer={TileValue.Empty}
       tiles={smallTileInformation}
       currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
@@ -81,12 +73,7 @@ stories.add('SmallBoard With Values', () => {
   );
 });
 
-stories.add('Smallboard won cross', () => {
-  const clicked = (x: number, y: number) => {
-    // tslint:disable-next-line: no-console
-    console.log('clicked:' + x + y);
-  };
-
+stories.add('SmallBoard won cross', () => {
   const boardPosition = { x: 2, y: 2 };
   const smallTileInformation = [
     getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
@@ -102,7 +89,7 @@ stories.add('Smallboard won cross', () => {
 
   return (
     <SmallBoard
-      onTileClicked={clicked}
+      onTileClicked={action('onTileClicked')}
       winningPlayer={TileValue.Cross}
       tiles={smallTileInformation}
       currentPlayer={Player.Cross}
@@ -113,12 +100,7 @@ stories.add('Smallboard won cross', () => {
   );
 });
 
-stories.add('Smallboard won circle', () => {
-  const clicked = (x: number, y: number) => {
-    // tslint:disable-next-line: no-console
-    console.log('clicked:' + x + y);
-  };
-
+stories.add('SmallBoard won circle', () => {
   const boardPosition = { x: 2, y: 2 };
   const smallTileInformation = [
     getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
@@ -134,7 +116,7 @@ stories.add('Smallboard won circle', () => {
 
   return (
     <SmallBoard
-      onTileClicked={clicked}
+      onTileClicked={action('onTileClicked')}
       winningPlayer={TileValue.Circle}
       tiles={smallTileInformation}
       currentPlayer={Player.Cross}
@@ -145,12 +127,7 @@ stories.add('Smallboard won circle', () => {
   );
 });
 
-stories.add('Smallboard won no winner', () => {
-  const clicked = (x: number, y: number) => {
-    // tslint:disable-next-line: no-console
-    console.log('clicked:' + x + y);
-  };
-
+stories.add('SmallBoard won no winner', () => {
   const boardPosition = { x: 2, y: 2 };
   const smallTileInformation = [
     getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
@@ -166,7 +143,7 @@ stories.add('Smallboard won no winner', () => {
 
   return (
     <SmallBoard
-      onTileClicked={clicked}
+      onTileClicked={action('onTileClicked')}
       winningPlayer={TileValue.Destroyed}
       tiles={smallTileInformation}
       currentPlayer={Player.Cross}
@@ -178,11 +155,6 @@ stories.add('Smallboard won no winner', () => {
 });
 
 stories.add('SmallBoard with specially marked tile', () => {
-  const clicked = (x: number, y: number) => {
-    // tslint:disable-next-line: no-console
-    console.log('clicked: ' + x + y);
-  };
-
   const boardPosition = { x: 0, y: 0 };
   const boardFinished = boolean('boardFinished', false);
   let smallTileInformation;
@@ -216,7 +188,7 @@ stories.add('SmallBoard with specially marked tile', () => {
 
   return (
     <SmallBoard
-      onTileClicked={clicked}
+      onTileClicked={action('onTileClicked')}
       winningPlayer={winningPlayer}
       tiles={smallTileInformation}
       currentPlayer={select('currentPlayer', boardValues, Player.Circle)}

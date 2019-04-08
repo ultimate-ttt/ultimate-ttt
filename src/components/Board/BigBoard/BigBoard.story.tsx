@@ -8,107 +8,52 @@ import {
   circleFinishedBoardMock,
   crossFinishedBoardMock,
 } from '../../../__mocks__/finishedBoardMock';
+import { action } from '@storybook/addon-actions';
 
 const stories = storiesOf('BigBoard', module);
 stories.addDecorator(withKnobs);
 
 const boardValues = { Circle: Player.Circle, Cross: Player.Cross };
 
-stories.add('BigBoard, not finished', () => {
-  const onPlayerMoved = (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => {
-    // tslint:disable-next-line: no-console
-    console.log(
-      `clicked board: ${boardX}/${boardY}. clicked tile: ${tileX}/${tileY}`,
-    );
-  };
+stories.add('BigBoard, not finished', () => (
+  <BigBoard
+    currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
+    board={unfinishedBoardMock}
+    activeBoards={object('activeBoards', [{ x: 0, y: 2 }])}
+    onPlayerMoved={action('onPlayerMoved')}
+  />
+));
 
-  return (
-    <BigBoard
-      currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
-      board={unfinishedBoardMock}
-      activeBoards={object('activeBoards', [{ x: 0, y: 2 }])}
-      onPlayerMoved={onPlayerMoved}
-    />
-  );
-});
+stories.add('BigBoard, finished circle', () => (
+  <BigBoard
+    currentPlayer={select('currentPlayer', boardValues, Player.Cross)}
+    board={circleFinishedBoardMock}
+    activeBoards={[]}
+    onPlayerMoved={action('onPlayerMoved')}
+  />
+));
 
-stories.add('BigBoard, finished circle', () => {
-  const onPlayerMoved = (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => {
-    // tslint:disable-next-line: no-console
-    console.log(
-      `clicked board: ${boardX}/${boardY}. clicked tile: ${tileX}/${tileY}`,
-    );
-  };
+stories.add('BigBoard, finished cross', () => (
+  <BigBoard
+    currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
+    board={crossFinishedBoardMock}
+    activeBoards={[]}
+    onPlayerMoved={action('onPlayerMoved')}
+  />
+));
 
-  return (
-    <BigBoard
-      currentPlayer={select('currentPlayer', boardValues, Player.Cross)}
-      board={circleFinishedBoardMock}
-      activeBoards={[]}
-      onPlayerMoved={onPlayerMoved}
-    />
-  );
-});
-
-stories.add('BigBoard, finished cross', () => {
-  const onPlayerMoved = (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => {
-    // tslint:disable-next-line: no-console
-    console.log(
-      `clicked board: ${boardX}/${boardY}. clicked tile: ${tileX}/${tileY}`,
-    );
-  };
-
-  return (
-    <BigBoard
-      currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
-      board={crossFinishedBoardMock}
-      activeBoards={[]}
-      onPlayerMoved={onPlayerMoved}
-    />
-  );
-});
-
-stories.add('BigBoard, markTileSpecially', () => {
-  const onPlayerMoved = (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => {
-    // tslint:disable-next-line: no-console
-    console.log(
-      `clicked board: ${boardX}/${boardY}. clicked tile: ${tileX}/${tileY}`,
-    );
-  };
-
-  return (
-    <BigBoard
-      currentPlayer={select('currentPlayer', boardValues, Player.Cross)}
-      board={circleFinishedBoardMock}
-      activeBoards={[]}
-      onPlayerMoved={onPlayerMoved}
-      markTileSpecially={object('markTileSpecially', {
-        condition: true,
-        position: {
-          boardPosition: { x: 2, y: 2 },
-          tilePosition: { x: 0, y: 0 },
-        },
-      })}
-    />
-  );
-});
+stories.add('BigBoard, markTileSpecially', () => (
+  <BigBoard
+    currentPlayer={select('currentPlayer', boardValues, Player.Cross)}
+    board={circleFinishedBoardMock}
+    activeBoards={[]}
+    onPlayerMoved={action('onPlayerMoved')}
+    markTileSpecially={object('markTileSpecially', {
+      condition: true,
+      position: {
+        boardPosition: { x: 2, y: 2 },
+        tilePosition: { x: 0, y: 0 },
+      },
+    })}
+  />
+));

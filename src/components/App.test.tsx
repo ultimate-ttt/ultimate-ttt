@@ -6,9 +6,9 @@ import { App } from './App';
 configure({ adapter: new ReactSixteenAdapter() });
 
 describe('App', () => {
-    it('should match snapshot', () => {
-       const app = shallow(<App />);
+  it('should match snapshot', () => {
+    const app = shallow(<App />);
 
-       expect(app).toMatchSnapshot();
-    });
+    expect(app).toMatchSnapshot();
+  });
 });

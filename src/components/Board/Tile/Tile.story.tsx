@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { Tile } from './Tile';
 import { TileValue } from '../../../state/AppState';
+import { action } from '@storybook/addon-actions';
 
 const stories = storiesOf('Tile', module);
 stories.addDecorator(withKnobs);
@@ -19,10 +20,7 @@ stories.add('Tile Customisable', () => (
     <Tile
       value={select('Value', tileValues, TileValue.Empty)}
       isTileRound={boolean('isTileRound', false)}
-      onTileClicked={() => {
-        // tslint:disable-next-line: no-console
-        console.log('Tile Clicked');
-      }}
+      onTileClicked={action('onTileClicked')}
       isClickable={boolean('isClickable', false)}
       markSpecially={boolean('markSpecially', false)}
     />
@@ -34,10 +32,7 @@ stories.add('Tile Clickable', () => (
     <Tile
       value={TileValue.Empty}
       isTileRound={boolean('isTileRound', false)}
-      onTileClicked={() => {
-        // tslint:disable-next-line: no-console
-        console.log('Tile Clicked');
-      }}
+      onTileClicked={action('onTileClicked')}
       isClickable={true}
     />
   </div>
@@ -48,10 +43,7 @@ stories.add('Tile Marked Specially', () => (
     <Tile
       value={TileValue.Empty}
       isTileRound={boolean('isTileRound', false)}
-      onTileClicked={() => {
-        // tslint:disable-next-line: no-console
-        console.log('Tile Clicked');
-      }}
+      onTileClicked={action('onTileClicked')}
       isClickable={boolean('isClickable', false)}
       markSpecially={true}
     />
@@ -63,10 +55,7 @@ stories.add('Tile Circle', () => (
     <Tile
       value={TileValue.Circle}
       isTileRound={boolean('isTileRound', false)}
-      onTileClicked={() => {
-        // tslint:disable-next-line: no-console
-        console.log('Tile Clicked');
-      }}
+      onTileClicked={action('onTileClicked')}
       isClickable={boolean('isClickable', false)}
     />
   </div>
@@ -77,10 +66,7 @@ stories.add('Tile Cross', () => (
     <Tile
       value={TileValue.Cross}
       isTileRound={boolean('isTileRound', false)}
-      onTileClicked={() => {
-        // tslint:disable-next-line: no-console
-        console.log('Tile Clicked');
-      }}
+      onTileClicked={action('onTileClicked')}
       isClickable={boolean('isClickable', false)}
     />
   </div>
@@ -91,10 +77,7 @@ stories.add('Tile Destroyed', () => (
     <Tile
       value={TileValue.Destroyed}
       isTileRound={boolean('isTileRound', false)}
-      onTileClicked={() => {
-        // tslint:disable-next-line: no-console
-        console.log('Tile Clicked');
-      }}
+      onTileClicked={action('onTileClicked')}
       isClickable={boolean('isClickable', false)}
     />
   </div>
