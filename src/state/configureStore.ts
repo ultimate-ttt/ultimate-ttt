@@ -15,7 +15,7 @@ import checkGameFinishedSaga from './currentGame/game/checkGameFinishedSaga';
 import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
 import finishedGameReducer from './finishedGames/finishedGameReducer';
 import { AppState, GameInformation } from './AppState';
-import { analysisGameReducer } from './analysisGame/analysisGameReducer';
+import analysisGameReducer from './analysisGame/analysisGameReducer';
 import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
 
 const currentGameReducer = combineReducers<GameInformation>({
