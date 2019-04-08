@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { Player } from '../../../state/AppState';
+import { MarkSpecially, Player } from '../../../state/AppState';
 import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
 import { BigBoard } from './BigBoard';
+import { circleFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
+import { SmallBoard } from '../SmallBoard/SmallBoard';
 
 configure({ adapter: new ReactSixteenAdapter() });
 
@@ -40,5 +42,60 @@ describe('BigBoard', function() {
     );
 
     expect(bigBoard).toMatchSnapshot();
+  });
+
+  describe('markSpecially', () => {
+    it('should pass undefined to smallBoards if markSpecially is not set', () => {
+      // tslint:disable:no-empty
+      const playerMoved = jest.fn(() => {});
+
+      const bigBoard = shallow(
+        <BigBoard
+          currentPlayer={Player.Cross}
+          board={circleFinishedBoardMock}
+          activeBoards={[]}
+          onPlayerMoved={playerMoved}
+          markTileSpecially={undefined}
+        />,
+      );
+
+      const smallBoards = bigBoard.find(SmallBoard);
+      smallBoards.forEach((board) => {
+        const props = board.props();
+        expect(props.markTileSpecially).toBeUndefined();
+      });
+    });
+
+    it('should pass the correct small board the markSpecially prop', () => {
+      // tslint:disable:no-empty
+      const playerMoved = jest.fn(() => {});
+      const markSpecially: MarkSpecially = {
+        condition: true,
+        position: {
+          boardPosition: { x: 2, y: 1 },
+          tilePosition: { x: 0, y: 0 },
+        },
+      };
+
+      const bigBoard = shallow(
+        <BigBoard
+          currentPlayer={Player.Cross}
+          board={circleFinishedBoardMock}
+          activeBoards={[]}
+          onPlayerMoved={playerMoved}
+          markTileSpecially={markSpecially}
+        />,
+      );
+
+      const smallBoards = bigBoard.find(SmallBoard);
+      smallBoards.forEach((board) => {
+        const props = board.props();
+        if (props.x === 2 && props.y === 1) {
+          expect(props.markTileSpecially).toEqual(markSpecially);
+        } else {
+          expect(props.markTileSpecially).toEqual({ condition: false });
+        }
+      });
+    });
   });
 });
