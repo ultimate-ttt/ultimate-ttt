@@ -37,17 +37,9 @@ export class MoveList extends React.Component<MoveListProps> {
             activated={currentMove === m.moveNumber}
             graphic={{ icon: this.playerAsString(m.player), size: 'small' }}
             text={'Move ' + m.moveNumber}
-            secondaryText={
-              'Board ' +
-              m.boardPosition.x +
-              '/' +
-              m.boardPosition.y +
-              ' - ' +
-              'Field ' +
-              m.tilePosition.x +
-              '/' +
-              m.tilePosition.y
-            }
+            secondaryText={`Board ${m.boardPosition.x}/${
+              m.boardPosition.y
+            } - Field ${m.tilePosition.x}/${m.tilePosition.y}`}
           />
         </Element>,
       );
