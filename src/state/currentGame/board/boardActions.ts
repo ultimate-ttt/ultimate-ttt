@@ -20,7 +20,7 @@ export const setTileValue = (
 
 export const setBoardValue = (boardPosition: Point, tileValue: TileValue) => ({
   type: SET_BOARD_VALUE,
-  payload: { boardPosition: boardPosition, tileValue },
+  payload: { boardPosition: boardPosition, tileValue: tileValue },
 });
 
 export const calculateBoardValue = (boardPosition: Point) => ({
