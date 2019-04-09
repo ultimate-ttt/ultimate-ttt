@@ -17,6 +17,6 @@ export class App extends React.Component {
           <Route path="/" component={Game} />
         </Switch>
       </Router>
-    ); /* TODO two different components for analytics? */
+    );
   }
 }
