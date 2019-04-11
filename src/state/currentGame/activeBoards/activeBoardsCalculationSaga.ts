@@ -4,15 +4,12 @@ import {
   CALCULATE_ALLOWED_BOARDS,
   setAllowedBoards,
 } from './activeBoardsActions';
-import { getBoards } from '../../selectors/AppStateSelectors';
-import { getNewActiveBoards } from '../../../util/ActiveBoards';
+import { getMoves } from '../../selectors/AppStateSelectors';
+import { TicTacToeGame } from '../../../util';
 
 function* calculateActiveBoards(action: GenericAction) {
-  const boards = yield select(getBoards);
-  const lastMove = action.payload;
-
-  const activeBoards = getNewActiveBoards(lastMove, boards);
-
+  const moves = yield select(getMoves);
+  const activeBoards = new TicTacToeGame(moves).getCurrentActiveBoards();
   yield put(setAllowedBoards(activeBoards));
 }
 

@@ -118,7 +118,6 @@ const mapStateToProps = (state: AppState) => ({
   currentPlayer: state.analysisGame.game.currentPlayer,
   currentMove: state.analysisGame.currentMove,
 });
-
 // tslint:disable-next-line: no-any
 const mapDispatchToProps = (dispatch: any) => ({
   onLoad: (id: string) => dispatch(loadFinishedGame(id)),

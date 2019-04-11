@@ -1,4 +1,5 @@
-import { getWinResult } from '../CheckBoard';
+// TODO: reuse & refactor these tests for the TicTacToeGame!
+/*import { getWinResult } from '../CheckBoard';
 import { TileValue, Winner } from '../../state/AppState';
 
 const getTile = (boardX: number, boardY: number, value: TileValue) => {
@@ -309,3 +310,4 @@ describe('getWinResult', () => {
     expect(result.winningPlayer).toEqual(Winner.Draw);
   });
 });
+*/

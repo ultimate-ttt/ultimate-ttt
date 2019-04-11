@@ -5,8 +5,7 @@ import {
   Player,
   SmallBoardInformation,
 } from '../../../state/AppState';
-import { arePointsEqual } from '../../../util';
-import { Point } from '../../../util/Point';
+import { arePointsEqual, Point } from '../../../util';
 import './BigBoard.css';
 
 interface BigBoardProps {

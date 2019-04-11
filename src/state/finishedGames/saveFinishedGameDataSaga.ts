@@ -6,7 +6,7 @@ import {
   saveGameDataPending,
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
-import { getApiUrl } from '../../util/ApiUrl';
+import { getApiUrl } from '../../util';
 
 function* saveFinishedGameData(action: SaveGameDataAction) {
   yield put(saveGameDataPending());

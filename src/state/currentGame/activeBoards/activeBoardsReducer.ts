@@ -1,4 +1,4 @@
-import { Point } from '../../../util/Point';
+import { Point } from '../../../util';
 import { GenericAction } from '../../AppState';
 import { SET_ALLOWED_BOARDS } from './activeBoardsActions';
 import { RESTART_GAME } from '../../commonAction';

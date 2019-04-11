@@ -1,6 +1,6 @@
 export interface Point {
-  x: number;
-  y: number;
+  readonly x: number;
+  readonly y: number;
 }
 
 export const arePointsEqual = (point1: Point, point2: Point) => {
