@@ -10,14 +10,9 @@ import {
 import { Point, arePointsEqual } from './Point';
 import { playerToTileValue } from './PlayerToTile';
 
-export interface WinResult {
-  isFinished: boolean;
-  winningPlayer: Winner;
-}
-
 export class TicTacToeGame {
-  private board: SmallBoardInformation[];
-  private moves: Move[];
+  private readonly board: SmallBoardInformation[];
+  private readonly moves: Move[];
   private currentPlayer: Player;
 
   constructor(moves: Move[]) {
