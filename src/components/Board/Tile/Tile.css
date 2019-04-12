@@ -1,0 +1,58 @@
+.tile {
+    color: #fff;
+
+    /* Align Content Vertically & Horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Firefox. Fixes issue in Firefox where text got automatically selected */
+    /* https://stackoverflow.com/questions/6900124/how-to-make-certain-text-not-selectable-with-css */
+    -moz-user-select: none
+}
+
+.tile.normal {
+    background-color: var(--incremental-blue);
+}
+
+.tile.indicator {
+    background-color: var(--tropical-teal);
+}
+
+.tile.special {
+    background-color: var(--vampire-bite);
+}
+
+.circle {
+    border-radius: 50%;
+    animation-name: square-to-circle;
+    animation-duration: 0.25s;
+}
+
+@keyframes square-to-circle {
+    0% {
+        border-radius: 0;
+    }
+    100% {
+        border-radius: 50%;
+    }
+}
+
+.square {
+    border-radius: 0;
+    animation-name: circle-to-square;
+    animation-duration: 0.25s;
+}
+
+@keyframes circle-to-square {
+    0% {
+        border-radius: 50%;
+    }
+    100% {
+        border-radius: 0;
+    }
+}
+
+.no-winner {
+    border-radius: 15px;
+}

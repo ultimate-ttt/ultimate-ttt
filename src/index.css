@@ -1,38 +1,36 @@
 :root {
     --tropical-teal: #008891;
     --incremental-blue: #0F3057;
+    --vampire-bite: #c70039;
     --mdc-theme-primary: var(--tropical-teal);
+    --mdc-theme-text-icon-on-background: black;
 }
 
 html, body {
-    max-width: 100vw;
-    max-height: 100vh;
-    margin: 0;
-    padding: 0;
-
-    overflow: hidden;
-
-    /* Got this from medium: https://medium.design/system-shock-6b1dc6d6596f */
+    /* From medium: https://medium.design/system-shock-6b1dc6d6596f */
     font-family: -apple-system, ".SFNSText-Regular",
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+
+    margin-bottom: 1em;
+    overflow-x: hidden;
+}
+
+html,body, .center, #root {
+    height: 100%;
+    width: 100%;
 }
 
 .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameWrapper {
+    display: grid;
+    overflow: hidden;
 }
 
 .text-center {
     text-align: center;
-}
-
-.flex-middle {
-    display: flex;
-    justify-content: center;
-}
-
-.vertical-middle {
-    vertical-align: middle;
 }

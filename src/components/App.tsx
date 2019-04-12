@@ -1,29 +1,22 @@
 import * as React from 'react';
-import BigBoard from './Board/BigBoard/BigBoard';
-import GithubCorner from 'react-github-corner';
-import GameFinishedDisplay from './GameFinishedDisplay/GameFinishedDisplay';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Game from '../views/Game/Game';
+import AnalysisGame from '../views/Analysis/AnalysisGame';
+
 // import individual material component styles here.
 import '@material/button/dist/mdc.button.min.css';
+import '@material/list/dist/mdc.list.css';
+import '@rmwc/icon/icon.css';
 
 export class App extends React.Component {
-
-    lightBlue = window.getComputedStyle(document.body).getPropertyValue('--tropical-teal').trim();
-
-    render() {
-        return (
-            <>
-                <GithubCorner
-                    href="https://github.com/ultimate-ttt/ultimate-ttt"
-                    bannerColor={this.lightBlue}
-                    octoColor="#fff"
-                    size={80}
-                    direction="right"
-                />
-                <div className="center">
-                    <GameFinishedDisplay />
-                    <BigBoard/>
-                </div>
-            </>
-        );
-    }
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/analysis/:id" exact={true} component={AnalysisGame} />
+          <Route path="/" component={Game} />
+        </Switch>
+      </Router>
+    );
+  }
 }

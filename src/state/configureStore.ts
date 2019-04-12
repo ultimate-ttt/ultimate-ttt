@@ -1,68 +1,67 @@
-import { AppState } from './AppState';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-import boardReducer from './board/boardReducer';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import boardReducer from './currentGame/board/boardReducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import gameReducer from './game/gameReducer';
-import moveReducer from './moves/moveReducer';
-import activeBoardsReducer from './activeBoards/activeBoardsReducer';
+import gameReducer from './currentGame/game/gameReducer';
+import moveReducer from './currentGame/moves/moveReducer';
+import activeBoardsReducer from './currentGame/activeBoards/activeBoardsReducer';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import playerMovedSaga from './moves/moveValidationSaga';
-import boardCalculationSaga from './board/boardCalculationSaga';
-import activeBoardsCalculationSaga from './activeBoards/activeBoardsCalculationSaga';
-import checkGameFinishedSaga from './game/checkGameFinishedSaga';
+import playerMovedSaga from './currentGame/moves/moveValidationSaga';
+import boardCalculationSaga from './currentGame/board/boardCalculationSaga';
+import activeBoardsCalculationSaga from './currentGame/activeBoards/activeBoardsCalculationSaga';
+import checkGameFinishedSaga from './currentGame/game/checkGameFinishedSaga';
 import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
 import finishedGameReducer from './finishedGames/finishedGameReducer';
+import { AppState, GameInformation } from './AppState';
+import analysisGameReducer from './analysisGame/analysisGameReducer';
+import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
 
-const rootreducer = combineReducers<AppState>(
-    {
-        game: gameReducer,
-        board: boardReducer,
-        moves: moveReducer,
-        activeBoards: activeBoardsReducer,
-        finishedGames: finishedGameReducer
-    } );
+const currentGameReducer = combineReducers<GameInformation>({
+  game: gameReducer,
+  board: boardReducer,
+  moves: moveReducer,
+  activeBoards: activeBoardsReducer,
+});
+const rootreducer = combineReducers<AppState>({
+  currentGame: currentGameReducer,
+  finishedGames: finishedGameReducer,
+  analysisGame: analysisGameReducer,
+});
 
 export function configureStore() {
+  const sagaMiddleware = createSagaMiddleware();
 
-    const sagaMiddleware = createSagaMiddleware();
+  const middleWaresToApply = [sagaMiddleware];
 
-    const middleWaresToApply = [
-        sagaMiddleware
-    ];
+  if (process.env.NODE_ENV === `development`) {
+    const { logger } = require(`redux-logger`);
+    middleWaresToApply.push(logger);
+  }
+  const middleware = applyMiddleware(...middleWaresToApply);
 
-    if (process.env.NODE_ENV === `development`) {
-        const {logger} = require( `redux-logger` );
-        middleWaresToApply.push( logger );
-    }
-    const middleware = applyMiddleware( ...middleWaresToApply );
+  const persistConfig = {
+    key: 'finishedGames',
+    whitelist: ['finishedGames'],
+    storage,
+  };
 
-    const persistConfig = {
-        key: 'finishedGames',
-        whitelist: ['finishedGames'],
-        storage
-    };
+  const persistedReducer = persistReducer(persistConfig, rootreducer);
+  const store = createStore(persistedReducer, composeWithDevTools(middleware));
 
-    const persistedReducer = persistReducer( persistConfig, rootreducer );
-    const store = createStore( (persistedReducer), composeWithDevTools(
-        middleware
-    ) );
+  sagaMiddleware.run(rootSaga);
 
-    sagaMiddleware.run( rootSaga );
-
-    return store;
+  return store;
 }
 
 function* rootSaga() {
-    yield all(
-        [
-            fork( playerMovedSaga ),
-            fork( boardCalculationSaga ),
-            fork( activeBoardsCalculationSaga ),
-            fork( checkGameFinishedSaga ),
-            fork( saveFinishedGameDataSaga )
-        ]
-    );
+  yield all([
+    fork(playerMovedSaga),
+    fork(boardCalculationSaga),
+    fork(activeBoardsCalculationSaga),
+    fork(checkGameFinishedSaga),
+    fork(saveFinishedGameDataSaga),
+    fork(loadFinishedGameSaga),
+  ]);
 }

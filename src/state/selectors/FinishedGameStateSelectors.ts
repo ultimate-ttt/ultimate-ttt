@@ -1,25 +1,36 @@
 import { createSelector } from 'reselect';
 import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
+import { Winner } from '../AppState';
 
-export const getWinningPlayerAsString = createSelector( [getWinningPlayer], (winningPlayer => {
-    if (winningPlayer === 0) {
-        return 'X';
-    } else if (winningPlayer === 1) {
+export const getWinningPlayerAsString = createSelector(
+  [getWinningPlayer],
+  (winningPlayer: Winner) => {
+    switch (winningPlayer) {
+      case Winner.Circle:
         return 'O';
-    } else if (winningPlayer === null) {
+      case Winner.Cross:
+        return 'X';
+      case Winner.Draw:
         return null;
-    } else {
+      case Winner.None:
         return undefined;
     }
-}) );
+  },
+);
+
+export const getDate = createSelector(
+  [],
+  () => new Date(),
+);
 
 export const getFinishedGameData = createSelector(
-    [getWinningPlayerAsString, getBoards, getMoves],
-    ( winningPlayer, boards, moves ) => {
-        return {
-            winner: winningPlayer,
-            gameState: boards,
-            moves,
-            date: new Date()
-        };
-    } );
+  [getWinningPlayerAsString, getBoards, getMoves, getDate],
+  (winningPlayer, boards, moves, date) => {
+    return {
+      winner: winningPlayer,
+      gameState: boards,
+      moves,
+      date: date,
+    };
+  },
+);

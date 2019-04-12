@@ -1,13 +1,16 @@
-import { Player, TileValue } from '../state/AppState';
+import { TileValue, Winner, Player } from '../state/AppState';
 
-export const playerToTileValue = ( player: Player | null, isForFullSmallBoard: boolean = false ) => {
-    if (player === Player.Cross) {
-        return TileValue.Cross;
-    } else if (player === Player.Circle) {
-        return TileValue.Circle;
-    } else if (isForFullSmallBoard && player === null) {
-        return TileValue.Destroyed;
-    } else {
-        return TileValue.Empty;
-    }
+export const playerToTileValue = (
+  player: Winner | Player,
+  isForFullSmallBoard: boolean = false,
+) => {
+  if (player === Winner.Cross) {
+    return TileValue.Cross;
+  } else if (player === Winner.Circle) {
+    return TileValue.Circle;
+  } else if (isForFullSmallBoard && player === Winner.Draw) {
+    return TileValue.Destroyed;
+  } else {
+    return TileValue.Empty;
+  }
 };
