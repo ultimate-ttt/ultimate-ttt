@@ -1001,7 +1001,7 @@ ShallowWrapper {
       "children": <div
         className="gameWrapper"
 >
-        <Connect(GameFinishedDisplay) />
+        <Unknown />
         <BigBoard
                 activeBoards={Array []}
                 board={
@@ -1993,7 +1993,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Connect(GameFinishedDisplay) />,
+          <Unknown />,
           <BigBoard
             activeBoards={Array []}
             board={
@@ -2983,11 +2983,19 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(GameFinishedDisplay)",
+            "getWinnerText": [Function],
+            "type": [Function],
+            Symbol(Symbol.hasInstance): [Function],
+          },
         },
         Object {
           "instance": null,
@@ -3990,7 +3998,7 @@ ShallowWrapper {
         "children": <div
           className="gameWrapper"
 >
-          <Connect(GameFinishedDisplay) />
+          <Unknown />
           <BigBoard
                     activeBoards={Array []}
                     board={
@@ -4982,7 +4990,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Connect(GameFinishedDisplay) />,
+            <Unknown />,
             <BigBoard
               activeBoards={Array []}
               board={
@@ -5972,11 +5980,19 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": [Function],
+            "type": Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(GameFinishedDisplay)",
+              "getWinnerText": [Function],
+              "type": [Function],
+              Symbol(Symbol.hasInstance): [Function],
+            },
           },
           Object {
             "instance": null,
