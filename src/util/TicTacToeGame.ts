@@ -12,7 +12,6 @@ import { playerToTileValue } from './PlayerToTile';
 
 export class TicTacToeGame {
   private readonly board: SmallBoardInformation[];
-  // TODO: should we make a new type in the state that derives from move? Not sure if typescript would accept it
   private readonly moves: Move[];
   private currentPlayer: Player;
 

@@ -9,7 +9,7 @@ export interface AppState {
 export interface GameInformation {
   board: SmallBoardInformation[];
   game: GameState;
-  moves: Move[];
+  moves: MoveState[];
   activeBoards: Point[];
 }
 
@@ -18,7 +18,7 @@ export interface FinishedGameState {
   date: Date;
   winner: Winner;
   gameState: SmallBoardInformation[];
-  moves: Move[];
+  moves: MoveState[];
   saveState: string;
   errorMessage: string;
 }
@@ -27,7 +27,7 @@ export interface AnalysisGame {
   id: string;
   board: SmallBoardInformation[];
   game: GameState;
-  moves: Move[];
+  moves: MoveState[];
   activeBoards: Point[];
   currentMove: number;
 }
@@ -73,6 +73,9 @@ export enum Player {
 export interface Move {
   boardPosition: Point;
   tilePosition: Point;
+}
+
+export interface MoveState extends Move {
   player: Player;
   moveNumber: number;
 }
