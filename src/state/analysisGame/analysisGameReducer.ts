@@ -42,7 +42,7 @@ const analysisGameReducer = (state = initialState, action: GenericAction) => {
 
     const newState = produce(state, (draftState) => {
       draftState.currentMove = lastMoveToApply;
-      const relevantMoves = state.moves.slice(0, lastMoveToApply + 1);
+      const relevantMoves = state.moves.slice(0, lastMoveToApply);
 
       const game = new TicTacToeGame(relevantMoves);
       draftState.board = game.getBoard();

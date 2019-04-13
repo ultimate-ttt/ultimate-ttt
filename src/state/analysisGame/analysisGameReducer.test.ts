@@ -12,7 +12,7 @@ import {
   boardWithTwoMovesMock,
   activeBoardsForBoardWithThreeMovesMock,
   boardWithThreeMovesMock,
-  movesForBoardWithThreeMovesMock,
+  movesForBoardWithThreeMovesMock, movesForCrossFinishedBoardMock,
 } from '../../__mocks__';
 import { Player, Winner } from '../AppState';
 
@@ -89,7 +89,8 @@ describe('analysisGameReducer', () => {
     });
 
     it('sets no active board when last move is applied', () => {
-      const action = moveForwardInHistory(3);
+      analysisGame.moves = movesForCrossFinishedBoardMock;
+      const action = moveForwardInHistory(analysisGame.moves.length - 1);
       const newState = analysisGameReducer(analysisGame, action);
 
       expect(newState.activeBoards).toEqual([]);
