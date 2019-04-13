@@ -1,3 +1,20 @@
+import { TicTacToeGame } from '../TicTacToeGame';
+import { TileValue } from '../../state/AppState';
+
+describe('TicTacToeGame', () => {
+  describe('constructor', () => {
+    it('should apply an empty board given no moves', () => {
+      const game = new TicTacToeGame([]);
+      game.getBoard().forEach((board) => {
+        expect(board.value).toEqual(TileValue.Empty);
+        board.tiles.forEach((tile) => {
+          expect(tile.value).toEqual(TileValue.Empty);
+        });
+      });
+    });
+  });
+});
+
 // TODO: reuse & refactor these tests for the TicTacToeGame!
 /*import { getWinResult } from '../CheckBoard';
 import { TileValue, Winner } from '../../state/AppState';

@@ -12,7 +12,8 @@ import {
   boardWithTwoMovesMock,
   activeBoardsForBoardWithThreeMovesMock,
   boardWithThreeMovesMock,
-  movesForBoardWithThreeMovesMock, movesForCrossFinishedBoardMock,
+  movesForBoardWithThreeMovesMock,
+  movesForCrossFinishedBoardMock,
 } from '../../__mocks__';
 import { Player, Winner } from '../AppState';
 
