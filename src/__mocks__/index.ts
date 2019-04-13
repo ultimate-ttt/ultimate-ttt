@@ -9,6 +9,8 @@ import {
 import {
   circleFinishedBoardMock,
   crossFinishedBoardMock,
+  movesForCircleFinishedBoardMock,
+  movesForCrossFinishedBoardMock,
 } from './finishedBoardMock';
 import {
   activeBoardsForBoardWithTwoMovesMock,
@@ -30,7 +32,9 @@ export {
   crossFinishedGameMock,
   circleFinishedGameMock,
   circleFinishedBoardMock,
+  movesForCircleFinishedBoardMock,
   crossFinishedBoardMock,
+  movesForCrossFinishedBoardMock,
   boardWithTwoMovesMock,
   activeBoardsForBoardWithTwoMovesMock,
   boardWithThreeMovesMock,
