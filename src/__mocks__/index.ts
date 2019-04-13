@@ -11,6 +11,8 @@ import {
   crossFinishedBoardMock,
   movesForCircleFinishedBoardMock,
   movesForCrossFinishedBoardMock,
+  movesForDrawFinishedBoardMock,
+  drawFinishedBoardMock,
 } from './finishedBoardMock';
 import {
   activeBoardsForBoardWithTwoMovesMock,
@@ -35,11 +37,13 @@ export {
   movesForCircleFinishedBoardMock,
   crossFinishedBoardMock,
   movesForCrossFinishedBoardMock,
+  drawFinishedBoardMock,
+  movesForDrawFinishedBoardMock,
+  boardWithOneMoveMock,
+  activeBoardsForBoardWithOneMoveMock,
   boardWithTwoMovesMock,
   activeBoardsForBoardWithTwoMovesMock,
   boardWithThreeMovesMock,
   movesForBoardWithThreeMovesMock,
   activeBoardsForBoardWithThreeMovesMock,
-  boardWithOneMoveMock,
-  activeBoardsForBoardWithOneMoveMock,
 };

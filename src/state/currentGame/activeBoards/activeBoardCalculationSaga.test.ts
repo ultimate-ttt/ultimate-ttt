@@ -7,6 +7,7 @@ import {
 } from './activeBoardsActions';
 import activeBoardsCalculationSaga from './activeBoardsCalculationSaga';
 import {
+  activeBoardsForBoardWithThreeMovesMock,
   movesForBoardWithThreeMovesMock,
   movesForCircleFinishedBoardMock,
   movesForUnfinishedBoardMock,
@@ -18,12 +19,7 @@ describe('activeBoardCalculationSaga', () => {
       .provide([[select(getMoves), movesForBoardWithThreeMovesMock]])
       .put({
         type: SET_ACTIVE_BOARDS,
-        payload: [
-          {
-            x: 2,
-            y: 1,
-          },
-        ],
+        payload: activeBoardsForBoardWithThreeMovesMock,
       })
       .dispatch({ type: CALCULATE_ACTIVE_BOARDS })
       .silentRun();
@@ -63,7 +59,10 @@ describe('activeBoardCalculationSaga', () => {
   it('should match snapshot', () => {
     return expectSaga(activeBoardsCalculationSaga)
       .provide([[select(getMoves), movesForBoardWithThreeMovesMock]])
-      .put({ type: SET_ACTIVE_BOARDS, payload: [{ x: 2, y: 1 }] })
+      .put({
+        type: SET_ACTIVE_BOARDS,
+        payload: activeBoardsForBoardWithThreeMovesMock,
+      })
       .dispatch({ type: CALCULATE_ACTIVE_BOARDS })
       .silentRun()
       .then((result) => {

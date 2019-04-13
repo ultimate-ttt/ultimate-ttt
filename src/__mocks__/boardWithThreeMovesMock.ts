@@ -1010,18 +1010,6 @@ export const movesForBoardWithThreeMovesMock = [
     player: 0,
     moveNumber: 3,
   },
-  {
-    boardPosition: {
-      x: 1,
-      y: 1,
-    },
-    tilePosition: {
-      x: 2,
-      y: 1,
-    },
-    player: 1,
-    moveNumber: 4,
-  },
 ];
 
 export const activeBoardsForBoardWithThreeMovesMock = [
