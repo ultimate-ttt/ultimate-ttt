@@ -86,7 +86,7 @@ But let's say that we are already later in the game and the equivalent board is 
 ```
 
 ## Supported browsers
-All browser versions that support CSS Grid layout are supported. See [here](https://caniuse.com/#feat=css-grid) for an exact overview of which browser versions that are. If you detect an issue with a behaviour in a particular browser version: [let me know](https://github.com/maracuja-juice/ultimate-tic-tac-react/issues/new)!
+All browser versions that support CSS Grid layout are supported. For an exact overview of which browser versions that are [click here](https://caniuse.com/#feat=css-grid). If you detect an issue with a behaviour in a particular browser version: [let us know](https://github.com/ultimate-ttt/ultimate-ttt/issues/new?template=bug_report.md)!
 
 ## Run locally
 It's easy to run a local instance of this game - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
@@ -94,6 +94,7 @@ It's easy to run a local instance of this game - just clone the repository, run 
 - `yarn test` for tests
 - `yarn start` to run
 - `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
+- `yarn prettier` to format the code with [Prettier](https://github.com/prettier/prettier)
 
 ## Contribute
 
