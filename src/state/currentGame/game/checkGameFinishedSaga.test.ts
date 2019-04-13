@@ -8,14 +8,12 @@ import { SET_ALLOWED_BOARDS } from '../activeBoards/activeBoardsActions';
 import {
   circleFinishedBoardMock,
   crossFinishedBoardMock,
-} from '../../../__mocks__/finishedBoardMock';
-import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
-import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
-import {
+  unfinishedBoardMock,
   circleFinishedGameMock,
   crossFinishedGameMock,
-} from '../../../__mocks__/finishedGameDataMock';
+} from '../../../__mocks__';
+import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
+import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
 
 describe('checkGameFinishedSaga', () => {
   it(

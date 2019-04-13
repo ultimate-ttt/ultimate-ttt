@@ -3,7 +3,7 @@ import { select } from 'redux-saga/effects';
 import { Player, Winner } from '../AppState';
 import loadFinishedGameSaga from './analysisGameSaga';
 import { getAnalysisGame } from '../selectors/AnalysisGameStateSelectors';
-import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { crossFinishedBoardMock } from '../../__mocks__';
 import { LOAD_FINISHED_GAME, SET_ANALYSIS_GAME } from './analysisGameActions';
 
 describe('loadFinishedGameSaga', () => {

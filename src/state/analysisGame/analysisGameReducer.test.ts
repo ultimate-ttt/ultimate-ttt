@@ -4,21 +4,17 @@ import {
   moveForwardInHistory,
   setAnalysisGame,
 } from './analysisGameActions';
-import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
-import { Player, Winner } from '../AppState';
 import {
+  crossFinishedBoardMock,
   activeBoardsForBoardWithOneMoveMock,
   boardWithOneMoveMock,
-} from '../../__mocks__/boardWithOneMoveMock';
-import {
   activeBoardsForBoardWithTwoMovesMock,
   boardWithTwoMovesMock,
-} from '../../__mocks__/boardWithTwoMovesMock';
-import {
   activeBoardsForBoardWithThreeMovesMock,
   boardWithThreeMovesMock,
   movesForBoardWithThreeMovesMock,
-} from '../../__mocks__/boardWithThreeMovesMock';
+} from '../../__mocks__';
+import { Player, Winner } from '../AppState';
 
 describe('analysisGameReducer', () => {
   it('should return an initial state', () => {

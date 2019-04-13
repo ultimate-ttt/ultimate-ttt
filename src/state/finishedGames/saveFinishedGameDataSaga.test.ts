@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import saveFinishedGameDataSaga from './saveFinishedGameDataSaga';
-import { circleFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { circleFinishedBoardMock } from '../../__mocks__';
 import { Player } from '../AppState';
 import {
   SAVE_GAME_DATA,

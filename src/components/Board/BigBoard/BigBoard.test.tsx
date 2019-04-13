@@ -2,9 +2,11 @@ import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { MarkSpecially, Player } from '../../../state/AppState';
-import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
 import { BigBoard } from './BigBoard';
-import { circleFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
+import {
+  circleFinishedBoardMock,
+  unfinishedBoardMock,
+} from '../../../__mocks__';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
 
 configure({ adapter: new ReactSixteenAdapter() });

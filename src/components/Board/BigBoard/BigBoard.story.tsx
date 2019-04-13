@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { BigBoard } from './BigBoard';
 import { Player } from '../../../state/AppState';
-import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
 import {
   circleFinishedBoardMock,
   crossFinishedBoardMock,
-} from '../../../__mocks__/finishedBoardMock';
+  unfinishedBoardMock,
+} from '../../../__mocks__';
 import { action } from '@storybook/addon-actions';
 
 const stories = storiesOf('BigBoard', module);

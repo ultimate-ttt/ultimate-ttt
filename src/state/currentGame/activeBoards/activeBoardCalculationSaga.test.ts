@@ -6,8 +6,10 @@ import {
   SET_ALLOWED_BOARDS,
 } from './activeBoardsActions';
 import activeBoardsCalculationSaga from './activeBoardsCalculationSaga';
-import unfinishedBoardMock from '../../../__mocks__/unfinishedBoardMock';
-import { circleFinishedBoardMock } from '../../../__mocks__/finishedBoardMock';
+import {
+  unfinishedBoardMock,
+  circleFinishedBoardMock,
+} from '../../../__mocks__';
 
 describe('activeBoardCalculationSaga', () => {
   it('should dispatch setAllowedBoard Action, normal case', () => {

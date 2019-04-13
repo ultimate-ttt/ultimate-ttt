@@ -2,7 +2,7 @@ import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { AnalysisGame } from './AnalysisGame';
-import { circleFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { circleFinishedBoardMock } from '../../__mocks__';
 import { Player } from '../../state/AppState';
 
 configure({ adapter: new ReactSixteenAdapter() });
