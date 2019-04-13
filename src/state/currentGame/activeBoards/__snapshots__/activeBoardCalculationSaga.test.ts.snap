@@ -7,7 +7,7 @@ Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
-          "activeBoardsReducer/calculate-allowed-boards",
+          "activeBoardsReducer/calculate-active-boards",
           "@@redux-saga-test-plan/json/function/calculateActiveBoards",
         ],
         "context": null,
@@ -19,11 +19,7 @@ Object {
       "FORK": Object {
         "args": Array [
           Object {
-            "payload": Object {
-              "x": 2,
-              "y": 0,
-            },
-            "type": "activeBoardsReducer/calculate-allowed-boards",
+            "type": "activeBoardsReducer/calculate-active-boards",
           },
         ],
         "context": null,
@@ -44,13 +40,13 @@ Object {
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "activeBoardsReducer/calculate-allowed-boards",
+        "pattern": "activeBoardsReducer/calculate-active-boards",
       },
     },
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "activeBoardsReducer/calculate-allowed-boards",
+        "pattern": "activeBoardsReducer/calculate-active-boards",
       },
     },
   ],

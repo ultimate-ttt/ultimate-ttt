@@ -2,7 +2,7 @@ import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from './gameAction';
 import { getMoves } from '../../selectors/AppStateSelectors';
-import { setAllowedBoards } from '../activeBoards/activeBoardsActions';
+import { setActiveBoards } from '../activeBoards/activeBoardsActions';
 import { saveGameData } from '../../finishedGames/saveFinishedGameDataActions';
 import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
 import { TicTacToeGame } from '../../../util';
@@ -16,7 +16,7 @@ function* checkIfGameFinished(action: GenericAction) {
 
   if (isGameFinished) {
     yield put(gameFinished(winningPlayer));
-    yield put(setAllowedBoards([]));
+    yield put(setActiveBoards([]));
     yield put(saveGameData(yield select(getFinishedGameData)));
   }
 }

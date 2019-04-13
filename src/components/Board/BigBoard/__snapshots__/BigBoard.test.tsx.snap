@@ -267,7 +267,7 @@ ShallowWrapper {
                     "x": 0,
                     "y": 2,
                   },
-                  "value": 2,
+                  "value": 1,
                 },
                 Object {
                   "boardPosition": Object {
@@ -322,7 +322,7 @@ ShallowWrapper {
                     "x": 2,
                     "y": 1,
                   },
-                  "value": 0,
+                  "value": 2,
                 },
                 Object {
                   "boardPosition": Object {
@@ -353,7 +353,7 @@ ShallowWrapper {
                     "x": 0,
                     "y": 0,
                   },
-                  "value": 2,
+                  "value": 0,
                 },
                 Object {
                   "boardPosition": Object {
@@ -375,7 +375,7 @@ ShallowWrapper {
                     "x": 0,
                     "y": 2,
                   },
-                  "value": 1,
+                  "value": 2,
                 },
                 Object {
                   "boardPosition": Object {
@@ -397,7 +397,7 @@ ShallowWrapper {
                     "x": 1,
                     "y": 1,
                   },
-                  "value": 2,
+                  "value": 1,
                 },
                 Object {
                   "boardPosition": Object {
@@ -408,7 +408,7 @@ ShallowWrapper {
                     "x": 1,
                     "y": 2,
                   },
-                  "value": 2,
+                  "value": 0,
                 },
                 Object {
                   "boardPosition": Object {
@@ -483,7 +483,7 @@ ShallowWrapper {
                     "x": 0,
                     "y": 2,
                   },
-                  "value": 1,
+                  "value": 0,
                 },
                 Object {
                   "boardPosition": Object {
@@ -494,7 +494,7 @@ ShallowWrapper {
                     "x": 1,
                     "y": 0,
                   },
-                  "value": 2,
+                  "value": 1,
                 },
                 Object {
                   "boardPosition": Object {
@@ -527,7 +527,7 @@ ShallowWrapper {
                     "x": 2,
                     "y": 0,
                   },
-                  "value": 2,
+                  "value": 1,
                 },
                 Object {
                   "boardPosition": Object {
@@ -613,7 +613,7 @@ ShallowWrapper {
                     "x": 1,
                     "y": 1,
                   },
-                  "value": 2,
+                  "value": 1,
                 },
                 Object {
                   "boardPosition": Object {
@@ -754,7 +754,7 @@ ShallowWrapper {
                     "x": 2,
                     "y": 1,
                   },
-                  "value": 2,
+                  "value": 0,
                 },
                 Object {
                   "boardPosition": Object {
@@ -970,7 +970,7 @@ ShallowWrapper {
                     "x": 2,
                     "y": 1,
                   },
-                  "value": 2,
+                  "value": 0,
                 },
                 Object {
                   "boardPosition": Object {
@@ -1268,7 +1268,7 @@ ShallowWrapper {
                                   "x": 0,
                                   "y": 2,
                                 },
-                                "value": 2,
+                                "value": 1,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1323,7 +1323,7 @@ ShallowWrapper {
                                   "x": 2,
                                   "y": 1,
                                 },
-                                "value": 0,
+                                "value": 2,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1358,7 +1358,7 @@ ShallowWrapper {
                                   "x": 0,
                                   "y": 0,
                                 },
-                                "value": 2,
+                                "value": 0,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1380,7 +1380,7 @@ ShallowWrapper {
                                   "x": 0,
                                   "y": 2,
                                 },
-                                "value": 1,
+                                "value": 2,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1402,7 +1402,7 @@ ShallowWrapper {
                                   "x": 1,
                                   "y": 1,
                                 },
-                                "value": 2,
+                                "value": 1,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1413,7 +1413,7 @@ ShallowWrapper {
                                   "x": 1,
                                   "y": 2,
                                 },
-                                "value": 2,
+                                "value": 0,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1492,7 +1492,7 @@ ShallowWrapper {
                                   "x": 0,
                                   "y": 2,
                                 },
-                                "value": 1,
+                                "value": 0,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1503,7 +1503,7 @@ ShallowWrapper {
                                   "x": 1,
                                   "y": 0,
                                 },
-                                "value": 2,
+                                "value": 1,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1536,7 +1536,7 @@ ShallowWrapper {
                                   "x": 2,
                                   "y": 0,
                                 },
-                                "value": 2,
+                                "value": 1,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1626,7 +1626,7 @@ ShallowWrapper {
                                   "x": 1,
                                   "y": 1,
                                 },
-                                "value": 2,
+                                "value": 1,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1771,7 +1771,7 @@ ShallowWrapper {
                                   "x": 2,
                                   "y": 1,
                                 },
-                                "value": 2,
+                                "value": 0,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -1995,7 +1995,7 @@ ShallowWrapper {
                                   "x": 2,
                                   "y": 1,
                                 },
-                                "value": 2,
+                                "value": 0,
                               },
                               Object {
                                 "boardPosition": Object {
@@ -2296,7 +2296,7 @@ ShallowWrapper {
                 "x": 0,
                 "y": 2,
               },
-              "value": 2,
+              "value": 1,
             },
             Object {
               "boardPosition": Object {
@@ -2351,7 +2351,7 @@ ShallowWrapper {
                 "x": 2,
                 "y": 1,
               },
-              "value": 0,
+              "value": 2,
             },
             Object {
               "boardPosition": Object {
@@ -2392,7 +2392,7 @@ ShallowWrapper {
                 "x": 0,
                 "y": 0,
               },
-              "value": 2,
+              "value": 0,
             },
             Object {
               "boardPosition": Object {
@@ -2414,7 +2414,7 @@ ShallowWrapper {
                 "x": 0,
                 "y": 2,
               },
-              "value": 1,
+              "value": 2,
             },
             Object {
               "boardPosition": Object {
@@ -2436,7 +2436,7 @@ ShallowWrapper {
                 "x": 1,
                 "y": 1,
               },
-              "value": 2,
+              "value": 1,
             },
             Object {
               "boardPosition": Object {
@@ -2447,7 +2447,7 @@ ShallowWrapper {
                 "x": 1,
                 "y": 2,
               },
-              "value": 2,
+              "value": 0,
             },
             Object {
               "boardPosition": Object {
@@ -2532,7 +2532,7 @@ ShallowWrapper {
                 "x": 0,
                 "y": 2,
               },
-              "value": 1,
+              "value": 0,
             },
             Object {
               "boardPosition": Object {
@@ -2543,7 +2543,7 @@ ShallowWrapper {
                 "x": 1,
                 "y": 0,
               },
-              "value": 2,
+              "value": 1,
             },
             Object {
               "boardPosition": Object {
@@ -2576,7 +2576,7 @@ ShallowWrapper {
                 "x": 2,
                 "y": 0,
               },
-              "value": 2,
+              "value": 1,
             },
             Object {
               "boardPosition": Object {
@@ -2672,7 +2672,7 @@ ShallowWrapper {
                 "x": 1,
                 "y": 1,
               },
-              "value": 2,
+              "value": 1,
             },
             Object {
               "boardPosition": Object {
@@ -2823,7 +2823,7 @@ ShallowWrapper {
                 "x": 2,
                 "y": 1,
               },
-              "value": 2,
+              "value": 0,
             },
             Object {
               "boardPosition": Object {
@@ -3059,7 +3059,7 @@ ShallowWrapper {
                 "x": 2,
                 "y": 1,
               },
-              "value": 2,
+              "value": 0,
             },
             Object {
               "boardPosition": Object {
@@ -3353,7 +3353,7 @@ ShallowWrapper {
                                         "x": 0,
                                         "y": 2,
                                       },
-                                      "value": 2,
+                                      "value": 1,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3408,7 +3408,7 @@ ShallowWrapper {
                                         "x": 2,
                                         "y": 1,
                                       },
-                                      "value": 0,
+                                      "value": 2,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3443,7 +3443,7 @@ ShallowWrapper {
                                         "x": 0,
                                         "y": 0,
                                       },
-                                      "value": 2,
+                                      "value": 0,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3465,7 +3465,7 @@ ShallowWrapper {
                                         "x": 0,
                                         "y": 2,
                                       },
-                                      "value": 1,
+                                      "value": 2,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3487,7 +3487,7 @@ ShallowWrapper {
                                         "x": 1,
                                         "y": 1,
                                       },
-                                      "value": 2,
+                                      "value": 1,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3498,7 +3498,7 @@ ShallowWrapper {
                                         "x": 1,
                                         "y": 2,
                                       },
-                                      "value": 2,
+                                      "value": 0,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3577,7 +3577,7 @@ ShallowWrapper {
                                         "x": 0,
                                         "y": 2,
                                       },
-                                      "value": 1,
+                                      "value": 0,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3588,7 +3588,7 @@ ShallowWrapper {
                                         "x": 1,
                                         "y": 0,
                                       },
-                                      "value": 2,
+                                      "value": 1,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3621,7 +3621,7 @@ ShallowWrapper {
                                         "x": 2,
                                         "y": 0,
                                       },
-                                      "value": 2,
+                                      "value": 1,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3711,7 +3711,7 @@ ShallowWrapper {
                                         "x": 1,
                                         "y": 1,
                                       },
-                                      "value": 2,
+                                      "value": 1,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -3856,7 +3856,7 @@ ShallowWrapper {
                                         "x": 2,
                                         "y": 1,
                                       },
-                                      "value": 2,
+                                      "value": 0,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -4080,7 +4080,7 @@ ShallowWrapper {
                                         "x": 2,
                                         "y": 1,
                                       },
-                                      "value": 2,
+                                      "value": 0,
                                     },
                                     Object {
                                       "boardPosition": Object {
@@ -4381,7 +4381,7 @@ ShallowWrapper {
                   "x": 0,
                   "y": 2,
                 },
-                "value": 2,
+                "value": 1,
               },
               Object {
                 "boardPosition": Object {
@@ -4436,7 +4436,7 @@ ShallowWrapper {
                   "x": 2,
                   "y": 1,
                 },
-                "value": 0,
+                "value": 2,
               },
               Object {
                 "boardPosition": Object {
@@ -4477,7 +4477,7 @@ ShallowWrapper {
                   "x": 0,
                   "y": 0,
                 },
-                "value": 2,
+                "value": 0,
               },
               Object {
                 "boardPosition": Object {
@@ -4499,7 +4499,7 @@ ShallowWrapper {
                   "x": 0,
                   "y": 2,
                 },
-                "value": 1,
+                "value": 2,
               },
               Object {
                 "boardPosition": Object {
@@ -4521,7 +4521,7 @@ ShallowWrapper {
                   "x": 1,
                   "y": 1,
                 },
-                "value": 2,
+                "value": 1,
               },
               Object {
                 "boardPosition": Object {
@@ -4532,7 +4532,7 @@ ShallowWrapper {
                   "x": 1,
                   "y": 2,
                 },
-                "value": 2,
+                "value": 0,
               },
               Object {
                 "boardPosition": Object {
@@ -4617,7 +4617,7 @@ ShallowWrapper {
                   "x": 0,
                   "y": 2,
                 },
-                "value": 1,
+                "value": 0,
               },
               Object {
                 "boardPosition": Object {
@@ -4628,7 +4628,7 @@ ShallowWrapper {
                   "x": 1,
                   "y": 0,
                 },
-                "value": 2,
+                "value": 1,
               },
               Object {
                 "boardPosition": Object {
@@ -4661,7 +4661,7 @@ ShallowWrapper {
                   "x": 2,
                   "y": 0,
                 },
-                "value": 2,
+                "value": 1,
               },
               Object {
                 "boardPosition": Object {
@@ -4757,7 +4757,7 @@ ShallowWrapper {
                   "x": 1,
                   "y": 1,
                 },
-                "value": 2,
+                "value": 1,
               },
               Object {
                 "boardPosition": Object {
@@ -4908,7 +4908,7 @@ ShallowWrapper {
                   "x": 2,
                   "y": 1,
                 },
-                "value": 2,
+                "value": 0,
               },
               Object {
                 "boardPosition": Object {
@@ -5144,7 +5144,7 @@ ShallowWrapper {
                   "x": 2,
                   "y": 1,
                 },
-                "value": 2,
+                "value": 0,
               },
               Object {
                 "boardPosition": Object {

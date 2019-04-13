@@ -4,7 +4,7 @@ import { getMoves } from '../../selectors/AppStateSelectors';
 import { select } from 'redux-saga/effects';
 import { CHECK_GAME_FINISHED, GAME_FINISHED } from './gameAction';
 import { Player } from '../../AppState';
-import { SET_ALLOWED_BOARDS } from '../activeBoards/activeBoardsActions';
+import { SET_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
 import {
   circleFinishedGameMock,
   crossFinishedGameMock,
@@ -18,7 +18,7 @@ import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors'
 describe('checkGameFinishedSaga', () => {
   it(
     'should dispatch gameFinished action with Circle and' +
-      ' setAllowedBoards to no board when the game is finished',
+      ' setActiveBoards to no board when the game is finished',
     () => {
       return expectSaga(checkGameFinishedSaga)
         .provide([
@@ -26,7 +26,7 @@ describe('checkGameFinishedSaga', () => {
           [select(getFinishedGameData), circleFinishedGameMock],
         ])
         .put({ type: GAME_FINISHED, payload: Player.Circle })
-        .put({ type: SET_ALLOWED_BOARDS, payload: [] })
+        .put({ type: SET_ACTIVE_BOARDS, payload: [] })
         .put({ type: SAVE_GAME_DATA, payload: circleFinishedGameMock })
         .dispatch({ type: CHECK_GAME_FINISHED })
         .silentRun();
@@ -34,7 +34,7 @@ describe('checkGameFinishedSaga', () => {
   );
 
   it(
-    'should dispatch gameFinished action with Cross and setAllowedBoards to no board ' +
+    'should dispatch gameFinished action with Cross and setActiveBoards to no board ' +
       'if the game is finished',
     () => {
       return expectSaga(checkGameFinishedSaga)
@@ -43,7 +43,7 @@ describe('checkGameFinishedSaga', () => {
           [select(getFinishedGameData), crossFinishedGameMock],
         ])
         .put({ type: GAME_FINISHED, payload: Player.Cross })
-        .put({ type: SET_ALLOWED_BOARDS, payload: [] })
+        .put({ type: SET_ACTIVE_BOARDS, payload: [] })
         .put({ type: SAVE_GAME_DATA, payload: crossFinishedGameMock })
         .dispatch({ type: CHECK_GAME_FINISHED })
         .silentRun();
