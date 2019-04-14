@@ -8,6 +8,8 @@ import {
   movesForDrawFinishedBoardMock,
   movesForCircleFinishedBoardMock,
   movesForCrossFinishedBoardMock,
+  activeBoardsForBoardWithThreeMovesMock,
+  unfinishedBoardMock,
 } from '../../__mocks__';
 
 describe('TicTacToeGame', () => {
@@ -40,7 +42,9 @@ describe('TicTacToeGame', () => {
 
   describe('applyMove', () => {
     it('should apply the given move', () => {
-      const game = new TicTacToeGame(movesForBoardWithThreeMovesMock.slice(0, 2));
+      const game = new TicTacToeGame(
+        movesForBoardWithThreeMovesMock.slice(0, 2),
+      );
       game.applyMove(movesForBoardWithThreeMovesMock[2]);
 
       expect(game.getBoard()).toEqual(boardWithThreeMovesMock);
@@ -138,6 +142,31 @@ describe('TicTacToeGame', () => {
       const winResult = game.getWinResultForSmallBoard({ x: 2, y: 2 });
       expect(winResult.isFinished).toBe(true);
       expect(winResult.winningPlayer).toBe(Winner.Circle);
+    });
+  });
+
+  describe('getCurrentActiveBoards', () => {
+    it('should return all boards when no moves were applied', () => {
+      const game = new TicTacToeGame([]);
+
+      expect(game.getCurrentActiveBoards()).toHaveLength(9);
+    });
+
+    it('should return the current active board when moves were applied', () => {
+      const game = new TicTacToeGame(movesForBoardWithThreeMovesMock);
+
+      expect(game.getCurrentActiveBoards()).toEqual(
+        activeBoardsForBoardWithThreeMovesMock,
+      );
+    });
+
+    it('should return all empty when last move points to finished board', () => {
+      const game = new TicTacToeGame(movesForUnfinishedBoardMock);
+
+      const emptyBoards = unfinishedBoardMock.filter(
+        (b) => b.value === TileValue.Empty,
+      ).length;
+      expect(game.getCurrentActiveBoards()).toHaveLength(emptyBoards);
     });
   });
 });

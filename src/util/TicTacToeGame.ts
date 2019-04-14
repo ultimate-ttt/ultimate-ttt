@@ -59,6 +59,18 @@ export class TicTacToeGame {
   }
 
   getCurrentActiveBoards() {
+    if (this.moves.length === 0) {
+      let allBoards: Point[] = [];
+
+      for (let x = 0; x < 3; x++) {
+        for (let y = 0; y < 3; y++) {
+          allBoards.push({ x, y });
+        }
+      }
+
+      return allBoards;
+    }
+
     if (this.getWinResult().isFinished) {
       return [];
     }
