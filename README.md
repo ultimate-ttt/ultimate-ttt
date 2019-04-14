@@ -68,7 +68,7 @@ The second player can in the next turn only play in the tiles that are marked wi
 [ ][ ][ ]   [ ][ ][ ]   [ ][ ][ ]
 ```
 
-But let's say that we are already later in the game and the equivalent board is already won (_three marks in a row_). The next player can then play in **all** boards* that are **not won** yet. (marked with `!`)
+But let's say that we are already later in the game and the equivalent board is already won (_three marks in a row_). The next player can then play in **all** boards that are **not won** yet. (marked with `!`)
 
 (_note: of course later in the game there would be the same amount of X's and O's on the board => this is just for illustration purposes_)
 ```
