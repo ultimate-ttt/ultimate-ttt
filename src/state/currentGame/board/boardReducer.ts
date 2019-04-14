@@ -1,41 +1,8 @@
-import {
-  GenericAction,
-  SmallBoardInformation,
-  SmallTileInformation,
-  TileValue,
-} from '../../AppState';
+import { GenericAction, SmallBoardInformation } from '../../AppState';
 import produce from 'immer';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
-import { arePointsEqual, Point } from '../../../util/Point';
 import { RESTART_GAME } from '../../commonAction';
-
-const getInitialSmallBoardTiles = (boardX: number, boardY: number) => {
-  let tiles: SmallTileInformation[] = [];
-  for (let x = 0; x < 3; x++) {
-    for (let y = 0; y < 3; y++) {
-      tiles.push({
-        boardPosition: { x: boardX, y: boardY },
-        position: { x, y },
-        value: TileValue.Empty,
-      });
-    }
-  }
-  return tiles;
-};
-
-const getInitialState = () => {
-  let state: SmallBoardInformation[] = [];
-  for (let x = 0; x < 3; x++) {
-    for (let y = 0; y < 3; y++) {
-      state.push({
-        value: TileValue.Empty,
-        position: { x, y },
-        tiles: getInitialSmallBoardTiles(x, y),
-      });
-    }
-  }
-  return state;
-};
+import { TicTacToeGame, Point, arePointsEqual } from '../../../util';
 
 const getSmallBoard = (
   bigBoard: SmallBoardInformation[],
@@ -47,7 +14,7 @@ const getSmallBoard = (
   return bigBoard[smallBoardIndex];
 };
 
-const initialState = getInitialState();
+const initialState = new TicTacToeGame([]).getBoard();
 
 const boardReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {

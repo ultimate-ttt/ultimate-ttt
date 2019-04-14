@@ -1,5 +1,5 @@
 import activeBoardsReducer from './activeBoardsReducer';
-import { setAllowedBoards } from './activeBoardsActions';
+import { setActiveBoards } from './activeBoardsActions';
 import { restartGame } from '../../commonAction';
 
 describe('activeBoardsReducer', () => {
@@ -11,7 +11,7 @@ describe('activeBoardsReducer', () => {
 
   it('should set the activeBoards to the points in the point array', () => {
     const newAllowedBoards = [{ x: 0, y: 0 }, { x: 2, y: 0 }, { x: 2, y: 2 }];
-    const action = setAllowedBoards(newAllowedBoards);
+    const action = setActiveBoards(newAllowedBoards);
     const newState = activeBoardsReducer(undefined, action);
 
     expect(newState).toEqual(newAllowedBoards);

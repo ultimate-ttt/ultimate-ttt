@@ -10,7 +10,7 @@ import {
 import { select } from 'redux-saga/effects';
 import { REGISTER_MOVE } from './moveAction';
 import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../board/boardActions';
-import { CALCULATE_ALLOWED_BOARDS } from '../activeBoards/activeBoardsActions';
+import { CALCULATE_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
 
 describe('moveValidationSaga', () => {
   it('should dispatch at least the following actions, order not tested', () => {
@@ -34,7 +34,7 @@ describe('moveValidationSaga', () => {
       })
       .put({ type: CHANGE_PLAYER })
       .put({ type: CALCULATE_BOARD_VALUE, payload: { x: 1, y: 1 } })
-      .put({ type: CALCULATE_ALLOWED_BOARDS, payload: { x: 2, y: 2 } })
+      .put({ type: CALCULATE_ACTIVE_BOARDS })
       .put({ type: CHECK_GAME_FINISHED })
       .dispatch({
         type: PLAYER_MOVED,

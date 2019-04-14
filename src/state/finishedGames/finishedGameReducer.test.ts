@@ -5,7 +5,7 @@ import {
   saveGameDataPending,
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
-import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { crossFinishedBoardMock } from '../../__mocks__';
 import { Winner } from '../AppState';
 
 describe('finishedGameReducer', () => {

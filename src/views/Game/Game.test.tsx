@@ -3,7 +3,7 @@ import { configure, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { Game } from './Game';
 import { Player } from '../../state/AppState';
-import unfinishedBoardMock from '../../__mocks__/unfinishedBoardMock';
+import { unfinishedBoardMock } from '../../__mocks__';
 
 configure({ adapter: new ReactSixteenAdapter() });
 

@@ -1,9 +1,9 @@
-import { GenericAction, Move } from '../../AppState';
+import { GenericAction, MoveState } from '../../AppState';
 import { REGISTER_MOVE } from './moveAction';
 import { RESTART_GAME } from '../../commonAction';
 import produce from 'immer';
 
-const initialState: Move[] = [];
+const initialState: MoveState[] = [];
 
 const moveReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {

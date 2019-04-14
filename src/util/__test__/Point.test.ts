@@ -1,4 +1,4 @@
-import { arePointsEqual } from '../Point';
+import { arePointsEqual } from '../../util';
 
 describe('arePointsEqual', () => {
   it('should return true when Points are equal', () => {

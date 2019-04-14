@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import {
   AppState,
-  Move,
+  MoveState,
   Player,
   SmallBoardInformation,
 } from '../../state/AppState';
@@ -24,7 +24,7 @@ interface AnalysisGameProps extends RouteComponentProps<{ id: string }> {
   onLoad: (id: string) => void;
   moveForwardInHistory: (numberOfMoves: number) => void;
   moveBackwardInHistory: (numberOfMoves: number) => void;
-  reversedMoves?: Move[];
+  reversedMoves?: MoveState[];
   board: SmallBoardInformation[];
   activeBoards: Point[];
   currentPlayer: Player;
@@ -118,7 +118,6 @@ const mapStateToProps = (state: AppState) => ({
   currentPlayer: state.analysisGame.game.currentPlayer,
   currentMove: state.analysisGame.currentMove,
 });
-
 // tslint:disable-next-line: no-any
 const mapDispatchToProps = (dispatch: any) => ({
   onLoad: (id: string) => dispatch(loadFinishedGame(id)),

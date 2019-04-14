@@ -21,7 +21,7 @@ function* playerMoved(action: PlayerMovedAction) {
   yield put(setTileValue(boardPosition, tilePosition, tileValue));
   yield put(changePlayer());
   yield put(calculateBoardValue(boardPosition));
-  yield put(calculateActiveBoards(tilePosition));
+  yield put(calculateActiveBoards());
   yield put(checkGameFinished());
 }
 

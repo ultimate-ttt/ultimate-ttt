@@ -4,21 +4,18 @@ import {
   moveForwardInHistory,
   setAnalysisGame,
 } from './analysisGameActions';
-import { crossFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
-import { Player, Winner } from '../AppState';
 import {
+  crossFinishedBoardMock,
   activeBoardsForBoardWithOneMoveMock,
   boardWithOneMoveMock,
-} from '../../__mocks__/boardWithOneMoveMock';
-import {
   activeBoardsForBoardWithTwoMovesMock,
   boardWithTwoMovesMock,
-} from '../../__mocks__/boardWithTwoMovesMock';
-import {
   activeBoardsForBoardWithThreeMovesMock,
   boardWithThreeMovesMock,
   movesForBoardWithThreeMovesMock,
-} from '../../__mocks__/boardWithThreeMovesMock';
+  movesForCrossFinishedBoardMock,
+} from '../../__mocks__';
+import { Player, Winner } from '../AppState';
 
 describe('analysisGameReducer', () => {
   it('should return an initial state', () => {
@@ -93,7 +90,8 @@ describe('analysisGameReducer', () => {
     });
 
     it('sets no active board when last move is applied', () => {
-      const action = moveForwardInHistory(3);
+      analysisGame.moves = movesForCrossFinishedBoardMock;
+      const action = moveForwardInHistory(analysisGame.moves.length - 1);
       const newState = analysisGameReducer(analysisGame, action);
 
       expect(newState.activeBoards).toEqual([]);

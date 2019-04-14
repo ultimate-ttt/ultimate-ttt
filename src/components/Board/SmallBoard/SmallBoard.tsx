@@ -7,7 +7,7 @@ import {
 } from '../../../state/AppState';
 import './SmallBoard.css';
 import { Tile } from '../Tile/Tile';
-import { arePointsEqual, Point } from '../../../util/Point';
+import { arePointsEqual, Point } from '../../../util';
 
 interface SmallBoardProps {
   x: number;
