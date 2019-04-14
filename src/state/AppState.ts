@@ -61,8 +61,8 @@ export enum TileValue {
 export enum Winner {
   Cross = 0,
   Circle = 1,
-  Draw = 2,
-  None = 3,
+  None = 2,
+  Draw = 3,
 }
 
 export enum Player {
