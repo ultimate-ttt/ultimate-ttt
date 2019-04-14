@@ -27,14 +27,24 @@ export class TicTacToeGame {
     const boardToChange = this.board.find((board) =>
       arePointsEqual(board.position, move.boardPosition),
     );
-    const tileToChange = boardToChange!.tiles.find((tile) =>
+
+    if (!boardToChange) {
+      throw new Error('The Board with the given Position was not found');
+    }
+
+    const tileToChange = boardToChange.tiles.find((tile) =>
       arePointsEqual(tile.position, move.tilePosition),
     );
-    tileToChange!.value = playerToTileValue(this.currentPlayer);
 
-    const winResult = this.getWinResultForGivenBoard(boardToChange!.tiles);
+    if (!tileToChange) {
+      throw new Error('The Tile with the given Position was not found');
+    }
+
+    tileToChange.value = playerToTileValue(this.currentPlayer);
+
+    const winResult = this.getWinResultForGivenBoard(boardToChange.tiles);
     if (winResult.isFinished) {
-      boardToChange!.value = playerToTileValue(winResult.winningPlayer, true);
+      boardToChange.value = playerToTileValue(winResult.winningPlayer, true);
     }
 
     this.moves.push(move);
