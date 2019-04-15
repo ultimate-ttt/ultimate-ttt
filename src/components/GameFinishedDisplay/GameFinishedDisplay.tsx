@@ -22,7 +22,31 @@ export class GameFinishedDisplay extends React.Component<
   GameFinishedDisplayProps,
   GameFinishedDisplayState
 > {
-  static getWinnerText(winner: Winner, isGameFinished: boolean) {
+  constructor(props: GameFinishedDisplayProps) {
+    super(props);
+
+    this.state = {
+      winnerClassAttribute: 'hidden',
+      winnerText: this.getWinnerText(Winner.None, false),
+    };
+  }
+
+  componentDidUpdate(prevProps: GameFinishedDisplayProps) {
+    const { isGameFinished, winner } = this.props;
+
+    if (isGameFinished !== prevProps.isGameFinished) {
+      this.setState((prevState) => {
+        const nextWinnerText = this.getWinnerText(winner, isGameFinished);
+
+        return {
+          winnerText: isGameFinished ? nextWinnerText : prevState.winnerText,
+          winnerClassAttribute: isGameFinished ? 'visible' : 'hidden',
+        };
+      });
+    }
+  }
+
+  getWinnerText(winner: Winner, isGameFinished: boolean) {
     if (isGameFinished) {
       switch (winner) {
         case Winner.Circle:
@@ -55,40 +79,8 @@ export class GameFinishedDisplay extends React.Component<
     );
   }
 
-  static getDerivedStateFromProps(nextProps: GameFinishedDisplayProps) {
-    if (nextProps.isGameFinished) {
-      return {
-        winnerClassAttribute: 'visible',
-        winnerText: GameFinishedDisplay.getWinnerText(
-          nextProps.winner,
-          nextProps.isGameFinished,
-        ),
-      };
-    }
-
-    return null;
-  }
-
-  constructor(props: GameFinishedDisplayProps) {
-    super(props);
-
-    this.state = {
-      winnerClassAttribute: 'hidden',
-      winnerText: GameFinishedDisplay.getWinnerText(Winner.None, false),
-    };
-  }
-
   tryRestart = () => {
     if (this.props.isGameFinished) {
-      // for the ease out to work.
-      // otherwise the "reservation" text gets rendered before it's eased out
-      this.setState((prevState) => {
-        return {
-          ...prevState,
-          winnerClassAttribute: 'hidden',
-        };
-      });
-
       this.props.onRestartGame();
     }
   };
