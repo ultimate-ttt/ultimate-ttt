@@ -1,23 +1,20 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../../AppState';
 import {
-  CALCULATE_ALLOWED_BOARDS,
-  setAllowedBoards,
+  CALCULATE_ACTIVE_BOARDS,
+  setActiveBoards,
 } from './activeBoardsActions';
-import { getBoards } from '../../selectors/AppStateSelectors';
-import { getNewActiveBoards } from '../../../util/ActiveBoards';
+import { getMoves } from '../../selectors/AppStateSelectors';
+import { TicTacToeGame } from '../../../util';
 
 function* calculateActiveBoards(action: GenericAction) {
-  const boards = yield select(getBoards);
-  const lastMove = action.payload;
-
-  const activeBoards = getNewActiveBoards(lastMove, boards);
-
-  yield put(setAllowedBoards(activeBoards));
+  const moves = yield select(getMoves);
+  const activeBoards = new TicTacToeGame(moves).getCurrentActiveBoards();
+  yield put(setActiveBoards(activeBoards));
 }
 
 function* activeBoardsCalculationSaga() {
-  yield takeEvery(CALCULATE_ALLOWED_BOARDS, calculateActiveBoards);
+  yield takeEvery(CALCULATE_ACTIVE_BOARDS, calculateActiveBoards);
 }
 
 export default activeBoardsCalculationSaga;

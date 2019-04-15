@@ -4,7 +4,7 @@ import { number, object, withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { RMWCProvider } from '@rmwc/provider';
 import { MoveList } from './MoveList';
-import { movesForBoardWithThreeMovesMock } from '../../../__mocks__/boardWithThreeMovesMock';
+import { movesForBoardWithThreeMovesMock } from '../../../__mocks__';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);

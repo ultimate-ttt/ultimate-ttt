@@ -104,11 +104,7 @@ Object {
       "@@redux-saga/IO": true,
       "PUT": Object {
         "action": Object {
-          "payload": Object {
-            "x": 2,
-            "y": 2,
-          },
-          "type": "activeBoardsReducer/calculate-allowed-boards",
+          "type": "activeBoardsReducer/calculate-active-boards",
         },
         "channel": null,
       },

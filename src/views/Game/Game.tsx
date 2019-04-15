@@ -4,7 +4,7 @@ import GameFinishedDisplay from '../../components/GameFinishedDisplay/GameFinish
 import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
 import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
-import { Point } from '../../util/Point';
+import { Point } from '../../util';
 
 interface GameProps {
   currentPlayer: Player;

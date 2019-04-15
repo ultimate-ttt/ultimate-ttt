@@ -2,7 +2,7 @@ import {
   getFinishedGameData,
   getWinningPlayerAsString,
 } from './FinishedGameStateSelectors';
-import { circleFinishedBoardMock } from '../../__mocks__/finishedBoardMock';
+import { circleFinishedBoardMock } from '../../__mocks__';
 import { Winner, Player } from '../AppState';
 
 describe('FinishedGameStateSelectors', () => {

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { Player, TileValue } from '../../../state/AppState';
 import { SmallBoard } from './SmallBoard';
-import { Point } from '../../../util/Point';
+import { Point } from '../../../util';
 import { action } from '@storybook/addon-actions';
 
 const stories = storiesOf('SmallBoard', module);

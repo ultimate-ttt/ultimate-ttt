@@ -1,4 +1,4 @@
-import { Point } from '../util/Point';
+import { Point } from '../util';
 
 export interface AppState {
   currentGame: GameInformation;
@@ -9,7 +9,7 @@ export interface AppState {
 export interface GameInformation {
   board: SmallBoardInformation[];
   game: GameState;
-  moves: Move[];
+  moves: MoveState[];
   activeBoards: Point[];
 }
 
@@ -18,7 +18,7 @@ export interface FinishedGameState {
   date: Date;
   winner: Winner;
   gameState: SmallBoardInformation[];
-  moves: Move[];
+  moves: MoveState[];
   saveState: string;
   errorMessage: string;
 }
@@ -27,7 +27,7 @@ export interface AnalysisGame {
   id: string;
   board: SmallBoardInformation[];
   game: GameState;
-  moves: Move[];
+  moves: MoveState[];
   activeBoards: Point[];
   currentMove: number;
 }
@@ -61,8 +61,8 @@ export enum TileValue {
 export enum Winner {
   Cross = 0,
   Circle = 1,
-  Draw = 2,
-  None = 3,
+  None = 2,
+  Draw = 3,
 }
 
 export enum Player {
@@ -73,6 +73,9 @@ export enum Player {
 export interface Move {
   boardPosition: Point;
   tilePosition: Point;
+}
+
+export interface MoveState extends Move {
   player: Player;
   moveNumber: number;
 }
