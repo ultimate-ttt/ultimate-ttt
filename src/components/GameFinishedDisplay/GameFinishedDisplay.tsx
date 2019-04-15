@@ -26,8 +26,8 @@ export class GameFinishedDisplay extends React.Component<
     super(props);
 
     this.state = {
-      winnerClassAttribute: 'hidden',
-      winnerText: this.getWinnerText(Winner.None, false),
+      winnerClassAttribute: this.props.isGameFinished ? 'visible' : 'hidden',
+      winnerText: this.getWinnerText(this.props.winner, this.props.isGameFinished),
     };
   }
 

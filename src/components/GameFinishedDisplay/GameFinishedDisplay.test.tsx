@@ -69,15 +69,10 @@ describe('GameFinished', function() {
     const gameFinishedIndicator = shallow(
       <GameFinishedDisplay
         onRestartGame={restart}
-        isGameFinished={false}
-        winner={Winner.None}
+        isGameFinished={true}
+        winner={Winner.Cross}
       />,
     );
-    expect(gameFinishedIndicator.hasClass('hidden')).toBe(true);
-    expect(gameFinishedIndicator.hasClass('visible')).toBe(false);
-
-    gameFinishedIndicator.setProps({isGameFinished: true, winner: Winner.Cross});
-
     expect(gameFinishedIndicator.hasClass('hidden')).toBe(false);
     expect(gameFinishedIndicator.hasClass('visible')).toBe(true);
 
