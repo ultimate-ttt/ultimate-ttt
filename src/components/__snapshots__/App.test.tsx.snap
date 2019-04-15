@@ -20,12 +20,30 @@ ShallowWrapper {
     "props": Object {
       "children": <Switch>
         <Route
-                component={[Function]}
+                component={
+                        Object {
+                                "$$typeof": Symbol(react.memo),
+                                "WrappedComponent": [Function],
+                                "compare": null,
+                                "displayName": "Connect(AnalysisGame)",
+                                "type": [Function],
+                                Symbol(Symbol.hasInstance): [Function],
+                              }
+                }
                 exact={true}
                 path="/analysis/:id"
         />
         <Route
-                component={[Function]}
+                component={
+                        Object {
+                                "$$typeof": Symbol(react.memo),
+                                "WrappedComponent": [Function],
+                                "compare": null,
+                                "displayName": "Connect(Game)",
+                                "type": [Function],
+                                Symbol(Symbol.hasInstance): [Function],
+                              }
+                }
                 path="/"
         />
 </Switch>,
@@ -38,12 +56,30 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Route
-            component={[Function]}
+            component={
+                        Object {
+                                    "$$typeof": Symbol(react.memo),
+                                    "WrappedComponent": [Function],
+                                    "compare": null,
+                                    "displayName": "Connect(AnalysisGame)",
+                                    "type": [Function],
+                                    Symbol(Symbol.hasInstance): [Function],
+                                  }
+            }
             exact={true}
             path="/analysis/:id"
 />,
           <Route
-            component={[Function]}
+            component={
+                        Object {
+                                    "$$typeof": Symbol(react.memo),
+                                    "WrappedComponent": [Function],
+                                    "compare": null,
+                                    "displayName": "Connect(Game)",
+                                    "type": [Function],
+                                    Symbol(Symbol.hasInstance): [Function],
+                                  }
+            }
             path="/"
 />,
         ],
@@ -55,7 +91,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "component": [Function],
+            "component": Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(AnalysisGame)",
+              "type": [Function],
+              Symbol(Symbol.hasInstance): [Function],
+            },
             "exact": true,
             "path": "/analysis/:id",
           },
@@ -68,7 +111,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "component": [Function],
+            "component": Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(Game)",
+              "type": [Function],
+              Symbol(Symbol.hasInstance): [Function],
+            },
             "path": "/",
           },
           "ref": null,
@@ -88,12 +138,30 @@ ShallowWrapper {
       "props": Object {
         "children": <Switch>
           <Route
-                    component={[Function]}
+                    component={
+                              Object {
+                                        "$$typeof": Symbol(react.memo),
+                                        "WrappedComponent": [Function],
+                                        "compare": null,
+                                        "displayName": "Connect(AnalysisGame)",
+                                        "type": [Function],
+                                        Symbol(Symbol.hasInstance): [Function],
+                                      }
+                    }
                     exact={true}
                     path="/analysis/:id"
           />
           <Route
-                    component={[Function]}
+                    component={
+                              Object {
+                                        "$$typeof": Symbol(react.memo),
+                                        "WrappedComponent": [Function],
+                                        "compare": null,
+                                        "displayName": "Connect(Game)",
+                                        "type": [Function],
+                                        Symbol(Symbol.hasInstance): [Function],
+                                      }
+                    }
                     path="/"
           />
 </Switch>,
@@ -106,12 +174,30 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Route
-              component={[Function]}
+              component={
+                            Object {
+                                          "$$typeof": Symbol(react.memo),
+                                          "WrappedComponent": [Function],
+                                          "compare": null,
+                                          "displayName": "Connect(AnalysisGame)",
+                                          "type": [Function],
+                                          Symbol(Symbol.hasInstance): [Function],
+                                        }
+              }
               exact={true}
               path="/analysis/:id"
 />,
             <Route
-              component={[Function]}
+              component={
+                            Object {
+                                          "$$typeof": Symbol(react.memo),
+                                          "WrappedComponent": [Function],
+                                          "compare": null,
+                                          "displayName": "Connect(Game)",
+                                          "type": [Function],
+                                          Symbol(Symbol.hasInstance): [Function],
+                                        }
+              }
               path="/"
 />,
           ],
@@ -123,7 +209,14 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "component": [Function],
+              "component": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(AnalysisGame)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
               "exact": true,
               "path": "/analysis/:id",
             },
@@ -136,7 +229,14 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "component": [Function],
+              "component": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(Game)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
               "path": "/",
             },
             "ref": null,
