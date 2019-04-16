@@ -2,9 +2,12 @@ import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 import { Player, Winner } from '../AppState';
 import loadFinishedGameSaga from './analysisGameSaga';
-import { getAnalysisGame } from '../selectors/AnalysisGameStateSelectors';
+import { getAnalysisGameById } from '../selectors/AnalysisGameStateSelectors';
 import { crossFinishedBoardMock } from '../../__mocks__';
-import { LOAD_FINISHED_GAME, SET_ANALYSIS_GAME } from './analysisGameActions';
+import {
+  LOAD_FINISHED_GAME_BY_ID,
+  SET_ANALYSIS_GAME,
+} from './analysisGameActions';
 
 describe('loadFinishedGameSaga', () => {
   const analysisGame = {
@@ -29,10 +32,10 @@ describe('loadFinishedGameSaga', () => {
 
   it('should dispatch the setAnalysisGame action for the analysisGame with the given id', () => {
     return expectSaga(loadFinishedGameSaga)
-      .provide([[select(getAnalysisGame, '1'), analysisGame]])
+      .provide([[select(getAnalysisGameById, '1'), analysisGame]])
       .put({ type: SET_ANALYSIS_GAME, payload: analysisGame })
       .dispatch({
-        type: LOAD_FINISHED_GAME,
+        type: LOAD_FINISHED_GAME_BY_ID,
         payload: '1',
       })
       .silentRun();
@@ -41,9 +44,9 @@ describe('loadFinishedGameSaga', () => {
   // if more put effects happen: this catches it + this checks for the order
   it('should match snapshot', () => {
     return expectSaga(loadFinishedGameSaga)
-      .provide([[select(getAnalysisGame, '1'), analysisGame]])
+      .provide([[select(getAnalysisGameById, '1'), analysisGame]])
       .dispatch({
-        type: LOAD_FINISHED_GAME,
+        type: LOAD_FINISHED_GAME_BY_ID,
         payload: '1',
       })
       .silentRun()

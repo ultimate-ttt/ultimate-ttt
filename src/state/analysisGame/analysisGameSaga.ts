@@ -1,22 +1,41 @@
 import { AnalysisGame, GenericAction } from '../AppState';
 import { put, select, takeEvery } from 'redux-saga/effects';
-import { LOAD_FINISHED_GAME, setAnalysisGame } from './analysisGameActions';
-import { getAnalysisGame } from '../selectors/AnalysisGameStateSelectors';
+import {
+  LOAD_FINISHED_GAME_BY_ID,
+  LOAD_LATEST_FINISHED_GAME,
+  setAnalysisGame,
+} from './analysisGameActions';
+import {
+  getAnalysisGameById,
+  getLatestAnalysisGame,
+} from '../selectors/AnalysisGameStateSelectors';
 
-function* loadFinishedGame(action: GenericAction) {
-  const finishedGame: AnalysisGame | undefined = yield select(
-    getAnalysisGame,
+function* loadFinishedGameById(action: GenericAction) {
+  const analysisGame: AnalysisGame | undefined = yield select(
+    getAnalysisGameById,
     action.payload,
   );
+
   // TODO if no results in selector: try over network
 
-  if (finishedGame !== undefined) {
-    yield put(setAnalysisGame(finishedGame));
+  if (analysisGame !== undefined) {
+    yield put(setAnalysisGame(analysisGame));
+  }
+}
+
+function* loadLatestFinishedGame(action: GenericAction) {
+  const analysisGame: AnalysisGame | undefined = yield select(
+    getLatestAnalysisGame,
+  );
+
+  if (analysisGame !== undefined) {
+    yield put(setAnalysisGame(analysisGame));
   }
 }
 
 function* loadFinishedGameSaga() {
-  yield takeEvery(LOAD_FINISHED_GAME, loadFinishedGame);
+  yield takeEvery(LOAD_FINISHED_GAME_BY_ID, loadFinishedGameById);
+  yield takeEvery(LOAD_LATEST_FINISHED_GAME, loadLatestFinishedGame);
 }
 
 export default loadFinishedGameSaga;

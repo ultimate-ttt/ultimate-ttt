@@ -76,7 +76,10 @@ describe('GameFinished', function() {
     expect(gameFinishedIndicator.hasClass('hidden')).toBe(false);
     expect(gameFinishedIndicator.hasClass('visible')).toBe(true);
 
-    gameFinishedIndicator.setProps({isGameFinished: false, winner: Winner.None});
+    gameFinishedIndicator.setProps({
+      isGameFinished: false,
+      winner: Winner.None,
+    });
 
     expect(gameFinishedIndicator.hasClass('hidden')).toBe(true);
     expect(gameFinishedIndicator.hasClass('visible')).toBe(false);

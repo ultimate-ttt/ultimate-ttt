@@ -17,7 +17,7 @@ describe('finishedGameReducer', () => {
 
   const finishedGameMock = {
     winner: Winner.Cross,
-    date: new Date(),
+    date: new Date().toISOString(),
     gameState: crossFinishedBoardMock,
     // not real data
     moves: [

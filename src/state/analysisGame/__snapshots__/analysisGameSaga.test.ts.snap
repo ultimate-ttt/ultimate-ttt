@@ -7,8 +7,19 @@ Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
-          "analysisGameReducer/load-finished-game",
-          "@@redux-saga-test-plan/json/function/loadFinishedGame",
+          "analysisGameReducer/load-finished-game-by-id",
+          "@@redux-saga-test-plan/json/function/loadFinishedGameById",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "analysisGameReducer/load-latest-finished-game",
+          "@@redux-saga-test-plan/json/function/loadLatestFinishedGame",
         ],
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
@@ -20,7 +31,7 @@ Object {
         "args": Array [
           Object {
             "payload": "1",
-            "type": "analysisGameReducer/load-finished-game",
+            "type": "analysisGameReducer/load-finished-game-by-id",
           },
         ],
         "context": null,
@@ -1052,13 +1063,19 @@ Object {
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "analysisGameReducer/load-finished-game",
+        "pattern": "analysisGameReducer/load-finished-game-by-id",
       },
     },
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "analysisGameReducer/load-finished-game",
+        "pattern": "analysisGameReducer/load-latest-finished-game",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "analysisGameReducer/load-finished-game-by-id",
       },
     },
   ],
