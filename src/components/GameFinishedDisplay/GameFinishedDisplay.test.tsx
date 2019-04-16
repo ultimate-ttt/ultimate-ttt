@@ -62,4 +62,23 @@ describe('GameFinished', function() {
 
     expect(gameFinishedIndicator).toMatchSnapshot();
   });
+
+  it('should handle changing the props correctly', () => {
+    // tslint:disable-next-line:no-empty
+    const restart = () => {};
+    const gameFinishedIndicator = shallow(
+      <GameFinishedDisplay
+        onRestartGame={restart}
+        isGameFinished={true}
+        winner={Winner.Cross}
+      />,
+    );
+    expect(gameFinishedIndicator.hasClass('hidden')).toBe(false);
+    expect(gameFinishedIndicator.hasClass('visible')).toBe(true);
+
+    gameFinishedIndicator.setProps({isGameFinished: false, winner: Winner.None});
+
+    expect(gameFinishedIndicator.hasClass('hidden')).toBe(true);
+    expect(gameFinishedIndicator.hasClass('visible')).toBe(false);
+  });
 });
