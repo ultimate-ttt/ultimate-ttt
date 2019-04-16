@@ -8,34 +8,27 @@ import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../components/Analysis/ScrollElementConstants';
 
 interface AnalysisGameDisplayProps {
-  moveForwardInHistory: ( numberOfMoves: number ) => void;
-  moveBackwardInHistory: ( numberOfMoves: number ) => void;
+  moveForwardInHistory: (numberOfMoves: number) => void;
+  moveBackwardInHistory: (numberOfMoves: number) => void;
   analysisGame: AnalysisGame;
 }
 
-export function AnalysisGameDisplay( props: AnalysisGameDisplayProps ) {
-  const scrollToElement = ( moveNumberToScrollTo: number ) => {
-    scroller.scrollTo( moveScrollElementBaseName + moveNumberToScrollTo, {
+export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
+  const scrollToElement = (moveNumberToScrollTo: number) => {
+    scroller.scrollTo(moveScrollElementBaseName + moveNumberToScrollTo, {
       duration: 300,
       smooth: true,
       containerId: 'moveList',
       offset: -108,
-    } );
+    });
   };
 
   const analysisGame = props.analysisGame;
-  if (!analysisGame) {
-    return <></>;
-  }
-
   const reversedMoves = analysisGame.moves.slice().reverse();
   const currentlyAppliedMove =
-    reversedMoves &&
     reversedMoves[
-      reversedMoves.findIndex(
-        ( m ) => m.moveNumber === analysisGame.currentMove,
-      )!
-      ];
+      reversedMoves.findIndex((m) => m.moveNumber === analysisGame.currentMove)!
+    ];
 
   return (
     <div className="center">
@@ -60,8 +53,7 @@ export function AnalysisGameDisplay( props: AnalysisGameDisplayProps ) {
         <div className="analysisGame">
           <BigBoard
             // tslint:disable-next-line:no-empty
-            onPlayerMoved={() => {
-            }}
+            onPlayerMoved={() => {}}
             board={analysisGame.board}
             activeBoards={analysisGame.activeBoards}
             currentPlayer={analysisGame.game.currentPlayer}
@@ -69,9 +61,9 @@ export function AnalysisGameDisplay( props: AnalysisGameDisplayProps ) {
               condition: currentlyAppliedMove !== undefined,
               position: currentlyAppliedMove
                 ? {
-                  boardPosition: currentlyAppliedMove.boardPosition,
-                  tilePosition: currentlyAppliedMove.tilePosition,
-                }
+                    boardPosition: currentlyAppliedMove.boardPosition,
+                    tilePosition: currentlyAppliedMove.tilePosition,
+                  }
                 : undefined,
             }}
           />
