@@ -9,55 +9,58 @@ import {
   moveForwardInHistory,
 } from '../../state/analysisGame/analysisGameActions';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
+import { useEffect } from 'react';
 
 interface AnalysisGameRouteProps extends RouteComponentProps<{ id: string }> {
   analysisGame: AnalysisGame;
-  loadAnalysisGameById: (id: string) => void;
+  loadAnalysisGameById: ( id: string ) => void;
   loadLatestAnalysisGame: () => void;
-  moveForwardInHistory: (numberOfMoves: number) => void;
-  moveBackwardInHistory: (numberOfMoves: number) => void;
+  moveForwardInHistory: ( numberOfMoves: number ) => void;
+  moveBackwardInHistory: ( numberOfMoves: number ) => void;
 }
 
-// TODO Hooks and function component
-// TODO add tests (public api!!!)
-export class AnalysisGameRoute extends React.Component<AnalysisGameRouteProps> {
-  componentDidMount = () => {
-    const path = this.props.location.pathname;
-    // tslint:disable-next-line:no-console
-    console.log(path);
-    if (path.includes('latest')) {
-      this.props.loadLatestAnalysisGame();
-      // TODO add Date case in a later iteration.
-    } else {
-      this.props.loadAnalysisGameById(path);
-    }
-  };
+// TODO add tests for the public api
+export function AnalysisGameRoute( props: AnalysisGameRouteProps ) {
+  useEffect(
+    () => {
+      if (props.location.pathname.includes( 'latest' )) {
+        props.loadLatestAnalysisGame();
 
-  render() {
-    return (
-      <AnalysisGameDisplay
-        moveForwardInHistory={this.props.moveForwardInHistory}
-        moveBackwardInHistory={this.props.moveBackwardInHistory}
-        analysisGame={this.props.analysisGame}
-      />
-    );
-  }
+        // TODO add Date case in a later iteration.
+      } else {
+        props.loadAnalysisGameById( props.match.params.id );
+      }
+    },
+    [
+      props.location.pathname,
+      props.match.params.id,
+      props.loadAnalysisGameById,
+      props.loadLatestAnalysisGame,
+    ] );
+
+  return (
+    <AnalysisGameDisplay
+      moveForwardInHistory={props.moveForwardInHistory}
+      moveBackwardInHistory={props.moveBackwardInHistory}
+      analysisGame={props.analysisGame}
+    />
+  );
 }
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = ( state: AppState ) => ({
   analysisGame: state.analysisGame,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  loadAnalysisGameById: (id: string) => dispatch(loadFinishedGame(id)),
-  loadLatestAnalysisGame: () => dispatch(loadLatestFinishedGame()),
-  moveForwardInHistory: (numberOfMoves: number) =>
-    dispatch(moveForwardInHistory(numberOfMoves)),
-  moveBackwardInHistory: (numberOfMoves: number) =>
-    dispatch(moveBackwardInHistory(numberOfMoves)),
+const mapDispatchToProps = ( dispatch: any ) => ({
+  loadAnalysisGameById: ( id: string ) => dispatch( loadFinishedGame( id ) ),
+  loadLatestAnalysisGame: () => dispatch( loadLatestFinishedGame() ),
+  moveForwardInHistory: ( numberOfMoves: number ) =>
+    dispatch( moveForwardInHistory( numberOfMoves ) ),
+  moveBackwardInHistory: ( numberOfMoves: number ) =>
+    dispatch( moveBackwardInHistory( numberOfMoves ) ),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AnalysisGameRoute);
+)( AnalysisGameRoute );
