@@ -18,7 +18,8 @@
     "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "skipLibCheck": true
   },
   "include": [
     "src"
