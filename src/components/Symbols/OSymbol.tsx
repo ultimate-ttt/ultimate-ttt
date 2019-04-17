@@ -2,7 +2,7 @@ import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
 import '../../fonts/icons.css';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 interface OSymbolProps {
   bigSymbol?: boolean;
