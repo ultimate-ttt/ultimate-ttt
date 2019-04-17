@@ -13,16 +13,17 @@ interface AnalysisGameDisplayProps {
   analysisGame: AnalysisGame;
 }
 
-export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
-  const scrollToElement = (moveNumberToScrollTo: number) => {
-    scroller.scrollTo(moveScrollElementBaseName + moveNumberToScrollTo, {
-      duration: 300,
-      smooth: true,
-      containerId: 'moveList',
-      offset: -108,
-    });
-  };
+function scrollToElement(moveNumberToScrollTo: number) {
+  scroller.scrollTo(moveScrollElementBaseName + moveNumberToScrollTo, {
+    duration: 300,
+    smooth: true,
+    containerId: 'moveList',
+    // Thanks to this, when scrolling to an element, some elements above it will also be displayed
+    offset: -250,
+  });
+}
 
+export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
   const analysisGame = props.analysisGame;
   const reversedMoves = analysisGame.moves.slice().reverse();
   const currentlyAppliedMove =

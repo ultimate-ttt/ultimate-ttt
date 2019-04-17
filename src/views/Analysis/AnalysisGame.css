@@ -14,6 +14,7 @@
     padding: 0;
     overflow-y: scroll;
     min-height: 50vmin;
+	position: relative;
 }
 
 .analysisGame {
