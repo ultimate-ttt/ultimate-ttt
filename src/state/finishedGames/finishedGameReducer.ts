@@ -45,9 +45,12 @@ const finishedGameReducer = (state = initialState, action: GenericAction) => {
       });
       return newState;
     }
+
+    default: {
+      return state;
+    }
   }
 
-  return state;
 };
 
 export default finishedGameReducer;

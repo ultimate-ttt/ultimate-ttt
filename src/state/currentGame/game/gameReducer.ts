@@ -31,9 +31,11 @@ const gameReducer = (state = initialState, action: GenericAction) => {
     case RESTART_GAME: {
       return initialState;
     }
-  }
 
-  return state;
+    default: {
+      return state;
+    }
+  }
 };
 
 export default gameReducer;

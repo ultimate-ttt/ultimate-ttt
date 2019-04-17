@@ -9,8 +9,8 @@ const moveReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {
     case REGISTER_MOVE: {
       const {
-        boardPosition: boardPosition,
-        tilePosition: tilePosition,
+        boardPosition,
+        tilePosition,
         player,
       } = action.payload;
 
