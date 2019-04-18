@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = ({config}) => {
     config.module.rules.push({
-        test: /(?:test)\.(ts|tsx)$/,
+        test: /(?:\.test)\.(ts|tsx)$/,
         include: path.resolve(__dirname, '../src'),
         loader: require.resolve('ts-loader')
     });
