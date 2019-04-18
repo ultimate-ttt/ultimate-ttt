@@ -1044,7 +1044,7 @@ Object {
         "args": Array [
           "1",
         ],
-        "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
+        "selector": "@@redux-saga-test-plan/json/function/getAnalysisGame",
       },
     },
   ],
