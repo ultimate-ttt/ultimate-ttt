@@ -5765,7 +5765,7 @@ enzyme-adapter-utils@^1.11.0:
 
 enzyme-to-json@^3.3.5:
   version "3.3.5"
-  resolved "https://swisslife.pkgs.visualstudio.com/_packaging/NpmMain/npm/registry/enzyme-to-json/-/enzyme-to-json-3.3.5.tgz#f8eb82bd3d5941c9d8bc6fd9140030777d17d0af"
+  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.5.tgz#f8eb82bd3d5941c9d8bc6fd9140030777d17d0af"
   integrity sha512-DmH1wJ68HyPqKSYXdQqB33ZotwfUhwQZW3IGXaNXgR69Iodaoj8TF/D9RjLdz4pEhGq2Tx2zwNUIjBuqoZeTgA==
   dependencies:
     lodash "^4.17.4"
