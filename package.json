@@ -28,6 +28,9 @@
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx)\""
   },
   "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!<rootDir>/node_modules/",
@@ -65,6 +68,7 @@
     "babel-loader": "^8.0.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
     "hoist-non-react-statics": "^3.3.0",
     "prettier": "^1.16.4",
     "redux-devtools-extension": "^2.13.8",
