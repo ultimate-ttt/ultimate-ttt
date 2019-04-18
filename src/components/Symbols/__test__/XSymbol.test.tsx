@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
 import { XSymbol } from '../XSymbol';
 

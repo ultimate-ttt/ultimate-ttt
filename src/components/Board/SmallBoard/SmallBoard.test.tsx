@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { configure, shallow } from 'enzyme';
 import { SmallBoard } from './SmallBoard';
-import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { MarkSpecially, Player, TileValue } from '../../../state/AppState';
 import { Point } from '../../../util';
 import { Tile } from '../Tile/Tile';
