@@ -1,10 +1,7 @@
 import * as React from 'react';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Tile } from './Tile';
 import { TileValue } from '../../../state/AppState';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('Tile', () => {
   it('should not explode', () => {

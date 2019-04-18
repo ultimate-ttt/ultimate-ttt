@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import { HistoryButtons } from './HistoryButtons';
 import { Button } from '@rmwc/button';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('HistoryButtons', function() {
   it('should match snapshot', () => {

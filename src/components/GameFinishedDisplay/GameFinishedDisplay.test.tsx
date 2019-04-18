@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import { Winner } from '../../state/AppState';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('GameFinished', function() {
   it('should match snapshot when draw', () => {
@@ -76,7 +73,10 @@ describe('GameFinished', function() {
     expect(gameFinishedIndicator.hasClass('hidden')).toBe(false);
     expect(gameFinishedIndicator.hasClass('visible')).toBe(true);
 
-    gameFinishedIndicator.setProps({isGameFinished: false, winner: Winner.None});
+    gameFinishedIndicator.setProps({
+      isGameFinished: false,
+      winner: Winner.None,
+    });
 
     expect(gameFinishedIndicator.hasClass('hidden')).toBe(true);
     expect(gameFinishedIndicator.hasClass('visible')).toBe(false);

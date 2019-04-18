@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import { App } from './App';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('App', () => {
   it('should match snapshot', () => {

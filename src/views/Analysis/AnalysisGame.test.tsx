@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import { AnalysisGame } from './AnalysisGame';
 import { circleFinishedBoardMock } from '../../__mocks__';
 import { Player } from '../../state/AppState';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('AnalysisGame', () => {
   it('should match snapshot', () => {

@@ -1,12 +1,9 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { SmallBoard } from './SmallBoard';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { MarkSpecially, Player, TileValue } from '../../../state/AppState';
 import { Point } from '../../../util';
 import { Tile } from '../Tile/Tile';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {
   return {
