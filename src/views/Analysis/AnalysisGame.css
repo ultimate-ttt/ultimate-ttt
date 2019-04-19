@@ -1,52 +1,52 @@
 .mdc-list {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .analysisLayout {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-areas: "moveList" "historyButtons" "game";
-    height: 100%;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-areas: 'moveList' 'historyButtons' 'game';
+  height: 100%;
 }
 
 .moveList {
-    grid-area: moveList;
-    padding: 0;
-    overflow-y: scroll;
-    min-height: 50vmin;
-	position: relative;
+  grid-area: moveList;
+  padding: 0;
+  overflow-y: scroll;
+  min-height: 50vmin;
+  position: relative;
 }
 
 .analysisGame {
-    grid-area: game;
+  grid-area: game;
 }
 
 .historyButtons {
-    grid-area: historyButtons;
-    display: flex;
-    justify-content: center;
-    max-height: 10vmin;
+  grid-area: historyButtons;
+  display: flex;
+  justify-content: center;
+  max-height: 10vmin;
 }
 
 .historyButtons button {
-    margin: 5px;
+  margin: 5px;
 }
 
-@media only screen and (min-width: 640px) and (max-height: 768px), only screen and (min-width: 1350px)  {
-    .moveList {
-        max-height: 81vmin;
-    }
+@media only screen and (min-width: 640px) and (max-height: 768px),
+  only screen and (min-width: 1350px) {
+  .moveList {
+    max-height: 81vmin;
+  }
 
-    .analysisLayout {
-        grid-template-columns: minmax(20vmin, 1fr) auto;
-        grid-template-rows: minmax(9vmin, 12vmin) 81vmin;
-        grid-template-areas: ". historyButtons" "moveList game";
-        align-items: center;
-        grid-column-gap: 1.5em;
-    }
+  .analysisLayout {
+    grid-template-columns: minmax(20vmin, 1fr) auto;
+    grid-template-rows: minmax(9vmin, 12vmin) 81vmin;
+    grid-template-areas: '. historyButtons' 'moveList game';
+    align-items: center;
+    grid-column-gap: 1.5em;
+  }
 
-    .analysisLayout .mdc-list-item__graphic {
-        margin-right: 17px !important;
-    }
-
+  .analysisLayout .mdc-list-item__graphic {
+    margin-right: 17px !important;
+  }
 }
