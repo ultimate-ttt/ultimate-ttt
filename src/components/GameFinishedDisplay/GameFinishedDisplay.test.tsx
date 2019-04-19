@@ -5,7 +5,6 @@ import { GameFinishedDisplay } from './GameFinishedDisplay';
 
 describe('GameFinished', function() {
   it('should match snapshot when draw', () => {
-    // tslint:disable-next-line:no-empty
     const restart = () => {};
     const gameFinishedIndicator = shallow(
       <GameFinishedDisplay
@@ -19,7 +18,6 @@ describe('GameFinished', function() {
   });
 
   it('should match snapshot when circle wins', () => {
-    // tslint:disable-next-line:no-empty
     const restart = () => {};
     const gameFinishedIndicator = shallow(
       <GameFinishedDisplay
@@ -33,7 +31,6 @@ describe('GameFinished', function() {
   });
 
   it('should match snapshot when cross wins', () => {
-    // tslint:disable-next-line:no-empty
     const restart = () => {};
     const gameFinishedIndicator = shallow(
       <GameFinishedDisplay
@@ -47,7 +44,6 @@ describe('GameFinished', function() {
   });
 
   it('should match snapshot when no one wins', () => {
-    // tslint:disable-next-line:no-empty
     const restart = () => {};
     const gameFinishedIndicator = shallow(
       <GameFinishedDisplay
@@ -61,7 +57,6 @@ describe('GameFinished', function() {
   });
 
   it('should handle changing the props correctly', () => {
-    // tslint:disable-next-line:no-empty
     const restart = () => {};
     const gameFinishedIndicator = shallow(
       <GameFinishedDisplay

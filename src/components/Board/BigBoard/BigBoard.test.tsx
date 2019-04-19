@@ -10,7 +10,6 @@ import { SmallBoard } from '../SmallBoard/SmallBoard';
 
 describe('BigBoard', function() {
   it('should render 9 small boards', () => {
-    // tslint:disable:no-empty
     const playerMoved = jest.fn(() => {});
     const activeBoards = [{ x: 0, y: 0 }];
 
@@ -27,7 +26,6 @@ describe('BigBoard', function() {
   });
 
   it('should match snapshot', () => {
-    // tslint:disable:no-empty
     const playerMoved = jest.fn(() => {});
     const activeBoards = [{ x: 0, y: 0 }];
 
@@ -45,7 +43,6 @@ describe('BigBoard', function() {
 
   describe('markSpecially', () => {
     it('should pass undefined to smallBoards if markSpecially is not set', () => {
-      // tslint:disable:no-empty
       const playerMoved = jest.fn(() => {});
 
       const bigBoard = shallow(
@@ -66,7 +63,6 @@ describe('BigBoard', function() {
     });
 
     it('should pass the correct small board the markSpecially prop', () => {
-      // tslint:disable:no-empty
       const playerMoved = jest.fn(() => {});
       const markSpecially: MarkSpecially = {
         condition: true,

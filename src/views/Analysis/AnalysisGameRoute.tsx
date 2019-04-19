@@ -33,7 +33,7 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   } = props;
 
   useEffect(() => {
-    if (pathName.includes(appRoutes.AnalysisLatest.path)) {
+    if (pathName.includes(appRoutes.AnalysisLatest)) {
       loadLatestAnalysisGame();
     } else if (!isNaN(Date.parse(param))) {
       loadAnalysisGameByDate(new Date(Date.parse(param)));

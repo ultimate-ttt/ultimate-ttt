@@ -1,16 +1,8 @@
 const appRoutes = {
-  AnalysisLatest: {
-    path: '/analysis/latest',
-  },
-  AnalysisParam: {
-    path: '/analysis/:param',
-  },
-  AnalysisOverview: {
-    path: '/analysis',
-  },
-  Home: {
-    path: '/',
-  },
+  AnalysisLatest: '/analysis/latest',
+  AnalysisParam: '/analysis/:param',
+  AnalysisOverview: '/analysis',
+  Home: '/',
 };
 
 export default appRoutes;

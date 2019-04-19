@@ -15,16 +15,16 @@ export class App extends React.Component {
       <Router>
         <Switch>
           <Route
-            path={appRoutes.AnalysisLatest.path}
+            path={appRoutes.AnalysisLatest}
             exact={true}
             component={AnalysisGameRoute}
           />
           <Route
-            path={appRoutes.AnalysisParam.path}
+            path={appRoutes.AnalysisParam}
             exact={true}
             component={AnalysisGameRoute}
           />
-          <Route path={appRoutes.Home.path} component={Game} />
+          <Route path={appRoutes.Home} component={Game} />
         </Switch>
       </Router>
     );
