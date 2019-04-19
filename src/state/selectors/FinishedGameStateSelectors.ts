@@ -12,7 +12,7 @@ export const getWinningPlayerAsString = createSelector(
         return 'X';
       case Winner.Draw:
         return null;
-      case Winner.None:
+      default:
         return undefined;
     }
   },

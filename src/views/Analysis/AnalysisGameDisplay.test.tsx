@@ -1,14 +1,11 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import {
   circleFinishedBoardMock,
   movesForCircleFinishedBoardMock,
 } from '../../__mocks__';
 import { Player, Winner } from '../../state/AppState';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 // tslint:disable:no-empty
 describe('AnalysisGame', () => {
