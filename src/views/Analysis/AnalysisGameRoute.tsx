@@ -40,7 +40,13 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
     } else {
       loadAnalysisGameById(param);
     }
-  }, [pathName, param, loadAnalysisGameById, loadLatestAnalysisGame]);
+  }, [
+    pathName,
+    param,
+    loadAnalysisGameById,
+    loadAnalysisGameByDate,
+    loadLatestAnalysisGame,
+  ]);
 
   return (
     <AnalysisGameDisplay
