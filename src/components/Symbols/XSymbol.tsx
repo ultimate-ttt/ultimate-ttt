@@ -25,9 +25,6 @@ export class XSymbol extends React.Component<XSymbolProps> {
       className: className,
     });
 
-    // TODO: this is passing right now because CRA in V2.2 doesn't use tslint
-    console.log('hello. Test for cra');
-
     return <i className={iconClass} aria-label="Cross Symbol" />;
   }
 }

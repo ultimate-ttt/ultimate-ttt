@@ -10,8 +10,9 @@ import {
   moveForwardInHistory,
 } from '../../state/analysisGame/analysisGameActions';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
+import appRoutes from '../../routes/routes';
 
-interface AnalysisGameRouteProps extends RouteComponentProps<{ id: string }> {
+interface AnalysisGameRouteProps extends RouteComponentProps<{ param: string }> {
   analysisGame: AnalysisGame;
   loadAnalysisGameById: (id: string) => void;
   loadLatestAnalysisGame: () => void;
@@ -19,21 +20,20 @@ interface AnalysisGameRouteProps extends RouteComponentProps<{ id: string }> {
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
-// TODO add tests for the public api
 export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
-  useEffect(() => {
-    if (props.location.pathname.includes('latest')) {
-      props.loadLatestAnalysisGame();
+  const pathName = props.location.pathname;
+  const idParam = props.match.params.param;
+  const {loadLatestAnalysisGame, loadAnalysisGameById} = props;
 
+  useEffect(() => {
+    if (pathName.includes(appRoutes.AnalysisLatest.path)) {
+      loadLatestAnalysisGame();
       // TODO add Date case in a later iteration.
     } else {
-      props.loadAnalysisGameById(props.match.params.id);
+      loadAnalysisGameById(idParam);
     }
   }, [
-    props.location.pathname,
-    props.match.params.id,
-    props.loadAnalysisGameById,
-    props.loadLatestAnalysisGame,
+    pathName, idParam, loadAnalysisGameById, loadLatestAnalysisGame
   ]);
 
   return (
