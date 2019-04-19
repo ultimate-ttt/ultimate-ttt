@@ -1,13 +1,19 @@
 .o {
-    vertical-align: middle;
-    font-size: 6vmin;
+  vertical-align: middle;
+  font-size: 6vmin;
 }
 
 .x {
-    vertical-align: middle;
-    font-size: 7vmin;
+  vertical-align: middle;
+  font-size: 7vmin;
 }
 
-.big-symbol.o { font-size: 21vmin; }
-.big-symbol.x { font-size: 30vmin; }
-.big-symbol.no-winner { font-size: 29vmin; }
+.big-symbol.o {
+  font-size: 21vmin;
+}
+.big-symbol.x {
+  font-size: 30vmin;
+}
+.big-symbol.no-winner {
+  font-size: 29vmin;
+}

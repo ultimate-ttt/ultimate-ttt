@@ -2,8 +2,11 @@ import {
   getFinishedGameData,
   getWinningPlayerAsString,
 } from './FinishedGameStateSelectors';
-import { circleFinishedBoardMock } from '../../__mocks__';
-import { Winner, Player } from '../AppState';
+import {
+  circleFinishedBoardMock,
+  movesForCircleFinishedBoardMock,
+} from '../../../__mocks__';
+import { Winner } from '../../AppState';
 
 describe('FinishedGameStateSelectors', () => {
   describe('getWinningPlayerAsString', () => {
@@ -41,14 +44,7 @@ describe('FinishedGameStateSelectors', () => {
       const mockParameters = {
         winningPlayer: 'X' as 'X' | 'O' | null | undefined,
         boards: circleFinishedBoardMock,
-        moves: [
-          {
-            boardPosition: { x: 0, y: 0 },
-            tilePosition: { x: 0, y: 0 },
-            player: Player.Cross,
-            moveNumber: 1,
-          },
-        ],
+        moves: movesForCircleFinishedBoardMock,
       };
 
       const selected = getFinishedGameData.resultFunc(

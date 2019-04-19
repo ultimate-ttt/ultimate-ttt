@@ -1,12 +1,9 @@
 import * as React from 'react';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { SmallBoard } from './SmallBoard';
-import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import { MarkSpecially, Player, TileValue } from '../../../state/AppState';
 import { Point } from '../../../util';
 import { Tile } from '../Tile/Tile';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {
   return {
@@ -18,7 +15,6 @@ function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {
 
 describe('SmallBoard', () => {
   it('should not explode', () => {
-    // tslint:disable:no-empty
     const clicked = jest.fn(() => {});
 
     const boardPosition = { x: 0, y: 0 };
@@ -50,7 +46,6 @@ describe('SmallBoard', () => {
 
   describe('unfinished smallboard', () => {
     it('should display 9 tiles with the given values', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 1, y: 1 };
@@ -93,7 +88,6 @@ describe('SmallBoard', () => {
     });
 
     it('should make tiles not clickable if they are taken', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 1, y: 1 };
@@ -141,7 +135,6 @@ describe('SmallBoard', () => {
     });
 
     it('should make tiles not clickable if the move is not allowed', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -172,7 +165,6 @@ describe('SmallBoard', () => {
     });
 
     it('should add isTileRound=false when currentPlayer is Cross', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -203,7 +195,6 @@ describe('SmallBoard', () => {
     });
 
     it('should add isTileRound=true when currentPlayer is Circle', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -236,7 +227,6 @@ describe('SmallBoard', () => {
 
   describe('finished smallboard', () => {
     it('should only add one tile if the board is won and that should be a big tile', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -271,7 +261,6 @@ describe('SmallBoard', () => {
 
   describe('css classes', () => {
     it('should have class small-board-finished when small board is finished', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -302,7 +291,6 @@ describe('SmallBoard', () => {
     });
 
     it('should have class small-board in normal state', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -335,7 +323,6 @@ describe('SmallBoard', () => {
 
   describe('mark tile specially', () => {
     it('should add markSpecially=false to all tiles when the condition is false', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
@@ -372,7 +359,6 @@ describe('SmallBoard', () => {
     });
 
     it('should add markSpecially=true to the given tile position', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
@@ -419,7 +405,6 @@ describe('SmallBoard', () => {
     });
 
     it('should add markSpecially to a finished small board', () => {
-      // tslint:disable:no-empty
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };

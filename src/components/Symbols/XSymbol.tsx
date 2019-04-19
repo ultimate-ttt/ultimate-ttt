@@ -2,7 +2,7 @@ import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
 import '../../fonts/icons.css';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 interface XSymbolProps {
   bigSymbol?: boolean;
@@ -24,6 +24,7 @@ export class XSymbol extends React.Component<XSymbolProps> {
       'animate-x': shouldAnimate,
       className: className,
     });
+
     return <i className={iconClass} aria-label="Cross Symbol" />;
   }
 }

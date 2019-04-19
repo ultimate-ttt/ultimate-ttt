@@ -8,11 +8,7 @@ const initialState: MoveState[] = [];
 const moveReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {
     case REGISTER_MOVE: {
-      const {
-        boardPosition: boardPosition,
-        tilePosition: tilePosition,
-        player,
-      } = action.payload;
+      const { boardPosition, tilePosition, player } = action.payload;
 
       const newState = produce(state, (draftState) => {
         draftState.push({

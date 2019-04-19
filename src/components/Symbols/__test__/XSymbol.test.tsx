@@ -1,9 +1,6 @@
 import * as React from 'react';
-import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { XSymbol } from '../XSymbol';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('XSymbol', () => {
   it('should not explode', () => {

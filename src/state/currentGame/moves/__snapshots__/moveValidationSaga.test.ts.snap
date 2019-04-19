@@ -124,7 +124,7 @@ Object {
       "@@redux-saga/IO": true,
       "SELECT": Object {
         "args": Array [],
-        "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
+        "selector": "@@redux-saga-test-plan/json/function/getCurrentPlayer",
       },
     },
   ],

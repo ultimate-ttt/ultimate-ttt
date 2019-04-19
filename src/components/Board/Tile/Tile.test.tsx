@@ -1,10 +1,7 @@
 import * as React from 'react';
-import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Tile } from './Tile';
 import { TileValue } from '../../../state/AppState';
-
-configure({ adapter: new ReactSixteenAdapter() });
 
 describe('Tile', () => {
   it('should not explode', () => {
@@ -80,7 +77,6 @@ describe('Tile', () => {
 
   describe('click event', () => {
     it('should call the click method if it is clickable and it was clicked', () => {
-      // tslint:disable:no-empty
       const tileClicked = jest.fn(() => {});
       const component = shallow(
         <Tile

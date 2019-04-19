@@ -44,7 +44,6 @@ const mapStateToProps = (state: AppState) => ({
   activeBoards: state.currentGame.activeBoards,
 });
 
-// tslint:disable-next-line: no-any
 const mapDispatchToProps = (dispatch: any) => ({
   onPlayerMoved: (
     boardX: number,
