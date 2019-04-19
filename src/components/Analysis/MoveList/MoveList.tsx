@@ -13,8 +13,8 @@ interface MoveListProps {
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
-export class MoveList extends React.Component<MoveListProps> {
-  playerAsString = (player: Player) => {
+export function MoveList(props: MoveListProps) {
+  const playerAsString = (player: Player) => {
     if (player === Player.Cross) {
       return 'x';
     } else if (player === Player.Circle) {
@@ -23,8 +23,8 @@ export class MoveList extends React.Component<MoveListProps> {
     return undefined;
   };
 
-  getMoves = () => {
-    const { reversedMoves, currentMove } = this.props;
+  const getMoves = () => {
+    const { reversedMoves, currentMove } = props;
     const moveList: ReactNode[] = [];
 
     reversedMoves.forEach((m: MoveState) => {
@@ -35,7 +35,7 @@ export class MoveList extends React.Component<MoveListProps> {
         >
           <SimpleListItem
             activated={currentMove === m.moveNumber}
-            graphic={{ icon: this.playerAsString(m.player), size: 'small' }}
+            graphic={{ icon: playerAsString(m.player), size: 'small' }}
             text={'Move ' + m.moveNumber}
             secondaryText={`Board ${m.boardPosition.x}/${
               m.boardPosition.y
@@ -48,13 +48,13 @@ export class MoveList extends React.Component<MoveListProps> {
     return moveList;
   };
 
-  changeDisplayedMove = (event: CustomEventT<number>) => {
+  const changeDisplayedMove = (event: CustomEventT<number>) => {
     const {
       currentMove,
       reversedMoves,
       moveForwardInHistory,
       moveBackwardInHistory,
-    } = this.props;
+    } = props;
 
     const numberOfMovesFromEnd = event.detail;
     const moveNumber = reversedMoves.length - numberOfMovesFromEnd;
@@ -71,11 +71,9 @@ export class MoveList extends React.Component<MoveListProps> {
     }
   };
 
-  render() {
-    return (
-      <List twoLine={true} dense={true} onAction={this.changeDisplayedMove}>
-        {this.getMoves()}
-      </List>
-    );
-  }
+  return (
+    <List twoLine={true} dense={true} onAction={changeDisplayedMove}>
+      {getMoves()}
+    </List>
+  );
 }

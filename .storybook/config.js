@@ -4,7 +4,7 @@ import '../src/index.css';
 import '../src/components/Board/SmallBoard/SmallBoard.css';
 import '../src/components/Board/Tile/Tile.css';
 import '../src/components/Board/BigBoard/BigBoard.css';
-import '../src/views/Analysis/AnalysisGame.css';
+import '../src/views/Analysis/Game/AnalysisGame.css';
 
 import '@material/button/dist/mdc.button.min.css';
 import '@material/list/dist/mdc.list.css';

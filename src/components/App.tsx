@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Game from '../views/Game/Game';
-import AnalysisGameRoute from '../views/Analysis/AnalysisGameRoute';
+import AnalysisGameRoute from '../views/Analysis/Game/AnalysisGameRoute';
+import AnalysisOverview from '../views/Analysis/Overview/AnalysisOverview';
 import appRoutes from '../routes/routes';
 
 // import individual material component styles here.
@@ -16,13 +17,12 @@ export class App extends React.Component {
         <Switch>
           <Route
             path={appRoutes.AnalysisLatest}
-            exact={true}
             component={AnalysisGameRoute}
           />
+          <Route path={appRoutes.AnalysisParam} component={AnalysisGameRoute} />
           <Route
-            path={appRoutes.AnalysisParam}
-            exact={true}
-            component={AnalysisGameRoute}
+            path={appRoutes.AnalysisOverview}
+            component={AnalysisOverview}
           />
           <Route path={appRoutes.Home} component={Game} />
         </Switch>

@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import {
   circleFinishedBoardMock,
   movesForCircleFinishedBoardMock,
-} from '../../__mocks__';
-import { Player, Winner } from '../../state/AppState';
+} from '../../../__mocks__';
+import { Player, Winner } from '../../../state/AppState';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 
 // tslint:disable:no-empty

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { AnalysisGame, AppState } from '../../state/AppState';
+import { AnalysisGame, AppState } from '../../../state/AppState';
 import { connect } from 'react-redux';
 import {
   loadFinishedGameByDate,
@@ -9,9 +9,9 @@ import {
   loadLatestFinishedGame,
   moveBackwardInHistory,
   moveForwardInHistory,
-} from '../../state/analysisGame/analysisGameActions';
+} from '../../../state/analysisGame/analysisGameActions';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
-import appRoutes from '../../routes/routes';
+import appRoutes from '../../../routes/routes';
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {

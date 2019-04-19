@@ -38,12 +38,12 @@
   }
 }
 
-.big-symbol.animate-no-winner {
+.big-symbol.animate-draw {
   animation-duration: 0.75s;
-  animation-name: add-icon-big-no-winner;
+  animation-name: add-icon-big-draw;
 }
 
-@keyframes add-icon-big-no-winner {
+@keyframes add-icon-big-draw {
   0% {
     font-size: 45vmin;
   }

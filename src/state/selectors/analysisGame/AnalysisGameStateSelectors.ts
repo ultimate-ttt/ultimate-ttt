@@ -1,6 +1,21 @@
-import { AnalysisGame, AppState, FinishedGameState } from '../../AppState';
+import {
+  AnalysisGame,
+  AppState,
+  FinishedGameState,
+  Winner,
+} from '../../AppState';
 import { createSelector } from 'reselect';
 import { getFinishedGames } from '../AppStateSelectors';
+
+const stringToWinner = (winnerString: 'X' | 'O' | null) => {
+  if (winnerString === 'X') {
+    return Winner.Cross;
+  } else if (winnerString === 'O') {
+    return Winner.Circle;
+  } else {
+    return Winner.Draw;
+  }
+};
 
 const mapFinishedGameToAnalysisGame = (
   finishedGame: FinishedGameState,
@@ -12,7 +27,7 @@ const mapFinishedGameToAnalysisGame = (
     currentMove: finishedGame.moves.length,
     game: {
       currentPlayer: finishedGame.moves[finishedGame.moves.length - 2].player,
-      winningPlayer: finishedGame.winner,
+      winningPlayer: stringToWinner(finishedGame.winner),
       isFinished: true,
     },
     activeBoards: [],

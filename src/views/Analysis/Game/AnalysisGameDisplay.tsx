@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { BigBoard } from '../../components/Board/BigBoard/BigBoard';
-import { AnalysisGame } from '../../state/AppState';
+import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
+import { AnalysisGame } from '../../../state/AppState';
 import './AnalysisGame.css';
-import { HistoryButtons } from '../../components/Analysis/HistoryButtons/HistoryButtons';
-import { MoveList } from '../../components/Analysis/MoveList/MoveList';
+import { HistoryButtons } from '../../../components/Analysis/HistoryButtons/HistoryButtons';
+import { MoveList } from '../../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
-import { moveScrollElementBaseName } from '../../components/Analysis/ScrollElementConstants';
+import { moveScrollElementBaseName } from '../../../components/Analysis/ScrollElementConstants';
 
 interface AnalysisGameDisplayProps {
   moveForwardInHistory: (numberOfMoves: number) => void;

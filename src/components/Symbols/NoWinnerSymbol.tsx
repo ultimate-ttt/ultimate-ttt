@@ -4,12 +4,12 @@ import '../../fonts/icons.css';
 import './symbolAnimations.css';
 import classNames from 'classnames';
 
-interface NoWinnerSymbolProps {
+interface DrawSymbolProps {
   shouldAnimate?: boolean;
 }
 
-export class NoWinnerSymbol extends React.Component<NoWinnerSymbolProps> {
-  public static defaultProps: Partial<NoWinnerSymbolProps> = {
+export class NoWinnerSymbol extends React.Component<DrawSymbolProps> {
+  public static defaultProps: Partial<DrawSymbolProps> = {
     shouldAnimate: true,
   };
 
@@ -17,12 +17,12 @@ export class NoWinnerSymbol extends React.Component<NoWinnerSymbolProps> {
     const { shouldAnimate } = this.props;
 
     const iconClass = classNames({
-      'icon-no-winner': true,
+      'icon-draw': true,
       'big-symbol': true,
-      'no-winner': true,
-      'animate-no-winner': shouldAnimate,
+      draw: true,
+      'animate-draw': shouldAnimate,
     });
 
-    return <i className={iconClass} aria-label="No Winner Symbol" />;
+    return <i className={iconClass} aria-label="Draw Symbol" />;
   }
 }
