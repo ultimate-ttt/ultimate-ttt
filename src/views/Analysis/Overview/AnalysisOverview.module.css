@@ -8,10 +8,6 @@
   grid-area: header;
 }
 
-.heading {
-  margin: 0 1em 0.5em;
-}
-
 .gameList {
   grid-area: gameList;
   overflow-y: scroll;

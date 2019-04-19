@@ -1,7 +1,10 @@
 .big-board {
   display: grid;
-  grid-template-columns: 25vmin 25vmin 25vmin;
-  grid-template-rows: 25vmin 25vmin 25vmin;
-  grid-gap: 3vmin;
+  grid-template-columns: 10vmin 10vmin 10vmin;
+  grid-template-rows: 10vmin 10vmin 10vmin;
+  grid-gap: 1.5vmin;
   justify-content: center;
 }
+
+/* TODO make separate classes for Big BigBoard and Small BigBoard */
+/* OR: configure these with CSS Vars? */

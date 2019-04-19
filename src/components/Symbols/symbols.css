@@ -1,19 +1,22 @@
 .o {
   vertical-align: middle;
-  font-size: 6vmin;
+  font-size: 3vmin;
 }
 
 .x {
   vertical-align: middle;
-  font-size: 7vmin;
+  font-size: 3vmin;
 }
 
 .big-symbol.o {
-  font-size: 21vmin;
+  font-size: 10vmin;
 }
 .big-symbol.x {
-  font-size: 30vmin;
+  font-size: 10vmin;
 }
 .big-symbol.draw {
-  font-size: 29vmin;
+  font-size: 10vmin;
 }
+
+/* TODO configure these sizes for different board sizes */
+/* OR: configure these with CSS Vars? */
