@@ -4,7 +4,8 @@ import { RouteComponentProps } from 'react-router';
 import { AnalysisGame, AppState } from '../../state/AppState';
 import { connect } from 'react-redux';
 import {
-  loadFinishedGame,
+  loadFinishedGameByDate,
+  loadFinishedGameById,
   loadLatestFinishedGame,
   moveBackwardInHistory,
   moveForwardInHistory,
@@ -17,23 +18,25 @@ interface AnalysisGameRouteProps
   analysisGame: AnalysisGame;
   loadAnalysisGameById: (id: string) => void;
   loadLatestAnalysisGame: () => void;
+  loadAnalysisGameByDate: (date: Date) => void;
   moveForwardInHistory: (numberOfMoves: number) => void;
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
 export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   const pathName = props.location.pathname;
-  const idParam = props.match.params.param;
-  const { loadLatestAnalysisGame, loadAnalysisGameById } = props;
+  const param = props.match.params.param;
+  const { loadLatestAnalysisGame, loadAnalysisGameById, loadAnalysisGameByDate } = props;
 
   useEffect(() => {
     if (pathName.includes(appRoutes.AnalysisLatest.path)) {
       loadLatestAnalysisGame();
-      // TODO add Date case in a later iteration.
+    } else if(!isNaN(Date.parse(param))) {
+      loadAnalysisGameByDate(new Date(Date.parse(param)))
     } else {
-      loadAnalysisGameById(idParam);
+      loadAnalysisGameById(param);
     }
-  }, [pathName, idParam, loadAnalysisGameById, loadLatestAnalysisGame]);
+  }, [pathName, param, loadAnalysisGameById, loadLatestAnalysisGame]);
 
   return (
     <AnalysisGameDisplay
@@ -49,7 +52,8 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  loadAnalysisGameById: (id: string) => dispatch(loadFinishedGame(id)),
+  loadAnalysisGameById: (id: string) => dispatch( loadFinishedGameById( id)),
+  loadAnalysisGameByDate: (date: Date) => dispatch(loadFinishedGameByDate( date )),
   loadLatestAnalysisGame: () => dispatch(loadLatestFinishedGame()),
   moveForwardInHistory: (numberOfMoves: number) =>
     dispatch(moveForwardInHistory(numberOfMoves)),

@@ -18,6 +18,17 @@ Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
+          "analysisGameReducer/load-finished-game-by-date",
+          "@@redux-saga-test-plan/json/function/loadFinishedGameByDate",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
           "analysisGameReducer/load-latest-finished-game",
           "@@redux-saga-test-plan/json/function/loadLatestFinishedGame",
         ],
@@ -1064,6 +1075,12 @@ Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
         "pattern": "analysisGameReducer/load-finished-game-by-id",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "analysisGameReducer/load-finished-game-by-date",
       },
     },
     Object {

@@ -9,6 +9,7 @@ import {
   SET_ANALYSIS_GAME,
 } from './analysisGameActions';
 
+// TODO: other sub saga tests!
 describe('loadFinishedGameSaga', () => {
   const analysisGame = {
     id: '1',

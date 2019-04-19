@@ -20,11 +20,23 @@ const mapFinishedGameToAnalysisGame = (
 };
 
 export const getIdToFetch = (state: AppState, id: string) => id;
-
 export const getAnalysisGameById = createSelector(
   [getFinishedGames, getIdToFetch],
   (finishedGames, id): AnalysisGame | undefined => {
     const finishedGame = finishedGames.find((g) => g.id === id);
+    if (finishedGame) {
+      return mapFinishedGameToAnalysisGame(finishedGame);
+    }
+
+    return undefined;
+  },
+);
+
+export const getDateToFetch = (state: AppState, date: Date) => date.toISOString();
+export const getAnalysisGameByDate = createSelector(
+  [getFinishedGames, getDateToFetch],
+  (finishedGames, date): AnalysisGame | undefined => {
+    const finishedGame = finishedGames.find((g) => g.date === date);
     if (finishedGame) {
       return mapFinishedGameToAnalysisGame(finishedGame);
     }
