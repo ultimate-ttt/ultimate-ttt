@@ -110,7 +110,6 @@ const mapStateToProps = (state: AppState) => ({
   winner: state.currentGame.game.winningPlayer,
 });
 
-// tslint:disable-next-line: no-any
 const mapDispatchToProps = (dispatch: any) => ({
   onRestartGame: () => dispatch(restartGame()),
 });

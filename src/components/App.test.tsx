@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
 import { App } from './App';
+import { shallow } from 'enzyme';
 
 describe('App', () => {
-  it('should match snapshot', () => {
+  it('should not explode', () => {
     const app = shallow(<App />);
-
-    expect(app).toMatchSnapshot();
+    expect(app).not.toBeNull();
   });
 });

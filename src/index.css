@@ -1,36 +1,40 @@
 :root {
-    --tropical-teal: #008891;
-    --incremental-blue: #0F3057;
-    --vampire-bite: #c70039;
-    --mdc-theme-primary: var(--tropical-teal);
-    --mdc-theme-text-icon-on-background: black;
+  --tropical-teal: #008891;
+  --incremental-blue: #0f3057;
+  --vampire-bite: #c70039;
+  --mdc-theme-primary: var(--tropical-teal);
+  --mdc-theme-text-icon-on-background: black;
 }
 
-html, body {
-    /* From medium: https://medium.design/system-shock-6b1dc6d6596f */
-    font-family: -apple-system, ".SFNSText-Regular",
-    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+html,
+body {
+  /* From medium: https://medium.design/system-shock-6b1dc6d6596f */
+  font-family: -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto',
+    'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;
 
-    margin-bottom: 1em;
-    overflow-x: hidden;
+  margin-bottom: 1em;
+  overflow-x: hidden;
 }
 
-html,body, .center, #root {
-    height: 100%;
-    width: 100%;
+html,
+body,
+.center,
+#root {
+  height: 100%;
+  width: 100%;
 }
 
 .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gameWrapper {
-    display: grid;
-    overflow: hidden;
+  display: grid;
+  overflow: hidden;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }

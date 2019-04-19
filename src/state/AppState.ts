@@ -15,11 +15,11 @@ export interface GameInformation {
 
 export interface FinishedGameState {
   id?: string;
-  date: Date;
+  date: string;
   winner: Winner;
   gameState: SmallBoardInformation[];
   moves: MoveState[];
-  saveState: string;
+  saveState: SaveState;
   errorMessage: string;
 }
 
@@ -70,6 +70,8 @@ export enum Player {
   Circle = 1,
 }
 
+export type SaveState = '' | 'pending' | 'fulfilled' | 'rejected';
+
 export interface Move {
   boardPosition: Point;
   tilePosition: Point;
@@ -82,7 +84,6 @@ export interface MoveState extends Move {
 
 export interface GenericAction {
   type: string;
-  // tslint:disable-next-line: no-any
   payload?: any;
 }
 

@@ -33,7 +33,6 @@ describe('MoveList', function() {
   ].reverse();
 
   it('should match snapshot', () => {
-    // tslint:disable:no-empty
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});
     const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
@@ -50,7 +49,6 @@ describe('MoveList', function() {
   });
 
   it('should display amount of moves in list', () => {
-    // tslint:disable:no-empty
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});
     const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
@@ -67,7 +65,6 @@ describe('MoveList', function() {
   });
 
   it('should set activated to the correct value', () => {
-    // tslint:disable:no-empty
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});
     const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
@@ -91,7 +88,6 @@ describe('MoveList', function() {
 
   describe('moveBackwardInHistory', () => {
     it('should call backward function with 3 when currentMove is 4 and move 1 is clicked', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
@@ -113,7 +109,6 @@ describe('MoveList', function() {
     });
 
     it('should call backward function with 1 when currentMove is 3 and move 2 is clicked', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
@@ -137,7 +132,6 @@ describe('MoveList', function() {
 
   describe('moveForwardInHistory', () => {
     it('should call forward function with 3 when currentMove is 1 and move 4 is clicked', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 
@@ -159,7 +153,6 @@ describe('MoveList', function() {
     });
 
     it('should call forward function with 1 when currentMove is 2 and move 3 is clicked', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
 

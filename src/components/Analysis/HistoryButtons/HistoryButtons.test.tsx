@@ -5,7 +5,6 @@ import { Button } from '@rmwc/button';
 
 describe('HistoryButtons', function() {
   it('should match snapshot', () => {
-    // tslint:disable:no-empty
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});
     const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
     const onInteraction = jest.fn((newMoveNumber) => {});
@@ -25,7 +24,6 @@ describe('HistoryButtons', function() {
 
   describe('disabled behaviour', () => {
     it('has a disabled move backward button when current move is 1', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -48,7 +46,6 @@ describe('HistoryButtons', function() {
     });
 
     it('has a disabled move forward button when current move is the last move', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -73,7 +70,6 @@ describe('HistoryButtons', function() {
 
   describe('click behaviour', () => {
     it('calls forward when move forward button is clicked', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -95,7 +91,6 @@ describe('HistoryButtons', function() {
     });
 
     it('calls backward when move backward button is clicked', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -119,7 +114,6 @@ describe('HistoryButtons', function() {
 
   describe('keyboard event behaviour', () => {
     it('calls backward when left arrow is pressed', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -142,7 +136,6 @@ describe('HistoryButtons', function() {
     });
 
     it('calls forward when right arrow is pressed', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -165,7 +158,6 @@ describe('HistoryButtons', function() {
     });
 
     it('doesnt call backward when left arrow is pressed and moveNumber is 1', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
@@ -188,7 +180,6 @@ describe('HistoryButtons', function() {
     });
 
     it('doesnt call forward when right arrow is pressed and moveNumber is the last one', () => {
-      // tslint:disable:no-empty
       const moveForwardInHistory = jest.fn((numberOfMoves) => {});
       const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
       const onInteraction = jest.fn((newMoveNumber) => {});
