@@ -27,7 +27,10 @@ export class GameFinishedDisplay extends React.Component<
 
     this.state = {
       winnerClassAttribute: this.props.isGameFinished ? 'visible' : 'hidden',
-      winnerText: this.getWinnerText(this.props.winner, this.props.isGameFinished),
+      winnerText: this.getWinnerText(
+        this.props.winner,
+        this.props.isGameFinished,
+      ),
     };
   }
 
@@ -63,6 +66,10 @@ export class GameFinishedDisplay extends React.Component<
           );
         case Winner.Draw:
           return `It's a draw!`;
+
+        default: {
+          return 'Game is not finished.'; // This will never happen in theory
+        }
       }
     }
 

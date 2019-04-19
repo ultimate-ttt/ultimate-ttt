@@ -32,7 +32,7 @@ export class Tile extends React.Component<TileProps> {
         return <OSymbol bigSymbol={isBig} shouldAnimate={shouldAnimate} />;
       case TileValue.Destroyed:
         return <NoWinnerSymbol shouldAnimate={shouldAnimate} />;
-      case TileValue.Empty:
+      default:
         return '';
     }
   };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import './symbols.css';
 import './symbolAnimations.css';
 import '../../fonts/icons.css';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 interface XSymbolProps {
   bigSymbol?: boolean;
@@ -24,6 +24,10 @@ export class XSymbol extends React.Component<XSymbolProps> {
       'animate-x': shouldAnimate,
       className: className,
     });
+
+    // TODO: this is passing right now because CRA in V2.2 doesn't use tslint
+    console.log('hello. Test for cra');
+
     return <i className={iconClass} aria-label="Cross Symbol" />;
   }
 }

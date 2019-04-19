@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { App } from './components/App';
-import registerServiceWorker from './registerServiceWorker';
+import { register } from './serviceWorker';
 import { configureStore } from './state/configureStore';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -28,4 +28,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root') as HTMLElement,
 );
-registerServiceWorker();
+register();
