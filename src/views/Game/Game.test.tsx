@@ -6,7 +6,6 @@ import { unfinishedBoardMock } from '../../__mocks__';
 
 describe('Game', () => {
   it('should match snapshot', () => {
-    // tslint:disable:no-empty
     const onPlayerMoved = jest.fn(
       (boardX: number, boardY: number, tileX: number, tileY: number) => {},
     );

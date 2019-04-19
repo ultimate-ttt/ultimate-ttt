@@ -1,13 +1,22 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
-import { Player, Winner } from '../AppState';
+import { AnalysisGame, Player, Winner } from '../AppState';
 import loadFinishedGameSaga from './analysisGameSaga';
-import { getAnalysisGame } from '../selectors/AnalysisGameStateSelectors';
+import {
+  getAnalysisGameByDate,
+  getAnalysisGameById,
+  getLatestAnalysisGame,
+} from '../selectors/analysisGame/AnalysisGameStateSelectors';
 import { crossFinishedBoardMock } from '../../__mocks__';
-import { LOAD_FINISHED_GAME, SET_ANALYSIS_GAME } from './analysisGameActions';
+import {
+  LOAD_FINISHED_GAME_BY_DATE,
+  LOAD_FINISHED_GAME_BY_ID,
+  LOAD_LATEST_FINISHED_GAME,
+  SET_ANALYSIS_GAME,
+} from './analysisGameActions';
 
 describe('loadFinishedGameSaga', () => {
-  const analysisGame = {
+  const analysisGame: AnalysisGame = {
     id: '1',
     board: crossFinishedBoardMock,
     activeBoards: [],
@@ -27,28 +36,43 @@ describe('loadFinishedGameSaga', () => {
     },
   };
 
-  it('should dispatch the setAnalysisGame action for the analysisGame with the given id', () => {
-    return expectSaga(loadFinishedGameSaga)
-      .provide([[select(getAnalysisGame, '1'), analysisGame]])
-      .put({ type: SET_ANALYSIS_GAME, payload: analysisGame })
-      .dispatch({
-        type: LOAD_FINISHED_GAME,
-        payload: '1',
-      })
-      .silentRun();
+  describe('loadFinishedGameById', () => {
+    it('should dispatch the setAnalysisGame action for the analysisGame with the given id', () => {
+      return expectSaga(loadFinishedGameSaga)
+        .provide([[select(getAnalysisGameById, '1'), analysisGame]])
+        .put({ type: SET_ANALYSIS_GAME, payload: analysisGame })
+        .dispatch({
+          type: LOAD_FINISHED_GAME_BY_ID,
+          payload: '1',
+        })
+        .silentRun();
+    });
   });
 
-  // if more put effects happen: this catches it + this checks for the order
-  it('should match snapshot', () => {
-    return expectSaga(loadFinishedGameSaga)
-      .provide([[select(getAnalysisGame, '1'), analysisGame]])
-      .dispatch({
-        type: LOAD_FINISHED_GAME,
-        payload: '1',
-      })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
+  describe('loadFinishedGameByDate', () => {
+    it('should dispatch the setAnalysisGame action for the analysisGame with the given date', () => {
+      return expectSaga(loadFinishedGameSaga)
+        .provide([
+          [select(getAnalysisGameByDate, new Date(2019, 1, 1)), analysisGame],
+        ])
+        .put({ type: SET_ANALYSIS_GAME, payload: analysisGame })
+        .dispatch({
+          type: LOAD_FINISHED_GAME_BY_DATE,
+          payload: new Date(2019, 1, 1),
+        })
+        .silentRun();
+    });
+  });
+
+  describe('loadLatestFinishedGame', () => {
+    it('should dispatch the setAnalysisGame action for the latest analysisGame', () => {
+      return expectSaga(loadFinishedGameSaga)
+        .provide([[select(getLatestAnalysisGame), analysisGame]])
+        .put({ type: SET_ANALYSIS_GAME, payload: analysisGame })
+        .dispatch({
+          type: LOAD_LATEST_FINISHED_GAME,
+        })
+        .silentRun();
+    });
   });
 });

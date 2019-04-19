@@ -77,7 +77,6 @@ describe('Tile', () => {
 
   describe('click event', () => {
     it('should call the click method if it is clickable and it was clicked', () => {
-      // tslint:disable:no-empty
       const tileClicked = jest.fn(() => {});
       const component = shallow(
         <Tile

@@ -4,7 +4,7 @@ import { CHECK_GAME_FINISHED, gameFinished } from './gameAction';
 import { getMoves } from '../../selectors/AppStateSelectors';
 import { setActiveBoards } from '../activeBoards/activeBoardsActions';
 import { saveGameData } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
+import { getFinishedGameData } from '../../selectors/finishedGames/FinishedGameStateSelectors';
 import { TicTacToeGame } from '../../../util';
 
 function* checkIfGameFinished(action: GenericAction) {
