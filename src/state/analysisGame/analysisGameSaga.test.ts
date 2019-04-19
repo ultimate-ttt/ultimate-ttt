@@ -2,7 +2,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 import { Player, Winner } from '../AppState';
 import loadFinishedGameSaga from './analysisGameSaga';
-import { getAnalysisGameById } from '../selectors/AnalysisGameStateSelectors';
+import { getAnalysisGameById } from '../selectors/analysisGame/AnalysisGameStateSelectors';
 import { crossFinishedBoardMock } from '../../__mocks__';
 import {
   LOAD_FINISHED_GAME_BY_ID,

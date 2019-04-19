@@ -1055,7 +1055,7 @@ Object {
         "args": Array [
           "1",
         ],
-        "selector": "@@redux-saga-test-plan/json/function/getAnalysisGameById",
+        "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
       },
     },
   ],

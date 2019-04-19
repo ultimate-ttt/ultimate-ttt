@@ -12,7 +12,8 @@ import {
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 import appRoutes from '../../routes/routes';
 
-interface AnalysisGameRouteProps extends RouteComponentProps<{ param: string }> {
+interface AnalysisGameRouteProps
+  extends RouteComponentProps<{ param: string }> {
   analysisGame: AnalysisGame;
   loadAnalysisGameById: (id: string) => void;
   loadLatestAnalysisGame: () => void;
@@ -23,7 +24,7 @@ interface AnalysisGameRouteProps extends RouteComponentProps<{ param: string }> 
 export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   const pathName = props.location.pathname;
   const idParam = props.match.params.param;
-  const {loadLatestAnalysisGame, loadAnalysisGameById} = props;
+  const { loadLatestAnalysisGame, loadAnalysisGameById } = props;
 
   useEffect(() => {
     if (pathName.includes(appRoutes.AnalysisLatest.path)) {
@@ -32,9 +33,7 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
     } else {
       loadAnalysisGameById(idParam);
     }
-  }, [
-    pathName, idParam, loadAnalysisGameById, loadLatestAnalysisGame
-  ]);
+  }, [pathName, idParam, loadAnalysisGameById, loadLatestAnalysisGame]);
 
   return (
     <AnalysisGameDisplay

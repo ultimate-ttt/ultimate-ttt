@@ -19,7 +19,7 @@ export interface FinishedGameState {
   winner: Winner;
   gameState: SmallBoardInformation[];
   moves: MoveState[];
-  saveState: string;
+  saveState: SaveState;
   errorMessage: string;
 }
 
@@ -69,6 +69,8 @@ export enum Player {
   Cross = 0,
   Circle = 1,
 }
+
+export type SaveState = '' | 'pending' | 'fulfilled' | 'rejected';
 
 export interface Move {
   boardPosition: Point;

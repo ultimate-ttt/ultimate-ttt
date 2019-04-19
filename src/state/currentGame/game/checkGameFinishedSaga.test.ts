@@ -13,7 +13,7 @@ import {
   movesForUnfinishedBoardMock,
 } from '../../../__mocks__';
 import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
+import { getFinishedGameData } from '../../selectors/finishedGames/FinishedGameStateSelectors';
 
 describe('checkGameFinishedSaga', () => {
   it(

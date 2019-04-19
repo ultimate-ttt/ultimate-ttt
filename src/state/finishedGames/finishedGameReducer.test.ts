@@ -6,7 +6,7 @@ import {
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
 import { crossFinishedBoardMock } from '../../__mocks__';
-import { Winner } from '../AppState';
+import { SaveState, Winner } from '../AppState';
 
 describe('finishedGameReducer', () => {
   it('should return init state', () => {
@@ -34,7 +34,7 @@ describe('finishedGameReducer', () => {
         moveNumber: 1,
       },
     ],
-    saveState: 'pending',
+    saveState: 'pending' as SaveState,
     errorMessage: '',
   };
 

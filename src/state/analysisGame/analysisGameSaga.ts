@@ -8,7 +8,7 @@ import {
 import {
   getAnalysisGameById,
   getLatestAnalysisGame,
-} from '../selectors/AnalysisGameStateSelectors';
+} from '../selectors/analysisGame/AnalysisGameStateSelectors';
 
 function* loadFinishedGameById(action: GenericAction) {
   const analysisGame: AnalysisGame | undefined = yield select(
