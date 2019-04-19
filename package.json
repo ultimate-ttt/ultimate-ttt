@@ -63,7 +63,7 @@
     "@types/react-scroll": "^1.5.4",
     "@types/redux-logger": "^3.0.6",
     "@types/storybook__addon-actions": "^3.4.2",
-    "@types/storybook__addon-knobs": "^4.0.4",
+    "@types/storybook__addon-knobs": "^5.0.0",
     "@types/storybook__addon-links": "^3.3.4",
     "@types/storybook__react": "^4.0.1",
     "babel-loader": "^8.0.5",
