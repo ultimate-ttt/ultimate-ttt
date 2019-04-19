@@ -31,11 +31,10 @@ function* loadFinishedGameByDate(action: GenericAction) {
     action.payload,
   );
 
-  if(analysisGame !== undefined) {
-    yield put (setAnalysisGame(analysisGame));
+  if (analysisGame !== undefined) {
+    yield put(setAnalysisGame(analysisGame));
   }
 }
-
 
 function* loadLatestFinishedGame(action: GenericAction) {
   const analysisGame: AnalysisGame | undefined = yield select(

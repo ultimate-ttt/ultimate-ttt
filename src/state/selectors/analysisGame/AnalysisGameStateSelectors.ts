@@ -32,7 +32,8 @@ export const getAnalysisGameById = createSelector(
   },
 );
 
-export const getDateToFetch = (state: AppState, date: Date) => date.toISOString();
+export const getDateToFetch = (state: AppState, date: Date) =>
+  date.toISOString();
 export const getAnalysisGameByDate = createSelector(
   [getFinishedGames, getDateToFetch],
   (finishedGames, date): AnalysisGame | undefined => {

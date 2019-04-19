@@ -12,12 +12,12 @@ export const MOVE_FORWARD_IN_HISTORY =
 export const MOVE_BACKWARD_IN_HISTORY =
   'analysisGameReducer/move-backward-in-history';
 
-export const loadFinishedGameById = ( id: string) => ({
+export const loadFinishedGameById = (id: string) => ({
   type: LOAD_FINISHED_GAME_BY_ID,
   payload: id,
 });
 
-export const loadFinishedGameByDate = ( date: Date) => ({
+export const loadFinishedGameByDate = (date: Date) => ({
   type: LOAD_FINISHED_GAME_BY_DATE,
   payload: date,
 });

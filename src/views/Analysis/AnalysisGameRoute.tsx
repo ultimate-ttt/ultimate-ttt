@@ -26,13 +26,17 @@ interface AnalysisGameRouteProps
 export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   const pathName = props.location.pathname;
   const param = props.match.params.param;
-  const { loadLatestAnalysisGame, loadAnalysisGameById, loadAnalysisGameByDate } = props;
+  const {
+    loadLatestAnalysisGame,
+    loadAnalysisGameById,
+    loadAnalysisGameByDate,
+  } = props;
 
   useEffect(() => {
     if (pathName.includes(appRoutes.AnalysisLatest.path)) {
       loadLatestAnalysisGame();
-    } else if(!isNaN(Date.parse(param))) {
-      loadAnalysisGameByDate(new Date(Date.parse(param)))
+    } else if (!isNaN(Date.parse(param))) {
+      loadAnalysisGameByDate(new Date(Date.parse(param)));
     } else {
       loadAnalysisGameById(param);
     }
@@ -52,8 +56,9 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  loadAnalysisGameById: (id: string) => dispatch( loadFinishedGameById( id)),
-  loadAnalysisGameByDate: (date: Date) => dispatch(loadFinishedGameByDate( date )),
+  loadAnalysisGameById: (id: string) => dispatch(loadFinishedGameById(id)),
+  loadAnalysisGameByDate: (date: Date) =>
+    dispatch(loadFinishedGameByDate(date)),
   loadLatestAnalysisGame: () => dispatch(loadLatestFinishedGame()),
   moveForwardInHistory: (numberOfMoves: number) =>
     dispatch(moveForwardInHistory(numberOfMoves)),
