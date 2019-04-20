@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NoWinnerSymbol should match snapshot, animate false 1`] = `
+exports[`DrawSymbol should match snapshot, animate false 1`] = `
 <i
-  aria-label="No Winner Symbol"
-  className="icon-no-winner big-symbol no-winner"
+  aria-label="Draw Symbol"
+  className="icon-draw big-symbol draw"
 />
 `;
 
-exports[`NoWinnerSymbol should match snapshot, animate true 1`] = `
+exports[`DrawSymbol should match snapshot, animate true 1`] = `
 <i
-  aria-label="No Winner Symbol"
-  className="icon-no-winner big-symbol no-winner animate-no-winner"
+  aria-label="Draw Symbol"
+  className="icon-draw big-symbol draw animate-draw"
 />
 `;
