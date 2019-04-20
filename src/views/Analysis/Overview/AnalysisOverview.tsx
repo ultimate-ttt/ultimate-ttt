@@ -4,76 +4,102 @@ import { connect } from 'react-redux';
 import {
   Card,
   CardPrimaryAction,
-  CardMedia,
   CardActions,
   CardActionButton,
 } from '@rmwc/card';
 import { Typography } from '@rmwc/typography';
+import { ListDivider } from '@rmwc/list';
 import styles from './AnalysisOverview.module.css';
 import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
+import { Icon } from '@rmwc/icon';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
 }
 
+function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
+  if (winner) {
+    return (
+      <>
+        <Icon
+          icon={{
+            icon: winner.toLowerCase(),
+            size: 'medium',
+          }}
+          aria-label={winner}
+        />
+        won after {moves} moves.
+      </>
+    );
+  }
+
+  return <>{moves} moves resulted in a draw.</>;
+}
+
 export function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
-  const finishedGame = finishedGames[0];
 
   // TODO: don't animate the symbols on the bigBoard
-  // TODO: add more game information to the card
-  //  -> (when it was played: displayed as 10 minutes ago for example)
-  // TODO: improve layout
+  // TODO: add dynamic game time information
+  // TODO: make bigBoard sizing dynamic
+  // TODO add proper index for filtering and paging later
+  // TODO: Break this out into multiple components
+  // TODO: make link to /analysis/:id or /analysis/:date working
+
   return (
     <div className="center">
       <div className={styles.analysisOverviewLayout}>
         <div className={styles.header}>
-          <Typography use="headline1">Your recently played games</Typography>
+          <Typography use="headline1" tag="h1">
+            Your recently played games
+          </Typography>
         </div>
         <div className={styles.gameList}>
-          <Card style={{ width: '40vmin' }}>
-            <CardPrimaryAction style={{ padding: '10px' }}>
-              <CardMedia>
+          {finishedGames.map((game, index) => (
+            <Card key={game.id ? game.id : index}>
+              <CardPrimaryAction style={{ padding: '10px' }}>
+                <div style={{ padding: '10px' }}>
+                  <div>
+                    <Typography use={'headline4'}>
+                      Game No. {finishedGames.length - index}
+                    </Typography>
+                  </div>
+                  <div>
+                    <Typography use={'subtitle1'}>
+                      {getGameSummary(game.winner, game.moves.length)}
+                    </Typography>
+                  </div>
+                  <div style={{ paddingBottom: '10px' }}>
+                    <Typography
+                      use={'subtitle2'}
+                      style={{ fontStyle: 'italic' }}
+                    >
+                      10 minutes ago
+                    </Typography>
+                  </div>
+                  <ListDivider />
+                </div>
+
                 <BigBoard
-                  currentPlayer={
-                    finishedGame.moves[finishedGame.moves.length - 2].player
-                  }
-                  board={finishedGame.gameState}
+                  currentPlayer={game.moves[game.moves.length - 2].player}
+                  board={game.gameState}
                   activeBoards={[]}
                   onPlayerMoved={() => {}}
                 />
-              </CardMedia>
-            </CardPrimaryAction>
-            <CardActions>
-              <CardActionButton
-                label="Analyse Game"
-                trailingIcon="arrow-right"
-              />
-            </CardActions>
-          </Card>
+              </CardPrimaryAction>
+              <CardActions>
+                <CardActionButton
+                  label="Analyse Game"
+                  trailingIcon="arrow-right"
+                />
+              </CardActions>
+            </Card>
+          ))}
         </div>
       </div>
     </div>
   );
 }
-
-/*
-<List>
-            {finishedGames.map((g, index) => {
-              return (
-                <SimpleListItem
-                  key={g.id ? g.id : index}
-                  graphic={{
-                    icon: g.winner === null ? 'draw' : g.winner.toLowerCase(),
-                    size: 'large',
-                  }}
-                  text={'Game No. ' + index}
-                  secondaryText={'10 minutes ago'}
-                />
-              );
-            })}
-          </List>
- */
 
 const mapStateToProps = (state: AppState) => ({
   finishedGames: state.finishedGames.slice().reverse(),

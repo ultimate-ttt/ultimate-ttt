@@ -10,5 +10,8 @@
 
 .gameList {
   grid-area: gameList;
-  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-gap: 2em;
+  margin-bottom: 2em;
 }

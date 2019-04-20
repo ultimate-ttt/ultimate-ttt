@@ -12,14 +12,14 @@ body {
   font-family: -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto',
     'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;
 
-  margin-bottom: 1em;
+  margin: 0;
   overflow-x: hidden;
 }
 
 html,
 body,
-.center,
-#root {
+#root,
+.center {
   height: 100%;
   width: 100%;
 }
@@ -30,6 +30,7 @@ body,
   justify-content: center;
 }
 
+/* TODO: make a CSS module for this */
 .gameWrapper {
   display: grid;
   overflow: hidden;
@@ -37,4 +38,8 @@ body,
 
 .text-center {
   text-align: center;
+}
+
+.rmwc-icon {
+  vertical-align: middle;
 }
