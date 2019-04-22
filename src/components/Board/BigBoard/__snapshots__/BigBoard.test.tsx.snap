@@ -2,7 +2,7 @@
 
 exports[`BigBoard should match snapshot 1`] = `
 <div
-  className="big-board"
+  className="bigBoard"
 >
   <SmallBoard
     currentPlayer={0}

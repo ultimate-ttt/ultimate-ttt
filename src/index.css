@@ -1,4 +1,5 @@
 :root {
+  /* TODO change these colors later to colors that are actually from the material palette */
   --tropical-teal: #008891;
   --incremental-blue: #0f3057;
   --vampire-bite: #c70039;
@@ -13,33 +14,29 @@ body {
     'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;
 
   margin: 0;
-  overflow-x: hidden;
+  padding: 0;
 }
 
 html,
 body,
 #root,
-.center {
+.centerAll,
+.centerHorizontal {
   height: 100%;
   width: 100%;
 }
 
-.center {
+.centerAll {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* TODO: make a CSS module for this */
-.gameWrapper {
-  display: grid;
-  overflow: hidden;
+.centerHorizontal {
+  display: flex;
+  justify-content: center;
 }
 
 .text-center {
   text-align: center;
-}
-
-.rmwc-icon {
-  vertical-align: middle;
 }

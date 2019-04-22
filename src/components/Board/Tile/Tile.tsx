@@ -1,22 +1,22 @@
 import * as React from 'react';
-import './Tile.css';
 import { TileValue } from '../../../state/AppState';
 import { XSymbol } from '../../Symbols/XSymbol';
 import { OSymbol } from '../../Symbols/OSymbol';
-import { NoWinnerSymbol } from '../../Symbols/NoWinnerSymbol';
+import { DrawSymbol } from '../../Symbols/DrawSymbol';
+import styles from './Tile.module.css';
+import classNames from 'classnames';
 
 interface TileProps {
   onTileClicked?: () => void;
   value: TileValue;
   isTileRound: boolean;
   isClickable: boolean;
-  isBig?: boolean;
   markSpecially?: boolean;
 }
 
 export class Tile extends React.Component<TileProps> {
   getValue = () => {
-    const { isBig, markSpecially } = this.props;
+    const { markSpecially } = this.props;
 
     let shouldAnimate = true;
     if (markSpecially !== undefined) {
@@ -27,11 +27,11 @@ export class Tile extends React.Component<TileProps> {
 
     switch (this.props.value) {
       case TileValue.Cross:
-        return <XSymbol bigSymbol={isBig} shouldAnimate={shouldAnimate} />;
+        return <XSymbol shouldAnimate={shouldAnimate} />;
       case TileValue.Circle:
-        return <OSymbol bigSymbol={isBig} shouldAnimate={shouldAnimate} />;
+        return <OSymbol shouldAnimate={shouldAnimate} />;
       case TileValue.Destroyed:
-        return <NoWinnerSymbol shouldAnimate={shouldAnimate} />;
+        return <DrawSymbol shouldAnimate={shouldAnimate} />;
       default:
         return '';
     }
@@ -45,19 +45,19 @@ export class Tile extends React.Component<TileProps> {
       value,
       markSpecially,
     } = this.props;
-    let color = isClickable ? 'indicator' : 'normal';
-    if (markSpecially) {
-      color = 'special';
-    }
 
-    let roundness = isTileRound ? 'circle' : 'square';
-    if (value === TileValue.Destroyed) {
-      roundness = 'no-winner';
-    }
+    const classes = classNames(styles.tile, {
+      [styles.indicator]: isClickable && !markSpecially,
+      [styles.normal]: !isClickable && !markSpecially,
+      [styles.special]: markSpecially,
+      [styles.circle]: isTileRound && value !== TileValue.Destroyed,
+      [styles.square]: !isTileRound && value !== TileValue.Destroyed,
+      [styles.noWinner]: value === TileValue.Destroyed,
+    });
 
     return (
       <div
-        className={`tile ${color} ${roundness}`}
+        className={classes}
         onClick={() => {
           if (isClickable && onTileClicked) {
             onTileClicked();

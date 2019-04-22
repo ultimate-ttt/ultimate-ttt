@@ -1,0 +1,7 @@
+.noPadding {
+  padding: 0 !important;
+}
+
+.smallerMargin :global(.mdc-list-item__graphic) {
+  margin-right: 15px !important;
+}

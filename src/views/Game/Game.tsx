@@ -5,6 +5,7 @@ import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
 import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
 import { Point } from '../../util';
+import styles from './Game.module.css';
 
 interface GameProps {
   currentPlayer: Player;
@@ -23,8 +24,8 @@ export class Game extends React.Component<GameProps> {
     const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
 
     return (
-      <div className="center">
-        <div className="gameWrapper">
+      <div className="centerAll">
+        <div className={styles.gameWrapper}>
           <GameFinishedDisplay />
           <BigBoard
             currentPlayer={currentPlayer}

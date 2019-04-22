@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
 import { AnalysisGame } from '../../../state/AppState';
-import './AnalysisGame.css';
 import { HistoryButtons } from '../../../components/Analysis/HistoryButtons/HistoryButtons';
 import { MoveList } from '../../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../../components/Analysis/ScrollElementConstants';
+import styles from './AnalysisGame.module.css';
 
 interface AnalysisGameDisplayProps {
   moveForwardInHistory: (numberOfMoves: number) => void;
@@ -32,9 +32,9 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
     ];
 
   return (
-    <div className="center">
-      <div className="analysisLayout">
-        <div id="moveList" className="moveList">
+    <div className="centerHorizontal">
+      <div className={styles.analysisLayout}>
+        <div id="moveList" className={styles.moveList}>
           <MoveList
             currentMove={analysisGame.currentMove}
             reversedMoves={reversedMoves}
@@ -42,7 +42,7 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
             moveBackwardInHistory={props.moveBackwardInHistory}
           />
         </div>
-        <div className="historyButtons">
+        <div className={styles.historyButtons}>
           <HistoryButtons
             currentMove={analysisGame.currentMove}
             lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
@@ -51,9 +51,8 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
             onInteraction={scrollToElement}
           />
         </div>
-        <div className="analysisGame">
+        <div className={styles.analysisGame}>
           <BigBoard
-            // tslint:disable-next-line:no-empty
             onPlayerMoved={() => {}}
             board={analysisGame.board}
             activeBoards={analysisGame.activeBoards}

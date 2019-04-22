@@ -1,6 +1,6 @@
+import * as React from 'react';
 import { object, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import * as React from 'react';
 import { BigBoard } from './BigBoard';
 import { Player } from '../../../state/AppState';
 import {
@@ -9,6 +9,7 @@ import {
   unfinishedBoardMock,
 } from '../../../__mocks__';
 import { action } from '@storybook/addon-actions';
+import './BigBoard.module.css';
 
 const stories = storiesOf('BigBoard', module);
 stories.addDecorator(withKnobs);
@@ -52,7 +53,7 @@ stories.add('BigBoard, markTileSpecially', () => (
       condition: true,
       position: {
         boardPosition: { x: 2, y: 2 },
-        tilePosition: { x: 0, y: 0 },
+        tilePosition: { x: 0, y: 1 },
       },
     })}
   />

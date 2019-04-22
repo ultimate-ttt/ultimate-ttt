@@ -5,6 +5,8 @@ import { MoveState, Player } from '../../../state/AppState';
 import { ReactNode } from 'react';
 import { Element } from 'react-scroll';
 import { moveScrollElementBaseName } from '../ScrollElementConstants';
+import styles from './MoveList.module.css';
+import classNames from 'classnames';
 
 interface MoveListProps {
   reversedMoves: MoveState[];
@@ -35,11 +37,12 @@ export function MoveList(props: MoveListProps) {
         >
           <SimpleListItem
             activated={currentMove === m.moveNumber}
-            graphic={{ icon: playerAsString(m.player), size: 'small' }}
+            graphic={{ icon: playerAsString(m.player), size: 'medium' }}
             text={'Move ' + m.moveNumber}
             secondaryText={`Board ${m.boardPosition.x}/${
               m.boardPosition.y
             } - Field ${m.tilePosition.x}/${m.tilePosition.y}`}
+            className={classNames([styles.smallerMargin, styles.biggerIcon])}
           />
         </Element>,
       );
@@ -72,7 +75,12 @@ export function MoveList(props: MoveListProps) {
   };
 
   return (
-    <List twoLine={true} dense={true} onAction={changeDisplayedMove}>
+    <List
+      twoLine={true}
+      dense={true}
+      onAction={changeDisplayedMove}
+      className={styles.noPadding}
+    >
       {getMoves()}
     </List>
   );

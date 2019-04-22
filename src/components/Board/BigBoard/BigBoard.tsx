@@ -6,7 +6,7 @@ import {
   SmallBoardInformation,
 } from '../../../state/AppState';
 import { arePointsEqual, Point } from '../../../util';
-import './BigBoard.css';
+import styles from './BigBoard.module.css';
 
 interface BigBoardProps {
   currentPlayer: Player;
@@ -95,6 +95,6 @@ export class BigBoard extends React.Component<BigBoardProps> {
   };
 
   render() {
-    return <div className="big-board">{this.createSmallBoards()}</div>;
+    return <div className={styles.bigBoard}>{this.createSmallBoards()}</div>;
   }
 }

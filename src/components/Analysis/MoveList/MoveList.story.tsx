@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { RMWCProvider } from '@rmwc/provider';
 import { MoveList } from './MoveList';
 import { movesForBoardWithThreeMovesMock } from '../../../__mocks__';
+import './MoveList.module.css';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);

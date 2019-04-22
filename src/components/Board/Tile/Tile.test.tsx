@@ -30,14 +30,7 @@ describe('Tile', () => {
       expect(component.children('OSymbol')).toHaveLength(1);
     });
 
-    it('should display nothing if the value is empty', () => {
-      const component = shallow(
-        <Tile isClickable={false} isTileRound={true} value={TileValue.Empty} />,
-      );
-      expect(component.children()).toHaveLength(0);
-    });
-
-    it('should display a no winner symbol if the value is destroyed', () => {
+    it('should display a draw symbol if the value is destroyed', () => {
       const component = shallow(
         <Tile
           isClickable={false}
@@ -45,33 +38,14 @@ describe('Tile', () => {
           value={TileValue.Destroyed}
         />,
       );
-      expect(component.children('NoWinnerSymbol')).toHaveLength(1);
+      expect(component.children('DrawSymbol')).toHaveLength(1);
     });
 
-    it('should have a big XSymbol child if it is big and the Value is X', () => {
+    it('should display nothing if the value is empty', () => {
       const component = shallow(
-        <Tile
-          isClickable={false}
-          isTileRound={true}
-          isBig={true}
-          value={TileValue.Cross}
-        />,
+        <Tile isClickable={false} isTileRound={true} value={TileValue.Empty} />,
       );
-      expect(component.children('XSymbol')).toHaveLength(1);
-      expect(component.children('XSymbol').prop('bigSymbol')).toEqual(true);
-    });
-
-    it('should have a big OSymbol child if it is big and the Value is O', () => {
-      const component = shallow(
-        <Tile
-          isClickable={false}
-          isTileRound={true}
-          isBig={true}
-          value={TileValue.Circle}
-        />,
-      );
-      expect(component.children('OSymbol')).toHaveLength(1);
-      expect(component.children('OSymbol').prop('bigSymbol')).toEqual(true);
+      expect(component.children()).toHaveLength(0);
     });
   });
 
@@ -114,7 +88,7 @@ describe('Tile', () => {
       );
       expect(component.hasClass('square')).toBe(true);
       expect(component.hasClass('circle')).toBe(false);
-      expect(component.hasClass('no-winner')).toBe(false);
+      expect(component.hasClass('noWinner')).toBe(false);
     });
 
     it('should have the circle class if it is a circle', () => {
@@ -123,10 +97,10 @@ describe('Tile', () => {
       );
       expect(component.hasClass('circle')).toBe(true);
       expect(component.hasClass('square')).toBe(false);
-      expect(component.hasClass('no-winner')).toBe(false);
+      expect(component.hasClass('noWinner')).toBe(false);
     });
 
-    it('should have the no-winner class if the tileValue is Destroyed', () => {
+    it('should have the noWinner class if the tileValue is Destroyed', () => {
       let component = shallow(
         <Tile
           isClickable={true}
@@ -134,7 +108,7 @@ describe('Tile', () => {
           value={TileValue.Destroyed}
         />,
       );
-      expect(component.hasClass('no-winner')).toBe(true);
+      expect(component.hasClass('noWinner')).toBe(true);
       expect(component.hasClass('circle')).toBe(false);
       expect(component.hasClass('square')).toBe(false);
 
@@ -145,7 +119,7 @@ describe('Tile', () => {
           value={TileValue.Destroyed}
         />,
       );
-      expect(component.hasClass('no-winner')).toBe(true);
+      expect(component.hasClass('noWinner')).toBe(true);
       expect(component.hasClass('circle')).toBe(false);
       expect(component.hasClass('square')).toBe(false);
     });

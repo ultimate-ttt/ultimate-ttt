@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button } from '@rmwc/button';
+import styles from './HistoryButtons.module.css';
 
 interface HistoryButtonsProps {
   currentMove: number;
@@ -63,6 +64,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
             moveBackwardInHistory(1);
             onInteraction(currentMove - 1);
           }}
+          className={styles.buttonMargin}
         >
           Previous
         </Button>
@@ -75,6 +77,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
             moveForwardInHistory(1);
             onInteraction(currentMove + 1);
           }}
+          className={styles.buttonMargin}
         >
           Next
         </Button>

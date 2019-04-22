@@ -1,0 +1,39 @@
+.o {
+  vertical-align: middle;
+  fill: white;
+  width: 85%;
+}
+
+.x {
+  vertical-align: middle;
+  fill: white;
+  width: 85%;
+}
+
+.draw {
+  vertical-align: middle;
+  fill: white;
+  width: 85%;
+}
+
+.animateX,
+.animateO,
+.animateDraw {
+  animation-duration: 0.7s;
+  animation-name: add-icon;
+}
+
+@keyframes add-icon {
+  0% {
+    width: 155%;
+  }
+  33% {
+    width: 42%;
+  }
+  66% {
+    width: 111%;
+  }
+  100% {
+    width: 85%;
+  }
+}

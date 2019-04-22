@@ -5,9 +5,9 @@ import {
   SmallTileInformation,
   TileValue,
 } from '../../../state/AppState';
-import './SmallBoard.css';
 import { Tile } from '../Tile/Tile';
 import { arePointsEqual, Point } from '../../../util';
+import styles from './SmallBoard.module.css';
 
 interface SmallBoardProps {
   x: number;
@@ -83,12 +83,14 @@ export class SmallBoard extends React.Component<SmallBoardProps> {
     const boardIsFinished = winningPlayer !== TileValue.Empty;
     if (boardIsFinished) {
       return (
-        <div key={`Small-Board-${x},${y}`} className="small-board-finished">
+        <div
+          key={`Small-Board-${x},${y}`}
+          className={styles.smallBoardFinished}
+        >
           <Tile
             value={winningPlayer}
             isTileRound={winningPlayer === TileValue.Circle}
             isClickable={false}
-            isBig={true}
             markSpecially={this.getMarkSpecially(
               markTileSpecially,
               markTileSpecially && markTileSpecially.position
@@ -102,7 +104,7 @@ export class SmallBoard extends React.Component<SmallBoardProps> {
 
     const isCircle = currentPlayer === Player.Circle;
     return (
-      <div className="small-board">
+      <div className={styles.smallBoard}>
         {this.getTiles(tiles, isCircle, isMoveAllowed, onTileClicked)}
       </div>
     );

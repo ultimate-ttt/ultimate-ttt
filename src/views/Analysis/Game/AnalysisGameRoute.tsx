@@ -23,6 +23,7 @@ interface AnalysisGameRouteProps
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
+// TODO: display error when no game was found
 export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   const pathName = props.location.pathname;
   const param = props.match.params.param;

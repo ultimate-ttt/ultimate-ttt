@@ -1,27 +1,24 @@
+import * as React from 'react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import * as React from 'react';
 import { XSymbol } from './XSymbol';
 import { OSymbol } from './OSymbol';
-import { NoWinnerSymbol } from './NoWinnerSymbol';
+import { DrawSymbol } from './DrawSymbol';
+import './Symbols.module.css';
 
-const stories = storiesOf('Symbol', module);
+const stories = storiesOf('Symbol', module).addParameters({
+  backgrounds: [{ name: 'tile', value: '#008891', default: true }],
+});
 stories.addDecorator(withKnobs);
 
 stories.add('XSymbol', () => (
-  <XSymbol
-    bigSymbol={boolean('bigSymbol', false)}
-    shouldAnimate={boolean('shouldAnimate', true)}
-  />
+  <XSymbol shouldAnimate={boolean('shouldAnimate', true)} />
 ));
 
 stories.add('OSymbol', () => (
-  <OSymbol
-    bigSymbol={boolean('bigSymbol', false)}
-    shouldAnimate={boolean('shouldAnimate', true)}
-  />
+  <OSymbol shouldAnimate={boolean('shouldAnimate', true)} />
 ));
 
-stories.add('NoWinnerSymbol', () => (
-  <NoWinnerSymbol shouldAnimate={boolean('shouldAnimate', true)} />
+stories.add('DrawSymbol', () => (
+  <DrawSymbol shouldAnimate={boolean('shouldAnimate', true)} />
 ));

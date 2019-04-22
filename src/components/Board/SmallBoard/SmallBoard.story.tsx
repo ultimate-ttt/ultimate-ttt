@@ -1,10 +1,11 @@
+import * as React from 'react';
 import { boolean, number, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import * as React from 'react';
 import { Player, TileValue } from '../../../state/AppState';
 import { SmallBoard } from './SmallBoard';
 import { Point } from '../../../util';
 import { action } from '@storybook/addon-actions';
+import './SmallBoard.module.css';
 
 const stories = storiesOf('SmallBoard', module);
 stories.addDecorator(withKnobs);

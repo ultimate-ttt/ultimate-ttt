@@ -2,7 +2,7 @@
 
 exports[`Game should match snapshot 1`] = `
 <div
-  className="center"
+  className="centerAll"
 >
   <div
     className="gameWrapper"

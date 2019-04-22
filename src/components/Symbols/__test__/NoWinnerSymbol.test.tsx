@@ -1,45 +1,40 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { NoWinnerSymbol } from '../NoWinnerSymbol';
+import { DrawSymbol } from '../DrawSymbol';
 
 describe('DrawSymbol', () => {
   it('should not explode', () => {
-    const component = shallow(<NoWinnerSymbol />);
+    const component = shallow(<DrawSymbol />);
     expect(component).not.toBeNull();
   });
 
   it('should match snapshot, animate true', () => {
-    const noWinnerSymbol = shallow(<NoWinnerSymbol shouldAnimate={true} />);
+    const noWinnerSymbol = shallow(<DrawSymbol shouldAnimate={true} />);
     expect(noWinnerSymbol).toMatchSnapshot();
   });
 
   it('should match snapshot, animate false', () => {
     const noWinnerSymbolNoAnimate = shallow(
-      <NoWinnerSymbol shouldAnimate={false} />,
+      <DrawSymbol shouldAnimate={false} />,
     );
     expect(noWinnerSymbolNoAnimate).toMatchSnapshot();
   });
 
-  it('should have i element with some kind of icon', () => {
-    const component = shallow(<NoWinnerSymbol />);
-    expect(component.find('i')).toHaveLength(1);
-    expect(component.find('i').text()).not.toBeUndefined();
+  it('should have a child element', () => {
+    const component = shallow(<DrawSymbol />);
+    expect(component).toHaveLength(1);
   });
 
-  it('should have icon-draw, animate-no-winner, no-winner and big-symbol class by default', () => {
-    const component = shallow(<NoWinnerSymbol />);
+  it('should have animateDraw and noWinner class by default', () => {
+    const component = shallow(<DrawSymbol />);
 
-    const noWinnerSymbol = component.find('i');
-    expect(noWinnerSymbol.hasClass('icon-draw')).toBe(true);
-    expect(noWinnerSymbol.hasClass('big-symbol')).toBe(true);
-    expect(noWinnerSymbol.hasClass('draw')).toBe(true);
-    expect(noWinnerSymbol.hasClass('animate-draw')).toBe(true);
+    expect(component.hasClass('draw')).toBe(true);
+    expect(component.hasClass('animateDraw')).toBe(true);
   });
 
   it('shouldnt have animate class with animate false', () => {
-    const component = shallow(<NoWinnerSymbol shouldAnimate={false} />);
+    const component = shallow(<DrawSymbol shouldAnimate={false} />);
 
-    const noWinnerSymbol = component.find('i');
-    expect(noWinnerSymbol.hasClass('animate-draw')).toBe(false);
+    expect(component.hasClass('animateDraw')).toBe(false);
   });
 });

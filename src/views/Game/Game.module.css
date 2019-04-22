@@ -1,0 +1,20 @@
+.gameWrapper {
+  display: grid;
+  width: 50%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  font-size: 7px;
+}
+
+@media only screen and (min-width: 500px) {
+  .gameWrapper {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .gameWrapper {
+    font-size: 16px;
+  }
+}

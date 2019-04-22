@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { AppState, FinishedGameState } from '../../../state/AppState';
 import { connect } from 'react-redux';
+import { AppState, FinishedGameState } from '../../../state/AppState';
+import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
 import {
   Card,
   CardPrimaryAction,
@@ -9,9 +10,8 @@ import {
 } from '@rmwc/card';
 import { Typography } from '@rmwc/typography';
 import { ListDivider } from '@rmwc/list';
-import styles from './AnalysisOverview.module.css';
-import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
 import { Icon } from '@rmwc/icon';
+import styles from './AnalysisOverview.module.css';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
@@ -26,28 +26,28 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
             icon: winner.toLowerCase(),
             size: 'medium',
           }}
-          aria-label={winner}
+          className={styles.winnerIcon}
         />
         won after {moves} moves.
       </>
     );
   }
 
-  return <>{moves} moves resulted in a draw.</>;
+  return <>{moves} moves resulted in draw.</>;
 }
 
 export function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
 
   // TODO: don't animate the symbols on the bigBoard
+  // TODO: make sizing between the small boards smaller.
   // TODO: add dynamic game time information
-  // TODO: make bigBoard sizing dynamic
   // TODO add proper index for filtering and paging later
   // TODO: Break this out into multiple components
   // TODO: make link to /analysis/:id or /analysis/:date working
 
   return (
-    <div className="center">
+    <div className="centerHorizontal">
       <div className={styles.analysisOverviewLayout}>
         <div className={styles.header}>
           <Typography use="headline1" tag="h1">

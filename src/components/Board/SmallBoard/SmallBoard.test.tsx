@@ -254,13 +254,12 @@ describe('SmallBoard', () => {
       );
 
       expect(component.children('Tile')).toHaveLength(1);
-      expect(component.find(Tile).props().isBig).toEqual(true);
       expect(component.find(Tile).props().value).toEqual(TileValue.Cross);
     });
   });
 
   describe('css classes', () => {
-    it('should have class small-board-finished when small board is finished', () => {
+    it('should have class smallBoardFinished when small board is finished', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -287,10 +286,10 @@ describe('SmallBoard', () => {
         />,
       );
 
-      expect(component.hasClass('small-board-finished')).toBe(true);
+      expect(component.hasClass('smallBoardFinished')).toBe(true);
     });
 
-    it('should have class small-board in normal state', () => {
+    it('should have class smallBoard in normal state', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -317,7 +316,7 @@ describe('SmallBoard', () => {
         />,
       );
 
-      expect(component.hasClass('small-board')).toBe(true);
+      expect(component.hasClass('smallBoard')).toBe(true);
     });
   });
 

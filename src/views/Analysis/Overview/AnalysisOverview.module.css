@@ -2,6 +2,9 @@
   display: grid;
   grid-template-areas: 'header' 'gameList';
   height: 100%;
+
+  /* For a smaller gap between the small boards -> em will be smaller then*/
+  font-size: 9px;
 }
 
 .header {
@@ -14,4 +17,8 @@
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   grid-gap: 2em;
   margin-bottom: 2em;
+}
+
+.winnerIcon {
+  margin-right: 3px;
 }

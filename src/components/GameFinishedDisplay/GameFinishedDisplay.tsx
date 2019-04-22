@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { AppState, Winner } from '../../state/AppState';
 import { connect } from 'react-redux';
-import { XSymbol } from '../Symbols/XSymbol';
-import { OSymbol } from '../Symbols/OSymbol';
 import { restartGame } from '../../state/commonAction';
 import { Button } from '@rmwc/button';
-import './gameFinished.css';
+import styles from './GameFinished.module.css';
+import classNames from 'classnames';
+import { Icon } from '@rmwc/icon';
+import { Typography } from '@rmwc/typography';
 
 interface GameFinishedDisplayProps {
   isGameFinished: boolean;
@@ -14,10 +15,11 @@ interface GameFinishedDisplayProps {
 }
 
 interface GameFinishedDisplayState {
-  winnerClassAttribute: 'hidden' | 'visible';
+  visible: boolean;
   winnerText: string | JSX.Element;
 }
 
+// TODO: refactor to function component sometime.
 export class GameFinishedDisplay extends React.Component<
   GameFinishedDisplayProps,
   GameFinishedDisplayState
@@ -26,11 +28,8 @@ export class GameFinishedDisplay extends React.Component<
     super(props);
 
     this.state = {
-      winnerClassAttribute: this.props.isGameFinished ? 'visible' : 'hidden',
-      winnerText: this.getWinnerText(
-        this.props.winner,
-        this.props.isGameFinished,
-      ),
+      visible: this.props.isGameFinished,
+      winnerText: this.getWinnerText(this.props.winner),
     };
   }
 
@@ -39,48 +38,48 @@ export class GameFinishedDisplay extends React.Component<
 
     if (isGameFinished !== prevProps.isGameFinished) {
       this.setState((prevState) => {
-        const nextWinnerText = this.getWinnerText(winner, isGameFinished);
+        const nextWinnerText = this.getWinnerText(winner);
 
         return {
+          visible: isGameFinished,
           winnerText: isGameFinished ? nextWinnerText : prevState.winnerText,
-          winnerClassAttribute: isGameFinished ? 'visible' : 'hidden',
         };
       });
     }
   }
 
-  getWinnerText(winner: Winner, isGameFinished: boolean) {
-    if (isGameFinished) {
-      switch (winner) {
-        case Winner.Circle:
-          return (
-            <>
-              <OSymbol className="winner-symbol" shouldAnimate={false} /> wins!
-            </>
-          );
-        case Winner.Cross:
-          return (
-            <>
-              <XSymbol className="winner-symbol" shouldAnimate={false} /> wins!
-            </>
-          );
-        case Winner.Draw:
-          return `It's a draw!`;
+  getWinnerText(winner: Winner) {
+    switch (winner) {
+      case Winner.Circle:
+      case Winner.Cross:
+        return (
+          <>
+            <Icon
+              className={classNames(
+                styles.floatLeft,
+                styles.winnerIconContainer,
+              )}
+              icon={{
+                icon: winner === Winner.Circle ? 'o' : 'x',
+                size: 'large',
+              }}
+            />
+            <span className={styles.floatRight}>wins!</span>
+          </>
+        );
+      case Winner.Draw:
+        return `It's a draw!`;
 
-        default: {
-          return 'Game is not finished.'; // This will never happen in theory
-        }
+      // Reservation so that the board doesn't shift down
+      default: {
+        return (
+          <>
+            <Icon icon={{ icon: 'x', size: 'large' }} />
+            <span className={styles.floatRight}>reservation</span>
+          </>
+        );
       }
     }
-
-    // this will be hidden
-    // it's there so that the board doesn't shift down when the finished text is displayed
-    return (
-      <>
-        <XSymbol shouldAnimate={false} />
-        reservation
-      </>
-    );
   }
 
   tryRestart = () => {
@@ -90,13 +89,18 @@ export class GameFinishedDisplay extends React.Component<
   };
 
   render() {
-    const { winnerClassAttribute, winnerText } = this.state;
-
-    const textContainerClass = 'restart-alignment ' + winnerClassAttribute;
+    const { visible, winnerText } = this.state;
 
     return (
-      <div className={textContainerClass}>
-        <p className="winner-text">{winnerText}</p>
+      <div
+        className={classNames(styles.restartAlignment, {
+          [styles.hidden]: !visible,
+          [styles.visible]: visible,
+        })}
+      >
+        <Typography use="headline5" className={styles.winnerText}>
+          {winnerText}
+        </Typography>
         <Button dense={true} raised={true} onClick={this.tryRestart}>
           Play Again
         </Button>

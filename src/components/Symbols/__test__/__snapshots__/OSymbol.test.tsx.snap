@@ -1,22 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OSymbol should match snapshot 1`] = `
-<i
-  aria-label="Circle Symbol"
-  className="icon-o o animate-o"
+<ForwardRef
+  className="o animateO"
 />
 `;
 
 exports[`OSymbol should match snapshot 2`] = `
-<i
-  aria-label="Circle Symbol"
-  className="icon-o o"
-/>
-`;
-
-exports[`OSymbol should match snapshot 3`] = `
-<i
-  aria-label="Circle Symbol"
-  className="icon-o o big-symbol animate-o"
+<ForwardRef
+  className="o"
 />
 `;

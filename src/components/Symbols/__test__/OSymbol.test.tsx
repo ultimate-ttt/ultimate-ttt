@@ -14,36 +14,21 @@ describe('OSymbol', () => {
 
     const oSymbol2 = shallow(<OSymbol shouldAnimate={false} />);
     expect(oSymbol2).toMatchSnapshot();
-
-    const oSymbol3 = shallow(<OSymbol bigSymbol={true} />);
-    expect(oSymbol3).toMatchSnapshot();
   });
 
-  it('should have i element with some kind of icon', () => {
+  it('should have a children element', () => {
     const component = shallow(<OSymbol />);
-    expect(component.find('i')).toHaveLength(1);
-    expect(component.find('i').text()).not.toBeUndefined();
+    expect(component).toHaveLength(1);
   });
 
-  it('should have icon-o, o and animate-o class by default', () => {
+  it('should have o and animateO class by default', () => {
     const component = shallow(<OSymbol />);
-    expect(component.find('i').hasClass('icon-o')).toBe(true);
-    expect(component.find('i').hasClass('o')).toBe(true);
-    expect(component.find('i').hasClass('animate-o')).toBe(true);
-    expect(component.find('i').hasClass('big-symbol')).toBe(false);
-  });
-
-  it('should have big-symbol and animate-o class with bigSymbol=true', () => {
-    const component = shallow(<OSymbol bigSymbol={true} />);
-    expect(component.find('i').hasClass('big-symbol')).toBe(true);
-    expect(component.find('i').hasClass('animate-o')).toBe(true);
+    expect(component.hasClass('o')).toBe(true);
+    expect(component.hasClass('animateO')).toBe(true);
   });
 
   it(`shouldn't have animate class with shouldAnimate=false`, () => {
-    let component = shallow(<OSymbol bigSymbol={true} shouldAnimate={false} />);
-    expect(component.find('i').hasClass('animate-o')).toBe(false);
-
-    component = shallow(<OSymbol shouldAnimate={false} />);
-    expect(component.find('i').hasClass('animate-o')).toBe(false);
+    const component = shallow(<OSymbol shouldAnimate={false} />);
+    expect(component.hasClass('animateO')).toBe(false);
   });
 });

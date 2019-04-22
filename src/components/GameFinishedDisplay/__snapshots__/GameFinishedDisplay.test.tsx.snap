@@ -2,17 +2,27 @@
 
 exports[`GameFinished should match snapshot when circle wins 1`] = `
 <div
-  className="restart-alignment visible"
+  className="restartAlignment visible"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline5"
   >
-    <OSymbol
-      className="winner-symbol"
-      shouldAnimate={false}
+    <Icon
+      className="floatLeft winnerIconContainer"
+      icon={
+        Object {
+          "icon": "o",
+          "size": "large",
+        }
+      }
     />
-     wins!
-  </p>
+    <span
+      className="floatRight"
+    >
+      wins!
+    </span>
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
@@ -25,17 +35,27 @@ exports[`GameFinished should match snapshot when circle wins 1`] = `
 
 exports[`GameFinished should match snapshot when cross wins 1`] = `
 <div
-  className="restart-alignment visible"
+  className="restartAlignment visible"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline5"
   >
-    <XSymbol
-      className="winner-symbol"
-      shouldAnimate={false}
+    <Icon
+      className="floatLeft winnerIconContainer"
+      icon={
+        Object {
+          "icon": "x",
+          "size": "large",
+        }
+      }
     />
-     wins!
-  </p>
+    <span
+      className="floatRight"
+    >
+      wins!
+    </span>
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
@@ -48,13 +68,14 @@ exports[`GameFinished should match snapshot when cross wins 1`] = `
 
 exports[`GameFinished should match snapshot when draw 1`] = `
 <div
-  className="restart-alignment visible"
+  className="restartAlignment visible"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline5"
   >
     It's a draw!
-  </p>
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
@@ -67,16 +88,26 @@ exports[`GameFinished should match snapshot when draw 1`] = `
 
 exports[`GameFinished should match snapshot when no one wins 1`] = `
 <div
-  className="restart-alignment hidden"
+  className="restartAlignment hidden"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline5"
   >
-    <XSymbol
-      shouldAnimate={false}
+    <Icon
+      icon={
+        Object {
+          "icon": "x",
+          "size": "large",
+        }
+      }
     />
-    reservation
-  </p>
+    <span
+      className="floatRight"
+    >
+      reservation
+    </span>
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
