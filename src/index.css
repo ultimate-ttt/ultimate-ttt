@@ -4,6 +4,7 @@
   --incremental-blue: #0f3057;
   --vampire-bite: #c70039;
   --mdc-theme-primary: var(--tropical-teal);
+  --mdc-theme-secondary: var(--incremental-blue);
   --mdc-theme-text-icon-on-background: black;
 }
 

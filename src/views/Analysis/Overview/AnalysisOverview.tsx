@@ -53,23 +53,20 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
 
   // TODO: don't animate the symbols on the bigBoard
-  // TODO: make sizing between the small boards smaller.
-  // TODO: add dynamic game time information
-  // TODO add proper index for filtering and paging later
   // TODO: Break this out into multiple components
-  // TODO: make link to /analysis/:id or /analysis/:date working
 
   return (
     <div className="centerHorizontal">
       <div className={styles.analysisOverviewLayout}>
         <div className={styles.header}>
-          <Typography use="headline1" tag="h1">
-            Your recently played games
+          <Typography use="headline2" tag="h1">
+            Recently played games
           </Typography>
         </div>
+        <ListDivider />
         <div className={styles.gameList}>
           {finishedGames.map((game, index) => (
-            <Card key={game.id ? game.id : index}>
+            <Card key={game.id ? game.id : game.date}>
               <CardPrimaryAction style={{ padding: '10px' }} {...getLink(game)}>
                 <div style={{ padding: '10px' }}>
                   <div>

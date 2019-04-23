@@ -9,6 +9,9 @@
 
 .header {
   grid-area: header;
+
+  padding-left: 3em;
+  color: var(--mdc-theme-secondary);
 }
 
 .gameList {
