@@ -12,6 +12,8 @@ import { Typography } from '@rmwc/typography';
 import { ListDivider } from '@rmwc/list';
 import { Icon } from '@rmwc/icon';
 import styles from './AnalysisOverview.module.css';
+import appRoutes from '../../../routes/routes';
+import { Link } from 'react-router-dom';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
@@ -36,6 +38,16 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
   return <>{moves} moves resulted in draw.</>;
 }
 
+function getLink(game: FinishedGameState) {
+  return {
+    tag: Link,
+    to: appRoutes.AnalysisParam.replace(
+      ':param',
+      game.id ? game.id : game.date,
+    ),
+  };
+}
+
 export function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
 
@@ -57,7 +69,7 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
         <div className={styles.gameList}>
           {finishedGames.map((game, index) => (
             <Card key={game.id ? game.id : index}>
-              <CardPrimaryAction style={{ padding: '10px' }}>
+              <CardPrimaryAction style={{ padding: '10px' }} {...getLink(game)}>
                 <div style={{ padding: '10px' }}>
                   <div>
                     <Typography use={'headline4'}>
@@ -79,7 +91,6 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
                   </div>
                   <ListDivider />
                 </div>
-
                 <BigBoard
                   currentPlayer={game.moves[game.moves.length - 2].player}
                   board={game.gameState}
@@ -91,6 +102,7 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
                 <CardActionButton
                   label="Analyse Game"
                   trailingIcon="arrow-right"
+                  {...getLink(game)}
                 />
               </CardActions>
             </Card>
