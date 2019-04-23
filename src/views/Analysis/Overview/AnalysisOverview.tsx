@@ -14,6 +14,7 @@ import { Icon } from '@rmwc/icon';
 import styles from './AnalysisOverview.module.css';
 import appRoutes from '../../../routes/routes';
 import { Link } from 'react-router-dom';
+import { formatDistanceStrict } from 'date-fns';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
@@ -86,7 +87,11 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
                       use={'subtitle2'}
                       style={{ fontStyle: 'italic' }}
                     >
-                      10 minutes ago
+                      {formatDistanceStrict(
+                        new Date(),
+                        new Date(Date.parse(game.date)),
+                      )}{' '}
+                      ago
                     </Typography>
                   </div>
                   <ListDivider />
