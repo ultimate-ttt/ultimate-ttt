@@ -986,6 +986,7 @@ exports[`Game should match snapshot 1`] = `
           },
         ]
       }
+      className="bigBoardSize"
       currentPlayer={0}
       onPlayerMoved={[MockFunction]}
     />

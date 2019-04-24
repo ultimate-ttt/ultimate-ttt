@@ -19,24 +19,23 @@ interface GameProps {
   ) => void;
 }
 
-export class Game extends React.Component<GameProps> {
-  render() {
-    const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
+export function Game(props: GameProps) {
+  const { currentPlayer, board, activeBoards, onPlayerMoved } = props;
 
-    return (
-      <div className="centerAll">
-        <div className={styles.gameWrapper}>
-          <GameFinishedDisplay />
-          <BigBoard
-            currentPlayer={currentPlayer}
-            board={board}
-            activeBoards={activeBoards}
-            onPlayerMoved={onPlayerMoved}
-          />
-        </div>
+  return (
+    <div className="centerAll">
+      <div className={styles.gameWrapper}>
+        <GameFinishedDisplay />
+        <BigBoard
+          currentPlayer={currentPlayer}
+          board={board}
+          activeBoards={activeBoards}
+          onPlayerMoved={onPlayerMoved}
+          className={styles.bigBoardSize}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mapStateToProps = (state: AppState) => ({

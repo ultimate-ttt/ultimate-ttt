@@ -19,7 +19,6 @@ interface GameFinishedDisplayState {
   winnerText: string | JSX.Element;
 }
 
-// TODO: refactor to function component sometime.
 export class GameFinishedDisplay extends React.Component<
   GameFinishedDisplayProps,
   GameFinishedDisplayState
@@ -55,27 +54,28 @@ export class GameFinishedDisplay extends React.Component<
         return (
           <>
             <Icon
-              className={classNames(
-                styles.floatLeft,
-                styles.winnerIconContainer,
-              )}
               icon={{
                 icon: winner === Winner.Circle ? 'o' : 'x',
                 size: 'large',
               }}
-            />
-            <span className={styles.floatRight}>wins!</span>
+              className={styles.winnerIcon}
+            />{' '}
+            wins!
           </>
         );
       case Winner.Draw:
-        return `It's a draw!`;
+        return "It's a draw!";
 
       // Reservation so that the board doesn't shift down
       default: {
         return (
           <>
-            <Icon icon={{ icon: 'x', size: 'large' }} />
-            <span className={styles.floatRight}>reservation</span>
+            <Icon
+              icon={{ icon: 'x', size: 'xlarge' }}
+              className={styles.winnerIcon}
+            />
+            resrv
+            {/* This doesn't get shown to anyone, screenreaders included.*/}
           </>
         );
       }
@@ -98,7 +98,7 @@ export class GameFinishedDisplay extends React.Component<
           [styles.visible]: visible,
         })}
       >
-        <Typography use="headline5" className={styles.winnerText}>
+        <Typography use="headline4" className={styles.winnerText}>
           {winnerText}
         </Typography>
         <Button dense={true} raised={true} onClick={this.tryRestart}>

@@ -10,8 +10,8 @@ import '@material/button/dist/mdc.button.min.css';
 import '@material/icon-button/dist/mdc.icon-button.css';
 import '@material/list/dist/mdc.list.css';
 import '@material/card/dist/mdc.card.css';
-import '@rmwc/icon/icon.css';
 import '@material/typography/dist/mdc.typography.css';
+import '@rmwc/icon/icon.css';
 
 export class App extends React.Component {
   render() {
