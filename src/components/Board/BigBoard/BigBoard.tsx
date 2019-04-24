@@ -7,7 +7,6 @@ import {
 } from '../../../state/AppState';
 import { arePointsEqual, Point } from '../../../util';
 import styles from './BigBoard.module.css';
-import classNames from 'classnames';
 
 interface BigBoardProps {
   currentPlayer: Player;
@@ -20,7 +19,6 @@ interface BigBoardProps {
     tileY: number,
   ) => void;
   markTileSpecially?: MarkSpecially;
-  className?: string;
 }
 
 export class BigBoard extends React.Component<BigBoardProps> {
@@ -97,11 +95,6 @@ export class BigBoard extends React.Component<BigBoardProps> {
   };
 
   render() {
-    const { className } = this.props;
-    return (
-      <div className={classNames(styles.bigBoard, className)}>
-        {this.createSmallBoards()}
-      </div>
-    );
+    return <div className={styles.bigBoard}>{this.createSmallBoards()}</div>;
   }
 }

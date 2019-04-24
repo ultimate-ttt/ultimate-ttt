@@ -93,21 +93,4 @@ describe('BigBoard', function() {
       });
     });
   });
-
-  it('should add the given className', () => {
-    const playerMoved = jest.fn(() => {});
-    const activeBoards = [{ x: 0, y: 0 }];
-
-    const bigBoard = shallow(
-      <BigBoard
-        currentPlayer={Player.Cross}
-        board={unfinishedBoardMock}
-        activeBoards={activeBoards}
-        onPlayerMoved={playerMoved}
-        className={'myClassName'}
-      />,
-    );
-
-    expect(bigBoard.hasClass('myClassName')).toBe(true);
-  });
 });
