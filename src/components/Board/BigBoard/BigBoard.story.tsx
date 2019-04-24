@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, select, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { BigBoard } from './BigBoard';
 import { Player } from '../../../state/AppState';
@@ -22,6 +22,7 @@ stories.add('BigBoard, not finished', () => (
     board={unfinishedBoardMock}
     activeBoards={object('activeBoards', [{ x: 0, y: 2 }])}
     onPlayerMoved={action('onPlayerMoved')}
+    animate={boolean('animate', true)}
   />
 ));
 
@@ -31,6 +32,7 @@ stories.add('BigBoard, finished circle', () => (
     board={circleFinishedBoardMock}
     activeBoards={[]}
     onPlayerMoved={action('onPlayerMoved')}
+    animate={boolean('animate', true)}
   />
 ));
 
@@ -40,6 +42,7 @@ stories.add('BigBoard, finished cross', () => (
     board={crossFinishedBoardMock}
     activeBoards={[]}
     onPlayerMoved={action('onPlayerMoved')}
+    animate={boolean('animate', true)}
   />
 ));
 
@@ -49,6 +52,7 @@ stories.add('BigBoard, markTileSpecially', () => (
     board={circleFinishedBoardMock}
     activeBoards={[]}
     onPlayerMoved={action('onPlayerMoved')}
+    animate={boolean('animate', true)}
     markTileSpecially={object('markTileSpecially', {
       condition: true,
       position: {

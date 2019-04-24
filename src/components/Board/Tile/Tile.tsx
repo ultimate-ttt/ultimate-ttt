@@ -10,22 +10,30 @@ interface TileProps {
   onTileClicked?: () => void;
   value: TileValue;
   isTileRound: boolean;
-  isClickable: boolean;
+  clickable: boolean;
   markSpecially?: boolean;
+  animate?: boolean;
 }
 
-export class Tile extends React.Component<TileProps> {
-  getValue = () => {
-    const { markSpecially } = this.props;
+export function Tile(props: TileProps) {
+  const {
+    onTileClicked,
+    isTileRound,
+    clickable,
+    value,
+    animate,
+    markSpecially,
+  } = props;
 
-    let shouldAnimate = true;
+  const getValue = () => {
+    let shouldAnimate = animate;
     if (markSpecially !== undefined) {
       if (!markSpecially) {
         shouldAnimate = false;
       }
     }
 
-    switch (this.props.value) {
+    switch (props.value) {
       case TileValue.Cross:
         return <XSymbol shouldAnimate={shouldAnimate} />;
       case TileValue.Circle:
@@ -37,35 +45,26 @@ export class Tile extends React.Component<TileProps> {
     }
   };
 
-  render() {
-    const {
-      onTileClicked,
-      isTileRound,
-      isClickable,
-      value,
-      markSpecially,
-    } = this.props;
+  const classes = classNames(styles.tile, {
+    [styles.special]: markSpecially,
+    [styles.indicator]: clickable && !markSpecially,
+    [styles.normal]: !clickable && !markSpecially,
+    [styles.animate]: animate !== undefined ? animate : true,
+    [styles.noWinner]: value === TileValue.Destroyed,
+    [styles.circle]: isTileRound && value !== TileValue.Destroyed,
+    [styles.square]: !isTileRound && value !== TileValue.Destroyed,
+  });
 
-    const classes = classNames(styles.tile, {
-      [styles.indicator]: isClickable && !markSpecially,
-      [styles.normal]: !isClickable && !markSpecially,
-      [styles.special]: markSpecially,
-      [styles.circle]: isTileRound && value !== TileValue.Destroyed,
-      [styles.square]: !isTileRound && value !== TileValue.Destroyed,
-      [styles.noWinner]: value === TileValue.Destroyed,
-    });
-
-    return (
-      <div
-        className={classes}
-        onClick={() => {
-          if (isClickable && onTileClicked) {
-            onTileClicked();
-          }
-        }}
-      >
-        {this.getValue()}
-      </div>
-    );
-  }
+  return (
+    <div
+      className={classes}
+      onClick={() => {
+        if (clickable && onTileClicked) {
+          onTileClicked();
+        }
+      }}
+    >
+      {getValue()}
+    </div>
+  );
 }

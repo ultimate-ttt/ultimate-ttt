@@ -98,6 +98,7 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
                   board={game.gameState}
                   activeBoards={[]}
                   onPlayerMoved={() => {}}
+                  animate={false}
                 />
               </CardPrimaryAction>
               <CardActions>

@@ -25,6 +25,9 @@
 
 .circle {
   border-radius: 50%;
+}
+
+.circle.animate {
   animation-name: square-to-circle;
   animation-duration: 0.25s;
 }
@@ -40,6 +43,9 @@
 
 .square {
   border-radius: 0;
+}
+
+.square.animate {
   animation-name: circle-to-square;
   animation-duration: 0.25s;
 }

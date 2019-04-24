@@ -35,7 +35,7 @@ describe('SmallBoard', () => {
         winningPlayer={TileValue.Empty}
         tiles={smallTileInformation}
         currentPlayer={Player.Cross}
-        isMoveAllowed={true}
+        moveAllowed={true}
         x={boardPosition.x}
         y={boardPosition.y}
       />,
@@ -66,7 +66,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -108,7 +108,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -118,19 +118,19 @@ describe('SmallBoard', () => {
         component
           .find(Tile)
           .at(1)
-          .props().isClickable,
+          .props().clickable,
       ).toBe(false);
       expect(
         component
           .find(Tile)
           .at(4)
-          .props().isClickable,
+          .props().clickable,
       ).toBe(false);
       expect(
         component
           .find(Tile)
           .at(8)
-          .props().isClickable,
+          .props().clickable,
       ).toBe(false);
     });
 
@@ -155,13 +155,13 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
       );
 
-      expect(component.find({ isClickable: false })).toHaveLength(9);
+      expect(component.find({ clickable: false })).toHaveLength(9);
     });
 
     it('should add isTileRound=false when currentPlayer is Cross', () => {
@@ -185,7 +185,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={2}
           y={2}
         />,
@@ -215,7 +215,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Circle}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -247,7 +247,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Cross}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -280,7 +280,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Cross}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={2}
           y={2}
         />,
@@ -310,7 +310,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={2}
           y={2}
         />,
@@ -344,7 +344,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
           markTileSpecially={markSpecially}
@@ -386,7 +386,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
           markTileSpecially={markSpecially}
@@ -432,7 +432,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Cross}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
           markTileSpecially={markSpecially}

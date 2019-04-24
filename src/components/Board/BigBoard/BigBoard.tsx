@@ -19,17 +19,47 @@ interface BigBoardProps {
     tileY: number,
   ) => void;
   markTileSpecially?: MarkSpecially;
+  animate?: boolean;
 }
 
-export class BigBoard extends React.Component<BigBoardProps> {
-  createSmallBoards = () => {
+const getMarkSpecially = (
+  markSpecially: MarkSpecially | undefined,
+  point: Point,
+) => {
+  if (markSpecially === undefined) {
+    return undefined;
+  }
+
+  if (markSpecially.condition && markSpecially.position) {
+    if (arePointsEqual(point, markSpecially.position.boardPosition)) {
+      return markSpecially;
+    }
+  }
+
+  return { condition: false };
+};
+
+const isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
+  if (!activeBoards) {
+    return false;
+  }
+
+  const theBoardPlayedOnIsActive = activeBoards.some((board) =>
+    arePointsEqual({ x, y }, board),
+  );
+  return theBoardPlayedOnIsActive;
+};
+
+export function BigBoard(props: BigBoardProps) {
+  const createSmallBoards = () => {
     const {
       currentPlayer,
       board,
       activeBoards,
       onPlayerMoved,
       markTileSpecially,
-    } = this.props;
+      animate,
+    } = props;
     const rows = [];
 
     for (let x = 0; x < 3; x++) {
@@ -39,21 +69,22 @@ export class BigBoard extends React.Component<BigBoardProps> {
         );
 
         if (smallBoard) {
-          const isMoveAllowed = this.isMoveOnBoardAllowed(x, y, activeBoards);
+          const isMoveAllowed = isMoveOnBoardAllowed(x, y, activeBoards);
 
           rows.push(
             <SmallBoard
               key={`x: ${x}/ Y: ${y}`}
               x={x}
               y={y}
-              isMoveAllowed={isMoveAllowed}
+              moveAllowed={isMoveAllowed}
               currentPlayer={currentPlayer}
               tiles={smallBoard.tiles}
               winningPlayer={smallBoard.value}
+              animate={animate}
               onTileClicked={(tileX: number, tileY: number) => {
                 onPlayerMoved(x, y, tileX, tileY);
               }}
-              markTileSpecially={this.getMarkSpecially(markTileSpecially, {
+              markTileSpecially={getMarkSpecially(markTileSpecially, {
                 x,
                 y,
               })}
@@ -66,35 +97,5 @@ export class BigBoard extends React.Component<BigBoardProps> {
     return rows;
   };
 
-  isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
-    if (!activeBoards) {
-      return false;
-    }
-
-    const theBoardPlayedOnIsActive = activeBoards.some((board) =>
-      arePointsEqual({ x, y }, board),
-    );
-    return theBoardPlayedOnIsActive;
-  };
-
-  getMarkSpecially = (
-    markSpecially: MarkSpecially | undefined,
-    point: Point,
-  ) => {
-    if (markSpecially === undefined) {
-      return undefined;
-    }
-
-    if (markSpecially.condition && markSpecially.position) {
-      if (arePointsEqual(point, markSpecially.position.boardPosition)) {
-        return markSpecially;
-      }
-    }
-
-    return { condition: false };
-  };
-
-  render() {
-    return <div className={styles.bigBoard}>{this.createSmallBoards()}</div>;
-  }
+  return <div className={styles.bigBoard}>{createSmallBoards()}</div>;
 }

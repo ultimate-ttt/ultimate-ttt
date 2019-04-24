@@ -23,7 +23,8 @@ stories.add('Tile Customisable', () => (
       value={select('Value', tileValues, TileValue.Empty)}
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
-      isClickable={boolean('isClickable', false)}
+      clickable={boolean('clickable', false)}
+      animate={boolean('animate', true)}
       markSpecially={boolean('markSpecially', false)}
     />
   </div>
@@ -35,7 +36,8 @@ stories.add('Tile Clickable', () => (
       value={TileValue.Empty}
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
-      isClickable={true}
+      clickable={true}
+      animate={boolean('animate', true)}
     />
   </div>
 ));
@@ -46,8 +48,9 @@ stories.add('Tile Marked Specially', () => (
       value={TileValue.Empty}
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
-      isClickable={boolean('isClickable', false)}
+      clickable={boolean('clickable', false)}
       markSpecially={true}
+      animate={boolean('animate', true)}
     />
   </div>
 ));
@@ -58,7 +61,8 @@ stories.add('Tile Circle', () => (
       value={TileValue.Circle}
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
-      isClickable={boolean('isClickable', false)}
+      clickable={boolean('clickable', false)}
+      animate={boolean('animate', true)}
     />
   </div>
 ));
@@ -69,7 +73,8 @@ stories.add('Tile Cross', () => (
       value={TileValue.Cross}
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
-      isClickable={boolean('isClickable', false)}
+      clickable={boolean('clickable', false)}
+      animate={boolean('animate', true)}
     />
   </div>
 ));
@@ -80,7 +85,8 @@ stories.add('Tile Destroyed', () => (
       value={TileValue.Destroyed}
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
-      isClickable={boolean('isClickable', false)}
+      clickable={boolean('clickable', false)}
+      animate={boolean('animate', true)}
     />
   </div>
 ));
