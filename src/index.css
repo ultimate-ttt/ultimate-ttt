@@ -14,14 +14,6 @@ body {
   padding: 0;
 }
 
-html,
-body,
-#root,
-.centerAll,
-.centerHorizontal {
-  height: 100%;
-}
-
 .centerAll {
   display: flex;
   align-items: center;

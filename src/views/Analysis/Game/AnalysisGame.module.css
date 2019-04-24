@@ -1,30 +1,27 @@
 .analysisLayout {
-  height: 100%;
-  width: 100%;
+  font-size: 16px;
 
-  padding: 0.5em 1.5em 0.5em 1.5em;
-  margin-bottom: 0.5em;
+  padding-top: 1em;
+  margin-bottom: 1em;
 
   display: grid;
-  grid-gap: 1em;
+  grid-row-gap: 1em;
   grid-column-gap: 1.5em;
   grid-template-areas: 'moveList' 'historyButtons' 'game';
-
-  font-size: 16px;
+  grid-template-rows: minmax(50vmin, 0.3fr) 0.05fr 0.3fr;
+  justify-content: center;
 }
 
 .moveList {
   grid-area: moveList;
   padding: 0;
   overflow-y: scroll;
-  min-height: 50vmin;
   position: relative;
 }
 
 .analysisGame {
   grid-area: game;
-  height: 100%;
-  width: 100%;
+  width: 80vmin;
 }
 
 .historyButtons {
@@ -33,32 +30,21 @@
   justify-content: center;
 }
 
-/* Most Mobile Devices in Landscape mode and smaller screens */
-@media only screen and (min-width: 568px) and (max-height: 768px) {
-  .moveList {
-    max-height: 100%;
-  }
-
+@media screen and (min-width: 640px) and (max-height: 768px),
+  screen and (min-width: 1025px) {
   .analysisLayout {
+    padding: 0;
+    margin: 0.25em 0 0.25em;
+
+    grid-template-columns: minmax(25vmin, 1fr) auto;
+    grid-template-rows: 1fr 81vmin;
     grid-template-areas: '. historyButtons' 'moveList game';
-    align-items: center;
   }
 }
 
-/* Bigger Screens */
-@media only screen and (min-width: 1200px) {
-  .moveList {
-    max-height: 90%;
-    align-self: flex-start;
-  }
-
+@media screen and (min-width: 1000px) {
   .analysisLayout {
-    grid-template-columns: minmax(20vmin, 1fr) 2fr;
-    grid-template-rows: minmax(9vmin, 12vmin) auto;
-    grid-template-areas: '. historyButtons' 'moveList game';
-    align-items: center;
-
-    width: 50%;
-    padding: 0;
+    padding: 1em 1.5em 0.5em 1.5em;
+    margin-bottom: 0.5em;
   }
 }
