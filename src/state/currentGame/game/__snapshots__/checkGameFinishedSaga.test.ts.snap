@@ -1043,6 +1043,7 @@ Object {
             ],
             "winner": "O",
           },
+          "saveOnline": true,
           "type": "save-game-data/save-game-data",
         },
         "channel": null,
