@@ -6,6 +6,7 @@ import { MoveList } from '../../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../../components/Analysis/ScrollElementConstants';
 import styles from './AnalysisGame.module.css';
+import classNames from 'classnames';
 
 interface AnalysisGameDisplayProps {
   moveForwardInHistory: (numberOfMoves: number) => void;
@@ -32,7 +33,7 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
     ];
 
   return (
-    <div className="centerHorizontal">
+    <div className={classNames('centerHorizontal', styles.applyHeight)}>
       <div className={styles.analysisLayout}>
         <div id="moveList" className={styles.moveList}>
           <MoveList

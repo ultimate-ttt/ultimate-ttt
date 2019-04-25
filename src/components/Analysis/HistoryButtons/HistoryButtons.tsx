@@ -54,7 +54,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
     } = this.props;
 
     return (
-      <div>
+      <>
         <Button
           disabled={currentMove === 1}
           dense={true}
@@ -81,7 +81,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
         >
           Next
         </Button>
-      </div>
+      </>
     );
   }
 }

@@ -1,15 +1,14 @@
 .analysisLayout {
   font-size: 16px;
 
-  padding-top: 1em;
+  padding: 1em;
   margin-bottom: 1em;
 
   display: grid;
   grid-row-gap: 1em;
   grid-column-gap: 1.5em;
   grid-template-areas: 'moveList' 'historyButtons' 'game';
-  grid-template-rows: minmax(50vmin, 0.3fr) 0.05fr 0.3fr;
-  justify-content: center;
+  grid-template-rows: minmax(50vmin, 0.3fr) minmax(min-content, 7vmin) 0.3fr;
 }
 
 .moveList {
@@ -21,7 +20,8 @@
 
 .analysisGame {
   grid-area: game;
-  width: 80vmin;
+  width: 85vmin;
+  justify-self: center;
 }
 
 .historyButtons {
@@ -36,9 +36,17 @@
     padding: 0;
     margin: 0.25em 0 0.25em;
 
-    grid-template-columns: minmax(25vmin, 1fr) auto;
-    grid-template-rows: 1fr 81vmin;
+    grid-template-columns: minmax(min-content, 1fr) minmax(80vmin, 85vmin);
+    grid-template-rows: min-content 85vmin;
     grid-template-areas: '. historyButtons' 'moveList game';
+  }
+
+  .applyHeight {
+    height: 100%;
+  }
+
+  .analysisGame {
+    width: inherit;
   }
 }
 
