@@ -5,12 +5,15 @@ export const SAVE_GAME_DATA_PENDING = 'save-game-data/save-game-data-pending';
 export const SAVE_GAME_DATA_FULFILLED =
   'save-game-data/save-game-data-fulfilled';
 export const SAVE_GAME_DATA_REJECTED = 'save-game-data/save-game-data-rejected';
+export const GENEREATE_FINISHED_GAMES =
+  'save-game-data/generate-finished-games';
 
 export const saveGameData = (
   finishedGame: FinishedGameState,
 ): SaveGameDataAction => ({
   type: SAVE_GAME_DATA,
   payload: finishedGame,
+  saveOnline: true,
 });
 
 export const saveGameDataPending = (): SaveGameDataPendingAction => ({
@@ -34,6 +37,7 @@ export const saveGameDataRejected = (
 export interface SaveGameDataAction {
   type: string;
   payload: FinishedGameState;
+  saveOnline: boolean;
 }
 
 export interface SaveGameDataPendingAction {
