@@ -27,14 +27,12 @@ export function Game(props: GameProps) {
     <div className={classNames('centerAll', styles.applyHeight)}>
       <div className={styles.gameWrapper}>
         <GameFinishedDisplay />
-        <div className={styles.bigBoardSize}>
-          <BigBoard
-            currentPlayer={currentPlayer}
-            board={board}
-            activeBoards={activeBoards}
-            onPlayerMoved={onPlayerMoved}
-          />
-        </div>
+        <BigBoard
+          currentPlayer={currentPlayer}
+          board={board}
+          activeBoards={activeBoards}
+          onPlayerMoved={onPlayerMoved}
+        />
       </div>
     </div>
   );

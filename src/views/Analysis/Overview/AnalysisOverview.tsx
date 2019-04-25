@@ -26,24 +26,22 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
 
   return (
-    <div className="centerHorizontal">
-      <div className={styles.analysisOverviewLayout}>
-        <div className={styles.header}>
-          <Typography use="headline2" tag="h1">
-            Recently played games
-          </Typography>
-        </div>
-        <ListDivider />
-        <div className={styles.gameList}>
-          {finishedGames.map((game, index) => (
-            <GameSummaryCard
-              key={game.id ? game.id : game.date}
-              gameNumber={finishedGames.length - index}
-              game={game}
-              link={getLink(game)}
-            />
-          ))}
-        </div>
+    <div className={styles.analysisOverviewLayout}>
+      <div className={styles.header}>
+        <Typography use="headline2" tag="h1">
+          Recently played games
+        </Typography>
+      </div>
+      <ListDivider />
+      <div className={styles.gameList}>
+        {finishedGames.map((game, index) => (
+          <GameSummaryCard
+            key={game.id ? game.id : game.date}
+            gameNumber={finishedGames.length - index}
+            game={game}
+            link={getLink(game)}
+          />
+        ))}
       </div>
     </div>
   );

@@ -4,10 +4,8 @@
   margin-bottom: 1em;
 
   font-size: 9px;
-}
 
-.bigBoardSize {
-  width: 80vmin;
+  grid-template-columns: 80vmin;
 }
 
 .applyHeight {

@@ -1,14 +1,9 @@
 .tile {
   color: #fff;
 
-  /* Align Content Vertically & Horizontally */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Firefox. Fixes issue in Firefox where text got automatically selected */
-  /* https://stackoverflow.com/questions/6900124/how-to-make-certain-text-not-selectable-with-css */
-  -moz-user-select: none;
 }
 
 .tile.normal {
@@ -59,6 +54,6 @@
   }
 }
 
-.no-winner {
+.noWinner {
   border-radius: 15px;
 }
