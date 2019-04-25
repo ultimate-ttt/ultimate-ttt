@@ -9,10 +9,10 @@ import {
 import { formatDistanceStrict } from 'date-fns';
 import { FinishedGameState } from '../../../state/AppState';
 import { Typography } from '@rmwc/typography';
-import styles from '../../../views/Analysis/Overview/AnalysisOverview.module.css';
 import { ListDivider } from '@rmwc/list';
 import { Icon } from '@rmwc/icon';
 import { Link } from 'react-router-dom';
+import styles from './GameSummaryCard.module.css';
 
 interface GameSummaryCardProps {
   gameNumber: number;
@@ -42,14 +42,13 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
 export function GameSummaryCard(props: GameSummaryCardProps) {
   const { game, gameNumber, link } = props;
 
-  // TODO move all the styling to css file
   // TODO add storybook
   // TODO add tests?!!
 
   return (
     <Card>
-      <CardPrimaryAction style={{ padding: '10px' }} {...link}>
-        <div style={{ padding: '10px' }}>
+      <CardPrimaryAction className={styles.padding10} {...link}>
+        <div className={styles.padding10}>
           <div>
             <Typography use={'headline4'} tag="h2">
               Game No. {gameNumber}
@@ -60,12 +59,8 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
               {getGameSummary(game.winner, game.moves.length)}
             </Typography>
           </div>
-          <div style={{ paddingBottom: '10px' }}>
-            <Typography
-              use={'subtitle2'}
-              tag="p"
-              style={{ fontStyle: 'italic' }}
-            >
+          <div className={styles.paddingBot10}>
+            <Typography use={'subtitle2'} tag="p" className={styles.italic}>
               {formatDistanceStrict(
                 new Date(),
                 new Date(Date.parse(game.date)),
