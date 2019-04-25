@@ -36,7 +36,7 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
     );
   }
 
-  return <>{moves} moves resulted in draw.</>;
+  return <>{moves} moves resulted in a draw.</>;
 }
 
 export function GameSummaryCard(props: GameSummaryCardProps) {
@@ -51,15 +51,21 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
       <CardPrimaryAction style={{ padding: '10px' }} {...link}>
         <div style={{ padding: '10px' }}>
           <div>
-            <Typography use={'headline4'}>Game No. {gameNumber}</Typography>
+            <Typography use={'headline4'} tag="h2">
+              Game No. {gameNumber}
+            </Typography>
           </div>
           <div>
-            <Typography use={'subtitle1'}>
+            <Typography use={'subtitle2'} tag="h3">
               {getGameSummary(game.winner, game.moves.length)}
             </Typography>
           </div>
           <div style={{ paddingBottom: '10px' }}>
-            <Typography use={'subtitle2'} style={{ fontStyle: 'italic' }}>
+            <Typography
+              use={'subtitle2'}
+              tag="p"
+              style={{ fontStyle: 'italic' }}
+            >
               {formatDistanceStrict(
                 new Date(),
                 new Date(Date.parse(game.date)),
