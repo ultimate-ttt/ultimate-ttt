@@ -48,6 +48,10 @@
   .analysisGame {
     width: inherit;
   }
+
+  .historyButtons {
+    margin-bottom: 1em;
+  }
 }
 
 @media screen and (min-width: 1000px) {
