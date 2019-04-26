@@ -15,7 +15,7 @@ describe('AnalysisOverview', () => {
     {
       id: '1',
       gameState: circleFinishedBoardMock,
-      date: new Date(2019, 1, 1).toISOString(),
+      date: new Date(2019, 1, 1, 10).toISOString(),
       winner: 'O',
       moves: movesForCircleFinishedBoardMock,
       saveState: 'fulfilled',
@@ -24,7 +24,7 @@ describe('AnalysisOverview', () => {
     {
       id: '2',
       gameState: crossFinishedBoardMock,
-      date: new Date(2019, 2, 1).toISOString(),
+      date: new Date(2019, 2, 1, 10).toISOString(),
       winner: 'X',
       moves: movesForCrossFinishedBoardMock,
       saveState: 'fulfilled',
