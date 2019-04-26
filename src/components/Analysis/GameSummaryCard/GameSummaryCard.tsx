@@ -42,7 +42,6 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
 export function GameSummaryCard(props: GameSummaryCardProps) {
   const { game, gameNumber, link } = props;
 
-  // TODO add storybook
   // TODO add tests?!!
 
   return (
@@ -70,13 +69,15 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
           </div>
           <ListDivider />
         </div>
-        <BigBoard
-          currentPlayer={game.moves[game.moves.length - 2].player}
-          board={game.gameState}
-          activeBoards={[]}
-          onPlayerMoved={() => {}}
-          animate={false}
-        />
+        <div className={styles.padding10}>
+          <BigBoard
+            currentPlayer={game.moves[game.moves.length - 2].player}
+            board={game.gameState}
+            activeBoards={[]}
+            onPlayerMoved={() => {}}
+            animate={false}
+          />
+        </div>
       </CardPrimaryAction>
       <CardActions>
         <CardActionButton
