@@ -19,7 +19,7 @@
 .gameList {
   grid-area: gameList;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   grid-gap: 2em;
   margin-bottom: 2em;
   padding: 1em;
@@ -27,4 +27,10 @@
 
 .winnerIcon {
   margin-right: 3px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .gameList {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  }
 }
