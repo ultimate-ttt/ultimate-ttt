@@ -1,0 +1,2673 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalysisOverview should match snapshot 1`] = `
+<div
+  className="analysisOverviewLayout"
+>
+  <div
+    className="header"
+  >
+    <Typography
+      tag="h1"
+      use="headline2"
+    >
+      Recently played games
+    </Typography>
+  </div>
+  <ListDivider />
+  <div
+    className="gameList"
+  >
+    <GameSummaryCard
+      game={
+        Object {
+          "date": "2019-01-31T23:00:00.000Z",
+          "errorMessage": "",
+          "gameState": Array [
+            Object {
+              "position": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+              ],
+              "value": 1,
+            },
+            Object {
+              "position": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 1,
+            },
+            Object {
+              "position": Object {
+                "x": 0,
+                "y": 2,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+              ],
+              "value": 1,
+            },
+            Object {
+              "position": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 0,
+            },
+            Object {
+              "position": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+              ],
+              "value": 1,
+            },
+            Object {
+              "position": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 2,
+            },
+            Object {
+              "position": Object {
+                "x": 2,
+                "y": 0,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 2,
+            },
+            Object {
+              "position": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 0,
+            },
+            Object {
+              "position": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 2,
+            },
+          ],
+          "id": "1",
+          "moves": Array [
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "moveNumber": 1,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "moveNumber": 2,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "moveNumber": 3,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "moveNumber": 4,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "moveNumber": 5,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+              "moveNumber": 6,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 7,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+              "moveNumber": 8,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 9,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+              "moveNumber": 10,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "moveNumber": 11,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "moveNumber": 12,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 13,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "moveNumber": 14,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 15,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "moveNumber": 16,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "moveNumber": 17,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "moveNumber": 18,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 19,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+              "moveNumber": 20,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "moveNumber": 21,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "moveNumber": 22,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 23,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 24,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 25,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 26,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 27,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 28,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+              "moveNumber": 29,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "moveNumber": 30,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+            },
+          ],
+          "saveState": "fulfilled",
+          "winner": "O",
+        }
+      }
+      gameNumber={2}
+      key="1"
+      link={
+        Object {
+          "tag": [Function],
+          "to": "/analysis/1",
+        }
+      }
+    />
+    <GameSummaryCard
+      game={
+        Object {
+          "date": "2019-02-28T23:00:00.000Z",
+          "errorMessage": "",
+          "gameState": Array [
+            Object {
+              "position": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 2,
+            },
+            Object {
+              "position": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 2,
+            },
+            Object {
+              "position": Object {
+                "x": 0,
+                "y": 2,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 2,
+            },
+            Object {
+              "position": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+              ],
+              "value": 0,
+            },
+            Object {
+              "position": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+              ],
+              "value": 0,
+            },
+            Object {
+              "position": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+              ],
+              "value": 0,
+            },
+            Object {
+              "position": Object {
+                "x": 2,
+                "y": 0,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+              ],
+              "value": 2,
+            },
+            Object {
+              "position": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+              ],
+              "value": 1,
+            },
+            Object {
+              "position": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "tiles": Array [
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 0,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 1,
+                  },
+                  "value": 0,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 1,
+                    "y": 2,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 0,
+                  },
+                  "value": 1,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 1,
+                  },
+                  "value": 2,
+                },
+                Object {
+                  "boardPosition": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "position": Object {
+                    "x": 2,
+                    "y": 2,
+                  },
+                  "value": 0,
+                },
+              ],
+              "value": 1,
+            },
+          ],
+          "id": "2",
+          "moves": Array [
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 1,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 2,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 3,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 4,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 5,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "moveNumber": 6,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 7,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 8,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 9,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 10,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+              "moveNumber": 11,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 12,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "moveNumber": 13,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+              "moveNumber": 14,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 0,
+              },
+              "moveNumber": 15,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "moveNumber": 16,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 1,
+              },
+              "moveNumber": 17,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "moveNumber": 18,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 19,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+              "moveNumber": 20,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "moveNumber": 21,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 1,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 0,
+                "y": 1,
+              },
+              "moveNumber": 22,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 0,
+              },
+              "moveNumber": 23,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 2,
+                "y": 0,
+              },
+              "moveNumber": 24,
+              "player": 1,
+              "tilePosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+            },
+            Object {
+              "boardPosition": Object {
+                "x": 1,
+                "y": 2,
+              },
+              "moveNumber": 25,
+              "player": 0,
+              "tilePosition": Object {
+                "x": 0,
+                "y": 2,
+              },
+            },
+          ],
+          "saveState": "fulfilled",
+          "winner": "X",
+        }
+      }
+      gameNumber={1}
+      key="2"
+      link={
+        Object {
+          "tag": [Function],
+          "to": "/analysis/2",
+        }
+      }
+    />
+  </div>
+</div>
+`;
