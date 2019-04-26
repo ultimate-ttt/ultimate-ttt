@@ -7,7 +7,6 @@ import {
 import { Player, Winner } from '../../../state/AppState';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 
-// tslint:disable:no-empty
 describe('AnalysisGame', () => {
   it('should match snapshot', () => {
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});

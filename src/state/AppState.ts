@@ -16,7 +16,7 @@ export interface GameInformation {
 export interface FinishedGameState {
   id?: string;
   date: string;
-  winner: 'O' | 'X' | null;
+  winner: WinnerString;
   gameState: SmallBoardInformation[];
   moves: MoveState[];
   saveState: SaveState;

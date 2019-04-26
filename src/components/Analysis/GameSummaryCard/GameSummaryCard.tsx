@@ -42,8 +42,6 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
 export function GameSummaryCard(props: GameSummaryCardProps) {
   const { game, gameNumber, link } = props;
 
-  // TODO add tests?!!
-
   return (
     <Card>
       <CardPrimaryAction className={styles.padding10} {...link}>
