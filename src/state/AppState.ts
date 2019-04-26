@@ -71,6 +71,7 @@ export enum Player {
 }
 
 export type SaveState = '' | 'pending' | 'fulfilled' | 'rejected';
+export type WinnerString = 'X' | 'O' | null;
 
 export interface Move {
   boardPosition: Point;

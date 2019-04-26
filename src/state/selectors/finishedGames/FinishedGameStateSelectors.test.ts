@@ -6,7 +6,7 @@ import {
   circleFinishedBoardMock,
   movesForCircleFinishedBoardMock,
 } from '../../../__mocks__';
-import { Winner } from '../../AppState';
+import { Winner, WinnerString } from '../../AppState';
 
 describe('FinishedGameStateSelectors', () => {
   describe('getWinningPlayerAsString', () => {
@@ -42,7 +42,7 @@ describe('FinishedGameStateSelectors', () => {
   describe('getFinishedGameData', () => {
     it('should return an object with all necessary gameData', () => {
       const mockParameters = {
-        winningPlayer: 'X' as 'X' | 'O' | null | undefined,
+        winningPlayer: 'X' as WinnerString | undefined,
         boards: circleFinishedBoardMock,
         moves: movesForCircleFinishedBoardMock,
       };

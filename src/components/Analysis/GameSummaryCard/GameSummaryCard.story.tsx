@@ -12,6 +12,7 @@ import {
   movesForDrawFinishedBoardMock,
 } from '../../../__mocks__';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { WinnerString } from '../../../state/AppState';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);
@@ -64,7 +65,7 @@ stories.add('GameSummaryCard', () => {
               id: '1',
               gameState: selectedGameState.state,
               date: isoStringDateKnob('date', defaultDate),
-              winner: selectedGameState.winner as 'X' | 'O' | null,
+              winner: selectedGameState.winner as WinnerString,
               moves: selectedGameState.moves,
               saveState: 'fulfilled',
               errorMessage: '',
