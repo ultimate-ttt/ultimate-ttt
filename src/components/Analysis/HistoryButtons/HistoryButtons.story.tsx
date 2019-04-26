@@ -4,7 +4,6 @@ import { number, withKnobs } from '@storybook/addon-knobs';
 import { HistoryButtons } from './HistoryButtons';
 import { action } from '@storybook/addon-actions';
 import { RMWCProvider } from '@rmwc/provider';
-import './HistoryButtons.module.css';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);

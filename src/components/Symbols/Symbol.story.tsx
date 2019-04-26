@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { XSymbol } from './XSymbol';
 import { OSymbol } from './OSymbol';
 import { DrawSymbol } from './DrawSymbol';
-import './Symbols.module.css';
 
 const stories = storiesOf('Symbol', module).addParameters({
   backgrounds: [{ name: 'tile', value: '#008891', default: true }],

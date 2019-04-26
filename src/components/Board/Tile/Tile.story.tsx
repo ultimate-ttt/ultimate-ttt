@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { Tile } from './Tile';
 import { TileValue } from '../../../state/AppState';
 import { action } from '@storybook/addon-actions';
-import './Tile.module.css';
 import styles from '../SmallBoard/SmallBoard.module.css';
 
 const stories = storiesOf('Tile', module);

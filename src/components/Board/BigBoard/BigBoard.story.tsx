@@ -9,7 +9,6 @@ import {
   unfinishedBoardMock,
 } from '../../../__mocks__';
 import { action } from '@storybook/addon-actions';
-import './BigBoard.module.css';
 
 const stories = storiesOf('BigBoard', module);
 stories.addDecorator(withKnobs);
