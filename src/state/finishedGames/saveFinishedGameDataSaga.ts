@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import {
-  GENEREATE_FINISHED_GAMES,
+  GENERATE_FINISHED_GAMES,
   SAVE_GAME_DATA,
   saveGameData,
   SaveGameDataAction,
@@ -64,7 +64,7 @@ function* generateFinishedGames(action: GenericAction) {
 
 function* saveFinishedGameDataSaga() {
   yield takeEvery(SAVE_GAME_DATA, saveFinishedGameData);
-  yield takeEvery(GENEREATE_FINISHED_GAMES, generateFinishedGames);
+  yield takeEvery(GENERATE_FINISHED_GAMES, generateFinishedGames);
 }
 
 export default saveFinishedGameDataSaga;
