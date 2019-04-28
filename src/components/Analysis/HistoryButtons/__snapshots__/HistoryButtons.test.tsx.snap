@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HistoryButtons should match snapshot 1`] = `
-<div>
+<Fragment>
   <withRipple(Button)
+    className="buttonMargin"
     dense={true}
     disabled={true}
     icon="arrow-left"
@@ -12,6 +13,7 @@ exports[`HistoryButtons should match snapshot 1`] = `
     Previous
   </withRipple(Button)>
   <withRipple(Button)
+    className="buttonMargin"
     dense={true}
     disabled={false}
     onClick={[Function]}
@@ -20,5 +22,5 @@ exports[`HistoryButtons should match snapshot 1`] = `
   >
     Next
   </withRipple(Button)>
-</div>
+</Fragment>
 `;

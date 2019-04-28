@@ -1,13 +1,10 @@
 import * as React from 'react';
-import './symbols.css';
-import './symbolAnimations.css';
-import '../../fonts/icons.css';
 import classNames from 'classnames';
+import { ReactComponent as XIcon } from '../../icons/svg/x.svg';
+import styles from './Symbols.module.css';
 
 interface XSymbolProps {
-  bigSymbol?: boolean;
   shouldAnimate?: boolean;
-  className?: string;
 }
 
 export class XSymbol extends React.Component<XSymbolProps> {
@@ -16,15 +13,12 @@ export class XSymbol extends React.Component<XSymbolProps> {
   };
 
   render() {
-    const { bigSymbol, shouldAnimate, className } = this.props;
+    const { shouldAnimate } = this.props;
     const iconClass = classNames({
-      'icon-x': true,
-      x: true,
-      'big-symbol': bigSymbol,
-      'animate-x': shouldAnimate,
-      className: className,
+      [styles.x]: true,
+      [styles.animateX]: shouldAnimate,
     });
 
-    return <i className={iconClass} aria-label="Cross Symbol" />;
+    return <XIcon className={iconClass} />;
   }
 }

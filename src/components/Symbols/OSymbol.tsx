@@ -1,13 +1,10 @@
 import * as React from 'react';
-import './symbols.css';
-import './symbolAnimations.css';
-import '../../fonts/icons.css';
 import classNames from 'classnames';
+import { ReactComponent as OIcon } from '../../icons/svg/o.svg';
+import styles from './Symbols.module.css';
 
 interface OSymbolProps {
-  bigSymbol?: boolean;
   shouldAnimate?: boolean;
-  className?: string;
 }
 
 export class OSymbol extends React.Component<OSymbolProps> {
@@ -16,15 +13,12 @@ export class OSymbol extends React.Component<OSymbolProps> {
   };
 
   render() {
-    const { bigSymbol, shouldAnimate, className } = this.props;
+    const { shouldAnimate } = this.props;
     const iconClass = classNames({
-      'icon-o': true,
-      o: true,
-      'big-symbol': bigSymbol,
-      'animate-o': shouldAnimate,
-      className: className,
+      [styles.o]: true,
+      [styles.animateO]: shouldAnimate,
     });
 
-    return <i className={iconClass} aria-label="Circle Symbol" />;
+    return <OIcon className={iconClass} />;
   }
 }

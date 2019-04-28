@@ -1,22 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`XSymbol should match snapshot 1`] = `
-<i
-  aria-label="Cross Symbol"
-  className="icon-x x animate-x"
+<ForwardRef
+  className="x animateX"
 />
 `;
 
 exports[`XSymbol should match snapshot 2`] = `
-<i
-  aria-label="Cross Symbol"
-  className="icon-x x"
-/>
-`;
-
-exports[`XSymbol should match snapshot 3`] = `
-<i
-  aria-label="Cross Symbol"
-  className="icon-x x big-symbol animate-x"
+<ForwardRef
+  className="x"
 />
 `;

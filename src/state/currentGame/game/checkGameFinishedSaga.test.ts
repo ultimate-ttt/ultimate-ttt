@@ -27,7 +27,11 @@ describe('checkGameFinishedSaga', () => {
         ])
         .put({ type: GAME_FINISHED, payload: Player.Circle })
         .put({ type: SET_ACTIVE_BOARDS, payload: [] })
-        .put({ type: SAVE_GAME_DATA, payload: circleFinishedGameMock })
+        .put({
+          type: SAVE_GAME_DATA,
+          payload: circleFinishedGameMock,
+          saveOnline: true,
+        })
         .dispatch({ type: CHECK_GAME_FINISHED })
         .silentRun();
     },
@@ -44,7 +48,11 @@ describe('checkGameFinishedSaga', () => {
         ])
         .put({ type: GAME_FINISHED, payload: Player.Cross })
         .put({ type: SET_ACTIVE_BOARDS, payload: [] })
-        .put({ type: SAVE_GAME_DATA, payload: crossFinishedGameMock })
+        .put({
+          type: SAVE_GAME_DATA,
+          payload: crossFinishedGameMock,
+          saveOnline: true,
+        })
         .dispatch({ type: CHECK_GAME_FINISHED })
         .silentRun();
     },

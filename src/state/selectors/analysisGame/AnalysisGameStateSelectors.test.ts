@@ -13,6 +13,7 @@ import {
   Winner,
 } from '../../AppState';
 import {
+  getAnalysisGameByDate,
   getAnalysisGameById,
   getLatestAnalysisGame,
 } from './AnalysisGameStateSelectors';
@@ -23,7 +24,7 @@ describe('AnalysisGameStateSelectors', () => {
       id: '1',
       gameState: circleFinishedBoardMock,
       date: new Date(2019, 1, 1).toISOString(),
-      winner: Winner.Circle,
+      winner: 'O',
       moves: movesForCircleFinishedBoardMock,
       saveState: 'fulfilled',
       errorMessage: '',
@@ -32,7 +33,7 @@ describe('AnalysisGameStateSelectors', () => {
       id: '2',
       gameState: crossFinishedBoardMock,
       date: new Date(2019, 2, 1).toISOString(),
-      winner: Winner.Cross,
+      winner: 'X',
       moves: movesForCrossFinishedBoardMock,
       saveState: 'fulfilled',
       errorMessage: '',
@@ -41,7 +42,7 @@ describe('AnalysisGameStateSelectors', () => {
       id: '3',
       gameState: drawFinishedBoardMock,
       date: new Date(2019, 3, 1).toISOString(),
-      winner: Winner.Draw,
+      winner: null,
       moves: movesForDrawFinishedBoardMock,
       saveState: 'fulfilled',
       errorMessage: '',
@@ -57,7 +58,7 @@ describe('AnalysisGameStateSelectors', () => {
         moves: originalFinishedGame.moves,
         board: originalFinishedGame.gameState,
         game: {
-          winningPlayer: originalFinishedGame.winner,
+          winningPlayer: Winner.Circle,
           isFinished: true,
           currentPlayer: Player.Cross,
         },
@@ -84,7 +85,7 @@ describe('AnalysisGameStateSelectors', () => {
         moves: originalFinishedGame.moves,
         board: originalFinishedGame.gameState,
         game: {
-          winningPlayer: originalFinishedGame.winner,
+          winningPlayer: Winner.Draw,
           isFinished: true,
           currentPlayer: Player.Circle,
         },
@@ -97,6 +98,39 @@ describe('AnalysisGameStateSelectors', () => {
 
     it('returns undefined when no game was found', () => {
       const result = getLatestAnalysisGame.resultFunc([]);
+      expect(result).toBeUndefined();
+    });
+  });
+
+  describe('getAnalysisGameByDate', () => {
+    it('returns the analysis game with the given date', () => {
+      const originalFinishedGame = finishedGames[1];
+      const expectedGame: AnalysisGame = {
+        id: '2',
+        currentMove: originalFinishedGame.moves.length,
+        moves: originalFinishedGame.moves,
+        board: originalFinishedGame.gameState,
+        game: {
+          winningPlayer: Winner.Cross,
+          isFinished: true,
+          currentPlayer: Player.Circle,
+        },
+        activeBoards: [],
+      };
+
+      const dateInput = new Date(2019, 2, 1).toISOString();
+      const analysisGame = getAnalysisGameByDate.resultFunc(
+        finishedGames,
+        dateInput,
+      );
+      expect(analysisGame).toEqual(expectedGame);
+    });
+
+    it('returns undefined when no game was found', () => {
+      const result = getAnalysisGameByDate.resultFunc(
+        finishedGames,
+        new Date(2000, 1, 1).toISOString(),
+      );
       expect(result).toBeUndefined();
     });
   });

@@ -5,6 +5,8 @@ import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
 import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
 import { Point } from '../../util';
+import styles from './Game.module.css';
+import classNames from 'classnames';
 
 interface GameProps {
   currentPlayer: Player;
@@ -18,24 +20,22 @@ interface GameProps {
   ) => void;
 }
 
-export class Game extends React.Component<GameProps> {
-  render() {
-    const { currentPlayer, board, activeBoards, onPlayerMoved } = this.props;
+export function Game(props: GameProps) {
+  const { currentPlayer, board, activeBoards, onPlayerMoved } = props;
 
-    return (
-      <div className="center">
-        <div className="gameWrapper">
-          <GameFinishedDisplay />
-          <BigBoard
-            currentPlayer={currentPlayer}
-            board={board}
-            activeBoards={activeBoards}
-            onPlayerMoved={onPlayerMoved}
-          />
-        </div>
+  return (
+    <div className={classNames('centerAll', styles.applyHeight)}>
+      <div className={styles.gameWrapper}>
+        <GameFinishedDisplay />
+        <BigBoard
+          currentPlayer={currentPlayer}
+          board={board}
+          activeBoards={activeBoards}
+          onPlayerMoved={onPlayerMoved}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mapStateToProps = (state: AppState) => ({

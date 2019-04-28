@@ -11,23 +11,23 @@
         ],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 0,
         "tags": [
           "ic_panorama_fish_eye_black_24px"
-        ]
+        ],
+        "grid": 0
       },
       "attrs": [
         {}
       ],
       "properties": {
         "order": 30,
-        "id": 3,
+        "id": 0,
         "name": "o",
         "prevSize": 32,
         "code": 59648
       },
       "setIdx": 0,
-      "setId": 3,
+      "setId": 4,
       "iconIdx": 0
     },
     {
@@ -40,23 +40,23 @@
         ],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 0,
         "tags": [
           "ic_remove_black_24px"
-        ]
+        ],
+        "grid": 0
       },
       "attrs": [
         {}
       ],
       "properties": {
         "order": 31,
-        "id": 2,
-        "name": "no-winner",
+        "id": 1,
+        "name": "draw",
         "prevSize": 32,
         "code": 59649
       },
       "setIdx": 0,
-      "setId": 3,
+      "setId": 4,
       "iconIdx": 1
     },
     {
@@ -69,30 +69,27 @@
         ],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 0,
         "tags": [
           "ic_close_black_24px"
-        ]
+        ],
+        "grid": 0
       },
       "attrs": [
         {}
       ],
       "properties": {
         "order": 32,
-        "id": 0,
+        "id": 2,
         "name": "x",
         "prevSize": 32,
         "code": 59650
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 3
+      "setId": 4,
+      "iconIdx": 2
     }
   ],
   "height": 1024,
-  "metadata": {
-    "name": "icomoon"
-  },
   "preferences": {
     "showGlyphs": true,
     "showQuickUse": true,
@@ -101,7 +98,9 @@
     "fontPref": {
       "prefix": "icon-",
       "metadata": {
-        "fontFamily": "icomoon"
+        "fontFamily": "icomoon",
+        "majorVersion": 1,
+        "minorVersion": 0
       },
       "metrics": {
         "emSize": 1024,
@@ -109,7 +108,13 @@
         "whitespace": 50
       },
       "embed": false,
-      "autoHost": true
+      "autoHost": true,
+      "noie8": true,
+      "ie7": false,
+      "showSelector": true,
+      "showMetrics": true,
+      "showMetadata": true,
+      "showVersion": false
     },
     "imagePref": {
       "prefix": "icon-",
@@ -121,7 +126,8 @@
       "autoHost": true,
       "height": 32,
       "columns": 16,
-      "margin": 16
+      "margin": 16,
+      "name": "icomoon"
     },
     "historySize": 50,
     "showCodes": true,

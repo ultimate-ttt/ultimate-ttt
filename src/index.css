@@ -1,38 +1,45 @@
 :root {
+  /* TODO change these colors later to colors that are actually from the material palette */
   --tropical-teal: #008891;
   --incremental-blue: #0f3057;
   --vampire-bite: #c70039;
   --mdc-theme-primary: var(--tropical-teal);
+  --mdc-theme-secondary: var(--incremental-blue);
   --mdc-theme-text-icon-on-background: black;
 }
 
-html,
-body {
-  /* From medium: https://medium.design/system-shock-6b1dc6d6596f */
-  font-family: -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto',
-    'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;
-
-  margin-bottom: 1em;
-  overflow-x: hidden;
+* {
+  box-sizing: border-box;
 }
 
 html,
 body,
-.center,
-#root {
-  height: 100%;
-  width: 100%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
 }
 
-.center {
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.centerAll {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.gameWrapper {
-  display: grid;
-  overflow: hidden;
+.centerHorizontal {
+  display: flex;
+  justify-content: center;
 }
 
 .text-center {

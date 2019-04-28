@@ -35,7 +35,7 @@ describe('SmallBoard', () => {
         winningPlayer={TileValue.Empty}
         tiles={smallTileInformation}
         currentPlayer={Player.Cross}
-        isMoveAllowed={true}
+        moveAllowed={true}
         x={boardPosition.x}
         y={boardPosition.y}
       />,
@@ -66,7 +66,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -108,7 +108,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -118,19 +118,19 @@ describe('SmallBoard', () => {
         component
           .find(Tile)
           .at(1)
-          .props().isClickable,
+          .props().clickable,
       ).toBe(false);
       expect(
         component
           .find(Tile)
           .at(4)
-          .props().isClickable,
+          .props().clickable,
       ).toBe(false);
       expect(
         component
           .find(Tile)
           .at(8)
-          .props().isClickable,
+          .props().clickable,
       ).toBe(false);
     });
 
@@ -155,13 +155,13 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
       );
 
-      expect(component.find({ isClickable: false })).toHaveLength(9);
+      expect(component.find({ clickable: false })).toHaveLength(9);
     });
 
     it('should add isTileRound=false when currentPlayer is Cross', () => {
@@ -185,7 +185,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={2}
           y={2}
         />,
@@ -215,7 +215,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Circle}
-          isMoveAllowed={true}
+          moveAllowed={true}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
@@ -247,20 +247,19 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Cross}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
         />,
       );
 
       expect(component.children('Tile')).toHaveLength(1);
-      expect(component.find(Tile).props().isBig).toEqual(true);
       expect(component.find(Tile).props().value).toEqual(TileValue.Cross);
     });
   });
 
   describe('css classes', () => {
-    it('should have class small-board-finished when small board is finished', () => {
+    it('should have class smallBoardFinished when small board is finished', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -281,16 +280,16 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Cross}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={2}
           y={2}
         />,
       );
 
-      expect(component.hasClass('small-board-finished')).toBe(true);
+      expect(component.hasClass('smallBoardFinished')).toBe(true);
     });
 
-    it('should have class small-board in normal state', () => {
+    it('should have class smallBoard in normal state', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
@@ -311,13 +310,13 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={2}
           y={2}
         />,
       );
 
-      expect(component.hasClass('small-board')).toBe(true);
+      expect(component.hasClass('smallBoard')).toBe(true);
     });
   });
 
@@ -345,7 +344,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
           markTileSpecially={markSpecially}
@@ -387,7 +386,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Empty}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
           markTileSpecially={markSpecially}
@@ -433,7 +432,7 @@ describe('SmallBoard', () => {
           winningPlayer={TileValue.Cross}
           tiles={smallTileInformation}
           currentPlayer={Player.Cross}
-          isMoveAllowed={false}
+          moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
           markTileSpecially={markSpecially}

@@ -1,6 +1,6 @@
+import * as React from 'react';
 import { boolean, number, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import * as React from 'react';
 import { Player, TileValue } from '../../../state/AppState';
 import { SmallBoard } from './SmallBoard';
 import { Point } from '../../../util';
@@ -39,7 +39,8 @@ stories.add('SmallBoard Empty', () => {
       winningPlayer={TileValue.Empty}
       tiles={smallTileInformation}
       currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
-      isMoveAllowed={boolean('isMoveAllowed', true)}
+      moveAllowed={boolean('moveAllowed', true)}
+      animate={boolean('animate', true)}
       x={0}
       y={0}
     />
@@ -66,7 +67,8 @@ stories.add('SmallBoard With Values', () => {
       winningPlayer={TileValue.Empty}
       tiles={smallTileInformation}
       currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
-      isMoveAllowed={boolean('isMoveAllowed', true)}
+      moveAllowed={boolean('moveAllowed', true)}
+      animate={boolean('animate', true)}
       x={0}
       y={0}
     />
@@ -93,7 +95,8 @@ stories.add('SmallBoard won cross', () => {
       winningPlayer={TileValue.Cross}
       tiles={smallTileInformation}
       currentPlayer={Player.Cross}
-      isMoveAllowed={false}
+      moveAllowed={false}
+      animate={boolean('animate', true)}
       x={2}
       y={2}
     />
@@ -120,7 +123,8 @@ stories.add('SmallBoard won circle', () => {
       winningPlayer={TileValue.Circle}
       tiles={smallTileInformation}
       currentPlayer={Player.Cross}
-      isMoveAllowed={false}
+      moveAllowed={false}
+      animate={boolean('animate', true)}
       x={2}
       y={2}
     />
@@ -147,7 +151,8 @@ stories.add('SmallBoard won no winner', () => {
       winningPlayer={TileValue.Destroyed}
       tiles={smallTileInformation}
       currentPlayer={Player.Cross}
-      isMoveAllowed={false}
+      moveAllowed={false}
+      animate={boolean('animate', true)}
       x={2}
       y={2}
     />
@@ -192,7 +197,8 @@ stories.add('SmallBoard with specially marked tile', () => {
       winningPlayer={winningPlayer}
       tiles={smallTileInformation}
       currentPlayer={select('currentPlayer', boardValues, Player.Circle)}
-      isMoveAllowed={boolean('isMoveAllowed', true)}
+      moveAllowed={boolean('moveAllowed', true)}
+      animate={boolean('animate', true)}
       x={0}
       y={0}
       markTileSpecially={{

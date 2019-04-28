@@ -2,6 +2,7 @@
 
 exports[`MoveList should match snapshot 1`] = `
 <List
+  className="noPadding"
   dense={true}
   onAction={[Function]}
   twoLine={true}
@@ -12,10 +13,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={true}
+      className="smallerMargin biggerIcon"
       graphic={
         Object {
           "icon": "o",
-          "size": "small",
+          "size": "medium",
         }
       }
       secondaryText="Board 0/0 - Field 0/2"
@@ -28,10 +30,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={false}
+      className="smallerMargin biggerIcon"
       graphic={
         Object {
           "icon": "x",
-          "size": "small",
+          "size": "medium",
         }
       }
       secondaryText="Board 0/1 - Field 0/0"
@@ -44,10 +47,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={false}
+      className="smallerMargin biggerIcon"
       graphic={
         Object {
           "icon": "o",
-          "size": "small",
+          "size": "medium",
         }
       }
       secondaryText="Board 0/0 - Field 0/1"
@@ -60,10 +64,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={false}
+      className="smallerMargin biggerIcon"
       graphic={
         Object {
           "icon": "x",
-          "size": "small",
+          "size": "medium",
         }
       }
       secondaryText="Board 0/0 - Field 0/0"

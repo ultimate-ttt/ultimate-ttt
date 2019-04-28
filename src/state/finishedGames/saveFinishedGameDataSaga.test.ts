@@ -46,7 +46,11 @@ describe('saveFinishedGameDataSaga', () => {
     return expectSaga(saveFinishedGameDataSaga)
       .put({ type: SAVE_GAME_DATA_PENDING })
       .put({ type: SAVE_GAME_DATA_FULFILLED, payload: '132' })
-      .dispatch({ type: SAVE_GAME_DATA, payload: finishedGameDataMock })
+      .dispatch({
+        type: SAVE_GAME_DATA,
+        payload: finishedGameDataMock,
+        saveOnline: true,
+      })
       .silentRun();
   });
 
@@ -61,7 +65,11 @@ describe('saveFinishedGameDataSaga', () => {
     return expectSaga(saveFinishedGameDataSaga)
       .put({ type: SAVE_GAME_DATA_PENDING })
       .put({ type: SAVE_GAME_DATA_REJECTED, payload: '500: error' })
-      .dispatch({ type: SAVE_GAME_DATA, payload: finishedGameDataMock })
+      .dispatch({
+        type: SAVE_GAME_DATA,
+        payload: finishedGameDataMock,
+        saveOnline: true,
+      })
       .silentRun();
   });
 
@@ -76,7 +84,11 @@ describe('saveFinishedGameDataSaga', () => {
     return expectSaga(saveFinishedGameDataSaga)
       .put({ type: SAVE_GAME_DATA_PENDING })
       .put({ type: SAVE_GAME_DATA_REJECTED, payload: '500: error' })
-      .dispatch({ type: SAVE_GAME_DATA, payload: finishedGameDataMock })
+      .dispatch({
+        type: SAVE_GAME_DATA,
+        payload: finishedGameDataMock,
+        saveOnline: true,
+      })
       .silentRun()
       .then((result) => {
         expect(result.toJSON()).toMatchSnapshot();
@@ -92,7 +104,11 @@ describe('saveFinishedGameDataSaga', () => {
     return expectSaga(saveFinishedGameDataSaga)
       .put({ type: SAVE_GAME_DATA_PENDING })
       .put({ type: SAVE_GAME_DATA_FULFILLED, payload: '132' })
-      .dispatch({ type: SAVE_GAME_DATA, payload: finishedGameDataMock })
+      .dispatch({
+        type: SAVE_GAME_DATA,
+        payload: finishedGameDataMock,
+        saveOnline: true,
+      })
       .silentRun()
       .then((result) => {
         expect(result.toJSON()).toMatchSnapshot();

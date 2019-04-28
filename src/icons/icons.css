@@ -1,8 +1,13 @@
+.rmwc-icon {
+  vertical-align: middle;
+}
+
+/* Icon font */
 @font-face {
   font-family: 'icomoon';
-  src: url('icomoon.ttf?802tsf') format('truetype'),
-    url('icomoon.woff?802tsf') format('woff'),
-    url('icomoon.svg?802tsf#icomoon') format('svg');
+  src: url('font/icomoon.ttf?qnf9tb') format('truetype'),
+    url('font/icomoon.woff?qnf9tb') format('woff'),
+    url('font/icomoon.svg?qnf9tb#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,18 +28,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-o:before {
+  content: '\e900';
+}
+.icon-draw:before {
+  content: '\e901';
+}
 .icon-x:before {
-  content: '\e5cd';
+  content: '\e902';
 }
 .icon-arrow-left:before {
   content: '\e314';
 }
 .icon-arrow-right:before {
   content: '\e315';
-}
-.icon-o:before {
-  content: '\e836';
-}
-.icon-no-winner:before {
-  content: '\e15b';
 }

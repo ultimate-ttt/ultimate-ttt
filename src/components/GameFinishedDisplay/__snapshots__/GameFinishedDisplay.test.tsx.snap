@@ -2,17 +2,24 @@
 
 exports[`GameFinished should match snapshot when circle wins 1`] = `
 <div
-  className="restart-alignment visible"
+  className="restartAlignment visible"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline4"
   >
-    <OSymbol
-      className="winner-symbol"
-      shouldAnimate={false}
+    <Icon
+      className="winnerIcon"
+      icon={
+        Object {
+          "icon": "o",
+          "size": "large",
+        }
+      }
     />
-     wins!
-  </p>
+     
+    wins!
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
@@ -25,17 +32,24 @@ exports[`GameFinished should match snapshot when circle wins 1`] = `
 
 exports[`GameFinished should match snapshot when cross wins 1`] = `
 <div
-  className="restart-alignment visible"
+  className="restartAlignment visible"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline4"
   >
-    <XSymbol
-      className="winner-symbol"
-      shouldAnimate={false}
+    <Icon
+      className="winnerIcon"
+      icon={
+        Object {
+          "icon": "x",
+          "size": "large",
+        }
+      }
     />
-     wins!
-  </p>
+     
+    wins!
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
@@ -48,13 +62,14 @@ exports[`GameFinished should match snapshot when cross wins 1`] = `
 
 exports[`GameFinished should match snapshot when draw 1`] = `
 <div
-  className="restart-alignment visible"
+  className="restartAlignment visible"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline4"
   >
     It's a draw!
-  </p>
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}
@@ -67,16 +82,23 @@ exports[`GameFinished should match snapshot when draw 1`] = `
 
 exports[`GameFinished should match snapshot when no one wins 1`] = `
 <div
-  className="restart-alignment hidden"
+  className="restartAlignment hidden"
 >
-  <p
-    className="winner-text"
+  <Typography
+    className="winnerText"
+    use="headline4"
   >
-    <XSymbol
-      shouldAnimate={false}
+    <Icon
+      className="winnerIcon"
+      icon={
+        Object {
+          "icon": "x",
+          "size": "xlarge",
+        }
+      }
     />
-    reservation
-  </p>
+    resrv
+  </Typography>
   <withRipple(Button)
     dense={true}
     onClick={[Function]}

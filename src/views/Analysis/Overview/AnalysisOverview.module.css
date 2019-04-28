@@ -1,0 +1,37 @@
+.analysisOverviewLayout {
+  display: grid;
+  grid-template-areas: 'header' 'gameList';
+  height: 100%;
+
+  /* For a smaller gap between the small boards -> em will be smaller then*/
+  font-size: 7px;
+}
+
+.header {
+  grid-area: header;
+
+  padding-left: 3em;
+  margin-bottom: 3em;
+  margin-top: 3em;
+  color: var(--mdc-theme-primary);
+}
+
+.gameList {
+  grid-area: gameList;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-template-rows: min-content;
+  grid-gap: 2em;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+
+.winnerIcon {
+  margin-right: 3px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .gameList {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  }
+}

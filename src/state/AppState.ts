@@ -16,7 +16,7 @@ export interface GameInformation {
 export interface FinishedGameState {
   id?: string;
   date: string;
-  winner: Winner;
+  winner: WinnerString;
   gameState: SmallBoardInformation[];
   moves: MoveState[];
   saveState: SaveState;
@@ -71,6 +71,7 @@ export enum Player {
 }
 
 export type SaveState = '' | 'pending' | 'fulfilled' | 'rejected';
+export type WinnerString = 'X' | 'O' | null;
 
 export interface Move {
   boardPosition: Point;
