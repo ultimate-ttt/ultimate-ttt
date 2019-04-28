@@ -4,6 +4,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Reset Button style. */
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tile:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--vampire-bite);
 }
 
 .tile.normal {

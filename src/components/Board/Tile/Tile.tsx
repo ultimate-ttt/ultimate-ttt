@@ -56,7 +56,7 @@ export function Tile(props: TileProps) {
   });
 
   return (
-    <div
+    <button
       className={classes}
       onClick={() => {
         if (clickable && onTileClicked) {
@@ -65,6 +65,6 @@ export function Tile(props: TileProps) {
       }}
     >
       {getValue()}
-    </div>
+    </button>
   );
 }

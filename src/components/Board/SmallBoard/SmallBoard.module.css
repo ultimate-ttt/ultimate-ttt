@@ -5,8 +5,8 @@
   justify-content: center;
 }
 
-.smallBoard div::before,
-.smallBoardFinished div::before {
+.smallBoard button::before,
+.smallBoardFinished button::before {
   content: '';
   padding-bottom: 100%;
   display: inline-block;
