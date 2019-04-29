@@ -19,10 +19,9 @@ export function MoveList(props: MoveListProps) {
   const playerAsString = (player: Player) => {
     if (player === Player.Cross) {
       return 'x';
-    } else if (player === Player.Circle) {
+    } else {
       return 'o';
     }
-    return undefined;
   };
 
   const getMoves = () => {
@@ -30,15 +29,20 @@ export function MoveList(props: MoveListProps) {
     const moveList: ReactNode[] = [];
 
     reversedMoves.forEach((m: MoveState) => {
+      const playerString = playerAsString(m.player);
       moveList.push(
         <Element
           key={m.moveNumber}
           name={moveScrollElementBaseName + m.moveNumber}
         >
           <SimpleListItem
+            tag="button"
             activated={currentMove === m.moveNumber}
-            /* TODO add an aria-label */
-            graphic={{ icon: playerAsString(m.player), size: 'medium' }}
+            graphic={{
+              icon: playerString,
+              size: 'medium',
+              'aria-label': `Player ${playerString.toUpperCase()} Icon`,
+            }}
             text={'Move ' + m.moveNumber}
             secondaryText={`Board ${m.boardPosition.x}/${
               m.boardPosition.y

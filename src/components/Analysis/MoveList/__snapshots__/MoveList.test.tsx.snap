@@ -16,11 +16,13 @@ exports[`MoveList should match snapshot 1`] = `
       className="smallerMargin biggerIcon"
       graphic={
         Object {
+          "aria-label": "Player O Icon",
           "icon": "o",
           "size": "medium",
         }
       }
       secondaryText="Board 0/0 - Tile 0/2"
+      tag="button"
       text="Move 4"
     />
   </Element>
@@ -33,11 +35,13 @@ exports[`MoveList should match snapshot 1`] = `
       className="smallerMargin biggerIcon"
       graphic={
         Object {
+          "aria-label": "Player X Icon",
           "icon": "x",
           "size": "medium",
         }
       }
       secondaryText="Board 0/1 - Tile 0/0"
+      tag="button"
       text="Move 3"
     />
   </Element>
@@ -50,11 +54,13 @@ exports[`MoveList should match snapshot 1`] = `
       className="smallerMargin biggerIcon"
       graphic={
         Object {
+          "aria-label": "Player O Icon",
           "icon": "o",
           "size": "medium",
         }
       }
       secondaryText="Board 0/0 - Tile 0/1"
+      tag="button"
       text="Move 2"
     />
   </Element>
@@ -67,11 +73,13 @@ exports[`MoveList should match snapshot 1`] = `
       className="smallerMargin biggerIcon"
       graphic={
         Object {
+          "aria-label": "Player X Icon",
           "icon": "x",
           "size": "medium",
         }
       }
       secondaryText="Board 0/0 - Tile 0/0"
+      tag="button"
       text="Move 1"
     />
   </Element>
