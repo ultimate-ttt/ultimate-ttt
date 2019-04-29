@@ -6,7 +6,12 @@ exports[`HistoryButtons should match snapshot 1`] = `
     className="buttonMargin"
     dense={true}
     disabled={true}
-    icon="arrow-left"
+    icon={
+      Object {
+        "aria-hidden": true,
+        "icon": "arrow-left",
+      }
+    }
     onClick={[Function]}
     raised={true}
   >
@@ -18,7 +23,12 @@ exports[`HistoryButtons should match snapshot 1`] = `
     disabled={false}
     onClick={[Function]}
     raised={true}
-    trailingIcon="arrow-right"
+    trailingIcon={
+      Object {
+        "aria-hidden": true,
+        "icon": "arrow-right",
+      }
+    }
   >
     Next
   </withRipple(Button)>
