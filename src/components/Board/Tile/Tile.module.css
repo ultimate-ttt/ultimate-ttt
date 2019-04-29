@@ -4,11 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Reset Button style. */
-  margin: 0;
-  padding: 0;
-  border: 0;
 }
 
 .tile:focus {
