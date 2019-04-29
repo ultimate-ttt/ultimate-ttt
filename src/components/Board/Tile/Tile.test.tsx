@@ -6,6 +6,7 @@ import { XSymbol } from '../../Symbols/XSymbol';
 import { OSymbol } from '../../Symbols/OSymbol';
 import { DrawSymbol } from '../../Symbols/DrawSymbol';
 
+// TODO: fix the tests and the story
 describe('Tile', () => {
   it('should not explode', () => {
     const component = shallow(

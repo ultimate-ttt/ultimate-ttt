@@ -20,7 +20,7 @@ exports[`MoveList should match snapshot 1`] = `
           "size": "medium",
         }
       }
-      secondaryText="Board 0/0 - Field 0/2"
+      secondaryText="Board 0/0 - Tile 0/2"
       text="Move 4"
     />
   </Element>
@@ -37,7 +37,7 @@ exports[`MoveList should match snapshot 1`] = `
           "size": "medium",
         }
       }
-      secondaryText="Board 0/1 - Field 0/0"
+      secondaryText="Board 0/1 - Tile 0/0"
       text="Move 3"
     />
   </Element>
@@ -54,7 +54,7 @@ exports[`MoveList should match snapshot 1`] = `
           "size": "medium",
         }
       }
-      secondaryText="Board 0/0 - Field 0/1"
+      secondaryText="Board 0/0 - Tile 0/1"
       text="Move 2"
     />
   </Element>
@@ -71,7 +71,7 @@ exports[`MoveList should match snapshot 1`] = `
           "size": "medium",
         }
       }
-      secondaryText="Board 0/0 - Field 0/0"
+      secondaryText="Board 0/0 - Tile 0/0"
       text="Move 1"
     />
   </Element>

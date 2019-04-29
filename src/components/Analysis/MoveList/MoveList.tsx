@@ -37,11 +37,12 @@ export function MoveList(props: MoveListProps) {
         >
           <SimpleListItem
             activated={currentMove === m.moveNumber}
+            /* TODO add an aria-label */
             graphic={{ icon: playerAsString(m.player), size: 'medium' }}
             text={'Move ' + m.moveNumber}
             secondaryText={`Board ${m.boardPosition.x}/${
               m.boardPosition.y
-            } - Field ${m.tilePosition.x}/${m.tilePosition.y}`}
+            } - Tile ${m.tilePosition.x}/${m.tilePosition.y}`}
             className={classNames([styles.smallerMargin, styles.biggerIcon])}
           />
         </Element>,

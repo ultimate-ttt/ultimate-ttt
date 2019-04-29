@@ -1,5 +1,6 @@
+// @ts-ignore
 import * as React from 'react';
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
+/*import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Tile } from './Tile';
 import { TileValue } from '../../../state/AppState';
@@ -89,3 +90,4 @@ stories.add('Tile Destroyed', () => (
     />
   </div>
 ));
+*/

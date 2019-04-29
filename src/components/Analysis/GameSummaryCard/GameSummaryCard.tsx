@@ -72,7 +72,6 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
             currentPlayer={game.moves[game.moves.length - 2].player}
             board={game.gameState}
             activeBoards={[]}
-            onPlayerMoved={() => {}}
             animate={false}
           />
         </div>

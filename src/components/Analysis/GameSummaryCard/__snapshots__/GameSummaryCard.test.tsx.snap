@@ -1036,7 +1036,6 @@ exports[`GameSummaryCard should match snapshot 1`] = `
           ]
         }
         currentPlayer={0}
-        onPlayerMoved={[Function]}
       />
     </div>
   </withRipple(CardPrimaryAction)>

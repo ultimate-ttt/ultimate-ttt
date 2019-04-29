@@ -12,7 +12,7 @@ interface BigBoardProps {
   currentPlayer: Player;
   board: SmallBoardInformation[];
   activeBoards: Point[];
-  onPlayerMoved: (
+  onPlayerMoved?: (
     boardX: number,
     boardY: number,
     tileX: number,
@@ -81,13 +81,15 @@ export function BigBoard(props: BigBoardProps) {
               tiles={smallBoard.tiles}
               winningPlayer={smallBoard.value}
               animate={animate}
-              onTileClicked={(tileX: number, tileY: number) => {
-                onPlayerMoved(x, y, tileX, tileY);
-              }}
               markTileSpecially={getMarkSpecially(markTileSpecially, {
                 x,
                 y,
               })}
+              {...onPlayerMoved && {
+                onTileClicked: (tileX: number, tileY: number) => {
+                  onPlayerMoved(x, y, tileX, tileY);
+                },
+              }}
             />,
           );
         }
