@@ -86,8 +86,8 @@ export function Tile(props: TileProps) {
         Tile with Content {valueToString(value)} at Position{' '}
         {position.tilePosition.x}/{position.tilePosition.y} on Board{' '}
         {position.boardPosition.x}/{position.boardPosition.y}
-        {markSpecially && '. Was result of last move.'}
-        {!onTileClicked && clickable && '. Move allowed.'}
+        {markSpecially && ', was influenced by currently selected move'}
+        {!onTileClicked && clickable && ', move allowed'}
       </span>
     </button>
   );
