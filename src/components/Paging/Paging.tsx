@@ -29,9 +29,9 @@ export function Paging(props: PagingProps) {
               onPageChange(i);
             }
           }}
+          outlined={i === currentPage}
           dense={true}
           ripple={false}
-          outlined={i === currentPage}
           className={styles.pagingButton}
         />,
       );
@@ -39,5 +39,35 @@ export function Paging(props: PagingProps) {
     return pageButtons;
   };
 
-  return <div>{getPages()}</div>;
+  return (
+    <div>
+      <Button
+        label={'Previous'}
+        onClick={() => {
+          const newPage = currentPage - 1;
+          setCurrentPage(newPage);
+          onPageChange(newPage);
+        }}
+        disabled={currentPage === 1}
+        icon={{ icon: 'arrow-left', 'aria-hidden': true }}
+        ripple={false}
+        dense={true}
+        className={styles.previousButton}
+      />
+      {getPages()}
+      <Button
+        label={'Next'}
+        onClick={() => {
+          const newPage = currentPage + 1;
+          setCurrentPage(newPage);
+          onPageChange(newPage);
+        }}
+        disabled={currentPage === pages}
+        trailingIcon={{ icon: 'arrow-right', 'aria-hidden': true }}
+        ripple={false}
+        dense={true}
+        className={styles.nextButton}
+      />
+    </div>
+  );
 }
