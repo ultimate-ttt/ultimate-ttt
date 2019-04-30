@@ -41,6 +41,7 @@ button {
   text-transform: inherit;
   text-indent: inherit;
   text-shadow: inherit;
+  color: inherit;
 }
 
 .centerAll {
