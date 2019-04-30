@@ -47,7 +47,11 @@ export function MoveList(props: MoveListProps) {
             secondaryText={`Board ${m.boardPosition.x}/${
               m.boardPosition.y
             } - Tile ${m.tilePosition.x}/${m.tilePosition.y}`}
-            className={classNames([styles.smallerMargin, styles.biggerIcon])}
+            className={classNames([
+              styles.smallerMargin,
+              styles.biggerIcon,
+              styles.fullWidth,
+            ])}
           />
         </Element>,
       );
