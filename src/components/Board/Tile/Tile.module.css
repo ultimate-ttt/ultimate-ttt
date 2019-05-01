@@ -7,7 +7,6 @@
 
   /* Fix for Re-Layouting Bug in Safari: #186 */
   position: relative;
-  height: 100%;
   width: 100%;
 }
 
