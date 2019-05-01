@@ -5,6 +5,7 @@ import { OSymbol } from '../../Symbols/OSymbol';
 import { DrawSymbol } from '../../Symbols/DrawSymbol';
 import styles from './Tile.module.css';
 import classNames from 'classnames';
+import { Point } from '../../../util';
 
 interface TileProps {
   onTileClicked?: () => void;
@@ -13,6 +14,7 @@ interface TileProps {
   clickable: boolean;
   markSpecially?: boolean;
   animate?: boolean;
+  position: { tilePosition: Point; boardPosition: Point };
 }
 
 export function Tile(props: TileProps) {
@@ -23,6 +25,7 @@ export function Tile(props: TileProps) {
     value,
     animate,
     markSpecially,
+    position,
   } = props;
 
   const getValue = () => {
@@ -45,6 +48,19 @@ export function Tile(props: TileProps) {
     }
   };
 
+  const valueToString = (value: TileValue) => {
+    switch (value) {
+      case TileValue.Circle:
+        return 'O';
+      case TileValue.Cross:
+        return 'X';
+      case TileValue.Destroyed:
+        return 'Draw';
+      default:
+        return 'Empty';
+    }
+  };
+
   const classes = classNames(styles.tile, {
     [styles.special]: markSpecially,
     [styles.indicator]: clickable && !markSpecially,
@@ -56,15 +72,23 @@ export function Tile(props: TileProps) {
   });
 
   return (
-    <div
+    <button
       className={classes}
       onClick={() => {
         if (clickable && onTileClicked) {
           onTileClicked();
         }
       }}
+      aria-disabled={!clickable || !onTileClicked}
     >
       {getValue()}
-    </div>
+      <span className="sr-only">
+        Tile with Content {valueToString(value)} at Position{' '}
+        {position.tilePosition.x}/{position.tilePosition.y} on Board{' '}
+        {position.boardPosition.x}/{position.boardPosition.y}
+        {markSpecially && ', was influenced by currently selected move'}
+        {!onTileClicked && clickable && ', move allowed'}
+      </span>
+    </button>
   );
 }

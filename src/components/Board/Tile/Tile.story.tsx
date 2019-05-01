@@ -9,6 +9,11 @@ import styles from '../SmallBoard/SmallBoard.module.css';
 const stories = storiesOf('Tile', module);
 stories.addDecorator(withKnobs);
 
+const position = {
+  tilePosition: { x: 0, y: 0 },
+  boardPosition: { x: 0, y: 0 },
+};
+
 const tileValues = {
   Empty: TileValue.Empty,
   Cross: TileValue.Cross,
@@ -25,6 +30,7 @@ stories.add('Tile Customisable', () => (
       clickable={boolean('clickable', false)}
       animate={boolean('animate', true)}
       markSpecially={boolean('markSpecially', false)}
+      position={position}
     />
   </div>
 ));
@@ -37,6 +43,7 @@ stories.add('Tile Clickable', () => (
       onTileClicked={action('onTileClicked')}
       clickable={true}
       animate={boolean('animate', true)}
+      position={position}
     />
   </div>
 ));
@@ -50,6 +57,7 @@ stories.add('Tile Marked Specially', () => (
       clickable={boolean('clickable', false)}
       markSpecially={true}
       animate={boolean('animate', true)}
+      position={position}
     />
   </div>
 ));
@@ -62,6 +70,7 @@ stories.add('Tile Circle', () => (
       onTileClicked={action('onTileClicked')}
       clickable={boolean('clickable', false)}
       animate={boolean('animate', true)}
+      position={position}
     />
   </div>
 ));
@@ -74,6 +83,7 @@ stories.add('Tile Cross', () => (
       onTileClicked={action('onTileClicked')}
       clickable={boolean('clickable', false)}
       animate={boolean('animate', true)}
+      position={position}
     />
   </div>
 ));
@@ -86,6 +96,7 @@ stories.add('Tile Destroyed', () => (
       onTileClicked={action('onTileClicked')}
       clickable={boolean('clickable', false)}
       animate={boolean('animate', true)}
+      position={position}
     />
   </div>
 ));

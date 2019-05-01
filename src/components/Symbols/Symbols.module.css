@@ -16,6 +16,13 @@
   width: 85%;
 }
 
+.o,
+.x,
+.draw {
+  /* SVG is not focusable via keyboard so we can safely remove the focus styles! */
+  outline: none;
+}
+
 .animateX,
 .animateO,
 .animateDraw {

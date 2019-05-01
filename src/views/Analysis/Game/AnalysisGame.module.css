@@ -41,10 +41,6 @@
   .applyHeight {
     height: 100%;
   }
-
-  .analysisGame {
-    width: inherit;
-  }
 }
 
 @media screen and (min-width: 1000px) {
