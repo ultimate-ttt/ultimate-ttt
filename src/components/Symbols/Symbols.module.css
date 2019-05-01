@@ -21,6 +21,7 @@
 .draw {
   /* SVG is not focusable via keyboard so we can safely remove the focus styles! */
   outline: none;
+  position: absolute;
 }
 
 .animateX,
@@ -28,4 +29,19 @@
 .animateDraw {
   animation-duration: 0.7s;
   animation-name: add-icon;
+}
+
+@keyframes add-icon {
+  0% {
+    width: 155%;
+  }
+  33% {
+    width: 42%;
+  }
+  66% {
+    width: 111%;
+  }
+  100% {
+    width: 85%;
+  }
 }
