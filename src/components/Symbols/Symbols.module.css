@@ -2,24 +2,18 @@
   vertical-align: middle;
   fill: white;
   width: 85%;
-
-  position: absolute;
 }
 
 .x {
   vertical-align: middle;
   fill: white;
   width: 85%;
-
-  position: absolute;
 }
 
 .draw {
   vertical-align: middle;
   fill: white;
   width: 85%;
-
-  position: absolute;
 }
 
 .o,
@@ -28,6 +22,7 @@
   /* SVG is not focusable via keyboard so we can safely remove the focus styles! */
   outline: none;
   /* Fix for Layouting Bug in Safari: #186 */
+  position: absolute;
 }
 
 .animateX,
