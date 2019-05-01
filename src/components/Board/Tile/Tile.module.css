@@ -4,6 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Fix for Re-Layouting Bug in Safari: #186 */
+  position: relative;
+  width: 100%;
 }
 
 .tile:focus {

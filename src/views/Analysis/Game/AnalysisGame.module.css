@@ -7,6 +7,9 @@
   grid-column-gap: 1.5em;
   grid-template-areas: 'moveList' 'historyButtons' 'game';
   grid-template-rows: minmax(50vmin, 70vmin) minmax(min-content, 7vmin) 0.3fr;
+
+  /* Fix for Layouting Bug in Safari: #186 */
+  overflow: hidden;
 }
 
 .moveList {
