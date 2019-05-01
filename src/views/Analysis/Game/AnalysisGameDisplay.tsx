@@ -54,7 +54,6 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
         </div>
         <div className={styles.analysisGame}>
           <BigBoard
-            onPlayerMoved={() => {}}
             board={analysisGame.board}
             activeBoards={analysisGame.activeBoards}
             currentPlayer={analysisGame.game.currentPlayer}
