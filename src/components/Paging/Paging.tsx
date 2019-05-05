@@ -43,7 +43,7 @@ export function Paging(props: PagingProps) {
   return (
     <div className={className}>
       <Button
-        label={'Previous'}
+        label="Previous"
         onClick={() => {
           const newPage = currentPage - 1;
           setCurrentPage(newPage);
@@ -57,7 +57,7 @@ export function Paging(props: PagingProps) {
       />
       {getPages()}
       <Button
-        label={'Next'}
+        label="Next"
         onClick={() => {
           const newPage = currentPage + 1;
           setCurrentPage(newPage);
