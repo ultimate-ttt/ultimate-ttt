@@ -6,13 +6,14 @@ import { useState } from 'react';
 interface PagingProps {
   pages: number;
   pageToStartWith: number;
-  onPageChange: (/* lastPage: number, */ newPage: number) => void;
-  pagesToDisplayFrom?: number;
+  onPageChange: (newPage: number) => void;
+  pagesToDisplayFrom?: number; // TODO?
   pagesToDisplayTo?: number;
+  className?: string;
 }
 
 export function Paging(props: PagingProps) {
-  const { pages, onPageChange } = props;
+  const { pages, onPageChange, className } = props;
 
   const [currentPage, setCurrentPage] = useState(props.pageToStartWith);
 
@@ -40,7 +41,7 @@ export function Paging(props: PagingProps) {
   };
 
   return (
-    <div>
+    <div className={className}>
       <Button
         label={'Previous'}
         onClick={() => {
