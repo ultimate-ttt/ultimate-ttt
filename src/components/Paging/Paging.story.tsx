@@ -17,13 +17,3 @@ stories.add('Paging Standard', () => (
     />
   </IconProvider>
 ));
-
-stories.add('Paging without all Pages', () => (
-  <Paging
-    pages={number('pages', 10)}
-    pageToStartWith={number('pageToStartWith', 5)}
-    onPageChange={action('onPageChange')}
-    pagesToDisplayFrom={number('pagesToDisplayFrom', 1)}
-    pagesToDisplayTo={number('pagesToDisplayTo', 8)}
-  />
-));

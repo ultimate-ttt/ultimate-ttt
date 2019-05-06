@@ -7,8 +7,6 @@ interface PagingProps {
   pages: number;
   pageToStartWith: number;
   onPageChange: (newPage: number) => void;
-  pagesToDisplayFrom?: number; // TODO?
-  pagesToDisplayTo?: number;
   className?: string;
 }
 
