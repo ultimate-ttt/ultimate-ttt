@@ -59,7 +59,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
           disabled={currentMove === 1}
           dense={true}
           raised={true}
-          icon="arrow-left"
+          icon={{ icon: 'arrow-left', 'aria-hidden': true }}
           onClick={() => {
             moveBackwardInHistory(1);
             onInteraction(currentMove - 1);
@@ -72,7 +72,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
           disabled={currentMove === lastMove}
           dense={true}
           raised={true}
-          trailingIcon="arrow-right"
+          trailingIcon={{ icon: 'arrow-right', 'aria-hidden': true }}
           onClick={() => {
             moveForwardInHistory(1);
             onInteraction(currentMove + 1);

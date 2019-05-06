@@ -6,10 +6,20 @@ import { XSymbol } from '../../Symbols/XSymbol';
 import { OSymbol } from '../../Symbols/OSymbol';
 import { DrawSymbol } from '../../Symbols/DrawSymbol';
 
+const position = {
+  tilePosition: { x: 0, y: 0 },
+  boardPosition: { x: 0, y: 0 },
+};
+
 describe('Tile', () => {
   it('should not explode', () => {
     const component = shallow(
-      <Tile clickable={true} isTileRound={true} value={TileValue.Empty} />,
+      <Tile
+        clickable={true}
+        isTileRound={true}
+        value={TileValue.Empty}
+        position={position}
+      />,
     );
     expect(component).not.toBeNull();
   });
@@ -17,14 +27,24 @@ describe('Tile', () => {
   describe('display of symbol', () => {
     it('should display an XSymbol if the value is X', () => {
       const component = shallow(
-        <Tile clickable={false} isTileRound={true} value={TileValue.Cross} />,
+        <Tile
+          clickable={false}
+          isTileRound={true}
+          value={TileValue.Cross}
+          position={position}
+        />,
       );
       expect(component.find(XSymbol)).toHaveLength(1);
     });
 
     it('should display an OSymbol if the value is O', () => {
       const component = shallow(
-        <Tile clickable={false} isTileRound={true} value={TileValue.Circle} />,
+        <Tile
+          position={position}
+          clickable={false}
+          isTileRound={true}
+          value={TileValue.Circle}
+        />,
       );
       expect(component.find(OSymbol)).toHaveLength(1);
     });
@@ -35,6 +55,7 @@ describe('Tile', () => {
           clickable={false}
           isTileRound={true}
           value={TileValue.Destroyed}
+          position={position}
         />,
       );
       expect(component.find(DrawSymbol)).toHaveLength(1);
@@ -42,9 +63,16 @@ describe('Tile', () => {
 
     it('should display nothing if the value is empty', () => {
       const component = shallow(
-        <Tile clickable={false} isTileRound={true} value={TileValue.Empty} />,
+        <Tile
+          clickable={false}
+          isTileRound={true}
+          value={TileValue.Empty}
+          position={position}
+        />,
       );
-      expect(component.children()).toHaveLength(0);
+      expect(component.find(OSymbol)).toHaveLength(0);
+      expect(component.find(XSymbol)).toHaveLength(0);
+      expect(component.find(DrawSymbol)).toHaveLength(0);
     });
   });
 
@@ -57,6 +85,7 @@ describe('Tile', () => {
           isTileRound={true}
           value={TileValue.Empty}
           onTileClicked={tileClicked}
+          position={position}
         />,
       );
 
@@ -72,6 +101,7 @@ describe('Tile', () => {
           isTileRound={true}
           value={TileValue.Empty}
           onTileClicked={tileClicked}
+          position={position}
         />,
       );
 
@@ -83,7 +113,12 @@ describe('Tile', () => {
   describe('how rounded it should be shown', () => {
     it('should have the square class if it is not a circle', () => {
       const component = shallow(
-        <Tile clickable={true} isTileRound={false} value={TileValue.Empty} />,
+        <Tile
+          clickable={true}
+          isTileRound={false}
+          value={TileValue.Empty}
+          position={position}
+        />,
       );
       expect(component.hasClass('square')).toBe(true);
       expect(component.hasClass('circle')).toBe(false);
@@ -92,7 +127,12 @@ describe('Tile', () => {
 
     it('should have the circle class if it is a circle', () => {
       const component = shallow(
-        <Tile clickable={true} isTileRound={true} value={TileValue.Empty} />,
+        <Tile
+          clickable={true}
+          isTileRound={true}
+          value={TileValue.Empty}
+          position={position}
+        />,
       );
       expect(component.hasClass('circle')).toBe(true);
       expect(component.hasClass('square')).toBe(false);
@@ -105,6 +145,7 @@ describe('Tile', () => {
           clickable={true}
           isTileRound={true}
           value={TileValue.Destroyed}
+          position={position}
         />,
       );
       expect(component.hasClass('noWinner')).toBe(true);
@@ -116,6 +157,7 @@ describe('Tile', () => {
           clickable={true}
           isTileRound={false}
           value={TileValue.Destroyed}
+          position={position}
         />,
       );
       expect(component.hasClass('noWinner')).toBe(true);
@@ -127,7 +169,12 @@ describe('Tile', () => {
   describe('indicator or no indicator', () => {
     it('should have the indicator class if it is clickable', () => {
       const component = shallow(
-        <Tile clickable={true} isTileRound={true} value={TileValue.Empty} />,
+        <Tile
+          clickable={true}
+          isTileRound={true}
+          value={TileValue.Empty}
+          position={position}
+        />,
       );
       expect(component.hasClass('indicator')).toBe(true);
       expect(component.hasClass('normal')).toBe(false);
@@ -135,7 +182,12 @@ describe('Tile', () => {
 
     it('should have the normal class if it is not clickable', () => {
       const component = shallow(
-        <Tile clickable={false} isTileRound={true} value={TileValue.Empty} />,
+        <Tile
+          clickable={false}
+          isTileRound={true}
+          value={TileValue.Empty}
+          position={position}
+        />,
       );
       expect(component.hasClass('normal')).toBe(true);
       expect(component.hasClass('indicator')).toBe(false);
@@ -148,6 +200,7 @@ describe('Tile', () => {
           clickable={true}
           isTileRound={true}
           value={TileValue.Empty}
+          position={position}
         />,
       );
       expect(component.hasClass('special')).toBe(true);
@@ -168,6 +221,7 @@ describe('Tile', () => {
               isTileRound={true}
               clickable={true}
               animate={param}
+              position={position}
             />,
           );
 
@@ -181,6 +235,7 @@ describe('Tile', () => {
               isTileRound={true}
               clickable={true}
               animate={param}
+              position={position}
             />,
           );
 
@@ -197,6 +252,7 @@ describe('Tile', () => {
             isTileRound={true}
             clickable={true}
             animate={false}
+            position={position}
           />,
         );
 
@@ -210,6 +266,7 @@ describe('Tile', () => {
             isTileRound={true}
             clickable={true}
             animate={false}
+            position={position}
           />,
         );
 

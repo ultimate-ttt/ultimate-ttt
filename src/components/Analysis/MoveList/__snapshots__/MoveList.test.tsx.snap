@@ -13,14 +13,16 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={true}
-      className="smallerMargin biggerIcon"
+      className="smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
+          "aria-label": "Player O Icon",
           "icon": "o",
           "size": "medium",
         }
       }
-      secondaryText="Board 0/0 - Field 0/2"
+      secondaryText="Board 0/0 - Tile 0/2"
+      tag="button"
       text="Move 4"
     />
   </Element>
@@ -30,14 +32,16 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={false}
-      className="smallerMargin biggerIcon"
+      className="smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
+          "aria-label": "Player X Icon",
           "icon": "x",
           "size": "medium",
         }
       }
-      secondaryText="Board 0/1 - Field 0/0"
+      secondaryText="Board 0/1 - Tile 0/0"
+      tag="button"
       text="Move 3"
     />
   </Element>
@@ -47,14 +51,16 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={false}
-      className="smallerMargin biggerIcon"
+      className="smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
+          "aria-label": "Player O Icon",
           "icon": "o",
           "size": "medium",
         }
       }
-      secondaryText="Board 0/0 - Field 0/1"
+      secondaryText="Board 0/0 - Tile 0/1"
+      tag="button"
       text="Move 2"
     />
   </Element>
@@ -64,14 +70,16 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <SimpleListItem
       activated={false}
-      className="smallerMargin biggerIcon"
+      className="smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
+          "aria-label": "Player X Icon",
           "icon": "x",
           "size": "medium",
         }
       }
-      secondaryText="Board 0/0 - Field 0/0"
+      secondaryText="Board 0/0 - Tile 0/0"
+      tag="button"
       text="Move 1"
     />
   </Element>

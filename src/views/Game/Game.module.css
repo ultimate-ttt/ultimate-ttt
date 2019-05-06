@@ -6,6 +6,9 @@
   font-size: 9px;
 
   grid-template-columns: 80vmin;
+
+  /* Fix for Layouting Bug in Safari: #186 */
+  overflow: hidden;
 }
 
 .applyHeight {

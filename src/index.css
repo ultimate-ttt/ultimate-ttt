@@ -14,21 +14,34 @@
 
 html,
 body,
+#root {
+  height: 100%;
+}
+
+html,
+body,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p {
+p,
+button {
   padding: 0;
   margin: 0;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+/* Reset Button Default styles */
+button {
+  border: inherit;
+  font: inherit;
+  text-align: inherit;
+  background-color: inherit;
+  text-transform: inherit;
+  text-indent: inherit;
+  text-shadow: inherit;
+  color: inherit;
 }
 
 .centerAll {
@@ -44,4 +57,14 @@ body,
 
 .text-center {
   text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
 }

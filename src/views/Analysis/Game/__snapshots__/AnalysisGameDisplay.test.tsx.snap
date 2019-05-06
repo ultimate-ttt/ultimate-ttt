@@ -1389,7 +1389,6 @@ exports[`AnalysisGame should match snapshot 1`] = `
             },
           }
         }
-        onPlayerMoved={[Function]}
       />
     </div>
   </div>

@@ -16,7 +16,7 @@ interface SmallBoardProps {
   currentPlayer: Player;
   winningPlayer: TileValue;
   tiles: SmallTileInformation[];
-  onTileClicked: (x: number, y: number) => void;
+  onTileClicked?: (x: number, y: number) => void;
   markTileSpecially?: MarkSpecially;
   animate?: boolean;
 }
@@ -58,14 +58,17 @@ export function SmallBoard(props: SmallBoardProps) {
       rows.push(
         <Tile
           key={`${tile.position.x}-${tile.position.y}`}
+          position={{ tilePosition: tile.position, boardPosition: { x, y } }}
           value={tile.value}
           isTileRound={isCircle}
           clickable={moveAllowed && tile.value === TileValue.Empty}
           animate={animate}
-          onTileClicked={() => {
-            onTileClicked(tile.position.x, tile.position.y);
-          }}
           markSpecially={getMarkSpecially(markTileSpecially, tile.position)}
+          {...onTileClicked && {
+            onTileClicked: () => {
+              onTileClicked(tile.position.x, tile.position.y);
+            },
+          }}
         />,
       );
     });
@@ -85,6 +88,7 @@ export function SmallBoard(props: SmallBoardProps) {
     >
       {boardIsFinished ? (
         <Tile
+          position={{ tilePosition: { x: 0, y: 0 }, boardPosition: { x, y } }}
           value={winningPlayer}
           isTileRound={winningPlayer === TileValue.Circle}
           clickable={false}
