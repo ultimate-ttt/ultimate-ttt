@@ -54,7 +54,6 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
         ))}
       </div>
       {amountOfPages > 1 && (
-        /* TODO: find out why Paging shifts up and down a bit on page change. */
         <Paging
           className={styles.paging}
           pageToStartWith={1}
