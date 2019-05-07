@@ -1,6 +1,5 @@
 .analysisOverviewLayout {
   display: grid;
-  height: 100%;
 
   /* For a smaller gap between the small boards -> em will be smaller then*/
   font-size: 7px;
@@ -34,6 +33,7 @@
 
 .paging {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 4em;
 }
