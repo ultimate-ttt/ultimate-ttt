@@ -72,7 +72,7 @@
     "@types/storybook__addon-viewport": "^4.1.0",
     "@types/storybook__react": "^4.0.1",
     "babel-loader": "^8.0.5",
-    "babel-preset-react-app": "7.0.0",
+    "babel-preset-react-app": "9.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
