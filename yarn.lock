@@ -2139,7 +2139,6 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-<<<<<<< HEAD
 "@redux-saga/core@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.0.2.tgz#4336a5bb4253e5ca69681c25a863fbbc03ea6d88"
@@ -2184,16 +2183,10 @@
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.0.2.tgz#1d94f02800b094753f9271c206a26c2a06ca14ee"
   integrity sha512-8/qcMh15507AnXJ3lBeuhsdFwnWQqnp68EpUuHlYPixJ5vjVmls7/Jq48cnUlrZI8Jd9U1jkhfCl0gaT5KMgVw==
 
-"@rmwc/avatar@^5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@rmwc/avatar/-/avatar-5.3.1.tgz#f1769b262c6061095e8e8b65abae6b0fa2ef61fd"
-  integrity sha512-re7iRq0PkBIWPceeea+S5etPWcwITT2ZntY0OW8aLpbHZE05eJOZ7keeaOEhJJgvghf8sZAoUftgMO9L6E8tkw==
-=======
 "@rmwc/avatar@^5.5.1":
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/@rmwc/avatar/-/avatar-5.5.1.tgz#7fcc6f4d01087c93196d5acc0dc1a57fef1b51cb"
   integrity sha512-bCvNRa1gxeFjlDzFgwImJCuaqfYCqYd4jYOD5D49y+rql7MpSQ8B7ivx38284IJQa37UScmkiJyuX0SOcdeFLg==
->>>>>>> master
   dependencies:
     "@rmwc/base" "^5.5.1"
     "@rmwc/icon" "^5.5.1"
