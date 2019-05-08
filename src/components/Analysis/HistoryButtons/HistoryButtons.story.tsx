@@ -3,19 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { number, withKnobs } from '@storybook/addon-knobs';
 import { HistoryButtons } from './HistoryButtons';
 import { action } from '@storybook/addon-actions';
-import { RMWCProvider } from '@rmwc/provider';
+import { IconProvider } from '../../IconProvider';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);
 
 stories.add('HistoryButtons', () => (
-  <RMWCProvider
-    icon={{
-      strategy: 'className',
-      basename: '',
-      prefix: 'icon-',
-    }}
-  >
+  <IconProvider>
     <div className="historyButtons">
       <HistoryButtons
         currentMove={number('currentMove', 1)}
@@ -25,5 +19,5 @@ stories.add('HistoryButtons', () => (
         onInteraction={action('interaction')}
       />
     </div>
-  </RMWCProvider>
+  </IconProvider>
 ));

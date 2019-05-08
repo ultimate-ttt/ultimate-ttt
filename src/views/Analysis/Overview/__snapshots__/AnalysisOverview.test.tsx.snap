@@ -14,7 +14,6 @@ exports[`AnalysisOverview should match snapshot 1`] = `
       Recently played games
     </Typography>
   </div>
-  <ListDivider />
   <div
     className="gameList"
   >

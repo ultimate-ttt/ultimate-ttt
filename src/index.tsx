@@ -6,7 +6,7 @@ import { register } from './serviceWorker';
 import { configureStore } from './state/configureStore';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import { RMWCProvider } from '@rmwc/provider';
+import { IconProvider } from './components/IconProvider';
 import './index.css';
 import './icons/icons.css';
 
@@ -16,15 +16,9 @@ const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <RMWCProvider
-        icon={{
-          strategy: 'className',
-          basename: '',
-          prefix: 'icon-',
-        }}
-      >
+      <IconProvider>
         <App />
-      </RMWCProvider>
+      </IconProvider>
     </PersistGate>
   </Provider>,
   document.getElementById('root') as HTMLElement,
