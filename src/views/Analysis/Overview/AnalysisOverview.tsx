@@ -56,7 +56,9 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
           ))}
         </div>
       ) : (
-        <NoGameFound tag="h2" className={styles.noGameFound} />
+        <NoGameFound tag="h2" size="headline4" className={styles.noGameFound}>
+          No recently played games were found
+        </NoGameFound>
       )}
       {amountOfPages > 1 && (
         <Paging

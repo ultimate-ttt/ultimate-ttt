@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { Typography } from '@rmwc/typography';
+import { Typography, TypographyT } from '@rmwc/typography';
 import styles from './NoGameFound.module.css';
 import classNames from 'classnames';
 
 interface NoGameFoundProps {
+  tag: string;
   center?: boolean;
   className?: string;
-  tag: string;
+  children?: any;
+  size?: TypographyT;
 }
 
 export function NoGameFound(props: NoGameFoundProps) {
@@ -16,8 +18,8 @@ export function NoGameFound(props: NoGameFoundProps) {
         [styles.noGameFoundLayout]: props.center,
       })}
     >
-      <Typography use="headline3" tag={props.tag}>
-        No game was found
+      <Typography use={props.size ? props.size : 'headline3'} tag={props.tag}>
+        {props.children ? props.children : 'No game was found'}
       </Typography>
     </div>
   );
