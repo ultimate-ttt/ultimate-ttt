@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { date, number, select, text, withKnobs } from '@storybook/addon-knobs';
 import * as React from 'react';
-import { RMWCProvider } from '@rmwc/provider';
 import { GameSummaryCard } from './GameSummaryCard';
 import {
   circleFinishedBoardMock,
@@ -13,6 +12,7 @@ import {
 } from '../../../__mocks__';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { WinnerString } from '../../../state/AppState';
+import { IconProvider } from '../../IconProvider';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);
@@ -50,13 +50,7 @@ stories.add('GameSummaryCard', () => {
   const defaultDate = new Date(2019, 1, 1);
 
   return (
-    <RMWCProvider
-      icon={{
-        strategy: 'className',
-        basename: '',
-        prefix: 'icon-',
-      }}
-    >
+    <IconProvider>
       <Router>
         <div style={{ height: '100%' }}>
           <GameSummaryCard
@@ -74,6 +68,6 @@ stories.add('GameSummaryCard', () => {
           />
         </div>
       </Router>
-    </RMWCProvider>
+    </IconProvider>
   );
 });
