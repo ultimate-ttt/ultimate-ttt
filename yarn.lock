@@ -3176,23 +3176,7 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@*":
-<<<<<<< HEAD
-  version "11.13.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.5.tgz#266564afa8a6a09dc778dfacc703ed3f09c80516"
-  integrity sha512-/OMMBnjVtDuwX1tg2pkYVSqRIDSmNTnvVvmvP/2xiMAAWf4a5+JozrApCrO4WCAILmXVxfNoQ3E+0HJbNpFVGg==
-=======
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
-  integrity sha512-Jrb/x3HT4PTJp6a4avhmJCDEVrPdqLfl3e8GGMbpkGGdwAV5UGlIs4vVEfsHHfylZVOKZWpOqmqFH8CbfOZ6kg==
-
-"@types/node@^11.13.4":
-  version "11.13.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.10.tgz#4df59e5966b56f512bac98898bcbee5067411f0f"
-  integrity sha512-leUNzbFTMX94TWaIKz8N15Chu55F9QSH+INKayQr5xpkasBQBRF3qQXfo3/dOnMU/dEIit+Y/SU8HyOjq++GwA==
->>>>>>> master
-
-"@types/node@^12.0.0":
+"@types/node@*", "@types/node@^12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
   integrity sha512-Jrb/x3HT4PTJp6a4avhmJCDEVrPdqLfl3e8GGMbpkGGdwAV5UGlIs4vVEfsHHfylZVOKZWpOqmqFH8CbfOZ6kg==
