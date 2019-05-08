@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`XSymbol should match snapshot 1`] = `
-<ForwardRef
+<ForwardRef(SvgX)
   className="x animateX"
 />
 `;
 
 exports[`XSymbol should match snapshot 2`] = `
-<ForwardRef
+<ForwardRef(SvgX)
   className="x"
 />
 `;
