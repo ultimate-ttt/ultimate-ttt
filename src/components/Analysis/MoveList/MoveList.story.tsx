@@ -2,21 +2,15 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, object, withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { RMWCProvider } from '@rmwc/provider';
 import { MoveList } from './MoveList';
 import { movesForBoardWithThreeMovesMock } from '../../../__mocks__';
+import { IconProvider } from '../../IconProvider';
 
 const stories = storiesOf('Analysis', module);
 stories.addDecorator(withKnobs);
 
 stories.add('MoveList', () => (
-  <RMWCProvider
-    icon={{
-      strategy: 'className',
-      basename: '',
-      prefix: 'icon-',
-    }}
-  >
+  <IconProvider>
     <div className="moveList">
       <MoveList
         currentMove={number('currentMove', 2)}
@@ -28,5 +22,5 @@ stories.add('MoveList', () => (
         moveBackwardInHistory={action('moveBackwardInHistory')}
       />
     </div>
-  </RMWCProvider>
+  </IconProvider>
 ));

@@ -1,0 +1,12 @@
+.pagingButton {
+  min-width: 30px;
+  padding: 0.3em;
+}
+
+.previousButton {
+  margin-right: 0.8em;
+}
+
+.nextButton {
+  margin-left: 0.8em;
+}
