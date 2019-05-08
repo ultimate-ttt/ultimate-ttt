@@ -5,7 +5,8 @@ Object {
   "fork": Array [
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           "save-game-data/save-game-data",
           "@@redux-saga-test-plan/json/function/saveFinishedGameData",
@@ -13,10 +14,12 @@ Object {
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
       },
+      "type": "FORK",
     },
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           "save-game-data/generate-finished-games",
           "@@redux-saga-test-plan/json/function/generateFinishedGames",
@@ -24,10 +27,12 @@ Object {
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
       },
+      "type": "FORK",
     },
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           Object {
             "payload": Object {
@@ -1026,28 +1031,35 @@ Object {
           },
         ],
         "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/<anonymous>",
+        "fn": "@@redux-saga-test-plan/json/function/saveFinishedGameData",
       },
+      "type": "FORK",
     },
   ],
   "take": Array [
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "save-game-data/save-game-data",
       },
+      "type": "TAKE",
     },
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "save-game-data/generate-finished-games",
       },
+      "type": "TAKE",
     },
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "save-game-data/save-game-data",
       },
+      "type": "TAKE",
     },
   ],
 }
@@ -1058,7 +1070,8 @@ Object {
   "fork": Array [
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           "save-game-data/save-game-data",
           "@@redux-saga-test-plan/json/function/saveFinishedGameData",
@@ -1066,10 +1079,12 @@ Object {
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
       },
+      "type": "FORK",
     },
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           "save-game-data/generate-finished-games",
           "@@redux-saga-test-plan/json/function/generateFinishedGames",
@@ -1077,10 +1092,12 @@ Object {
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
       },
+      "type": "FORK",
     },
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           Object {
             "payload": Object {
@@ -2079,28 +2096,35 @@ Object {
           },
         ],
         "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/<anonymous>",
+        "fn": "@@redux-saga-test-plan/json/function/saveFinishedGameData",
       },
+      "type": "FORK",
     },
   ],
   "take": Array [
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "save-game-data/save-game-data",
       },
+      "type": "TAKE",
     },
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "save-game-data/generate-finished-games",
       },
+      "type": "TAKE",
     },
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "save-game-data/save-game-data",
       },
+      "type": "TAKE",
     },
   ],
 }

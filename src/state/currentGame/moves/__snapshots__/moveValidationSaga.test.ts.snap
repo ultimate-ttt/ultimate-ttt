@@ -5,7 +5,8 @@ Object {
   "fork": Array [
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           "game/player-moved",
           "@@redux-saga-test-plan/json/function/playerMoved",
@@ -13,10 +14,12 @@ Object {
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
       },
+      "type": "FORK",
     },
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           Object {
             "payload": Object {
@@ -33,14 +36,16 @@ Object {
           },
         ],
         "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/<anonymous>",
+        "fn": "@@redux-saga-test-plan/json/function/playerMoved",
       },
+      "type": "FORK",
     },
   ],
   "put": Array [
     Object {
       "@@redux-saga/IO": true,
-      "PUT": Object {
+      "combinator": false,
+      "payload": Object {
         "action": Object {
           "payload": Object {
             "boardPosition": Object {
@@ -55,12 +60,14 @@ Object {
           },
           "type": "move-reducer/move-registered",
         },
-        "channel": null,
+        "channel": undefined,
       },
+      "type": "PUT",
     },
     Object {
       "@@redux-saga/IO": true,
-      "PUT": Object {
+      "combinator": false,
+      "payload": Object {
         "action": Object {
           "payload": Object {
             "boardPosition": Object {
@@ -75,21 +82,25 @@ Object {
           },
           "type": "tile-reducer/set-tile-value",
         },
-        "channel": null,
+        "channel": undefined,
       },
+      "type": "PUT",
     },
     Object {
       "@@redux-saga/IO": true,
-      "PUT": Object {
+      "combinator": false,
+      "payload": Object {
         "action": Object {
           "type": "game/player-changed",
         },
-        "channel": null,
+        "channel": undefined,
       },
+      "type": "PUT",
     },
     Object {
       "@@redux-saga/IO": true,
-      "PUT": Object {
+      "combinator": false,
+      "payload": Object {
         "action": Object {
           "payload": Object {
             "x": 1,
@@ -97,49 +108,60 @@ Object {
           },
           "type": "tile-reducer/calculate-board-value",
         },
-        "channel": null,
+        "channel": undefined,
       },
+      "type": "PUT",
     },
     Object {
       "@@redux-saga/IO": true,
-      "PUT": Object {
+      "combinator": false,
+      "payload": Object {
         "action": Object {
           "type": "activeBoardsReducer/calculate-active-boards",
         },
-        "channel": null,
+        "channel": undefined,
       },
+      "type": "PUT",
     },
     Object {
       "@@redux-saga/IO": true,
-      "PUT": Object {
+      "combinator": false,
+      "payload": Object {
         "action": Object {
           "type": "game/check-game-finished",
         },
-        "channel": null,
+        "channel": undefined,
       },
+      "type": "PUT",
     },
   ],
   "select": Array [
     Object {
       "@@redux-saga/IO": true,
-      "SELECT": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [],
         "selector": "@@redux-saga-test-plan/json/function/getCurrentPlayer",
       },
+      "type": "SELECT",
     },
   ],
   "take": Array [
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "game/player-moved",
       },
+      "type": "TAKE",
     },
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "game/player-moved",
       },
+      "type": "TAKE",
     },
   ],
 }

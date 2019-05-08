@@ -5,7 +5,8 @@ Object {
   "fork": Array [
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           "activeBoardsReducer/calculate-active-boards",
           "@@redux-saga-test-plan/json/function/calculateActiveBoards",
@@ -13,41 +14,50 @@ Object {
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeEvery",
       },
+      "type": "FORK",
     },
     Object {
       "@@redux-saga/IO": true,
-      "FORK": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [
           Object {
             "type": "activeBoardsReducer/calculate-active-boards",
           },
         ],
         "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/<anonymous>",
+        "fn": "@@redux-saga-test-plan/json/function/calculateActiveBoards",
       },
+      "type": "FORK",
     },
   ],
   "select": Array [
     Object {
       "@@redux-saga/IO": true,
-      "SELECT": Object {
+      "combinator": false,
+      "payload": Object {
         "args": Array [],
         "selector": "@@redux-saga-test-plan/json/function/getMoves",
       },
+      "type": "SELECT",
     },
   ],
   "take": Array [
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "activeBoardsReducer/calculate-active-boards",
       },
+      "type": "TAKE",
     },
     Object {
       "@@redux-saga/IO": true,
-      "TAKE": Object {
+      "combinator": false,
+      "payload": Object {
         "pattern": "activeBoardsReducer/calculate-active-boards",
       },
+      "type": "TAKE",
     },
   ],
 }
