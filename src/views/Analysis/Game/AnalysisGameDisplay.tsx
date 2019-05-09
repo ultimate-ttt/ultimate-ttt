@@ -6,7 +6,6 @@ import { MoveList } from '../../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../../components/Analysis/ScrollElementConstants';
 import styles from './AnalysisGame.module.css';
-import classNames from 'classnames';
 
 interface AnalysisGameDisplayProps {
   moveForwardInHistory: (numberOfMoves: number) => void;
@@ -20,7 +19,7 @@ function scrollToElement(moveNumberToScrollTo: number) {
     smooth: true,
     containerId: 'moveList',
     // Thanks to this, when scrolling to an element, some elements above it will also be displayed
-    offset: -250,
+    offset: -125,
   });
 }
 
