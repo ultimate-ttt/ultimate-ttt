@@ -32,41 +32,39 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
     ];
 
   return (
-    <div className={classNames('centerHorizontal', styles.applyHeight)}>
-      <div className={styles.analysisLayout}>
-        <div id="moveList" className={styles.moveList}>
-          <MoveList
-            currentMove={analysisGame.currentMove}
-            reversedMoves={reversedMoves}
-            moveForwardInHistory={props.moveForwardInHistory}
-            moveBackwardInHistory={props.moveBackwardInHistory}
-          />
-        </div>
-        <div className={styles.historyButtons}>
-          <HistoryButtons
-            currentMove={analysisGame.currentMove}
-            lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
-            moveForwardInHistory={props.moveForwardInHistory}
-            moveBackwardInHistory={props.moveBackwardInHistory}
-            onInteraction={scrollToElement}
-          />
-        </div>
-        <div className={styles.analysisGame}>
-          <BigBoard
-            board={analysisGame.board}
-            activeBoards={analysisGame.activeBoards}
-            currentPlayer={analysisGame.game.currentPlayer}
-            markTileSpecially={{
-              condition: currentlyAppliedMove !== undefined,
-              position: currentlyAppliedMove
-                ? {
-                    boardPosition: currentlyAppliedMove.boardPosition,
-                    tilePosition: currentlyAppliedMove.tilePosition,
-                  }
-                : undefined,
-            }}
-          />
-        </div>
+    <div className={styles.analysisLayout}>
+      <div id="moveList" className={styles.moveList}>
+        <MoveList
+          currentMove={analysisGame.currentMove}
+          reversedMoves={reversedMoves}
+          moveForwardInHistory={props.moveForwardInHistory}
+          moveBackwardInHistory={props.moveBackwardInHistory}
+        />
+      </div>
+      <div className={styles.historyButtons}>
+        <HistoryButtons
+          currentMove={analysisGame.currentMove}
+          lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
+          moveForwardInHistory={props.moveForwardInHistory}
+          moveBackwardInHistory={props.moveBackwardInHistory}
+          onInteraction={scrollToElement}
+        />
+      </div>
+      <div className={styles.analysisGame}>
+        <BigBoard
+          board={analysisGame.board}
+          activeBoards={analysisGame.activeBoards}
+          currentPlayer={analysisGame.game.currentPlayer}
+          markTileSpecially={{
+            condition: currentlyAppliedMove !== undefined,
+            position: currentlyAppliedMove
+              ? {
+                  boardPosition: currentlyAppliedMove.boardPosition,
+                  tilePosition: currentlyAppliedMove.tilePosition,
+                }
+              : undefined,
+          }}
+        />
       </div>
     </div>
   );
