@@ -6,7 +6,12 @@
   grid-row-gap: 0.5em;
   grid-column-gap: 1.5em;
   grid-template-areas: 'moveList' 'historyButtons' 'game';
-  grid-template-rows: minmax(50vmin, 70vmin) minmax(min-content, 7vmin) 0.3fr;
+  grid-template-rows:
+    minmax(50vmin, 70vmin)
+    minmax(min-content, 7vmin)
+    min-content;
+  grid-template-columns: 0.85fr;
+  justify-content: center;
 
   /* Fix for Layouting Bug in Safari: #186 */
   overflow: hidden;
@@ -21,7 +26,7 @@
 
 .analysisGame {
   grid-area: game;
-  width: 85vmin;
+  width: 100%;
   justify-self: center;
 }
 
@@ -36,13 +41,9 @@
   .analysisLayout {
     margin: 0.25em 0 0.25em;
 
-    grid-template-columns: minmax(min-content, 1fr) minmax(80vmin, 85vmin);
-    grid-template-rows: min-content 85vmin;
+    grid-template-columns: minmax(20vw, 30vw) minmax(60vh, 87vh);
+    grid-template-rows: min-content minmax(60vh, 87vh);
     grid-template-areas: '. historyButtons' 'moveList game';
-  }
-
-  .applyHeight {
-    height: 100%;
   }
 }
 
