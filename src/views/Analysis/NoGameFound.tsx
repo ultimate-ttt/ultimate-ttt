@@ -7,7 +7,7 @@ interface NoGameFoundProps {
   tag: string;
   center?: boolean;
   className?: string;
-  children?: any;
+  children?: string;
   size?: TypographyT;
 }
 
