@@ -62,16 +62,15 @@ const mapStateToProps = (state: AppState) => ({
   analysisGame: state.analysisGame,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  loadAnalysisGameById: (id: string) => dispatch(loadFinishedGameById(id)),
-  loadAnalysisGameByDate: (date: Date) =>
-    dispatch(loadFinishedGameByDate(date)),
-  loadLatestAnalysisGame: () => dispatch(loadLatestFinishedGame()),
+const mapDispatchToProps = {
+  loadAnalysisGameById: (id: string) => loadFinishedGameById(id),
+  loadAnalysisGameByDate: (date: Date) => loadFinishedGameByDate(date),
+  loadLatestAnalysisGame: () => loadLatestFinishedGame(),
   moveForwardInHistory: (numberOfMoves: number) =>
-    dispatch(moveForwardInHistory(numberOfMoves)),
+    moveForwardInHistory(numberOfMoves),
   moveBackwardInHistory: (numberOfMoves: number) =>
-    dispatch(moveBackwardInHistory(numberOfMoves)),
-});
+    moveBackwardInHistory(numberOfMoves),
+};
 
 export default connect(
   mapStateToProps,
