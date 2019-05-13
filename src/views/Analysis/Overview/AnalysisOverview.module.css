@@ -37,3 +37,8 @@
   justify-content: center;
   margin-bottom: 4em;
 }
+
+.noGameFound {
+  padding-top: 1em;
+  padding-left: 3em;
+}
