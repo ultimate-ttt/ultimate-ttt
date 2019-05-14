@@ -12,6 +12,7 @@ import {
 } from '../../../state/analysisGame/analysisGameActions';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 import appRoutes from '../../../routes/routes';
+import { NoGameFound } from '../NoGameFound';
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {
@@ -23,7 +24,6 @@ interface AnalysisGameRouteProps
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
-// TODO: display error when no game was found
 export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   const pathName = props.location.pathname;
   const param = props.match.params.param;
@@ -31,6 +31,7 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
     loadLatestAnalysisGame,
     loadAnalysisGameById,
     loadAnalysisGameByDate,
+    analysisGame,
   } = props;
 
   useEffect(() => {
@@ -42,19 +43,21 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
       loadAnalysisGameById(param);
     }
   }, [
-    pathName,
     param,
+    pathName,
     loadAnalysisGameById,
     loadAnalysisGameByDate,
     loadLatestAnalysisGame,
   ]);
 
-  return (
+  return analysisGame.board.length > 0 ? (
     <AnalysisGameDisplay
       moveForwardInHistory={props.moveForwardInHistory}
       moveBackwardInHistory={props.moveBackwardInHistory}
       analysisGame={props.analysisGame}
     />
+  ) : (
+    <NoGameFound tag="h1" center={true} />
   );
 }
 

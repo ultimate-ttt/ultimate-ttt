@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { GameSummaryCard } from '../../../components/Analysis/GameSummaryCard/GameSummaryCard';
 import { Paging } from '../../../components/Paging/Paging';
 import { useState } from 'react';
+import { NoGameFound } from '../NoGameFound';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
@@ -41,18 +42,24 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
           Recently played games
         </Typography>
       </div>
-      <div className={styles.gameList}>
-        {currentGames.map((game, index) => (
-          <GameSummaryCard
-            key={game.id ? game.id : game.date}
-            gameNumber={
-              finishedGames.length - (index + currentPage * gamesPerPage)
-            }
-            game={game}
-            link={getLink(game)}
-          />
-        ))}
-      </div>
+      {currentGames.length > 0 ? (
+        <div className={styles.gameList}>
+          {currentGames.map((game, index) => (
+            <GameSummaryCard
+              key={game.id ? game.id : game.date}
+              gameNumber={
+                finishedGames.length - (index + currentPage * gamesPerPage)
+              }
+              game={game}
+              link={getLink(game)}
+            />
+          ))}
+        </div>
+      ) : (
+        <NoGameFound tag="h2" size="headline4" className={styles.noGameFound}>
+          No recently played games were found
+        </NoGameFound>
+      )}
       {amountOfPages > 1 && (
         <Paging
           className={styles.paging}
