@@ -44,14 +44,14 @@ const mapStateToProps = (state: AppState) => ({
   activeBoards: state.currentGame.activeBoards,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = {
   onPlayerMoved: (
     boardX: number,
     boardY: number,
     tileX: number,
     tileY: number,
-  ) => dispatch(playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY })),
-});
+  ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
+};
 
 export default connect(
   mapStateToProps,

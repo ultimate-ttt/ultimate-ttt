@@ -114,9 +114,9 @@ const mapStateToProps = (state: AppState) => ({
   winner: state.currentGame.game.winningPlayer,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  onRestartGame: () => dispatch(restartGame()),
-});
+const mapDispatchToProps = {
+  onRestartGame: () => restartGame(),
+};
 
 export default connect(
   mapStateToProps,
