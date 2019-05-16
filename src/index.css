@@ -6,6 +6,7 @@
   --mdc-theme-primary: var(--tropical-teal);
   --mdc-theme-secondary: var(--incremental-blue);
   --mdc-theme-text-icon-on-background: black;
+  --mdc-theme-text-primary-on-background: black;
 }
 
 * {
@@ -42,6 +43,12 @@ button {
   text-indent: inherit;
   text-shadow: inherit;
   color: inherit;
+}
+
+a {
+  color: inherit;
+  cursor: inherit;
+  text-decoration: inherit;
 }
 
 .centerAll {

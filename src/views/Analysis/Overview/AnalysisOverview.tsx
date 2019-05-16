@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { AppState, FinishedGameState } from '../../../state/AppState';
 import { Typography } from '@rmwc/typography';
 import styles from './AnalysisOverview.module.css';
-import appRoutes from '../../../routes/routes';
+import routes from '../../../routes/routes';
 import { Link } from 'react-router-dom';
 import { GameSummaryCard } from '../../../components/Analysis/GameSummaryCard/GameSummaryCard';
 import { Paging } from '../../../components/Paging/Paging';
@@ -17,10 +17,7 @@ interface AnalysisOverviewProps {
 function getLink(game: FinishedGameState) {
   return {
     tag: Link,
-    to: appRoutes.AnalysisParam.replace(
-      ':param',
-      game.id ? game.id : game.date,
-    ),
+    to: routes.AnalysisParam.replace(':param', game.id ? game.id : game.date),
   };
 }
 

@@ -8,6 +8,7 @@ import { ListDivider } from '@rmwc/list';
 import { Icon } from '@rmwc/icon';
 import { Link } from 'react-router-dom';
 import styles from './GameSummaryCard.module.css';
+import icons from '../../../icons/icons';
 
 interface GameSummaryCardProps {
   gameNumber: number;
@@ -74,7 +75,7 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
         <CardActionButton
           id={`analyse-button-${gameNumber}`}
           label="Analyse Game"
-          trailingIcon={{ icon: 'arrow-right', 'aria-hidden': true }}
+          trailingIcon={{ icon: icons.arrowRight, 'aria-hidden': true }}
           {...link}
         />
       </CardActions>

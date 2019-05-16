@@ -6,7 +6,6 @@ import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
 import { Point } from '../../util';
 import styles from './Game.module.css';
-import classNames from 'classnames';
 
 interface GameProps {
   currentPlayer: Player;
@@ -24,7 +23,7 @@ export function Game(props: GameProps) {
   const { currentPlayer, board, activeBoards, onPlayerMoved } = props;
 
   return (
-    <div className={classNames('centerAll', styles.applyHeight)}>
+    <div className="centerAll">
       <div className={styles.gameWrapper}>
         <GameFinishedDisplay />
         <BigBoard
