@@ -134,7 +134,7 @@ export function Navigation(props: NavigationProps) {
       <Drawer tag="nav" aria-label="Site" dismissible open={open}>
         <DrawerContent>
           <List>
-            {getNavigationItem('Home', icons.game, routes.Home)}
+            {getNavigationItem('Play', icons.game, routes.Home)}
             {getNavigationItem(
               'Analysis',
               icons.history,
