@@ -18,7 +18,7 @@
     "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.2",
     "reselect": "^4.0.0",
-    "rmwc": "^5.3.1",
+    "rmwc": "^6.0.0",
     "typescript": "^3.4.3"
   },
   "scripts": {
