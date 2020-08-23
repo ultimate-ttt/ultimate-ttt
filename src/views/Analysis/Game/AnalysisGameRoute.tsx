@@ -13,6 +13,7 @@ import {
 import routes from '../../../routes/routes';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 import { NoGameFound } from '../NoGameFound';
+import { parseJSON, isValid } from 'date-fns';
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {
@@ -37,8 +38,8 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   useEffect(() => {
     if (pathName.includes(routes.AnalysisLatest)) {
       loadLatestAnalysisGame();
-    } else if (!isNaN(Date.parse(param))) {
-      loadAnalysisGameByDate(new Date(Date.parse(param)));
+    } else if (isValid(parseJSON(param))) {
+      loadAnalysisGameByDate(parseJSON(param));
     } else {
       loadAnalysisGameById(param);
     }

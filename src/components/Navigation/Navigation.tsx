@@ -23,7 +23,7 @@ import routes from '../../routes/routes';
 import icons from '../../icons/icons';
 import styles from './Navigation.module.css';
 
-interface NavigationProps {}
+interface NavigationProps { }
 
 export function Navigation(props: NavigationProps) {
   const [open, setOpen] = useState(false);
@@ -57,18 +57,18 @@ export function Navigation(props: NavigationProps) {
         {content}
       </ListItem>
     ) : (
-      <ListItem
-        {...{
-          tag: NavLink,
-          to: route,
-          activeClassName: 'mdc-list-item--activated',
-          exact: true,
-        }}
-        onClick={() => closeDrawer()}
-      >
-        {content}
-      </ListItem>
-    );
+        <ListItem
+          {...{
+            tag: NavLink,
+            to: route,
+            activeClassName: 'mdc-list-item--activated',
+            exact: true,
+          }}
+          onClick={() => closeDrawer()}
+        >
+          {content}
+        </ListItem>
+      );
   }
 
   return (
@@ -76,17 +76,6 @@ export function Navigation(props: NavigationProps) {
       <TopAppBar>
         <TopAppBarRow>
           <TopAppBarSection alignStart>
-            {/*
-              TODO: the menu button is not very accessible like this:
-               A screen reader doesn't know that this button controls the drawer below.
-               The navigation items should be a sibling of this button.
-               But that is not easy to achieve right now with MDC.
-               Opened an issue: https://github.com/material-components/material-components-web/issues/4704
-            */}
-            {/*
-              TODO: switch to tag="button" later again because there currently is a bug with it.
-               Context: https://github.com/jamesmfriedman/rmwc/issues/459
-               */}
             <TopAppBarNavigationIcon
               role="button"
               aria-expanded={open}
@@ -131,7 +120,7 @@ export function Navigation(props: NavigationProps) {
         </TopAppBarRow>
       </TopAppBar>
       <TopAppBarFixedAdjust />
-      <Drawer tag="nav" aria-label="Site" dismissible open={open}>
+      <Drawer tag="nav" aria-label="Site" modal open={open}>
         <DrawerContent>
           <List>
             {getNavigationItem('Play', icons.game, routes.Home)}

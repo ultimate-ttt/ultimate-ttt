@@ -4,6 +4,7 @@ import { AppState, FinishedGameState } from '../../../state/AppState';
 import { Typography } from '@rmwc/typography';
 import styles from './AnalysisOverview.module.css';
 import routes from '../../../routes/routes';
+import { parseJSON } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { GameSummaryCard } from '../../../components/Analysis/GameSummaryCard/GameSummaryCard';
 import { Paging } from '../../../components/Paging/Paging';
@@ -15,9 +16,17 @@ interface AnalysisOverviewProps {
 }
 
 function getLink(game: FinishedGameState) {
+  let param: string;
+  if (game.id) {
+    param = game.id;
+  } else {
+    const date = parseJSON(game.date);
+    param = date.toISOString();
+  }
+
   return {
     tag: Link,
-    to: routes.AnalysisParam.replace(':param', game.id ? game.id : game.date),
+    to: routes.AnalysisParam.replace(':param', param),
   };
 }
 
@@ -53,10 +62,10 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
           ))}
         </div>
       ) : (
-        <NoGameFound tag="h2" size="headline4" className={styles.noGameFound}>
-          No recently played games were found
-        </NoGameFound>
-      )}
+          <NoGameFound tag="h2" size="headline4" className={styles.noGameFound}>
+            No recently played games were found
+          </NoGameFound>
+        )}
       {amountOfPages > 1 && (
         <Paging
           className={styles.paging}
