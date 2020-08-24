@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button } from '@rmwc/button';
 import styles from './HistoryButtons.module.css';
+import icons from '../../../icons/icons';
 
 interface HistoryButtonsProps {
   currentMove: number;
@@ -59,7 +60,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
           disabled={currentMove === 1}
           dense={true}
           raised={true}
-          icon={{ icon: 'arrow-left', 'aria-hidden': true }}
+          icon={{ icon: icons.arrowLeft, 'aria-hidden': true }}
           onClick={() => {
             moveBackwardInHistory(1);
             onInteraction(currentMove - 1);
@@ -72,7 +73,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
           disabled={currentMove === lastMove}
           dense={true}
           raised={true}
-          trailingIcon={{ icon: 'arrow-right', 'aria-hidden': true }}
+          trailingIcon={{ icon: icons.arrowRight, 'aria-hidden': true }}
           onClick={() => {
             moveForwardInHistory(1);
             onInteraction(currentMove + 1);

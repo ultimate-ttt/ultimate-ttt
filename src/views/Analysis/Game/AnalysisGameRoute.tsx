@@ -10,9 +10,10 @@ import {
   moveBackwardInHistory,
   moveForwardInHistory,
 } from '../../../state/analysisGame/analysisGameActions';
+import routes from '../../../routes/routes';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
-import appRoutes from '../../../routes/routes';
 import { NoGameFound } from '../NoGameFound';
+import { parseJSON, isValid } from 'date-fns';
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {
@@ -35,10 +36,10 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   } = props;
 
   useEffect(() => {
-    if (pathName.includes(appRoutes.AnalysisLatest)) {
+    if (pathName.includes(routes.AnalysisLatest)) {
       loadLatestAnalysisGame();
-    } else if (!isNaN(Date.parse(param))) {
-      loadAnalysisGameByDate(new Date(Date.parse(param)));
+    } else if (isValid(parseJSON(param))) {
+      loadAnalysisGameByDate(parseJSON(param));
     } else {
       loadAnalysisGameById(param);
     }

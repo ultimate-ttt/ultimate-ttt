@@ -93,7 +93,7 @@ exports[`GameFinished should match snapshot when no one wins 1`] = `
       icon={
         Object {
           "icon": "x",
-          "size": "xlarge",
+          "size": "large",
         }
       }
     />

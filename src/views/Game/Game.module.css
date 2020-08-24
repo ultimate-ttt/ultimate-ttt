@@ -1,18 +1,13 @@
 .gameWrapper {
   display: grid;
-  margin-top: 1em;
-  margin-bottom: 1em;
-
-  font-size: 9px;
-
   grid-template-columns: 80vmin;
+
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 9px;
 
   /* Fix for Layouting Bug in Safari: #186 */
   overflow: hidden;
-}
-
-.applyHeight {
-  height: 100%;
 }
 
 @media only screen and (min-width: 500px) {
