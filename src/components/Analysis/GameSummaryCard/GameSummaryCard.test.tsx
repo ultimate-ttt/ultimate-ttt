@@ -10,10 +10,13 @@ import { SaveState, WinnerString } from '../../../state/AppState';
 
 describe('GameSummaryCard', () => {
   it('should match snapshot', () => {
+    let date = new Date();
+    date.setDate(date.getDate() - 3);
+
     const game = {
       id: '1',
       gameState: circleFinishedBoardMock,
-      date: new Date(2019, 1, 1).toISOString(),
+      date: date.toISOString(),
       winner: 'O' as WinnerString,
       moves: movesForCircleFinishedBoardMock,
       saveState: 'fulfilled' as SaveState,

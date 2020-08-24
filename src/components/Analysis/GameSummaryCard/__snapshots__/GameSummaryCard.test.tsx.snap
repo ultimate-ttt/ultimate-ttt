@@ -42,7 +42,7 @@ exports[`GameSummaryCard should match snapshot 1`] = `
         tag="p"
         use="subtitle2"
       >
-        3 months
+        3 days
          
         ago
       </Typography>
