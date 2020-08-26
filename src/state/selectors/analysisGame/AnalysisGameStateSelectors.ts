@@ -52,7 +52,7 @@ export const getDateToFetch = (state: AppState, date: Date) =>
 export const getAnalysisGameByDate = createSelector(
   [getFinishedGames, getDateToFetch],
   (finishedGames, date): AnalysisGame | undefined => {
-    const finishedGame = finishedGames.find(g => g.date === date);
+    const finishedGame = finishedGames.find((g) => g.date === date);
     if (finishedGame) {
       return mapFinishedGameToAnalysisGame(finishedGame);
     }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import { SmallBoard } from './SmallBoard';
-import { MarkSpecially, Player, TileValue } from '../../../state/AppState';
+import { Higlight, Player, TileValue, Highlight } from '../../../state/AppState';
 import { Point } from '../../../util';
 import { Tile } from '../Tile/Tile';
 
@@ -321,7 +321,7 @@ describe('SmallBoard', () => {
   });
 
   describe('mark tile specially', () => {
-    it('should add markSpecially=false to all tiles when the condition is false', () => {
+    it('should add higlight=false to all tiles when the condition is false', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
@@ -337,7 +337,7 @@ describe('SmallBoard', () => {
         getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
       ];
 
-      const markSpecially: MarkSpecially = { condition: false };
+      const highlight: Highlight = { condition: false };
       const component = shallow(
         <SmallBoard
           onTileClicked={clicked}
@@ -347,17 +347,17 @@ describe('SmallBoard', () => {
           moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
-          markTileSpecially={markSpecially}
+          highlight={highlight}
         />,
       );
 
       const speciallyMarkedComponents = component.find({
-        markSpecially: false,
+        highlight: false,
       });
       expect(speciallyMarkedComponents).toHaveLength(9);
     });
 
-    it('should add markSpecially=true to the given tile position', () => {
+    it('should add higlight=true to the given tile position', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
@@ -373,7 +373,7 @@ describe('SmallBoard', () => {
         getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
       ];
 
-      const markSpecially: MarkSpecially = {
+      const highlight: Highlight = {
         condition: true,
         position: {
           boardPosition: boardPosition,
@@ -389,21 +389,21 @@ describe('SmallBoard', () => {
           moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
-          markTileSpecially={markSpecially}
+          highlight={highlight}
         />,
       );
 
-      const speciallyMarkedComponents = component.find({ markSpecially: true });
+      const speciallyMarkedComponents = component.find({ higlight: true });
       expect(speciallyMarkedComponents).toHaveLength(1);
       expect(
         component
           .find(Tile)
           .at(1)
-          .props().markSpecially,
+          .props().highlight,
       ).toBe(true);
     });
 
-    it('should add markSpecially to a finished small board', () => {
+    it('should add higlight to a finished small board', () => {
       const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
@@ -419,7 +419,7 @@ describe('SmallBoard', () => {
         getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
       ];
 
-      const markSpecially: MarkSpecially = {
+      const highlight: Highlight = {
         condition: true,
         position: {
           boardPosition: boardPosition,
@@ -435,17 +435,17 @@ describe('SmallBoard', () => {
           moveAllowed={false}
           x={boardPosition.x}
           y={boardPosition.y}
-          markTileSpecially={markSpecially}
+          highlight={highlight}
         />,
       );
 
-      const speciallyMarkedComponents = component.find({ markSpecially: true });
+      const speciallyMarkedComponents = component.find({ highlight: true });
       expect(speciallyMarkedComponents).toHaveLength(1);
       expect(
         component
           .find(Tile)
           .at(0)
-          .props().markSpecially,
+          .props().highlight,
       ).toBe(true);
     });
   });

@@ -45,14 +45,14 @@ stories.add('BigBoard, finished cross', () => (
   />
 ));
 
-stories.add('BigBoard, markTileSpecially', () => (
+stories.add('BigBoard, highlight', () => (
   <BigBoard
     currentPlayer={select('currentPlayer', boardValues, Player.Cross)}
     board={circleFinishedBoardMock}
     activeBoards={[]}
     onPlayerMoved={action('onPlayerMoved')}
     animate={boolean('animate', true)}
-    markTileSpecially={object('markTileSpecially', {
+    highlight={object('highlight', {
       condition: true,
       position: {
         boardPosition: { x: 2, y: 2 },

@@ -88,7 +88,7 @@ export interface GenericAction {
   payload?: any;
 }
 
-export interface MarkSpecially {
+export interface Highlight {
   condition: boolean;
   position?: { boardPosition: Point; tilePosition: Point };
 }

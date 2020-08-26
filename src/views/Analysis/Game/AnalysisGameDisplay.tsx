@@ -55,7 +55,7 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
           board={analysisGame.board}
           activeBoards={analysisGame.activeBoards}
           currentPlayer={analysisGame.game.currentPlayer}
-          markTileSpecially={{
+          highlight={{
             condition: currentlyAppliedMove !== undefined,
             position: currentlyAppliedMove
               ? {

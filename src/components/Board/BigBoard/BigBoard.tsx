@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
 import {
-  MarkSpecially,
+  Highlight,
   Player,
   SmallBoardInformation,
 } from '../../../state/AppState';
@@ -18,21 +18,21 @@ interface BigBoardProps {
     tileX: number,
     tileY: number,
   ) => void;
-  markTileSpecially?: MarkSpecially;
+  highlight?: Highlight;
   animate?: boolean;
 }
 
-const getMarkSpecially = (
-  markSpecially: MarkSpecially | undefined,
+const shouldHighlight = (
+  highlight: Highlight | undefined,
   point: Point,
 ) => {
-  if (markSpecially === undefined) {
+  if (highlight === undefined) {
     return undefined;
   }
 
-  if (markSpecially.condition && markSpecially.position) {
-    if (arePointsEqual(point, markSpecially.position.boardPosition)) {
-      return markSpecially;
+  if (highlight.condition && highlight.position) {
+    if (arePointsEqual(point, highlight.position.boardPosition)) {
+      return highlight;
     }
   }
 
@@ -57,7 +57,7 @@ export function BigBoard(props: BigBoardProps) {
       board,
       activeBoards,
       onPlayerMoved,
-      markTileSpecially,
+      highlight,
       animate,
     } = props;
     const rows = [];
@@ -81,7 +81,7 @@ export function BigBoard(props: BigBoardProps) {
               tiles={smallBoard.tiles}
               winningPlayer={smallBoard.value}
               animate={animate}
-              markTileSpecially={getMarkSpecially(markTileSpecially, {
+              highlight={shouldHighlight(highlight, {
                 x,
                 y,
               })}
