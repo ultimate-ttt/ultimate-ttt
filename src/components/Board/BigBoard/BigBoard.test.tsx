@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { MarkSpecially, Player } from '../../../state/AppState';
+import { Highlight, Player } from '../../../state/AppState';
 import { BigBoard } from './BigBoard';
 import {
   circleFinishedBoardMock,
@@ -41,8 +41,8 @@ describe('BigBoard', function() {
     expect(bigBoard).toMatchSnapshot();
   });
 
-  describe('markSpecially', () => {
-    it('should pass undefined to smallBoards if markSpecially is not set', () => {
+  describe('highlight', () => {
+    it('should pass undefined to smallBoards if higlight is not set', () => {
       const playerMoved = jest.fn(() => {});
 
       const bigBoard = shallow(
@@ -51,20 +51,20 @@ describe('BigBoard', function() {
           board={circleFinishedBoardMock}
           activeBoards={[]}
           onPlayerMoved={playerMoved}
-          markTileSpecially={undefined}
+          highlight={undefined}
         />,
       );
 
       const smallBoards = bigBoard.find(SmallBoard);
       smallBoards.forEach((board) => {
         const props = board.props();
-        expect(props.markTileSpecially).toBeUndefined();
+        expect(props.highlight).toBeUndefined();
       });
     });
 
-    it('should pass the correct small board the markSpecially prop', () => {
+    it('should pass the correct small board the higlight prop', () => {
       const playerMoved = jest.fn(() => {});
-      const markSpecially: MarkSpecially = {
+      const higlight: Highlight = {
         condition: true,
         position: {
           boardPosition: { x: 2, y: 1 },
@@ -78,7 +78,7 @@ describe('BigBoard', function() {
           board={circleFinishedBoardMock}
           activeBoards={[]}
           onPlayerMoved={playerMoved}
-          markTileSpecially={markSpecially}
+          highlight={higlight}
         />,
       );
 
@@ -86,9 +86,9 @@ describe('BigBoard', function() {
       smallBoards.forEach((board) => {
         const props = board.props();
         if (props.x === 2 && props.y === 1) {
-          expect(props.markTileSpecially).toEqual(markSpecially);
+          expect(props.highlight).toEqual(higlight);
         } else {
-          expect(props.markTileSpecially).toEqual({ condition: false });
+          expect(props.highlight).toEqual({ condition: false });
         }
       });
     });

@@ -201,7 +201,7 @@ stories.add('SmallBoard with specially marked tile', () => {
       animate={boolean('animate', true)}
       x={0}
       y={0}
-      markTileSpecially={{
+      highlight={{
         condition: true,
         position: {
           boardPosition: { x: 0, y: 0 },

@@ -23,7 +23,7 @@ import routes from '../../routes/routes';
 import icons from '../../icons/icons';
 import styles from './Navigation.module.css';
 
-interface NavigationProps { }
+interface NavigationProps {}
 
 export function Navigation(props: NavigationProps) {
   const [open, setOpen] = useState(false);
@@ -57,18 +57,18 @@ export function Navigation(props: NavigationProps) {
         {content}
       </ListItem>
     ) : (
-        <ListItem
-          {...{
-            tag: NavLink,
-            to: route,
-            activeClassName: 'mdc-list-item--activated',
-            exact: true,
-          }}
-          onClick={() => closeDrawer()}
-        >
-          {content}
-        </ListItem>
-      );
+      <ListItem
+        {...{
+          tag: NavLink,
+          to: route,
+          activeClassName: 'mdc-list-item--activated',
+          exact: true,
+        }}
+        onClick={() => closeDrawer()}
+      >
+        {content}
+      </ListItem>
+    );
   }
 
   return (
@@ -120,7 +120,13 @@ export function Navigation(props: NavigationProps) {
         </TopAppBarRow>
       </TopAppBar>
       <TopAppBarFixedAdjust />
-      <Drawer tag="nav" aria-label="Site" modal open={open}>
+      <Drawer
+        tag="nav"
+        aria-label="Site"
+        modal
+        open={open}
+        className="disableMotion"
+      >
         <DrawerContent>
           <List>
             {getNavigationItem('Play', icons.game, routes.Home)}

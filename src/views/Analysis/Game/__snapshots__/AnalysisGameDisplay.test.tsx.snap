@@ -1371,7 +1371,7 @@ exports[`AnalysisGame should match snapshot 1`] = `
         ]
       }
       currentPlayer={0}
-      markTileSpecially={
+      highlight={
         Object {
           "condition": true,
           "position": Object {

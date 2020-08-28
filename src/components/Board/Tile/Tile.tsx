@@ -12,7 +12,7 @@ interface TileProps {
   value: TileValue;
   isTileRound: boolean;
   clickable: boolean;
-  markSpecially?: boolean;
+  highlight?: boolean;
   animate?: boolean;
   position: { tilePosition: Point; boardPosition: Point };
 }
@@ -24,14 +24,14 @@ export function Tile(props: TileProps) {
     clickable,
     value,
     animate,
-    markSpecially,
+    highlight,
     position,
   } = props;
 
   const getValue = () => {
     let shouldAnimate = animate;
-    if (markSpecially !== undefined) {
-      if (!markSpecially) {
+    if (highlight !== undefined) {
+      if (!highlight) {
         shouldAnimate = false;
       }
     }
@@ -62,9 +62,9 @@ export function Tile(props: TileProps) {
   };
 
   const classes = classNames(styles.tile, {
-    [styles.special]: markSpecially,
-    [styles.indicator]: clickable && !markSpecially,
-    [styles.normal]: !clickable && !markSpecially,
+    [styles.special]: highlight,
+    [styles.indicator]: clickable && !highlight,
+    [styles.normal]: !clickable && !highlight,
     [styles.animate]: animate !== undefined ? animate : true,
     [styles.noWinner]: value === TileValue.Destroyed,
     [styles.circle]: isTileRound && value !== TileValue.Destroyed,
@@ -86,7 +86,7 @@ export function Tile(props: TileProps) {
         Tile with Content {valueToString(value)} at Position{' '}
         {position.tilePosition.x}/{position.tilePosition.y} on Board{' '}
         {position.boardPosition.x}/{position.boardPosition.y}
-        {markSpecially && ', was influenced by currently selected move'}
+        {highlight && ', was influenced by currently selected move'}
         {!onTileClicked && clickable && ', move allowed'}
       </span>
     </button>

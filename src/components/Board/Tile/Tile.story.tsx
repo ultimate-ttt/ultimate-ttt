@@ -29,7 +29,7 @@ stories.add('Tile Customisable', () => (
       onTileClicked={action('onTileClicked')}
       clickable={boolean('clickable', false)}
       animate={boolean('animate', true)}
-      markSpecially={boolean('markSpecially', false)}
+      highlight={boolean('higlight', false)}
       position={position}
     />
   </div>
@@ -55,7 +55,7 @@ stories.add('Tile Marked Specially', () => (
       isTileRound={boolean('isTileRound', false)}
       onTileClicked={action('onTileClicked')}
       clickable={boolean('clickable', false)}
-      markSpecially={true}
+      highlight={true}
       animate={boolean('animate', true)}
       position={position}
     />

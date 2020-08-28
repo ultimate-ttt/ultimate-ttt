@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
-  MarkSpecially,
   Player,
   SmallTileInformation,
   TileValue,
+  Highlight,
 } from '../../../state/AppState';
 import { Tile } from '../Tile/Tile';
 import { arePointsEqual, Point } from '../../../util';
@@ -17,20 +17,20 @@ interface SmallBoardProps {
   winningPlayer: TileValue;
   tiles: SmallTileInformation[];
   onTileClicked?: (x: number, y: number) => void;
-  markTileSpecially?: MarkSpecially;
+  highlight?: Highlight;
   animate?: boolean;
 }
 
-const getMarkSpecially = (
-  markSpecially: MarkSpecially | undefined,
+const shouldHighlight = (
+  highlight: Highlight | undefined,
   point: Point,
 ) => {
-  if (markSpecially === undefined) {
+  if (highlight === undefined) {
     return undefined;
   }
 
-  if (markSpecially.condition && markSpecially.position) {
-    if (arePointsEqual(point, markSpecially.position.tilePosition)) {
+  if (highlight.condition && highlight.position) {
+    if (arePointsEqual(point, highlight.position.tilePosition)) {
       return true;
     }
   }
@@ -47,7 +47,7 @@ export function SmallBoard(props: SmallBoardProps) {
     tiles,
     moveAllowed,
     onTileClicked,
-    markTileSpecially,
+    highlight,
     animate,
   } = props;
 
@@ -63,7 +63,7 @@ export function SmallBoard(props: SmallBoardProps) {
           isTileRound={isCircle}
           clickable={moveAllowed && tile.value === TileValue.Empty}
           animate={animate}
-          markSpecially={getMarkSpecially(markTileSpecially, tile.position)}
+          highlight={shouldHighlight(highlight, tile.position)}
           {...onTileClicked && {
             onTileClicked: () => {
               onTileClicked(tile.position.x, tile.position.y);
@@ -93,10 +93,10 @@ export function SmallBoard(props: SmallBoardProps) {
           isTileRound={winningPlayer === TileValue.Circle}
           clickable={false}
           animate={animate}
-          markSpecially={getMarkSpecially(
-            markTileSpecially,
-            markTileSpecially && markTileSpecially.position
-              ? markTileSpecially.position.tilePosition
+          highlight={shouldHighlight(
+            highlight,
+            highlight && highlight.position
+              ? highlight.position.tilePosition
               : { x, y },
           )}
         />

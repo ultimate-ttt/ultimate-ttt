@@ -46,3 +46,11 @@
     width: 85%;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animateX,
+  .animateO,
+  .animateDraw {
+    animation: none;
+  }
+}

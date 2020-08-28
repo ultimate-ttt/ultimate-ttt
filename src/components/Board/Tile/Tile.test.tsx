@@ -196,7 +196,7 @@ describe('Tile', () => {
     it('should have the special class if it should be marked specially', () => {
       const component = shallow(
         <Tile
-          markSpecially={true}
+          highlight={true}
           clickable={true}
           isTileRound={true}
           value={TileValue.Empty}
