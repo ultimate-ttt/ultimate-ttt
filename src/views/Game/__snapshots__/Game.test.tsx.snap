@@ -7,7 +7,7 @@ exports[`Game should match snapshot 1`] = `
   <div
     className="gameWrapper"
   >
-    <ConnectFunction />
+    <Connect(GameFinishedDisplay) />
     <BigBoard
       activeBoards={Array []}
       board={
