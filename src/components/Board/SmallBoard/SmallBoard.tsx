@@ -21,10 +21,7 @@ interface SmallBoardProps {
   animate?: boolean;
 }
 
-const shouldHighlight = (
-  highlight: Highlight | undefined,
-  point: Point,
-) => {
+const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
   if (highlight === undefined) {
     return undefined;
   }
@@ -64,11 +61,11 @@ export function SmallBoard(props: SmallBoardProps) {
           clickable={moveAllowed && tile.value === TileValue.Empty}
           animate={animate}
           highlight={shouldHighlight(highlight, tile.position)}
-          {...onTileClicked && {
+          {...(onTileClicked && {
             onTileClicked: () => {
               onTileClicked(tile.position.x, tile.position.y);
             },
-          }}
+          })}
         />,
       );
     });

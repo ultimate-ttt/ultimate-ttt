@@ -52,7 +52,4 @@ const mapDispatchToProps = {
   ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Game);
+export default connect(mapStateToProps, mapDispatchToProps)(Game);

@@ -76,7 +76,4 @@ const mapDispatchToProps = {
     moveBackwardInHistory(numberOfMoves),
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(AnalysisGameRoute);
+export default connect(mapStateToProps, mapDispatchToProps)(AnalysisGameRoute);

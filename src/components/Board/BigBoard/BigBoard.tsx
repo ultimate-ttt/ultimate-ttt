@@ -22,10 +22,7 @@ interface BigBoardProps {
   animate?: boolean;
 }
 
-const shouldHighlight = (
-  highlight: Highlight | undefined,
-  point: Point,
-) => {
+const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
   if (highlight === undefined) {
     return undefined;
   }
@@ -85,11 +82,11 @@ export function BigBoard(props: BigBoardProps) {
                 x,
                 y,
               })}
-              {...onPlayerMoved && {
+              {...(onPlayerMoved && {
                 onTileClicked: (tileX: number, tileY: number) => {
                   onPlayerMoved(x, y, tileX, tileY);
                 },
-              }}
+              })}
             />,
           );
         }

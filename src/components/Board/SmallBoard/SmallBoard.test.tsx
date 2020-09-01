@@ -15,7 +15,7 @@ function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {
 
 describe('SmallBoard', () => {
   it('should not explode', () => {
-    const clicked = jest.fn(() => { });
+    const clicked = jest.fn(() => {});
 
     const boardPosition = { x: 0, y: 0 };
     const smallTileInformation = [
@@ -46,7 +46,7 @@ describe('SmallBoard', () => {
 
   describe('unfinished smallboard', () => {
     it('should display 9 tiles with the given values', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 1, y: 1 };
       const smallTileInformation = [
@@ -73,22 +73,12 @@ describe('SmallBoard', () => {
       );
 
       expect(component.find(Tile)).toHaveLength(9);
-      expect(
-        component
-          .find(Tile)
-          .at(1)
-          .props().value,
-      ).toBe(TileValue.Cross);
-      expect(
-        component
-          .find(Tile)
-          .at(8)
-          .props().value,
-      ).toBe(TileValue.Circle);
+      expect(component.find(Tile).at(1).props().value).toBe(TileValue.Cross);
+      expect(component.find(Tile).at(8).props().value).toBe(TileValue.Circle);
     });
 
     it('should make tiles not clickable if they are taken', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 1, y: 1 };
       const smallTileInformation = [
@@ -114,28 +104,13 @@ describe('SmallBoard', () => {
         />,
       );
 
-      expect(
-        component
-          .find(Tile)
-          .at(1)
-          .props().clickable,
-      ).toBe(false);
-      expect(
-        component
-          .find(Tile)
-          .at(4)
-          .props().clickable,
-      ).toBe(false);
-      expect(
-        component
-          .find(Tile)
-          .at(8)
-          .props().clickable,
-      ).toBe(false);
+      expect(component.find(Tile).at(1).props().clickable).toBe(false);
+      expect(component.find(Tile).at(4).props().clickable).toBe(false);
+      expect(component.find(Tile).at(8).props().clickable).toBe(false);
     });
 
     it('should make tiles not clickable if the move is not allowed', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
       const smallTileInformation = [
@@ -165,7 +140,7 @@ describe('SmallBoard', () => {
     });
 
     it('should add isTileRound=false when currentPlayer is Cross', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
       const smallTileInformation = [
@@ -195,7 +170,7 @@ describe('SmallBoard', () => {
     });
 
     it('should add isTileRound=true when currentPlayer is Circle', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
       const smallTileInformation = [
@@ -227,7 +202,7 @@ describe('SmallBoard', () => {
 
   describe('finished smallboard', () => {
     it('should only add one tile if the board is won and that should be a big tile', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
       const smallTileInformation = [
@@ -260,7 +235,7 @@ describe('SmallBoard', () => {
 
   describe('css classes', () => {
     it('should have class smallBoardFinished when small board is finished', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
       const smallTileInformation = [
@@ -290,7 +265,7 @@ describe('SmallBoard', () => {
     });
 
     it('should have class smallBoard in normal state', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 2, y: 2 };
       const smallTileInformation = [
@@ -322,7 +297,7 @@ describe('SmallBoard', () => {
 
   describe('highlight tile', () => {
     it('should add highlight=false to all tiles when the condition is false', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
       const smallTileInformation = [
@@ -358,7 +333,7 @@ describe('SmallBoard', () => {
     });
 
     it('should add highlight=true to the given tile position', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
       const smallTileInformation = [
@@ -395,16 +370,11 @@ describe('SmallBoard', () => {
 
       const highlightedComponents = component.find({ highlight: true });
       expect(highlightedComponents).toHaveLength(1);
-      expect(
-        component
-          .find(Tile)
-          .at(1)
-          .props().highlight,
-      ).toBe(true);
+      expect(component.find(Tile).at(1).props().highlight).toBe(true);
     });
 
     it('should add highlight to a finished small board', () => {
-      const clicked = jest.fn(() => { });
+      const clicked = jest.fn(() => {});
 
       const boardPosition = { x: 0, y: 0 };
       const smallTileInformation = [
@@ -441,12 +411,7 @@ describe('SmallBoard', () => {
 
       const highlightedComponents = component.find({ highlight: true });
       expect(highlightedComponents).toHaveLength(1);
-      expect(
-        component
-          .find(Tile)
-          .at(0)
-          .props().highlight,
-      ).toBe(true);
+      expect(component.find(Tile).at(0).props().highlight).toBe(true);
     });
   });
 });

@@ -44,9 +44,7 @@ export function MoveList(props: MoveListProps) {
               'aria-label': `Player ${playerString.toUpperCase()} Icon`,
             }}
             text={'Move ' + m.moveNumber}
-            secondaryText={`Board ${m.boardPosition.x}/${
-              m.boardPosition.y
-            } - Tile ${m.tilePosition.x}/${m.tilePosition.y}`}
+            secondaryText={`Board ${m.boardPosition.x}/${m.boardPosition.y} - Tile ${m.tilePosition.x}/${m.tilePosition.y}`}
             className={classNames([
               styles.smallerMargin,
               styles.biggerIcon,
@@ -60,7 +58,7 @@ export function MoveList(props: MoveListProps) {
     return moveList;
   };
 
-  const changeDisplayedMove = (event: CustomEventT<{index: number}>) => {
+  const changeDisplayedMove = (event: CustomEventT<{ index: number }>) => {
     const {
       currentMove,
       reversedMoves,
