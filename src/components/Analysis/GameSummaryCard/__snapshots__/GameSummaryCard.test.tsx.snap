@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GameSummaryCard should match snapshot 1`] = `
-<Card>
+<Function>
   <div
     className="padding10"
   >
     <div>
-      <Typography
+      <Function
         tag="h2"
         use="headline4"
       >
         Game No. 
         1
-      </Typography>
+      </Function>
     </div>
     <div>
-      <Typography
+      <Function
         tag="h3"
         use="subtitle2"
       >
@@ -32,12 +32,12 @@ exports[`GameSummaryCard should match snapshot 1`] = `
         won after 
         30
          moves.
-      </Typography>
+      </Function>
     </div>
     <div
       className="paddingBot10"
     >
-      <Typography
+      <Function
         className="italic"
         tag="p"
         use="subtitle2"
@@ -45,9 +45,11 @@ exports[`GameSummaryCard should match snapshot 1`] = `
         3 days
          
         ago
-      </Typography>
+      </Function>
     </div>
-    <ListDivider />
+    <Function
+      tag="div"
+    />
   </div>
   <div
     className="padding10"
@@ -1040,8 +1042,8 @@ exports[`GameSummaryCard should match snapshot 1`] = `
       currentPlayer={0}
     />
   </div>
-  <CardActions>
-    <CardActionButton
+  <Function>
+    <Function
       id="analyse-button-1"
       label="Analyse Game"
       tag={[Function]}
@@ -1053,6 +1055,6 @@ exports[`GameSummaryCard should match snapshot 1`] = `
         }
       }
     />
-  </CardActions>
-</Card>
+  </Function>
+</Function>
 `;

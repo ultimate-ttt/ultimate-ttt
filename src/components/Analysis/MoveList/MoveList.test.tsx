@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { MoveList } from './MoveList';
 import { MoveState, Player } from '../../../state/AppState';
 import { List } from '@rmwc/list';
+import { CustomEventT } from '@rmwc/types';
 
 describe('MoveList', function() {
   const moves: MoveState[] = [
@@ -102,8 +103,8 @@ describe('MoveList', function() {
 
       const list = moveList.find(List);
       list.props().onAction!({
-        detail: moves.findIndex((m) => m.moveNumber === 1),
-      } as any);
+        detail: { index: moves.findIndex((m) => m.moveNumber === 1) },
+      } as CustomEventT<{index: number}>);
 
       expect(moveBackwardInHistory).toHaveBeenCalledWith(moves.length - 1);
     });
@@ -123,8 +124,8 @@ describe('MoveList', function() {
 
       const list = moveList.find(List);
       list.props().onAction!({
-        detail: moves.findIndex((m) => m.moveNumber === 2),
-      } as any);
+        detail: { index: moves.findIndex((m) => m.moveNumber === 2) },
+      } as CustomEventT<{index: number}>);
 
       expect(moveBackwardInHistory).toHaveBeenCalledWith(1);
     });
@@ -146,8 +147,8 @@ describe('MoveList', function() {
 
       const list = moveList.find(List);
       list.props().onAction!({
-        detail: moves.findIndex((m) => m.moveNumber === 4),
-      } as any);
+        detail: { index: moves.findIndex((m) => m.moveNumber === 4) },
+      } as CustomEventT<{index: number}>);
 
       expect(moveForwardInHistory).toHaveBeenCalledWith(3);
     });
@@ -167,8 +168,8 @@ describe('MoveList', function() {
 
       const list = moveList.find(List);
       list.props().onAction!({
-        detail: moves.findIndex((m) => m.moveNumber === 3),
-      } as any);
+        detail: { index: moves.findIndex((m) => m.moveNumber === 3) },
+      } as CustomEventT<{index: number}>);
 
       expect(moveForwardInHistory).toHaveBeenCalledWith(1);
     });

@@ -125,6 +125,7 @@ export function Navigation(props: NavigationProps) {
         aria-label="Site"
         modal
         open={open}
+        onClose={() => closeDrawer()}
         className="disableMotion"
       >
         <DrawerContent>

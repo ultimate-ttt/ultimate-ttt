@@ -4,7 +4,7 @@ exports[`GameFinished should match snapshot when circle wins 1`] = `
 <div
   className="restartAlignment visible"
 >
-  <Typography
+  <Function
     className="winnerText"
     use="headline4"
   >
@@ -19,14 +19,14 @@ exports[`GameFinished should match snapshot when circle wins 1`] = `
     />
      
     wins!
-  </Typography>
-  <withRipple(Button)
+  </Function>
+  <withRipple(Function)
     dense={true}
     onClick={[Function]}
     raised={true}
   >
     Play Again
-  </withRipple(Button)>
+  </withRipple(Function)>
 </div>
 `;
 
@@ -34,7 +34,7 @@ exports[`GameFinished should match snapshot when cross wins 1`] = `
 <div
   className="restartAlignment visible"
 >
-  <Typography
+  <Function
     className="winnerText"
     use="headline4"
   >
@@ -49,14 +49,14 @@ exports[`GameFinished should match snapshot when cross wins 1`] = `
     />
      
     wins!
-  </Typography>
-  <withRipple(Button)
+  </Function>
+  <withRipple(Function)
     dense={true}
     onClick={[Function]}
     raised={true}
   >
     Play Again
-  </withRipple(Button)>
+  </withRipple(Function)>
 </div>
 `;
 
@@ -64,19 +64,19 @@ exports[`GameFinished should match snapshot when draw 1`] = `
 <div
   className="restartAlignment visible"
 >
-  <Typography
+  <Function
     className="winnerText"
     use="headline4"
   >
     It's a draw!
-  </Typography>
-  <withRipple(Button)
+  </Function>
+  <withRipple(Function)
     dense={true}
     onClick={[Function]}
     raised={true}
   >
     Play Again
-  </withRipple(Button)>
+  </withRipple(Function)>
 </div>
 `;
 
@@ -84,7 +84,7 @@ exports[`GameFinished should match snapshot when no one wins 1`] = `
 <div
   className="restartAlignment hidden"
 >
-  <Typography
+  <Function
     className="winnerText"
     use="headline4"
   >
@@ -98,13 +98,13 @@ exports[`GameFinished should match snapshot when no one wins 1`] = `
       }
     />
     resrv
-  </Typography>
-  <withRipple(Button)
+  </Function>
+  <withRipple(Function)
     dense={true}
     onClick={[Function]}
     raised={true}
   >
     Play Again
-  </withRipple(Button)>
+  </withRipple(Function)>
 </div>
 `;

@@ -7,12 +7,12 @@ exports[`AnalysisOverview should match snapshot 1`] = `
   <div
     className="header"
   >
-    <Typography
+    <Function
       tag="h1"
       use="headline2"
     >
       Recently played games
-    </Typography>
+    </Function>
   </div>
   <div
     className="gameList"

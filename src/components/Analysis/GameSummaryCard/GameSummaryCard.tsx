@@ -58,7 +58,7 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
             ago
           </Typography>
         </div>
-        <ListDivider />
+        <ListDivider tag="div" />
       </div>
       <div className={styles.padding10}>
         <a className="sr-only" href={`#analyse-button-${gameNumber}`}>

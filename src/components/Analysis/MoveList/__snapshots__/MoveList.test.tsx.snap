@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MoveList should match snapshot 1`] = `
-<List
+<Function
   className="noPadding"
   dense={true}
   onAction={[Function]}
@@ -11,7 +11,7 @@ exports[`MoveList should match snapshot 1`] = `
     key="4"
     name="move-4"
   >
-    <SimpleListItem
+    <Function
       activated={true}
       className="smallerMargin biggerIcon fullWidth"
       graphic={
@@ -30,7 +30,7 @@ exports[`MoveList should match snapshot 1`] = `
     key="3"
     name="move-3"
   >
-    <SimpleListItem
+    <Function
       activated={false}
       className="smallerMargin biggerIcon fullWidth"
       graphic={
@@ -49,7 +49,7 @@ exports[`MoveList should match snapshot 1`] = `
     key="2"
     name="move-2"
   >
-    <SimpleListItem
+    <Function
       activated={false}
       className="smallerMargin biggerIcon fullWidth"
       graphic={
@@ -68,7 +68,7 @@ exports[`MoveList should match snapshot 1`] = `
     key="1"
     name="move-1"
   >
-    <SimpleListItem
+    <Function
       activated={false}
       className="smallerMargin biggerIcon fullWidth"
       graphic={
@@ -83,5 +83,5 @@ exports[`MoveList should match snapshot 1`] = `
       text="Move 1"
     />
   </Element>
-</List>
+</Function>
 `;

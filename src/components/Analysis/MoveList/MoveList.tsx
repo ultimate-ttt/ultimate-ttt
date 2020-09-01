@@ -60,7 +60,7 @@ export function MoveList(props: MoveListProps) {
     return moveList;
   };
 
-  const changeDisplayedMove = (event: CustomEventT<number>) => {
+  const changeDisplayedMove = (event: CustomEventT<{index: number}>) => {
     const {
       currentMove,
       reversedMoves,
@@ -68,7 +68,7 @@ export function MoveList(props: MoveListProps) {
       moveBackwardInHistory,
     } = props;
 
-    const numberOfMovesFromEnd = event.detail;
+    const numberOfMovesFromEnd = event.detail.index;
     const moveNumber = reversedMoves.length - numberOfMovesFromEnd;
 
     if (moveNumber === currentMove) {
