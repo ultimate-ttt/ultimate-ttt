@@ -1,23 +1,21 @@
 import * as React from 'react';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
+import { boolean } from '@storybook/addon-knobs';
 import { XSymbol } from './XSymbol';
 import { OSymbol } from './OSymbol';
 import { DrawSymbol } from './DrawSymbol';
 
-const stories = storiesOf('Symbol', module).addParameters({
-  backgrounds: [{ name: 'tile', value: '#008891', default: true }],
-});
-stories.addDecorator(withKnobs);
+export default {
+  title: 'Symbol',
+  parameters: {
+    backgrounds: {
+      default: 'tile',
+      values:  [
+        { name: 'tile', value: '#008891' }
+      ]
+    }
+  }
+}
 
-stories.add('XSymbol', () => (
-  <XSymbol shouldAnimate={boolean('shouldAnimate', true)} />
-));
-
-stories.add('OSymbol', () => (
-  <OSymbol shouldAnimate={boolean('shouldAnimate', true)} />
-));
-
-stories.add('DrawSymbol', () => (
-  <DrawSymbol shouldAnimate={boolean('shouldAnimate', true)} />
-));
+export const X: React.SFC<{}> = () => <XSymbol shouldAnimate={boolean('shouldAnimate', true)} />
+export const O: React.SFC<{}> = () => <OSymbol shouldAnimate={boolean('shouldAnimate', true)} />
+export const Draw: React.SFC<{}> = () => <DrawSymbol shouldAnimate={boolean('shouldAnimate', true)} />
