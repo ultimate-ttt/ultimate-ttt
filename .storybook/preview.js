@@ -10,7 +10,6 @@ import '@rmwc/icon/icon.css';
 import '../src/index.css';
 import '../src/icons/icons.css';
 
-// TODO maybe use -s path/to/folder
 import '../src/icons/x.svg';
 import '../src/icons/o.svg';
 import '../src/icons/draw.svg';
