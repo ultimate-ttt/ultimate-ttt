@@ -8,7 +8,7 @@ import {
 } from '../../../__mocks__';
 import { SmallBoard } from '../SmallBoard/SmallBoard';
 
-describe('BigBoard', function() {
+describe('BigBoard', function () {
   it('should render 9 small boards', () => {
     const playerMoved = jest.fn(() => {});
     const activeBoards = [{ x: 0, y: 0 }];

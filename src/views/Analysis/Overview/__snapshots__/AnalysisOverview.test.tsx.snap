@@ -7,12 +7,12 @@ exports[`AnalysisOverview should match snapshot 1`] = `
   <div
     className="header"
   >
-    <Typography
+    <Function
       tag="h1"
       use="headline2"
     >
       Recently played games
-    </Typography>
+    </Function>
   </div>
   <div
     className="gameList"
@@ -1367,7 +1367,18 @@ exports[`AnalysisOverview should match snapshot 1`] = `
       key="1"
       link={
         Object {
-          "tag": [Function],
+          "tag": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "propTypes": Object {
+              "innerRef": [Function],
+              "onClick": [Function],
+              "replace": [Function],
+              "target": [Function],
+              "to": [Function],
+            },
+            "render": [Function],
+          },
           "to": "/analysis/1",
         }
       }
@@ -2662,7 +2673,18 @@ exports[`AnalysisOverview should match snapshot 1`] = `
       key="2"
       link={
         Object {
-          "tag": [Function],
+          "tag": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "propTypes": Object {
+              "innerRef": [Function],
+              "onClick": [Function],
+              "replace": [Function],
+              "target": [Function],
+              "to": [Function],
+            },
+            "render": [Function],
+          },
           "to": "/analysis/2",
         }
       }

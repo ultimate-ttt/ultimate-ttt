@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react';
-import { date, number, select, text, withKnobs } from '@storybook/addon-knobs';
+import { date, number, select, text } from '@storybook/addon-knobs';
 import * as React from 'react';
 import { GameSummaryCard } from './GameSummaryCard';
 import {
@@ -15,7 +15,6 @@ import { WinnerString } from '../../../state/AppState';
 import { IconProvider } from '../../IconProvider';
 
 const stories = storiesOf('Analysis', module);
-stories.addDecorator(withKnobs);
 
 const gameStateOptions = {
   cross: {
@@ -41,10 +40,11 @@ function isoStringDateKnob(name: string, defaultValue: Date) {
 }
 
 stories.add('GameSummaryCard', () => {
+  // The new Storybook select Typings don't work correctly in strict Mode yet.
   const selectedGameState = select(
     'gameState',
-    gameStateOptions,
-    gameStateOptions.cross,
+    gameStateOptions as any,
+    gameStateOptions.cross as any,
   );
 
   const defaultDate = new Date(2019, 1, 1);

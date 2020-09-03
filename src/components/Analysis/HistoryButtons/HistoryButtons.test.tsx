@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { HistoryButtons } from './HistoryButtons';
 import { Button } from '@rmwc/button';
 
-describe('HistoryButtons', function() {
+describe('HistoryButtons', function () {
   it('should match snapshot', () => {
     const moveForwardInHistory = jest.fn((numberOfMoves) => {});
     const moveBackwardInHistory = jest.fn((numberOfMoves) => {});

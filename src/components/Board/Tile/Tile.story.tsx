@@ -48,7 +48,7 @@ stories.add('Tile Clickable', () => (
   </div>
 ));
 
-stories.add('Tile Marked Specially', () => (
+stories.add('Tile Highlighted', () => (
   <div className={styles.smallBoard}>
     <Tile
       value={TileValue.Empty}

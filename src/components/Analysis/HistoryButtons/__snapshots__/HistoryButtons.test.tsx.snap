@@ -2,7 +2,7 @@
 
 exports[`HistoryButtons should match snapshot 1`] = `
 <Fragment>
-  <withRipple(Button)
+  <withRipple(Function)
     className="buttonMargin"
     dense={true}
     disabled={true}
@@ -16,8 +16,8 @@ exports[`HistoryButtons should match snapshot 1`] = `
     raised={true}
   >
     Previous
-  </withRipple(Button)>
-  <withRipple(Button)
+  </withRipple(Function)>
+  <withRipple(Function)
     className="buttonMargin"
     dense={true}
     disabled={false}
@@ -31,6 +31,6 @@ exports[`HistoryButtons should match snapshot 1`] = `
     }
   >
     Next
-  </withRipple(Button)>
+  </withRipple(Function)>
 </Fragment>
 `;

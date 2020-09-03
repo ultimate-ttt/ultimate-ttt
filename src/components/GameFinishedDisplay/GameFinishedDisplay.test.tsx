@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Winner } from '../../state/AppState';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
 
-describe('GameFinished', function() {
+describe('GameFinished', function () {
   it('should match snapshot when draw', () => {
     const restart = () => {};
     const gameFinishedIndicator = shallow(
