@@ -1,19 +1,19 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { number, withKnobs } from '@storybook/addon-knobs';
-import { Paging } from './Paging';
+import { Paging, PagingProps } from './Paging';
 import { action } from '@storybook/addon-actions';
+import { Story } from '@storybook/react/types-6-0';
 import { IconProvider } from '../IconProvider';
 
-const stories = storiesOf('Paging', module);
-stories.addDecorator(withKnobs);
+export default {
+  title: 'Paging',
+};
 
-stories.add('Paging Standard', () => (
+export const Standard: Story<PagingProps> = (args) => (
   <IconProvider>
-    <Paging
-      pages={number('pages', 10)}
-      pageToStartWith={number('pageToStartWith', 5)}
-      onPageChange={action('onPageChange')}
-    />
+    <Paging {...args} onPageChange={action('onPageChange')} />
   </IconProvider>
-));
+);
+Standard.args = {
+  pages: 10,
+  pageToStartWith: 10
+};

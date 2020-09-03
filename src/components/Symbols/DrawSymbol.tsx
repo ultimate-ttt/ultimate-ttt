@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { ReactComponent as DrawIcon } from '../../icons/svg/draw.svg';
 import styles from './Symbols.module.css';
 
-interface DrawSymbolProps {
+export interface DrawSymbolProps {
   shouldAnimate?: boolean;
 }
 

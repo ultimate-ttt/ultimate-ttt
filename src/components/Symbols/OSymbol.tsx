@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { ReactComponent as OIcon } from '../../icons/svg/o.svg';
 import styles from './Symbols.module.css';
 
-interface OSymbolProps {
+export interface OSymbolProps {
   shouldAnimate?: boolean;
 }
 

@@ -4,7 +4,7 @@ import styles from './Paging.module.css';
 import { useState } from 'react';
 import icons from '../../icons/icons';
 
-interface PagingProps {
+export interface PagingProps {
   pages: number;
   pageToStartWith: number;
   onPageChange: (newPage: number) => void;

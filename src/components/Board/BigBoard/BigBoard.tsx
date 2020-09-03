@@ -8,7 +8,7 @@ import {
 import { arePointsEqual, Point } from '../../../util';
 import styles from './BigBoard.module.css';
 
-interface BigBoardProps {
+export interface BigBoardProps {
   currentPlayer: Player;
   board: SmallBoardInformation[];
   activeBoards: Point[];
