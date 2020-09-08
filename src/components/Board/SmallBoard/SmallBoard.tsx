@@ -9,7 +9,7 @@ import { Tile } from '../Tile/Tile';
 import { arePointsEqual, Point } from '../../../util';
 import styles from './SmallBoard.module.css';
 
-interface SmallBoardProps {
+export interface SmallBoardProps {
   x: number;
   y: number;
   moveAllowed: boolean;
