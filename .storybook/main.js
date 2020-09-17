@@ -3,8 +3,7 @@ module.exports = {
   addons: [
     '@storybook/preset-create-react-app',
     '@storybook/addon-essentials',
-    '@storybook/addon-links/register',
-    '@storybook/addon-knobs/preset', // TODO remove this dependency as this will be unsupported in Storybook 7
+    '@storybook/addon-links/register'
   ],
   typescript: {
     check: false,
