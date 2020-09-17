@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { number, withKnobs } from '@storybook/addon-knobs';
-import { HistoryButtons } from './HistoryButtons';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { HistoryButtons, HistoryButtonsProps } from './HistoryButtons';
 import { action } from '@storybook/addon-actions';
 import { IconProvider } from '../../IconProvider';
 
-const stories = storiesOf('Analysis', module);
-stories.addDecorator(withKnobs);
+export default {
+  title: 'HistoryButtons',
+  component: HistoryButtons,
+} as Meta;
 
-stories.add('HistoryButtons', () => (
+export const Default: Story<HistoryButtonsProps> = (args) => (
   <IconProvider>
     <div className="historyButtons">
       <HistoryButtons
-        currentMove={number('currentMove', 1)}
-        lastMove={number('lastMove', 5)}
+        {...args}
         moveForwardInHistory={action('moveForwardInHistory')}
         moveBackwardInHistory={action('moveBackwardInHistory')}
         onInteraction={action('interaction')}
       />
     </div>
   </IconProvider>
-));
+);
+Default.args = {
+  currentMove: 1,
+  lastMove: 5,
+};

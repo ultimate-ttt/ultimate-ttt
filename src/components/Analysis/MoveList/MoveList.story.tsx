@@ -1,26 +1,28 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { number, object, withKnobs } from '@storybook/addon-knobs';
+import { Story, Meta } from '@storybook/react/types-6-0';
 import { action } from '@storybook/addon-actions';
-import { MoveList } from './MoveList';
+import { MoveList, MoveListProps } from './MoveList';
 import { movesForBoardWithThreeMovesMock } from '../../../__mocks__';
 import { IconProvider } from '../../IconProvider';
 
-const stories = storiesOf('Analysis', module);
-stories.addDecorator(withKnobs);
+export default {
+  title: 'MoveList',
+  component: MoveList,
+} as Meta;
 
-stories.add('MoveList', () => (
+export const Default: Story<MoveListProps> = (args) => (
   <IconProvider>
     <div className="moveList">
       <MoveList
-        currentMove={number('currentMove', 2)}
-        reversedMoves={object(
-          'reversedMoves',
-          movesForBoardWithThreeMovesMock.slice().reverse(),
-        )}
+        {...args}
         moveForwardInHistory={action('moveForwardInHistory')}
         moveBackwardInHistory={action('moveBackwardInHistory')}
       />
     </div>
   </IconProvider>
-));
+);
+
+Default.args = {
+  currentMove: 2,
+  reversedMoves: movesForBoardWithThreeMovesMock.slice().reverse(),
+};
