@@ -7,7 +7,7 @@ import styles from './Tile.module.css';
 import classNames from 'classnames';
 import { Point } from '../../../util';
 
-interface TileProps {
+export interface TileProps {
   onTileClicked?: () => void;
   value: TileValue;
   isTileRound: boolean;

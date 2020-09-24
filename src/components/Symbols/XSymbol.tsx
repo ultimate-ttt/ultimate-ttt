@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { ReactComponent as XIcon } from '../../icons/svg/x.svg';
 import styles from './Symbols.module.css';
 
-interface XSymbolProps {
+export interface XSymbolProps {
   shouldAnimate?: boolean;
 }
 

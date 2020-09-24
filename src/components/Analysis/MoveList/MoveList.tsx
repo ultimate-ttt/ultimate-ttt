@@ -8,7 +8,7 @@ import { moveScrollElementBaseName } from '../ScrollElementConstants';
 import styles from './MoveList.module.css';
 import classNames from 'classnames';
 
-interface MoveListProps {
+export interface MoveListProps {
   reversedMoves: MoveState[];
   currentMove: number;
   moveForwardInHistory: (numberOfMoves: number) => void;

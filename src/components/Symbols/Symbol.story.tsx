@@ -1,21 +1,24 @@
 import * as React from 'react';
-import { boolean } from '@storybook/addon-knobs';
-import { XSymbol } from './XSymbol';
-import { OSymbol } from './OSymbol';
-import { DrawSymbol } from './DrawSymbol';
+import { XSymbol, XSymbolProps } from './XSymbol';
+import { OSymbol, OSymbolProps } from './OSymbol';
+import { DrawSymbol, DrawSymbolProps } from './DrawSymbol';
+import { Story } from '@storybook/react/types-6-0';
 
 export default {
   title: 'Symbol',
   parameters: {
     backgrounds: {
       default: 'tile',
-      values:  [
-        { name: 'tile', value: '#008891' }
-      ]
-    }
-  }
-}
+      values: [{ name: 'tile', value: '#008891' }],
+    },
+  },
+};
 
-export const X: React.SFC<{}> = () => <XSymbol shouldAnimate={boolean('shouldAnimate', true)} />
-export const O: React.SFC<{}> = () => <OSymbol shouldAnimate={boolean('shouldAnimate', true)} />
-export const Draw: React.SFC<{}> = () => <DrawSymbol shouldAnimate={boolean('shouldAnimate', true)} />
+export const X: Story<XSymbolProps> = (args) => <XSymbol {...args} />;
+X.args = { shouldAnimate: true };
+
+export const O: Story<OSymbolProps> = (args) => <OSymbol {...args} />;
+O.args = { shouldAnimate: true };
+
+export const Draw: Story<DrawSymbolProps> = (args) => <DrawSymbol {...args} />;
+Draw.args = { shouldAnimate: true };

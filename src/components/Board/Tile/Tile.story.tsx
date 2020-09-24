@@ -1,102 +1,58 @@
 import * as React from 'react';
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-import { Tile } from './Tile';
+import { Tile, TileProps } from './Tile';
 import { TileValue } from '../../../state/AppState';
 import { action } from '@storybook/addon-actions';
+import { Story, Meta } from '@storybook/react/types-6-0';
 import styles from '../SmallBoard/SmallBoard.module.css';
 
-const stories = storiesOf('Tile', module);
-stories.addDecorator(withKnobs);
+export default {
+  title: 'Tile',
+  component: Tile
+} as Meta
 
 const position = {
   tilePosition: { x: 0, y: 0 },
   boardPosition: { x: 0, y: 0 },
 };
 
-const tileValues = {
-  Empty: TileValue.Empty,
-  Cross: TileValue.Cross,
-  Circle: TileValue.Circle,
-  Destroyed: TileValue.Destroyed,
+const Template: Story<TileProps> = (args) => (
+  <div className={styles.smallBoard}>
+    <Tile {...args} onTileClicked={action('onTileClicked')} position={position} />
+  </div>
+);
+
+export const Clickable = Template.bind({});
+Clickable.args = {
+  value: TileValue.Empty,
+  isTileRound: false,
+  clickable: true,
 };
 
-stories.add('Tile Customisable', () => (
-  <div className={styles.smallBoard}>
-    <Tile
-      value={select('Value', tileValues, TileValue.Empty)}
-      isTileRound={boolean('isTileRound', false)}
-      onTileClicked={action('onTileClicked')}
-      clickable={boolean('clickable', false)}
-      animate={boolean('animate', true)}
-      highlight={boolean('higlight', false)}
-      position={position}
-    />
-  </div>
-));
+export const Highlighted = Template.bind({});
+Highlighted.args = {
+  value: TileValue.Empty,
+  isTileRound: false,
+  clickable: false,
+  highlight: true
+}
 
-stories.add('Tile Clickable', () => (
-  <div className={styles.smallBoard}>
-    <Tile
-      value={TileValue.Empty}
-      isTileRound={boolean('isTileRound', false)}
-      onTileClicked={action('onTileClicked')}
-      clickable={true}
-      animate={boolean('animate', true)}
-      position={position}
-    />
-  </div>
-));
+export const Circle = Template.bind({});
+Circle.args = {
+  value: TileValue.Circle,
+  isTileRound: false,
+  clickable: false  
+};
 
-stories.add('Tile Highlighted', () => (
-  <div className={styles.smallBoard}>
-    <Tile
-      value={TileValue.Empty}
-      isTileRound={boolean('isTileRound', false)}
-      onTileClicked={action('onTileClicked')}
-      clickable={boolean('clickable', false)}
-      highlight={true}
-      animate={boolean('animate', true)}
-      position={position}
-    />
-  </div>
-));
+export const Cross = Template.bind({});
+Cross.args = {
+  value: TileValue.Cross,
+  isTileRound: false,
+  clickable: false
+};
 
-stories.add('Tile Circle', () => (
-  <div className={styles.smallBoard}>
-    <Tile
-      value={TileValue.Circle}
-      isTileRound={boolean('isTileRound', false)}
-      onTileClicked={action('onTileClicked')}
-      clickable={boolean('clickable', false)}
-      animate={boolean('animate', true)}
-      position={position}
-    />
-  </div>
-));
-
-stories.add('Tile Cross', () => (
-  <div className={styles.smallBoard}>
-    <Tile
-      value={TileValue.Cross}
-      isTileRound={boolean('isTileRound', false)}
-      onTileClicked={action('onTileClicked')}
-      clickable={boolean('clickable', false)}
-      animate={boolean('animate', true)}
-      position={position}
-    />
-  </div>
-));
-
-stories.add('Tile Destroyed', () => (
-  <div className={styles.smallBoardFinished}>
-    <Tile
-      value={TileValue.Destroyed}
-      isTileRound={boolean('isTileRound', false)}
-      onTileClicked={action('onTileClicked')}
-      clickable={boolean('clickable', false)}
-      animate={boolean('animate', true)}
-      position={position}
-    />
-  </div>
-));
+export const Destroyed = Template.bind({});
+Destroyed.args = {
+  value: TileValue.Destroyed,
+  isTileRound: false,
+  clickable: false
+};

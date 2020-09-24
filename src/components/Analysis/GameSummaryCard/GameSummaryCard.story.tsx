@@ -1,7 +1,6 @@
-import { storiesOf } from '@storybook/react';
-import { date, number, select, text } from '@storybook/addon-knobs';
 import * as React from 'react';
-import { GameSummaryCard } from './GameSummaryCard';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { GameSummaryCard, GameSummaryCardProps } from './GameSummaryCard';
 import {
   circleFinishedBoardMock,
   crossFinishedBoardMock,
@@ -14,7 +13,10 @@ import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { WinnerString } from '../../../state/AppState';
 import { IconProvider } from '../../IconProvider';
 
-const stories = storiesOf('Analysis', module);
+export default {
+  title: 'GameSummaryCard',
+  component: GameSummaryCard,
+} as Meta;
 
 const gameStateOptions = {
   cross: {
@@ -34,40 +36,79 @@ const gameStateOptions = {
   },
 };
 
-function isoStringDateKnob(name: string, defaultValue: Date) {
-  const stringTimestamp = date(name, defaultValue);
-  return new Date(stringTimestamp).toISOString();
-}
+const defaultDate = new Date(2019, 1, 1).toISOString();
 
-stories.add('GameSummaryCard', () => {
-  // The new Storybook select Typings don't work correctly in strict Mode yet.
-  const selectedGameState = select(
-    'gameState',
-    gameStateOptions as any,
-    gameStateOptions.cross as any,
-  );
+export const CrossWins: Story<GameSummaryCardProps> = (args) => (
+  <IconProvider>
+    <Router>
+      <div style={{ height: '100%' }}>
+        <GameSummaryCard
+          {...args}
+          game={{
+            id: '1',
+            gameState: gameStateOptions.cross.state,
+            date: defaultDate,
+            winner: gameStateOptions.cross.winner as WinnerString,
+            moves: gameStateOptions.cross.moves,
+            saveState: 'fulfilled',
+            errorMessage: '',
+          }}
+        />
+      </div>
+    </Router>
+  </IconProvider>
+);
+CrossWins.args = {
+  gameNumber: 1,
+  link: { tag: Link, to: '/test' }
+};
 
-  const defaultDate = new Date(2019, 1, 1);
+export const CircleWins: Story<GameSummaryCardProps> = (args) => (
+  <IconProvider>
+    <Router>
+      <div style={{ height: '100%' }}>
+        <GameSummaryCard
+          {...args}
+          game={{
+            id: '1',
+            gameState: gameStateOptions.circle.state,
+            date: defaultDate,
+            winner: gameStateOptions.circle.winner as WinnerString,
+            moves: gameStateOptions.circle.moves,
+            saveState: 'fulfilled',
+            errorMessage: '',
+          }}
+        />
+      </div>
+    </Router>
+  </IconProvider>
+);
+CircleWins.args = {
+  gameNumber: 1,
+  link: { tag: Link, to: '/test' }
+};
 
-  return (
-    <IconProvider>
-      <Router>
-        <div style={{ height: '100%' }}>
-          <GameSummaryCard
-            gameNumber={number('gameNumber', 1)}
-            game={{
-              id: '1',
-              gameState: selectedGameState.state,
-              date: isoStringDateKnob('date', defaultDate),
-              winner: selectedGameState.winner as WinnerString,
-              moves: selectedGameState.moves,
-              saveState: 'fulfilled',
-              errorMessage: '',
-            }}
-            link={{ tag: Link, to: text('to', '/test') }}
-          />
-        </div>
-      </Router>
-    </IconProvider>
-  );
-});
+export const Draw: Story<GameSummaryCardProps> = (args) => (
+  <IconProvider>
+    <Router>
+      <div style={{ height: '100%' }}>
+        <GameSummaryCard
+          {...args}
+          game={{
+            id: '1',
+            gameState: gameStateOptions.draw.state,
+            date: defaultDate,
+            winner: gameStateOptions.draw.winner as WinnerString,
+            moves: gameStateOptions.draw.moves,
+            saveState: 'fulfilled',
+            errorMessage: '',
+          }}
+        />
+      </div>
+    </Router>
+  </IconProvider>
+);
+Draw.args = {
+  gameNumber: 1,
+  link: { tag: Link, to: '/test' }
+};

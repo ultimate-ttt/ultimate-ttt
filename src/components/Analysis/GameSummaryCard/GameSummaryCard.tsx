@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import styles from './GameSummaryCard.module.css';
 import icons from '../../../icons/icons';
 
-interface GameSummaryCardProps {
+export interface GameSummaryCardProps {
   gameNumber: number;
   game: FinishedGameState;
   link: { tag: typeof Link; to: string };

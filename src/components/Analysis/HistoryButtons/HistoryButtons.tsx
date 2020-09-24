@@ -3,7 +3,7 @@ import { Button } from '@rmwc/button';
 import styles from './HistoryButtons.module.css';
 import icons from '../../../icons/icons';
 
-interface HistoryButtonsProps {
+export interface HistoryButtonsProps {
   currentMove: number;
   lastMove: number;
   moveForwardInHistory: (numberOfMoves: number) => void;
