@@ -18,16 +18,14 @@ export const getWinningPlayerAsString = createSelector(
   },
 );
 
-export const getDate = createSelector([], () => new Date());
-
 export const getFinishedGameData = createSelector(
-  [getWinningPlayerAsString, getBoards, getMoves, getDate],
-  (winningPlayer, boards, moves, date) => {
+  [getWinningPlayerAsString, getBoards, getMoves],
+  (winningPlayer, boards, moves) => {
     return {
       winner: winningPlayer,
       gameState: boards,
       moves: moves,
-      date: date,
+      date: new Date(),
     };
   },
 );
