@@ -51,14 +51,13 @@ describe('FinishedGameStateSelectors', () => {
         mockParameters.winningPlayer,
         mockParameters.boards,
         mockParameters.moves,
-        new Date(2019, 4, 3, 1, 1, 0),
       );
 
       const expectedSelection = {
         winner: mockParameters.winningPlayer,
         gameState: mockParameters.boards,
         moves: mockParameters.moves,
-        date: new Date(2019, 4, 3, 1, 1, 0),
+        date: new Date().toISOString(),
       };
       expect(selected).toEqual(expectedSelection);
     });

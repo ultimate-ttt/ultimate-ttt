@@ -9,4 +9,3 @@ after_success:
   - codecov
 notifications:
   email: false
-  webhooks: https://www.travisbuddy.com/?insertMode=update

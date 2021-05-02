@@ -12,7 +12,6 @@ width="150" alt="tic tac toe logo" />
   
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ultimate-ttt/ultimate-ttt/issues)
 [![Build Status](https://travis-ci.org/ultimate-ttt/ultimate-ttt.svg?branch=master)](https://travis-ci.org/ultimate-ttt/ultimate-ttt)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ultimate-ttt/ultimate-ttt.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/ultimate-ttt/ultimate-ttt/branch/master/graph/badge.svg)](https://codecov.io/gh/ultimate-ttt/ultimate-ttt)
 
 </div>
@@ -20,7 +19,7 @@ width="150" alt="tic tac toe logo" />
 ## Demo
 
 Below you see a quick demo of the game mechanics.
-You can test it out yourself [here](https://ultimatettt.netlify.com/)
+You can test it out yourself [here](https://playtictactoe.xyz/)
 
 <img src="https://user-images.githubusercontent.com/16801528/38771159-2815f1ec-401e-11e8-8edb-157b58403761.gif" alt="demo of the game" width="500">
 

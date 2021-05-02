@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 import { GameSummaryCard } from '../../../components/Analysis/GameSummaryCard/GameSummaryCard';
 import { Paging } from '../../../components/Paging/Paging';
 import { useState } from 'react';
-import { NoGameFound } from '../NoGameFound';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
@@ -62,9 +61,9 @@ export function AnalysisOverview(props: AnalysisOverviewProps) {
           ))}
         </div>
       ) : (
-        <NoGameFound tag="h2" size="headline4" className={styles.noGameFound}>
+        <Typography use="headline4" tag="h2">
           No recently played games were found
-        </NoGameFound>
+        </Typography>
       )}
       {amountOfPages > 1 && (
         <Paging

@@ -7,8 +7,8 @@ import styles from '../SmallBoard/SmallBoard.module.css';
 
 export default {
   title: 'Tile',
-  component: Tile
-} as Meta
+  component: Tile,
+} as Meta;
 
 const position = {
   tilePosition: { x: 0, y: 0 },
@@ -17,7 +17,11 @@ const position = {
 
 const Template: Story<TileProps> = (args) => (
   <div className={styles.smallBoard}>
-    <Tile {...args} onTileClicked={action('onTileClicked')} position={position} />
+    <Tile
+      {...args}
+      onTileClicked={action('onTileClicked')}
+      position={position}
+    />
   </div>
 );
 
@@ -33,26 +37,26 @@ Highlighted.args = {
   value: TileValue.Empty,
   isTileRound: false,
   clickable: false,
-  highlight: true
-}
+  highlight: true,
+};
 
 export const Circle = Template.bind({});
 Circle.args = {
   value: TileValue.Circle,
   isTileRound: false,
-  clickable: false  
+  clickable: false,
 };
 
 export const Cross = Template.bind({});
 Cross.args = {
   value: TileValue.Cross,
   isTileRound: false,
-  clickable: false
+  clickable: false,
 };
 
 export const Destroyed = Template.bind({});
 Destroyed.args = {
   value: TileValue.Destroyed,
   isTileRound: false,
-  clickable: false
+  clickable: false,
 };
