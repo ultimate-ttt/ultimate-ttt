@@ -3,10 +3,11 @@
 
   /* For a smaller gap between the small boards -> em will be smaller then*/
   font-size: 7px;
+  
+  padding-left: 3em;
 }
 
 .header {
-  padding-left: 3em;
   margin-bottom: 3em;
   margin-top: 3em;
   color: var(--mdc-theme-primary);
@@ -36,9 +37,4 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 4em;
-}
-
-.noGameFound {
-  padding-top: 1em;
-  padding-left: 3em;
 }

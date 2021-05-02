@@ -60,7 +60,7 @@ export const CrossWins: Story<GameSummaryCardProps> = (args) => (
 );
 CrossWins.args = {
   gameNumber: 1,
-  link: { tag: Link, to: '/test' }
+  link: { tag: Link, to: '/test' },
 };
 
 export const CircleWins: Story<GameSummaryCardProps> = (args) => (
@@ -85,7 +85,7 @@ export const CircleWins: Story<GameSummaryCardProps> = (args) => (
 );
 CircleWins.args = {
   gameNumber: 1,
-  link: { tag: Link, to: '/test' }
+  link: { tag: Link, to: '/test' },
 };
 
 export const Draw: Story<GameSummaryCardProps> = (args) => (
@@ -110,5 +110,5 @@ export const Draw: Story<GameSummaryCardProps> = (args) => (
 );
 Draw.args = {
   gameNumber: 1,
-  link: { tag: Link, to: '/test' }
+  link: { tag: Link, to: '/test' },
 };

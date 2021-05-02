@@ -15,5 +15,5 @@ export const Standard: Story<PagingProps> = (args) => (
 );
 Standard.args = {
   pages: 10,
-  pageToStartWith: 10
+  pageToStartWith: 10,
 };

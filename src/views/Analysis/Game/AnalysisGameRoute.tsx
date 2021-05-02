@@ -58,7 +58,7 @@ export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
       analysisGame={props.analysisGame}
     />
   ) : (
-    <NoGameFound tag="h1" center={true} />
+    <NoGameFound />
   );
 }
 
