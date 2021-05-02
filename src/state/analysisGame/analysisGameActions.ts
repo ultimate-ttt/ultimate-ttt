@@ -7,6 +7,7 @@ export const LOAD_FINISHED_GAME_BY_DATE =
 export const LOAD_LATEST_FINISHED_GAME =
   'analysisGameReducer/load-latest-finished-game';
 export const SET_ANALYSIS_GAME = 'analysisGameReducer/set-analysis-game';
+export const RESET_ANALYSIS_GAME = 'analysisGameReducer/reset-analysis-game';
 export const MOVE_FORWARD_IN_HISTORY =
   'analysisGameReducer/move-forward-in-history';
 export const MOVE_BACKWARD_IN_HISTORY =
@@ -29,6 +30,10 @@ export const loadLatestFinishedGame = () => ({
 export const setAnalysisGame = (analysisGame: AnalysisGame) => ({
   type: SET_ANALYSIS_GAME,
   payload: analysisGame,
+});
+
+export const resetAnalysisGame = () => ({
+  type: RESET_ANALYSIS_GAME,
 });
 
 export const moveForwardInHistory = (numberOfMoves: number) => ({

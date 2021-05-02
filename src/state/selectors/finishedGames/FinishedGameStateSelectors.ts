@@ -25,7 +25,7 @@ export const getFinishedGameData = createSelector(
       winner: winningPlayer,
       gameState: boards,
       moves: moves,
-      date: new Date(),
+      date: new Date().toISOString(),
     };
   },
 );

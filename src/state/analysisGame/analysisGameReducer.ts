@@ -2,6 +2,7 @@ import { AnalysisGame, GenericAction, Player, Winner } from '../AppState';
 import {
   MOVE_BACKWARD_IN_HISTORY,
   MOVE_FORWARD_IN_HISTORY,
+  RESET_ANALYSIS_GAME,
   SET_ANALYSIS_GAME,
 } from './analysisGameActions';
 import produce from 'immer';
@@ -21,6 +22,10 @@ const initialState: AnalysisGame = {
 };
 
 const analysisGameReducer = (state = initialState, action: GenericAction) => {
+  if (action.type === RESET_ANALYSIS_GAME) {
+    return initialState;
+  }
+
   if (action.type === SET_ANALYSIS_GAME) {
     return action.payload;
   }
@@ -40,7 +45,7 @@ const analysisGameReducer = (state = initialState, action: GenericAction) => {
       lastMoveToApply = state.currentMove - movesToMoveBackward;
     }
 
-    const newState = produce(state, (draftState) => {
+    return produce(state, (draftState) => {
       draftState.currentMove = lastMoveToApply;
       const relevantMoves = state.moves.slice(0, lastMoveToApply);
 
@@ -49,7 +54,6 @@ const analysisGameReducer = (state = initialState, action: GenericAction) => {
       draftState.activeBoards = game.getCurrentActiveBoards();
       draftState.game.currentPlayer = game.getCurrentPlayer();
     });
-    return newState;
   } else {
     return state;
   }
