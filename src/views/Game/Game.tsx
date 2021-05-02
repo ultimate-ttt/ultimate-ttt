@@ -6,6 +6,7 @@ import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
 import { Point } from '../../util';
 import styles from './Game.module.css';
+import { HowToPlayDialog } from '../../components/HowToPlay/HowToPlayDialog';
 
 interface GameProps {
   currentPlayer: Player;
@@ -33,6 +34,7 @@ export function Game(props: GameProps) {
           onPlayerMoved={onPlayerMoved}
         />
       </div>
+      <HowToPlayDialog />
     </div>
   );
 }

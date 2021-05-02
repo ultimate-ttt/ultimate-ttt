@@ -11,9 +11,9 @@ import { Point, arePointsEqual } from './Point';
 import { playerToTileValue } from './PlayerToTile';
 
 export class TicTacToeGame {
-  private readonly board: SmallBoardInformation[];
-  private readonly moves: Move[];
-  private currentPlayer: Player;
+  protected readonly board: SmallBoardInformation[];
+  protected readonly moves: Move[];
+  protected currentPlayer: Player;
 
   constructor(moves: Move[]) {
     this.board = this.getInitialSmallBoards();
@@ -152,7 +152,7 @@ export class TicTacToeGame {
     }
   }
 
-  private getWinResultForGivenBoard(board: TileInformation[]) {
+  protected getWinResultForGivenBoard(board: TileInformation[]) {
     const countInLine = (player: Player, row: TileInformation[]) => {
       return row.filter((el) => el.value === playerToTileValue(player)).length;
     };
