@@ -1,0 +1,7 @@
+.dialog :global(.mdc-dialog__surface) {
+    width: 80vh;
+}
+
+.push:global(.mdc-dialog__button) {
+    margin-left: auto;
+}
