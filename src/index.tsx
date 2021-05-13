@@ -6,9 +6,8 @@ import { register } from './serviceWorker';
 import { configureStore } from './state/configureStore';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import { IconProvider } from './components/IconProvider';
+import { IconProvider } from './components/Icons';
 import './index.css';
-import './icons/icons.css';
 
 const store = configureStore();
 const persistor = persistStore(store);

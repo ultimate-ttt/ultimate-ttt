@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ReactComponent as XIcon } from '../../icons/svg/x.svg';
+import { XGameIcon } from '../Icons';
 import styles from './Symbols.module.css';
 
 export interface XSymbolProps {
@@ -19,6 +19,6 @@ export class XSymbol extends React.Component<XSymbolProps> {
       [styles.animateX]: shouldAnimate,
     });
 
-    return <XIcon className={iconClass} />;
+    return <XGameIcon className={iconClass} />;
   }
 }

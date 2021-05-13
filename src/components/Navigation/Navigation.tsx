@@ -8,7 +8,6 @@ import {
   TopAppBarActionItem,
   TopAppBarFixedAdjust,
 } from '@rmwc/top-app-bar';
-import { Icon } from '@rmwc/icon';
 import { Drawer, DrawerContent } from '@rmwc/drawer';
 import { useState } from 'react';
 import {
@@ -20,8 +19,15 @@ import {
 } from '@rmwc/list';
 import { Link, NavLink } from 'react-router-dom';
 import routes from '../../routes/routes';
-import icons from '../../icons/icons';
 import styles from './Navigation.module.css';
+import {
+  BugReportIcon,
+  GameIcon,
+  GitHubIcon,
+  HistoryIcon,
+  MenuIcon,
+  ReplayIcon,
+} from '../Icons';
 
 interface NavigationProps {}
 
@@ -33,7 +39,7 @@ export function Navigation(props: NavigationProps) {
 
   function getNavigationItem(
     text: string,
-    icon: string,
+    icon: React.ReactNode,
     route: string,
     external?: boolean,
   ) {
@@ -80,18 +86,16 @@ export function Navigation(props: NavigationProps) {
               role="button"
               aria-expanded={open}
               onClick={() => setOpen(!open)}
-            >
-              <div>
-                <Icon
-                  icon={{
-                    icon: icons.menu,
-                    size: 'medium',
-                    'aria-hidden': true,
-                  }}
-                />
-              </div>
-              <span className="sr-only">Menu</span>
-            </TopAppBarNavigationIcon>
+              icon={{
+                icon: (
+                  <>
+                    <MenuIcon />
+                    <span className="sr-only">Menu</span>
+                  </>
+                ),
+                'aria-hidden': true,
+              }}
+            />
             <TopAppBarTitle
               className={styles.title}
               {...{ tag: Link, to: routes.Home }}
@@ -105,17 +109,11 @@ export function Navigation(props: NavigationProps) {
               target="_blank"
               rel="noopener noreferrer"
               href={routes.GitHub}
-            >
-              <div>
-                <Icon
-                  icon={{
-                    icon: icons.github,
-                    size: 'medium',
-                    'aria-label': 'GitHub Icon',
-                  }}
-                />
-              </div>
-            </TopAppBarActionItem>
+              icon={{
+                icon: <GitHubIcon />,
+                'aria-label': 'GitHub Icon',
+              }}
+            />
           </TopAppBarSection>
         </TopAppBarRow>
       </TopAppBar>
@@ -130,21 +128,21 @@ export function Navigation(props: NavigationProps) {
       >
         <DrawerContent>
           <List>
-            {getNavigationItem('Play', icons.game, routes.Home)}
+            {getNavigationItem('Play', <GameIcon />, routes.Home)}
             {getNavigationItem(
               'Analysis',
-              icons.history,
+              <HistoryIcon />,
               routes.AnalysisOverview,
             )}
             {getNavigationItem(
               'Analyse Last Game',
-              icons.replay,
+              <ReplayIcon />,
               routes.AnalysisLatest,
             )}
             <ListDivider />
             {getNavigationItem(
               'Report Bug',
-              icons.bug,
+              <BugReportIcon />,
               routes.GitHub + '/issues/new?template=bug_report.md',
               true,
             )}
