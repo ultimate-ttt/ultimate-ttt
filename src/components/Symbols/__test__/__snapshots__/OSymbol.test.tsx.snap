@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OSymbol should match snapshot 1`] = `
-<ForwardRef(SvgO)
+<MdPanoramaFishEye
   className="o animateO"
 />
 `;
 
 exports[`OSymbol should match snapshot 2`] = `
-<ForwardRef(SvgO)
+<MdPanoramaFishEye
   className="o"
 />
 `;

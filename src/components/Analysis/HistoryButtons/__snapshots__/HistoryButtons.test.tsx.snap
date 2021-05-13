@@ -9,7 +9,7 @@ exports[`HistoryButtons should match snapshot 1`] = `
     icon={
       Object {
         "aria-hidden": true,
-        "icon": "arrow-left",
+        "icon": <MdChevronLeft />,
       }
     }
     onClick={[Function]}
@@ -26,7 +26,7 @@ exports[`HistoryButtons should match snapshot 1`] = `
     trailingIcon={
       Object {
         "aria-hidden": true,
-        "icon": "arrow-right",
+        "icon": <MdChevronRight />,
       }
     }
   >

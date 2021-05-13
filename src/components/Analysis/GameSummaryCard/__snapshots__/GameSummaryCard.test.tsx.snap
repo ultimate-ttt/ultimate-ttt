@@ -24,7 +24,7 @@ exports[`GameSummaryCard should match snapshot 1`] = `
           icon={
             Object {
               "aria-label": "O",
-              "icon": "o",
+              "icon": <MdPanoramaFishEye />,
               "size": "medium",
             }
           }
@@ -1064,7 +1064,7 @@ exports[`GameSummaryCard should match snapshot 1`] = `
       trailingIcon={
         Object {
           "aria-hidden": true,
-          "icon": "arrow-right",
+          "icon": <MdChevronRight />,
         }
       }
     />
