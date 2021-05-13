@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Paging, PagingProps } from './Paging';
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react/types-6-0';
-import { IconProvider } from '../IconProvider';
+import { IconProvider } from '../Icons';
 
 export default {
   title: 'Paging',

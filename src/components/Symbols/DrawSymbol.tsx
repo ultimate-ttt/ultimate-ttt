@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ReactComponent as DrawIcon } from '../../icons/svg/draw.svg';
+import { DrawGameIcon } from '../Icons';
 import styles from './Symbols.module.css';
 
 export interface DrawSymbolProps {
@@ -20,6 +20,6 @@ export class DrawSymbol extends React.Component<DrawSymbolProps> {
       [styles.animateDraw]: shouldAnimate,
     });
 
-    return <DrawIcon className={iconClass} />;
+    return <DrawGameIcon className={iconClass} />;
   }
 }

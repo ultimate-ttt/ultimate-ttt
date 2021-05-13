@@ -5,16 +5,7 @@ interface IconProviderProps {
   children?: any;
 }
 
+/* If we ever need to customize something for all icons. */
 export function IconProvider(props: IconProviderProps) {
-  return (
-    <RMWCProvider
-      icon={{
-        strategy: 'className',
-        basename: '',
-        prefix: 'icon-',
-      }}
-    >
-      {props.children}
-    </RMWCProvider>
-  );
+  return <RMWCProvider>{props.children}</RMWCProvider>;
 }

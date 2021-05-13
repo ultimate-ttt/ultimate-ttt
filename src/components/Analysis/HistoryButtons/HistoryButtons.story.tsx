@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HistoryButtons, HistoryButtonsProps } from './HistoryButtons';
 import { action } from '@storybook/addon-actions';
-import { IconProvider } from '../../IconProvider';
+import { IconProvider } from '../../Icons';
 
 export default {
   title: 'HistoryButtons',

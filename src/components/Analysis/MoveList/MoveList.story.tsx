@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { MoveList, MoveListProps } from './MoveList';
 import { movesForBoardWithThreeMovesMock } from '../../../__mocks__';
-import { IconProvider } from '../../IconProvider';
+import { IconProvider } from '../../Icons';
 
 export default {
   title: 'MoveList',

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from '@rmwc/button';
 import styles from './Paging.module.css';
 import { useState } from 'react';
-import icons from '../../icons/icons';
+import { ArrowLeftIcon, ArrowRightIcon } from '../Icons';
 
 export interface PagingProps {
   pages: number;
@@ -49,7 +49,7 @@ export function Paging(props: PagingProps) {
           onPageChange(newPage);
         }}
         disabled={currentPage === 1}
-        icon={{ icon: icons.arrowLeft, 'aria-hidden': true }}
+        icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
         ripple={false}
         dense={true}
         className={styles.previousButton}
@@ -63,7 +63,7 @@ export function Paging(props: PagingProps) {
           onPageChange(newPage);
         }}
         disabled={currentPage === pages}
-        trailingIcon={{ icon: icons.arrowRight, 'aria-hidden': true }}
+        trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
         ripple={false}
         dense={true}
         className={styles.nextButton}
