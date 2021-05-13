@@ -21,19 +21,6 @@ Object {
       "combinator": false,
       "payload": Object {
         "args": Array [
-          "save-game-data/generate-finished-games",
-          "@@redux-saga-test-plan/json/function/generateFinishedGames",
-        ],
-        "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
-      },
-      "type": "FORK",
-    },
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "args": Array [
           Object {
             "payload": Object {
               "gameState": Array [
@@ -1042,14 +1029,6 @@ Object {
       "combinator": false,
       "payload": Object {
         "pattern": "save-game-data/save-game-data",
-      },
-      "type": "TAKE",
-    },
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "pattern": "save-game-data/generate-finished-games",
       },
       "type": "TAKE",
     },
@@ -1086,19 +1065,6 @@ Object {
       "combinator": false,
       "payload": Object {
         "args": Array [
-          "save-game-data/generate-finished-games",
-          "@@redux-saga-test-plan/json/function/generateFinishedGames",
-        ],
-        "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
-      },
-      "type": "FORK",
-    },
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "args": Array [
           Object {
             "payload": Object {
               "gameState": Array [
@@ -2107,14 +2073,6 @@ Object {
       "combinator": false,
       "payload": Object {
         "pattern": "save-game-data/save-game-data",
-      },
-      "type": "TAKE",
-    },
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "pattern": "save-game-data/generate-finished-games",
       },
       "type": "TAKE",
     },
