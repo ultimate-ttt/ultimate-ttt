@@ -1,5 +1,5 @@
-.title {
-  font-weight: 700 !important;
+:global(.mdc-top-app-bar) .title {
+  font-weight: bold;
   color: inherit;
 }
 
@@ -11,6 +11,6 @@
   color: var(--mdc-theme-primary) !important;
 }
 
-.listItem:global(.mdc-list-item--activated) {
-  font-weight: 700 !important;
+.listItem:global(.mdc-list-item):global(.mdc-list-item--activated) {
+  font-weight: bold;
 }

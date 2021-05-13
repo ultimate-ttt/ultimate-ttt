@@ -10,13 +10,7 @@ import {
 } from '@rmwc/top-app-bar';
 import { Drawer, DrawerContent } from '@rmwc/drawer';
 import { useState } from 'react';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemGraphic,
-  ListDivider,
-} from '@rmwc/list';
+import { List, ListItem, ListItemGraphic, ListItemText } from '@rmwc/list';
 import { Link, NavLink } from 'react-router-dom';
 import routes from '../../routes/routes';
 import styles from './Navigation.module.css';
@@ -29,52 +23,11 @@ import {
   ReplayIcon,
 } from '../Icons';
 
-interface NavigationProps {}
-
-export function Navigation(props: NavigationProps) {
+export function Navigation() {
   const [open, setOpen] = useState(false);
+
   function closeDrawer() {
     setOpen(false);
-  }
-
-  function getNavigationItem(
-    text: string,
-    icon: React.ReactNode,
-    route: string,
-    external?: boolean,
-  ) {
-    const content = (
-      <>
-        <ListItemGraphic
-          className={styles.primaryColor}
-          icon={{ icon: icon, size: 'medium', 'aria-hidden': true }}
-        />
-        <ListItemText className={styles.primaryColor}>{text}</ListItemText>
-      </>
-    );
-    return external ? (
-      <ListItem
-        tag="a"
-        href={route}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.listItem}
-      >
-        {content}
-      </ListItem>
-    ) : (
-      <ListItem
-        {...{
-          tag: NavLink,
-          to: route,
-          activeClassName: 'mdc-list-item--activated',
-          exact: true,
-        }}
-        onClick={() => closeDrawer()}
-      >
-        {content}
-      </ListItem>
-    );
   }
 
   return (
@@ -123,32 +76,84 @@ export function Navigation(props: NavigationProps) {
         aria-label="Site"
         modal
         open={open}
-        onClose={() => closeDrawer()}
-        className="disableMotion"
+        onClose={closeDrawer}
       >
         <DrawerContent>
           <List>
-            {getNavigationItem('Play', <GameIcon />, routes.Home)}
-            {getNavigationItem(
-              'Analysis',
-              <HistoryIcon />,
-              routes.AnalysisOverview,
-            )}
-            {getNavigationItem(
-              'Analyse Last Game',
-              <ReplayIcon />,
-              routes.AnalysisLatest,
-            )}
-            <ListDivider />
-            {getNavigationItem(
-              'Report Bug',
-              <BugReportIcon />,
-              routes.GitHub + '/issues/new?template=bug_report.md',
-              true,
-            )}
+            <NavigationItem
+              text={'Play'}
+              icon={<GameIcon />}
+              route={routes.Home}
+              onClick={closeDrawer}
+            />
+            <NavigationItem
+              text={'Analysis'}
+              icon={<HistoryIcon />}
+              route={routes.AnalysisOverview}
+              onClick={closeDrawer}
+            />
+            <NavigationItem
+              text={'Analyse Last Game'}
+              icon={<ReplayIcon />}
+              route={routes.AnalysisLatest}
+              onClick={closeDrawer}
+            />
+            <NavigationItem
+              text={'Report Bug'}
+              icon={<BugReportIcon />}
+              route={routes.GitHubBug}
+              external={true}
+              onClick={closeDrawer}
+            />
           </List>
         </DrawerContent>
       </Drawer>
     </>
+  );
+}
+
+interface NavigationItemProps {
+  text: string;
+  icon: React.ReactNode;
+  route: string;
+  external?: boolean;
+  onClick?: () => void;
+}
+
+function NavigationItem(props: NavigationItemProps) {
+  const content = (
+    <>
+      <ListItemGraphic
+        className={styles.primaryColor}
+        icon={{ icon: props.icon, size: 'medium', 'aria-hidden': true }}
+      />
+      <ListItemText className={styles.primaryColor}>{props.text}</ListItemText>
+    </>
+  );
+
+  return props.external ? (
+    <ListItem
+      tag="a"
+      href={props.route}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.listItem}
+      onClick={props.onClick}
+    >
+      {content}
+    </ListItem>
+  ) : (
+    <ListItem
+      {...{
+        tag: NavLink,
+        to: props.route,
+        activeClassName: 'mdc-list-item--activated',
+        exact: true,
+        className: styles.listItem,
+      }}
+      onClick={props.onClick}
+    >
+      {content}
+    </ListItem>
   );
 }
