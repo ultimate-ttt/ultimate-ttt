@@ -12,7 +12,7 @@ exports[`GameFinished should match snapshot when circle wins 1`] = `
       className="winnerIcon"
       icon={
         Object {
-          "icon": "o",
+          "icon": <MdPanoramaFishEye />,
           "size": "large",
         }
       }
@@ -42,7 +42,7 @@ exports[`GameFinished should match snapshot when cross wins 1`] = `
       className="winnerIcon"
       icon={
         Object {
-          "icon": "x",
+          "icon": <MdClear />,
           "size": "large",
         }
       }
@@ -92,7 +92,7 @@ exports[`GameFinished should match snapshot when no one wins 1`] = `
       className="winnerIcon"
       icon={
         Object {
-          "icon": "x",
+          "icon": <MdClear />,
           "size": "large",
         }
       }
