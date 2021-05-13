@@ -1,19 +1,12 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import {
-  GENERATE_FINISHED_GAMES,
   SAVE_GAME_DATA,
-  saveGameData,
   SaveGameDataAction,
   saveGameDataFulfilled,
   saveGameDataPending,
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
 import { getApiUrl } from '../../util';
-import { GenericAction, SaveState } from '../AppState';
-import {
-  drawFinishedBoardMock,
-  movesForDrawFinishedBoardMock,
-} from '../../__mocks__';
 
 function* saveFinishedGameData(action: SaveGameDataAction) {
   if (action.saveOnline) {
@@ -45,26 +38,8 @@ function* saveFinishedGameData(action: SaveGameDataAction) {
   }
 }
 
-function* generateFinishedGames(action: GenericAction) {
-  for (let i = 0; i < action.payload; i++) {
-    const finishedGame = {
-      id: i.toString() + Math.random().toString(),
-      gameState: drawFinishedBoardMock,
-      date: new Date().toISOString(),
-      winner: null as 'O' | 'X' | null,
-      moves: movesForDrawFinishedBoardMock,
-      saveState: 'fulfilled' as SaveState,
-      errorMessage: '',
-    };
-    const action = saveGameData(finishedGame);
-    action.saveOnline = false;
-    yield put(action);
-  }
-}
-
 function* saveFinishedGameDataSaga() {
   yield takeEvery(SAVE_GAME_DATA, saveFinishedGameData);
-  yield takeEvery(GENERATE_FINISHED_GAMES, generateFinishedGames);
 }
 
 export default saveFinishedGameDataSaga;
