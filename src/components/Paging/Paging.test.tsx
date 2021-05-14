@@ -4,6 +4,15 @@ import { Paging } from './Paging';
 import { Button } from '@rmwc/button';
 
 describe('Paging', () => {
+  it('should match snapshot', () => {
+    const onPageChange = jest.fn(() => {});
+    const paging = shallow(
+      <Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />,
+    );
+
+    expect(paging).toMatchSnapshot();
+  });
+
   it('should render all pages', () => {
     const onPageChange = jest.fn(() => {});
     const paging = shallow(
