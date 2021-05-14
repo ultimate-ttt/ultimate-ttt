@@ -3,7 +3,9 @@
 }
 
 .winnerIcon {
-  vertical-align: bottom;
+  /* Align icon with text */
+  position: relative;
+  top: 3px;
 }
 
 .restartAlignment {

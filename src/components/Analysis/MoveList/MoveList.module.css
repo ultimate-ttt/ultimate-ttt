@@ -6,6 +6,11 @@
   width: 100%;
 }
 
-.smallerMargin :global(.mdc-list-item__graphic) {
-  margin-right: 15px !important;
+.smallerMargin :global(.rmwc-icon):global(.mdc-list-item__graphic) {
+  margin-right: 15px;
+}
+
+.resetIcon :global(.rmwc-icon):global(.mdc-list-item__graphic) {
+  width: unset;
+  height: unset;
 }
