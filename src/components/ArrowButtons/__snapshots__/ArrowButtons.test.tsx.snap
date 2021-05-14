@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArrowButtons should match snapshot 1`] = `
+<Fragment>
+  <withRipple(Function)
+    className="buttonMargin"
+    dense={true}
+    disabled={true}
+    icon={
+      Object {
+        "aria-hidden": true,
+        "icon": <MdChevronLeft />,
+      }
+    }
+    onClick={[Function]}
+    raised={true}
+  >
+    Previous
+  </withRipple(Function)>
+  <withRipple(Function)
+    className="buttonMargin"
+    dense={true}
+    disabled={false}
+    onClick={[Function]}
+    raised={true}
+    trailingIcon={
+      Object {
+        "aria-hidden": true,
+        "icon": <MdChevronRight />,
+      }
+    }
+  >
+    Next
+  </withRipple(Function)>
+</Fragment>
+`;
