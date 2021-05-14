@@ -8,7 +8,7 @@ import { ListDivider } from '@rmwc/list';
 import { Icon } from '@rmwc/icon';
 import { Link } from 'react-router-dom';
 import styles from './GameSummaryCard.module.css';
-import {XGameIcon, OGameIcon, ArrowRightIcon} from "../../Icons";
+import { XIcon, OIcon, ArrowRightIcon } from '../../Icons';
 
 export interface GameSummaryCardProps {
   gameNumber: number;
@@ -22,7 +22,7 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
       <>
         <Icon
           icon={{
-            icon: winner === 'X' ? <XGameIcon/> : <OGameIcon/>,
+            icon: winner === 'X' ? <XIcon /> : <OIcon />,
             size: 'medium',
             'aria-label': winner,
           }}
@@ -75,7 +75,7 @@ export function GameSummaryCard(props: GameSummaryCardProps) {
         <CardActionButton
           id={`analyse-button-${gameNumber}`}
           label="Analyse Game"
-          trailingIcon={{ icon: <ArrowRightIcon/>, 'aria-hidden': true }}
+          trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
           {...link}
         />
       </CardActions>
