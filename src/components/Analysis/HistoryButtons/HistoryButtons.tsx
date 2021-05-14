@@ -36,7 +36,7 @@ export class HistoryButtons extends React.Component<HistoryButtonsProps> {
       this.props.onInteraction(currentMove + 1);
     }
   };
-
+  
   componentDidMount(): void {
     window.addEventListener('keydown', this.handleEvent);
   }
