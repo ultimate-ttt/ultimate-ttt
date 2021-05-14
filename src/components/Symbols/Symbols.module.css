@@ -19,8 +19,6 @@
 .o,
 .x,
 .draw {
-  /* The SVGs from react-icon contain a height property that we need to override so that the icons fill their container */
-  height: 100%;
   /* SVG is not focusable via keyboard so we can safely remove the focus styles! */
   outline: none;
   /* Fix for Layouting Bug in Safari: #186 */

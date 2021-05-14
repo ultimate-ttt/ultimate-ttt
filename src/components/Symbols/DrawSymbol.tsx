@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { DrawGameIcon } from '../Icons';
 import styles from './Symbols.module.css';
+import { DrawGameIcon } from '../Icons';
 
 export interface DrawSymbolProps {
   shouldAnimate?: boolean;

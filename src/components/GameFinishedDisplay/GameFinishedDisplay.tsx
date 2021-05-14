@@ -7,7 +7,7 @@ import styles from './GameFinished.module.css';
 import classNames from 'classnames';
 import { Icon } from '@rmwc/icon';
 import { Typography } from '@rmwc/typography';
-import { OGameIcon, XGameIcon } from '../Icons';
+import { OIcon, XIcon } from '../Icons';
 
 interface GameFinishedDisplayProps {
   isGameFinished: boolean;
@@ -56,7 +56,7 @@ export class GameFinishedDisplay extends React.Component<
           <>
             <Icon
               icon={{
-                icon: winner === Winner.Circle ? <OGameIcon /> : <XGameIcon />,
+                icon: winner === Winner.Circle ? <OIcon /> : <XIcon />,
                 size: 'large',
               }}
               className={styles.winnerIcon}
@@ -72,7 +72,7 @@ export class GameFinishedDisplay extends React.Component<
         return (
           <>
             <Icon
-              icon={{ icon: <XGameIcon />, size: 'large' }}
+              icon={{ icon: <XIcon />, size: 'large' }}
               className={styles.winnerIcon}
             />
             resrv
