@@ -23,7 +23,7 @@ function getGameSummary(winner: 'X' | 'O' | null, moves: number) {
         <Icon
           icon={{
             icon: winner === 'X' ? <XIcon /> : <OIcon />,
-            size: 'medium',
+            size: 'small',
             'aria-label': winner,
           }}
           className={styles.winnerIcon}
