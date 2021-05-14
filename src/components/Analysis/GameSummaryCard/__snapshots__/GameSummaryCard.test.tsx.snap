@@ -25,7 +25,7 @@ exports[`GameSummaryCard should match snapshot 1`] = `
             Object {
               "aria-label": "O",
               "icon": <MdPanoramaFishEye />,
-              "size": "medium",
+              "size": "small",
             }
           }
         />
