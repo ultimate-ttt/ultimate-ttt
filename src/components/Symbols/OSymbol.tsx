@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ReactComponent as OIcon } from './svg/o.svg';
 import styles from './Symbols.module.css';
+import { OGameIcon } from '../Icons';
 
 export interface OSymbolProps {
   shouldAnimate?: boolean;
@@ -19,6 +19,6 @@ export class OSymbol extends React.Component<OSymbolProps> {
       [styles.animateO]: shouldAnimate,
     });
 
-    return <OIcon className={iconClass} />;
+    return <OGameIcon className={iconClass} />;
   }
 }
