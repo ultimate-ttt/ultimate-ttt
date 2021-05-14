@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DrawSymbol should match snapshot, animate false 1`] = `
-<MdRemove
+<ForwardRef(SvgDraw)
   className="draw"
 />
 `;
 
 exports[`DrawSymbol should match snapshot, animate true 1`] = `
-<MdRemove
+<ForwardRef(SvgDraw)
   className="draw animateDraw"
 />
 `;
