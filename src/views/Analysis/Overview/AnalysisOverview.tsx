@@ -29,7 +29,7 @@ function getLink(game: FinishedGameState) {
   };
 }
 
-const gamesPerPage = 1;
+const gamesPerPage = 30;
 
 export function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
