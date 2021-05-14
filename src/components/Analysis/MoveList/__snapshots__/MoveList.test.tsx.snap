@@ -17,7 +17,7 @@ exports[`MoveList should match snapshot 1`] = `
       graphic={
         Object {
           "aria-label": "Player O Icon",
-          "icon": "o",
+          "icon": <MdPanoramaFishEye />,
           "size": "medium",
         }
       }
@@ -36,7 +36,7 @@ exports[`MoveList should match snapshot 1`] = `
       graphic={
         Object {
           "aria-label": "Player X Icon",
-          "icon": "x",
+          "icon": <MdClear />,
           "size": "medium",
         }
       }
@@ -55,7 +55,7 @@ exports[`MoveList should match snapshot 1`] = `
       graphic={
         Object {
           "aria-label": "Player O Icon",
-          "icon": "o",
+          "icon": <MdPanoramaFishEye />,
           "size": "medium",
         }
       }
@@ -74,7 +74,7 @@ exports[`MoveList should match snapshot 1`] = `
       graphic={
         Object {
           "aria-label": "Player X Icon",
-          "icon": "x",
+          "icon": <MdClear />,
           "size": "medium",
         }
       }

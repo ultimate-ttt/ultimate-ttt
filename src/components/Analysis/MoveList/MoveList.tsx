@@ -1,12 +1,13 @@
 import * as React from 'react';
+import { ReactNode } from 'react';
 import { List, SimpleListItem } from '@rmwc/list';
 import { CustomEventT } from '@rmwc/types';
 import { MoveState, Player } from '../../../state/AppState';
-import { ReactNode } from 'react';
 import { Element } from 'react-scroll';
 import { moveScrollElementBaseName } from '../ScrollElementConstants';
 import styles from './MoveList.module.css';
 import classNames from 'classnames';
+import { OGameIcon, XGameIcon } from '../../Icons';
 
 export interface MoveListProps {
   reversedMoves: MoveState[];
@@ -16,20 +17,11 @@ export interface MoveListProps {
 }
 
 export function MoveList(props: MoveListProps) {
-  const playerAsString = (player: Player) => {
-    if (player === Player.Cross) {
-      return 'x';
-    } else {
-      return 'o';
-    }
-  };
-
   const getMoves = () => {
     const { reversedMoves, currentMove } = props;
     const moveList: ReactNode[] = [];
 
     reversedMoves.forEach((m: MoveState) => {
-      const playerString = playerAsString(m.player);
       moveList.push(
         <Element
           key={m.moveNumber}
@@ -39,9 +31,11 @@ export function MoveList(props: MoveListProps) {
             tag="button"
             activated={currentMove === m.moveNumber}
             graphic={{
-              icon: playerString,
+              icon: m.player === Player.Cross ? <XGameIcon /> : <OGameIcon />,
               size: 'medium',
-              'aria-label': `Player ${playerString.toUpperCase()} Icon`,
+              'aria-label': `Player ${
+                m.player === Player.Cross ? 'X' : 'O'
+              } Icon`,
             }}
             text={'Move ' + m.moveNumber}
             secondaryText={`Board ${m.boardPosition.x}/${m.boardPosition.y} - Tile ${m.tilePosition.x}/${m.tilePosition.y}`}
