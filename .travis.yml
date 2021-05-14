@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "stable"
 script:
-  - yarn global add codecov
+  - yarn dlx codecov
   - yarn test
   - yarn build
 after_success:
