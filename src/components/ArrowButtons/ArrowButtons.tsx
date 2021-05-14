@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Button } from '@rmwc/button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../Icons';
 import styles from './ArrowButtons.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export interface ArrowButtonsProps {
-  initialValue: number;
+  value: number;
   maxValue: number;
   minValue: number;
   onInteraction: (forward: boolean) => void;
@@ -13,34 +13,33 @@ export interface ArrowButtonsProps {
   children?: React.ReactNode;
 }
 
+const handleInteraction = (forward: boolean, props: ArrowButtonsProps) => {
+  if (
+    (forward && props.value === props.maxValue) ||
+    (!forward && props.value === props.minValue)
+  )
+    return;
+
+  props.onInteraction(forward);
+};
+
 export function ArrowButtons(props: ArrowButtonsProps) {
-  const [value, setValue] = useState(props.initialValue);
-
-  const handleEvent = (event: KeyboardEvent) => {
-    if (event.key === 'ArrowLeft' || event.key === 'Left')
-      handleInteraction(false);
-    else if (event.key === 'ArrowRight' || event.key === 'Right')
-      handleInteraction(true);
-  };
-
-  const handleInteraction = (forward: boolean) => {
-    if ((forward && value === maxValue) || (!forward && value === minValue))
-      return;
-
-    if (forward) setValue(value + 1);
-    else setValue(value - 1);
-    onInteraction(forward);
-  };
-
   useEffect(() => {
+    const handleEvent = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft' || event.key === 'Left')
+        handleInteraction(false, props);
+      else if (event.key === 'ArrowRight' || event.key === 'Right')
+        handleInteraction(true, props);
+    };
+
     if (props.handleKeyboard) window.addEventListener('keydown', handleEvent);
     return () => {
       if (props.handleKeyboard)
         window.removeEventListener('keydown', handleEvent);
     };
-  }, [props.handleKeyboard]);
+  }, [props]);
 
-  const { maxValue, minValue, onInteraction, children } = props;
+  const { value, maxValue, minValue, children } = props;
   return (
     <>
       <Button
@@ -49,7 +48,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
         raised={true}
         icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
         onClick={() => {
-          handleInteraction(false);
+          handleInteraction(false, props);
         }}
         className={styles.buttonMargin}
       >
@@ -62,7 +61,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
         raised={true}
         trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
         onClick={() => {
-          handleInteraction(true);
+          handleInteraction(true, props);
         }}
         className={styles.buttonMargin}
       >

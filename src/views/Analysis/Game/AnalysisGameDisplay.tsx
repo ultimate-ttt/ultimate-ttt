@@ -44,7 +44,8 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
       </div>
       <div className={styles.historyButtons}>
         <ArrowButtons
-          initialValue={analysisGame.currentMove}
+          handleKeyboard={true}
+          value={analysisGame.currentMove}
           maxValue={reversedMoves[0] && reversedMoves[0].moveNumber}
           minValue={1}
           onInteraction={(forward) => {

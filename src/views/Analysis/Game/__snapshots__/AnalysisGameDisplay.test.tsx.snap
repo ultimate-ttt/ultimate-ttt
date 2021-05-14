@@ -381,12 +381,12 @@ exports[`AnalysisGame should match snapshot 1`] = `
   <div
     className="historyButtons"
   >
-    <HistoryButtons
-      currentMove={30}
-      lastMove={30}
-      moveBackwardInHistory={[MockFunction]}
-      moveForwardInHistory={[MockFunction]}
+    <ArrowButtons
+      handleKeyboard={true}
+      maxValue={30}
+      minValue={1}
       onInteraction={[Function]}
+      value={30}
     />
   </div>
   <div
