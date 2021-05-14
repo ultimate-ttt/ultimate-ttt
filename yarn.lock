@@ -51,7 +51,6 @@ __metadata:
     gensync: ^1.0.0-beta.1
     json5: ^2.1.2
     lodash: ^4.17.19
-    resolve: ^1.3.2
     semver: ^5.4.1
     source-map: ^0.5.0
   checksum: 1b7ddcb578a937245e63889b4648b44c28e04257ef52bf506f61c751ec2def9c9c586883b669be2e66a2b829037a1d78e19ee23a371966c94e0728f9598799e1
@@ -75,7 +74,6 @@ __metadata:
     gensync: ^1.0.0-beta.1
     json5: ^2.1.2
     lodash: ^4.17.13
-    resolve: ^1.3.2
     semver: ^5.4.1
     source-map: ^0.5.0
   checksum: 969b99c3aa93836cda851b28cd5d254ce197b3c78274c2c0aff4c42682a10d105b2052c2808d526a9d39c5e2d4fc26e78c88f2c33aeeb9c5cfcdb4019fc1c3bd
@@ -99,7 +97,6 @@ __metadata:
     gensync: ^1.0.0-beta.1
     json5: ^2.1.2
     lodash: ^4.17.19
-    resolve: ^1.3.2
     semver: ^5.4.1
     source-map: ^0.6.1
   checksum: acde8bbe025ac8a6e5c5d273e37f4e5d2fed984965dd88c4dc2aa488ad5ceec85c1774f628d99cbcc19663dc7b5fdc0a43ce720e2d7befd9674764aadde0e729
@@ -1286,7 +1283,6 @@ __metadata:
   dependencies:
     "@babel/helper-module-imports": ^7.8.3
     "@babel/helper-plugin-utils": ^7.8.3
-    resolve: ^1.8.1
     semver: ^5.5.1
   peerDependencies:
     "@babel/core": ^7.0.0-0
@@ -3004,37 +3000,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rmwc/avatar@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/avatar@npm:6.1.3"
+"@rmwc/avatar@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/avatar@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 40e979f1d43656bbbc7444174fc1ff8afa8c9d53c9509a668a677f342ebfceadfbb42473618c59346e1946d1d6d0122920199037e2a663b13cb80943c1a3f0ae
+  checksum: f827e20e1bb9a23dbcecae45333e6fa2fe83da8a8da7394f9251519c6214109ce251235b99a817188a889fb185cb1dd51cef5b589302f30e1f558bc56e7d1b09
   languageName: node
   linkType: hard
 
-"@rmwc/badge@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/badge@npm:6.0.14"
+"@rmwc/badge@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/badge@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 0052a7f85fa3eece5b46dbb186bd23e1dbac1922f21162b8cc009b51da0d82d4e979db39f2008ded4d0dd1d47ae53a431f1fe05802a5a457e87c9686edc5289d
+  checksum: 8af1501dec17ced6c52dd397f85237714b5f1b9e7a4dc12c36d64cb86883fe183128966fe9e0a0798d3e040c64e7732705c9fdd3335cedec0748c520d19fcef9
   languageName: node
   linkType: hard
 
-"@rmwc/base@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/base@npm:6.0.14"
+"@rmwc/base@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/base@npm:6.1.4"
   dependencies:
     "@material/dom": ^5.1.0
     "@rmwc/types": ^6.0.5
@@ -3046,553 +3042,553 @@ __metadata:
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 52c08affac2abfbf6d9986fe0f556e6755cf9432b4e10312a5cee7836eeea400d34669b6f7b72bffb2fd35d07d4aa76e5494f1991202ec09a32e7b8c20bf44b1
+  checksum: 3f8e77180b3bd52a9e6488b0ec092ec9bb4954012cdb6f67d0e566d35f4c585898b62b36eb5ec52601fd4180e1c9c8cd4c702817b7d6571fe7e9abcd2769c651
   languageName: node
   linkType: hard
 
-"@rmwc/button@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/button@npm:6.1.3"
+"@rmwc/button@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/button@npm:6.1.4"
   dependencies:
     "@material/button": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/provider": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/provider": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 85b3c925565e3a2753709c058eef3cab27342d233c1417c0ec495a55c812cc17102043bd899328f646a23d84aa71b7d97f9f0724466ec40a36f673af86059d81
+  checksum: 8ef19f90caad1dc5dfb71c726f21bccd8f2acf249b06c9eb4dbbbb30792c16c9cb2bc83a285ef709bfb620608d0a7570407fcc438a66938a806051d3c7b3fbc1
   languageName: node
   linkType: hard
 
-"@rmwc/card@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/card@npm:6.1.3"
+"@rmwc/card@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/card@npm:6.1.4"
   dependencies:
     "@material/card": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/button": ^6.1.3
-    "@rmwc/icon-button": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/button": ^6.1.4
+    "@rmwc/icon-button": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: d3a72f2e8851a434349e53547628c28274a44b2a402a6003517b88a9facc7214327681d420948dc2d6a10e8ee3c5913e3237d537e174374b284c051877f0b51c
+  checksum: de2743fe03a59612f5fff3f95d528b16056773136f3722f7b386ad0c57d9f3c9862cd13633ea43e5bec701b515a08adfe39c4c01dab30c95e528193fff0225c0
   languageName: node
   linkType: hard
 
-"@rmwc/checkbox@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/checkbox@npm:6.1.3"
+"@rmwc/checkbox@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/checkbox@npm:6.1.4"
   dependencies:
     "@material/checkbox": ^5.1.0
     "@material/form-field": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/formfield": ^6.0.14
-    "@rmwc/ripple": ^6.1.3
-    "@rmwc/toggleable": ^6.0.14
+    "@rmwc/base": ^6.1.4
+    "@rmwc/formfield": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
+    "@rmwc/toggleable": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 50ef445d2472c162a1d17d6bbabab0f1a9b2187b64d551af09d4ca9b74b91349829a116a82aa4857b88f30515c932843ddb039de4516b165c23c8c8094adec98
+  checksum: b65f8348b7e7f64e280e8240847f8c36b172f1186872e0efa91f2f9c9eecf6c865a9f3f95827a2ecd4f20634b1bef7ee1128c4431e727bd3cbca80d31f24135d
   languageName: node
   linkType: hard
 
-"@rmwc/chip@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/chip@npm:6.1.3"
+"@rmwc/chip@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/chip@npm:6.1.4"
   dependencies:
     "@material/chips": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: dd6b1d87ed5d1cbffb6f0244b4e9c4260d03d0f806d8bdd62a3292015d095550bc8bd95f013febad95d9420140b7c95493a3a25f4d6e5e7bbc66f53908e4ef68
+  checksum: 23006383418584781881b2add427f4dcaa2c63db77460bbb3890b345e3a8aa46e60b6313f4d8d59ac7c754a87976e1fe21bc1316e8111ea8bc72d10a46ddc9cc
   languageName: node
   linkType: hard
 
-"@rmwc/circular-progress@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/circular-progress@npm:6.0.14"
+"@rmwc/circular-progress@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/circular-progress@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 01e9d5ddf7086310a1077675dddf2d9f929d2a9e9e5d08ad02061e5d0e08331ea063c94cf8eef8c6c1170cad7450ee32a2d04cd49ef726867f79a339b1d40d71
+  checksum: 94e6a5d6e9d7c7edacc1cc5c1f2bb62d2b42446bcc5aa893eab394b69774b0a4a384286c5910a97391fde064819292f8b3983550adf39be6c0d43f1889ecb79d
   languageName: node
   linkType: hard
 
-"@rmwc/data-table@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/data-table@npm:6.1.3"
+"@rmwc/data-table@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/data-table@npm:6.1.4"
   dependencies:
     "@material/data-table": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/checkbox": ^6.1.3
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/select": ^6.1.3
-    "@rmwc/switch": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/checkbox": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/select": ^6.1.4
+    "@rmwc/switch": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: b65fc1aa4238d5a1984358b0ab32fa4202f6b67613f4ccdeb586f78ce1507677d52d54b37ec0da1cea206b2458c7ac91c97f53e0cac2c98ca5bf4b16319d8a44
+  checksum: 758e9f89bdf0cc9b46a32ce2059de28320f2c13d3fcbe87521fc6498969919ec75aec7b2d5d81df351645b19e10b058b3abf292961c9d13c8a9e180b22d0ca77
   languageName: node
   linkType: hard
 
-"@rmwc/dialog@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/dialog@npm:6.1.3"
+"@rmwc/dialog@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/dialog@npm:6.1.4"
   dependencies:
     "@material/dialog": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/button": ^6.1.3
-    "@rmwc/textfield": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/button": ^6.1.4
+    "@rmwc/textfield": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 90b6b70d094d0fc88026930da96eb82c411d639601c217b60c9e43f9f55ea8f246f7526273941dca7dffe0c8e59916328449f0d0f7165a48363c8fd33f541087
+  checksum: db10534b9f5cd40a9fd17c3823e32173d90c8c761ee4fdc40fdc2a674244b506cf547c8b8e1a9fd8849e57393a6b06a5e7ff3253bfa9b4881b5bde23b6f52082
   languageName: node
   linkType: hard
 
-"@rmwc/drawer@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/drawer@npm:6.0.14"
+"@rmwc/drawer@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/drawer@npm:6.1.4"
   dependencies:
     "@material/drawer": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 59be90bf7e315c9a3ecfd1079042ac3d27b64f8f56b64def2420dcbc7efbbaec2b2b3070dcaf46c16f8028b978659a30d26c8c68163a06231151ce3e31ee935e
+  checksum: 8aeddfda9885ce965b76e8cf2b458357104b87c60ef28b90878c909db21274be1253cb104f1baf309a122bf4ec6865fa3981ba32a9e9b799b4512a01667e531f
   languageName: node
   linkType: hard
 
-"@rmwc/elevation@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@rmwc/elevation@npm:6.1.0"
+"@rmwc/elevation@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/elevation@npm:6.1.4"
   dependencies:
     "@material/elevation": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 2145f78b3700d4af476259e00e60b8323340a0d4b16a8d11e24e0e3566f2b6c5fce439cfc35dbaef6fc484686c703c0e91c601965fee03239a5d673db33b2d18
+  checksum: eeef0dbdb077cf34dea1f74f5a0c424c058dcef3b79b670d6c147a7ded94f91dd930d5cada9477dc3002ffe927e2136637e10f8741e39526ad247eb9b74ff77c
   languageName: node
   linkType: hard
 
-"@rmwc/fab@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/fab@npm:6.1.3"
+"@rmwc/fab@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/fab@npm:6.1.4"
   dependencies:
     "@material/fab": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/provider": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/provider": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 39c8a5d047d96dd0331dfd2f1aae64e0e4c9db2174eba904a79b4d65d8015416a994db2b503d277aa587edf10b8335141f2eadc0765cc9727b6cc15b4751e456
+  checksum: 0b8b84b1d2b5514653053ea0538a5fbb9e1197ae2252c6ecc7ef3307b589331b7f95afc15fa19928d7d51482bd5c4de8503fac36abfb44e063fe8da31dde104c
   languageName: node
   linkType: hard
 
-"@rmwc/floating-label@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "@rmwc/floating-label@npm:6.1.2"
+"@rmwc/floating-label@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/floating-label@npm:6.1.4"
   dependencies:
     "@material/floating-label": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 0eb0d512fb4988c33f3255ac1afe076f647721a8ea838529cadb7dd6be2e4476f472ee64d74c7a4cc2db082d0fcaaff19431db78551eeac7c5260511f8c3428b
+  checksum: e3b629a58b837969b4be4cce0841592c1e127038a0011dc998d7b9201babbd66a03e3f66de31830ee59a8b7caef684322e737a22daa7bcb3971656fc9419d78e
   languageName: node
   linkType: hard
 
-"@rmwc/formfield@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/formfield@npm:6.0.14"
+"@rmwc/formfield@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/formfield@npm:6.1.4"
   dependencies:
     "@material/form-field": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 03ba24bbd06daf8f28d4511f2dad559599be7ff60e7694d66ded3ee7aa23518fc9c141f2edf11d383f91504a91c90fb5c8e632200aff4d58849f4f3bb55fff7e
+  checksum: a517116d1b190ff7803a4bd7a4d64e3ef9073da0a73fb0e0b1ef3d7d581610ad65a7f435389688f781a4b96404b52accc830287f794da8e0abc22dfbd2d49dad
   languageName: node
   linkType: hard
 
-"@rmwc/grid-list@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/grid-list@npm:6.1.3"
+"@rmwc/grid-list@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/grid-list@npm:6.1.4"
   dependencies:
     "@material/grid-list": ^4.0.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 59eb364cddde783bae8656b9cb37295d8b5e0912a6817e9174ce2777d97b5e1bd201acc0b9f0047054360db72806b11c4e2b5d0bedd6a6858526b131bbc1aef9
+  checksum: d93c1f4367e01af0f9cb2b2633957dfe47cb61e54e1f13e007cc0db04be4962e00a7d84b06d2273e0b61cad8e7b7d87597311420d8f69f982ee94156eb15fdf0
   languageName: node
   linkType: hard
 
-"@rmwc/grid@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/grid@npm:6.0.14"
+"@rmwc/grid@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/grid@npm:6.1.4"
   dependencies:
     "@material/layout-grid": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 4b3353b57b638834f4ccce0d87ae2877a622b651af91ab569170311e30ec3b51f01acf3311ea89ba0d6a54347167d5f14dc3abc8d5c3fed2b685a822c3cf72ff
+  checksum: e81836583ad994d91be4580a022089482f2b123c8837f9cff835833e53feb7fc3fc8f07ddee1f3d18d6919584d80bab3e9445092519d55e088c74d0f3c2a4a01
   languageName: node
   linkType: hard
 
-"@rmwc/icon-button@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/icon-button@npm:6.1.3"
+"@rmwc/icon-button@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/icon-button@npm:6.1.4"
   dependencies:
     "@material/icon-button": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: f1a6214f9b8b0d3cb49eb8e665d85c233b22540cebf7a5c16d559012f9c2d433eac4cf293a1603e0156c9e25d3e0c1e86a920aa3a9b005513357ddb9274af7d0
+  checksum: b6a94e4e2d6d665be4452f15cda619d2b0762dc2f5a1db63574a01f72fe07cf76f6971c66dec2f0af09601d19c84a26e443ab9c473f69303452e75fbca74a66e
   languageName: node
   linkType: hard
 
-"@rmwc/icon@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/icon@npm:6.1.3"
+"@rmwc/icon@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/icon@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
-    "@rmwc/provider": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/provider": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 1ae95c2a216c183d23a1f115266f37441d94951e03d713d595ceb78e7c28e56282acc58741c33db6fcb35199a25425b8d45af6cd2d966f369757224de1583fe9
+  checksum: 1412d8846e576a0287ff26eb7453c8dd88546000826d096788584ab479c34d7ab5f1358d2b24667a714c5bbe6a74a062376f5c321abc1536dc0504135799f1dc
   languageName: node
   linkType: hard
 
-"@rmwc/image-list@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/image-list@npm:6.0.14"
+"@rmwc/image-list@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/image-list@npm:6.1.4"
   dependencies:
     "@material/image-list": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 2ebcc731924d5b1419952355333415762a78b6662f3ba0d0cf1f0507448993f536a6ec8345de6073267195e6cc8ab5584ae7d6733fb28bd2c6e135a6334dd772
+  checksum: c8fd5485d404c1c031441516e0f5ab482ab5207861a0c07abee4b6756be01b5cd6eca50fda4ba58b6b048415b3deabb0b832f68fdf1acfad441db31ed318e7ca
   languageName: node
   linkType: hard
 
-"@rmwc/line-ripple@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/line-ripple@npm:6.0.14"
+"@rmwc/line-ripple@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/line-ripple@npm:6.1.4"
   dependencies:
     "@material/line-ripple": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 3432ae7061d3159599a8cb2513a15cbf83df3e8bf73fec1b6a00acffad0a85887ba1d3eaf95a3fccce6e9a60fcad09c151c3bcb9e86cc59151bdfc99f9b8204c
+  checksum: 00d1237df0a39271209cb82a6c37f17097767d0921eaa5eba4c7d918c05faca7ff7887c74354da5361555ce472c1e1ef17ce95ad5fe7c5153bb74f4de5a53507
   languageName: node
   linkType: hard
 
-"@rmwc/linear-progress@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/linear-progress@npm:6.0.14"
+"@rmwc/linear-progress@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/linear-progress@npm:6.1.4"
   dependencies:
     "@material/linear-progress": 5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 57898c0295cfe965a88344fc8c6e57a98ff100e96aabfce6d10fba6610c638178e65a62f34035e7e66c9ecb6141531972b4dd02e05b674ba0689d951655088c4
+  checksum: fda5de616f8a89d0a284918334e79ba48d2ab5fbbbc243002e95221173f1d3534a23a09bcbecf6dd19605dcf7bad03c5496438780be54fee45c925796a919918
   languageName: node
   linkType: hard
 
-"@rmwc/list@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/list@npm:6.1.3"
+"@rmwc/list@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/list@npm:6.1.4"
   dependencies:
     "@material/list": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/provider": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/provider": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 8f75014cd2ac8b4fe734dab22ec9d0e3c85a83abf481db1dfe1898f3ffbe69dd6577e2c1cb143783defd7fca890af92b8647d1abdd8902e518226d8d533fffe6
+  checksum: fc13fe1974d8454003590de1597ea216f316def0f9b1d80dfd067d39b2c5facbf77c177a236c9c2e7c6e447058697f76c6df4227a014ce51a8caa702d4a371de
   languageName: node
   linkType: hard
 
-"@rmwc/menu@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/menu@npm:6.1.3"
+"@rmwc/menu@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/menu@npm:6.1.4"
   dependencies:
     "@material/menu": ^5.1.0
     "@material/menu-surface": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/list": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/list": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: ffb607e8a7c17d22d2ae1ec92c28c7bcde04e65ea2345ca738c186cd1db8b07863e102dd109c949da48425cd403106675ba51752e29626ecbaf1b0a014b23c28
+  checksum: 6fde5a65404a844d6ff29c7f8ad0ffa99a6be9eeb6fd5d9efa353150f5a2bb649aa792d8e7c38a7d9a01f25a7576089892afa9e62d891104bd391c9327c7cee4
   languageName: node
   linkType: hard
 
-"@rmwc/notched-outline@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/notched-outline@npm:6.0.14"
+"@rmwc/notched-outline@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/notched-outline@npm:6.1.4"
   dependencies:
     "@material/notched-outline": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 4446bd375b4c526bc67e90fbf295f9badc35db79ff0e7db4563eec0495ccc4d7b4e26e167217405725e34dcd6392e3a1a08ee179df77a8ccede3fe76b18217e7
+  checksum: 968afcdf59910b200a41d59fe3e21f0926ebd064f6896a927cd4e7b94d198c6bb3e3bd0803fe91aa7f6c42080dd7cad4f77ecc56fa2ca06b9dc4e8ed99d763ff
   languageName: node
   linkType: hard
 
-"@rmwc/provider@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/provider@npm:6.1.3"
+"@rmwc/provider@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/provider@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: da37ee160486920cb7ac67db05bcd65231ec08687414ece0edbf284b6f43f3fd2d844cf0b49a3a8fce118e32b505b633eeea32e19d09a2709111acb51e3e7aff
+  checksum: 3348dcaf63a8a062bf3eb2db13075d7d0c4aac9390f17ddaa7463259d7ffeebb8886eeda9c2583ef006f53d03ada27111adcc19ad65e001987b13caeade7c5c6
   languageName: node
   linkType: hard
 
-"@rmwc/radio@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/radio@npm:6.1.3"
+"@rmwc/radio@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/radio@npm:6.1.4"
   dependencies:
     "@material/radio": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/formfield": ^6.0.14
-    "@rmwc/ripple": ^6.1.3
-    "@rmwc/toggleable": ^6.0.14
+    "@rmwc/base": ^6.1.4
+    "@rmwc/formfield": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
+    "@rmwc/toggleable": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 3667bd6c8d61b08988fc36e1432fedb3ee245e600602afc9c995badc727381d1431d78f6680779faa4c47e89ae4d04574aad8388a2d586ed65a90c7499c457fd
+  checksum: 74ca91a5691b6a107b6605cd68262540e01f6169d6802e294dafdc122448c19d3ed288e0f2547f1e0ee916c2a824b7ea043bb832a1d26e1268608b461d7e263f
   languageName: node
   linkType: hard
 
-"@rmwc/ripple@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/ripple@npm:6.1.3"
+"@rmwc/ripple@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/ripple@npm:6.1.4"
   dependencies:
     "@material/ripple": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/provider": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/provider": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: b0728a312f74c43a423557d5c3d26daf881e15f22501c6aeb67a4766d10a3e4603d48b6db607e677adf521466777752d29da63b8edc453d25ebc884c15692030
+  checksum: ef20dfc551b56e9c703b64290c7ed02ac76ba0b80bee9d276d5fc68b744c0951336dc7fa2152614abb5be0694c9a79a7ef2ac78ae72d8e157c4f64c537504c13
   languageName: node
   linkType: hard
 
-"@rmwc/select@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/select@npm:6.1.3"
+"@rmwc/select@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/select@npm:6.1.4"
   dependencies:
     "@material/select": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/floating-label": ^6.1.2
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/line-ripple": ^6.0.14
-    "@rmwc/list": ^6.1.3
-    "@rmwc/menu": ^6.1.3
-    "@rmwc/notched-outline": ^6.0.14
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/floating-label": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/line-ripple": ^6.1.4
+    "@rmwc/list": ^6.1.4
+    "@rmwc/menu": ^6.1.4
+    "@rmwc/notched-outline": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 317e72a1de06019474aca2601378e60c2537732dcb17f6731567373b05b4879b6967a75758cbcd94922fbc205633ea26c2134ff7ff2a2c3c2cb18e376746761d
+  checksum: 4a5a8975669cae368f928541f96497cb8d2ed8061993e13e764d7056049a14b63387069d59e930800acbf10ea5d4e10fa678f18a55dd0bb9143309c7934d42d2
   languageName: node
   linkType: hard
 
-"@rmwc/slider@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/slider@npm:6.0.14"
+"@rmwc/slider@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/slider@npm:6.1.4"
   dependencies:
     "@material/slider": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 564e2408c0004d445bb150b2432b8c86ffd62c7352cd1607a22608923d8977bc8141dd98e93a2671a9d59407e16fa1f9bdac11b089c7bfa03c9fc5156af5a457
+  checksum: be9d98717008bbf1f9487284410fad1680ecfc9aa105c9187493f1385b9be36bb574c1d6290d545d7a9bcfc4dafdb3a60a6e1ae2f20ef60f84bf1fdb3af45a0e
   languageName: node
   linkType: hard
 
-"@rmwc/snackbar@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/snackbar@npm:6.1.3"
+"@rmwc/snackbar@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/snackbar@npm:6.1.4"
   dependencies:
     "@material/snackbar": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/button": ^6.1.3
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/icon-button": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/button": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/icon-button": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: fdcd3dd17f0cacf2121cf3519d242b5eeaa234971452f10155b66629a0d7f9d54328d3a518d0f97ed01051a4264a9826e6dd43527333c02c6d4c79609fcdc842
+  checksum: de0d197c494c2bf807690add0714cfbb77ce1aba31832f97018156954d610f40d7be474715a55508c544b4eb1427a6b70f9caa12405bf42156c056e810922b87
   languageName: node
   linkType: hard
 
-"@rmwc/switch@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/switch@npm:6.1.3"
+"@rmwc/switch@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/switch@npm:6.1.4"
   dependencies:
     "@material/switch": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/formfield": ^6.0.14
-    "@rmwc/ripple": ^6.1.3
-    "@rmwc/toggleable": ^6.0.14
+    "@rmwc/base": ^6.1.4
+    "@rmwc/formfield": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
+    "@rmwc/toggleable": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 2fce2aee79f3400a0658361bb9d2ef5f04c9c57c277e126bd2f8735b12ed0e8af17422fb57dab13d0e3a478665c479c451431f691c88b512df9da9343b7f7184
+  checksum: f8bcb514bf27281ecc2c32b9437ea9216f15461de78534b4608d138e54bea4d77acffee7233ff3ac122f039621b325d3ca089d29909ac6d4a43a681ba7b8fedc
   languageName: node
   linkType: hard
 
-"@rmwc/tabs@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/tabs@npm:6.1.3"
+"@rmwc/tabs@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/tabs@npm:6.1.4"
   dependencies:
     "@material/tab": ^5.1.0
     "@material/tab-bar": ^5.1.0
     "@material/tab-indicator": ^5.1.0
     "@material/tab-scroller": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 0586d17e075bcf91ceb2be7002054a4ee2a22150da1fe6516e6062d0cb1c16e50682c8babff1c02fc7c733127cba53d1cc9e3a7e15637d4593db6de74b162055
+  checksum: 63be9ce44f447d7e130c507a71766353c4fde20e4d252d0865c797bc4f99901cfdd1e3f90c0829a02c007c0c45a881c51e98bf970a079aff0c41ad619b0e648e
   languageName: node
   linkType: hard
 
-"@rmwc/textfield@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/textfield@npm:6.1.3"
+"@rmwc/textfield@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/textfield@npm:6.1.4"
   dependencies:
     "@material/textfield": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/floating-label": ^6.1.2
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/line-ripple": ^6.0.14
-    "@rmwc/notched-outline": ^6.0.14
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/floating-label": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/line-ripple": ^6.1.4
+    "@rmwc/notched-outline": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 6669c6494c91970c09d47ab419a2f02631b6bbce7eea378a00f468b96b1bfda381c7cc700d2383bc7b9eb50cf3c3103109a852ae3463f52774bf1b2cdb993b09
+  checksum: cb4e49680f210cdac8fbaa72be1904900142fe20fd250bf15e136db576913fa58a63603b025308a3c545c0d7b9d6d22eacbd1249a50c1c2cb437527498534bcc
   languageName: node
   linkType: hard
 
-"@rmwc/theme@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "@rmwc/theme@npm:6.1.2"
+"@rmwc/theme@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/theme@npm:6.1.4"
   dependencies:
     "@material/theme": ^5.1.0
-    "@rmwc/base": ^6.0.14
+    "@rmwc/base": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 06a5ec6fa95941511d96793cba7228c3b19f6d8095e00eaa903fb66d34177faf14cd34b566c9f7ed2a0d39a5671f3e6e5931b1ed68db593880df7b4b6fef74af
+  checksum: e5a3a0347750661ccc7b06ae39f5fcd6becf9fbc2382036887ce3ae42d697904d813fa9640ad2c81b075761a094356183c9bd1727eb8f87dc3861caeb1788c99
   languageName: node
   linkType: hard
 
-"@rmwc/toggleable@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@rmwc/toggleable@npm:6.0.14"
+"@rmwc/toggleable@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/toggleable@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
-    "@rmwc/formfield": ^6.0.14
+    "@rmwc/base": ^6.1.4
+    "@rmwc/formfield": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: c1817eaa86a2861e7997cd9317eecdabcbe31e58e167afe512dd1685aefdce4990a3a7720cffe6eb3b785fec7ccda4e3571db996096fab2541184619f03a8e1b
+  checksum: 211ab9a2123f86a7fddd72aff2968da74fdf635385f8c287a51c6e53a62894ae4b74f934fa5475378ca5edb5cf35d6043179dc8a9f63b3b1a057c37c69917e2f
   languageName: node
   linkType: hard
 
-"@rmwc/tooltip@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/tooltip@npm:6.1.3"
+"@rmwc/tooltip@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/tooltip@npm:6.1.4"
   dependencies:
-    "@rmwc/base": ^6.0.14
-    "@rmwc/provider": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/provider": ^6.1.4
     rc-tooltip: 3.7.3
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: b6326b7a1a4564fc39384b741632bcae03cbbd3978679737529d6423db63502e850f634f75df6c00ce5998d126be228f47bc7666e6e65b60a94b4f258ae03c63
+  checksum: 4a484143b8383da69415dff9d947250d59d4519254ce4ee1c7494fe27fc28c62de7374c646b0d5b9615d815124f419da9e22146c7003e7d2b2e6177ca8cc7848
   languageName: node
   linkType: hard
 
-"@rmwc/top-app-bar@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/top-app-bar@npm:6.1.3"
+"@rmwc/top-app-bar@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/top-app-bar@npm:6.1.4"
   dependencies:
     "@material/top-app-bar": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/icon-button": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/icon-button": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: e0b1ea6e5bcd3cff2b54c4e0acc1f03e618692facd3eef9819f123374525eb040543db81a283c685c594e8cb446c84873d672bb57958252e42df3ce573961e00
+  checksum: fbae42591739c4520e532c7dc7d3b051ee61158bcc7c491bed36b1c26acea0cc70005b825fbed77842f284ecb4758f874f3eb50a6e26bfb6aabb27a0fb5dc57f
   languageName: node
   linkType: hard
 
@@ -3603,18 +3599,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rmwc/typography@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rmwc/typography@npm:6.1.3"
+"@rmwc/typography@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rmwc/typography@npm:6.1.4"
   dependencies:
     "@material/typography": ^5.1.0
-    "@rmwc/base": ^6.0.14
-    "@rmwc/provider": ^6.1.3
+    "@rmwc/base": ^6.1.4
+    "@rmwc/provider": ^6.1.4
     "@rmwc/types": ^6.0.5
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 4752f5197910ddf3d959fca339e77ac0fd49c4d48ed0c5d970ea98566a2c26d2fa55448b03f96c900878463ca8390dab3bebaf724bf7c55cc46671c8aa7a4593
+  checksum: f68ad809f23ef842a9e50309ffb50f65613e7740946a07f5ae0ca7dae96fd6458a386054f6fd7e7ff2ddc6f58f684c527f53d18271f63b81d7fa7132d0647166
   languageName: node
   linkType: hard
 
@@ -4632,10 +4628,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/classnames@npm:^2.2.10, @types/classnames@npm:^2.2.7":
+"@types/classnames@npm:^2.2.10":
   version: 2.2.10
   resolution: "@types/classnames@npm:2.2.10"
   checksum: 31b6380183c2123c69f5e50b9e40c7da2862ddfe634361d906a6e300dacd716656ce95e508541d0ec300f71aeed57d30a7ea46f36e881c01eb2334843700fadc
+  languageName: node
+  linkType: hard
+
+"@types/classnames@npm:^2.2.7":
+  version: 2.3.0
+  resolution: "@types/classnames@npm:2.3.0"
+  dependencies:
+    classnames: "*"
+  checksum: e0e96a5f7c7198edb3be39404e1a88873bea191eb5e77e3c23b51777a3006dd497565fa5939c7980ad6a6e0330962fe5f3ca4b5f56c34b4dcc13853932609b7b
   languageName: node
   linkType: hard
 
@@ -7617,6 +7622,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:*":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 57d536edede609f81425d24b062d8d720a466565faf1e38d32c881e883920baa71519ac70c7b565e9cd39201fb1c1ff9bdf8aabf8e26544bac481e7924867c83
+  languageName: node
+  linkType: hard
+
 "classnames@npm:^2.2.5, classnames@npm:^2.2.6":
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
@@ -8975,9 +8987,9 @@ __metadata:
   linkType: hard
 
 "dom-align@npm:^1.7.0":
-  version: 1.12.0
-  resolution: "dom-align@npm:1.12.0"
-  checksum: d4d274a1fd32ce7839096a498b9b1b24fb3e5f47fe1cc576dd18c8ca1cd0d2554e7a136c364ee6e38146aea9ddabd8c81efb3de42796b3cdef30609f89ada82d
+  version: 1.12.1
+  resolution: "dom-align@npm:1.12.1"
+  checksum: a8b56e4c948ec31703252174217843cf970b1ea9664ad5ed4f125f18c31d5d53dcb7200044b219dbcd0137f5aefc4ecb82b15b4e0472c3ba06b040219d32d19e
   languageName: node
   linkType: hard
 
@@ -17698,8 +17710,6 @@ fsevents@^1.2.7:
 "rechoir@npm:^0.6.2":
   version: 0.6.2
   resolution: "rechoir@npm:0.6.2"
-  dependencies:
-    resolve: ^1.1.6
   checksum: 6646a6bce733282d182bf04816b15d4e2d63736b3453cf62a8568aaa1399621a73b3942315161f549e090f9a3c61bc09f4cb674f928c369a40037621e10295bd
   languageName: node
   linkType: hard
@@ -18191,7 +18201,7 @@ resolve@1.15.0:
   languageName: node
   linkType: hard
 
-"resolve@^1.1.6, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.15.1, resolve@^1.3.2, resolve@^1.8.1":
+"resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.15.1":
   version: 1.17.0
   resolution: "resolve@npm:1.17.0"
   dependencies:
@@ -18216,7 +18226,7 @@ resolve@1.15.0:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.6#builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#builtin<compat/resolve>, resolve@patch:resolve@^1.15.1#builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#builtin<compat/resolve>, resolve@patch:resolve@^1.8.1#builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#builtin<compat/resolve>, resolve@patch:resolve@^1.15.1#builtin<compat/resolve>":
   version: 1.17.0
   resolution: "resolve@patch:resolve@npm%3A1.17.0#builtin<compat/resolve>::version=1.17.0&hash=3388aa"
   dependencies:
@@ -18324,54 +18334,54 @@ resolve@1.15.0:
   linkType: hard
 
 "rmwc@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "rmwc@npm:6.1.3"
+  version: 6.1.4
+  resolution: "rmwc@npm:6.1.4"
   dependencies:
-    "@rmwc/avatar": ^6.1.3
-    "@rmwc/badge": ^6.0.14
-    "@rmwc/base": ^6.0.14
-    "@rmwc/button": ^6.1.3
-    "@rmwc/card": ^6.1.3
-    "@rmwc/checkbox": ^6.1.3
-    "@rmwc/chip": ^6.1.3
-    "@rmwc/circular-progress": ^6.0.14
-    "@rmwc/data-table": ^6.1.3
-    "@rmwc/dialog": ^6.1.3
-    "@rmwc/drawer": ^6.0.14
-    "@rmwc/elevation": ^6.1.0
-    "@rmwc/fab": ^6.1.3
-    "@rmwc/floating-label": ^6.1.2
-    "@rmwc/formfield": ^6.0.14
-    "@rmwc/grid": ^6.0.14
-    "@rmwc/grid-list": ^6.1.3
-    "@rmwc/icon": ^6.1.3
-    "@rmwc/icon-button": ^6.1.3
-    "@rmwc/image-list": ^6.0.14
-    "@rmwc/line-ripple": ^6.0.14
-    "@rmwc/linear-progress": ^6.0.14
-    "@rmwc/list": ^6.1.3
-    "@rmwc/menu": ^6.1.3
-    "@rmwc/notched-outline": ^6.0.14
-    "@rmwc/provider": ^6.1.3
-    "@rmwc/radio": ^6.1.3
-    "@rmwc/ripple": ^6.1.3
-    "@rmwc/select": ^6.1.3
-    "@rmwc/slider": ^6.0.14
-    "@rmwc/snackbar": ^6.1.3
-    "@rmwc/switch": ^6.1.3
-    "@rmwc/tabs": ^6.1.3
-    "@rmwc/textfield": ^6.1.3
-    "@rmwc/theme": ^6.1.2
-    "@rmwc/toggleable": ^6.0.14
-    "@rmwc/tooltip": ^6.1.3
-    "@rmwc/top-app-bar": ^6.1.3
+    "@rmwc/avatar": ^6.1.4
+    "@rmwc/badge": ^6.1.4
+    "@rmwc/base": ^6.1.4
+    "@rmwc/button": ^6.1.4
+    "@rmwc/card": ^6.1.4
+    "@rmwc/checkbox": ^6.1.4
+    "@rmwc/chip": ^6.1.4
+    "@rmwc/circular-progress": ^6.1.4
+    "@rmwc/data-table": ^6.1.4
+    "@rmwc/dialog": ^6.1.4
+    "@rmwc/drawer": ^6.1.4
+    "@rmwc/elevation": ^6.1.4
+    "@rmwc/fab": ^6.1.4
+    "@rmwc/floating-label": ^6.1.4
+    "@rmwc/formfield": ^6.1.4
+    "@rmwc/grid": ^6.1.4
+    "@rmwc/grid-list": ^6.1.4
+    "@rmwc/icon": ^6.1.4
+    "@rmwc/icon-button": ^6.1.4
+    "@rmwc/image-list": ^6.1.4
+    "@rmwc/line-ripple": ^6.1.4
+    "@rmwc/linear-progress": ^6.1.4
+    "@rmwc/list": ^6.1.4
+    "@rmwc/menu": ^6.1.4
+    "@rmwc/notched-outline": ^6.1.4
+    "@rmwc/provider": ^6.1.4
+    "@rmwc/radio": ^6.1.4
+    "@rmwc/ripple": ^6.1.4
+    "@rmwc/select": ^6.1.4
+    "@rmwc/slider": ^6.1.4
+    "@rmwc/snackbar": ^6.1.4
+    "@rmwc/switch": ^6.1.4
+    "@rmwc/tabs": ^6.1.4
+    "@rmwc/textfield": ^6.1.4
+    "@rmwc/theme": ^6.1.4
+    "@rmwc/toggleable": ^6.1.4
+    "@rmwc/tooltip": ^6.1.4
+    "@rmwc/top-app-bar": ^6.1.4
     "@rmwc/types": ^6.0.5
-    "@rmwc/typography": ^6.1.3
+    "@rmwc/typography": ^6.1.4
     material-components-web: ^5.1.0
   peerDependencies:
     react: ^16.3.x
     react-dom: ^16.3.x
-  checksum: 1f3a38b2e655e000a9d0686b6036513e0c0f50263560623fe9356d8a205b7c317876e4dbc01d82ee44dc0a14d1aefedba90571ca6c6b7e00a7ecae0c8e431f83
+  checksum: 0d842df1851f196a2c9849ed8cdf987acf2f0b5dc800eb42816aa25364814c7f7ac4b6e645b752e78812d9acd43e90186b7911d57b8020081b50ce060bd45783
   languageName: node
   linkType: hard
 
@@ -20098,10 +20108,17 @@ resolve@1.15.0:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
+"tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.13.0
   resolution: "tslib@npm:1.13.0"
   checksum: 5dc3bdaea3b67c76ef4a14c28fcb2171da7bcf292fd9c59a260098729626b1ce766c52b588f08e324ed9a0c52ea8a93a815920f980d75981abc9d850fbf310fb
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^1.9.3":
+  version: 1.14.1
+  resolution: "tslib@npm:1.14.1"
+  checksum: f44fe7f216946b17d3e3074df3746372703cf24e9127b4c045511456e8e4bf25515fb0a1bb3937676cc305651c5d4fcb6377b0588a4c6a957e748c4c28905d17
   languageName: node
   linkType: hard
 
