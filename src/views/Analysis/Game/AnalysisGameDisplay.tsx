@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
 import { AnalysisGame } from '../../../state/AppState';
-import { HistoryButtons } from '../../../components/Analysis/HistoryButtons/HistoryButtons';
 import { MoveList } from '../../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../../components/Analysis/ScrollElementConstants';
 import styles from './AnalysisGame.module.css';
+import { ArrowButtons } from '../../../components/ArrowButtons/ArrowButtons';
 
 interface AnalysisGameDisplayProps {
   moveForwardInHistory: (numberOfMoves: number) => void;
@@ -42,12 +42,20 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
         />
       </div>
       <div className={styles.historyButtons}>
-        <HistoryButtons
-          currentMove={analysisGame.currentMove}
-          lastMove={reversedMoves[0] && reversedMoves[0].moveNumber}
-          moveForwardInHistory={props.moveForwardInHistory}
-          moveBackwardInHistory={props.moveBackwardInHistory}
-          onInteraction={scrollToElement}
+        <ArrowButtons
+          handleKeyboard={true}
+          value={analysisGame.currentMove}
+          maxValue={reversedMoves[0] && reversedMoves[0].moveNumber}
+          minValue={1}
+          onInteraction={(forward) => {
+            if (forward) {
+              props.moveForwardInHistory(1);
+              scrollToElement(currentlyAppliedMove.moveNumber + 1);
+            } else {
+              props.moveBackwardInHistory(1);
+              scrollToElement(currentlyAppliedMove.moveNumber - 1);
+            }
+          }}
         />
       </div>
       <div className={styles.analysisGame}>

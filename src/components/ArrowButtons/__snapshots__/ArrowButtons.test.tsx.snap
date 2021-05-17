@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HistoryButtons should match snapshot 1`] = `
+exports[`ArrowButtons should match snapshot 1`] = `
 <Fragment>
   <withRipple(Function)
     className="buttonMargin"
