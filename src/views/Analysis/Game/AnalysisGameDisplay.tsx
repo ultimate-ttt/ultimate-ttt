@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
 import { AnalysisGame } from '../../../state/AppState';
-// import { HistoryButtons } from '../../../components/Analysis/HistoryButtons/HistoryButtons';
 import { MoveList } from '../../../components/Analysis/MoveList/MoveList';
 import { scroller } from 'react-scroll/modules';
 import { moveScrollElementBaseName } from '../../../components/Analysis/ScrollElementConstants';
