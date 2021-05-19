@@ -8,10 +8,10 @@ import {
   DialogTitle,
 } from '@rmwc/dialog';
 import { HowToPlayContent } from '../Content/HowToPlayContent';
-import icons from '../../../icons/icons';
 import { steps } from '../HowToPlaySteps';
 import styles from './HowToPlayDialog.module.css';
 import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
+import { ArrowLeftIcon, ArrowRightIcon } from '../../Icons';
 
 export interface HowToPlayDialogProps {
   onClose: (evt: DialogOnCloseEventT) => void;
@@ -35,7 +35,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
         <DialogButton action="close">Cancel</DialogButton>
         <DialogButton
           className={styles.push}
-          icon={{ icon: icons.arrowLeft, 'aria-hidden': true }}
+          icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
           disabled={stepNumber === 0}
           onClick={() => {
             setStepNumber(stepNumber - 1);
@@ -44,7 +44,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
           Previous
         </DialogButton>
         <DialogButton
-          trailingIcon={{ icon: icons.arrowRight, 'aria-hidden': true }}
+          trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
           disabled={stepNumber === steps.length - 1}
           onClick={() => {
             setStepNumber(stepNumber + 1);
