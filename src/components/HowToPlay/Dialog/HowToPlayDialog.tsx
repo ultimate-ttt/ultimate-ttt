@@ -7,12 +7,12 @@ import {
   DialogContent,
   DialogTitle,
 } from '@rmwc/dialog';
-import { HowToPlayContent } from '../Content/HowToPlayContent';
 import { steps } from '../HowToPlaySteps';
 import styles from './HowToPlayDialog.module.css';
 import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
 import { ArrowButtons } from '../../ArrowButtons/ArrowButtons';
 import classNames from 'classnames';
+import { HowToPlayStep } from '../Step/HowToPlayStep';
 
 export interface HowToPlayDialogProps {
   onClose: (evt: DialogOnCloseEventT) => void;
@@ -26,7 +26,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     <Dialog className={styles.dialog} open={true} onClose={props.onClose}>
       <DialogTitle>How to play</DialogTitle>
       <DialogContent>
-        <HowToPlayContent
+        <HowToPlayStep
           text={step.text}
           boardStates={step.states}
           moves={step.moves}

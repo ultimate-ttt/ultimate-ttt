@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
-import styles from './HowToPlayContent.module.css';
-import { BigBoard } from '../../Board/BigBoard/BigBoard';
+import styles from './HowToPlayStep.module.css';
 import { TicTacToeGame } from '../../../util';
 import { Move } from '../../../state/AppState';
+import { StepWithMoves } from './Moves/StepWithMoves';
+import { StepWithBoards } from './Boards/StepWithBoards';
 
-export interface HowToPlayContentProps {
+export interface HowToPlayStepProps {
   text: string;
   boardStates: TicTacToeGame[];
   moves: Move[];
 }
 
-export function HowToPlayContent(props: HowToPlayContentProps) {
+export function HowToPlayStep(props: HowToPlayStepProps) {
   // TODO: maybe add this change to the big board so that all HOC profit from this!
+  /*
   const isFirstRef = useRef(true); // On first render we don't want to animate the circle -> square change
   const [boardNumber, setBoardNumber] = useState(0);
   const [moveNumber, setMoveNumber] = useState(-1);
@@ -61,16 +62,26 @@ export function HowToPlayContent(props: HowToPlayContentProps) {
   }, [boards, boardNumber, moves, moveNumber, props.boardStates]);
 
   const currentBoard = boards[boardNumber];
+   */
   return (
     <>
       <p>{props.text}</p>
       <div className={styles.bigBoard}>
+        {props.boardStates.length === 1 ? (
+          <StepWithMoves
+            initialBoard={props.boardStates[0]}
+            moves={props.moves}
+          />
+        ) : (
+          <StepWithBoards boards={props.boardStates} />
+        )}
+        {/*
         <BigBoard
           currentPlayer={currentBoard.getCurrentPlayer()}
           board={currentBoard.getBoard()}
           activeBoards={currentBoard.getCurrentActiveBoards()}
           animate={moves.length > 0 && !isFirstRef.current}
-        />
+        />*/}
       </div>
     </>
   );
