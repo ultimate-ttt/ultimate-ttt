@@ -11,7 +11,8 @@ import { HowToPlayContent } from '../Content/HowToPlayContent';
 import { steps } from '../HowToPlaySteps';
 import styles from './HowToPlayDialog.module.css';
 import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
-import { ArrowLeftIcon, ArrowRightIcon } from '../../Icons';
+import { ArrowButtons } from '../../ArrowButtons/ArrowButtons';
+import classNames from 'classnames';
 
 export interface HowToPlayDialogProps {
   onClose: (evt: DialogOnCloseEventT) => void;
@@ -32,27 +33,22 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
         />
       </DialogContent>
       <DialogActions>
-        <DialogButton action="close">Cancel</DialogButton>
         <DialogButton
-          className={styles.push}
-          icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
-          disabled={stepNumber === 0}
-          onClick={() => {
-            setStepNumber(stepNumber - 1);
-          }}
+          className={classNames([styles.push, styles.cancel])}
+          action="close"
         >
-          Previous
+          Cancel
         </DialogButton>
-        <DialogButton
-          trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
-          disabled={stepNumber === steps.length - 1}
-          onClick={() => {
-            setStepNumber(stepNumber + 1);
+        <ArrowButtons
+          value={stepNumber}
+          maxValue={steps.length - 1}
+          minValue={0}
+          onInteraction={(forward) => {
+            if (forward) setStepNumber(stepNumber + 1);
+            else setStepNumber(stepNumber - 1);
           }}
-          isDefaultAction
-        >
-          Next
-        </DialogButton>
+          buttonProps={{ raised: false }}
+        />
       </DialogActions>
     </Dialog>
   );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from '@rmwc/button';
+import { Button, ButtonProps } from '@rmwc/button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../Icons';
 import styles from './ArrowButtons.module.css';
 import { useEffect } from 'react';
@@ -10,6 +10,7 @@ export interface ArrowButtonsProps {
   minValue: number;
   onInteraction: (forward: boolean) => void;
   handleKeyboard?: boolean;
+  buttonProps?: ButtonProps;
   children?: React.ReactNode;
 }
 
@@ -39,7 +40,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
     };
   }, [props]);
 
-  const { value, maxValue, minValue, children } = props;
+  const { value, maxValue, minValue, buttonProps, children } = props;
   return (
     <>
       <Button
@@ -51,6 +52,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
           handleInteraction(false, props);
         }}
         className={styles.buttonMargin}
+        {...buttonProps}
       >
         Previous
       </Button>
@@ -64,6 +66,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
           handleInteraction(true, props);
         }}
         className={styles.buttonMargin}
+        {...buttonProps}
       >
         Next
       </Button>

@@ -2,6 +2,6 @@
   width: 80vh;
 }
 
-.push:global(.mdc-dialog__button) {
-  margin-left: auto;
+.dialog .cancel.push:global(.mdc-dialog__button) {
+  margin-right: auto;
 }
