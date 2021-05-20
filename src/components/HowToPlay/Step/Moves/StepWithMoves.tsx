@@ -27,7 +27,7 @@ export function StepWithMoves(props: StepWithMovesProps) {
 
     // TODO it waits too long on the first open
     // TODO when clicking the backwards button at the right time, the state is not updated correctly
-    // -> I think we should handle all this stuff (except for the setInterval) in redux, as this could make it a lot easier!!!
+    // -> I think we should handle all this stuff (except for the setInterval) in redux, as this could make it a lot easier to finally solve!!!
     let updateInterval = setInterval(() => {
       const newMoveNumber = moves.length - 1 > moveNumber ? moveNumber + 1 : -1;
       setMoveNumber(newMoveNumber);

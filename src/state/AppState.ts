@@ -4,6 +4,7 @@ export interface AppState {
   currentGame: GameInformation;
   finishedGames: FinishedGameState[];
   analysisGame: AnalysisGame;
+  howToPlay: HowToPlay;
 }
 
 export interface GameInformation {
@@ -30,6 +31,14 @@ export interface AnalysisGame {
   moves: MoveState[];
   activeBoards: Point[];
   currentMove: number;
+}
+
+export interface HowToPlay {
+  stepNumber: number;
+  stateNumber: number;
+  board: SmallBoardInformation[];
+  currentPlayer: Player;
+  activeBoards: Point[];
 }
 
 export interface GameState {
