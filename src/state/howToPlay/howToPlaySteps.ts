@@ -8,9 +8,8 @@ export interface HowToPlayStep {
   moves: Move[];
 }
 
-// TODO export all texts in the UI into a json file?
+// TODO export all texts in the UI into a json file, in the future
 export const steps: HowToPlayStep[] = [
-  // TODO initial animation is happening on this step!
   {
     text: 'Ultimate Tic-Tac-Toe is played with 9 small tic-tac-toe boards',
     states: [new TicTacToeGame([])],
@@ -45,7 +44,7 @@ export const steps: HowToPlayStep[] = [
   },
   {
     // TODO insert component to show that this is marked by light blue?
-    // TODO: animation when going to step is not turned off!
+    // TODO: animation when going to step is not turned off!?
     text:
       'Each turn the move of your opponent dictates in which board you can move next',
     states: [new TicTacToeGame([])],
