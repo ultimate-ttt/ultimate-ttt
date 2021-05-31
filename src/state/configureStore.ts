@@ -17,7 +17,8 @@ import finishedGameReducer from './finishedGames/finishedGameReducer';
 import { AppState, GameInformation } from './AppState';
 import analysisGameReducer from './analysisGame/analysisGameReducer';
 import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
-import howToPlayReducer from "./howToPlay/howToPlayReducer";
+import howToPlayReducer from './howToPlay/howToPlayReducer';
+import howToPlaySaga from './howToPlay/howToPlaySaga';
 
 const currentGameReducer = combineReducers<GameInformation>({
   game: gameReducer,
@@ -29,7 +30,7 @@ const rootReducer = combineReducers<AppState>({
   currentGame: currentGameReducer,
   finishedGames: finishedGameReducer,
   analysisGame: analysisGameReducer,
-  howToPlay: howToPlayReducer
+  howToPlay: howToPlayReducer,
 });
 
 export function configureStore() {
@@ -65,5 +66,6 @@ function* rootSaga() {
     fork(checkGameFinishedSaga),
     fork(saveFinishedGameDataSaga),
     fork(loadFinishedGameSaga),
+    fork(howToPlaySaga),
   ]);
 }

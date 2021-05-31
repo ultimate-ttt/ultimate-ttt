@@ -22,6 +22,7 @@ export const howToPlayStepForward = () => ({
 export const howToPlayStepBackward = () => ({
   type: HOW_TO_PLAY_STEP_BACKWARD,
 });
+
 export const howToPlayStateForward = () => ({
   type: HOW_TO_PLAY_STATE_FORWARD,
 });

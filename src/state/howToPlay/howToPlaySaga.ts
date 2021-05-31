@@ -1,25 +1,32 @@
-import { delay, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
-import { GenericAction } from '../AppState';
+import { delay, put, takeEvery, race, call, take } from 'redux-saga/effects';
 import {
+  HOW_TO_PLAY_CLOSE,
   HOW_TO_PLAY_OPEN,
   HOW_TO_PLAY_STEP_BACKWARD,
   HOW_TO_PLAY_STEP_FORWARD,
   howToPlayStateForward,
 } from './howToPlayActions';
 
-function* updateBoardState(action: GenericAction) {
-  yield put(howToPlayStateForward());
+function* updateBoardState() {
+  while (true) {
+    yield delay(1000);
+    yield put(howToPlayStateForward());
+  }
+}
 
-  yield delay(1000);
-  const open = yield select((state) => state.howToPlay.open);
-  // todo: because of takeLatest we don't need to check for stepNumber?
-  if (open) updateBoardState(action);
+function* startUpdate() {
+  yield race({
+    update: call(updateBoardState),
+    cancel1: take(HOW_TO_PLAY_CLOSE),
+    cancel2: take(HOW_TO_PLAY_STEP_FORWARD),
+    cancel3: take(HOW_TO_PLAY_STEP_BACKWARD),
+  });
 }
 
 function* howToPlaySaga() {
-  yield takeEvery(HOW_TO_PLAY_OPEN, updateBoardState);
-  yield takeLatest(HOW_TO_PLAY_STEP_FORWARD, updateBoardState);
-  yield takeLatest(HOW_TO_PLAY_STEP_BACKWARD, updateBoardState);
+  yield takeEvery(HOW_TO_PLAY_OPEN, startUpdate);
+  yield takeEvery(HOW_TO_PLAY_STEP_FORWARD, startUpdate);
+  yield takeEvery(HOW_TO_PLAY_STEP_BACKWARD, startUpdate);
 }
 
 export default howToPlaySaga;

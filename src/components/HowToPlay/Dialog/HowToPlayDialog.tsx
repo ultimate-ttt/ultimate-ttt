@@ -13,29 +13,45 @@ import classNames from 'classnames';
 import { HowToPlayStep } from '../Step/HowToPlayStep';
 import { Player, SmallBoardInformation } from '../../../state/AppState';
 import { Point } from '../../../util';
+import { useEffect } from 'react';
 
 export interface HowToPlayDialogProps {
+  onOpen: () => void;
   onClose: (evt: DialogOnCloseEventT) => void;
+  onForward: () => void;
+  onBackward: () => void;
   stepNumber: number;
   maxStepNumber: number;
   text: string;
   board: SmallBoardInformation[];
   currentPlayer: Player;
   activeBoards: Point[];
-  onForward: () => void;
-  onBackward: () => void;
 }
 
 export function HowToPlayDialog(props: HowToPlayDialogProps) {
+  const {
+    onOpen,
+    onClose,
+    text,
+    board,
+    activeBoards,
+    currentPlayer,
+    stepNumber,
+    maxStepNumber,
+    onForward,
+    onBackward,
+  } = props;
+  useEffect(() => onOpen(), [onOpen]);
+
   return (
-    <Dialog className={styles.dialog} open={true} onClose={props.onClose}>
+    <Dialog className={styles.dialog} open={true} onClose={onClose}>
       <DialogTitle>How to play</DialogTitle>
       <DialogContent>
         <HowToPlayStep
-          text={props.text}
-          board={props.board}
-          activeBoards={props.activeBoards}
-          currentPlayer={props.currentPlayer}
+          text={text}
+          board={board}
+          activeBoards={activeBoards}
+          currentPlayer={currentPlayer}
         />
       </DialogContent>
       <DialogActions>
@@ -46,12 +62,12 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
           Cancel
         </DialogButton>
         <ArrowButtons
-          value={props.stepNumber}
-          maxValue={props.maxStepNumber}
+          value={stepNumber}
+          maxValue={maxStepNumber}
           minValue={0}
           onInteraction={(forward) => {
-            if (forward) props.onForward();
-            else props.onBackward();
+            if (forward) onForward();
+            else onBackward();
           }}
           buttonProps={{ raised: false }}
         />

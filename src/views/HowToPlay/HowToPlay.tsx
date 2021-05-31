@@ -3,6 +3,8 @@ import { useHistory } from 'react-router';
 import routes from '../../routes/routes';
 import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
 import {
+  howToPlayClose,
+  howToPlayOpen,
   howToPlayStepBackward,
   howToPlayStepForward,
 } from '../../state/howToPlay/howToPlayActions';
@@ -17,6 +19,8 @@ export interface HowToPlayProps {
   board: SmallBoardInformation[];
   currentPlayer: Player;
   activeBoards: Point[];
+  onOpen: () => void;
+  onClose: () => void;
   onForward: () => void;
   onBackward: () => void;
 }
@@ -26,10 +30,12 @@ function HowToPlay(props: HowToPlayProps) {
 
   function handleClose() {
     history.push(routes.Home);
+    props.onClose();
   }
 
   return (
     <HowToPlayDialog
+      onOpen={props.onOpen}
       onClose={handleClose}
       currentPlayer={props.currentPlayer}
       board={props.board}
@@ -52,6 +58,8 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = {
+  onOpen: () => howToPlayOpen(),
+  onClose: () => howToPlayClose(),
   onForward: () => howToPlayStepForward(),
   onBackward: () => howToPlayStepBackward(),
 };
