@@ -8,11 +8,11 @@ import {
 } from '@rmwc/dialog';
 import styles from './HowToPlayDialog.module.css';
 import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
-import { ArrowButtons } from '../../ArrowButtons/ArrowButtons';
+import { ArrowButtons } from '../ArrowButtons/ArrowButtons';
 import classNames from 'classnames';
-import { HowToPlayStep } from '../Step/HowToPlayStep';
-import { HowToPlayBoardState } from '../../../state/AppState';
 import { useEffect } from 'react';
+import { HowToPlayContent } from './HowToPlayContent';
+import { HowToPlayBoardState } from '../../state/AppState';
 
 export interface HowToPlayDialogProps {
   onOpen: () => void;
@@ -44,7 +44,10 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     <Dialog className={styles.dialog} open={true} onClose={onClose}>
       <DialogTitle>How to play</DialogTitle>
       <DialogContent>
-        <HowToPlayStep text={text} boardState={boardState} />
+        <p>{text}</p>
+        <div className={styles.bigBoard}>
+          <HowToPlayContent boardState={boardState} />
+        </div>
       </DialogContent>
       <DialogActions>
         <DialogButton

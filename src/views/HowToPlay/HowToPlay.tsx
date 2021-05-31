@@ -9,7 +9,7 @@ import {
   howToPlayStepForward,
 } from '../../state/howToPlay/howToPlayActions';
 import { connect } from 'react-redux';
-import { HowToPlayDialog } from '../../components/HowToPlay/Dialog/HowToPlayDialog';
+import { HowToPlayDialog } from '../../components/HowToPlay/HowToPlayDialog';
 
 export interface HowToPlayProps {
   stepNumber: number;
