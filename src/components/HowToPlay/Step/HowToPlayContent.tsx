@@ -1,18 +1,21 @@
 import * as React from 'react';
-import { TicTacToeGame } from '../../../util';
+import { Point } from '../../../util';
 import { BigBoard } from '../../Board/BigBoard/BigBoard';
+import { Player, SmallBoardInformation } from '../../../state/AppState';
 
 interface HowToPlayContentProps {
-  board: TicTacToeGame;
+  board: SmallBoardInformation[];
+  currentPlayer: Player;
+  activeBoards: Point[];
 }
 
 export function HowToPlayContent(props: HowToPlayContentProps) {
-  const { board } = props;
+  const { board, currentPlayer, activeBoards } = props;
   return (
     <BigBoard
-      currentPlayer={board.getCurrentPlayer()}
-      board={board.getBoard()}
-      activeBoards={board.getCurrentActiveBoards()}
+      currentPlayer={currentPlayer}
+      board={board}
+      activeBoards={activeBoards}
       animate={true}
     />
   );

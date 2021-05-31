@@ -1,14 +1,18 @@
 import * as React from 'react';
 import styles from './HowToPlayStep.module.css';
-import { TicTacToeGame } from '../../../util';
-import { Move } from '../../../state/AppState';
-import { StepWithMoves } from './Moves/StepWithMoves';
-import { StepWithBoards } from './Boards/StepWithBoards';
+import { Point } from '../../../util';
+import { Player, SmallBoardInformation } from '../../../state/AppState';
+/*import { StepWithMoves } from './Moves/StepWithMoves';
+import { StepWithBoards } from './Boards/StepWithBoards';*/
+import { HowToPlayContent } from './HowToPlayContent';
 
 export interface HowToPlayStepProps {
   text: string;
-  boardStates: TicTacToeGame[];
-  moves: Move[];
+  /*boardStates: TicTacToeGame[];
+  moves: Move[];*/
+  board: SmallBoardInformation[];
+  activeBoards: Point[];
+  currentPlayer: Player;
 }
 
 export function HowToPlayStep(props: HowToPlayStepProps) {
@@ -67,14 +71,20 @@ export function HowToPlayStep(props: HowToPlayStepProps) {
     <>
       <p>{props.text}</p>
       <div className={styles.bigBoard}>
-        {props.boardStates.length === 1 ? (
+        <HowToPlayContent
+          board={props.board}
+          activeBoards={props.activeBoards}
+          currentPlayer={props.currentPlayer}
+        />
+        {/*{props.boardStates.length === 1 ? (
           <StepWithMoves
             initialBoard={props.boardStates[0]}
             moves={props.moves}
           />
         ) : (
           <StepWithBoards boards={props.boardStates} />
-        )}
+        )}*/}
+
         {/*
         <BigBoard
           currentPlayer={currentBoard.getCurrentPlayer()}

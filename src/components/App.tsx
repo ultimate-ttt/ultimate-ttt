@@ -5,7 +5,7 @@ import AnalysisGameRoute from '../views/Analysis/Game/AnalysisGameRoute';
 import AnalysisOverview from '../views/Analysis/Overview/AnalysisOverview';
 import routes from '../routes/routes';
 import { Navigation } from './Navigation/Navigation';
-import { HowToPlay } from '../views/HowToPlay/HowToPlay';
+import HowToPlay from '../views/HowToPlay/HowToPlay';
 
 // import individual material component styles here.
 import '@material/theme/dist/mdc.theme.css';

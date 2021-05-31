@@ -1,6 +1,6 @@
 import { TicTacToeGame } from '../../util';
-import { Move } from '../../state/AppState';
-import { winStates } from './PossibleWinStates';
+import { Move } from '../AppState';
+import { winStates } from './possibleWinStates';
 
 export interface HowToPlayStep {
   text: string;

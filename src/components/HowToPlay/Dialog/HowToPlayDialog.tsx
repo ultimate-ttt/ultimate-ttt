@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import {
   Dialog,
   DialogActions,
@@ -7,29 +6,36 @@ import {
   DialogContent,
   DialogTitle,
 } from '@rmwc/dialog';
-import { steps } from '../HowToPlaySteps';
 import styles from './HowToPlayDialog.module.css';
 import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
 import { ArrowButtons } from '../../ArrowButtons/ArrowButtons';
 import classNames from 'classnames';
 import { HowToPlayStep } from '../Step/HowToPlayStep';
+import { Player, SmallBoardInformation } from '../../../state/AppState';
+import { Point } from '../../../util';
 
 export interface HowToPlayDialogProps {
   onClose: (evt: DialogOnCloseEventT) => void;
+  stepNumber: number;
+  maxStepNumber: number;
+  text: string;
+  board: SmallBoardInformation[];
+  currentPlayer: Player;
+  activeBoards: Point[];
+  onForward: () => void;
+  onBackward: () => void;
 }
 
 export function HowToPlayDialog(props: HowToPlayDialogProps) {
-  const [stepNumber, setStepNumber] = useState(0);
-  const step = steps[stepNumber];
-
   return (
     <Dialog className={styles.dialog} open={true} onClose={props.onClose}>
       <DialogTitle>How to play</DialogTitle>
       <DialogContent>
         <HowToPlayStep
-          text={step.text}
-          boardStates={step.states}
-          moves={step.moves}
+          text={props.text}
+          board={props.board}
+          activeBoards={props.activeBoards}
+          currentPlayer={props.currentPlayer}
         />
       </DialogContent>
       <DialogActions>
@@ -40,12 +46,12 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
           Cancel
         </DialogButton>
         <ArrowButtons
-          value={stepNumber}
-          maxValue={steps.length - 1}
+          value={props.stepNumber}
+          maxValue={props.maxStepNumber}
           minValue={0}
           onInteraction={(forward) => {
-            if (forward) setStepNumber(stepNumber + 1);
-            else setStepNumber(stepNumber - 1);
+            if (forward) props.onForward();
+            else props.onBackward();
           }}
           buttonProps={{ raised: false }}
         />

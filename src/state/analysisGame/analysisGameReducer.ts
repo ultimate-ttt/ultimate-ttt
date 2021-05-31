@@ -22,40 +22,38 @@ const initialState: AnalysisGame = {
 };
 
 const analysisGameReducer = (state = initialState, action: GenericAction) => {
-  if (action.type === RESET_ANALYSIS_GAME) {
-    return initialState;
-  }
+  switch (action.type) {
+    case RESET_ANALYSIS_GAME:
+      return initialState;
+    case SET_ANALYSIS_GAME:
+      return action.payload;
 
-  if (action.type === SET_ANALYSIS_GAME) {
-    return action.payload;
-  }
+    case MOVE_FORWARD_IN_HISTORY:
+    case MOVE_BACKWARD_IN_HISTORY: {
+      let lastMoveToApply = 0;
+      if (action.type === MOVE_FORWARD_IN_HISTORY) {
+        const movesToMoveForward = action.payload;
+        lastMoveToApply = state.currentMove + movesToMoveForward;
+      }
 
-  if (
-    action.type === MOVE_FORWARD_IN_HISTORY ||
-    action.type === MOVE_BACKWARD_IN_HISTORY
-  ) {
-    let lastMoveToApply = 0;
-    if (action.type === MOVE_FORWARD_IN_HISTORY) {
-      const movesToMoveForward = action.payload;
-      lastMoveToApply = state.currentMove + movesToMoveForward;
+      if (action.type === MOVE_BACKWARD_IN_HISTORY) {
+        const movesToMoveBackward = action.payload;
+        lastMoveToApply = state.currentMove - movesToMoveBackward;
+      }
+
+      return produce(state, (draftState) => {
+        draftState.currentMove = lastMoveToApply;
+        const relevantMoves = state.moves.slice(0, lastMoveToApply);
+
+        const game = new TicTacToeGame(relevantMoves);
+        draftState.board = game.getBoard();
+        draftState.activeBoards = game.getCurrentActiveBoards();
+        draftState.game.currentPlayer = game.getCurrentPlayer();
+      });
     }
 
-    if (action.type === MOVE_BACKWARD_IN_HISTORY) {
-      const movesToMoveBackward = action.payload;
-      lastMoveToApply = state.currentMove - movesToMoveBackward;
-    }
-
-    return produce(state, (draftState) => {
-      draftState.currentMove = lastMoveToApply;
-      const relevantMoves = state.moves.slice(0, lastMoveToApply);
-
-      const game = new TicTacToeGame(relevantMoves);
-      draftState.board = game.getBoard();
-      draftState.activeBoards = game.getCurrentActiveBoards();
-      draftState.game.currentPlayer = game.getCurrentPlayer();
-    });
-  } else {
-    return state;
+    default:
+      return state;
   }
 };
 

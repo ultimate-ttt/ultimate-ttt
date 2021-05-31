@@ -34,8 +34,11 @@ export interface AnalysisGame {
 }
 
 export interface HowToPlay {
+  open: boolean;
   stepNumber: number;
+  maxStepNumber: number;
   stateNumber: number;
+  text: string;
   board: SmallBoardInformation[];
   currentPlayer: Player;
   activeBoards: Point[];

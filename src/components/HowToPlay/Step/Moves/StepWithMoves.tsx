@@ -1,4 +1,5 @@
 import * as React from 'react';
+/*
 import { Move } from '../../../../state/AppState';
 import { TicTacToeGame } from '../../../../util';
 import { useEffect, useRef, useState } from 'react';
@@ -8,8 +9,9 @@ export interface StepWithMovesProps {
   initialBoard: TicTacToeGame;
   moves: Move[];
 }
-
-export function StepWithMoves(props: StepWithMovesProps) {
+*/
+export function StepWithMoves(/*props: StepWithMovesProps*/) {
+  /*
   const { moves } = props;
   // const isFirstRef = useRef(true); // On first render we don't want to animate the circle -> square change
   const [moveNumber, setMoveNumber] = useState(-1);
@@ -40,5 +42,6 @@ export function StepWithMoves(props: StepWithMovesProps) {
     return () => clearInterval(updateInterval);
   }, [moveNumber, moves, props.initialBoard]);
 
-  return <HowToPlayContent board={board.current} />;
+  return <HowToPlayContent board={board.current} />;*/
+  return <></>;
 }
