@@ -24,6 +24,11 @@ export class TicTacToeGame {
   }
 
   applyMove(move: Move) {
+    this.applyPartialMove(move);
+    this.changePlayer();
+  }
+
+  protected applyPartialMove(move: Move) {
     const boardToChange = this.board.find((board) =>
       arePointsEqual(board.position, move.boardPosition),
     );
@@ -48,7 +53,6 @@ export class TicTacToeGame {
     }
 
     this.moves.push(move);
-    this.changePlayer();
   }
 
   applyMoves(moves: Move[]) {
