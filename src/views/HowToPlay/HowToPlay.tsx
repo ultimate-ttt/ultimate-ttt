@@ -15,6 +15,7 @@ import { Point } from '../../util';
 export interface HowToPlayProps {
   stepNumber: number;
   maxStepNumber: number;
+  animate: boolean;
   text: string;
   board: SmallBoardInformation[];
   currentPlayer: Player;
@@ -29,12 +30,13 @@ function HowToPlay(props: HowToPlayProps) {
   let history = useHistory();
 
   function handleClose() {
-    history.push(routes.Home);
     props.onClose();
+    history.push(routes.Home);
   }
 
   return (
     <HowToPlayDialog
+      animate={props.animate}
       onOpen={props.onOpen}
       onClose={handleClose}
       currentPlayer={props.currentPlayer}
@@ -49,6 +51,7 @@ function HowToPlay(props: HowToPlayProps) {
   );
 }
 const mapStateToProps = (state: AppState) => ({
+  animate: state.howToPlay.animate,
   stepNumber: state.howToPlay.stepNumber,
   maxStepNumber: state.howToPlay.maxStepNumber,
   text: state.howToPlay.text,

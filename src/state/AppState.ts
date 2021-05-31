@@ -39,6 +39,7 @@ export interface HowToPlay {
   maxStepNumber: number;
   stateNumber: number;
   text: string;
+  animate: boolean;
   board: SmallBoardInformation[];
   currentPlayer: Player;
   activeBoards: Point[];

@@ -10,6 +10,7 @@ export interface HowToPlayStepProps {
   text: string;
   /*boardStates: TicTacToeGame[];
   moves: Move[];*/
+  animate: boolean;
   board: SmallBoardInformation[];
   activeBoards: Point[];
   currentPlayer: Player;
@@ -72,6 +73,7 @@ export function HowToPlayStep(props: HowToPlayStepProps) {
       <p>{props.text}</p>
       <div className={styles.bigBoard}>
         <HowToPlayContent
+          animate={props.animate}
           board={props.board}
           activeBoards={props.activeBoards}
           currentPlayer={props.currentPlayer}

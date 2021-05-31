@@ -23,6 +23,7 @@ export interface HowToPlayDialogProps {
   stepNumber: number;
   maxStepNumber: number;
   text: string;
+  animate: boolean;
   board: SmallBoardInformation[];
   currentPlayer: Player;
   activeBoards: Point[];
@@ -32,16 +33,19 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
   const {
     onOpen,
     onClose,
+    onForward,
+    onBackward,
+    stepNumber,
+    maxStepNumber,
     text,
+    animate,
     board,
     activeBoards,
     currentPlayer,
-    stepNumber,
-    maxStepNumber,
-    onForward,
-    onBackward,
   } = props;
-  useEffect(() => onOpen(), [onOpen]);
+  useEffect(() => {
+    onOpen();
+  }, [onOpen]);
 
   return (
     <Dialog className={styles.dialog} open={true} onClose={onClose}>
@@ -49,6 +53,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
       <DialogContent>
         <HowToPlayStep
           text={text}
+          animate={animate}
           board={board}
           activeBoards={activeBoards}
           currentPlayer={currentPlayer}

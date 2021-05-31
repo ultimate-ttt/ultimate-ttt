@@ -17,6 +17,7 @@ const initialState: HowToPlay = {
   stateNumber: -1,
   text: steps[0].text,
   // TODO: put the next 3 things into one object?
+  animate: true,
   board: steps[0].states[0].getBoard(),
   currentPlayer: steps[0].states[0].getCurrentPlayer(),
   activeBoards: steps[0].states[0].getCurrentActiveBoards(),
@@ -35,26 +36,24 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
       });
 
     case HOW_TO_PLAY_STEP_FORWARD:
-      return produce(state, (draftState) => {
-        if (draftState.stepNumber === draftState.maxStepNumber) return;
-
-        draftState.stepNumber++;
-        draftState.stateNumber = -1;
-        draftState.text = steps[draftState.stepNumber].text;
-
-        const newState = steps[draftState.stepNumber].states[0];
-        draftState.board = newState.getBoard();
-        draftState.currentPlayer = newState.getCurrentPlayer();
-        draftState.activeBoards = newState.getCurrentActiveBoards();
-      });
-
     case HOW_TO_PLAY_STEP_BACKWARD:
       return produce(state, (draftState) => {
-        if (draftState.stepNumber === 0) return;
+        if (action.type === HOW_TO_PLAY_STEP_FORWARD) {
+          if (draftState.stepNumber === draftState.maxStepNumber) return;
+          draftState.stepNumber++;
+        } else {
+          if (draftState.stepNumber === 0) return;
+          draftState.stepNumber--;
+        }
 
-        draftState.stepNumber--;
-        draftState.stateNumber = -1;
         draftState.text = steps[draftState.stepNumber].text;
+        if (steps[draftState.stepNumber].states.length > 1) {
+          draftState.stateNumber = 0;
+          draftState.animate = false;
+        } else {
+          draftState.stateNumber = -1;
+          draftState.animate = true;
+        }
 
         const newState = steps[draftState.stepNumber].states[0];
         draftState.board = newState.getBoard();
@@ -62,10 +61,10 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
         draftState.activeBoards = newState.getCurrentActiveBoards();
       });
 
-    case HOW_TO_PLAY_STATE_FORWARD:
-      return produce(state, (draftState) => {
-        const step = steps[draftState.stepNumber];
-        if (step.states.length === 1) {
+    case HOW_TO_PLAY_STATE_FORWARD: {
+      const step = steps[state.stepNumber];
+      if (step.states.length === 1 && step.moves.length > 0) {
+        return produce(state, (draftState) => {
           draftState.stateNumber =
             step.moves.length - 1 > draftState.stateNumber
               ? draftState.stateNumber + 1
@@ -77,8 +76,26 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
           draftState.board = newBoard.getBoard();
           draftState.currentPlayer = newBoard.getCurrentPlayer();
           draftState.activeBoards = newBoard.getCurrentActiveBoards();
-        }
-      });
+        });
+      } else if (step.states.length > 1) {
+        return produce(state, (draftState) => {
+          draftState.stateNumber =
+            step.states.length - 1 > draftState.stateNumber
+              ? draftState.stateNumber + 1
+              : 0;
+
+          draftState.board = step.states[draftState.stateNumber].getBoard();
+          draftState.currentPlayer = step.states[
+            draftState.stateNumber
+          ].getCurrentPlayer();
+          draftState.activeBoards = step.states[
+            draftState.stateNumber
+          ].getCurrentActiveBoards();
+        });
+      } else {
+        return state;
+      }
+    }
 
     default:
       return state;
