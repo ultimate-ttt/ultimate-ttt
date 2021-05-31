@@ -1,19 +1,13 @@
 import * as React from 'react';
 import styles from './HowToPlayStep.module.css';
-import { Point } from '../../../util';
-import { Player, SmallBoardInformation } from '../../../state/AppState';
-/*import { StepWithMoves } from './Moves/StepWithMoves';
-import { StepWithBoards } from './Boards/StepWithBoards';*/
+import { HowToPlayBoardState } from '../../../state/AppState';
 import { HowToPlayContent } from './HowToPlayContent';
 
 export interface HowToPlayStepProps {
   text: string;
   /*boardStates: TicTacToeGame[];
   moves: Move[];*/
-  animate: boolean;
-  board: SmallBoardInformation[];
-  activeBoards: Point[];
-  currentPlayer: Player;
+  boardState: HowToPlayBoardState;
 }
 
 export function HowToPlayStep(props: HowToPlayStepProps) {
@@ -72,12 +66,7 @@ export function HowToPlayStep(props: HowToPlayStepProps) {
     <>
       <p>{props.text}</p>
       <div className={styles.bigBoard}>
-        <HowToPlayContent
-          animate={props.animate}
-          board={props.board}
-          activeBoards={props.activeBoards}
-          currentPlayer={props.currentPlayer}
-        />
+        <HowToPlayContent boardState={props.boardState} />
         {/*{props.boardStates.length === 1 ? (
           <StepWithMoves
             initialBoard={props.boardStates[0]}

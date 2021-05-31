@@ -16,11 +16,12 @@ const initialState: HowToPlay = {
   maxStepNumber: steps.length - 1,
   stateNumber: -1,
   text: steps[0].text,
-  // TODO: put the next 3 things into one object?
-  animate: true,
-  board: steps[0].states[0].getBoard(),
-  currentPlayer: steps[0].states[0].getCurrentPlayer(),
-  activeBoards: steps[0].states[0].getCurrentActiveBoards(),
+  boardState: {
+    animate: true,
+    board: steps[0].states[0].getBoard(),
+    currentPlayer: steps[0].states[0].getCurrentPlayer(),
+    activeBoards: steps[0].states[0].getCurrentActiveBoards(),
+  },
 };
 
 const howToPlayReducer = (state = initialState, action: GenericAction) => {
@@ -46,19 +47,20 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
           draftState.stepNumber--;
         }
 
+        const newBoard = steps[draftState.stepNumber].states[0];
+        draftState.boardState = {
+          animate: true,
+          board: newBoard.getBoard(),
+          currentPlayer: newBoard.getCurrentPlayer(),
+          activeBoards: newBoard.getCurrentActiveBoards(),
+        };
+
         draftState.text = steps[draftState.stepNumber].text;
+        draftState.stateNumber = -1;
         if (steps[draftState.stepNumber].states.length > 1) {
           draftState.stateNumber = 0;
-          draftState.animate = false;
-        } else {
-          draftState.stateNumber = -1;
-          draftState.animate = true;
+          draftState.boardState.animate = false;
         }
-
-        const newState = steps[draftState.stepNumber].states[0];
-        draftState.board = newState.getBoard();
-        draftState.currentPlayer = newState.getCurrentPlayer();
-        draftState.activeBoards = newState.getCurrentActiveBoards();
       });
 
     case HOW_TO_PLAY_STATE_FORWARD: {
@@ -73,9 +75,12 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
           const newBoard = new TicTacToeGame(step.states[0].getMoves());
           const movesToApply = step.moves.slice(0, draftState.stateNumber + 1);
           newBoard.applyMoves(movesToApply);
-          draftState.board = newBoard.getBoard();
-          draftState.currentPlayer = newBoard.getCurrentPlayer();
-          draftState.activeBoards = newBoard.getCurrentActiveBoards();
+          draftState.boardState = {
+            ...draftState.boardState,
+            board: newBoard.getBoard(),
+            currentPlayer: newBoard.getCurrentPlayer(),
+            activeBoards: newBoard.getCurrentActiveBoards(),
+          };
         });
       } else if (step.states.length > 1) {
         return produce(state, (draftState) => {
@@ -84,13 +89,13 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
               ? draftState.stateNumber + 1
               : 0;
 
-          draftState.board = step.states[draftState.stateNumber].getBoard();
-          draftState.currentPlayer = step.states[
-            draftState.stateNumber
-          ].getCurrentPlayer();
-          draftState.activeBoards = step.states[
-            draftState.stateNumber
-          ].getCurrentActiveBoards();
+          const newBoard = step.states[draftState.stateNumber];
+          draftState.boardState = {
+            ...draftState.boardState,
+            board: newBoard.getBoard(),
+            currentPlayer: newBoard.getCurrentPlayer(),
+            activeBoards: newBoard.getCurrentActiveBoards(),
+          };
         });
       } else {
         return state;

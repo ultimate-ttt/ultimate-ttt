@@ -11,8 +11,7 @@ import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
 import { ArrowButtons } from '../../ArrowButtons/ArrowButtons';
 import classNames from 'classnames';
 import { HowToPlayStep } from '../Step/HowToPlayStep';
-import { Player, SmallBoardInformation } from '../../../state/AppState';
-import { Point } from '../../../util';
+import { HowToPlayBoardState } from '../../../state/AppState';
 import { useEffect } from 'react';
 
 export interface HowToPlayDialogProps {
@@ -23,10 +22,7 @@ export interface HowToPlayDialogProps {
   stepNumber: number;
   maxStepNumber: number;
   text: string;
-  animate: boolean;
-  board: SmallBoardInformation[];
-  currentPlayer: Player;
-  activeBoards: Point[];
+  boardState: HowToPlayBoardState;
 }
 
 export function HowToPlayDialog(props: HowToPlayDialogProps) {
@@ -38,10 +34,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     stepNumber,
     maxStepNumber,
     text,
-    animate,
-    board,
-    activeBoards,
-    currentPlayer,
+    boardState,
   } = props;
   useEffect(() => {
     onOpen();
@@ -51,13 +44,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     <Dialog className={styles.dialog} open={true} onClose={onClose}>
       <DialogTitle>How to play</DialogTitle>
       <DialogContent>
-        <HowToPlayStep
-          text={text}
-          animate={animate}
-          board={board}
-          activeBoards={activeBoards}
-          currentPlayer={currentPlayer}
-        />
+        <HowToPlayStep text={text} boardState={boardState} />
       </DialogContent>
       <DialogActions>
         <DialogButton

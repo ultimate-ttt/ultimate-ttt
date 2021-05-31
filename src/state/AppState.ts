@@ -39,10 +39,14 @@ export interface HowToPlay {
   maxStepNumber: number;
   stateNumber: number;
   text: string;
+  boardState: HowToPlayBoardState;
+}
+
+export interface HowToPlayBoardState {
   animate: boolean;
   board: SmallBoardInformation[];
   currentPlayer: Player;
-  activeBoards: Point[];
+  activeBoards: Point[];  
 }
 
 export interface GameState {

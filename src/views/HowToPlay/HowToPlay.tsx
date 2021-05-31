@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useHistory } from 'react-router';
 import routes from '../../routes/routes';
-import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
+import { AppState, HowToPlayBoardState } from '../../state/AppState';
 import {
   howToPlayClose,
   howToPlayOpen,
@@ -10,16 +10,12 @@ import {
 } from '../../state/howToPlay/howToPlayActions';
 import { connect } from 'react-redux';
 import { HowToPlayDialog } from '../../components/HowToPlay/Dialog/HowToPlayDialog';
-import { Point } from '../../util';
 
 export interface HowToPlayProps {
   stepNumber: number;
   maxStepNumber: number;
-  animate: boolean;
   text: string;
-  board: SmallBoardInformation[];
-  currentPlayer: Player;
-  activeBoards: Point[];
+  boardState: HowToPlayBoardState;
   onOpen: () => void;
   onClose: () => void;
   onForward: () => void;
@@ -36,12 +32,9 @@ function HowToPlay(props: HowToPlayProps) {
 
   return (
     <HowToPlayDialog
-      animate={props.animate}
+      boardState={props.boardState}
       onOpen={props.onOpen}
       onClose={handleClose}
-      currentPlayer={props.currentPlayer}
-      board={props.board}
-      activeBoards={props.activeBoards}
       maxStepNumber={props.maxStepNumber}
       stepNumber={props.stepNumber}
       onBackward={props.onBackward}
@@ -51,13 +44,10 @@ function HowToPlay(props: HowToPlayProps) {
   );
 }
 const mapStateToProps = (state: AppState) => ({
-  animate: state.howToPlay.animate,
+  boardState: state.howToPlay.boardState,
   stepNumber: state.howToPlay.stepNumber,
   maxStepNumber: state.howToPlay.maxStepNumber,
   text: state.howToPlay.text,
-  board: state.howToPlay.board,
-  activeBoards: state.howToPlay.activeBoards,
-  currentPlayer: state.howToPlay.currentPlayer,
 });
 
 const mapDispatchToProps = {
