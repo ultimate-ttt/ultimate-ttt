@@ -24,7 +24,8 @@ export const steps: HowToPlayStep[] = [
     ],
   },
   {
-    text: 'Three signs in a row result in a won small board',
+    text:
+      'When you get three in a row on a small board, you’ve won that board.',
     states: [
       new TicTacToeGame([
         { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 0 } },
@@ -38,7 +39,7 @@ export const steps: HowToPlayStep[] = [
     ],
   },
   {
-    text: 'To win the game you need to win three boards in a row',
+    text: 'To win the game, you need to win three small boards in a row',
     states: winStates,
     moves: [],
   },
@@ -46,7 +47,7 @@ export const steps: HowToPlayStep[] = [
     // TODO insert component to show that this is marked by light blue?
     // TODO: animation when going to step is not turned off!?
     text:
-      'Each turn the move of your opponent dictates in which board you can move next',
+      'Each turn the previous move of your opponent dictates in which board you can move next',
     states: [new TicTacToeGame([])],
     moves: [
       { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 1 } },
@@ -60,6 +61,52 @@ export const steps: HowToPlayStep[] = [
       { boardPosition: { x: 2, y: 2 }, tilePosition: { x: 0, y: 0 } },
     ],
   },
-  // TODO add clarification for board full
-  // TODO add board destroy example
+  {
+    text: `If your opponent sends you to a board that's already won, you can make your move on any of the other boards`,
+    states: [
+      new TicTacToeGame([
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 0 } },
+        { boardPosition: { x: 1, y: 0 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 1 } },
+        { boardPosition: { x: 1, y: 1 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 2 } },
+      ]),
+    ],
+    moves: [
+      { boardPosition: { x: 1, y: 2 }, tilePosition: { x: 2, y: 2 } },
+      { boardPosition: { x: 2, y: 2 }, tilePosition: { x: 0, y: 0 } },
+      { boardPosition: { x: 2, y: 0 }, tilePosition: { x: 1, y: 2 } },
+    ],
+  },
+  {
+    text:
+      'If one of the small boards results in a tie, the board counts for neither X nor O.',
+    states: [
+      new TicTacToeGame([
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 2, y: 0 } },
+        { boardPosition: { x: 2, y: 0 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 2 } },
+        { boardPosition: { x: 0, y: 2 }, tilePosition: { x: 1, y: 2 } },
+        { boardPosition: { x: 1, y: 2 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 1 } },
+        { boardPosition: { x: 1, y: 1 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 2, y: 2 } },
+        { boardPosition: { x: 2, y: 2 }, tilePosition: { x: 2, y: 2 } },
+        { boardPosition: { x: 2, y: 2 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 2, y: 1 } },
+        { boardPosition: { x: 2, y: 1 }, tilePosition: { x: 2, y: 1 } },
+        { boardPosition: { x: 2, y: 1 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 1 } },
+        { boardPosition: { x: 0, y: 1 }, tilePosition: { x: 0, y: 1 } },
+        { boardPosition: { x: 0, y: 1 }, tilePosition: { x: 0, y: 0 } },
+        { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 2 } },
+        { boardPosition: { x: 1, y: 2 }, tilePosition: { x: 1, y: 0 } },
+      ]),
+    ],
+    moves: [
+      { boardPosition: { x: 1, y: 0 }, tilePosition: { x: 0, y: 0 } },
+      { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 0 } },
+    ],
+  },
 ];
