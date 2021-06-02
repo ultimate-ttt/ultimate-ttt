@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from '@rmwc/button';
 import styles from './Paging.module.css';
 import { useState } from 'react';
-import { ArrowLeftIcon, ArrowRightIcon } from '../Icons';
+import { ArrowButtons } from '../ArrowButtons/ArrowButtons';
 
 export interface PagingProps {
   pages: number;
@@ -29,9 +29,8 @@ export function Paging(props: PagingProps) {
               onPageChange(i);
             }
           }}
-          outlined={i === currentPage}
+          unelevated={i === currentPage}
           dense={true}
-          ripple={false}
           className={styles.pagingButton}
         />,
       );
@@ -41,33 +40,20 @@ export function Paging(props: PagingProps) {
 
   return (
     <div className={className}>
-      <Button
-        label="Previous"
-        onClick={() => {
-          const newPage = currentPage - 1;
+      <ArrowButtons
+        value={currentPage}
+        maxValue={pages}
+        minValue={1}
+        onInteraction={(forward) => {
+          let newPage = currentPage;
+          if (forward) newPage++;
+          else newPage--;
           setCurrentPage(newPage);
           onPageChange(newPage);
         }}
-        disabled={currentPage === 1}
-        icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
-        ripple={false}
-        dense={true}
-        className={styles.previousButton}
-      />
-      {getPages()}
-      <Button
-        label="Next"
-        onClick={() => {
-          const newPage = currentPage + 1;
-          setCurrentPage(newPage);
-          onPageChange(newPage);
-        }}
-        disabled={currentPage === pages}
-        trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
-        ripple={false}
-        dense={true}
-        className={styles.nextButton}
-      />
+      >
+        {getPages()}
+      </ArrowButtons>
     </div>
   );
 }

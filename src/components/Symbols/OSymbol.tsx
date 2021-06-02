@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { OGameIcon } from '../Icons';
 import styles from './Symbols.module.css';
+import { OGameIcon } from '../Icons';
 
 export interface OSymbolProps {
   shouldAnimate?: boolean;

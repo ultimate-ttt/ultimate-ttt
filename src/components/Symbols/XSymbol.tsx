@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { XGameIcon } from '../Icons';
 import styles from './Symbols.module.css';
+import { XGameIcon } from '../Icons';
 
 export interface XSymbolProps {
   shouldAnimate?: boolean;

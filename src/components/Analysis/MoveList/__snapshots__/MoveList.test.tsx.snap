@@ -13,11 +13,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <Function
       activated={true}
-      className="smallerMargin biggerIcon fullWidth"
+      className="resetIcon smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
           "aria-label": "Player O Icon",
-          "icon": "o",
+          "icon": <MdPanoramaFishEye />,
           "size": "medium",
         }
       }
@@ -32,11 +32,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <Function
       activated={false}
-      className="smallerMargin biggerIcon fullWidth"
+      className="resetIcon smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
           "aria-label": "Player X Icon",
-          "icon": "x",
+          "icon": <MdClear />,
           "size": "medium",
         }
       }
@@ -51,11 +51,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <Function
       activated={false}
-      className="smallerMargin biggerIcon fullWidth"
+      className="resetIcon smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
           "aria-label": "Player O Icon",
-          "icon": "o",
+          "icon": <MdPanoramaFishEye />,
           "size": "medium",
         }
       }
@@ -70,11 +70,11 @@ exports[`MoveList should match snapshot 1`] = `
   >
     <Function
       activated={false}
-      className="smallerMargin biggerIcon fullWidth"
+      className="resetIcon smallerMargin biggerIcon fullWidth"
       graphic={
         Object {
           "aria-label": "Player X Icon",
-          "icon": "x",
+          "icon": <MdClear />,
           "size": "medium",
         }
       }

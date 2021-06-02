@@ -9,8 +9,12 @@ export { MdChevronLeft as ArrowLeftIcon } from 'react-icons/md';
 export { MdChevronRight as ArrowRightIcon } from 'react-icons/md';
 
 export { MdVideogameAsset as GameIcon } from 'react-icons/md';
-export { MdPanoramaFishEye as OGameIcon } from 'react-icons/md';
-export { MdClear as XGameIcon } from 'react-icons/md';
-export { MdRemove as DrawGameIcon } from 'react-icons/md';
+export { MdPanoramaFishEye as OIcon } from 'react-icons/md';
+export { MdClear as XIcon } from 'react-icons/md';
+export { MdRemove as DrawIcon } from 'react-icons/md';
+
+export { ReactComponent as OGameIcon } from './svg/o.svg';
+export { ReactComponent as XGameIcon } from './svg/x.svg';
+export { ReactComponent as DrawGameIcon } from './svg/draw.svg';
 
 export { IoLogoGithub as GitHubIcon } from 'react-icons/io5';
