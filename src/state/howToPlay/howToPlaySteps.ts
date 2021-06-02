@@ -8,7 +8,6 @@ export interface HowToPlayStep {
   moves: Move[];
 }
 
-// TODO export all texts in the UI into a json file, in the future
 export const steps: HowToPlayStep[] = [
   {
     text: 'Ultimate Tic-Tac-Toe is played with 9 small tic-tac-toe boards',
