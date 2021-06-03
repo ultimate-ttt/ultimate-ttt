@@ -7,7 +7,7 @@ describe('ArrowButtons', function () {
   it('should match snapshot', () => {
     const onInteraction = jest.fn((forward) => {});
 
-    const arrowButons = shallow(
+    const arrowButtons = shallow(
       <ArrowButtons
         value={1}
         minValue={1}
@@ -16,7 +16,7 @@ describe('ArrowButtons', function () {
       />,
     );
 
-    expect(arrowButons).toMatchSnapshot();
+    expect(arrowButtons).toMatchSnapshot();
   });
 
   describe('disabled behaviour', () => {
@@ -190,6 +190,41 @@ describe('ArrowButtons', function () {
       window.dispatchEvent(event);
 
       expect(onInteraction).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('custom config', () => {
+    it('applies custom props & text to buttons', () => {
+      const onInteraction = jest.fn((forward) => {});
+
+      const arrowButtons = mount(
+        <ArrowButtons
+          value={1}
+          minValue={1}
+          maxValue={15}
+          onInteraction={onInteraction}
+          leftButtonConfig={{
+            buttonProps: {
+              danger: true,
+            },
+            text: 'HelloWorldLeft',
+          }}
+          rightButtonConfig={{
+            buttonProps: {
+              danger: true,
+            },
+            text: 'HelloWorldRight',
+          }}
+        />,
+      );
+
+      const backwardButton = arrowButtons.find(Button).get(0);
+      const forwardButton = arrowButtons.find(Button).get(1);
+
+      expect(backwardButton.props.danger).toBe(true);
+      expect(backwardButton.props.children).toBe('HelloWorldLeft');
+      expect(forwardButton.props.danger).toBe(true);
+      expect(forwardButton.props.children).toBe('HelloWorldRight');
     });
   });
 });
