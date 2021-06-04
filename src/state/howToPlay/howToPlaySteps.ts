@@ -24,7 +24,7 @@ export const steps: HowToPlayStep[] = [
   },
   {
     text:
-      'When you get three in a row on a small board, you’ve won that board.',
+      'When you get three signs in a row on a small board, you’ve won that board.',
     states: [
       new TicTacToeGame([
         { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 0 } },
