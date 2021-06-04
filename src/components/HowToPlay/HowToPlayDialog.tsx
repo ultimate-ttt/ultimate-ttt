@@ -15,6 +15,54 @@ import { HowToPlayBoardState } from '../../state/AppState';
 import { Button } from '@rmwc/button';
 import { ArrowRightIcon } from '../Icons';
 
+interface ActionBarProps {
+  onClose: () => void;
+  onForward: () => void;
+  onBackward: () => void;
+  stepNumber: number;
+  maxStepNumber: number;
+}
+
+function ActionBar(props: ActionBarProps) {
+  const { onClose, onForward, onBackward, stepNumber, maxStepNumber } = props;
+
+  const isLastStep = stepNumber === maxStepNumber;
+
+  return (
+    <>
+      <DialogButton
+        className={classNames([styles.push, styles.cancel])}
+        action="close"
+      >
+        Cancel
+      </DialogButton>
+      <ArrowButtons
+        value={stepNumber}
+        maxValue={maxStepNumber}
+        minValue={0}
+        onInteraction={(forward) => {
+          if (forward) onForward();
+          else onBackward();
+        }}
+        leftButtonConfig={{ buttonProps: { raised: false } }}
+        rightButtonConfig={{
+          buttonProps: { raised: false },
+          hide: isLastStep,
+        }}
+      />
+      {isLastStep && (
+        <Button
+          raised={true}
+          trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
+          onClick={onClose}
+        >
+          Let's Play
+        </Button>
+      )}
+    </>
+  );
+}
+
 export interface HowToPlayDialogProps {
   onOpen: () => void;
   onClose: () => void;
@@ -42,8 +90,6 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     onOpen();
   }, [onOpen]);
 
-  const isLastStep = stepNumber === maxStepNumber;
-
   return (
     <Dialog
       className={styles.dialog}
@@ -59,35 +105,13 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
         </div>
       </DialogContent>
       <DialogActions>
-        <DialogButton
-          className={classNames([styles.push, styles.cancel])}
-          action="close"
-        >
-          Cancel
-        </DialogButton>
-        <ArrowButtons
-          value={stepNumber}
-          maxValue={maxStepNumber}
-          minValue={0}
-          onInteraction={(forward) => {
-            if (forward) onForward();
-            else onBackward();
-          }}
-          leftButtonConfig={{ buttonProps: { raised: false } }}
-          rightButtonConfig={{
-            buttonProps: { raised: false },
-            hide: isLastStep,
-          }}
+        <ActionBar
+          onClose={onClose}
+          onForward={onForward}
+          onBackward={onBackward}
+          stepNumber={stepNumber}
+          maxStepNumber={maxStepNumber}
         />
-        {isLastStep && (
-          <Button
-            raised={true}
-            trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
-            onClick={onClose}
-          >
-            Let's Play
-          </Button>
-        )}
       </DialogActions>
     </Dialog>
   );
