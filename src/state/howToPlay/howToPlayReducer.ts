@@ -27,7 +27,7 @@ const initialState: HowToPlay = {
 const howToPlayReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {
     case HOW_TO_PLAY_OPEN:
-      return produce(state, (draftState) => {
+      return produce(initialState, (draftState) => {
         draftState.open = true;
       });
 
