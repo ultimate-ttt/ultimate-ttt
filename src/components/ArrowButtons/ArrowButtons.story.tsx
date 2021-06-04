@@ -45,14 +45,22 @@ WithCustomProps.args = {
       raised: false,
       danger: true,
     },
-    text: 'Custom Left Text',
   },
   rightButtonConfig: {
     buttonProps: {
       raised: false,
       danger: true,
     },
-    text: 'Custom Right Text',
+  },
+};
+
+export const Hide = Template.bind({});
+Hide.args = {
+  leftButtonConfig: {
+    hide: false,
+  },
+  rightButtonConfig: {
+    hide: true,
   },
 };
 

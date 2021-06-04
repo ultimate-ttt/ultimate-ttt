@@ -7,16 +7,17 @@ import {
   DialogTitle,
 } from '@rmwc/dialog';
 import styles from './HowToPlayDialog.module.css';
-import { DialogOnCloseEventT } from '@rmwc/dialog/dist/dialog';
 import { ArrowButtons } from '../ArrowButtons/ArrowButtons';
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import { HowToPlayContent } from './HowToPlayContent';
 import { HowToPlayBoardState } from '../../state/AppState';
+import { Button } from '@rmwc/button';
+import { ArrowRightIcon } from '../Icons';
 
 export interface HowToPlayDialogProps {
   onOpen: () => void;
-  onClose: (evt: DialogOnCloseEventT) => void;
+  onClose: () => void;
   onForward: () => void;
   onBackward: () => void;
   stepNumber: number;
@@ -36,12 +37,20 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     text,
     boardState,
   } = props;
+
   useEffect(() => {
     onOpen();
   }, [onOpen]);
 
+  const isLastStep = stepNumber === maxStepNumber;
+
   return (
-    <Dialog className={styles.dialog} open={true} onClose={onClose}>
+    <Dialog
+      className={styles.dialog}
+      open={true}
+      onClose={onClose}
+      preventOutsideDismiss={true}
+    >
       <DialogTitle>How to play</DialogTitle>
       <DialogContent>
         <p>{text}</p>
@@ -64,8 +73,21 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
             if (forward) onForward();
             else onBackward();
           }}
-          buttonProps={{ raised: false }}
+          leftButtonConfig={{ buttonProps: { raised: false } }}
+          rightButtonConfig={{
+            buttonProps: { raised: false },
+            hide: isLastStep,
+          }}
         />
+        {isLastStep && (
+          <Button
+            raised={true}
+            trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
+            onClick={onClose}
+          >
+            Let's Play
+          </Button>
+        )}
       </DialogActions>
     </Dialog>
   );

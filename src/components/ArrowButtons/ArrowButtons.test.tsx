@@ -194,7 +194,7 @@ describe('ArrowButtons', function () {
   });
 
   describe('custom config', () => {
-    it('applies custom props & text to buttons', () => {
+    it('applies custom props to buttons', () => {
       const onInteraction = jest.fn((forward) => {});
 
       const arrowButtons = mount(
@@ -207,13 +207,11 @@ describe('ArrowButtons', function () {
             buttonProps: {
               danger: true,
             },
-            text: 'HelloWorldLeft',
           }}
           rightButtonConfig={{
             buttonProps: {
               danger: true,
             },
-            text: 'HelloWorldRight',
           }}
         />,
       );
@@ -222,9 +220,45 @@ describe('ArrowButtons', function () {
       const forwardButton = arrowButtons.find(Button).get(1);
 
       expect(backwardButton.props.danger).toBe(true);
-      expect(backwardButton.props.children).toBe('HelloWorldLeft');
       expect(forwardButton.props.danger).toBe(true);
-      expect(forwardButton.props.children).toBe('HelloWorldRight');
+    });
+
+    it('hides left button', () => {
+      const onInteraction = jest.fn((forward) => {});
+
+      const arrowButtons = mount(
+        <ArrowButtons
+          value={1}
+          minValue={1}
+          maxValue={15}
+          onInteraction={onInteraction}
+          leftButtonConfig={{
+            hide: true,
+          }}
+        />,
+      );
+
+      const backwardButton = arrowButtons.find(Button);
+      expect(backwardButton).toHaveLength(1);
+    });
+
+    it('hides right button', () => {
+      const onInteraction = jest.fn((forward) => {});
+
+      const arrowButtons = mount(
+        <ArrowButtons
+          value={1}
+          minValue={1}
+          maxValue={15}
+          onInteraction={onInteraction}
+          rightButtonConfig={{
+            hide: true,
+          }}
+        />,
+      );
+
+      const buttons = arrowButtons.find(Button);
+      expect(buttons).toHaveLength(1);
     });
   });
 });

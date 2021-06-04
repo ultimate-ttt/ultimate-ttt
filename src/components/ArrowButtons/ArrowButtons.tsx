@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 export interface ButtonConfig {
   buttonProps?: ButtonProps;
-  text?: string;
+  hide?: boolean;
 }
 
 export interface ArrowButtonsProps {
@@ -60,33 +60,37 @@ export function ArrowButtons(props: ArrowButtonsProps) {
 
   return (
     <>
-      <Button
-        disabled={value === minValue}
-        dense={true}
-        raised={true}
-        icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
-        onClick={() => {
-          handleInteraction(false, value, minValue, maxValue, onInteraction);
-        }}
-        className={styles.buttonMargin}
-        {...leftButtonConfig?.buttonProps}
-      >
-        {leftButtonConfig?.text ? leftButtonConfig.text : 'Previous'}
-      </Button>
+      {!leftButtonConfig?.hide && (
+        <Button
+          disabled={value === minValue}
+          dense={true}
+          raised={true}
+          icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
+          onClick={() => {
+            handleInteraction(false, value, minValue, maxValue, onInteraction);
+          }}
+          className={styles.buttonMargin}
+          {...leftButtonConfig?.buttonProps}
+        >
+          Previous
+        </Button>
+      )}
       {children}
-      <Button
-        disabled={value === maxValue}
-        dense={true}
-        raised={true}
-        trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
-        onClick={() => {
-          handleInteraction(true, value, minValue, maxValue, onInteraction);
-        }}
-        className={styles.buttonMargin}
-        {...rightButtonConfig?.buttonProps}
-      >
-        {rightButtonConfig?.text ? rightButtonConfig.text : 'Next'}
-      </Button>
+      {!rightButtonConfig?.hide && (
+        <Button
+          disabled={value === maxValue}
+          dense={true}
+          raised={true}
+          trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
+          onClick={() => {
+            handleInteraction(true, value, minValue, maxValue, onInteraction);
+          }}
+          className={styles.buttonMargin}
+          {...rightButtonConfig?.buttonProps}
+        >
+          Next
+        </Button>
+      )}
     </>
   );
 }
