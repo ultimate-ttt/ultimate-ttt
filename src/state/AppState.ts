@@ -38,7 +38,7 @@ export interface HowToPlay {
   stepNumber: number;
   maxStepNumber: number;
   stateNumber: number;
-  text: string;
+  text: React.ReactNode;
   boardState: HowToPlayBoardState;
 }
 
@@ -46,7 +46,7 @@ export interface HowToPlayBoardState {
   animate: boolean;
   board: SmallBoardInformation[];
   currentPlayer: Player;
-  activeBoards: Point[];  
+  activeBoards: Point[];
 }
 
 export interface GameState {

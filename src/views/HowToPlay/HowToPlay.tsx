@@ -14,7 +14,7 @@ import { HowToPlayDialog } from '../../components/HowToPlay/HowToPlayDialog';
 export interface HowToPlayProps {
   stepNumber: number;
   maxStepNumber: number;
-  text: string;
+  text: React.ReactNode;
   boardState: HowToPlayBoardState;
   onOpen: () => void;
   onClose: () => void;

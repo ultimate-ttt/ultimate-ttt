@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
+  Highlight,
   Player,
   SmallTileInformation,
   TileValue,
-  Highlight,
 } from '../../../state/AppState';
 import { Tile } from '../Tile/Tile';
 import { arePointsEqual, Point } from '../../../util';
@@ -48,31 +48,6 @@ export function SmallBoard(props: SmallBoardProps) {
     animate,
   } = props;
 
-  const getTiles = () => {
-    const rows: JSX.Element[] = [];
-
-    tiles.forEach((tile) => {
-      rows.push(
-        <Tile
-          key={`${tile.position.x}-${tile.position.y}`}
-          position={{ tilePosition: tile.position, boardPosition: { x, y } }}
-          value={tile.value}
-          isTileRound={isCircle}
-          clickable={moveAllowed && tile.value === TileValue.Empty}
-          animate={animate}
-          highlight={shouldHighlight(highlight, tile.position)}
-          {...(onTileClicked && {
-            onTileClicked: () => {
-              onTileClicked(tile.position.x, tile.position.y);
-            },
-          })}
-        />,
-      );
-    });
-
-    return rows;
-  };
-
   const boardIsFinished: boolean = winningPlayer !== TileValue.Empty;
   const isCircle = currentPlayer === Player.Circle;
 
@@ -85,7 +60,6 @@ export function SmallBoard(props: SmallBoardProps) {
     >
       {boardIsFinished ? (
         <Tile
-          position={{ tilePosition: { x: 0, y: 0 }, boardPosition: { x, y } }}
           value={winningPlayer}
           isTileRound={winningPlayer === TileValue.Circle}
           clickable={false}
@@ -98,7 +72,21 @@ export function SmallBoard(props: SmallBoardProps) {
           )}
         />
       ) : (
-        getTiles()
+        tiles.map((tile) => (
+          <Tile
+            key={`${tile.position.x}-${tile.position.y}`}
+            value={tile.value}
+            isTileRound={isCircle}
+            clickable={moveAllowed && tile.value === TileValue.Empty}
+            animate={animate}
+            highlight={shouldHighlight(highlight, tile.position)}
+            {...(onTileClicked && {
+              onTileClicked: () => {
+                onTileClicked(tile.position.x, tile.position.y);
+              },
+            })}
+          />
+        ))
       )}
     </div>
   );

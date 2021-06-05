@@ -1,9 +1,11 @@
+import * as React from 'react';
 import { TicTacToeGame } from '../../util';
 import { Move } from '../AppState';
 import { winStates } from './possibleWinStates';
+import { HowToPlayIndicator } from '../../components/HowToPlay/HowToPlayIndicator';
 
 export interface HowToPlayStep {
-  text: string;
+  text: React.ReactNode;
   states: TicTacToeGame[];
   moves: Move[];
 }
@@ -43,10 +45,13 @@ export const steps: HowToPlayStep[] = [
     moves: [],
   },
   {
-    // TODO insert component to show that this is marked by light blue?
     // TODO: animation when going to step is not turned off!?
-    text:
-      'Each turn the previous move of your opponent dictates in which board you can move next',
+    text: (
+      <>
+        Each turn the previous move of your opponent dictates in which board (
+        <HowToPlayIndicator />) you can move next
+      </>
+    ),
     states: [new TicTacToeGame([])],
     moves: [
       { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 1 } },

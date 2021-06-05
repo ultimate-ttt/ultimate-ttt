@@ -70,7 +70,7 @@ export interface HowToPlayDialogProps {
   onBackward: () => void;
   stepNumber: number;
   maxStepNumber: number;
-  text: string;
+  text: React.ReactNode;
   boardState: HowToPlayBoardState;
 }
 

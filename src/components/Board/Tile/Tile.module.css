@@ -10,6 +10,13 @@
   width: 100%;
 }
 
+.tile::before{
+  content: '';
+  padding-bottom: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .tile:focus {
   outline: none;
   box-shadow: inset 0 0 0 2.5px var(--vampire-bite);
