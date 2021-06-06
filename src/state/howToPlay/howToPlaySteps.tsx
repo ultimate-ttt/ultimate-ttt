@@ -49,20 +49,21 @@ export const howToPlaySteps: HowToPlayStep[] = [
     text: (
       <>
         Each turn the previous move of your opponent dictates in which board (
-        <HowToPlayIndicator />) you can move next
+        <HowToPlayIndicator />) you can move next. Whichever square he picks,
+        that’s the board you must play in next.
       </>
     ),
     states: [new TicTacToeGame([])],
     moves: [
-      { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 1 } },
-      { boardPosition: { x: 0, y: 1 }, tilePosition: { x: 0, y: 2 } },
-      { boardPosition: { x: 0, y: 2 }, tilePosition: { x: 1, y: 0 } },
-      { boardPosition: { x: 1, y: 0 }, tilePosition: { x: 1, y: 1 } },
-      { boardPosition: { x: 1, y: 1 }, tilePosition: { x: 1, y: 2 } },
-      { boardPosition: { x: 1, y: 2 }, tilePosition: { x: 2, y: 0 } },
-      { boardPosition: { x: 2, y: 0 }, tilePosition: { x: 2, y: 1 } },
       { boardPosition: { x: 2, y: 1 }, tilePosition: { x: 2, y: 2 } },
-      { boardPosition: { x: 2, y: 2 }, tilePosition: { x: 0, y: 0 } },
+      { boardPosition: { x: 2, y: 2 }, tilePosition: { x: 1, y: 0 } },
+      { boardPosition: { x: 1, y: 0 }, tilePosition: { x: 1, y: 2 } },
+      { boardPosition: { x: 1, y: 2 }, tilePosition: { x: 0, y: 0 } },
+      { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 1, y: 1 } },
+      { boardPosition: { x: 1, y: 1 }, tilePosition: { x: 0, y: 1 } },
+      { boardPosition: { x: 0, y: 1 }, tilePosition: { x: 2, y: 0 } },
+      { boardPosition: { x: 2, y: 0 }, tilePosition: { x: 0, y: 2 } },
+      { boardPosition: { x: 0, y: 2 }, tilePosition: { x: 2, y: 1 } },
     ],
   },
   {
