@@ -4,10 +4,10 @@ import {
   Highlight,
   Player,
   SmallBoardInformation,
+  TileValue,
 } from '../../../state/AppState';
 import { arePointsEqual, Point } from '../../../util';
 import styles from './BigBoard.module.css';
-import { useEffect, useRef } from 'react';
 
 export interface BigBoardProps {
   currentPlayer: Player;
@@ -38,10 +38,6 @@ const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
 };
 
 const isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
-  if (!activeBoards) {
-    return false;
-  }
-
   const theBoardPlayedOnIsActive = activeBoards.some((board) =>
     arePointsEqual({ x, y }, board),
   );
@@ -49,14 +45,6 @@ const isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
 };
 
 export function BigBoard(props: BigBoardProps) {
-  // TODO when changing the step in HowToPlay the first animation is still applied... investigate!
-  const isFirstRef = useRef(true);
-  useEffect(() => {
-    if (isFirstRef.current) {
-      isFirstRef.current = false;
-    }
-  }, [isFirstRef]);
-
   const createSmallBoards = () => {
     const {
       currentPlayer,
@@ -67,6 +55,10 @@ export function BigBoard(props: BigBoardProps) {
       animate,
     } = props;
     const rows = [];
+    const boardEmpty = board.every((sb) =>
+      sb.tiles.every((t) => t.value === TileValue.Empty),
+    );
+
     for (let x = 0; x < 3; x++) {
       for (let y = 0; y < 3; y++) {
         const smallBoard = board.find((tile) =>
@@ -85,7 +77,7 @@ export function BigBoard(props: BigBoardProps) {
               currentPlayer={currentPlayer}
               tiles={smallBoard.tiles}
               winningPlayer={smallBoard.value}
-              animate={!isFirstRef.current && animate}
+              animate={!boardEmpty && animate}
               highlight={shouldHighlight(highlight, {
                 x,
                 y,

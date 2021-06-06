@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { Highlight, Player } from '../../../state/AppState';
+import { Highlight, Player, TileValue } from '../../../state/AppState';
 import { BigBoard } from './BigBoard';
 import {
   circleFinishedBoardMock,
@@ -41,6 +41,34 @@ describe('BigBoard', function () {
     expect(bigBoard).toMatchSnapshot();
   });
 
+  it('should not animate when board is empty', () => {
+    const playerMoved = jest.fn(() => {});
+    const activeBoards = [{ x: 0, y: 0 }];
+    const emptyBoard = unfinishedBoardMock.map((sb) => {
+      sb.value = TileValue.Empty;
+      sb.tiles = sb.tiles.map((t) => {
+        t.value = TileValue.Empty;
+        return t;
+      });
+      return sb;
+    });
+
+    const bigBoard = shallow(
+      <BigBoard
+        currentPlayer={Player.Cross}
+        board={emptyBoard}
+        activeBoards={activeBoards}
+        onPlayerMoved={playerMoved}
+      />,
+    );
+
+    const smallBoards = bigBoard.find(SmallBoard);
+    smallBoards.map((board) => {
+      const props = board.props();
+      expect(props.animate).toBe(false);
+    });
+  });
+
   describe('highlight', () => {
     it('should pass undefined to smallBoards if higlight is not set', () => {
       const playerMoved = jest.fn(() => {});
@@ -56,7 +84,7 @@ describe('BigBoard', function () {
       );
 
       const smallBoards = bigBoard.find(SmallBoard);
-      smallBoards.forEach((board) => {
+      smallBoards.map((board) => {
         const props = board.props();
         expect(props.highlight).toBeUndefined();
       });
@@ -83,7 +111,7 @@ describe('BigBoard', function () {
       );
 
       const smallBoards = bigBoard.find(SmallBoard);
-      smallBoards.forEach((board) => {
+      smallBoards.map((board) => {
         const props = board.props();
         if (props.x === 2 && props.y === 1) {
           expect(props.highlight).toEqual(higlight);

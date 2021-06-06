@@ -45,7 +45,6 @@ export const howToPlaySteps: HowToPlayStep[] = [
     moves: [],
   },
   {
-    // TODO: animation when going to step is not turned off!?
     text: (
       <>
         Each turn the previous move of your opponent dictates in which board (
