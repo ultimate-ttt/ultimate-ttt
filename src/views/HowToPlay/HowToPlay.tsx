@@ -10,6 +10,8 @@ import {
 } from '../../state/howToPlay/howToPlayActions';
 import { connect } from 'react-redux';
 import { HowToPlayDialog } from '../../components/HowToPlay/HowToPlayDialog';
+import { getHowToPlay } from '../../state/selectors/AppStateSelectors';
+import { getCurrentHowToPlayText } from "../../state/selectors/howToPlay/HowToPlayStateSelectors";
 
 export interface HowToPlayProps {
   stepNumber: number;
@@ -43,11 +45,12 @@ function HowToPlay(props: HowToPlayProps) {
     />
   );
 }
+
 const mapStateToProps = (state: AppState) => ({
-  boardState: state.howToPlay.boardState,
-  stepNumber: state.howToPlay.stepNumber,
-  maxStepNumber: state.howToPlay.maxStepNumber,
-  text: state.howToPlay.text,
+  boardState: getHowToPlay(state).boardState,
+  stepNumber: getHowToPlay(state).stepNumber,
+  maxStepNumber: getHowToPlay(state).maxStepNumber,
+  text: getCurrentHowToPlayText(state),
 });
 
 const mapDispatchToProps = {

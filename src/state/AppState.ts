@@ -38,7 +38,6 @@ export interface HowToPlay {
   stepNumber: number;
   maxStepNumber: number;
   stateNumber: number;
-  text: React.ReactNode;
   boardState: HowToPlayBoardState;
 }
 

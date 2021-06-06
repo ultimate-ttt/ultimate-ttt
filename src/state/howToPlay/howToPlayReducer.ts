@@ -8,19 +8,18 @@ import {
 } from './howToPlayActions';
 import produce from 'immer';
 import { TicTacToeGame } from '../../util';
-import { steps } from './howToPlaySteps';
+import { howToPlaySteps } from './howToPlaySteps';
 
 const initialState: HowToPlay = {
   open: false,
   stepNumber: 0,
-  maxStepNumber: steps.length - 1,
+  maxStepNumber: howToPlaySteps.length - 1,
   stateNumber: -1,
-  text: steps[0].text,
   boardState: {
     animate: true,
-    board: steps[0].states[0].getBoard(),
-    currentPlayer: steps[0].states[0].getCurrentPlayer(),
-    activeBoards: steps[0].states[0].getCurrentActiveBoards(),
+    board: howToPlaySteps[0].states[0].getBoard(),
+    currentPlayer: howToPlaySteps[0].states[0].getCurrentPlayer(),
+    activeBoards: howToPlaySteps[0].states[0].getCurrentActiveBoards(),
   },
 };
 
@@ -47,7 +46,7 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
           draftState.stepNumber--;
         }
 
-        const newBoard = steps[draftState.stepNumber].states[0];
+        const newBoard = howToPlaySteps[draftState.stepNumber].states[0];
         draftState.boardState = {
           animate: true,
           board: newBoard.getBoard(),
@@ -55,16 +54,15 @@ const howToPlayReducer = (state = initialState, action: GenericAction) => {
           activeBoards: newBoard.getCurrentActiveBoards(),
         };
 
-        draftState.text = steps[draftState.stepNumber].text;
         draftState.stateNumber = -1;
-        if (steps[draftState.stepNumber].states.length > 1) {
+        if (howToPlaySteps[draftState.stepNumber].states.length > 1) {
           draftState.stateNumber = 0;
           draftState.boardState.animate = false;
         }
       });
 
     case HOW_TO_PLAY_STATE_FORWARD: {
-      const step = steps[state.stepNumber];
+      const step = howToPlaySteps[state.stepNumber];
       if (step.states.length === 1 && step.moves.length > 0) {
         return produce(state, (draftState) => {
           draftState.stateNumber =

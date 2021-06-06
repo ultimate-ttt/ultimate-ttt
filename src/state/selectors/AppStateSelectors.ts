@@ -11,3 +11,5 @@ export const getWinningPlayer = (state: AppState) =>
 export const getMoves = (state: AppState) => state.currentGame.moves;
 
 export const getFinishedGames = (state: AppState) => state.finishedGames;
+
+export const getHowToPlay = (state: AppState) => state.howToPlay;

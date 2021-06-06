@@ -10,7 +10,7 @@ export interface HowToPlayStep {
   moves: Move[];
 }
 
-export const steps: HowToPlayStep[] = [
+export const howToPlaySteps: HowToPlayStep[] = [
   {
     text: 'Ultimate Tic-Tac-Toe is played with 9 small tic-tac-toe boards',
     states: [new TicTacToeGame([])],
