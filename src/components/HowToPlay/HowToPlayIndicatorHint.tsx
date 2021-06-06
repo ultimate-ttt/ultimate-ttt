@@ -3,8 +3,7 @@ import styles from './HowToPlayDialog.module.css';
 import { Tile } from '../Board/Tile/Tile';
 import { TileValue } from '../../state/AppState';
 
-// TODO think about naming again
-export function HowToPlayIndicator() {
+export function HowToPlayIndicatorHint() {
   return (
     <div className={styles.howToPlayIndicator}>
       <Tile

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HowToPlayIndicatorHint should match snapshot 1`] = `
+<div
+  className="howToPlayIndicator"
+>
+  <Tile
+    animate={false}
+    clickable={true}
+    isTileRound={false}
+    value={2}
+  />
+</div>
+`;

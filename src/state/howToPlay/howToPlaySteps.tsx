@@ -2,7 +2,7 @@ import * as React from 'react';
 import { TicTacToeGame } from '../../util';
 import { Move } from '../AppState';
 import { winStates } from './possibleWinStates';
-import { HowToPlayIndicator } from '../../components/HowToPlay/HowToPlayIndicator';
+import { HowToPlayIndicatorHint } from '../../components/HowToPlay/HowToPlayIndicatorHint';
 
 export interface HowToPlayStep {
   text: React.ReactNode;
@@ -48,8 +48,8 @@ export const howToPlaySteps: HowToPlayStep[] = [
     text: (
       <>
         Each turn the previous move of your opponent dictates in which board (
-        <HowToPlayIndicator />) you can move next: Whichever square he picks,
-        that’s the board you must play in next
+        <HowToPlayIndicatorHint />) you can move next: Whichever square he
+        picks, that’s the board you must play in next
       </>
     ),
     states: [new TicTacToeGame([])],
