@@ -9,7 +9,7 @@ import {
 
 function* updateBoardState() {
   while (true) {
-    yield delay(1000);
+    yield delay(1150);
     yield put(howToPlayStateForward());
   }
 }

@@ -7,7 +7,12 @@ import { TileValue } from '../../state/AppState';
 export function HowToPlayIndicator() {
   return (
     <div className={styles.howToPlayIndicator}>
-      <Tile value={TileValue.Empty} isTileRound={false} clickable={true} />
+      <Tile
+        value={TileValue.Empty}
+        isTileRound={false}
+        clickable={true}
+        animate={false}
+      />
     </div>
   );
 }

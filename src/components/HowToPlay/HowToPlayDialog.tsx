@@ -44,6 +44,7 @@ function ActionBar(props: ActionBarProps) {
           if (forward) onForward();
           else onBackward();
         }}
+        handleKeyboard={true}
         leftButtonConfig={{ buttonProps: { raised: false } }}
         rightButtonConfig={{
           buttonProps: { raised: false },
