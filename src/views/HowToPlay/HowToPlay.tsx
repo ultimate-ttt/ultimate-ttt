@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import { HowToPlayDialog } from '../../components/HowToPlay/HowToPlayDialog';
 import { getHowToPlay } from '../../state/selectors/AppStateSelectors';
-import { getCurrentHowToPlayText } from "../../state/selectors/howToPlay/HowToPlayStateSelectors";
+import { getCurrentHowToPlayText } from '../../state/selectors/howToPlay/HowToPlayStateSelectors';
 
 export interface HowToPlayProps {
   stepNumber: number;
