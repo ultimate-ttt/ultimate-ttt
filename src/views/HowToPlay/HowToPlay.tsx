@@ -24,7 +24,7 @@ export interface HowToPlayProps {
   onBackward: () => void;
 }
 
-function HowToPlay(props: HowToPlayProps) {
+export function HowToPlay(props: HowToPlayProps) {
   let history = useHistory();
 
   function handleClose() {

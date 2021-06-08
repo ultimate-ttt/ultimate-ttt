@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HowToPlay should match snapshot 1`] = `
+<HowToPlayDialog
+  boardState={
+    Object {
+      "activeBoards": Array [],
+      "animate": false,
+      "board": Array [],
+      "currentPlayer": 0,
+    }
+  }
+  maxStepNumber={10}
+  onBackward={[Function]}
+  onClose={[Function]}
+  onForward={[Function]}
+  onOpen={[Function]}
+  stepNumber={0}
+  text=""
+/>
+`;
