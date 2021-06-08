@@ -8,7 +8,6 @@ import {
 } from '@rmwc/dialog';
 import styles from './HowToPlayDialog.module.css';
 import { ArrowButtons } from '../ArrowButtons/ArrowButtons';
-import classNames from 'classnames';
 import { useEffect } from 'react';
 import { HowToPlayContent } from './HowToPlayContent';
 import { HowToPlayBoardState } from '../../state/AppState';
@@ -27,15 +26,11 @@ function ActionBar(props: ActionBarProps) {
   const { onClose, onForward, onBackward, stepNumber, maxStepNumber } = props;
 
   const isLastStep = stepNumber === maxStepNumber;
+  const isFirstStep = stepNumber === 0;
 
   return (
     <>
-      <DialogButton
-        className={classNames([styles.push, styles.cancel])}
-        action="close"
-      >
-        Cancel
-      </DialogButton>
+      {isFirstStep && <DialogButton action="close">Cancel</DialogButton>}
       <ArrowButtons
         value={stepNumber}
         maxValue={maxStepNumber}
@@ -45,7 +40,7 @@ function ActionBar(props: ActionBarProps) {
           else onBackward();
         }}
         handleKeyboard={true}
-        leftButtonConfig={{ buttonProps: { raised: false } }}
+        leftButtonConfig={{ buttonProps: { raised: false }, hide: isFirstStep }}
         rightButtonConfig={{
           buttonProps: { raised: false },
           hide: isLastStep,
