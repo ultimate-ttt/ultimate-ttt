@@ -8,7 +8,7 @@ import {
 } from './saveFinishedGameDataActions';
 import { getApiUrl } from '../../util';
 
-function* saveFinishedGameData(action: SaveGameDataAction) {
+function* saveFinishedGameData(action: SaveGameDataAction): any {
   if (action.saveOnline) {
     yield put(saveGameDataPending());
 

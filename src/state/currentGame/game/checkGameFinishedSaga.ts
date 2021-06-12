@@ -6,8 +6,9 @@ import { setActiveBoards } from '../activeBoards/activeBoardsActions';
 import { saveGameData } from '../../finishedGames/saveFinishedGameDataActions';
 import { getFinishedGameData } from '../../selectors/finishedGames/FinishedGameStateSelectors';
 import { TicTacToeGame } from '../../../util';
+import { SagaIterator } from 'redux-saga';
 
-function* checkIfGameFinished(action: GenericAction) {
+function* checkIfGameFinished(action: GenericAction): SagaIterator {
   const moves = yield select(getMoves);
 
   const winResult = new TicTacToeGame(moves).getWinResult();

@@ -6,8 +6,9 @@ import {
 } from './activeBoardsActions';
 import { getMoves } from '../../selectors/AppStateSelectors';
 import { TicTacToeGame } from '../../../util';
+import { SagaIterator } from 'redux-saga';
 
-function* calculateActiveBoards(action: GenericAction) {
+function* calculateActiveBoards(action: GenericAction): SagaIterator {
   const moves = yield select(getMoves);
   const activeBoards = new TicTacToeGame(moves).getCurrentActiveBoards();
   yield put(setActiveBoards(activeBoards));

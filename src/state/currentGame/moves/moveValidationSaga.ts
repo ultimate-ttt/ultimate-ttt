@@ -10,8 +10,9 @@ import { calculateBoardValue, setTileValue } from '../board/boardActions';
 import { playerToTileValue } from '../../../util';
 import { calculateActiveBoards } from '../activeBoards/activeBoardsActions';
 import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
+import { SagaIterator } from 'redux-saga';
 
-function* playerMoved(action: PlayerMovedAction) {
+function* playerMoved(action: PlayerMovedAction): SagaIterator {
   const { boardPosition, tilePosition } = action.payload;
   const currentPlayer = yield select(getCurrentPlayer);
 
