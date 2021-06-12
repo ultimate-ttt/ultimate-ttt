@@ -1,34 +1,55 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+// TODO how to make this import cleaner?
+import { render, screen } from '../../test-utils';
+import userEvent from '@testing-library/user-event';
 import { Paging } from './Paging';
-import { Button } from '@rmwc/button';
 
-describe('Paging', () => {
-  it('should match snapshot', () => {
-    const onPageChange = jest.fn(() => {});
-    const paging = shallow(
-      <Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />,
-    );
+test('shows all page buttons', () => {
+  const onPageChange = jest.fn();
+  render(<Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />);
 
-    expect(paging).toMatchSnapshot();
-  });
+  const buttons = screen.getAllByRole('button', { name: /\d/ });
+  expect(buttons).toHaveLength(10);
+});
 
-  it('should render all pages', () => {
-    const onPageChange = jest.fn(() => {});
-    const paging = shallow(
-      <Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />,
-    );
+test('allows using next button', () => {
+  const onPageChange = jest.fn();
+  render(<Paging pages={10} pageToStartWith={5} onPageChange={onPageChange} />);
 
-    expect(paging.find(Button)).toHaveLength(10);
-  });
+  const next = screen.getByRole('button', { name: /next/i });
 
-  it('should call onPageChange function when page Button is clicked', () => {
-    const onPageChange = jest.fn(() => {});
-    const paging = shallow(
-      <Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />,
-    );
+  const pageSix = screen.getByRole('button', { name: /6/ });
+  expect(pageSix.className).not.toMatch(/unelevated/);
 
-    paging.find({ label: 5 }).simulate('click');
-    expect(onPageChange).toHaveBeenCalledWith(5);
-  });
+  userEvent.click(next);
+
+  expect(pageSix.className).toMatch(/unelevated/);
+  expect(onPageChange).toHaveBeenCalledWith(6);
+});
+
+test('allows using previous button', () => {
+  const onPageChange = jest.fn();
+  render(<Paging pages={10} pageToStartWith={5} onPageChange={onPageChange} />);
+
+  const previous = screen.getByRole('button', { name: /previous/i });
+
+  const pageFour = screen.getByRole('button', { name: /4/ });
+  expect(pageFour.className).not.toMatch(/unelevated/);
+
+  userEvent.click(previous);
+
+  expect(pageFour.className).toMatch(/unelevated/);
+  expect(onPageChange).toHaveBeenCalledWith(4);
+});
+
+test('allows using specific page button', () => {
+  const onPageChange = jest.fn();
+  render(<Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />);
+
+  const page = screen.getByRole('button', { name: /5/ });
+  expect(page.className).not.toMatch(/unelevated/);
+  userEvent.click(page);
+
+  expect(onPageChange).toHaveBeenCalledWith(5);
+  expect(page.className).toMatch(/unelevated/);
 });

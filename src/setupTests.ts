@@ -1,3 +1,4 @@
+// TODO remove after rtl migration
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

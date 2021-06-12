@@ -30,6 +30,7 @@ export function Paging(props: PagingProps) {
             }
           }}
           unelevated={i === currentPage}
+          outlined={i !== currentPage}
           dense={true}
           className={styles.pagingButton}
         />,
@@ -51,6 +52,7 @@ export function Paging(props: PagingProps) {
           setCurrentPage(newPage);
           onPageChange(newPage);
         }}
+        handleKeyboard={false}
       >
         {getPages()}
       </ArrowButtons>
