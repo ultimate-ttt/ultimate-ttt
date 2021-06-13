@@ -39,6 +39,7 @@ export function Paging(props: PagingProps) {
     return pageButtons;
   };
 
+  if (pages === 0) return <></>;
   return (
     <div className={className}>
       <ArrowButtons

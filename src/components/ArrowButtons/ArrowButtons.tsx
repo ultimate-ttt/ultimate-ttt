@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 
 export interface ArrowButtonsProps {
   value: number;
-  maxValue: number;
   minValue: number;
+  maxValue: number;
   onInteraction: (forward: boolean) => void;
   handleKeyboard?: boolean;
   children?: React.ReactNode;

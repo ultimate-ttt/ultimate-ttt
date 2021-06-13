@@ -1,15 +1,23 @@
 import * as React from 'react';
-// TODO how to make this import cleaner?
+// TODO make this import cleaner
+// -> like this probably: https://create-react-app.dev/docs/importing-a-component/#absolute-imports
 import { render, screen } from '../../test-utils';
 import userEvent from '@testing-library/user-event';
 import { Paging } from './Paging';
 
-test('shows all page buttons', () => {
-  const onPageChange = jest.fn();
-  render(<Paging pages={10} pageToStartWith={1} onPageChange={onPageChange} />);
+test('renders supplied amount of page buttons', () => {
+  render(<Paging pages={10} pageToStartWith={1} onPageChange={() => {}} />);
 
   const buttons = screen.getAllByRole('button', { name: /\d/ });
   expect(buttons).toHaveLength(10);
+});
+
+test('renders no buttons when pages are 0', () => {
+  const onPageChange = jest.fn();
+  render(<Paging pages={0} pageToStartWith={0} onPageChange={onPageChange} />);
+
+  const buttons = screen.queryAllByRole('button');
+  expect(buttons).toHaveLength(0);
 });
 
 test('allows using next button', () => {
