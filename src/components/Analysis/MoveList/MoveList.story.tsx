@@ -15,14 +15,14 @@ export const Default: Story<MoveListProps> = (args) => (
     <div className="moveList">
       <MoveList
         {...args}
-        moveForwardInHistory={action('moveForwardInHistory')}
-        moveBackwardInHistory={action('moveBackwardInHistory')}
+        onMoveDownwardsInList={action('onMoveDownwardsInList')}
+        onMoveUpwardsInList={action('onMoveUpwardsInList')}
       />
     </div>
   </IconProvider>
 );
 
 Default.args = {
-  currentMove: 2,
+  activatedMove: 2,
   reversedMoves: movesForBoardWithThreeMovesMock.slice().reverse(),
 };

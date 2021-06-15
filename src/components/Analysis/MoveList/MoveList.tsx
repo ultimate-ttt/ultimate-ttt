@@ -2,7 +2,7 @@ import * as React from 'react';
 import { List, SimpleListItem } from '@rmwc/list';
 import { CustomEventT } from '@rmwc/types';
 import { MoveState, Player } from '../../../state/AppState';
-import { Element } from 'react-scroll';
+import { ScrollElement } from 'react-scroll';
 import { moveScrollElementBaseName } from '../ScrollElementConstants';
 import styles from './MoveList.module.css';
 import classNames from 'classnames';
@@ -10,32 +10,32 @@ import { OIcon, XIcon } from '../../Icons';
 
 export interface MoveListProps {
   reversedMoves: MoveState[];
-  currentMove: number;
-  moveForwardInHistory: (numberOfMoves: number) => void;
-  moveBackwardInHistory: (numberOfMoves: number) => void;
+  activatedMove: number;
+  onMoveUpwardsInList: (numberOfMoves: number) => void;
+  onMoveDownwardsInList: (numberOfMoves: number) => void;
 }
 
 export function MoveList(props: MoveListProps) {
   const {
-    currentMove,
     reversedMoves,
-    moveForwardInHistory,
-    moveBackwardInHistory,
+    activatedMove,
+    onMoveUpwardsInList,
+    onMoveDownwardsInList,
   } = props;
 
   const changeDisplayedMove = (event: CustomEventT<{ index: number }>) => {
     const numberOfMovesFromEnd = event.detail.index;
     const moveNumber = reversedMoves.length - numberOfMovesFromEnd;
 
-    if (moveNumber === currentMove) {
+    if (moveNumber === activatedMove) {
       return;
     }
 
-    const amountOfMovesToMove = moveNumber - currentMove;
+    const amountOfMovesToMove = moveNumber - activatedMove;
     if (amountOfMovesToMove < 0) {
-      moveBackwardInHistory(currentMove - moveNumber);
+      onMoveUpwardsInList(activatedMove - moveNumber);
     } else {
-      moveForwardInHistory(moveNumber - currentMove);
+      onMoveDownwardsInList(moveNumber - activatedMove);
     }
   };
 
@@ -48,13 +48,13 @@ export function MoveList(props: MoveListProps) {
     >
       {reversedMoves.map((m) => {
         return (
-          <Element
+          <ScrollListElement
             key={m.moveNumber}
             name={moveScrollElementBaseName + m.moveNumber}
           >
             <SimpleListItem
               tag="button"
-              activated={currentMove === m.moveNumber}
+              activated={activatedMove === m.moveNumber}
               graphic={{
                 icon: m.player === Player.Cross ? <XIcon /> : <OIcon />,
                 size: 'medium',
@@ -71,9 +71,14 @@ export function MoveList(props: MoveListProps) {
                 styles.fullWidth,
               ])}
             />
-          </Element>
+          </ScrollListElement>
         );
       })}
     </List>
   );
 }
+
+const ListElement: React.FC = ({ children, ...props }) => {
+  return <li {...props}>{children}</li>;
+};
+const ScrollListElement = ScrollElement(ListElement);

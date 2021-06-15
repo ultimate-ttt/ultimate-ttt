@@ -9,9 +9,9 @@ exports[`AnalysisGame should match snapshot 1`] = `
     id="moveList"
   >
     <MoveList
-      currentMove={30}
-      moveBackwardInHistory={[MockFunction]}
-      moveForwardInHistory={[MockFunction]}
+      activatedMove={30}
+      onMoveDownwardsInList={[MockFunction]}
+      onMoveUpwardsInList={[MockFunction]}
       reversedMoves={
         Array [
           Object {

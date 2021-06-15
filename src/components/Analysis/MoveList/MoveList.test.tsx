@@ -1,177 +1,151 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
-import { MoveList } from './MoveList';
+import { render, screen } from '../../../test-utils';
+import userEvent from '@testing-library/user-event';
 import { MoveState, Player } from '../../../state/AppState';
-import { List } from '@rmwc/list';
-import { CustomEventT } from '@rmwc/types';
+import { MoveList } from './MoveList';
 
-describe('MoveList', function () {
-  const moves: MoveState[] = [
-    {
-      moveNumber: 1,
-      player: Player.Cross,
-      tilePosition: { x: 0, y: 0 },
-      boardPosition: { x: 0, y: 0 },
-    },
-    {
-      moveNumber: 2,
-      player: Player.Circle,
-      tilePosition: { x: 0, y: 1 },
-      boardPosition: { x: 0, y: 0 },
-    },
-    {
-      moveNumber: 3,
-      player: Player.Cross,
-      tilePosition: { x: 0, y: 0 },
-      boardPosition: { x: 0, y: 1 },
-    },
-    {
-      moveNumber: 4,
-      player: Player.Circle,
-      tilePosition: { x: 0, y: 2 },
-      boardPosition: { x: 0, y: 0 },
-    },
-  ].reverse();
+const moveStates: MoveState[] = [
+  {
+    moveNumber: 1,
+    player: Player.Cross,
+    tilePosition: { x: 0, y: 0 },
+    boardPosition: { x: 0, y: 0 },
+  },
+  {
+    moveNumber: 2,
+    player: Player.Circle,
+    tilePosition: { x: 0, y: 1 },
+    boardPosition: { x: 0, y: 0 },
+  },
+  {
+    moveNumber: 3,
+    player: Player.Cross,
+    tilePosition: { x: 0, y: 0 },
+    boardPosition: { x: 0, y: 1 },
+  },
+].reverse();
 
-  it('should match snapshot', () => {
-    const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-    const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+test('renders moves', () => {
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={1}
+      onMoveUpwardsInList={() => {}}
+      onMoveDownwardsInList={() => {}}
+    />,
+  );
 
-    const moveList = shallow(
-      <MoveList
-        reversedMoves={moves}
-        currentMove={moves.length}
-        moveForwardInHistory={moveForwardInHistory}
-        moveBackwardInHistory={moveBackwardInHistory}
-      />,
+  moveStates.map((value) => {
+    const regex = new RegExp(
+      `move ${value.moveNumber} board ` +
+        `${value.boardPosition.x}\/${value.boardPosition.y} ` +
+        `- tile ${value.tilePosition.x}\/${value.tilePosition.y}`,
+      'i',
     );
-
-    expect(moveList).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: regex })).toBeInTheDocument();
   });
+});
 
-  it('should display amount of moves in list', () => {
-    const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-    const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+test('renders currentMove as activated', () => {
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={2}
+      onMoveUpwardsInList={() => {}}
+      onMoveDownwardsInList={() => {}}
+    />,
+  );
 
-    const moveList = shallow(
-      <MoveList
-        reversedMoves={moves}
-        currentMove={moves.length}
-        moveForwardInHistory={moveForwardInHistory}
-        moveBackwardInHistory={moveBackwardInHistory}
-      />,
-    );
+  const moveTwo = screen.getByRole('button', { name: /move 2/i });
+  expect(moveTwo.className).toMatch(/activated/);
+});
 
-    expect(moveList.find(List).children().length).toBe(moves.length);
-  });
+test('allows using buttons to move upwards in list', () => {
+  const moveUpwardsInList = jest.fn();
+  const moveDownwardsInList = jest.fn();
 
-  it('should set activated to the correct value', () => {
-    const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-    const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={3}
+      onMoveUpwardsInList={moveUpwardsInList}
+      onMoveDownwardsInList={moveDownwardsInList}
+    />,
+  );
 
-    const currentMove = 3;
-    const moveList = shallow(
-      <MoveList
-        reversedMoves={moves}
-        currentMove={currentMove}
-        moveForwardInHistory={moveForwardInHistory}
-        moveBackwardInHistory={moveBackwardInHistory}
-      />,
-    );
+  const moveOne = screen.getByRole('button', { name: /move 1/i });
+  const moveTwo = screen.getByRole('button', { name: /move 2/i });
 
-    const activatedItems = moveList.find({ activated: true });
-    const deactivatedItems = moveList.find({ activated: false });
+  userEvent.click(moveOne);
 
-    expect(activatedItems.length).toBe(1);
-    expect(activatedItems.get(0).props.text).toContain(currentMove);
-    expect(deactivatedItems.length).toBe(moves.length - 1);
-  });
+  expect(moveUpwardsInList).toHaveBeenCalledWith(2);
+  expect(moveDownwardsInList).not.toHaveBeenCalled();
 
-  describe('moveBackwardInHistory', () => {
-    it('should call backward function with 3 when currentMove is 4 and move 1 is clicked', () => {
-      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={3}
+      onMoveUpwardsInList={moveUpwardsInList}
+      onMoveDownwardsInList={moveDownwardsInList}
+    />,
+  );
 
-      const moveList = shallow(
-        <MoveList
-          reversedMoves={moves}
-          currentMove={moves.length}
-          moveForwardInHistory={moveForwardInHistory}
-          moveBackwardInHistory={moveBackwardInHistory}
-        />,
-      );
+  userEvent.click(moveTwo);
 
-      const list = moveList.find(List);
-      list.props().onAction!({
-        detail: { index: moves.findIndex((m) => m.moveNumber === 1) },
-      } as CustomEventT<{ index: number }>);
+  expect(moveUpwardsInList).toHaveBeenCalledWith(1);
+  expect(moveDownwardsInList).not.toHaveBeenCalled();
+});
 
-      expect(moveBackwardInHistory).toHaveBeenCalledWith(moves.length - 1);
-    });
+test('allows using buttons to move downwards in list', () => {
+  const moveUpwardsInList = jest.fn();
+  const moveDownwardsInList = jest.fn();
 
-    it('should call backward function with 1 when currentMove is 3 and move 2 is clicked', () => {
-      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={1}
+      onMoveUpwardsInList={moveUpwardsInList}
+      onMoveDownwardsInList={moveDownwardsInList}
+    />,
+  );
 
-      const moveList = shallow(
-        <MoveList
-          reversedMoves={moves}
-          currentMove={3}
-          moveForwardInHistory={moveForwardInHistory}
-          moveBackwardInHistory={moveBackwardInHistory}
-        />,
-      );
+  const moveTwo = screen.getByRole('button', { name: /move 2/i });
+  const moveThree = screen.getByRole('button', { name: /move 3/i });
 
-      const list = moveList.find(List);
-      list.props().onAction!({
-        detail: { index: moves.findIndex((m) => m.moveNumber === 2) },
-      } as CustomEventT<{ index: number }>);
+  userEvent.click(moveThree);
+  expect(moveDownwardsInList).toHaveBeenCalledWith(2);
+  expect(moveUpwardsInList).not.toHaveBeenCalled();
 
-      expect(moveBackwardInHistory).toHaveBeenCalledWith(1);
-    });
-  });
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={1}
+      onMoveUpwardsInList={moveUpwardsInList}
+      onMoveDownwardsInList={moveDownwardsInList}
+    />,
+  );
 
-  describe('moveForwardInHistory', () => {
-    it('should call forward function with 3 when currentMove is 1 and move 4 is clicked', () => {
-      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
+  userEvent.click(moveTwo);
+  expect(moveDownwardsInList).toHaveBeenCalledWith(1);
+  expect(moveUpwardsInList).not.toHaveBeenCalled();
+});
 
-      const moveList = shallow(
-        <MoveList
-          reversedMoves={moves}
-          currentMove={1}
-          moveForwardInHistory={moveForwardInHistory}
-          moveBackwardInHistory={moveBackwardInHistory}
-        />,
-      );
+test('doesnt call callbacks when clicking on active item', () => {
+  const moveUpwardsInList = jest.fn();
+  const moveDownwardsInList = jest.fn();
 
-      const list = moveList.find(List);
-      list.props().onAction!({
-        detail: { index: moves.findIndex((m) => m.moveNumber === 4) },
-      } as CustomEventT<{ index: number }>);
+  render(
+    <MoveList
+      reversedMoves={moveStates}
+      activatedMove={1}
+      onMoveUpwardsInList={moveUpwardsInList}
+      onMoveDownwardsInList={moveDownwardsInList}
+    />,
+  );
 
-      expect(moveForwardInHistory).toHaveBeenCalledWith(3);
-    });
+  const moveOne = screen.getByRole('button', { name: /move 1/i });
+  userEvent.click(moveOne);
 
-    it('should call forward function with 1 when currentMove is 2 and move 3 is clicked', () => {
-      const moveForwardInHistory = jest.fn((numberOfMoves) => {});
-      const moveBackwardInHistory = jest.fn((numberOfMoves) => {});
-
-      const moveList = shallow(
-        <MoveList
-          reversedMoves={moves}
-          currentMove={2}
-          moveForwardInHistory={moveForwardInHistory}
-          moveBackwardInHistory={moveBackwardInHistory}
-        />,
-      );
-
-      const list = moveList.find(List);
-      list.props().onAction!({
-        detail: { index: moves.findIndex((m) => m.moveNumber === 3) },
-      } as CustomEventT<{ index: number }>);
-
-      expect(moveForwardInHistory).toHaveBeenCalledWith(1);
-    });
-  });
+  expect(moveDownwardsInList).not.toHaveBeenCalled();
+  expect(moveUpwardsInList).not.toHaveBeenCalled();
 });

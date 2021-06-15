@@ -35,10 +35,10 @@ export function AnalysisGameDisplay(props: AnalysisGameDisplayProps) {
     <div className={styles.analysisLayout}>
       <div id="moveList" className={styles.moveList}>
         <MoveList
-          currentMove={analysisGame.currentMove}
+          activatedMove={analysisGame.currentMove}
           reversedMoves={reversedMoves}
-          moveForwardInHistory={props.moveForwardInHistory}
-          moveBackwardInHistory={props.moveBackwardInHistory}
+          onMoveDownwardsInList={props.moveForwardInHistory}
+          onMoveUpwardsInList={props.moveBackwardInHistory}
         />
       </div>
       <div className={styles.historyButtons}>
