@@ -21,24 +21,19 @@ import '@material/typography/dist/mdc.typography.css';
 import '@rmwc/icon/icon.css';
 import '@rmwc/theme/theme.css';
 
-export function App() {
+export const App = () => {
   return (
-    <>
-      <BrowserRouter>
-        <Navigation />
-        <main>
-          <Switch>
-            <Route path={routes.AnalysisLatest} component={AnalysisGameRoute} />
-            <Route path={routes.AnalysisParam} component={AnalysisGameRoute} />
-            <Route
-              path={routes.AnalysisOverview}
-              component={AnalysisOverview}
-            />
-            <Route path={routes.Home} component={Game} />
-          </Switch>
-          <Route path={routes.HowToPlay} component={HowToPlay} />
-        </main>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Navigation />
+      <main>
+        <Switch>
+          <Route path={routes.AnalysisLatest} component={AnalysisGameRoute} />
+          <Route path={routes.AnalysisParam} component={AnalysisGameRoute} />
+          <Route path={routes.AnalysisOverview} component={AnalysisOverview} />
+          <Route path={routes.Home} component={Game} />
+        </Switch>
+        <Route path={routes.HowToPlay} component={HowToPlay} />
+      </main>
+    </BrowserRouter>
   );
-}
+};

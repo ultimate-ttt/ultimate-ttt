@@ -46,13 +46,17 @@ export function ArrowButtons(props: ArrowButtonsProps) {
   } = props;
   useEffect(() => {
     const handleEvent = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft' || event.key === 'Left')
+      if (event.key === 'ArrowLeft' || event.key === 'Left') {
         handleInteraction(false, value, minValue, maxValue, onInteraction);
-      else if (event.key === 'ArrowRight' || event.key === 'Right')
+      } else if (event.key === 'ArrowRight' || event.key === 'Right') {
         handleInteraction(true, value, minValue, maxValue, onInteraction);
+      }
     };
 
-    if (handleKeyboard) window.addEventListener('keydown', handleEvent);
+    if (handleKeyboard) {
+      window.addEventListener('keydown', handleEvent);
+    }
+
     return () => {
       if (handleKeyboard) window.removeEventListener('keydown', handleEvent);
     };

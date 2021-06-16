@@ -63,7 +63,7 @@ describe('BigBoard', function () {
     );
 
     const smallBoards = bigBoard.find(SmallBoard);
-    smallBoards.map((board) => {
+    smallBoards.forEach((board) => {
       const props = board.props();
       expect(props.animate).toBe(false);
     });
@@ -84,7 +84,7 @@ describe('BigBoard', function () {
       );
 
       const smallBoards = bigBoard.find(SmallBoard);
-      smallBoards.map((board) => {
+      smallBoards.forEach((board) => {
         const props = board.props();
         expect(props.highlight).toBeUndefined();
       });
@@ -111,7 +111,7 @@ describe('BigBoard', function () {
       );
 
       const smallBoards = bigBoard.find(SmallBoard);
-      smallBoards.map((board) => {
+      smallBoards.forEach((board) => {
         const props = board.props();
         if (props.x === 2 && props.y === 1) {
           expect(props.highlight).toEqual(higlight);

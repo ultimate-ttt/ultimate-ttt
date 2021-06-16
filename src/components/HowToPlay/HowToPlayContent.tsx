@@ -6,8 +6,7 @@ interface HowToPlayContentProps {
   boardState: HowToPlayBoardState;
 }
 
-export function HowToPlayContent(props: HowToPlayContentProps) {
-  const { boardState } = props;
+export function HowToPlayContent({ boardState }: HowToPlayContentProps) {
   return (
     <BigBoard
       animate={boardState.animate}

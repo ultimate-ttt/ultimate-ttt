@@ -1040,7 +1040,7 @@ exports[`HowToPlayDialog should match snapshot 1`] = `
     </div>
   </Function>
   <Function>
-    <ActionBar
+    <DialogActionBar
       maxStepNumber={10}
       onBackward={[Function]}
       onClose={[Function]}

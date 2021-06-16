@@ -2,62 +2,14 @@ import * as React from 'react';
 import {
   Dialog,
   DialogActions,
-  DialogButton,
   DialogContent,
   DialogTitle,
 } from '@rmwc/dialog';
 import styles from './HowToPlayDialog.module.css';
-import { ArrowButtons } from '../ArrowButtons/ArrowButtons';
 import { useEffect } from 'react';
 import { HowToPlayContent } from './HowToPlayContent';
 import { HowToPlayBoardState } from '../../state/AppState';
-import { Button } from '@rmwc/button';
-import { ArrowRightIcon } from '../Icons';
-
-interface ActionBarProps {
-  onClose: () => void;
-  onForward: () => void;
-  onBackward: () => void;
-  stepNumber: number;
-  maxStepNumber: number;
-}
-
-function ActionBar(props: ActionBarProps) {
-  const { onClose, onForward, onBackward, stepNumber, maxStepNumber } = props;
-
-  const isLastStep = stepNumber === maxStepNumber;
-  const isFirstStep = stepNumber === 0;
-
-  return (
-    <>
-      {isFirstStep && <DialogButton action="close">Cancel</DialogButton>}
-      <ArrowButtons
-        value={stepNumber}
-        maxValue={maxStepNumber}
-        minValue={0}
-        onInteraction={(forward) => {
-          if (forward) onForward();
-          else onBackward();
-        }}
-        handleKeyboard={true}
-        leftButtonConfig={{ buttonProps: { raised: false }, hide: isFirstStep }}
-        rightButtonConfig={{
-          buttonProps: { raised: false },
-          hide: isLastStep,
-        }}
-      />
-      {isLastStep && (
-        <Button
-          raised={true}
-          trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
-          onClick={onClose}
-        >
-          Let's Play
-        </Button>
-      )}
-    </>
-  );
-}
+import { DialogActionBar } from './DialogActionBar';
 
 export interface HowToPlayDialogProps {
   onOpen: () => void;
@@ -101,7 +53,7 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
         </div>
       </DialogContent>
       <DialogActions>
-        <ActionBar
+        <DialogActionBar
           onClose={onClose}
           onForward={onForward}
           onBackward={onBackward}

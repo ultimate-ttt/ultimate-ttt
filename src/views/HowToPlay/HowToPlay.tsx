@@ -25,7 +25,7 @@ export interface HowToPlayProps {
 }
 
 export function HowToPlay(props: HowToPlayProps) {
-  let history = useHistory();
+  const history = useHistory();
 
   function handleClose() {
     props.onClose();
