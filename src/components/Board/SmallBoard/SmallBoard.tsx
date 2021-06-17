@@ -55,7 +55,6 @@ export function SmallBoard(props: SmallBoardProps) {
       rows.push(
         <Tile
           key={`${tile.position.x}-${tile.position.y}`}
-          position={{ tilePosition: tile.position, boardPosition: { x, y } }}
           value={tile.value}
           isTileRound={isCircle}
           clickable={moveAllowed && tile.value === TileValue.Empty}
@@ -85,7 +84,6 @@ export function SmallBoard(props: SmallBoardProps) {
     >
       {boardIsFinished ? (
         <Tile
-          position={{ tilePosition: { x: 0, y: 0 }, boardPosition: { x, y } }}
           value={winningPlayer}
           isTileRound={winningPlayer === TileValue.Circle}
           clickable={false}

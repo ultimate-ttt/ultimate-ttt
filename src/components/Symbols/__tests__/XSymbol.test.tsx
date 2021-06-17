@@ -1,34 +1,27 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '../../../test-utils';
 import { XSymbol } from '../XSymbol';
 
-describe('XSymbol', () => {
-  it('should not explode', () => {
-    const component = shallow(<XSymbol />);
-    expect(component).not.toBeNull();
-  });
+test('renders x', () => {
+  // This is a hack and should not be used in tests where we can queryByRole or other!
+  const { container } = render(<XSymbol />);
+  const x = container.querySelector('svg');
+  expect(x).not.toBeNull();
+  expect(x!.classList.value).toMatch(/animatex/i);
+});
 
-  it('should match snapshot', () => {
-    const xSymbol1 = shallow(<XSymbol />);
-    expect(xSymbol1).toMatchSnapshot();
+test('renders x animated', () => {
+  // This is a hack and should not be used in tests where we can queryByRole or other!
+  const { container } = render(<XSymbol shouldAnimate={true} />);
+  const x = container.querySelector('svg');
+  expect(x).not.toBeNull();
+  expect(x!.classList.value).toMatch(/animatex/i);
+});
 
-    const xSymbol2 = shallow(<XSymbol shouldAnimate={false} />);
-    expect(xSymbol2).toMatchSnapshot();
-  });
-
-  it('should have a child element', () => {
-    const component = shallow(<XSymbol />);
-    expect(component).toHaveLength(1);
-  });
-
-  it('should have x and animateX class by default', () => {
-    const component = shallow(<XSymbol />);
-    expect(component.hasClass('x')).toBe(true);
-    expect(component.hasClass('animateX')).toBe(true);
-  });
-
-  it(`shouldn't have animate classes with shouldAnimate=false`, () => {
-    const component = shallow(<XSymbol shouldAnimate={false} />);
-    expect(component.hasClass('animateX')).toBe(false);
-  });
+test('renders x not animated', () => {
+  // This is a hack and should not be used in tests where we can queryByRole or other!
+  const { container } = render(<XSymbol shouldAnimate={false} />);
+  const x = container.querySelector('svg');
+  expect(x).not.toBeNull();
+  expect(x!.classList.value).not.toMatch(/animatex/i);
 });

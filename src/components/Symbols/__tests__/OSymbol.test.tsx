@@ -1,34 +1,28 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '../../../test-utils';
 import { OSymbol } from '../OSymbol';
+import { XSymbol } from '../XSymbol';
 
-describe('OSymbol', () => {
-  it('should not explode', () => {
-    const component = shallow(<OSymbol />);
-    expect(component).not.toBeNull();
-  });
+test('renders o', () => {
+  // This is a hack and should not be used in tests where we can queryByRole or other!
+  const { container } = render(<OSymbol />);
+  const o = container.querySelector('svg');
+  expect(o).not.toBeNull();
+  expect(o!.classList.value).toMatch(/animateo/i);
+});
 
-  it('should match snapshot', () => {
-    const oSymbol1 = shallow(<OSymbol />);
-    expect(oSymbol1).toMatchSnapshot();
+test('renders o animated', () => {
+  // This is a hack and should not be used in tests where we can queryByRole or other!
+  const { container } = render(<OSymbol shouldAnimate={true} />);
+  const o = container.querySelector('svg');
+  expect(o).not.toBeNull();
+  expect(o!.classList.value).toMatch(/animateo/i);
+});
 
-    const oSymbol2 = shallow(<OSymbol shouldAnimate={false} />);
-    expect(oSymbol2).toMatchSnapshot();
-  });
-
-  it('should have a children element', () => {
-    const component = shallow(<OSymbol />);
-    expect(component).toHaveLength(1);
-  });
-
-  it('should have o and animateO class by default', () => {
-    const component = shallow(<OSymbol />);
-    expect(component.hasClass('o')).toBe(true);
-    expect(component.hasClass('animateO')).toBe(true);
-  });
-
-  it(`shouldn't have animate class with shouldAnimate=false`, () => {
-    const component = shallow(<OSymbol shouldAnimate={false} />);
-    expect(component.hasClass('animateO')).toBe(false);
-  });
+test('renders o not animated', () => {
+  // This is a hack and should not be used in tests where we can queryByRole or other!
+  const { container } = render(<XSymbol shouldAnimate={false} />);
+  const o = container.querySelector('svg');
+  expect(o).not.toBeNull();
+  expect(o!.classList.value).not.toMatch(/animateo/i);
 });

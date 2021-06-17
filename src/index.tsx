@@ -13,15 +13,13 @@ const store = configureStore();
 const persistor = persistStore(store);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <IconProvider>
-          <App />
-        </IconProvider>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <IconProvider>
+        <App />
+      </IconProvider>
+    </PersistGate>
+  </Provider>,
   document.getElementById('root') as HTMLElement,
 );
 register();

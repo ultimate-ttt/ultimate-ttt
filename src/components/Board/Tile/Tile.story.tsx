@@ -10,18 +10,9 @@ export default {
   component: Tile,
 } as Meta;
 
-const position = {
-  tilePosition: { x: 0, y: 0 },
-  boardPosition: { x: 0, y: 0 },
-};
-
 const Template: Story<TileProps> = (args) => (
   <div className={styles.smallBoard}>
-    <Tile
-      {...args}
-      onTileClicked={action('onTileClicked')}
-      position={position}
-    />
+    <Tile {...args} onTileClicked={action('onTileClicked')} />
   </div>
 );
 
