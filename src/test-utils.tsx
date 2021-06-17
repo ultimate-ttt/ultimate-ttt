@@ -3,9 +3,14 @@ import React, { FC, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { IconProvider } from './components/Icons';
 import '@testing-library/jest-dom'; // https://github.com/testing-library/jest-dom/issues/282#issuecomment-660034778
+import { MemoryRouter } from 'react-router-dom';
 
 const AllTheProviders: FC = ({ children }) => {
-  return <IconProvider>{children}</IconProvider>;
+  return (
+    <IconProvider>
+      <MemoryRouter>{children}</MemoryRouter>
+    </IconProvider>
+  );
 };
 
 const customRender = (
