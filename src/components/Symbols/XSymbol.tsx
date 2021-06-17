@@ -19,6 +19,6 @@ export class XSymbol extends React.Component<XSymbolProps> {
       [styles.animateX]: shouldAnimate,
     });
 
-    return <XGameIcon className={iconClass} />;
+    return <XGameIcon className={iconClass} aria-label={'X'} />;
   }
 }

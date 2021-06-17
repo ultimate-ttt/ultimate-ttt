@@ -74,25 +74,10 @@ test('allows using buttons to move upwards in list', () => {
   );
 
   const moveOne = screen.getByRole('button', { name: /move 1/i });
-  const moveTwo = screen.getByRole('button', { name: /move 2/i });
 
   userEvent.click(moveOne);
 
   expect(moveUpwardsInList).toHaveBeenCalledWith(2);
-  expect(moveDownwardsInList).not.toHaveBeenCalled();
-
-  render(
-    <MoveList
-      reversedMoves={moveStates}
-      activatedMove={3}
-      onMoveUpwardsInList={moveUpwardsInList}
-      onMoveDownwardsInList={moveDownwardsInList}
-    />,
-  );
-
-  userEvent.click(moveTwo);
-
-  expect(moveUpwardsInList).toHaveBeenCalledWith(1);
   expect(moveDownwardsInList).not.toHaveBeenCalled();
 });
 
@@ -109,24 +94,10 @@ test('allows using buttons to move downwards in list', () => {
     />,
   );
 
-  const moveTwo = screen.getByRole('button', { name: /move 2/i });
   const moveThree = screen.getByRole('button', { name: /move 3/i });
 
   userEvent.click(moveThree);
   expect(moveDownwardsInList).toHaveBeenCalledWith(2);
-  expect(moveUpwardsInList).not.toHaveBeenCalled();
-
-  render(
-    <MoveList
-      reversedMoves={moveStates}
-      activatedMove={1}
-      onMoveUpwardsInList={moveUpwardsInList}
-      onMoveDownwardsInList={moveDownwardsInList}
-    />,
-  );
-
-  userEvent.click(moveTwo);
-  expect(moveDownwardsInList).toHaveBeenCalledWith(1);
   expect(moveUpwardsInList).not.toHaveBeenCalled();
 });
 

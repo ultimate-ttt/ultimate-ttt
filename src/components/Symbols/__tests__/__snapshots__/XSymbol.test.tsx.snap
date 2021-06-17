@@ -2,12 +2,14 @@
 
 exports[`XSymbol should match snapshot 1`] = `
 <ForwardRef(SvgX)
+  aria-label="X"
   className="x animateX"
 />
 `;
 
 exports[`XSymbol should match snapshot 2`] = `
 <ForwardRef(SvgX)
+  aria-label="X"
   className="x"
 />
 `;

@@ -20,6 +20,6 @@ export class DrawSymbol extends React.Component<DrawSymbolProps> {
       [styles.animateDraw]: shouldAnimate,
     });
 
-    return <DrawGameIcon className={iconClass} />;
+    return <DrawGameIcon className={iconClass} aria-label={'-'} />;
   }
 }

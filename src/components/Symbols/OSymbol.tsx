@@ -19,6 +19,6 @@ export class OSymbol extends React.Component<OSymbolProps> {
       [styles.animateO]: shouldAnimate,
     });
 
-    return <OGameIcon className={iconClass} />;
+    return <OGameIcon className={iconClass} aria-label={'O'} />;
   }
 }

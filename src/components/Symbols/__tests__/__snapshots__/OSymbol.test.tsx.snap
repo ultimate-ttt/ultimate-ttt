@@ -2,12 +2,14 @@
 
 exports[`OSymbol should match snapshot 1`] = `
 <ForwardRef(SvgO)
+  aria-label="O"
   className="o animateO"
 />
 `;
 
 exports[`OSymbol should match snapshot 2`] = `
 <ForwardRef(SvgO)
+  aria-label="O"
   className="o"
 />
 `;
