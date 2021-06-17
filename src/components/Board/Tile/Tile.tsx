@@ -43,7 +43,7 @@ export function Tile(props: TileProps) {
     [styles.special]: highlight,
     [styles.indicator]: clickable && !highlight,
     [styles.normal]: !clickable && !highlight,
-    [styles.animate]: animate,
+    [styles.animate]: animate ?? true,
     [styles.noWinner]: value === TileValue.Destroyed,
     [styles.circle]: isTileRound && value !== TileValue.Destroyed,
     [styles.square]: !isTileRound && value !== TileValue.Destroyed,

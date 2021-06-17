@@ -9,7 +9,6 @@ const props = {
   onTileClicked: () => {},
   isTileRound: false,
   clickable: true,
-  animate: true,
   highlight: false,
 };
 
@@ -31,6 +30,24 @@ test('renders value -', () => {
 test('renders value empty', () => {
   render(<Tile {...props} value={TileValue.Empty} />);
   expect(screen.getByRole('button')).toBeInTheDocument();
+});
+
+test('renders button default styles', () => {
+  render(
+    <Tile
+      value={TileValue.Cross}
+      onTileClicked={() => {}}
+      isTileRound={false}
+      clickable={true}
+    />,
+  );
+  const button = screen.getByRole('button');
+  expect(button.className).toMatch(/animate/);
+  expect(button.className).not.toMatch(/special/);
+  expect(button.className).toMatch(/indicator/);
+  expect(button.className).not.toMatch(/normal/);
+  expect(button.className).toMatch(/square/);
+  expect(button.className).not.toMatch(/circle/);
 });
 
 test('allows clicking button', () => {
