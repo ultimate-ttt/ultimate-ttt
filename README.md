@@ -11,8 +11,7 @@ width="150" alt="tic tac toe logo" />
 A browser game implementation of ultimate tic-tac-toe using React, Redux and CSS Grid.
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ultimate-ttt/ultimate-ttt/issues)
-[![Build Status](https://travis-ci.org/ultimate-ttt/ultimate-ttt.svg?branch=master)](https://travis-ci.org/ultimate-ttt/ultimate-ttt)
-[![codecov](https://codecov.io/gh/ultimate-ttt/ultimate-ttt/branch/master/graph/badge.svg)](https://codecov.io/gh/ultimate-ttt/ultimate-ttt)
+[![Build Status](https://github.com/ultimate-ttt/ultimate-ttt/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/ultimate-ttt/ultimate-ttt/actions/workflows/main.yml)
 
 </div>
 
