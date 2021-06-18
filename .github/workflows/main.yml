@@ -41,10 +41,3 @@ jobs:
     - run: yarn test
 
     - run: yarn build
-
-    - name: run Lighthouse CI
-      run: |
-        npm install -g @lhci/cli@0.8.x
-        lhci autorun --rc-overrides.upload.target=temporary-public-storage
-      env:
-        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
