@@ -2,6 +2,8 @@ import * as React from 'react';
 import { render } from '../../../test-utils';
 import { DrawSymbol } from '../DrawSymbol';
 
+// TODO this test doesn't follow best practises and should be removed when we introduce visual testing
+
 test('renders draw', () => {
   // This is a hack and should not be used in tests where we can queryByRole or other!
   const { container } = render(<DrawSymbol />);

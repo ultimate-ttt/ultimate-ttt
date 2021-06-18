@@ -3,6 +3,8 @@ import { render } from '../../../test-utils';
 import { OSymbol } from '../OSymbol';
 import { XSymbol } from '../XSymbol';
 
+// TODO this test doesn't follow best practises and should be removed when we introduce visual testing
+
 test('renders o', () => {
   // This is a hack and should not be used in tests where we can queryByRole or other!
   const { container } = render(<OSymbol />);

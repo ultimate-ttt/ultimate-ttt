@@ -33,6 +33,7 @@ test('renders value empty', () => {
 });
 
 test('renders button default styles', () => {
+  // TODO this test doesn't follow best practises and should be removed when we introduce visual testing
   render(
     <Tile
       value={TileValue.Cross}
