@@ -17,6 +17,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -41,3 +43,11 @@ jobs:
     - run: yarn test
 
     - run: yarn build
+    
+    - name: run Lighthouse CI
+      run: |
+        npm install -g @lhci/cli@0.8.x
+        lhci autorun
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
