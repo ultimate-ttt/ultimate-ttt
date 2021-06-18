@@ -1,96 +1,61 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
-import { Highlight, Player } from '../../../state/AppState';
+import { render, screen } from '../../../test-utils';
+import userEvent from '@testing-library/user-event';
 import { BigBoard } from './BigBoard';
-import {
-  circleFinishedBoardMock,
-  unfinishedBoardMock,
-} from '../../../__mocks__';
-import { SmallBoard } from '../SmallBoard/SmallBoard';
+import { Player } from '../../../state/AppState';
+import { emptyBoardMock, unfinishedBoardMock } from '../../../__mocks__';
 
-describe('BigBoard', function () {
-  it('should render 9 small boards', () => {
-    const playerMoved = jest.fn(() => {});
-    const activeBoards = [{ x: 0, y: 0 }];
+test('should render buttons for board', () => {
+  const playerMoved = jest.fn(() => {});
+  const activeBoards = [{ x: 0, y: 0 }];
 
-    const bigBoard = shallow(
-      <BigBoard
-        currentPlayer={Player.Cross}
-        board={unfinishedBoardMock}
-        activeBoards={activeBoards}
-        onPlayerMoved={playerMoved}
-      />,
-    );
+  render(
+    <BigBoard
+      currentPlayer={Player.Cross}
+      board={emptyBoardMock}
+      activeBoards={activeBoards}
+      onPlayerMoved={playerMoved}
+    />,
+  );
 
-    expect(bigBoard.children().length).toBe(9);
-  });
+  const buttons = screen.getAllByRole('button');
+  const removeExtensions = (str: string) => str.replace(/\..*/, '');
+  const buttonContent = buttons.map((b: HTMLElement) =>
+    b.textContent !== null ? removeExtensions(b.textContent) : '',
+  );
+  expect(buttonContent).toHaveLength(9 * 9);
+  const expectedContent = Array.from({ length: 9 * 9 }).map((_) => '');
+  expect(buttonContent).toEqual(expectedContent);
+});
 
-  it('should match snapshot', () => {
-    const playerMoved = jest.fn(() => {});
-    const activeBoards = [{ x: 0, y: 0 }];
+test('allows clicking on buttons without content', () => {
+  const playerMoved = jest.fn(() => {});
+  const activeBoards = [
+    { x: 0, y: 0 },
+    { x: 0, y: 1 },
+    { x: 0, y: 2 },
+    { x: 1, y: 0 },
+    { x: 1, y: 1 },
+    { x: 1, y: 2 },
+    { x: 2, y: 0 },
+    { x: 2, y: 1 },
+    { x: 2, y: 2 },
+  ];
 
-    const bigBoard = shallow(
-      <BigBoard
-        currentPlayer={Player.Cross}
-        board={unfinishedBoardMock}
-        activeBoards={activeBoards}
-        onPlayerMoved={playerMoved}
-      />,
-    );
+  render(
+    <BigBoard
+      currentPlayer={Player.Cross}
+      board={unfinishedBoardMock}
+      activeBoards={activeBoards}
+      onPlayerMoved={playerMoved}
+    />,
+  );
 
-    expect(bigBoard).toMatchSnapshot();
-  });
+  const buttonsWithContent = screen.getAllByRole('button', { name: /./ });
+  buttonsWithContent.forEach((button) => userEvent.click(button));
+  expect(playerMoved).not.toHaveBeenCalled();
 
-  describe('highlight', () => {
-    it('should pass undefined to smallBoards if higlight is not set', () => {
-      const playerMoved = jest.fn(() => {});
-
-      const bigBoard = shallow(
-        <BigBoard
-          currentPlayer={Player.Cross}
-          board={circleFinishedBoardMock}
-          activeBoards={[]}
-          onPlayerMoved={playerMoved}
-          highlight={undefined}
-        />,
-      );
-
-      const smallBoards = bigBoard.find(SmallBoard);
-      smallBoards.forEach((board) => {
-        const props = board.props();
-        expect(props.highlight).toBeUndefined();
-      });
-    });
-
-    it('should pass the correct small board the higlight prop', () => {
-      const playerMoved = jest.fn(() => {});
-      const higlight: Highlight = {
-        condition: true,
-        position: {
-          boardPosition: { x: 2, y: 1 },
-          tilePosition: { x: 0, y: 0 },
-        },
-      };
-
-      const bigBoard = shallow(
-        <BigBoard
-          currentPlayer={Player.Cross}
-          board={circleFinishedBoardMock}
-          activeBoards={[]}
-          onPlayerMoved={playerMoved}
-          highlight={higlight}
-        />,
-      );
-
-      const smallBoards = bigBoard.find(SmallBoard);
-      smallBoards.forEach((board) => {
-        const props = board.props();
-        if (props.x === 2 && props.y === 1) {
-          expect(props.highlight).toEqual(higlight);
-        } else {
-          expect(props.highlight).toEqual({ condition: false });
-        }
-      });
-    });
-  });
+  const emptyButtons = screen.getAllByRole('button', { name: /^$/ });
+  emptyButtons.forEach((button) => userEvent.click(button));
+  expect(playerMoved).toHaveBeenCalledTimes(emptyButtons.length);
 });

@@ -69,15 +69,11 @@ test('checks value for allowing clicking', () => {
   );
 
   const buttonsWithValue = screen.getAllByRole('button', { name: /./ });
-  buttonsWithValue.forEach((button) => {
-    userEvent.click(button);
-  });
+  buttonsWithValue.forEach((button) => userEvent.click(button));
   expect(onClick).not.toHaveBeenCalled();
 
   const buttonsEmpty = screen.getAllByRole('button', { name: /^$/ });
-  buttonsEmpty.forEach((button) => {
-    userEvent.click(button);
-  });
+  buttonsEmpty.forEach((button) => userEvent.click(button));
 
   expect(onClick).toHaveBeenCalledTimes(2);
 });
@@ -97,9 +93,7 @@ test('doesnt allow clicking when move is not allowed', () => {
   );
 
   const buttons = screen.getAllByRole('button');
-  buttons.forEach((button) => {
-    userEvent.click(button);
-  });
+  buttons.forEach((button) => userEvent.click(button));
   expect(onClick).not.toHaveBeenCalled();
 });
 

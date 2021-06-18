@@ -27,6 +27,7 @@ import {
   boardWithOneMoveMock,
   activeBoardsForBoardWithOneMoveMock,
 } from './boardWithOneMoveMock';
+import { emptyBoardMock } from './emptyBoardMock';
 
 export {
   unfinishedBoardMock,
@@ -46,4 +47,5 @@ export {
   boardWithThreeMovesMock,
   movesForBoardWithThreeMovesMock,
   activeBoardsForBoardWithThreeMovesMock,
+  emptyBoardMock,
 };
