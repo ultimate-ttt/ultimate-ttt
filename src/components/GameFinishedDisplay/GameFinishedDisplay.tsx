@@ -59,6 +59,7 @@ export class GameFinishedDisplay extends React.Component<
                 icon: winner === Winner.Circle ? <OIcon /> : <XIcon />,
                 size: 'large',
               }}
+              aria-label={winner === Winner.Circle ? 'O' : 'X'}
               className={styles.winnerIcon}
             />{' '}
             wins!

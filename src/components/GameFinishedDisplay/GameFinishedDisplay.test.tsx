@@ -1,79 +1,33 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
-import { Winner } from '../../state/AppState';
+import { render, screen } from '../../test-utils';
+import userEvent from '@testing-library/user-event';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
+import { Winner } from '../../state/AppState';
 
-describe('GameFinished', function () {
-  it('should match snapshot when draw', () => {
-    const restart = () => {};
-    const gameFinishedIndicator = shallow(
-      <GameFinishedDisplay
-        onRestartGame={restart}
-        isGameFinished={true}
-        winner={Winner.Draw}
-      />,
-    );
+// TODO: This would be a good candidate for integration tests as we can't fully test this in jsdom
 
-    expect(gameFinishedIndicator).toMatchSnapshot();
-  });
+test('renders draw text on draw', () => {
+  render(
+    <GameFinishedDisplay
+      onRestartGame={() => {}}
+      isGameFinished={true}
+      winner={Winner.Draw}
+    />,
+  );
+  expect(screen.getByText(`It's a draw!`)).toBeInTheDocument();
+});
 
-  it('should match snapshot when circle wins', () => {
-    const restart = () => {};
-    const gameFinishedIndicator = shallow(
-      <GameFinishedDisplay
-        onRestartGame={restart}
-        isGameFinished={true}
-        winner={Winner.Circle}
-      />,
-    );
+test('should allow clicking restart when game is finished', () => {
+  const onRestart = jest.fn();
+  render(
+    <GameFinishedDisplay
+      onRestartGame={onRestart}
+      isGameFinished={true}
+      winner={Winner.Draw}
+    />,
+  );
 
-    expect(gameFinishedIndicator).toMatchSnapshot();
-  });
-
-  it('should match snapshot when cross wins', () => {
-    const restart = () => {};
-    const gameFinishedIndicator = shallow(
-      <GameFinishedDisplay
-        onRestartGame={restart}
-        isGameFinished={true}
-        winner={Winner.Cross}
-      />,
-    );
-
-    expect(gameFinishedIndicator).toMatchSnapshot();
-  });
-
-  it('should match snapshot when no one wins', () => {
-    const restart = () => {};
-    const gameFinishedIndicator = shallow(
-      <GameFinishedDisplay
-        onRestartGame={restart}
-        isGameFinished={false}
-        winner={Winner.None}
-      />,
-    );
-
-    expect(gameFinishedIndicator).toMatchSnapshot();
-  });
-
-  it('should handle changing the props correctly', () => {
-    const restart = () => {};
-    const gameFinishedIndicator = shallow(
-      <GameFinishedDisplay
-        onRestartGame={restart}
-        isGameFinished={true}
-        winner={Winner.Cross}
-      />,
-    );
-    expect(gameFinishedIndicator.hasClass('hidden')).toBe(false);
-    expect(gameFinishedIndicator.hasClass('visible')).toBe(true);
-
-    gameFinishedIndicator.setProps({
-      isGameFinished: false,
-      winner: Winner.None,
-    });
-
-    expect(gameFinishedIndicator.hasClass('hidden')).toBe(true);
-    expect(gameFinishedIndicator.hasClass('visible')).toBe(false);
-  });
+  const button = screen.getByRole('button', { name: /play again/i });
+  userEvent.click(button);
+  expect(onRestart).toHaveBeenCalled();
 });
