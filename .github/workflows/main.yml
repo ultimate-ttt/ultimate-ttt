@@ -1,3 +1,4 @@
+name: Continuous Integration
 
 on:
   push:
@@ -38,7 +39,5 @@ jobs:
       run: yarn install --prefer-offline --frozen-lockfile
 
     - run: yarn test
-    
-    - run: yarn test
-    
+
     - run: yarn build
