@@ -32,25 +32,6 @@ test('renders value empty', () => {
   expect(screen.getByRole('button')).toBeInTheDocument();
 });
 
-test('renders button default styles', () => {
-  // TODO this test doesn't follow best practises and should be removed when we introduce visual testing
-  render(
-    <Tile
-      value={TileValue.Cross}
-      onTileClicked={() => {}}
-      isTileRound={false}
-      clickable={true}
-    />,
-  );
-  const button = screen.getByRole('button');
-  expect(button.className).toMatch(/animate/);
-  expect(button.className).not.toMatch(/special/);
-  expect(button.className).toMatch(/indicator/);
-  expect(button.className).not.toMatch(/normal/);
-  expect(button.className).toMatch(/square/);
-  expect(button.className).not.toMatch(/circle/);
-});
-
 test('allows clicking button', () => {
   const onClick = jest.fn();
   render(<Tile {...props} onTileClicked={onClick} />);
