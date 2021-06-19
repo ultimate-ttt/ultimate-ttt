@@ -28,13 +28,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:int": "cypress open",
-    "cypress:open": "cypress open",
+    "cypress:e2e": "cypress open",
+    "cypress:ct": "cypress open-ct",
     "test:all": "react-scripts test --env=jsdom --watchAll=false",
     "storybook": "start-storybook -p 6006",
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx|css)\""
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
+    "@cypress/react": "^5.9.1",
+    "@cypress/webpack-dev-server": "^1.4.0",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/preset-create-react-app": "^3.1.7",
@@ -45,8 +48,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "@types/classnames": "^2.3.1",
-    "@types/enzyme": "^3.10.8",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.2",
     "@types/react": "^16.9.56",
@@ -57,12 +58,14 @@
     "@types/react-scroll": "^1.8.2",
     "@types/redux-logger": "^3.0.8",
     "cypress": "^7.5.0",
+    "html-webpack-plugin": "4",
     "msw": "^0.29.0",
     "prettier": "^2.3.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^4.0.1",
-    "source-map-explorer": "^2.5.2"
+    "source-map-explorer": "^2.5.2",
+    "webpack-dev-server": "^3.11.0"
   },
   "browserslist": {
     "production": [
@@ -76,9 +79,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "resolutions": {
-    "babel-loader": "8.1.0"
   },
   "msw": {
     "workerDirectory": "public"
