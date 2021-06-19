@@ -5,6 +5,7 @@ import { mount } from '@cypress/react';
 import { TileValue } from '../../../state/AppState';
 import { Tile } from './Tile';
 
+// TODO unfortunately with CRA 3 we can't override testMatch and CRA 4 upgrade doesnt work. Renaming file to .cy. for now
 const props = {
   value: TileValue.Empty,
   onTileClicked: () => {},
