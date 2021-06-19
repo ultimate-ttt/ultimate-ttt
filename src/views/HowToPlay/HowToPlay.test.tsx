@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { HowToPlay } from './HowToPlay';
 import { Player } from '../../state/AppState';
 
 describe('HowToPlay', () => {
-  it('should match snapshot', () => {
-    const howToPlay = shallow(
+  it('should not explode', () => {
+    const howToPlay = mount(
       <HowToPlay
-        onOpen={() => {}}
         onClose={() => {}}
         onForward={() => {}}
         onBackward={() => {}}
@@ -22,6 +21,6 @@ describe('HowToPlay', () => {
         }}
       />,
     );
-    expect(howToPlay).toMatchSnapshot();
+    expect(howToPlay).not.toBeNull();
   });
 });

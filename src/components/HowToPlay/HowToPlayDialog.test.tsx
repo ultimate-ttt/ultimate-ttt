@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { HowToPlayDialog } from './HowToPlayDialog';
 import { howToPlaySteps } from '../../state/howToPlay/howToPlaySteps';
 
 describe('HowToPlayDialog', () => {
-  it('should match snapshot', () => {
+  it('should not explode', () => {
     const step = howToPlaySteps[1];
     const stepState = step.states[0];
-    const howToPlayDialog = shallow(
+    const howToPlayDialog = mount(
       <HowToPlayDialog
         boardState={{
           board: stepState.getBoard(),
@@ -15,7 +15,6 @@ describe('HowToPlayDialog', () => {
           animate: true,
           activeBoards: stepState.getCurrentActiveBoards(),
         }}
-        onOpen={() => {}}
         onClose={() => {}}
         text={step.text}
         onForward={() => {}}
@@ -25,6 +24,6 @@ describe('HowToPlayDialog', () => {
       />,
     );
 
-    expect(howToPlayDialog).toMatchSnapshot();
+    expect(howToPlayDialog).not.toBeNull();
   });
 });

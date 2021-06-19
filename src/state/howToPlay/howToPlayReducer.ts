@@ -1,7 +1,6 @@
 import { GenericAction, HowToPlay } from '../AppState';
 import {
   HOW_TO_PLAY_CLOSE,
-  HOW_TO_PLAY_OPEN,
   HOW_TO_PLAY_STATE_FORWARD,
   HOW_TO_PLAY_STEP_BACKWARD,
   HOW_TO_PLAY_STEP_FORWARD,
@@ -11,7 +10,6 @@ import { TicTacToeGame } from '../../util';
 import { howToPlaySteps } from './howToPlaySteps';
 
 const initialState: HowToPlay = {
-  open: false,
   stepNumber: 0,
   maxStepNumber: howToPlaySteps.length - 1,
   stateNumber: -1,
@@ -25,15 +23,8 @@ const initialState: HowToPlay = {
 
 const howToPlayReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {
-    case HOW_TO_PLAY_OPEN:
-      return produce(initialState, (draftState) => {
-        draftState.open = true;
-      });
-
     case HOW_TO_PLAY_CLOSE:
-      return produce(state, (draftState) => {
-        draftState.open = false;
-      });
+      return initialState;
 
     case HOW_TO_PLAY_STEP_FORWARD:
     case HOW_TO_PLAY_STEP_BACKWARD:

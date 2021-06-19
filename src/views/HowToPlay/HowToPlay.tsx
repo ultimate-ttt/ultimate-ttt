@@ -4,7 +4,6 @@ import routes from '../../routes/routes';
 import { AppState, HowToPlayBoardState } from '../../state/AppState';
 import {
   howToPlayClose,
-  howToPlayOpen,
   howToPlayStepBackward,
   howToPlayStepForward,
 } from '../../state/howToPlay/howToPlayActions';
@@ -18,7 +17,6 @@ export interface HowToPlayProps {
   maxStepNumber: number;
   text: React.ReactNode;
   boardState: HowToPlayBoardState;
-  onOpen: () => void;
   onClose: () => void;
   onForward: () => void;
   onBackward: () => void;
@@ -35,7 +33,6 @@ export function HowToPlay(props: HowToPlayProps) {
   return (
     <HowToPlayDialog
       boardState={props.boardState}
-      onOpen={props.onOpen}
       onClose={handleClose}
       maxStepNumber={props.maxStepNumber}
       stepNumber={props.stepNumber}
@@ -54,7 +51,6 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = {
-  onOpen: () => howToPlayOpen(),
   onClose: () => howToPlayClose(),
   onForward: () => howToPlayStepForward(),
   onBackward: () => howToPlayStepBackward(),

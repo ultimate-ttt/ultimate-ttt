@@ -1,16 +1,15 @@
 import howToPlayReducer from './howToPlayReducer';
 import {
   howToPlayClose,
-  howToPlayOpen,
   howToPlayStateForward,
   howToPlayStepBackward,
   howToPlayStepForward,
 } from './howToPlayActions';
 import { howToPlaySteps } from './howToPlaySteps';
+import { HowToPlay } from '../AppState';
 
-const getInitState = () => {
+const getInitState = (): HowToPlay => {
   return {
-    open: false,
     stepNumber: 0,
     maxStepNumber: howToPlaySteps.length - 1,
     stateNumber: -1,
@@ -31,37 +30,15 @@ describe('howToPlayReducer', () => {
     expect(initState.maxStepNumber).toBe(howToPlaySteps.length - 1);
   });
 
-  describe('howToPlayOpen', () => {
-    it('should set open to true', () => {
-      const action = howToPlayOpen();
-      const newState = howToPlayReducer(undefined, action);
-
-      expect(newState).not.toBeUndefined();
-      expect(newState.open).toBe(true);
-    });
-
-    it('should set state to init state', () => {
+  describe('howToPlayClose', () => {
+    it('should return initial state', () => {
       let initState = getInitState();
       initState.stepNumber = 10;
-      initState.stateNumber = 10;
-
-      const action = howToPlayOpen();
-      const newState = howToPlayReducer(initState, action);
-
-      expect(newState.stepNumber).toEqual(getInitState().stepNumber);
-      expect(newState.stateNumber).toEqual(getInitState().stateNumber);
-    });
-  });
-
-  describe('howToPlayClose', () => {
-    it('should set open to false', () => {
-      let initState = getInitState();
-      initState.open = true;
 
       const action = howToPlayClose();
       const newState = howToPlayReducer(initState, action);
 
-      expect(newState.open).toBe(false);
+      expect(newState).toEqual(getInitState());
     });
   });
 

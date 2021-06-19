@@ -34,7 +34,6 @@ export interface AnalysisGame {
 }
 
 export interface HowToPlay {
-  open: boolean;
   stepNumber: number;
   maxStepNumber: number;
   stateNumber: number;

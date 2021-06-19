@@ -6,13 +6,11 @@ import {
   DialogTitle,
 } from '@rmwc/dialog';
 import styles from './HowToPlayDialog.module.css';
-import { useEffect } from 'react';
 import { HowToPlayContent } from './HowToPlayContent';
 import { HowToPlayBoardState } from '../../state/AppState';
 import { DialogActionBar } from './DialogActionBar';
 
 export interface HowToPlayDialogProps {
-  onOpen: () => void;
   onClose: () => void;
   onForward: () => void;
   onBackward: () => void;
@@ -24,7 +22,6 @@ export interface HowToPlayDialogProps {
 
 export function HowToPlayDialog(props: HowToPlayDialogProps) {
   const {
-    onOpen,
     onClose,
     onForward,
     onBackward,
@@ -33,10 +30,6 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     text,
     boardState,
   } = props;
-
-  useEffect(() => {
-    onOpen();
-  }, [onOpen]);
 
   return (
     <Dialog
