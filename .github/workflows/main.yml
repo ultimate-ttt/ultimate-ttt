@@ -1,6 +1,7 @@
 name: Continuous Integration
 
 on:
+  workflow_dispatch
   push:
     branches: [ master ]
   pull_request:
@@ -8,7 +9,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -42,12 +42,65 @@ jobs:
 
     - run: yarn test
 
-    - run: yarn build
-    
     - name: run Lighthouse CI
       run: |
         npm install -g @lhci/cli@0.8.x
         lhci autorun
       env:
         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+    
+  install-cypress:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.15.0-chrome86-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+          
+      - run: yarn build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          if-no-files-found: error
+          path: build    
+        
+  ui-chrome-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.15.0-chrome86-ff82
+    needs: install-cypress
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: "UI Tests - Chrome 🧪"
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          start: yarn start
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: "UI - Chrome"
+          spec: cypress/integration/*
+  
+      - name: Run Component tests 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          # to run component tests we need to use "cypress run-ct"
+          command: yarn cypress run-ct
