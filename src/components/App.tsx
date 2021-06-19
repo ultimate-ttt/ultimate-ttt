@@ -6,16 +6,6 @@ import AnalysisOverview from '../routes/AnalysisOverview/AnalysisOverview';
 import routes from '../routes/routes';
 import { Navigation } from './Navigation/Navigation';
 
-// import individual material component styles here.
-import '@material/typography/dist/mdc.typography.css';
-import '@material/top-app-bar/dist/mdc.top-app-bar.css';
-import '@material/button/dist/mdc.button.min.css';
-import '@material/icon-button/dist/mdc.icon-button.css';
-import '@material/list/dist/mdc.list.css';
-import '@material/card/dist/mdc.card.css';
-import '@material/drawer/dist/mdc.drawer.css';
-import '@rmwc/icon/icon.css';
-
 export class App extends React.Component {
   render() {
     return (

@@ -4,11 +4,3 @@
   grid-gap: 3px;
   justify-content: center;
 }
-
-.smallBoard button::before,
-.smallBoardFinished button::before {
-  content: '';
-  padding-bottom: 100%;
-  display: inline-block;
-  vertical-align: top;
-}

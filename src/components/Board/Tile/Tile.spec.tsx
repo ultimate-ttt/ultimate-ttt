@@ -1,19 +1,19 @@
+import '../../../styles'; // TODO clean up this import later
+
 import * as React from 'react';
 import { mount } from '@cypress/react';
-import { Player } from '../../../state/AppState';
-import { BigBoard } from '../BigBoard/BigBoard';
-import { emptyBoardMock } from '../../../mocks';
+import { TileValue } from '../../../state/AppState';
+import { Tile } from './Tile';
 
 it('Tile', () => {
-  const activeBoards = [{ x: 0, y: 0 }];
+  const props = {
+    value: TileValue.Cross,
+    onTileClicked: () => {},
+    isTileRound: false,
+    clickable: true,
+    highlight: false,
+  };
 
-  mount(
-    <BigBoard
-      currentPlayer={Player.Cross}
-      board={emptyBoardMock}
-      activeBoards={activeBoards}
-      onPlayerMoved={() => {}}
-    />,
-  );
+  mount(<Tile {...props} value={TileValue.Cross} />);
   cy.findByRole('button').click();
 });
