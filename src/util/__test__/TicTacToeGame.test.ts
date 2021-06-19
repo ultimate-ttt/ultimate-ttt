@@ -10,7 +10,7 @@ import {
   movesForCrossFinishedBoardMock,
   activeBoardsForBoardWithThreeMovesMock,
   unfinishedBoardMock,
-} from '../../__mocks__';
+} from '../../mocks';
 
 describe('TicTacToeGame', () => {
   describe('constructor', () => {

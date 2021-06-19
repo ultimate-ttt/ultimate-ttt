@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { renderWithState, screen } from '../../test-utils';
-import Analysis from './Analysis';
+import AnalysisOverview from './AnalysisOverview';
 import {
   crossFinishedBoardMock,
   movesForCrossFinishedBoardMock,
@@ -33,7 +33,7 @@ const getGame = (
 };
 
 test('renders game', () => {
-  renderWithState(<Analysis />, {
+  renderWithState(<AnalysisOverview />, {
     finishedGames: [
       getGame(crossFinishedBoardMock, movesForCrossFinishedBoardMock, 'X'),
     ],
@@ -61,7 +61,7 @@ test('renders game', () => {
 });
 
 test('renders multiple games', () => {
-  renderWithState(<Analysis />, {
+  renderWithState(<AnalysisOverview />, {
     finishedGames: [
       getGame(crossFinishedBoardMock, movesForCrossFinishedBoardMock, 'X'),
       getGame(crossFinishedBoardMock, movesForCrossFinishedBoardMock, 'X'),
@@ -73,7 +73,7 @@ test('renders multiple games', () => {
 });
 
 test('renders subtitle when no games exist', () => {
-  renderWithState(<Analysis />);
+  renderWithState(<AnalysisOverview />);
 
   const pageTitle = screen.getByRole('heading', {
     name: /no recently played games were found/i,

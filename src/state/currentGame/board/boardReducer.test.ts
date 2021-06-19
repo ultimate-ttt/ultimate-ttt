@@ -1,6 +1,6 @@
 import boardReducer from './boardReducer';
 import { setTileValue } from './boardActions';
-import { crossFinishedBoardMock } from '../../../__mocks__';
+import { crossFinishedBoardMock } from '../../../mocks';
 import {
   SmallBoardInformation,
   SmallTileInformation,

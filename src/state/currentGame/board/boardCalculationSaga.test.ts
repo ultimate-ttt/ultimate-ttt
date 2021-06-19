@@ -4,7 +4,7 @@ import { getMoves } from '../../selectors/AppStateSelectors';
 import { select } from 'redux-saga/effects';
 import { CALCULATE_BOARD_VALUE, SET_BOARD_VALUE } from './boardActions';
 import { Player } from '../../AppState';
-import { movesForUnfinishedBoardMock } from '../../../__mocks__';
+import { movesForUnfinishedBoardMock } from '../../../mocks';
 
 describe('boardCalculationSaga', () => {
   it('should dispatch the set board value for the board with the Cross Player', () => {

@@ -11,7 +11,7 @@ import {
   movesForBoardWithThreeMovesMock,
   movesForCircleFinishedBoardMock,
   movesForUnfinishedBoardMock,
-} from '../../../__mocks__';
+} from '../../../mocks';
 
 describe('activeBoardCalculationSaga', () => {
   it('should dispatch setActiveBoards Action, normal case', () => {

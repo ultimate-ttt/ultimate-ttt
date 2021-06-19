@@ -1,19 +1,17 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { AnalysisGame, AppState } from '../../../state/AppState';
 import { connect } from 'react-redux';
+import { AnalysisGameDisplay } from './AnalysisGameDisplay';
+import { parseJSON, isValid } from 'date-fns';
+import { AnalysisGame, AppState } from "../../state/AppState";
+import routes from "../routes";
 import {
   loadFinishedGameByDate,
   loadFinishedGameById,
-  loadLatestFinishedGame,
-  moveBackwardInHistory,
-  moveForwardInHistory,
-} from '../../../state/analysisGame/analysisGameActions';
-import routes from '../../../routes/routes';
-import { AnalysisGameDisplay } from './AnalysisGameDisplay';
-import { parseJSON, isValid } from 'date-fns';
-import { NoGameFound } from '../NoGameFound/NoGameFound';
+  loadLatestFinishedGame, moveBackwardInHistory, moveForwardInHistory
+} from "../../state/analysisGame/analysisGameActions";
+import { NoGameFound } from "./NoGameFound/NoGameFound";
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {
@@ -26,6 +24,7 @@ interface AnalysisGameRouteProps
 }
 
 function AnalysisGameRoute(props: AnalysisGameRouteProps) {
+  // TODO move to hook
   const pathName = props.location.pathname;
   const param = props.match.params.param;
   const {
