@@ -4,7 +4,7 @@ set -e # https://stackoverflow.com/a/821419/5504438
 # https://www.banjocode.com/post/bash/flags-bash/
 VIDEO=false
 UPDATE_SNAPSHOT=false
-CT_ONLY=false
+CT_ONLY=false # TODO implement this
 E2E_ONLY=false
 
 while [ "$1" != "" ]; do

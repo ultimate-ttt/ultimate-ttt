@@ -122,3 +122,50 @@ jobs:
           build: npm run build
           start: serve build -l 3000
           browser: chrome
+
+  ui-chrome-tests:
+    name: UI Tests Chrome
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.15.0-chrome86-ff82
+    needs: [ install-cypress, build ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: Install Serve Package
+        run: npm install -g serve
+
+      - name: "UI Tests - Chrome 🧪"
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          start: serve build -l 5000
+          wait-on: "http://localhost:5000"
+          headless: true
+          browser: chrome
+
+      - name: Run Component tests 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          # to run component tests we need to use "cypress run-ct"
+          command: yarn cypress run-ct
+          
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
