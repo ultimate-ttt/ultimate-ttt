@@ -13,7 +13,7 @@ it('Tile', () => {
     clickable: true,
     highlight: false,
   };
-
   mount(<Tile {...props} value={TileValue.Cross} />);
-  cy.findByRole('button').click();
+
+  cy.findByRole('button').matchImageSnapshot();
 });
