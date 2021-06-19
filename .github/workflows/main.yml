@@ -115,9 +115,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           install: false
-          start: serve build
-          wait-on: "http://localhost:3000"
-          wait-on-timeout: 120
+          start: serve build -l 5000
+          wait-on: "http://localhost:5000"
           browser: chrome
           record: true
           parallel: true
