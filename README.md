@@ -92,7 +92,7 @@ It's easy to run a local instance of this game - just clone the repository, run 
 
 - `yarn test` for tests in watch mode
 - `yarn test:int` for executing tests with cypress via shell (currently requires bash)
-- `yarn cypress:open` for inspecting browser tests
+- `yarn cy:open` for inspecting browser tests
 - `yarn start` to run
 - `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
 - `yarn prettier` to format the code with [Prettier](https://github.com/prettier/prettier)
