@@ -19,7 +19,7 @@ interface GameProps {
   ) => void;
 }
 
-export function Game(props: GameProps) {
+const Game = (props: GameProps) => {
   const { currentPlayer, board, activeBoards, onPlayerMoved } = props;
 
   return (
@@ -35,7 +35,7 @@ export function Game(props: GameProps) {
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state: AppState) => ({
   currentPlayer: state.currentGame.game.currentPlayer,

@@ -26,23 +26,14 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --coverage",
-    "test:all": "react-scripts test --env=jsdom --coverage --watchAll=false",
+    "test": "react-scripts test --env=jsdom",
+    "test:all": "react-scripts test --env=jsdom --watchAll=false",
     "storybook": "start-storybook -p 6006",
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx|css)\""
   },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!<rootDir>/node_modules/",
-      "!src/**/*.story.{js,jsx,ts,tsx}",
-      "!src/index.{ts,tsx}",
-      "!src/**/*Mock.{ts,tsx}",
-      "!src/serviceWorker.ts",
-      "!src/state/configureStore.ts"
     ]
   },
   "devDependencies": {
@@ -70,6 +61,7 @@
     "enzyme": "^3.11",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
+    "msw": "^0.28.2",
     "prettier": "^2.3.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
@@ -91,5 +83,8 @@
   },
   "resolutions": {
     "babel-loader": "8.1.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

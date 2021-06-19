@@ -8,7 +8,7 @@ import {
   movesForCircleFinishedBoardMock,
   movesForCrossFinishedBoardMock,
   movesForDrawFinishedBoardMock,
-} from '../../../__mocks__';
+} from '../../../mocks';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { WinnerString } from '../../../state/AppState';
 import { IconProvider } from '../../Icons';

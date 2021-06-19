@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
-import { getBoards, getMoves, getWinningPlayer } from '../AppStateSelectors';
-import { Winner } from '../../AppState';
+import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
+import { Winner } from '../AppState';
 
 export const getWinningPlayerAsString = createSelector(
   [getWinningPlayer],

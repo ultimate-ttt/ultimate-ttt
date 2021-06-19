@@ -23,9 +23,10 @@ function* saveFinishedGameData(action: SaveGameDataAction): any {
         },
         body: JSON.stringify(action.payload),
       });
-
+      console.log(response);
       if (response.ok) {
         const gameId = yield response.text();
+        console.log(gameId);
         yield put(saveGameDataFulfilled(gameId));
       } else {
         yield put(

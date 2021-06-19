@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import saveFinishedGameDataSaga from './saveFinishedGameDataSaga';
-import { circleFinishedBoardMock } from '../../__mocks__';
+import { circleFinishedBoardMock } from '../../mocks';
 import { Player } from '../AppState';
 import {
   SAVE_GAME_DATA,
@@ -8,20 +8,9 @@ import {
   SAVE_GAME_DATA_PENDING,
   SAVE_GAME_DATA_REJECTED,
 } from './saveFinishedGameDataActions';
-
-const mockResponse = (
-  status: number,
-  statusText: string,
-  response: BodyInit,
-) => {
-  return new Response(response, {
-    status: status,
-    statusText: statusText,
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-};
+import { rest } from 'msw';
+import { server } from '../../mocks/api/server';
+import { getApiUrl } from '../../util';
 
 const finishedGameDataMock = {
   winner: 'X',
@@ -38,14 +27,9 @@ const finishedGameDataMock = {
 
 describe('saveFinishedGameDataSaga', () => {
   it('should make a successful fetch call', () => {
-    window.location.host = 'localhost';
-    window.fetch = jest
-      .fn()
-      .mockImplementation(() => Promise.resolve(mockResponse(200, '', '132')));
-
     return expectSaga(saveFinishedGameDataSaga)
       .put({ type: SAVE_GAME_DATA_PENDING })
-      .put({ type: SAVE_GAME_DATA_FULFILLED, payload: '132' })
+      .put.like({ action: { type: SAVE_GAME_DATA_FULFILLED } })
       .dispatch({
         type: SAVE_GAME_DATA,
         payload: finishedGameDataMock,
@@ -55,63 +39,20 @@ describe('saveFinishedGameDataSaga', () => {
   });
 
   it('should dispatch error when there is an error in the fetch call', () => {
-    window.location.host = 'localhost';
-    window.fetch = jest
-      .fn()
-      .mockImplementation(() =>
-        Promise.resolve(mockResponse(500, 'error', '')),
-      );
+    server.use(
+      rest.post(getApiUrl(), async (req, res, ctx) => {
+        return res(ctx.status(500));
+      }),
+    );
 
     return expectSaga(saveFinishedGameDataSaga)
       .put({ type: SAVE_GAME_DATA_PENDING })
-      .put({ type: SAVE_GAME_DATA_REJECTED, payload: '500: error' })
+      .put.like({ action: { type: SAVE_GAME_DATA_REJECTED } })
       .dispatch({
         type: SAVE_GAME_DATA,
         payload: finishedGameDataMock,
         saveOnline: true,
       })
       .silentRun();
-  });
-
-  it('should match snapshot when erroring', () => {
-    window.location.host = 'localhost';
-    window.fetch = jest
-      .fn()
-      .mockImplementation(() =>
-        Promise.resolve(mockResponse(500, 'error', '')),
-      );
-
-    return expectSaga(saveFinishedGameDataSaga)
-      .put({ type: SAVE_GAME_DATA_PENDING })
-      .put({ type: SAVE_GAME_DATA_REJECTED, payload: '500: error' })
-      .dispatch({
-        type: SAVE_GAME_DATA,
-        payload: finishedGameDataMock,
-        saveOnline: true,
-      })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
-  });
-
-  it('should match snapshot when receiving okay', () => {
-    window.location.host = 'localhost';
-    window.fetch = jest
-      .fn()
-      .mockImplementation(() => Promise.resolve(mockResponse(200, '', '132')));
-
-    return expectSaga(saveFinishedGameDataSaga)
-      .put({ type: SAVE_GAME_DATA_PENDING })
-      .put({ type: SAVE_GAME_DATA_FULFILLED, payload: '132' })
-      .dispatch({
-        type: SAVE_GAME_DATA,
-        payload: finishedGameDataMock,
-        saveOnline: true,
-      })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
   });
 });

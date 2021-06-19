@@ -5,15 +5,13 @@ import { select } from 'redux-saga/effects';
 import { CHECK_GAME_FINISHED, GAME_FINISHED } from './gameAction';
 import { Player } from '../../AppState';
 import { SET_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
-import {
-  circleFinishedGameMock,
-  crossFinishedGameMock,
-  movesForCircleFinishedBoardMock,
-  movesForCrossFinishedBoardMock,
-  movesForUnfinishedBoardMock,
-} from '../../../__mocks__';
 import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/finishedGames/FinishedGameStateSelectors';
+import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
+import {
+  circleFinishedGameMock, crossFinishedGameMock,
+  movesForCircleFinishedBoardMock,
+  movesForCrossFinishedBoardMock, movesForUnfinishedBoardMock
+} from "../../../mocks";
 
 describe('checkGameFinishedSaga', () => {
   it(

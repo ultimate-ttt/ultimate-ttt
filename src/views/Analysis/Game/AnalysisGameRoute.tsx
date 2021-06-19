@@ -12,8 +12,8 @@ import {
 } from '../../../state/analysisGame/analysisGameActions';
 import routes from '../../../routes/routes';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
-import { NoGameFound } from '../NoGameFound';
 import { parseJSON, isValid } from 'date-fns';
+import { NoGameFound } from "../NoGameFound/NoGameFound";
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {

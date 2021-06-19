@@ -3,9 +3,9 @@ import {
   AppState,
   FinishedGameState,
   Winner,
-} from '../../AppState';
+} from '../AppState';
 import { createSelector } from 'reselect';
-import { getFinishedGames } from '../AppStateSelectors';
+import { getFinishedGames } from './AppStateSelectors';
 
 const stringToWinner = (winnerString: 'X' | 'O' | null) => {
   if (winnerString === 'X') {
