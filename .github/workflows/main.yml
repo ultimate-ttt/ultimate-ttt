@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
 
     strategy:
@@ -82,6 +83,7 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
   install-cypress:
+    name: Install Cypress
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.15.0-chrome86-ff82
     steps:
@@ -92,40 +94,22 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           runTests: false
-        
-  ui-chrome-tests:
-    timeout-minutes: 15
+
+  chrome:
+    name: Try out simple
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.15.0-chrome86-ff82
-    needs: [install-cypress, build]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
+        uses: actions/checkout@v1
+        
 
       - name: Install Serve Package
         run: npm install -g serve
-
-      - name: "UI Tests - Chrome 🧪"
+        
+      - name: Chrome
         uses: cypress-io/github-action@v2
+        timeout-minutes: 10
         with:
-          install: false
-          start: serve build -l 5000
-          wait-on: "http://localhost:5000"
+          build: npm run build
+          start: serve build -l 3000
           browser: chrome
-          record: true
-          parallel: true
-          group: "UI - Chrome"
-          spec: cypress/integration/*
-  
-      - name: Run Component tests 🧪
-        uses: cypress-io/github-action@v2
-        with:
-          install: false
-          # to run component tests we need to use "cypress run-ct"
-          command: yarn cypress run-ct
