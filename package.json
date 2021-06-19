@@ -31,17 +31,13 @@
     "storybook": "start-storybook -p 6006",
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx|css)\""
   },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.2.9",
+    "@testing-library/cypress": "^7.0.6",
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -58,10 +54,8 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-scroll": "^1.8.2",
     "@types/redux-logger": "^3.0.8",
-    "enzyme": "^3.11",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "enzyme-to-json": "^3.6.2",
-    "msw": "^0.28.2",
+    "cypress": "^7.5.0",
+    "msw": "^0.29.0",
     "prettier": "^2.3.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
