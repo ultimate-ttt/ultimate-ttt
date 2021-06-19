@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
 import { Winner } from '../AppState';
 
-export const getWinningPlayerAsString = createSelector(
+const getWinningPlayerAsString = createSelector(
   [getWinningPlayer],
   (winningPlayer: Winner) => {
     switch (winningPlayer) {

@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import {
-  circleFinishedBoardMock,
-  movesForCircleFinishedBoardMock,
-} from '../../../__mocks__';
+
 import { Player, Winner } from '../../../state/AppState';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
+import { circleFinishedBoardMock, movesForCircleFinishedBoardMock } from "../../../mocks";
 
 describe('AnalysisGame', () => {
   it('should match snapshot', () => {

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { BigBoard } from '../../Board/BigBoard/BigBoard';
 import { Card, CardActions, CardActionButton } from '@rmwc/card';
 import { formatDistanceStrict } from 'date-fns';
 import { FinishedGameState } from '../../../state/AppState';
@@ -8,7 +7,8 @@ import { ListDivider } from '@rmwc/list';
 import { Icon } from '@rmwc/icon';
 import { Link } from 'react-router-dom';
 import styles from './GameSummaryCard.module.css';
-import { XIcon, OIcon, ArrowRightIcon } from '../../Icons';
+import { ArrowRightIcon, OIcon, XIcon } from '../../../components/Icons';
+import { BigBoard } from '../../../components/Board/BigBoard/BigBoard';
 
 export interface GameSummaryCardProps {
   gameNumber: number;

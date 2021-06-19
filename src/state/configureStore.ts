@@ -24,7 +24,7 @@ const currentGameReducer = combineReducers<GameInformation>({
   moves: moveReducer,
   activeBoards: activeBoardsReducer,
 });
-const rootreducer = combineReducers<AppState>({
+export const rootReducer = combineReducers<AppState>({
   currentGame: currentGameReducer,
   finishedGames: finishedGameReducer,
   analysisGame: analysisGameReducer,
@@ -47,7 +47,7 @@ export function configureStore() {
     storage,
   };
 
-  const persistedReducer = persistReducer(persistConfig, rootreducer);
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = createStore(persistedReducer, composeWithDevTools(middleware));
 
   sagaMiddleware.run(rootSaga);

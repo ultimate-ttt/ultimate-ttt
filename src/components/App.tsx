@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Game from '../views/Game/Game';
-import AnalysisGameRoute from '../views/Analysis/Game/AnalysisGameRoute';
-import AnalysisOverview from '../views/Analysis/Overview/AnalysisOverview';
+import Game from '../routes/Game/Game';
+import AnalysisGameRoute from '../routes/Analysis/Game/AnalysisGameRoute';
+import AnalysisOverview from '../routes/Analysis/Analysis';
 import routes from '../routes/routes';
 import { Navigation } from './Navigation/Navigation';
 

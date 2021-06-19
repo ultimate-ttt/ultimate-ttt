@@ -6,7 +6,7 @@ import { ScrollElement } from 'react-scroll';
 import { moveScrollElementBaseName } from '../ScrollElementConstants';
 import styles from './MoveList.module.css';
 import classNames from 'classnames';
-import { OIcon, XIcon } from '../../Icons';
+import { OIcon, XIcon } from "../../../components/Icons";
 
 export interface MoveListProps {
   reversedMoves: MoveState[];

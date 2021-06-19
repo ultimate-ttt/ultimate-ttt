@@ -4,7 +4,7 @@ import { GameSummaryCard } from './GameSummaryCard';
 import {
   circleFinishedBoardMock,
   movesForCircleFinishedBoardMock,
-} from '../../../__mocks__';
+} from '../../../mocks';
 import { Link } from 'react-router-dom';
 import { SaveState, WinnerString } from '../../../state/AppState';
 

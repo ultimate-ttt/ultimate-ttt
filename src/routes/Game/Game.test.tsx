@@ -1,21 +1,9 @@
 import * as React from 'react';
-import { render, screen } from '../../test-utils';
+import { renderWithStore, screen } from '../../test-utils';
 import userEvent from '@testing-library/user-event';
-import { configureStore } from '../../state/configureStore';
 import Game from './Game';
-import { Provider } from 'react-redux';
-
-function renderGame() {
-  const store = configureStore();
-  return render(
-    <Provider store={store}>
-      <Game />
-    </Provider>,
-  );
-}
-
 test('allows playing according to rules', () => {
-  renderGame();
+  renderWithStore(<Game />);
 
   const buttons = screen.getAllByRole('button', { name: /^$/ });
   userEvent.click(buttons[0]);

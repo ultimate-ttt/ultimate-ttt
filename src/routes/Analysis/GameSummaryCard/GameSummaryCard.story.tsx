@@ -11,7 +11,7 @@ import {
 } from '../../../mocks';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { WinnerString } from '../../../state/AppState';
-import { IconProvider } from '../../Icons';
+import { IconProvider } from "../../../components/Icons";
 
 export default {
   title: 'GameSummaryCard',

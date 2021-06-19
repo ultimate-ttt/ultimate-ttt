@@ -13,7 +13,7 @@ import {
 import routes from '../../../routes/routes';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 import { parseJSON, isValid } from 'date-fns';
-import { NoGameFound } from "../NoGameFound/NoGameFound";
+import { NoGameFound } from '../NoGameFound/NoGameFound';
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {
@@ -25,7 +25,7 @@ interface AnalysisGameRouteProps
   moveBackwardInHistory: (numberOfMoves: number) => void;
 }
 
-export function AnalysisGameRoute(props: AnalysisGameRouteProps) {
+function AnalysisGameRoute(props: AnalysisGameRouteProps) {
   const pathName = props.location.pathname;
   const param = props.match.params.param;
   const {

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { AppState, FinishedGameState } from '../../../state/AppState';
+import { AppState, FinishedGameState } from '../../state/AppState';
 import { Typography } from '@rmwc/typography';
-import styles from './AnalysisOverview.module.css';
-import routes from '../../../routes/routes';
+import styles from './Analysis.module.css';
+import routes from '../../routes/routes';
 import { parseJSON } from 'date-fns';
 import { Link } from 'react-router-dom';
-import { GameSummaryCard } from '../../../components/Analysis/GameSummaryCard/GameSummaryCard';
-import { Paging } from '../../../components/Paging/Paging';
+import { Paging } from '../../components/Paging/Paging';
 import { useState } from 'react';
+import { GameSummaryCard } from './GameSummaryCard/GameSummaryCard';
 
 interface AnalysisOverviewProps {
   finishedGames: FinishedGameState[];
@@ -31,7 +31,7 @@ function getLink(game: FinishedGameState) {
 
 const gamesPerPage = 30;
 
-export function AnalysisOverview(props: AnalysisOverviewProps) {
+function AnalysisOverview(props: AnalysisOverviewProps) {
   const { finishedGames } = props;
 
   const [currentGames, setCurrentGames] = useState(
