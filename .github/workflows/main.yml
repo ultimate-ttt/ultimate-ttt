@@ -111,7 +111,7 @@ jobs:
           browser: chrome
           headless: true
 
-      - run: tree cypress/videos
+      - run: tree cypress
 
       - name: Component tests 🧪
         uses: cypress-io/github-action@v2
@@ -124,7 +124,7 @@ jobs:
           # Use Long Polling because of max file-watchers: https://github.com/cypress-io/github-action/issues/317
           command: CHOKIDAR_USEPOLLING=1 && yarn test:int --ct -v --browser chrome
         
-      - run: tree cypress/videos
+      - run: tree cypress
 
       - name: Upload Screenshots 📸
         uses: actions/upload-artifact@v1

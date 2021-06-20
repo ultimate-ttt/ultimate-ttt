@@ -11,7 +11,7 @@ function uuidv4() {
 
 const handlers = [
   rest.post(getApiUrl(), async (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(uuidv4()));
+    return res(ctx.status(200), ctx.body(uuidv4()));
   }),
 ];
 export { handlers };
