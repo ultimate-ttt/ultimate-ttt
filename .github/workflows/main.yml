@@ -87,7 +87,6 @@ jobs:
     name: Chrome
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    # container: cypress/browsers:node14.15.0-chrome86-ff82
     needs: build
     steps:
       - name: Checkout 🛎️
@@ -98,6 +97,9 @@ jobs:
         with:
           name: build
           path: build
+      
+      - name: Install Chrome 🌐
+        run: ./.scripts/setup-chromedriver.sh linux64
 
       - name: Install Serve Package 🍲
         run: sudo npm install -g serve
@@ -108,11 +110,12 @@ jobs:
           start: serve build -l 5000
           wait-on: "http://localhost:5000"
           config: "baseUrl=http://localhost:5000"
-          # Use Custom Script for E2E testing because maybe video files are not recorded correctly?
-          # command: yarn test:int --e2e -v --browser electron
+          # Use Custom Script for E2E testing so that videos are not trashed
+          command: yarn test:int --e2e -v --browser chrome
 
       - run: tree cypress
           
+      # We don't want a lot of "ENOSPC: System limit for number of file watchers reached" warnings
       - name: Increase File Watchers 🔭
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
@@ -122,9 +125,7 @@ jobs:
           # we have already installed everything
           install: false
           record: true
-          # start: CHOKIDAR_USEPOLLING=1
-          # Use custom script for "cypress run-ct" so that browser var can be supplied easily
-          # Use Long Polling because of max file-watchers: https://github.com/cypress-io/github-action/issues/317
+          # Use custom script for "cypress run-ct" so that browser var can be supplied easily & so that videos are not trashed
           command: yarn test:int --ct -v --browser chrome
         
       - run: tree cypress

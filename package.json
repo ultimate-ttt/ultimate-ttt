@@ -27,7 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test:int": "sh ./cypress/test.sh",
+    "test:int": "sh ./.scripts/test-cypress.sh",
     "cy:open": "cypress open",
     "storybook": "start-storybook -p 6006",
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx|css)\""
