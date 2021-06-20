@@ -108,7 +108,6 @@ jobs:
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
-          build: npx cypress info
           start: serve build -l 3000
           wait-on: "http://localhost:3000"
           # Use Custom Script for E2E testing so that videos are not trashed
