@@ -1,4 +1,3 @@
-import '@material/theme/dist/mdc.theme.css';
 import '@material/button/dist/mdc.button.min.css';
 import '@material/card/dist/mdc.card.css';
 import '@material/dialog/dist/mdc.dialog.css';
@@ -15,6 +14,8 @@ import '@rmwc/icon/icon.css';
 
 import '../src/index.css';
 
-import '../src/components/Icons/svg/draw.svg';
-import '../src/components/Icons/svg/o.svg';
-import '../src/components/Icons/svg/x.svg';
+import '../src/icons/x.svg';
+import '../src/icons/o.svg';
+import '../src/icons/draw.svg';
+import '../src/icons/arrow-left.svg';
+import '../src/icons/arrow-right.svg';

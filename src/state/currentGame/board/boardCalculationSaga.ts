@@ -3,8 +3,9 @@ import { GenericAction } from '../../AppState';
 import { CALCULATE_BOARD_VALUE, setBoardValue } from './boardActions';
 import { playerToTileValue, TicTacToeGame } from '../../../util';
 import { getMoves } from '../../selectors/AppStateSelectors';
+import { SagaIterator } from 'redux-saga';
 
-function* calculateWinningBoard(action: GenericAction) {
+function* calculateWinningBoard(action: GenericAction): SagaIterator {
   const boardPosition = action.payload;
 
   const moves = yield select(getMoves);
