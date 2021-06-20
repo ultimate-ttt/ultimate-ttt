@@ -101,6 +101,9 @@ jobs:
 
       - name: Install Serve Package 🍲
         run: npm install -g serve
+        
+      - name: Increase File Watchers 🔭
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
@@ -108,15 +111,20 @@ jobs:
           start: serve build -l 5000
           wait-on: "http://localhost:5000"
           config: "baseUrl=http://localhost:5000"
-          headless: true
           browser: chrome
+          headless: true
+          record: true
+          build: npx cypress info
 
       - name: Component tests 🧪
         uses: cypress-io/github-action@v2
         with:
+          # we have already installed everything
           install: false
-          headless: true
+          build: npx cypress info
           browser: chrome
+          headless: true
+          record: true
           # to run component tests we need to use "cypress run-ct"
           command: yarn cypress run-ct
           
