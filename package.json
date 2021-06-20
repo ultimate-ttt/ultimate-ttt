@@ -67,7 +67,7 @@
     "enzyme": "^3.11",
     "enzyme-adapter-react-16": "^1.15.3",
     "enzyme-to-json": "^3.5.0",
-    "prettier": "^2.1.1",
+    "prettier": "^2.3.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^4.0.0-rc.3",
