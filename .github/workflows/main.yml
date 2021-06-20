@@ -104,16 +104,15 @@ jobs:
         run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
       - name: Start Local Server 🚜
-        run: |
-          sudo npm install -g serve
-          serve build -l 5000 &
+        run: sudo npm install -g serve
+      # serve build -l 5000 &
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
           build: npx cypress info
-          wait-on: "http://localhost:5000"
-          config: "baseUrl=http://localhost:5000"
+          wait-on: "http://localhost:3000"
+          start: serve build -l 3000
           # Use Custom Script for E2E testing so that videos are not trashed
           command: yarn test:int --e2e -v
 
