@@ -24,7 +24,7 @@ You can test it out yourself [here](https://playtictactoe.xyz/)
 
 ## Game Rules
 
-> For an interactive explanation you can go to our [how to play page](https://playtictactoe.xyz/howtoplay).
+> For an interactive explanation you can go to our [how to play page](https://playtictactoe.xyz/how-to-play).
 
 Ultimate Tic-Tac-Toe is played with 9 small tic-tac-toe boards.
 Each turn a player marks a field. When you get three signs in a row (diagonal, vertical or horizontal) on a small board, you’ve won that board.
