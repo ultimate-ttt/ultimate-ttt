@@ -100,22 +100,21 @@ jobs:
       
      # - uses: nanasess/setup-chromedriver@master
       - name: Install Chrome 🌐
-        run: |
-          sudo chmod+x ./.scripts/setup-chromedriver.sh
-          sudo ./.scripts/setup-chromedriver.sh "linux64"
+        run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
-      - name: Install Serve Package 🍲
-        run: sudo npm install -g serve
+      - name: Start Local Server 🚜
+        run: |
+          sudo npm install -g serve
+          serve build -l 5000
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
           build: npx cypress info
-          start: serve build -l 5000
           wait-on: "http://localhost:5000"
           config: "baseUrl=http://localhost:5000"
           # Use Custom Script for E2E testing so that videos are not trashed
-          command: yarn test:int --e2e -v --browser chrome
+          command: yarn test:int --e2e -v
 
       - run: tree cypress
           
