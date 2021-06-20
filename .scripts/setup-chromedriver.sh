@@ -2,7 +2,7 @@
 
 # Taken from https://github.com/nanasess/setup-chromedriver/blob/master/lib/setup-chromedriver.sh
 
-set -eo pipefail
+set -e
 
 ARCH=$1
 
