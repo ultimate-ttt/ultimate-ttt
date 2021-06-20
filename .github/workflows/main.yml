@@ -6,31 +6,31 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+    
+env:
+  NODE_VERSION: 14.x
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    
-    - name: Use Node.js ${{ matrix.node-version }}
+        
+    - name: Use Node.js ${NODE_VERSION} 📦
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${NODE_VERSION}
     
-    - name: Get Yarn cache directory
+    - name: Get Yarn cache directory 📦
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - name: Use Yarn cache
+    - name: Use Yarn cache 📦
       uses: actions/cache@v2
       id: yarn-cache
       with:
@@ -38,14 +38,21 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
 
     # `--prefer-offline` gives cache priority
-    - name: Install dependencies
+    - name: Install dependencies 📦
       run: yarn install --prefer-offline --frozen-lockfile
 
-    - run: yarn test
+    - name: Run Tests 🧪
+      run: yarn test
 
-    - run: yarn build
+    - name: Install Cypress 📦
+      uses: cypress-io/github-action@v2
+      with:
+        runTests: false
 
-    - name: Save build folder
+    - name: Build site 🏗
+      run: yarn build
+
+    - name: Save build folder 🆙
       uses: actions/upload-artifact@v2
       with:
         name: build
@@ -62,109 +69,73 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 
+        
+      - name: Use Node.js ${NODE_VERSION} 📦
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${NODE_VERSION}
 
-      - name: Download the build folders
+      - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
   
-      - name: run Lighthouse CI
+      - name: run Lighthouse CI 🧪
         run: |
           npm install -g @lhci/cli@0.8.x
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-  install-cypress:
-    name: Install Cypress
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node14.15.0-chrome86-ff82
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
-        with:
-          runTests: false
-
   chrome:
-    name: Try out simple
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [ 14.x ]
-        
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install Serve Package
-        run: npm install -g serve
-        
-      - name: Chrome
-        uses: cypress-io/github-action@v2
-        timeout-minutes: 10
-        with:
-          build: npm run build
-          start: serve build -l 3000
-          browser: chrome
-
-  ui-chrome-tests:
-    name: UI Tests Chrome
+    name: Chrome
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.15.0-chrome86-ff82
-    needs: [ install-cypress, build ]
+    needs: build
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Download the build folders
+      - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
 
-      - name: Install Serve Package
+      - name: Install Serve Package 📦
         run: npm install -g serve
 
-      - name: "UI Tests - Chrome 🧪"
+      - name: "Chrome 🧪"
         uses: cypress-io/github-action@v2
         with:
-          install: false
           start: serve build -l 5000
           wait-on: "http://localhost:5000"
           headless: true
           browser: chrome
 
-      - name: Run Component tests 🧪
+      - name: Component tests 🧪
         uses: cypress-io/github-action@v2
         with:
           install: false
+          headless: true
+          browser: chrome
           # to run component tests we need to use "cypress run-ct"
           command: yarn cypress run-ct
           
-      - uses: actions/upload-artifact@v1
+      - name: Upload Screenshots 🆙
+        uses: actions/upload-artifact@v1
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+
       # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v1
+      - name: Upload Videos 🆙
+        uses: actions/upload-artifact@v1
         if: always()
         with:
           name: cypress-videos
