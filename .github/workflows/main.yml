@@ -100,7 +100,7 @@ jobs:
           path: build
 
       - name: Install Serve Package 🍲
-        run: npm install -g serve
+        run: sudo npm install -g serve
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
