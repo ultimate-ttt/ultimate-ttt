@@ -21,10 +21,10 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
         
-    - name: Use Node.js ${NODE_VERSION} 📦
+    - name: Use Node.js ${{NODE_VERSION}} 📦
       uses: actions/setup-node@v2
       with:
-        node-version: ${NODE_VERSION}
+        node-version: ${{NODE_VERSION}}
     
     - name: Get Yarn cache directory 📦
       id: yarn-cache-dir-path
@@ -72,10 +72,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2 
         
-      - name: Use Node.js ${NODE_VERSION} 📦
+      - name: Use Node.js ${{NODE_VERSION}} 📦
         uses: actions/setup-node@v2
         with:
-          node-version: ${NODE_VERSION}
+          node-version: ${{NODE_VERSION}}
 
       - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
