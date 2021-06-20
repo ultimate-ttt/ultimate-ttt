@@ -18,6 +18,13 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
         
+    - run: |
+        echo $CI
+        if $CI
+        then
+          echo "X"
+        fi
+        
     - name: Use Node.js 14.x 🧳
       uses: actions/setup-node@v2
       with:
@@ -103,19 +110,17 @@ jobs:
         # We want an up to date Chrome
         run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
-      - name: Start Local Server 🚜
-        run: |
-          sudo npm install -g serve
-          serve build -l 3000 &
+      - name: Install Server 📡
+        run: sudo npm install -g serve
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
           build: npx cypress info
-          wait-on: "http://localhost:3000"
           start: serve build -l 3000
+          wait-on: "http://localhost:3000"
           # Use Custom Script for E2E testing so that videos are not trashed
-          command: yarn test:int --e2e -v
+          command: yarn test:int --e2e -v --browser chrome
 
       - run: tree cypress
           
