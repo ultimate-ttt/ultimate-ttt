@@ -99,8 +99,8 @@ jobs:
           path: build
       
      # - uses: nanasess/setup-chromedriver@master
-      - name: Install Chrome 🌐
-        run: sudo ./.scripts/setup-chromedriver.sh "linux64"
+     # - name: Install Chrome 🌐
+     #   run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
       - name: Start Local Server 🚜
         run: |
