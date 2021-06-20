@@ -39,20 +39,10 @@ PARAMS="--browser ${BROWSER}
         --env updateSnapshots=${UPDATE_SNAPSHOT}"
 
 # Don't delete video assets so all of them are available after CI run! 
-
+# https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 if [ -n "${CI+x}" ]; then
-  echo "HI from CI, SET (-n)"
-  CI=true
   PARAMS="${PARAMS} --config trashAssetsBeforeRuns=false"
 fi
-
-if [ -z ${CI+x} ]; then
-  echo "HI from CI, NOT SET"
-else
-  echo "HI from CI, SET"
-  PARAMS="${PARAMS} --config trashAssetsBeforeRuns=false"
-fi
-
 
 if $CT
 then
