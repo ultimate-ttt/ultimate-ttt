@@ -122,7 +122,7 @@ jobs:
           # we have already installed everything
           install: false
           record: true
-          start: CHOKIDAR_USEPOLLING=1
+          # start: CHOKIDAR_USEPOLLING=1
           # Use custom script for "cypress run-ct" so that browser var can be supplied easily
           # Use Long Polling because of max file-watchers: https://github.com/cypress-io/github-action/issues/317
           command: yarn test:int --ct -v --browser chrome
