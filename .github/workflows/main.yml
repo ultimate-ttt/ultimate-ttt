@@ -104,8 +104,9 @@ jobs:
         run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
       - name: Start Local Server 🚜
-        run: sudo npm install -g serve
-      # serve build -l 5000 &
+        run: |
+          sudo npm install -g serve
+          serve build -l 3000 &
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
