@@ -93,11 +93,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - run: ls -la
+
       - name: Increase File Watchers 🔭
-        # run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-        run: | 
-          man mkdir
-          man sudo
+        run: echo fs.inotify.max_user_watches=524288 # | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
@@ -125,11 +124,9 @@ jobs:
           # we have already installed everything
           install: false
           build: npx cypress info
-          browser: chrome
-          headless: true
           record: true
           # to run component tests we need to use "cypress run-ct"
-          command: yarn cypress run-ct
+          command: test.sh
           
       - name: Upload Screenshots 📸
         uses: actions/upload-artifact@v1
