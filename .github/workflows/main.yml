@@ -87,7 +87,7 @@ jobs:
     name: Chrome
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.15.0-chrome86-ff82
+    # container: cypress/browsers:node14.15.0-chrome86-ff82
     needs: build
     steps:
       - name: Checkout 🛎️
@@ -108,10 +108,13 @@ jobs:
           start: serve build -l 5000
           wait-on: "http://localhost:5000"
           config: "baseUrl=http://localhost:5000"
-          browser: chrome
-          headless: true
+          # Use Custom Script for E2E testing because maybe video files are not recorded correctly?
+          # command: yarn test:int --e2e -v --browser electron
 
       - run: tree cypress
+          
+      - name: Increase File Watchers 🔭
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: Component tests 🧪
         uses: cypress-io/github-action@v2
