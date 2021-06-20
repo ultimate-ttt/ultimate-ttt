@@ -4,6 +4,7 @@ import {
   Highlight,
   Player,
   SmallBoardInformation,
+  TileValue,
 } from '../../../state/AppState';
 import { arePointsEqual, Point } from '../../../util';
 import styles from './BigBoard.module.css';
@@ -37,10 +38,6 @@ const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
 };
 
 const isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
-  if (!activeBoards) {
-    return false;
-  }
-
   const theBoardPlayedOnIsActive = activeBoards.some((board) =>
     arePointsEqual({ x, y }, board),
   );
@@ -58,6 +55,9 @@ export function BigBoard(props: BigBoardProps) {
       animate,
     } = props;
     const rows = [];
+    const boardEmpty = board.every((sb) =>
+      sb.tiles.every((t) => t.value === TileValue.Empty),
+    );
 
     for (let x = 0; x < 3; x++) {
       for (let y = 0; y < 3; y++) {
@@ -77,7 +77,7 @@ export function BigBoard(props: BigBoardProps) {
               currentPlayer={currentPlayer}
               tiles={smallBoard.tiles}
               winningPlayer={smallBoard.value}
-              animate={animate}
+              animate={!boardEmpty && animate}
               highlight={shouldHighlight(highlight, {
                 x,
                 y,
