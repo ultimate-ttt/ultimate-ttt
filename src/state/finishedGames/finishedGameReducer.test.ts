@@ -1,4 +1,5 @@
-import { FinishedGameState, SaveState } from '../AppState';
+import { FinishedGameState } from '../AppState';
+import finishedGameReducer from './finishedGameReducer';
 import {
   saveGameData,
   saveGameDataFulfilled,

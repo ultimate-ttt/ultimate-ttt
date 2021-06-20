@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
+  Highlight,
   Player,
   SmallTileInformation,
   TileValue,
-  Highlight,
 } from '../../../state/AppState';
 import { Tile } from '../Tile/Tile';
 import { arePointsEqual, Point } from '../../../util';
@@ -96,7 +96,21 @@ export function SmallBoard(props: SmallBoardProps) {
           )}
         />
       ) : (
-        getTiles()
+        tiles.map((tile) => (
+          <Tile
+            key={`${tile.position.x}-${tile.position.y}`}
+            value={tile.value}
+            isTileRound={isCircle}
+            clickable={moveAllowed && tile.value === TileValue.Empty}
+            animate={animate}
+            highlight={shouldHighlight(highlight, tile.position)}
+            {...(onTileClicked && {
+              onTileClicked: () => {
+                onTileClicked(tile.position.x, tile.position.y);
+              },
+            })}
+          />
+        ))
       )}
     </div>
   );

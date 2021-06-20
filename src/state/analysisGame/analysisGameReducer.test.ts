@@ -2,26 +2,49 @@ import analysisGameReducer from './analysisGameReducer';
 import {
   moveBackwardInHistory,
   moveForwardInHistory,
+  resetAnalysisGame,
   setAnalysisGame,
 } from './analysisGameActions';
 import {
-  crossFinishedBoardMock,
   activeBoardsForBoardWithOneMoveMock,
-  boardWithOneMoveMock,
-  activeBoardsForBoardWithTwoMovesMock,
-  boardWithTwoMovesMock,
   activeBoardsForBoardWithThreeMovesMock,
+  activeBoardsForBoardWithTwoMovesMock,
+  boardWithOneMoveMock,
   boardWithThreeMovesMock,
+  boardWithTwoMovesMock,
+  crossFinishedBoardMock,
   movesForBoardWithThreeMovesMock,
   movesForCrossFinishedBoardMock,
-} from '../../mocks';
-import { Player, Winner } from '../AppState';
+} from '../../__mocks__';
+import { AnalysisGame, Player, Winner } from '../AppState';
 
 describe('analysisGameReducer', () => {
   it('should return an initial state', () => {
     const initState = analysisGameReducer(undefined, { type: 'init' });
     expect(initState).not.toBeNull();
     expect(initState).not.toBeUndefined();
+  });
+
+  describe('resetAnalysisGame', () => {
+    it('should return initial state', () => {
+      const action = resetAnalysisGame();
+      const state: AnalysisGame = {
+        id: '0000000',
+        board: crossFinishedBoardMock,
+        game: {
+          isFinished: false,
+          currentPlayer: Player.Circle,
+          winningPlayer: Winner.Cross,
+        },
+        moves: movesForCrossFinishedBoardMock,
+        activeBoards: [],
+        currentMove: 1,
+      };
+      const actualState = analysisGameReducer(state, action);
+      const expectedState = analysisGameReducer(undefined, { type: 'init' });
+
+      expect(expectedState).toEqual(actualState);
+    });
   });
 
   describe('setAnalysisGame', () => {

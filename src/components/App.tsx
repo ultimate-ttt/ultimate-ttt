@@ -5,6 +5,7 @@ import AnalysisGameRoute from '../routes/AnalysisGame/AnalysisGame';
 import AnalysisOverview from '../routes/AnalysisOverview/AnalysisOverview';
 import routes from '../routes/routes';
 import { Navigation } from './Navigation/Navigation';
+import HowToPlay from '../views/HowToPlay/HowToPlay';
 
 export class App extends React.Component {
   render() {

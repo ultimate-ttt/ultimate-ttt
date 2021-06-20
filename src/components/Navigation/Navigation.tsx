@@ -18,6 +18,7 @@ import {
   BugReportIcon,
   GameIcon,
   GitHubIcon,
+  HelpIcon,
   HistoryIcon,
   MenuIcon,
   ReplayIcon,
@@ -77,6 +78,12 @@ export function Navigation() {
               text={'Play'}
               icon={<GameIcon />}
               route={routes.Home}
+              onClick={closeDrawer}
+            />
+            <NavigationItem
+              text={'How to play'}
+              icon={<HelpIcon />}
+              route={routes.HowToPlay}
               onClick={closeDrawer}
             />
             <NavigationItem

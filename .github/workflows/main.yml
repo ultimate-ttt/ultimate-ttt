@@ -3,10 +3,10 @@ name: Continuous Integration
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
-    
+    branches: [ main ]
+
 jobs:
   build:
     name: Build
@@ -145,4 +145,3 @@ jobs:
         with:
           # It is possible that the videos are lagging.
           name: cypress-videos
-          path: cypress/videos

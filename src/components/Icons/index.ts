@@ -4,7 +4,7 @@ export { MdHistory as HistoryIcon } from 'react-icons/md';
 export { MdMenu as MenuIcon } from 'react-icons/md';
 export { MdReplay as ReplayIcon } from 'react-icons/md';
 export { MdBugReport as BugReportIcon } from 'react-icons/md';
-export { MdHelpOutline as HelpIcon } from 'react-icons/md';
+export { MdHelp as HelpIcon } from 'react-icons/md';
 export { MdChevronLeft as ArrowLeftIcon } from 'react-icons/md';
 export { MdChevronRight as ArrowRightIcon } from 'react-icons/md';
 
