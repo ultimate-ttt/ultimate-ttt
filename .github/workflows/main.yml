@@ -130,6 +130,8 @@ jobs:
           # Use custom script for "cypress run-ct" so that browser is respected
           # Also make sure that previous videos are not trashed!
           command: yarn test:int --ct -v
+        env:
+          CI: true
         
       - run: tree cypress
 
