@@ -39,14 +39,17 @@ PARAMS="--browser ${BROWSER}
         --env updateSnapshots=${UPDATE_SNAPSHOT}"
 
 # Don't delete video assets so all of them are available after CI run! 
-if [ $CI ]; then
+if $CI
+then
   PARAMS="${PARAMS} --config trashAssetsBeforeRuns=false"
 fi
 
-if [ $CT ]; then
+if $CT
+then
   yarn cypress run-ct $PARAMS
 fi
 
-if [ $E2E ]; then
+if $E2E
+then
   yarn cypress run $PARAMS
 fi
