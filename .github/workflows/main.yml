@@ -93,6 +93,9 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - name: Increase File Watchers 🔭
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
       - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
         with:
@@ -101,9 +104,6 @@ jobs:
 
       - name: Install Serve Package 🍲
         run: npm install -g serve
-        
-      - name: Increase File Watchers 🔭
-        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
