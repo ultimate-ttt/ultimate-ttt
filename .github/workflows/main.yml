@@ -95,8 +95,8 @@ jobs:
 
       - run: ls -la
 
-      - name: Increase File Watchers 🔭
-        run: echo fs.inotify.max_user_watches=524288 # | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+      #- name: Increase File Watchers 🔭
+      #  run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf # && sudo sysctl -p
 
       - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
@@ -115,18 +115,16 @@ jobs:
           config: "baseUrl=http://localhost:5000"
           browser: chrome
           headless: true
-          record: true
-          build: npx cypress info
 
       - name: Component tests 🧪
         uses: cypress-io/github-action@v2
         with:
           # we have already installed everything
           install: false
-          build: npx cypress info
           record: true
-          # to run component tests we need to use "cypress run-ct"
-          command: test.sh
+          # Use custom script for "cypress run-ct" so that browser var can be supplied easily
+          # Use Long Polling because of max file-watchers: https://github.com/cypress-io/github-action/issues/317
+          command: CHOKIDAR_USEPOLLING=1 yarn test:int --ct -v --browser chrome
           
       - name: Upload Screenshots 📸
         uses: actions/upload-artifact@v1

@@ -6,34 +6,33 @@ VIDEO=false
 UPDATE_SNAPSHOT=false
 CT=true
 E2E=true
+BROWSER="chromium"
 
 while [ "$1" != "" ]; do
     case $1 in
-    --video)
-        shift
+    -v | --video)
         VIDEO=true
         ;;
     -u | --update)
-        shift
         UPDATE_SNAPSHOT=true
         ;;
     --ct)
-        shift
         CT=true
         E2E=false
         ;;
     --e2e)
-        shift
         CT=false
         E2E=true
         ;;
+    --browser)
+        shift # remove `--browser` from `$1`
+        BROWSER=$1
+        ;;
     esac
+    shift # remove the current value for `$1` and use the next
 done
 
-# CT=$CT_ONLY && ! $E2E_ONLY) || (! $CT_ONLY && ! $E2E_ONLY)
-# E2E=$E2E_ONLY && ! $CT_ONLY
-
-PARAMS="--browser chromium --headless --reporter cypress-image-snapshot/reporter --config video=${VIDEO} --env updateSnapshots=${UPDATE_SNAPSHOT}"
+PARAMS="--browser ${BROWSER} --headless --reporter cypress-image-snapshot/reporter --config video=${VIDEO} --env updateSnapshots=${UPDATE_SNAPSHOT}"
 
 if $CT
 then
