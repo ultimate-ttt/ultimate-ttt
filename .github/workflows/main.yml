@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [ master ]
     
-env:
-  NODE_VERSION: 14.x
-
 jobs:
   build:
     name: Build
@@ -21,16 +18,16 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
         
-    - name: Use Node.js ${{NODE_VERSION}} 📦
+    - name: Use Node.js 14.x 🧳
       uses: actions/setup-node@v2
       with:
-        node-version: ${{NODE_VERSION}}
+        node-version: 14.x
     
-    - name: Get Yarn cache directory 📦
+    - name: Get Yarn cache directory 📂
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - name: Use Yarn cache 📦
+    - name: Use Yarn cache 💾
       uses: actions/cache@v2
       id: yarn-cache
       with:
@@ -38,7 +35,7 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
 
     # `--prefer-offline` gives cache priority
-    - name: Install dependencies 📦
+    - name: Install dependencies 🔌
       run: yarn install --prefer-offline --frozen-lockfile
 
     - name: Run Tests 🧪
@@ -64,18 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2 
         
-      - name: Use Node.js ${{NODE_VERSION}} 📦
+      - name: Use Node.js 14.x 🧳
         uses: actions/setup-node@v2
         with:
-          node-version: ${{NODE_VERSION}}
+          node-version: 14.x
 
       - name: Download the build folders ⏬
         uses: actions/download-artifact@v2
@@ -83,7 +76,7 @@ jobs:
           name: build
           path: build
   
-      - name: run Lighthouse CI 🧪
+      - name: run Lighthouse CI 🌊
         run: |
           npm install -g @lhci/cli@0.8.x
           lhci autorun
@@ -106,10 +99,10 @@ jobs:
           name: build
           path: build
 
-      - name: Install Serve Package 📦
+      - name: Install Serve Package ⏳
         run: npm install -g serve
 
-      - name: "Chrome 🧪"
+      - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
           start: serve build -l 5000
@@ -126,7 +119,7 @@ jobs:
           # to run component tests we need to use "cypress run-ct"
           command: yarn cypress run-ct
           
-      - name: Upload Screenshots 🆙
+      - name: Upload Screenshots 📸
         uses: actions/upload-artifact@v1
         if: failure()
         with:
@@ -134,7 +127,7 @@ jobs:
           path: cypress/screenshots
 
       # Test run video was always captured, so this action uses "always()" condition
-      - name: Upload Videos 🆙
+      - name: Upload Videos 🎥
         uses: actions/upload-artifact@v1
         if: always()
         with:
