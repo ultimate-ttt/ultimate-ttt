@@ -98,7 +98,7 @@ jobs:
           name: build
           path: build
       
-   #   - uses: nanasess/setup-chromedriver@v1
+      - uses: nanasess/setup-chromedriver@master
 
      # - name: Install Chrome 🌐
      #   run: sh ./.scripts/setup-chromedriver.sh "linux64"
