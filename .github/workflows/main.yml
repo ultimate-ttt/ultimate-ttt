@@ -99,7 +99,7 @@ jobs:
           path: build
       
       - name: Install Chrome 🌐
-        run: ./.scripts/setup-chromedriver.sh linux64
+        run: sh ./.scripts/setup-chromedriver.sh linux64
 
       - name: Install Serve Package 🍲
         run: sudo npm install -g serve
