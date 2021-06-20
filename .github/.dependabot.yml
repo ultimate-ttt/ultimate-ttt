@@ -10,3 +10,14 @@ updates:
       - "panmau"
     labels:
       - "Type: Maintenance"
+  
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    reviewers:
+      - "panmau"
+    assignees:
+      - "panmau"
+    labels:
+      - "Type: Maintenance"
