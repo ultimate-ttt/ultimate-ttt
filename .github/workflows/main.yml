@@ -76,7 +76,7 @@ jobs:
           name: build
           path: build
   
-      - name: run Lighthouse CI 🌊
+      - name: Lighthouse CI 🌊
         run: |
           npm install -g @lhci/cli@0.8.x
           lhci autorun
@@ -99,7 +99,7 @@ jobs:
           name: build
           path: build
 
-      - name: Install Serve Package ⏳
+      - name: Install Serve Package 🍲
         run: npm install -g serve
 
       - name: "Chrome 🕹️"
@@ -107,6 +107,7 @@ jobs:
         with:
           start: serve build -l 5000
           wait-on: "http://localhost:5000"
+          config: "baseUrl=http://localhost:5000"
           headless: true
           browser: chrome
 
