@@ -17,6 +17,8 @@ import finishedGameReducer from './finishedGames/finishedGameReducer';
 import { AppState, GameInformation } from './AppState';
 import analysisGameReducer from './analysisGame/analysisGameReducer';
 import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
+import howToPlayReducer from './howToPlay/howToPlayReducer';
+import howToPlaySaga from './howToPlay/howToPlaySaga';
 
 const currentGameReducer = combineReducers<GameInformation>({
   game: gameReducer,
@@ -24,10 +26,11 @@ const currentGameReducer = combineReducers<GameInformation>({
   moves: moveReducer,
   activeBoards: activeBoardsReducer,
 });
-const rootreducer = combineReducers<AppState>({
+const rootReducer = combineReducers<AppState>({
   currentGame: currentGameReducer,
   finishedGames: finishedGameReducer,
   analysisGame: analysisGameReducer,
+  howToPlay: howToPlayReducer,
 });
 
 export function configureStore() {
@@ -47,7 +50,7 @@ export function configureStore() {
     storage,
   };
 
-  const persistedReducer = persistReducer(persistConfig, rootreducer);
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = createStore(persistedReducer, composeWithDevTools(middleware));
 
   sagaMiddleware.run(rootSaga);
@@ -63,5 +66,6 @@ function* rootSaga() {
     fork(checkGameFinishedSaga),
     fork(saveFinishedGameDataSaga),
     fork(loadFinishedGameSaga),
+    fork(howToPlaySaga),
   ]);
 }

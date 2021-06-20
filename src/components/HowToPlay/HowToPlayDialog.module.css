@@ -1,0 +1,13 @@
+.dialog :global(.mdc-dialog__surface) {
+  width: 80vh;
+}
+
+.bigBoard {
+  padding: 1.5em 1.5em 0 0;
+}
+
+.howToPlayIndicator {
+  display: inline-block;
+  width: 12px;
+  margin: 2px;
+}

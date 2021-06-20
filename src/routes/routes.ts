@@ -2,6 +2,7 @@ const routes = {
   AnalysisLatest: '/analysis/latest',
   AnalysisParam: '/analysis/:param',
   AnalysisOverview: '/analysis',
+  HowToPlay: '/how-to-play',
   Home: '/',
   GitHub: 'https://github.com/ultimate-ttt/ultimate-ttt',
   GitHubBug:

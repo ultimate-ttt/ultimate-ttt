@@ -7,20 +7,64 @@ import { ArrowButtons, ArrowButtonsProps } from './ArrowButtons';
 export default {
   title: 'ArrowButtons',
   component: ArrowButtons,
+  args: {
+    value: 3,
+    minValue: 1,
+    maxValue: 5,
+  },
 } as Meta;
 
-export const Default: Story<ArrowButtonsProps> = (args) => (
+const Template: Story<ArrowButtonsProps> = (args) => (
   <IconProvider>
     <div className="historyButtons">
-      <ArrowButtons
-        {...args}
-        onInteraction={(forward) => action('interaction: ' + forward)}
-      />
+      <ArrowButtons {...args} onInteraction={action('interaction')} />
     </div>
   </IconProvider>
 );
-Default.args = {
+
+export const Standard = Template.bind({});
+
+export const Minimum = Template.bind({});
+Minimum.args = {
   value: 1,
-  minValue: 1,
-  maxValue: 5,
+};
+export const Maximum = Template.bind({});
+Maximum.args = {
+  value: 5,
+};
+
+export const WithKeyboard = Template.bind({});
+WithKeyboard.args = {
+  handleKeyboard: true,
+};
+
+export const WithCustomProps = Template.bind({});
+WithCustomProps.args = {
+  leftButtonConfig: {
+    buttonProps: {
+      raised: false,
+      danger: true,
+    },
+  },
+  rightButtonConfig: {
+    buttonProps: {
+      raised: false,
+      danger: true,
+    },
+  },
+};
+
+export const Hide = Template.bind({});
+Hide.args = {
+  leftButtonConfig: {
+    hide: false,
+  },
+  rightButtonConfig: {
+    hide: true,
+  },
+};
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
+  children: <span>This is a child</span>,
 };

@@ -1,4 +1,4 @@
-import { FinishedGameState } from './../AppState';
+import { FinishedGameState } from '../AppState';
 import finishedGameReducer from './finishedGameReducer';
 import {
   saveGameData,
@@ -7,7 +7,7 @@ import {
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
 import { crossFinishedBoardMock } from '../../__mocks__';
-import { SaveState, Winner } from '../AppState';
+import { SaveState } from '../AppState';
 
 describe('finishedGameReducer', () => {
   function getFinishedGameMock(): FinishedGameState {
@@ -44,7 +44,7 @@ describe('finishedGameReducer', () => {
   describe('saveGameData', () => {
     it('should add data to array', () => {
       const finishedGameMock = getFinishedGameMock();
-      const action = saveGameData();
+      const action = saveGameData(finishedGameMock);
       const newState = finishedGameReducer([], action);
 
       expect(newState.length).toBe(1);
