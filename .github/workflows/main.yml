@@ -99,9 +99,10 @@ jobs:
           path: build
       
      # - uses: nanasess/setup-chromedriver@master
-
-     # - name: Install Chrome 🌐
-     #   run: sh ./.scripts/setup-chromedriver.sh "linux64"
+      - name: Install Chrome 🌐
+        run: |
+          sudo chmod+x ./.scripts/setup-chromedriver.sh
+          sudo ./.scripts/setup-chromedriver.sh "linux64"
 
       - name: Install Serve Package 🍲
         run: sudo npm install -g serve
