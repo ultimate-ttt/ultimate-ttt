@@ -34,8 +34,12 @@ done
 
 PARAMS="--browser ${BROWSER} --headless --reporter cypress-image-snapshot/reporter --config video=${VIDEO} --env updateSnapshots=${UPDATE_SNAPSHOT}"
 
+
 if $CT
 then
+  # Use Long Polling because of max file-watchers: https://github.com/cypress-io/github-action/issues/317
+  # And I'm not able to update with sudo: https://github.com/cypress-io/github-action/issues/357
+  CHOKIDAR_USEPOLLING=1
   yarn cypress run-ct $PARAMS
 fi
 
