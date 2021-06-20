@@ -34,8 +34,8 @@ jobs:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
 
-    # `--prefer-offline` gives cache priority
     - name: Install dependencies 🔌
+      # `--prefer-offline` gives cache priority
       run: yarn install --prefer-offline --frozen-lockfile
 
     - name: Run Tests 🧪
@@ -98,7 +98,6 @@ jobs:
           name: build
           path: build
       
-     # - uses: nanasess/setup-chromedriver@master
       - name: Install Chrome 🌐
         # We want an up to date Chrome
         run: sudo ./.scripts/setup-chromedriver.sh "linux64"
@@ -130,8 +129,6 @@ jobs:
           # Use custom script for "cypress run-ct" so that browser is respected
           # Also make sure that previous videos are not trashed!
           command: yarn test:int --ct -v
-        env:
-          CI: true
         
       - run: tree cypress
 
@@ -147,5 +144,6 @@ jobs:
         uses: actions/upload-artifact@v1
         if: always()
         with:
+          # It is possible that the videos are lagging.
           name: cypress-videos
           path: cypress/videos
