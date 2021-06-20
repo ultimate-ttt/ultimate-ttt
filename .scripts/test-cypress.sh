@@ -38,9 +38,13 @@ PARAMS="--browser ${BROWSER}
         --config video=${VIDEO} 
         --env updateSnapshots=${UPDATE_SNAPSHOT}"
 
+echo $CI
+echo "$CI"
+
 # Don't delete video assets so all of them are available after CI run! 
 if $CI
 then
+  echo "HI from CI"
   PARAMS="${PARAMS} --config trashAssetsBeforeRuns=false"
 fi
 
