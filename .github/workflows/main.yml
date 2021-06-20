@@ -99,13 +99,14 @@ jobs:
           path: build
       
      # - uses: nanasess/setup-chromedriver@master
-     # - name: Install Chrome 🌐
-     #   run: sudo ./.scripts/setup-chromedriver.sh "linux64"
+      - name: Install Chrome 🌐
+        # We want an up to date Chrome
+        run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
       - name: Start Local Server 🚜
         run: |
           sudo npm install -g serve
-          serve build -l 5000
+          serve build -l 5000 &
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
@@ -118,8 +119,8 @@ jobs:
 
       - run: tree cypress
           
-      # We don't want a lot of "ENOSPC: System limit for number of file watchers reached" warnings
       - name: Increase File Watchers 🔭
+        # We don't want a lot of "ENOSPC: System limit for number of file watchers reached" warnings
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: Component tests 🧪
@@ -128,8 +129,9 @@ jobs:
           # we have already installed everything
           install: false
           record: true
-          # Use custom script for "cypress run-ct" so that browser var can be supplied easily & so that videos are not trashed
-          command: yarn test:int --ct -v --browser chrome
+          # Use custom script for "cypress run-ct" so that browser is respected
+          # Also make sure that previous videos are not trashed!
+          command: yarn test:int --ct -v
         
       - run: tree cypress
 

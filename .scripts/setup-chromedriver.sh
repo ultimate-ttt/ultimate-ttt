@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Taken from https://github.com/nanasess/setup-chromedriver/blob/master/lib/setup-chromedriver.sh
+# Be sure to set the executable flag in Git when adding this script elsewhere: git update-index --chmod=+x foo.sh 
 
 set -e
 
