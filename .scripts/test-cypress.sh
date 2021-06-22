@@ -34,7 +34,6 @@ done
 
 PARAMS="--browser ${BROWSER} 
         --headless 
-        --reporter cypress-image-snapshot/reporter 
         --config video=${VIDEO} 
         --env updateSnapshots=${UPDATE_SNAPSHOT}"
 

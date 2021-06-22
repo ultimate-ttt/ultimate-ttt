@@ -1,7 +1,9 @@
 {
   "baseUrl": "http://localhost:3000",
+  "reporter": "cypress-image-snapshot/reporter",
   "component": {
     "componentFolder": "src",
-    "testFiles": "**/*.cy.{ts,tsx}"
+    "testFiles": "**/*.cy.{ts,tsx}",
+    "supportFile": "cypress/support/component.js"
   }
 }

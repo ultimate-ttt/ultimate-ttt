@@ -5,7 +5,7 @@
 .winnerIcon {
   /* Align icon with text */
   position: relative;
-  top: 3px;
+  top: 0.2em;
 }
 
 .restartAlignment {

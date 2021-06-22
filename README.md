@@ -91,8 +91,7 @@ All browser versions that support CSS Grid layout are supported. For an exact ov
 It's easy to run a local instance of this game - just clone the repository, run `yarn` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
 
 - `yarn test` for tests in watch mode
-- `yarn test:int` for executing tests with cypress via shell (currently requires bash)
-- `yarn cy:open` for inspecting browser tests
+- `yarn test:int` for executing browser tests (currently requires bash)
 - `yarn start` to run
 - `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
 - `yarn prettier` to format the code with [Prettier](https://github.com/prettier/prettier)
