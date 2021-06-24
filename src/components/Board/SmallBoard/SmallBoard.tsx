@@ -48,30 +48,6 @@ export function SmallBoard(props: SmallBoardProps) {
     animate,
   } = props;
 
-  const getTiles = () => {
-    const rows: JSX.Element[] = [];
-
-    tiles.forEach((tile) => {
-      rows.push(
-        <Tile
-          key={`${tile.position.x}-${tile.position.y}`}
-          value={tile.value}
-          isTileRound={isCircle}
-          clickable={moveAllowed && tile.value === TileValue.Empty}
-          animate={animate}
-          highlight={shouldHighlight(highlight, tile.position)}
-          {...(onTileClicked && {
-            onTileClicked: () => {
-              onTileClicked(tile.position.x, tile.position.y);
-            },
-          })}
-        />,
-      );
-    });
-
-    return rows;
-  };
-
   const boardIsFinished: boolean = winningPlayer !== TileValue.Empty;
   const isCircle = currentPlayer === Player.Circle;
 

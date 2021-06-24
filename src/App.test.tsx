@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { App } from './App';
-import { renderWithStore, screen } from '../test-utils';
+import { renderWithStore, screen } from './test-utils';
 import userEvent from '@testing-library/user-event';
 
 describe('App', () => {

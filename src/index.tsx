@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { App } from './components/App';
+import { App } from './App';
 import { register } from './serviceWorker';
 import { configureStore } from './state/configureStore';
 import { persistStore } from 'redux-persist';

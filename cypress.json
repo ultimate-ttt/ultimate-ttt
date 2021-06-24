@@ -1,6 +1,8 @@
 {
-  "baseUrl": "http://localhost:3000",
+  "baseUrl": "http://localhost:3000/",
   "reporter": "cypress-image-snapshot/reporter",
+  "viewportWidth": 1000,
+  "viewportHeight": 800,
   "component": {
     "componentFolder": "src",
     "testFiles": "**/*.cy.{ts,tsx}",
