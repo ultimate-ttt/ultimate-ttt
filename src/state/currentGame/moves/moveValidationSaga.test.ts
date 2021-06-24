@@ -13,7 +13,7 @@ import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../board/boardActions';
 import { CALCULATE_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
 
 describe('moveValidationSaga', () => {
-  it('should dispatch at least the following actions, order not tested', () => {
+  it('should dispatch at least the following actions', () => {
     return expectSaga(playerMovedSaga)
       .provide([[select(getCurrentPlayer), Player.Cross]])
       .put({
@@ -44,22 +44,5 @@ describe('moveValidationSaga', () => {
         },
       })
       .silentRun();
-  });
-
-  // if more put effects happen: this catches it + this checks for the order
-  it('should match snapshot', () => {
-    return expectSaga(playerMovedSaga)
-      .provide([[select(getCurrentPlayer), Player.Cross]])
-      .dispatch({
-        type: PLAYER_MOVED,
-        payload: {
-          boardPosition: { x: 1, y: 1 },
-          tilePosition: { x: 2, y: 2 },
-        },
-      })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
   });
 });

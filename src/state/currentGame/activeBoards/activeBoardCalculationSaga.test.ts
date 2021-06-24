@@ -54,19 +54,4 @@ describe('activeBoardCalculationSaga', () => {
       .dispatch({ type: CALCULATE_ACTIVE_BOARDS })
       .silentRun();
   });
-
-  // if more put effects happen: this catches it + this checks for the order
-  it('should match snapshot', () => {
-    return expectSaga(activeBoardsCalculationSaga)
-      .provide([[select(getMoves), movesForBoardWithThreeMovesMock]])
-      .put({
-        type: SET_ACTIVE_BOARDS,
-        payload: activeBoardsForBoardWithThreeMovesMock,
-      })
-      .dispatch({ type: CALCULATE_ACTIVE_BOARDS })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
-  });
 });

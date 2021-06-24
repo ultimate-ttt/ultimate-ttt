@@ -28,15 +28,4 @@ describe('boardCalculationSaga', () => {
       .dispatch({ type: CALCULATE_BOARD_VALUE, payload: { x: 1, y: 1 } })
       .silentRun();
   });
-
-  // if more put effects happen: this catches it + this checks for the order
-  it('should match snapshot', () => {
-    return expectSaga(boardCalculationSaga)
-      .provide([[select(getMoves), movesForUnfinishedBoardMock]])
-      .dispatch({ type: CALCULATE_BOARD_VALUE, payload: { x: 0, y: 0 } })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
-  });
 });

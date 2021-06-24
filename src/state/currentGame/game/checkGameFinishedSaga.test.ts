@@ -8,10 +8,12 @@ import { SET_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
 import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
 import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
 import {
-  circleFinishedGameMock, crossFinishedGameMock,
+  circleFinishedGameMock,
+  crossFinishedGameMock,
   movesForCircleFinishedBoardMock,
-  movesForCrossFinishedBoardMock, movesForUnfinishedBoardMock
-} from "../../../mocks";
+  movesForCrossFinishedBoardMock,
+  movesForUnfinishedBoardMock,
+} from '../../../mocks';
 
 describe('checkGameFinishedSaga', () => {
   it(
@@ -61,19 +63,5 @@ describe('checkGameFinishedSaga', () => {
       .provide([[select(getMoves), movesForUnfinishedBoardMock]])
       .dispatch({ type: CHECK_GAME_FINISHED })
       .silentRun();
-  });
-
-  // if more put effects happen: this catches it + this checks for the order
-  it('should match snapshot', () => {
-    return expectSaga(checkGameFinishedSaga)
-      .provide([
-        [select(getMoves), movesForCircleFinishedBoardMock],
-        [select(getFinishedGameData), circleFinishedGameMock],
-      ])
-      .dispatch({ type: CHECK_GAME_FINISHED })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
   });
 });
