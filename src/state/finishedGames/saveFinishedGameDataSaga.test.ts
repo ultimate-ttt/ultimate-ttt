@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import saveFinishedGameDataSaga from './saveFinishedGameDataSaga';
-import { circleFinishedBoardMock } from '../../mocks';
+import { circleFinishedBoardMock } from '../../mocks/board';
 import { Player } from '../AppState';
 import {
   SAVE_GAME_DATA,
@@ -10,7 +10,7 @@ import {
 } from './saveFinishedGameDataActions';
 import { rest } from 'msw';
 import { server } from '../../mocks/api/server';
-import { getApiUrl } from '../../util';
+import { getApiUrl } from '../../lib';
 
 const finishedGameDataMock = {
   winner: 'X',

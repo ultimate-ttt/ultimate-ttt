@@ -4,14 +4,16 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { AnalysisGameDisplay } from './AnalysisGameDisplay';
 import { parseJSON, isValid } from 'date-fns';
-import { AnalysisGame, AppState } from "../../state/AppState";
-import routes from "../routes";
+import { AnalysisGame, AppState } from '../../state/AppState';
+import routes from '../../routes';
 import {
   loadFinishedGameByDate,
   loadFinishedGameById,
-  loadLatestFinishedGame, moveBackwardInHistory, moveForwardInHistory
-} from "../../state/analysisGame/analysisGameActions";
-import { NoGameFound } from "./NoGameFound/NoGameFound";
+  loadLatestFinishedGame,
+  moveBackwardInHistory,
+  moveForwardInHistory,
+} from '../../state/analysisGame/analysisGameActions';
+import { NoGameFound } from './NoGameFound/NoGameFound';
 
 interface AnalysisGameRouteProps
   extends RouteComponentProps<{ param: string }> {

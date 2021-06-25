@@ -1,4 +1,4 @@
-import { Point } from '../util';
+import { Point } from '../lib';
 
 export interface AppState {
   currentGame: GameInformation;

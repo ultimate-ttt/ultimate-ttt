@@ -7,9 +7,9 @@ import {
 } from '../game/gameAction';
 import { registerMove } from './moveAction';
 import { calculateBoardValue, setTileValue } from '../board/boardActions';
-import { playerToTileValue } from '../../../util';
+import { playerToTileValue } from '../../../lib';
 import { calculateActiveBoards } from '../activeBoards/activeBoardsActions';
-import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
+import { getCurrentPlayer } from '../../selectors/appStateSelectors';
 import { SagaIterator } from 'redux-saga';
 
 function* playerMoved(action: PlayerMovedAction): SagaIterator {

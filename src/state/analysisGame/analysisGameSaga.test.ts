@@ -6,8 +6,8 @@ import {
   getAnalysisGameByDate,
   getAnalysisGameById,
   getLatestAnalysisGame,
-} from '../selectors/AnalysisGameStateSelectors';
-import { crossFinishedBoardMock } from '../../mocks';
+} from '../selectors/analysisGameStateSelectors';
+import { crossFinishedBoardMock } from '../../mocks/board';
 import {
   LOAD_FINISHED_GAME_BY_DATE,
   LOAD_FINISHED_GAME_BY_ID,

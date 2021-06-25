@@ -6,7 +6,7 @@ import {
   saveGameDataPending,
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
-import { getApiUrl } from '../../util';
+import { getApiUrl } from '../../lib';
 
 function* saveFinishedGameData(action: SaveGameDataAction): any {
   if (action.saveOnline) {

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { AppState, Winner } from '../../state/AppState';
 import { connect } from 'react-redux';
-import { restartGame } from '../../state/commonAction';
 import { Button } from '@rmwc/button';
 import styles from './GameFinished.module.css';
 import classNames from 'classnames';
 import { Icon } from '@rmwc/icon';
 import { Typography } from '@rmwc/typography';
-import { OIcon, XIcon } from '../Icons';
+import { AppState, Winner } from '../../../state/AppState';
+import { restartGame } from '../../../state/commonAction';
+import { OIcon, XIcon } from '../../../components/Icons';
 
 interface GameFinishedDisplayProps {
   isGameFinished: boolean;

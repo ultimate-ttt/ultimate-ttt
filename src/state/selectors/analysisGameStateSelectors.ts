@@ -1,11 +1,6 @@
-import {
-  AnalysisGame,
-  AppState,
-  FinishedGameState,
-  Winner,
-} from '../AppState';
+import { AnalysisGame, AppState, FinishedGameState, Winner } from '../AppState';
 import { createSelector } from 'reselect';
-import { getFinishedGames } from './AppStateSelectors';
+import { getFinishedGames } from './appStateSelectors';
 
 const stringToWinner = (winnerString: 'X' | 'O' | null) => {
   if (winnerString === 'X') {

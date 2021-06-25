@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '../../../test-utils';
 import { SmallBoard } from './SmallBoard';
-import { Point } from '../../../util';
+import { Point } from '../../../lib';
 import { Player, TileValue } from '../../../state/AppState';
 import userEvent from '@testing-library/user-event';
 

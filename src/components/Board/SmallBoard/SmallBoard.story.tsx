@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Player, TileValue } from '../../../state/AppState';
 import { SmallBoard, SmallBoardProps } from './SmallBoard';
-import { Point } from '../../../util';
+import { Point } from '../../../lib';
 import { action } from '@storybook/addon-actions';
 
 function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {

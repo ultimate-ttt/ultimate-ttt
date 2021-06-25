@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GameFinishedDisplay } from './GameFinishedDisplay';
-import { Winner } from '../../state/AppState';
 import { mount } from '@cypress/react';
+import { Winner } from '../../../state/AppState';
 describe('GameFinishedDisplay', () => {
   it('should change visibility', () => {
     mount(

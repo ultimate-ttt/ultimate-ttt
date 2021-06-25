@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { MoveList, MoveListProps } from './MoveList';
-import { movesForBoardWithThreeMovesMock } from '../../../mocks';
-import { IconProvider } from "../../../components/Icons";
+import { movesForBoardWithThreeMovesMock } from '../../../mocks/board';
+import { IconProvider } from '../../../components/Icons';
 
 export default {
   title: 'MoveList',

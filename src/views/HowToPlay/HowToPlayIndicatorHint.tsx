@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './HowToPlayDialog.module.css';
-import { Tile } from '../Board/Tile/Tile';
+import { Tile } from '../../components/Board/Tile/Tile';
 import { TileValue } from '../../state/AppState';
 
 export function HowToPlayIndicatorHint() {

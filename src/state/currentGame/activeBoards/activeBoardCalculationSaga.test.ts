@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
-import { getMoves } from '../../selectors/AppStateSelectors';
+import { getMoves } from '../../selectors/appStateSelectors';
 import {
   CALCULATE_ACTIVE_BOARDS,
   SET_ACTIVE_BOARDS,
@@ -11,7 +11,7 @@ import {
   movesForBoardWithThreeMovesMock,
   movesForCircleFinishedBoardMock,
   movesForUnfinishedBoardMock,
-} from '../../../mocks';
+} from '../../../mocks/board';
 
 describe('activeBoardCalculationSaga', () => {
   it('should dispatch setActiveBoards Action, normal case', () => {

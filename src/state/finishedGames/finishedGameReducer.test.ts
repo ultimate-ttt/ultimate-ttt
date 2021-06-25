@@ -1,12 +1,11 @@
-import { FinishedGameState } from '../AppState';
-import finishedGameReducer from './finishedGameReducer';
+import { FinishedGameState, SaveState } from '../AppState';
 import {
   saveGameData,
   saveGameDataFulfilled,
   saveGameDataPending,
   saveGameDataRejected,
 } from './saveFinishedGameDataActions';
-import { crossFinishedBoardMock } from '../../mocks';
+import { crossFinishedBoardMock } from '../../mocks/board';
 import finishedGameReducer from './finishedGameReducer';
 
 describe('finishedGameReducer', () => {

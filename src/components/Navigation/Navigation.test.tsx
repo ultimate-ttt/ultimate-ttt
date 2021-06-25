@@ -13,6 +13,7 @@ test('should render navigation', () => {
   expect(itemTexts).toMatchInlineSnapshot(`
     Array [
       "Play",
+      "How to play",
       "Analysis",
       "Analyse Last Game",
       "Report Bug",
@@ -33,6 +34,7 @@ test('should render navigation', () => {
   expect(itemHrefs).toMatchInlineSnapshot(`
     Array [
       "${routes.Home}",
+      "${routes.HowToPlay}",
       "${routes.AnalysisOverview}",
       "${routes.AnalysisLatest}",
       "${routes.GitHubBug}",

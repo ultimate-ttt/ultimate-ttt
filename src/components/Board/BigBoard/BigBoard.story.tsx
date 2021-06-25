@@ -6,7 +6,7 @@ import {
   circleFinishedBoardMock,
   crossFinishedBoardMock,
   unfinishedBoardMock,
-} from '../../../mocks';
+} from '../../../mocks/board';
 import { action } from '@storybook/addon-actions';
 
 export default {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { HowToPlayBoardState } from '../../state/AppState';
-import { BigBoard } from '../Board/BigBoard/BigBoard';
+import { BigBoard } from '../../components/Board/BigBoard/BigBoard';
 
 interface HowToPlayContentProps {
   boardState: HowToPlayBoardState;

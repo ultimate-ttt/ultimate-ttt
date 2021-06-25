@@ -9,7 +9,7 @@ import {
   boardWithTwoMovesMock,
   crossFinishedBoardMock,
   drawFinishedBoardMock,
-} from '../../../mocks';
+} from '../../../mocks/board';
 
 describe('BigBoard', () => {
   it('One Move', () => {

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Game from './routes/Game/Game';
-import AnalysisGameRoute from './routes/AnalysisGame/AnalysisGame';
-import AnalysisOverview from './routes/AnalysisOverview/AnalysisOverview';
 import routes from './routes/routes';
 import { Navigation } from './components/Navigation/Navigation';
-import HowToPlay from './routes/HowToPlay/HowToPlay';
+import AnalysisGameRoute from './views/AnalysisGame/AnalysisGame';
+import AnalysisOverview from './views/AnalysisOverview/AnalysisOverview';
+import Game from './views/Game/Game';
+import HowToPlay from './views/HowToPlay/HowToPlay';
 
 export const App = () => {
   return (

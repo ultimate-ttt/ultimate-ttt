@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { getApiUrl } from '../../util';
+import { getApiUrl } from '../../lib';
 
 function uuidv4() {
   return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

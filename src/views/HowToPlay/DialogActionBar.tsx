@@ -1,8 +1,8 @@
 import { DialogButton } from '@rmwc/dialog';
-import { ArrowButtons } from '../ArrowButtons/ArrowButtons';
 import { Button } from '@rmwc/button';
-import { ArrowRightIcon } from '../Icons';
 import * as React from 'react';
+import { ArrowButtons } from '../../components/ArrowButtons/ArrowButtons';
+import { ArrowRightIcon } from '../../components/Icons';
 
 interface DialogActionBarProps {
   onClose: () => void;

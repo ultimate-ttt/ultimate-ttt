@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getBoards, getMoves, getWinningPlayer } from './AppStateSelectors';
+import { getBoards, getMoves, getWinningPlayer } from './appStateSelectors';
 import { Winner } from '../AppState';
 
 const getWinningPlayerAsString = createSelector(

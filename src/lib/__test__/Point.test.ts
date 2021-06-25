@@ -1,4 +1,4 @@
-import { arePointsEqual } from '../../util';
+import { arePointsEqual } from '../../lib';
 
 describe('arePointsEqual', () => {
   it('should return true when Points are equal', () => {

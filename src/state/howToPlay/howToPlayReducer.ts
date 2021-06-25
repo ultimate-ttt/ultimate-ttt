@@ -6,7 +6,7 @@ import {
   HOW_TO_PLAY_STEP_FORWARD,
 } from './howToPlayActions';
 import produce from 'immer';
-import { TicTacToeGame } from '../../util';
+import { TicTacToeGame } from '../../lib';
 import { howToPlaySteps } from './howToPlaySteps';
 
 const initialState: HowToPlay = {

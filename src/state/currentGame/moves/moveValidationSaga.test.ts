@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import playerMovedSaga from './moveValidationSaga';
-import { getCurrentPlayer } from '../../selectors/AppStateSelectors';
+import { getCurrentPlayer } from '../../selectors/appStateSelectors';
 import { Player } from '../../AppState';
 import {
   CHANGE_PLAYER,

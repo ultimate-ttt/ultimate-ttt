@@ -4,7 +4,7 @@ import AnalysisOverview from './AnalysisOverview';
 import {
   crossFinishedBoardMock,
   movesForCrossFinishedBoardMock,
-} from '../../mocks';
+} from '../../mocks/board';
 import { FinishedGameState, WinnerString } from '../../state/AppState';
 
 const getRandomInt = (min: number, max: number) => {

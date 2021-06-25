@@ -3,7 +3,7 @@ import { render, screen } from '../../../test-utils';
 import userEvent from '@testing-library/user-event';
 import { BigBoard } from './BigBoard';
 import { Player } from '../../../state/AppState';
-import { emptyBoardMock, unfinishedBoardMock } from '../../../mocks';
+import { emptyBoardMock, unfinishedBoardMock } from '../../../mocks/board';
 
 test('should render buttons for board', () => {
   const playerMoved = jest.fn(() => {});

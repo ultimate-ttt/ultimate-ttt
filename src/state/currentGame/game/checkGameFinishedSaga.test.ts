@@ -1,19 +1,19 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import checkGameFinishedSaga from './checkGameFinishedSaga';
-import { getMoves } from '../../selectors/AppStateSelectors';
+import { getMoves } from '../../selectors/appStateSelectors';
 import { select } from 'redux-saga/effects';
 import { CHECK_GAME_FINISHED, GAME_FINISHED } from './gameAction';
 import { Player } from '../../AppState';
 import { SET_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
 import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/FinishedGameStateSelectors';
+import { getFinishedGameData } from '../../selectors/finishedGameStateSelectors';
 import {
   circleFinishedGameMock,
   crossFinishedGameMock,
   movesForCircleFinishedBoardMock,
   movesForCrossFinishedBoardMock,
   movesForUnfinishedBoardMock,
-} from '../../../mocks';
+} from '../../../mocks/board';
 
 describe('checkGameFinishedSaga', () => {
   it(

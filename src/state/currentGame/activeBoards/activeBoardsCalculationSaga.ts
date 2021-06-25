@@ -4,8 +4,8 @@ import {
   CALCULATE_ACTIVE_BOARDS,
   setActiveBoards,
 } from './activeBoardsActions';
-import { getMoves } from '../../selectors/AppStateSelectors';
-import { TicTacToeGame } from '../../../util';
+import { getMoves } from '../../selectors/appStateSelectors';
+import { TicTacToeGame } from '../../../lib';
 import { SagaIterator } from 'redux-saga';
 
 function* calculateActiveBoards(action: GenericAction): SagaIterator {
