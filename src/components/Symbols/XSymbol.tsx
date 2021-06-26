@@ -8,17 +8,13 @@ export interface XSymbolProps {
 }
 
 export class XSymbol extends React.Component<XSymbolProps> {
-  public static defaultProps: Partial<XSymbolProps> = {
-    shouldAnimate: true,
-  };
-
   render() {
     const { shouldAnimate } = this.props;
     const iconClass = classNames({
       [styles.x]: true,
-      [styles.animateX]: shouldAnimate,
+      [styles.animateX]: shouldAnimate ?? true,
     });
 
-    return <XGameIcon className={iconClass} />;
+    return <XGameIcon className={iconClass} aria-label={'X'} />;
   }
 }

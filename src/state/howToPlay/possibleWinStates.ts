@@ -1,4 +1,4 @@
-import { SimpleTicTacToeGame } from '../../util';
+import { SimpleTicTacToeGame } from '../../lib';
 import { TileValue } from '../../state/AppState';
 
 export const winStates = [

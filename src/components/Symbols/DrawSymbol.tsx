@@ -8,18 +8,14 @@ export interface DrawSymbolProps {
 }
 
 export class DrawSymbol extends React.Component<DrawSymbolProps> {
-  public static defaultProps: Partial<DrawSymbolProps> = {
-    shouldAnimate: true,
-  };
-
   render() {
     const { shouldAnimate } = this.props;
 
     const iconClass = classNames({
       [styles.draw]: true,
-      [styles.animateDraw]: shouldAnimate,
+      [styles.animateDraw]: shouldAnimate ?? true,
     });
 
-    return <DrawGameIcon className={iconClass} />;
+    return <DrawGameIcon className={iconClass} aria-label={'-'} />;
   }
 }

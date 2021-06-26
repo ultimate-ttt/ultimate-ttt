@@ -1,24 +1,19 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
-import { Game } from './Game';
-import { Player } from '../../state/AppState';
-import { unfinishedBoardMock } from '../../__mocks__';
+import { renderWithStore, screen } from '../../test-utils';
+import userEvent from '@testing-library/user-event';
+import Game from './Game';
 
-describe('Game', () => {
-  it('should match snapshot', () => {
-    const onPlayerMoved = jest.fn(
-      (boardX: number, boardY: number, tileX: number, tileY: number) => {},
-    );
+test('allows playing according to rules', () => {
+  renderWithStore(<Game />);
 
-    const game = shallow(
-      <Game
-        currentPlayer={Player.Cross}
-        activeBoards={[]}
-        board={unfinishedBoardMock}
-        onPlayerMoved={onPlayerMoved}
-      />,
-    );
+  const buttons = screen.getAllByRole('button', { name: /^$/ });
+  userEvent.click(buttons[0]);
+  expect(screen.getByRole('button', { name: /x/i })).toBeInTheDocument();
 
-    expect(game).toMatchSnapshot();
-  });
+  const buttonNotClickable = buttons[Math.floor(buttons.length / 2)];
+  userEvent.click(buttonNotClickable);
+  expect(screen.queryByRole('button', { name: /o/i })).not.toBeInTheDocument();
+
+  userEvent.click(buttons[1]);
+  expect(screen.getByRole('button', { name: /o/i })).toBeInTheDocument();
 });

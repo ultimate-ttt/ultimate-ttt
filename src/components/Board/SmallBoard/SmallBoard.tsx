@@ -6,7 +6,7 @@ import {
   TileValue,
 } from '../../../state/AppState';
 import { Tile } from '../Tile/Tile';
-import { arePointsEqual, Point } from '../../../util';
+import { arePointsEqual, Point } from '../../../lib';
 import styles from './SmallBoard.module.css';
 
 export interface SmallBoardProps {

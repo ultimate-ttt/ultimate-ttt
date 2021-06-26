@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Button, ButtonProps } from '@rmwc/button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../Icons';
 import styles from './ArrowButtons.module.css';
-import { useEffect } from 'react';
+import { useKeyPressEvent } from 'react-use';
+import { Keys } from "../../lib";
 
 export interface ButtonConfig {
   buttonProps?: ButtonProps;
@@ -11,27 +12,14 @@ export interface ButtonConfig {
 
 export interface ArrowButtonsProps {
   value: number;
-  maxValue: number;
   minValue: number;
+  maxValue: number;
   onInteraction: (forward: boolean) => void;
   handleKeyboard?: boolean;
   leftButtonConfig?: ButtonConfig;
   rightButtonConfig?: ButtonConfig;
   children?: React.ReactNode;
 }
-
-const handleInteraction = (
-  forward: boolean,
-  value: number,
-  minValue: number,
-  maxValue: number,
-  handle: (f: boolean) => void,
-) => {
-  if ((forward && value === maxValue) || (!forward && value === minValue))
-    return;
-
-  handle(forward);
-};
 
 export function ArrowButtons(props: ArrowButtonsProps) {
   const {
@@ -44,23 +32,16 @@ export function ArrowButtons(props: ArrowButtonsProps) {
     rightButtonConfig,
     children,
   } = props;
-  useEffect(() => {
-    const handleEvent = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft' || event.key === 'Left') {
-        handleInteraction(false, value, minValue, maxValue, onInteraction);
-      } else if (event.key === 'ArrowRight' || event.key === 'Right') {
-        handleInteraction(true, value, minValue, maxValue, onInteraction);
-      }
-    };
 
-    if (handleKeyboard) {
-      window.addEventListener('keydown', handleEvent);
-    }
-
-    return () => {
-      if (handleKeyboard) window.removeEventListener('keydown', handleEvent);
-    };
-  }, [handleKeyboard, value, minValue, maxValue, onInteraction]);
+  const handleInteraction = (forward: boolean) => {
+    if ((forward && value === maxValue) || (!forward && value === minValue))
+      return;
+    onInteraction(forward);
+  };
+  const handleLeft = () => (handleKeyboard ? handleInteraction(false) : false);
+  const handleRight = () => (handleKeyboard ? handleInteraction(true) : false);
+  useKeyPressEvent(Keys.ArrowLeft, handleLeft, null);
+  useKeyPressEvent(Keys.ArrowRight, handleRight, null);
 
   return (
     <>
@@ -71,7 +52,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
           raised={true}
           icon={{ icon: <ArrowLeftIcon />, 'aria-hidden': true }}
           onClick={() => {
-            handleInteraction(false, value, minValue, maxValue, onInteraction);
+            handleInteraction(false);
           }}
           className={styles.buttonMargin}
           {...leftButtonConfig?.buttonProps}
@@ -87,7 +68,7 @@ export function ArrowButtons(props: ArrowButtonsProps) {
           raised={true}
           trailingIcon={{ icon: <ArrowRightIcon />, 'aria-hidden': true }}
           onClick={() => {
-            handleInteraction(true, value, minValue, maxValue, onInteraction);
+            handleInteraction(true);
           }}
           className={styles.buttonMargin}
           {...rightButtonConfig?.buttonProps}

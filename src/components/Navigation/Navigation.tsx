@@ -38,17 +38,10 @@ export function Navigation() {
           <TopAppBarSection alignStart>
             <TopAppBarNavigationIcon
               role="button"
+              aria-label="Menu"
               aria-expanded={open}
               onClick={() => setOpen(!open)}
-              icon={{
-                icon: (
-                  <>
-                    <MenuIcon />
-                    <span className="sr-only">Menu</span>
-                  </>
-                ),
-                'aria-hidden': true,
-              }}
+              icon={<MenuIcon />}
             />
             <TopAppBarTitle
               className={styles.title}

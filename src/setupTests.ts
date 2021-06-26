@@ -1,6 +1,14 @@
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as globalStorybookConfig from '../.storybook/decorators'; // path of your preview.js file
+import { setGlobalConfig } from '@storybook/testing-react';
+setGlobalConfig(globalStorybookConfig);
 
-configure({ adapter: new Adapter() });
+import { server } from './mocks/api/server';
+// Establish API mocking before all tests.
+beforeAll(() => server.listen());
 
-export default undefined;
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+
+// Clean up after the tests are finished.
+afterAll(() => server.close());

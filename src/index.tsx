@@ -1,16 +1,21 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { App } from './components/App';
+import { App } from './App';
 import { register } from './serviceWorker';
 import { configureStore } from './state/configureStore';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { IconProvider } from './components/Icons';
-import './index.css';
+import './styles';
 
 const store = configureStore();
 const persistor = persistStore(store);
+
+if (process.env.NODE_ENV === 'development') {
+  const { worker } = require('./mocks/api/browser');
+  worker.start();
+}
 
 ReactDOM.render(
   <Provider store={store}>

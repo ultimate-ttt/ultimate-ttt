@@ -61,9 +61,10 @@ If one of the small boards results in a tie, the board counts for neither X nor 
 All browser versions that support CSS Grid layout are supported. For an exact overview of which browser versions that are [click here](https://caniuse.com/#feat=css-grid). If you detect an issue with a behaviour in a particular browser version: [let us know](https://github.com/ultimate-ttt/ultimate-ttt/issues/new?template=bug_report.md)!
 
 ## Run locally
-It's easy to run a local instance of this game - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
+It's easy to run a local instance of this game - just clone the repository, run `yarn` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
 
-- `yarn test` for tests
+- `yarn test` for tests in watch mode
+- `yarn test:int` for executing browser tests (currently requires bash)
 - `yarn start` to run
 - `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
 - `yarn prettier` to format the code with [Prettier](https://github.com/prettier/prettier)
@@ -71,7 +72,6 @@ It's easy to run a local instance of this game - just clone the repository, run 
 ## Contribute
 
 Any type of feedback, pull request or issue is welcome. Follow the "Run locally" section of this documentation to learn how to debug the project.
-
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)

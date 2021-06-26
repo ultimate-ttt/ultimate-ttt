@@ -1,11 +1,11 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from './gameAction';
-import { getMoves } from '../../selectors/AppStateSelectors';
+import { getMoves } from '../../selectors/appStateSelectors';
 import { setActiveBoards } from '../activeBoards/activeBoardsActions';
 import { saveGameData } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/finishedGames/FinishedGameStateSelectors';
-import { TicTacToeGame } from '../../../util';
+import { getFinishedGameData } from '../../selectors/finishedGameStateSelectors';
+import { TicTacToeGame } from '../../../lib';
 import { SagaIterator } from 'redux-saga';
 
 function* checkIfGameFinished(action: GenericAction): SagaIterator {

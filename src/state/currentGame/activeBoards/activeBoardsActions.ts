@@ -1,4 +1,4 @@
-import { Point } from '../../../util';
+import { Point } from '../../../lib';
 
 export const SET_ACTIVE_BOARDS = 'activeBoardsReducer/set-active-boards';
 export const CALCULATE_ACTIVE_BOARDS =

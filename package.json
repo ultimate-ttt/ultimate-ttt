@@ -7,70 +7,67 @@
     "classnames": "^2.3.1",
     "date-fns": "^2.22.1",
     "immer": "^9.0.3",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "3.4.4",
     "react-scroll": "^1.8.2",
+    "react-use": "^17.2.4",
     "redux": "^4.1.0",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.3",
     "reselect": "^4.0.0",
     "rmwc": "^6.1.4",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.4"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --coverage",
-    "test:all": "react-scripts test --env=jsdom --coverage --watchAll=false",
+    "test": "react-scripts test --env=jsdom",
+    "test:int": "sh ./.scripts/test-cypress.sh",
+    "cy:open": "cypress open",
+    "cy:openct": "cypress open-ct",
     "storybook": "start-storybook -p 6006",
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx|css)\""
   },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!<rootDir>/node_modules/",
-      "!src/**/*.story.{js,jsx,ts,tsx}",
-      "!src/index.{ts,tsx}",
-      "!src/**/*Mock.{ts,tsx}",
-      "!src/serviceWorker.ts",
-      "!src/state/configureStore.ts"
-    ]
-  },
   "devDependencies": {
-    "@babel/core": "^7.14.5",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
+    "@babel/core": "^7.14.6",
+    "@cypress/react": "^5.9.1",
+    "@cypress/webpack-dev-server": "^1.4.0",
+    "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/addon-links": "^6.3.0",
     "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
+    "@storybook/react": "^6.3.0",
+    "@storybook/testing-react": "^0.0.18",
+    "@testing-library/cypress": "^7.0.6",
+    "@testing-library/dom": "^8.0.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.1.9",
     "@types/classnames": "^2.3.1",
-    "@types/enzyme": "^3.10.8",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/cypress-image-snapshot": "^3.1.5",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.2",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^16.9.13",
+    "@types/node": "^15.12.4",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
     "@types/react-redux": "^7.1.16",
     "@types/react-router": "^5.1.15",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-scroll": "^1.8.2",
     "@types/redux-logger": "^3.0.8",
-    "enzyme": "^3.11",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "enzyme-to-json": "^3.6.2",
-    "prettier": "^2.3.1",
+    "cypress": "^7.6.0",
+    "cypress-image-snapshot": "^4.0.1",
+    "msw": "^0.30.0",
+    "prettier": "^2.3.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^4.0.1",
-    "source-map-explorer": "^2.5.2"
+    "source-map-explorer": "^2.5.2",
+    "webpack-dev-server": "^3.11.0"
   },
   "browserslist": {
     "production": [
@@ -85,7 +82,7 @@
       "last 1 safari version"
     ]
   },
-  "resolutions": {
-    "babel-loader": "8.1.0"
+  "msw": {
+    "workerDirectory": "public"
   }
 }

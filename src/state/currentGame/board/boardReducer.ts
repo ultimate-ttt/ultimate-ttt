@@ -2,7 +2,7 @@ import { GenericAction, SmallBoardInformation } from '../../AppState';
 import produce from 'immer';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
 import { RESTART_GAME } from '../../commonAction';
-import { TicTacToeGame, Point, arePointsEqual } from '../../../util';
+import { TicTacToeGame, Point, arePointsEqual } from '../../../lib';
 
 const getSmallBoard = (
   bigBoard: SmallBoardInformation[],

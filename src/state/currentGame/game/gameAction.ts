@@ -1,5 +1,5 @@
 import { Winner } from '../../AppState';
-import { Point } from '../../../util/Point';
+import { Point } from '../../../lib/Point';
 
 export const CHANGE_PLAYER = 'game/player-changed';
 export const PLAYER_MOVED = 'game/player-moved';

@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
-import { getMoves } from '../../selectors/AppStateSelectors';
+import { getMoves } from '../../selectors/appStateSelectors';
 import {
   CALCULATE_ACTIVE_BOARDS,
   SET_ACTIVE_BOARDS,
@@ -11,7 +11,7 @@ import {
   movesForBoardWithThreeMovesMock,
   movesForCircleFinishedBoardMock,
   movesForUnfinishedBoardMock,
-} from '../../../__mocks__';
+} from '../../../mocks/board';
 
 describe('activeBoardCalculationSaga', () => {
   it('should dispatch setActiveBoards Action, normal case', () => {
@@ -53,20 +53,5 @@ describe('activeBoardCalculationSaga', () => {
       .put({ type: SET_ACTIVE_BOARDS, payload: [] })
       .dispatch({ type: CALCULATE_ACTIVE_BOARDS })
       .silentRun();
-  });
-
-  // if more put effects happen: this catches it + this checks for the order
-  it('should match snapshot', () => {
-    return expectSaga(activeBoardsCalculationSaga)
-      .provide([[select(getMoves), movesForBoardWithThreeMovesMock]])
-      .put({
-        type: SET_ACTIVE_BOARDS,
-        payload: activeBoardsForBoardWithThreeMovesMock,
-      })
-      .dispatch({ type: CALCULATE_ACTIVE_BOARDS })
-      .silentRun()
-      .then((result) => {
-        expect(result.toJSON()).toMatchSnapshot();
-      });
   });
 });

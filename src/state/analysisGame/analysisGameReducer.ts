@@ -6,7 +6,7 @@ import {
   SET_ANALYSIS_GAME,
 } from './analysisGameActions';
 import produce from 'immer';
-import { TicTacToeGame } from '../../util';
+import { TicTacToeGame } from '../../lib';
 
 const initialState: AnalysisGame = {
   id: '',

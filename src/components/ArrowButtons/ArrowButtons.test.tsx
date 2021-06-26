@@ -1,264 +1,80 @@
 import * as React from 'react';
-import { mount, shallow } from 'enzyme';
-import { ArrowButtons } from './ArrowButtons';
-import { Button } from '@rmwc/button';
+import { render, screen } from '../../test-utils';
+import userEvent, { specialChars } from '@testing-library/user-event';
+import { composeStories } from '@storybook/testing-react';
+import * as stories from './ArrowButtons.story';
+const { Standard, Maximum, Minimum, WithKeyboard } = composeStories(stories);
 
-describe('ArrowButtons', function () {
-  it('should match snapshot', () => {
-    const onInteraction = jest.fn((forward) => {});
+test('renders next & previous buttons & allows clicking', () => {
+  const onInteraction = jest.fn();
 
-    const arrowButtons = shallow(
-      <ArrowButtons
-        value={1}
-        minValue={1}
-        maxValue={15}
-        onInteraction={onInteraction}
-      />,
-    );
+  render(<Standard onInteraction={onInteraction} />);
+  const next = screen.getByRole('button', { name: /next/i });
+  const previous = screen.getByRole('button', { name: /previous/i });
+  expect(next).toBeInTheDocument();
+  expect(next).not.toBeDisabled();
+  expect(previous).toBeInTheDocument();
+  expect(previous).not.toBeDisabled();
 
-    expect(arrowButtons).toMatchSnapshot();
+  userEvent.click(next);
+  expect(onInteraction).toHaveBeenCalledWith(true);
+  userEvent.click(previous);
+  expect(onInteraction).toHaveBeenCalledWith(false);
+});
+
+test('disables next button when Maximum', () => {
+  const onInteraction = jest.fn();
+  render(<Maximum />);
+
+  const next = screen.getByRole('button', { name: /next/i });
+  userEvent.click(next);
+  expect(next).toBeDisabled();
+  expect(onInteraction).not.toHaveBeenCalled();
+});
+
+test('disables previous button when Minimum', () => {
+  const onInteraction = jest.fn();
+  render(<Minimum />);
+
+  const previous = screen.getByRole('button', { name: /previous/i });
+  userEvent.click(previous);
+  expect(previous).toBeDisabled();
+  expect(onInteraction).not.toHaveBeenCalled();
+});
+
+describe('handleKeyboard', () => {
+  test('allows using arrow keys', () => {
+    const onInteraction = jest.fn();
+    render(<WithKeyboard onInteraction={onInteraction} />);
+
+    userEvent.keyboard(specialChars.arrowLeft);
+    userEvent.keyboard(specialChars.arrowRight);
+    expect(onInteraction).toHaveBeenCalledWith(false);
+    expect(onInteraction).toHaveBeenCalledWith(true);
   });
 
-  describe('disabled behaviour', () => {
-    it('has a disabled backward button when current value is 1', () => {
-      const onInteraction = jest.fn((forward) => {});
+  test('doesnt allow keyboard when handleKeyboard is false', () => {
+    const onInteraction = jest.fn();
+    render(<Standard onInteraction={onInteraction} />);
 
-      const arrowButtons = mount(
-        <ArrowButtons
-          value={1}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const backwardButton = arrowButtons.find(Button).get(0);
-      const forwardButton = arrowButtons.find(Button).get(1);
-
-      expect(backwardButton.props.disabled).toBe(true);
-      expect(forwardButton.props.disabled).toBe(false);
-    });
-
-    it('has a disabled next button when current value is maxValue', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      const arrowButtons = shallow(
-        <ArrowButtons
-          value={15}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const backwardButton = arrowButtons.find(Button).get(0);
-      const forwardButton = arrowButtons.find(Button).get(1);
-
-      expect(backwardButton.props.disabled).toBe(false);
-      expect(forwardButton.props.disabled).toBe(true);
-    });
+    userEvent.keyboard(specialChars.arrowLeft);
+    userEvent.keyboard(specialChars.arrowRight);
+    expect(onInteraction).not.toHaveBeenCalled();
   });
 
-  describe('click behaviour', () => {
-    it('calls onInteraction with true when next button is clicked', () => {
-      const onInteraction = jest.fn((forward) => {});
+  test('doesnt allow using arrow key when value is minValue', () => {
+    const onInteraction = jest.fn();
+    render(<WithKeyboard onInteraction={onInteraction} value={1} />);
 
-      const arrowButtons = shallow(
-        <ArrowButtons
-          value={1}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const forwardButton = arrowButtons.find(Button).at(1);
-      forwardButton.simulate('click');
-
-      expect(onInteraction).toHaveBeenCalledWith(true);
-    });
-
-    it('calls onInteraction with false when previous button is clicked', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      const arrowButtons = shallow(
-        <ArrowButtons
-          value={5}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const backwardButton = arrowButtons.find(Button).first();
-      backwardButton.simulate('click');
-
-      expect(onInteraction).toHaveBeenCalledWith(false);
-    });
+    userEvent.keyboard(specialChars.arrowLeft);
+    expect(onInteraction).not.toHaveBeenCalled();
   });
 
-  describe('keyboard event behaviour', () => {
-    it('doesnt handle keyboard when prop is not set', () => {
-      const onInteraction = jest.fn((forward) => {});
+  test('doesnt allow using arrow key when value is maxValue', () => {
+    const onInteraction = jest.fn();
+    render(<WithKeyboard onInteraction={onInteraction} value={5} />);
 
-      mount(
-        <ArrowButtons
-          value={5}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
-      window.dispatchEvent(event);
-
-      expect(onInteraction).toHaveBeenCalledTimes(0);
-    });
-
-    it('calls onInteraction with false when left arrow is pressed', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      mount(
-        <ArrowButtons
-          handleKeyboard={true}
-          value={5}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
-      window.dispatchEvent(event);
-
-      expect(onInteraction).toHaveBeenCalledWith(false);
-    });
-
-    it('calls onInteraction with true when right arrow is pressed', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      mount(
-        <ArrowButtons
-          handleKeyboard={true}
-          value={5}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
-      window.dispatchEvent(event);
-
-      expect(onInteraction).toHaveBeenCalledWith(true);
-    });
-
-    it('doesnt call onInteraction when left arrow is pressed and value is minValue', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      mount(
-        <ArrowButtons
-          handleKeyboard={true}
-          value={1}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
-      window.dispatchEvent(event);
-
-      expect(onInteraction).toHaveBeenCalledTimes(0);
-    });
-
-    it('doesnt call onInteraction when right arrow is pressed and value is maxValue', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      mount(
-        <ArrowButtons
-          handleKeyboard={true}
-          value={15}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-        />,
-      );
-
-      const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
-      window.dispatchEvent(event);
-
-      expect(onInteraction).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('custom config', () => {
-    it('applies custom props to buttons', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      const arrowButtons = mount(
-        <ArrowButtons
-          value={1}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-          leftButtonConfig={{
-            buttonProps: {
-              danger: true,
-            },
-          }}
-          rightButtonConfig={{
-            buttonProps: {
-              danger: true,
-            },
-          }}
-        />,
-      );
-
-      const backwardButton = arrowButtons.find(Button).get(0);
-      const forwardButton = arrowButtons.find(Button).get(1);
-
-      expect(backwardButton.props.danger).toBe(true);
-      expect(forwardButton.props.danger).toBe(true);
-    });
-
-    it('hides left button', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      const arrowButtons = mount(
-        <ArrowButtons
-          value={1}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-          leftButtonConfig={{
-            hide: true,
-          }}
-        />,
-      );
-
-      const backwardButton = arrowButtons.find(Button);
-      expect(backwardButton).toHaveLength(1);
-    });
-
-    it('hides right button', () => {
-      const onInteraction = jest.fn((forward) => {});
-
-      const arrowButtons = mount(
-        <ArrowButtons
-          value={1}
-          minValue={1}
-          maxValue={15}
-          onInteraction={onInteraction}
-          rightButtonConfig={{
-            hide: true,
-          }}
-        />,
-      );
-
-      const buttons = arrowButtons.find(Button);
-      expect(buttons).toHaveLength(1);
-    });
+    userEvent.keyboard(specialChars.arrowRight);
+    expect(onInteraction).not.toHaveBeenCalled();
   });
 });

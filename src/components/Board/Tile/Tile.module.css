@@ -10,6 +10,7 @@
   width: 100%;
 }
 
+/* Give the button a size */
 .tile::before {
   content: '';
   padding-bottom: 100%;

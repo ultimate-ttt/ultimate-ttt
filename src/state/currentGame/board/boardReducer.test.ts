@@ -1,13 +1,13 @@
 import boardReducer from './boardReducer';
 import { setTileValue } from './boardActions';
-import { crossFinishedBoardMock } from '../../../__mocks__';
+import { crossFinishedBoardMock } from '../../../mocks/board';
 import {
   SmallBoardInformation,
   SmallTileInformation,
   TileValue,
 } from '../../AppState';
 import { restartGame } from '../../commonAction';
-import { arePointsEqual } from '../../../util';
+import { arePointsEqual } from '../../../lib';
 
 describe('boardReducer', () => {
   it('should return init state', () => {

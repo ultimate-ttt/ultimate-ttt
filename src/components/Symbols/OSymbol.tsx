@@ -8,17 +8,13 @@ export interface OSymbolProps {
 }
 
 export class OSymbol extends React.Component<OSymbolProps> {
-  public static defaultProps: Partial<OSymbolProps> = {
-    shouldAnimate: true,
-  };
-
   render() {
     const { shouldAnimate } = this.props;
     const iconClass = classNames({
       [styles.o]: true,
-      [styles.animateO]: shouldAnimate,
+      [styles.animateO]: shouldAnimate ?? true,
     });
 
-    return <OGameIcon className={iconClass} />;
+    return <OGameIcon className={iconClass} aria-label={'O'} />;
   }
 }

@@ -16,14 +16,8 @@ export interface TileProps {
 }
 
 export function Tile(props: TileProps) {
-  const {
-    onTileClicked,
-    isTileRound,
-    clickable,
-    value,
-    animate,
-    highlight,
-  } = props;
+  const { onTileClicked, isTileRound, clickable, value, animate, highlight } =
+    props;
 
   const getValue = () => {
     let shouldAnimate = animate;
@@ -49,7 +43,7 @@ export function Tile(props: TileProps) {
     [styles.special]: highlight,
     [styles.indicator]: clickable && !highlight,
     [styles.normal]: !clickable && !highlight,
-    [styles.animate]: animate !== undefined ? animate : true,
+    [styles.animate]: animate ?? true,
     [styles.noWinner]: value === TileValue.Destroyed,
     [styles.circle]: isTileRound && value !== TileValue.Destroyed,
     [styles.square]: !isTileRound && value !== TileValue.Destroyed,

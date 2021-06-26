@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { TicTacToeGame } from '../../util';
+import { TicTacToeGame } from '../../lib';
 import { Move } from '../AppState';
 import { winStates } from './possibleWinStates';
-import { HowToPlayIndicatorHint } from '../../components/HowToPlay/HowToPlayIndicatorHint';
+import { HowToPlayIndicatorHint } from '../../views/HowToPlay/HowToPlayIndicatorHint';
 
 export interface HowToPlayStep {
   text: React.ReactNode;
@@ -25,8 +25,7 @@ export const howToPlaySteps: HowToPlayStep[] = [
     ],
   },
   {
-    text:
-      'When you get three signs in a row on a small board, you’ve won that board',
+    text: 'When you get three signs in a row on a small board, you’ve won that board',
     states: [
       new TicTacToeGame([
         { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 0, y: 1 } },
@@ -83,8 +82,7 @@ export const howToPlaySteps: HowToPlayStep[] = [
     ],
   },
   {
-    text:
-      'If one of the small boards results in a tie, the board counts for neither X nor O',
+    text: 'If one of the small boards results in a tie, the board counts for neither X nor O',
     states: [
       new TicTacToeGame([
         { boardPosition: { x: 0, y: 0 }, tilePosition: { x: 2, y: 0 } },

@@ -1,8 +1,8 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../../AppState';
 import { CALCULATE_BOARD_VALUE, setBoardValue } from './boardActions';
-import { playerToTileValue, TicTacToeGame } from '../../../util';
-import { getMoves } from '../../selectors/AppStateSelectors';
+import { playerToTileValue, TicTacToeGame } from '../../../lib';
+import { getMoves } from '../../selectors/appStateSelectors';
 import { SagaIterator } from 'redux-saga';
 
 function* calculateWinningBoard(action: GenericAction): SagaIterator {

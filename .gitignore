@@ -1,3 +1,7 @@
+cypress/screenshots/*
+cypress/**/*.diff.*
+cypress/snapshots/All Specs/*
+cypress/videos/*
 
 # Created by https://www.gitignore.io/api/node,jetbrains,visualstudiocode
 
@@ -100,10 +104,6 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
-
 
 ### VisualStudioCode ###
 .vscode/*

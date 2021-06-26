@@ -15,7 +15,7 @@ import {
   crossFinishedBoardMock,
   movesForBoardWithThreeMovesMock,
   movesForCrossFinishedBoardMock,
-} from '../../__mocks__';
+} from '../../mocks/board';
 import { AnalysisGame, Player, Winner } from '../AppState';
 
 describe('analysisGameReducer', () => {

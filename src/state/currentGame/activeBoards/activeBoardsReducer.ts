@@ -1,4 +1,4 @@
-import { Point, TicTacToeGame } from '../../../util';
+import { Point, TicTacToeGame } from '../../../lib';
 import { GenericAction } from '../../AppState';
 import { SET_ACTIVE_BOARDS } from './activeBoardsActions';
 import { RESTART_GAME } from '../../commonAction';

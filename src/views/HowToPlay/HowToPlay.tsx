@@ -8,9 +8,9 @@ import {
   howToPlayStepForward,
 } from '../../state/howToPlay/howToPlayActions';
 import { connect } from 'react-redux';
-import { HowToPlayDialog } from '../../components/HowToPlay/HowToPlayDialog';
-import { getHowToPlay } from '../../state/selectors/AppStateSelectors';
-import { getCurrentHowToPlayText } from '../../state/selectors/howToPlay/HowToPlayStateSelectors';
+import { getHowToPlay } from '../../state/selectors/appStateSelectors';
+import { getCurrentHowToPlayText } from '../../state/selectors/howToPlayStateSelectors';
+import { HowToPlayDialog } from './HowToPlayDialog';
 
 export interface HowToPlayProps {
   stepNumber: number;
@@ -22,7 +22,7 @@ export interface HowToPlayProps {
   onBackward: () => void;
 }
 
-export function HowToPlay(props: HowToPlayProps) {
+function HowToPlay(props: HowToPlayProps) {
   const history = useHistory();
 
   function handleClose() {

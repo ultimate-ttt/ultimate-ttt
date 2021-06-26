@@ -1,5 +1,5 @@
 import { Player } from '../../AppState';
-import { Point } from '../../../util';
+import { Point } from '../../../lib';
 
 export const REGISTER_MOVE = 'move-reducer/move-registered';
 
