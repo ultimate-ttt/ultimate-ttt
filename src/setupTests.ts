@@ -1,3 +1,7 @@
+import * as globalStorybookConfig from '../.storybook/decorators'; // path of your preview.js file
+import { setGlobalConfig } from '@storybook/testing-react';
+setGlobalConfig(globalStorybookConfig);
+
 import { server } from './mocks/api/server';
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());

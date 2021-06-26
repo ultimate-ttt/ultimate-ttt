@@ -3,7 +3,7 @@ module.exports = {
   addons: [
     '@storybook/preset-create-react-app',
     '@storybook/addon-essentials',
-    '@storybook/addon-links/register'
+    '@storybook/addon-links/register',
   ],
   typescript: {
     check: false,
