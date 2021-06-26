@@ -6,6 +6,8 @@
   "component": {
     "componentFolder": "src",
     "testFiles": "**/*.cy.{ts,tsx}",
-    "supportFile": "cypress/support/component.js"
+    "supportFile": "cypress/support/component.js",
+    "viewportWidth": 1000,
+    "viewportHeight": 660
   }
 }
