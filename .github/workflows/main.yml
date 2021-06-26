@@ -102,18 +102,16 @@ jobs:
         # We want an up to date Chrome
         run: sudo ./.scripts/setup-chromedriver.sh "linux64"
 
-      - name: Install Server 📡
-        run: sudo npm install -g serve
+      #- name: Install Server 📡
+      #  run: sudo npm install -g serve
 
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
-          start: serve build -l 3000
+          start: npx http-server build #yarn start # serve build -l 3000
           wait-on: "http://localhost:3000"
           # Use Custom Script for E2E testing so that videos are not trashed
           command: yarn test:int --e2e -v --browser chrome
-
-      - run: tree cypress
           
       - name: Increase File Watchers 🔭
         # We don't want a lot of "ENOSPC: System limit for number of file watchers reached" warnings
@@ -127,9 +125,7 @@ jobs:
           record: true
           # Use custom script for "cypress run-ct" so that browser is respected
           # Also make sure that previous videos are not trashed!
-          command: yarn test:int --ct -v
-        
-      - run: tree cypress
+          command: yarn test:int --ct -v --browser chrome
 
       - name: Upload Screenshots 📸
         uses: actions/upload-artifact@v1
@@ -145,3 +141,4 @@ jobs:
         with:
           # It is possible that the videos are lagging.
           name: cypress-videos
+          path: cypress/videos

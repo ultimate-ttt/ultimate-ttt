@@ -34,7 +34,7 @@
     "prettier": "prettier --write \"./src/**/*.*(ts|tsx|css)\""
   },
   "devDependencies": {
-    "@babel/core": "^7.14.5",
+    "@babel/core": "^7.14.6",
     "@cypress/react": "^5.9.1",
     "@cypress/webpack-dev-server": "^1.4.0",
     "@storybook/addon-essentials": "^6.3.0",
@@ -61,7 +61,7 @@
     "cypress": "^7.6.0",
     "cypress-image-snapshot": "^4.0.1",
     "msw": "^0.29.0",
-    "prettier": "^2.3.1",
+    "prettier": "^2.3.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-saga-test-plan": "^4.0.1",
