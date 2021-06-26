@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://github.com/maracuja-juice/ultimate-tic-tac-react/blob/master/public/android-chrome-192x192.png"
+  <img src="https://github.com/maracuja-juice/ultimate-tic-tac-react/blob/main/public/android-chrome-192x192.png"
 width="150" alt="tic tac toe logo" />
 </p>
 <h1 align="center">Ultimate Tic-Tac-Toe</h1>
