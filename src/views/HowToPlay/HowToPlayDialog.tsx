@@ -9,6 +9,8 @@ import styles from './HowToPlayDialog.module.css';
 import { HowToPlayContent } from './HowToPlayContent';
 import { HowToPlayBoardState } from '../../state/AppState';
 import { DialogActionBar } from './DialogActionBar';
+import { useKeyPressEvent } from 'react-use';
+import { Keys } from '../../lib';
 
 export interface HowToPlayDialogProps {
   onClose: () => void;
@@ -30,6 +32,9 @@ export function HowToPlayDialog(props: HowToPlayDialogProps) {
     text,
     boardState,
   } = props;
+
+  // preventOutsideDismiss also disables Escape key, so we enable it manually
+  useKeyPressEvent(Keys.Escape, onClose, null);
 
   return (
     <Dialog
