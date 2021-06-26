@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { action } from '@storybook/addon-actions';
-import { IconProvider } from '../Icons';
 import { ArrowButtons, ArrowButtonsProps } from './ArrowButtons';
 
 export default {
@@ -11,16 +10,11 @@ export default {
     value: 3,
     minValue: 1,
     maxValue: 5,
+    onInteraction: action('interaction'),
   },
 } as Meta;
 
-const Template: Story<ArrowButtonsProps> = (args) => (
-  <IconProvider>
-    <div className="historyButtons">
-      <ArrowButtons {...args} onInteraction={action('interaction')} />
-    </div>
-  </IconProvider>
-);
+const Template: Story<ArrowButtonsProps> = (args) => <ArrowButtons {...args} />;
 
 export const Standard = Template.bind({});
 
@@ -54,12 +48,16 @@ WithCustomProps.args = {
   },
 };
 
-export const Hide = Template.bind({});
-Hide.args = {
-  leftButtonConfig: {
-    hide: false,
-  },
+export const HideRight = Template.bind({});
+HideRight.args = {
   rightButtonConfig: {
+    hide: true,
+  },
+};
+
+export const HideLeft = Template.bind({});
+HideRight.args = {
+  leftButtonConfig: {
     hide: true,
   },
 };

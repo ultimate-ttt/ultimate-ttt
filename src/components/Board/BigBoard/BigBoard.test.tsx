@@ -1,22 +1,13 @@
 import * as React from 'react';
 import { render, screen } from '../../../test-utils';
 import userEvent from '@testing-library/user-event';
-import { BigBoard } from './BigBoard';
-import { Player } from '../../../state/AppState';
-import { emptyBoardMock, unfinishedBoardMock } from '../../../mocks/board';
+import { unfinishedBoardMock } from '../../../mocks/board';
+import { composeStories } from '@storybook/testing-react';
+import * as stories from './BigBoard.story';
+const { Empty } = composeStories(stories);
 
 test('should render buttons for board', () => {
-  const playerMoved = jest.fn(() => {});
-  const activeBoards = [{ x: 0, y: 0 }];
-
-  render(
-    <BigBoard
-      currentPlayer={Player.Cross}
-      board={emptyBoardMock}
-      activeBoards={activeBoards}
-      onPlayerMoved={playerMoved}
-    />,
-  );
+  render(<Empty />);
 
   const buttons = screen.getAllByRole('button');
   const removeExtensions = (str: string) => str.replace(/\..*/, '');
@@ -30,26 +21,8 @@ test('should render buttons for board', () => {
 
 test('allows clicking on buttons without content', () => {
   const playerMoved = jest.fn(() => {});
-  const activeBoards = [
-    { x: 0, y: 0 },
-    { x: 0, y: 1 },
-    { x: 0, y: 2 },
-    { x: 1, y: 0 },
-    { x: 1, y: 1 },
-    { x: 1, y: 2 },
-    { x: 2, y: 0 },
-    { x: 2, y: 1 },
-    { x: 2, y: 2 },
-  ];
 
-  render(
-    <BigBoard
-      currentPlayer={Player.Cross}
-      board={unfinishedBoardMock}
-      activeBoards={activeBoards}
-      onPlayerMoved={playerMoved}
-    />,
-  );
+  render(<Empty board={unfinishedBoardMock} onPlayerMoved={playerMoved} />);
 
   const buttonsWithContent = screen.getAllByRole('button', { name: /./ });
   buttonsWithContent.forEach((button) => userEvent.click(button));

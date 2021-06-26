@@ -30,15 +30,13 @@ function getSmallBoard(boardPosition: Point, board: TileValue[]) {
 export default {
   title: 'SmallBoard',
   component: SmallBoard,
+  args: {
+    onTileClicked: action('onTileClicked'),
+    animate: true,
+  },
 } as Meta;
 
-const Template: Story<SmallBoardProps> = (args) => (
-  <SmallBoard
-    {...args}
-    onTileClicked={action('onTileClicked')}
-    animate={true}
-  />
-);
+const Template: Story<SmallBoardProps> = (args) => <SmallBoard {...args} />;
 
 export const Empty = Template.bind({});
 const emptyPosition = { x: 0, y: 0 };

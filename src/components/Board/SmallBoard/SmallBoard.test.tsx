@@ -1,40 +1,12 @@
 import * as React from 'react';
 import { render, screen } from '../../../test-utils';
-import { SmallBoard } from './SmallBoard';
-import { Point } from '../../../lib';
-import { Player, TileValue } from '../../../state/AppState';
 import userEvent from '@testing-library/user-event';
-
-function getSmallTile(boardPosition: Point, position: Point, value: TileValue) {
-  return {
-    boardPosition,
-    position,
-    value,
-  };
-}
-
-const boardPosition = { x: 0, y: 0 };
-const tiles = [
-  getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
-  getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Cross),
-  getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Circle),
-  getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Circle),
-  getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Empty),
-  getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Empty),
-];
+import { composeStories } from '@storybook/testing-react';
+import * as stories from './SmallBoard.story';
+const { WithValues, WinnerCross, NoWinner } = composeStories(stories);
 
 test('renders buttons with content', () => {
-  render(
-    <SmallBoard
-      onTileClicked={() => {}}
-      tiles={tiles}
-      x={boardPosition.x}
-      y={boardPosition.y}
-      currentPlayer={Player.Cross}
-      moveAllowed={true}
-      winningPlayer={TileValue.Empty}
-    />,
-  );
+  render(<WithValues />);
 
   const buttons = screen.getAllByRole('button');
   const removeExtensions = (str: string) => str.replace(/\..*/, '');
@@ -43,30 +15,23 @@ test('renders buttons with content', () => {
   );
   expect(buttonContent).toMatchInlineSnapshot(`
     Array [
+      "",
       "x",
-      "x",
-      "o",
-      "o",
       "",
       "",
+      "o",
+      "",
+      "x",
+      "",
+      "o",
     ]
   `);
-  expect(buttons).toHaveLength(6);
+  expect(buttons).toHaveLength(9);
 });
 
 test('checks value for allowing clicking', () => {
   const onClick = jest.fn();
-  render(
-    <SmallBoard
-      onTileClicked={onClick}
-      tiles={tiles}
-      x={boardPosition.x}
-      y={boardPosition.y}
-      currentPlayer={Player.Cross}
-      moveAllowed={true}
-      winningPlayer={TileValue.Empty}
-    />,
-  );
+  render(<WithValues onTileClicked={onClick} />);
 
   const buttonsWithValue = screen.getAllByRole('button', { name: /./ });
   buttonsWithValue.forEach((button) => userEvent.click(button));
@@ -75,22 +40,12 @@ test('checks value for allowing clicking', () => {
   const buttonsEmpty = screen.getAllByRole('button', { name: /^$/ });
   buttonsEmpty.forEach((button) => userEvent.click(button));
 
-  expect(onClick).toHaveBeenCalledTimes(2);
+  expect(onClick).toHaveBeenCalledTimes(5);
 });
 
 test('doesnt allow clicking when move is not allowed', () => {
   const onClick = jest.fn();
-  render(
-    <SmallBoard
-      onTileClicked={onClick}
-      tiles={tiles}
-      x={boardPosition.x}
-      y={boardPosition.y}
-      currentPlayer={Player.Cross}
-      moveAllowed={false}
-      winningPlayer={TileValue.Empty}
-    />,
-  );
+  render(<NoWinner />);
 
   const buttons = screen.getAllByRole('button');
   buttons.forEach((button) => userEvent.click(button));
@@ -99,28 +54,7 @@ test('doesnt allow clicking when move is not allowed', () => {
 
 test('only adds one button when board is finished', () => {
   const onClick = jest.fn();
-  const wonBoard = [
-    getSmallTile(boardPosition, { x: 0, y: 0 }, TileValue.Cross),
-    getSmallTile(boardPosition, { x: 0, y: 1 }, TileValue.Cross),
-    getSmallTile(boardPosition, { x: 0, y: 2 }, TileValue.Cross),
-    getSmallTile(boardPosition, { x: 1, y: 0 }, TileValue.Empty),
-    getSmallTile(boardPosition, { x: 1, y: 1 }, TileValue.Empty),
-    getSmallTile(boardPosition, { x: 1, y: 2 }, TileValue.Empty),
-    getSmallTile(boardPosition, { x: 2, y: 0 }, TileValue.Empty),
-    getSmallTile(boardPosition, { x: 2, y: 1 }, TileValue.Cross),
-    getSmallTile(boardPosition, { x: 2, y: 2 }, TileValue.Circle),
-  ];
-  render(
-    <SmallBoard
-      onTileClicked={onClick}
-      tiles={wonBoard}
-      x={boardPosition.x}
-      y={boardPosition.y}
-      currentPlayer={Player.Cross}
-      moveAllowed={false}
-      winningPlayer={TileValue.Cross}
-    />,
-  );
+  render(<WinnerCross onTileClicked={onClick} />);
 
   const buttons = screen.getAllByRole('button');
   expect(buttons).toHaveLength(1);

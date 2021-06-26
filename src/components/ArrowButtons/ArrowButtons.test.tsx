@@ -1,35 +1,30 @@
 import * as React from 'react';
 import { render, screen } from '../../test-utils';
 import userEvent, { specialChars } from '@testing-library/user-event';
-import { ArrowButtons } from './ArrowButtons';
+import { composeStories } from '@storybook/testing-react';
+import * as stories from './ArrowButtons.story';
+const { Standard, Maximum, Minimum, WithKeyboard } = composeStories(stories);
 
-test('renders next & previous buttons', () => {
-  render(
-    <ArrowButtons
-      value={2}
-      minValue={1}
-      maxValue={5}
-      onInteraction={() => {}}
-    />,
-  );
+test('renders next & previous buttons & allows clicking', () => {
+  const onInteraction = jest.fn();
+
+  render(<Standard onInteraction={onInteraction} />);
   const next = screen.getByRole('button', { name: /next/i });
   const previous = screen.getByRole('button', { name: /previous/i });
   expect(next).toBeInTheDocument();
   expect(next).not.toBeDisabled();
   expect(previous).toBeInTheDocument();
   expect(previous).not.toBeDisabled();
+
+  userEvent.click(next);
+  expect(onInteraction).toHaveBeenCalledWith(true);
+  userEvent.click(previous);
+  expect(onInteraction).toHaveBeenCalledWith(false);
 });
 
-test('disables next button when value is maxValue', () => {
+test('disables next button when Maximum', () => {
   const onInteraction = jest.fn();
-  render(
-    <ArrowButtons
-      value={1}
-      minValue={0}
-      maxValue={1}
-      onInteraction={onInteraction}
-    />,
-  );
+  render(<Maximum />);
 
   const next = screen.getByRole('button', { name: /next/i });
   userEvent.click(next);
@@ -37,16 +32,9 @@ test('disables next button when value is maxValue', () => {
   expect(onInteraction).not.toHaveBeenCalled();
 });
 
-test('disables previous button when value is minValue', () => {
+test('disables previous button when Minimum', () => {
   const onInteraction = jest.fn();
-  render(
-    <ArrowButtons
-      value={0}
-      minValue={0}
-      maxValue={1}
-      onInteraction={onInteraction}
-    />,
-  );
+  render(<Minimum />);
 
   const previous = screen.getByRole('button', { name: /previous/i });
   userEvent.click(previous);
@@ -54,52 +42,10 @@ test('disables previous button when value is minValue', () => {
   expect(onInteraction).not.toHaveBeenCalled();
 });
 
-test('allows clicking next button', () => {
-  const onInteraction = jest.fn();
-  render(
-    <ArrowButtons
-      value={2}
-      minValue={1}
-      maxValue={5}
-      onInteraction={onInteraction}
-    />,
-  );
-
-  const next = screen.getByRole('button', { name: /next/i });
-  userEvent.click(next);
-
-  expect(onInteraction).toHaveBeenCalledWith(true);
-});
-
-test('allows clicking previous button', () => {
-  const onInteraction = jest.fn();
-  render(
-    <ArrowButtons
-      value={2}
-      minValue={1}
-      maxValue={5}
-      onInteraction={onInteraction}
-    />,
-  );
-
-  const previous = screen.getByRole('button', { name: /previous/i });
-  userEvent.click(previous);
-
-  expect(onInteraction).toHaveBeenCalledWith(false);
-});
-
 describe('handleKeyboard', () => {
   test('allows using arrow keys', () => {
     const onInteraction = jest.fn();
-    render(
-      <ArrowButtons
-        value={2}
-        minValue={1}
-        maxValue={5}
-        onInteraction={onInteraction}
-        handleKeyboard={true}
-      />,
-    );
+    render(<WithKeyboard onInteraction={onInteraction} />);
 
     userEvent.keyboard(specialChars.arrowLeft);
     userEvent.keyboard(specialChars.arrowRight);
@@ -109,14 +55,7 @@ describe('handleKeyboard', () => {
 
   test('doesnt allow keyboard when handleKeyboard is false', () => {
     const onInteraction = jest.fn();
-    render(
-      <ArrowButtons
-        value={2}
-        maxValue={5}
-        minValue={1}
-        onInteraction={onInteraction}
-      />,
-    );
+    render(<Standard onInteraction={onInteraction} />);
 
     userEvent.keyboard(specialChars.arrowLeft);
     userEvent.keyboard(specialChars.arrowRight);
@@ -125,15 +64,7 @@ describe('handleKeyboard', () => {
 
   test('doesnt allow using arrow key when value is minValue', () => {
     const onInteraction = jest.fn();
-    render(
-      <ArrowButtons
-        value={1}
-        minValue={1}
-        maxValue={5}
-        onInteraction={onInteraction}
-        handleKeyboard={true}
-      />,
-    );
+    render(<WithKeyboard onInteraction={onInteraction} value={1} />);
 
     userEvent.keyboard(specialChars.arrowLeft);
     expect(onInteraction).not.toHaveBeenCalled();
@@ -141,15 +72,7 @@ describe('handleKeyboard', () => {
 
   test('doesnt allow using arrow key when value is maxValue', () => {
     const onInteraction = jest.fn();
-    render(
-      <ArrowButtons
-        value={5}
-        minValue={1}
-        maxValue={5}
-        onInteraction={onInteraction}
-        handleKeyboard={true}
-      />,
-    );
+    render(<WithKeyboard onInteraction={onInteraction} value={5} />);
 
     userEvent.keyboard(specialChars.arrowRight);
     expect(onInteraction).not.toHaveBeenCalled();

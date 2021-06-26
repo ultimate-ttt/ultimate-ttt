@@ -8,16 +8,26 @@ import styles from '../SmallBoard/SmallBoard.module.css';
 export default {
   title: 'Tile',
   component: Tile,
+  args: {
+    onTileClicked: action('onTileClicked'),
+  },
 } as Meta;
 
 const Template: Story<TileProps> = (args) => (
   <div className={styles.smallBoard}>
-    <Tile {...args} onTileClicked={action('onTileClicked')} />
+    <Tile {...args} />
   </div>
 );
 
-export const Clickable = Template.bind({});
-Clickable.args = {
+export const Empty = Template.bind({});
+Empty.args = {
+  value: TileValue.Empty,
+  isTileRound: false,
+  clickable: false,
+};
+
+export const EmptyClickable = Template.bind({});
+EmptyClickable.args = {
   value: TileValue.Empty,
   isTileRound: false,
   clickable: true,
