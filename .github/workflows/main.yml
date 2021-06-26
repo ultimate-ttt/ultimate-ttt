@@ -108,7 +108,7 @@ jobs:
       - name: "Chrome 🕹️"
         uses: cypress-io/github-action@v2
         with:
-          start: npx http-server build #yarn start # serve build -l 3000
+          start: npx http-server build -p 3000 #yarn start # serve build -l 3000
           wait-on: "http://localhost:3000"
           # Use Custom Script for E2E testing so that videos are not trashed
           command: yarn test:int --e2e -v --browser chrome
