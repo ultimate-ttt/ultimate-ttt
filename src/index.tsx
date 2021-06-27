@@ -7,7 +7,7 @@ import { configureStore } from './state/configureStore';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { IconProvider } from './components/Icons';
-import './styles';
+// import './styles';
 
 const store = configureStore();
 const persistor = persistStore(store);
