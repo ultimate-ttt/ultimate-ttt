@@ -41,7 +41,7 @@
     "@storybook/addon-essentials": "^6.3.2",
     "@storybook/addon-links": "^6.3.2",
     "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.3.2",
+    "@storybook/react": "^6.3.4",
     "@storybook/testing-react": "^0.0.18",
     "@testing-library/cypress": "^7.0.6",
     "@testing-library/dom": "^8.1.0",
