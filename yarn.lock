@@ -4813,10 +4813,10 @@
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.4.0.tgz#14f854c0f93d326e39da6e3b6f34f7d37513d108"
   integrity sha512-y7mImlc/rNkvCRmg8gC3/lj87S7pTUIJ6QGjwHR9WQJcFs+ZMTOaoPrkdFA/YdbuqVEmEbb5RdhVxMkAcgOnpg==
 
-"@types/cypress-image-snapshot@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@types/cypress-image-snapshot/-/cypress-image-snapshot-3.1.5.tgz#03d5b8e089e96a493da31bdb9aef16f34c0000c1"
-  integrity sha512-PoYmfojdRxrAi5kXi60NKSw3f9tmP7wGtyoRpMMcV4rlEOUzpyO6zmE9G0Z42u7i9erlyrwLVqFpbsN+uLq1Kg==
+"@types/cypress-image-snapshot@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/cypress-image-snapshot/-/cypress-image-snapshot-3.1.6.tgz#927680b459f265238e3cc3602886960c6f900d3d"
+  integrity sha512-N3aUkw/yWPtdV5Ilze3UskxHjkM4mHjvQ8w9o0RK7Y6IvRkdwNyZhzGacYceCx9RTQsyw6sa1DXBHx4toDR8tQ==
 
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
