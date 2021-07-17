@@ -3,8 +3,8 @@ import { GenericAction } from '../../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from './gameAction';
 import { getMoves } from '../../selectors/appStateSelectors';
 import { setActiveBoards } from '../activeBoards/activeBoardsActions';
-import { saveGameData } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/finishedGameStateSelectors';
+import { saveGame } from '../../finishedGames/saveFinishedGameActions';
+import { getFinishedGame } from '../../selectors/finishedGameStateSelectors';
 import { TicTacToeGame } from '../../../lib';
 import { SagaIterator } from 'redux-saga';
 
@@ -18,7 +18,7 @@ function* checkIfGameFinished(action: GenericAction): SagaIterator {
   if (isGameFinished) {
     yield put(gameFinished(winningPlayer));
     yield put(setActiveBoards([]));
-    yield put(saveGameData(yield select(getFinishedGameData)));
+    yield put(saveGame(yield select(getFinishedGame)));
   }
 }
 

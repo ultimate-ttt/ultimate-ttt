@@ -5,6 +5,8 @@ import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
 import { Point } from '../../lib';
 import { Button } from '@rmwc/button';
+import { createGame } from '../../state/currentGame/online/onlineAction';
+import styles from './Online.module.css';
 
 interface OnlineProps {
   currentPlayer: Player;
@@ -16,6 +18,7 @@ interface OnlineProps {
     tileX: number,
     tileY: number,
   ) => void;
+  onCreateGame: () => void;
 }
 
 const Online = (props: OnlineProps) => {
@@ -25,18 +28,19 @@ const Online = (props: OnlineProps) => {
 
   return (
     <div className="centerAll">
-      <Button>Create Game</Button>
-      <Button>Join Game</Button>
-      <BigBoard
-        currentPlayer={currentPlayer}
-        board={board}
-        activeBoards={activeBoards}
-        onPlayerMoved={onPlayerMoved}
-      />
+      <div className={styles.gameWrapper}>
+        <Button onClick={props.onCreateGame}>Create Game</Button>
+        <Button>Join Game</Button>
+        <BigBoard
+          currentPlayer={currentPlayer}
+          board={board}
+          activeBoards={activeBoards}
+          onPlayerMoved={onPlayerMoved}
+        />
+      </div>
     </div>
   );
 };
-
 const mapStateToProps = (state: AppState) => ({
   currentPlayer: state.currentGame.game.currentPlayer,
   board: state.currentGame.board,
@@ -50,6 +54,7 @@ const mapDispatchToProps = {
     tileX: number,
     tileY: number,
   ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
+  onCreateGame: () => createGame(),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Online);

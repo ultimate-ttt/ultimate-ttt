@@ -6,7 +6,7 @@ import { CHECK_GAME_FINISHED, GAME_FINISHED } from './gameAction';
 import { Player } from '../../AppState';
 import { SET_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
 import { SAVE_GAME } from '../../finishedGames/saveFinishedGameDataActions';
-import { getFinishedGameData } from '../../selectors/finishedGameStateSelectors';
+import { getFinishedGame } from '../../selectors/finishedGameStateSelectors';
 import {
   circleFinishedGameMock,
   crossFinishedGameMock,
@@ -23,7 +23,7 @@ describe('checkGameFinishedSaga', () => {
       return expectSaga(checkGameFinishedSaga)
         .provide([
           [select(getMoves), movesForCircleFinishedBoardMock],
-          [select(getFinishedGameData), circleFinishedGameMock],
+          [select(getFinishedGame), circleFinishedGameMock],
         ])
         .put({ type: GAME_FINISHED, payload: Player.Circle })
         .put({ type: SET_ACTIVE_BOARDS, payload: [] })
@@ -44,7 +44,7 @@ describe('checkGameFinishedSaga', () => {
       return expectSaga(checkGameFinishedSaga)
         .provide([
           [select(getMoves), movesForCrossFinishedBoardMock],
-          [select(getFinishedGameData), crossFinishedGameMock],
+          [select(getFinishedGame), crossFinishedGameMock],
         ])
         .put({ type: GAME_FINISHED, payload: Player.Cross })
         .put({ type: SET_ACTIVE_BOARDS, payload: [] })

@@ -18,7 +18,7 @@ const getWinningPlayerAsString = createSelector(
   },
 );
 
-export const getFinishedGameData = createSelector(
+export const getFinishedGame = createSelector(
   [getWinningPlayerAsString, getBoards, getMoves],
   (winningPlayer, boards, moves) => {
     return {

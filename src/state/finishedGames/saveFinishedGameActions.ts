@@ -32,9 +32,6 @@ export interface SaveGameAction {
   payload: FinishedGameState;
   saveOnline: boolean;
 }
-
 export interface SaveGamePendingAction extends TypeOnlyAction {}
-
 export interface SaveGameFulfilledAction extends StringAction {}
-
 export interface SaveGameRejectedAction extends StringAction {}

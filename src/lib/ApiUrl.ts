@@ -1,3 +1,4 @@
+// TODO move this to .env / .env.example
 export const getApiUrl = () => {
   const host = window.location.host;
   if (host.includes('localhost') || host.includes('deploy')) {

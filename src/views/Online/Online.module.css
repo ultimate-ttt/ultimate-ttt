@@ -1,0 +1,22 @@
+/* TODO: we can remove this later and replace with Game.module.css again */
+.gameWrapper {
+  display: grid;
+  grid-template-columns: 80vmin;
+
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 9px;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 500px) {
+  .gameWrapper {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .gameWrapper {
+    font-size: 16px;
+  }
+}
