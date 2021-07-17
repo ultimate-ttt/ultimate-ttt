@@ -5,7 +5,10 @@ import { playerMoved } from '../../state/currentGame/game/gameAction';
 import { connect } from 'react-redux';
 import { Point } from '../../lib';
 import { Button } from '@rmwc/button';
-import { createGame } from '../../state/currentGame/online/onlineAction';
+import {
+  createGame,
+  joinGame,
+} from '../../state/currentGame/online/onlineAction';
 import styles from './Online.module.css';
 
 interface OnlineProps {
@@ -18,7 +21,8 @@ interface OnlineProps {
     tileX: number,
     tileY: number,
   ) => void;
-  onCreateGame: () => void;
+  onCreateGame: () => void; // TODO do this somewhere else?
+  onJoinGame: (id: string) => void;
 }
 
 const Online = (props: OnlineProps) => {
@@ -30,7 +34,13 @@ const Online = (props: OnlineProps) => {
     <div className="centerAll">
       <div className={styles.gameWrapper}>
         <Button onClick={props.onCreateGame}>Create Game</Button>
-        <Button>Join Game</Button>
+        <Button
+          onClick={() => {
+            props.onJoinGame('xTuYT8');
+          }}
+        >
+          Join Game
+        </Button>
         <BigBoard
           currentPlayer={currentPlayer}
           board={board}
@@ -55,6 +65,7 @@ const mapDispatchToProps = {
     tileY: number,
   ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
   onCreateGame: () => createGame(),
+  onJoinGame: (id: string) => joinGame(id),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Online);
