@@ -1,4 +1,5 @@
 import { apiConnect, apiCreate, apiMove } from './environment';
+import { Point } from './index';
 
 const POST = 'POST';
 const postHeaders = {
@@ -9,6 +10,7 @@ export type CreateGameResponse = {
   shortId: string;
   playerId: string;
 };
+
 export async function postCreateGame(): Promise<CreateGameResponse> {
   const response = await window.fetch(apiCreate, {
     method: POST,
@@ -25,6 +27,7 @@ export async function postCreateGame(): Promise<CreateGameResponse> {
 export type ConnectGameResponse = {
   playerId: string;
 };
+
 export async function postConnectGame(
   id: string,
 ): Promise<ConnectGameResponse> {
@@ -42,16 +45,24 @@ export async function postConnectGame(
 }
 
 export type MoveResponse = {};
-export async function postMove(boardX: number,
-boardY,: number,
-tileX: number,
-tileY: number,
-gameId: string,
-playerId: string): Promise<MoveResponse> {
+
+export async function postMove(
+  gameId: string,
+  playerId: string,
+  board: Point,
+  tile: Point,
+): Promise<MoveResponse> {
   const response = await window.fetch(apiMove, {
     method: POST,
     headers: postHeaders,
-    body: JSON.stringify({ shortId: id }),
+    body: JSON.stringify({
+      gameId: gameId,
+      playerId: playerId,
+      boardX: board.x,
+      boardY: board.y,
+      tileX: tile.x,
+      tileY: tile.y,
+    }),
   });
 
   if (response.ok) {

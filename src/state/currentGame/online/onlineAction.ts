@@ -8,6 +8,9 @@ export const JOIN_GAME = 'online/join-game';
 export const JOIN_GAME_PENDING = 'online/join-game-pending';
 export const JOIN_GAME_FULFILLED = 'online/join-game-fulfilled';
 export const JOIN_GAME_REJECTED = 'online/join-game-rejected';
+export const PLAYER_MOVED_PENDING = 'online/player-moved-pending';
+export const PLAYER_MOVED_FULFILLED = 'online/player-moved-fulfilled';
+export const PLAYER_MOVED_REJECTED = 'online/player-moved-rejected';
 
 export const createGame = (): CreateGameAction => ({
   type: CREATE_GAME,
@@ -62,6 +65,21 @@ export const joinGameRejected = (
   payload: errorMessage,
 });
 
+export const playerMovedPending = (): PlayerMovedPendingAction => ({
+  type: PLAYER_MOVED_PENDING,
+});
+
+export const playerMovedFulfilled = (): PlayerMovedFulfilledAction => ({
+  type: PLAYER_MOVED_FULFILLED,
+});
+
+export const playerMovedRejected = (
+  errorMessage: string,
+): PlayerMovedRejectedAction => ({
+  type: PLAYER_MOVED_REJECTED,
+  payload: errorMessage,
+});
+
 export interface CreateGameAction extends TypeOnlyAction {}
 export interface CreateGamePendingAction extends TypeOnlyAction {}
 export interface CreateGameFulfilledAction extends GenericAction {
@@ -82,3 +100,7 @@ export interface JoinGameFulfilledAction extends GenericAction {
   };
 }
 export interface JoinGameRejectedAction extends StringAction {}
+
+export interface PlayerMovedPendingAction extends TypeOnlyAction {}
+export interface PlayerMovedFulfilledAction extends TypeOnlyAction {}
+export interface PlayerMovedRejectedAction extends StringAction {}

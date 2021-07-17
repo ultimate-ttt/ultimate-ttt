@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
 import {
   CREATE_GAME,
@@ -11,6 +11,9 @@ import {
   joinGameFulfilled,
   joinGamePending,
   joinGameRejected,
+  playerMovedFulfilled,
+  playerMovedPending,
+  playerMovedRejected,
 } from './onlineAction';
 import { PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
 import {
@@ -18,9 +21,12 @@ import {
   CreateGameResponse,
   postConnectGame,
   postCreateGame,
+  postMove,
 } from '../../../lib/Api';
-
-function* playerMoved(action: PlayerMovedAction): SagaIterator {}
+import {
+  getOnlineGameId,
+  getOnlinePlayerId,
+} from '../../selectors/appStateSelectors';
 
 function* createGame(action: CreateGameAction): SagaIterator {
   yield put(createGamePending());
@@ -45,10 +51,28 @@ function* joinGame(action: JoinGameAction): SagaIterator {
   }
 }
 
+function* playerMoved(action: PlayerMovedAction): SagaIterator {
+  yield put(playerMovedPending());
+  try {
+    const gameId = yield select(getOnlineGameId);
+    const playerId = yield select(getOnlinePlayerId);
+    yield call(
+      postMove,
+      gameId,
+      playerId,
+      action.payload.boardPosition,
+      action.payload.tilePosition,
+    );
+    yield put(playerMovedFulfilled());
+  } catch (e) {
+    yield put(playerMovedRejected(e));
+  }
+}
+
 function* onlineSaga() {
-  yield takeEvery(PLAYER_MOVED, playerMoved);
   yield takeEvery(CREATE_GAME, createGame);
   yield takeEvery(JOIN_GAME, joinGame);
+  yield takeEvery(PLAYER_MOVED, playerMoved);
 }
 
 export default onlineSaga;
