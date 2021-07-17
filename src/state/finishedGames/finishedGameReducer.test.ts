@@ -1,10 +1,10 @@
 import { FinishedGameState, SaveState } from '../AppState';
 import {
-  saveGameData,
-  saveGameDataFulfilled,
-  saveGameDataPending,
-  saveGameDataRejected,
-} from './saveFinishedGameDataActions';
+  saveGame,
+  saveGameFulfilled,
+  saveGamePending,
+  saveGameRejected,
+} from './saveFinishedGameActions';
 import { crossFinishedBoardMock } from '../../mocks/board';
 import finishedGameReducer from './finishedGameReducer';
 
@@ -43,7 +43,7 @@ describe('finishedGameReducer', () => {
   describe('saveGameData', () => {
     it('should add data to array', () => {
       const finishedGameMock = getFinishedGameMock();
-      const action = saveGameData(finishedGameMock);
+      const action = saveGame(finishedGameMock);
       const newState = finishedGameReducer([], action);
 
       expect(newState.length).toBe(1);
@@ -51,7 +51,7 @@ describe('finishedGameReducer', () => {
 
     it('should add data to array', () => {
       const finishedGameMock = getFinishedGameMock();
-      const action = saveGameData(finishedGameMock);
+      const action = saveGame(finishedGameMock);
       const newState = finishedGameReducer([finishedGameMock], action);
 
       expect(newState.length).toBe(2);
@@ -62,7 +62,7 @@ describe('finishedGameReducer', () => {
     it('should set data to pending', () => {
       const finishedGameMock = getFinishedGameMock();
       finishedGameMock.saveState = '';
-      const action = saveGameDataPending();
+      const action = saveGamePending();
       const newState = finishedGameReducer([finishedGameMock], action);
 
       expect(newState[0].saveState).toEqual('pending');
@@ -73,7 +73,7 @@ describe('finishedGameReducer', () => {
     it('should set data to fulfilled', () => {
       const finishedGameMock = getFinishedGameMock();
       finishedGameMock.saveState = '';
-      const action = saveGameDataFulfilled('123');
+      const action = saveGameFulfilled('123');
       const newState = finishedGameReducer([finishedGameMock], action);
 
       expect(newState[0].saveState).toEqual('fulfilled');
@@ -82,7 +82,7 @@ describe('finishedGameReducer', () => {
     it('should set id to provided id', () => {
       const finishedGameMock = getFinishedGameMock();
       finishedGameMock.saveState = '';
-      const action = saveGameDataFulfilled('123');
+      const action = saveGameFulfilled('123');
       const newState = finishedGameReducer([finishedGameMock], action);
 
       expect(newState[0].id).toEqual('123');
@@ -93,7 +93,7 @@ describe('finishedGameReducer', () => {
     it('should set data to rejected', () => {
       const finishedGameMock = getFinishedGameMock();
       finishedGameMock.saveState = '';
-      const action = saveGameDataRejected('error');
+      const action = saveGameRejected('error');
       const newState = finishedGameReducer([finishedGameMock], action);
 
       expect(newState[0].saveState).toEqual('rejected');

@@ -12,19 +12,22 @@ import playerMovedSaga from './currentGame/moves/moveValidationSaga';
 import boardCalculationSaga from './currentGame/board/boardCalculationSaga';
 import activeBoardsCalculationSaga from './currentGame/activeBoards/activeBoardsCalculationSaga';
 import checkGameFinishedSaga from './currentGame/game/checkGameFinishedSaga';
-import saveFinishedGameDataSaga from './finishedGames/saveFinishedGameDataSaga';
+import saveFinishedGameSaga from './finishedGames/saveFinishedGameSaga';
 import finishedGameReducer from './finishedGames/finishedGameReducer';
 import { AppState, GameInformation } from './AppState';
 import analysisGameReducer from './analysisGame/analysisGameReducer';
 import loadFinishedGameSaga from './analysisGame/analysisGameSaga';
 import howToPlayReducer from './howToPlay/howToPlayReducer';
 import howToPlaySaga from './howToPlay/howToPlaySaga';
+import onlineSaga from './currentGame/online/onlineSaga';
+import onlineReducer from './currentGame/online/onlineReducer';
 
 const currentGameReducer = combineReducers<GameInformation>({
   game: gameReducer,
   board: boardReducer,
   moves: moveReducer,
   activeBoards: activeBoardsReducer,
+  online: onlineReducer,
 });
 export const rootReducer = combineReducers<AppState>({
   currentGame: currentGameReducer,
@@ -64,8 +67,9 @@ function* rootSaga() {
     fork(boardCalculationSaga),
     fork(activeBoardsCalculationSaga),
     fork(checkGameFinishedSaga),
-    fork(saveFinishedGameDataSaga),
+    fork(onlineSaga),
     fork(loadFinishedGameSaga),
+    fork(saveFinishedGameSaga),
     fork(howToPlaySaga),
   ]);
 }

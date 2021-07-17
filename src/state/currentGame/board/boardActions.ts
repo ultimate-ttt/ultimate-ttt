@@ -1,9 +1,9 @@
 import { TileValue } from '../../AppState';
 import { Point } from '../../../lib/Point';
 
-export const SET_TILE_VALUE = 'tile-reducer/set-tile-value';
-export const SET_BOARD_VALUE = 'tile-reducer/set-board-value';
-export const CALCULATE_BOARD_VALUE = 'tile-reducer/calculate-board-value';
+export const SET_TILE_VALUE = 'board/set-tile-value';
+export const SET_BOARD_VALUE = 'board/set-board-value';
+export const CALCULATE_BOARD_VALUE = 'board/calculate-board-value';
 
 export const setTileValue = (
   boardPosition: Point,

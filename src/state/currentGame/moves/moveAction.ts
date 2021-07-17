@@ -1,7 +1,7 @@
 import { Player } from '../../AppState';
 import { Point } from '../../../lib';
 
-export const REGISTER_MOVE = 'move-reducer/move-registered';
+export const REGISTER_MOVE = 'move/move-registered';
 
 export const registerMove = (
   boardPosition: Point,

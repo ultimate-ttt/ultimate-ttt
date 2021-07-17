@@ -12,6 +12,7 @@ export interface GameInformation {
   game: GameState;
   moves: MoveState[];
   activeBoards: Point[];
+  online: OnlineState;
 }
 
 export interface FinishedGameState {
@@ -51,6 +52,20 @@ export interface GameState {
   currentPlayer: Player;
   isFinished: boolean;
   winningPlayer: Winner;
+}
+
+export interface OnlineState {
+  gameId?: string;
+  playerId?: string;
+  player: Player;
+  createGame: {
+    saveState: SaveState;
+    errorMessage: string;
+  };
+  lastMove: {
+    saveState: SaveState;
+    errorMessage: string;
+  };
 }
 
 export interface TileInformation {
@@ -98,12 +113,21 @@ export interface MoveState extends Move {
   moveNumber: number;
 }
 
+export interface Highlight {
+  condition: boolean;
+  position?: { boardPosition: Point; tilePosition: Point };
+}
+
 export interface GenericAction {
   type: string;
   payload?: any;
 }
 
-export interface Highlight {
-  condition: boolean;
-  position?: { boardPosition: Point; tilePosition: Point };
+export interface TypeOnlyAction {
+  type: string;
+}
+
+export interface StringAction {
+  type: string;
+  payload: string;
 }

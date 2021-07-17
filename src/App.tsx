@@ -6,6 +6,7 @@ import AnalysisGameRoute from './views/AnalysisGame/AnalysisGame';
 import AnalysisOverview from './views/AnalysisOverview/AnalysisOverview';
 import Game from './views/Game/Game';
 import HowToPlay from './views/HowToPlay/HowToPlay';
+import Online from "./views/Online/Online";
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path={routes.AnalysisLatest} component={AnalysisGameRoute} />
           <Route path={routes.AnalysisParam} component={AnalysisGameRoute} />
           <Route path={routes.AnalysisOverview} component={AnalysisOverview} />
+          <Route path={routes.Online} component={Online} /> {/* TODO remove this route later */}
           <Route path={routes.Home} component={Game} />
         </Switch>
         <Route path={routes.HowToPlay} component={HowToPlay} />

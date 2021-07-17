@@ -1,10 +1,10 @@
-export const HOW_TO_PLAY_CLOSE = 'howToPlayReducer/how-to-play-close';
+export const HOW_TO_PLAY_CLOSE = 'howToPlay/how-to-play-close';
 export const HOW_TO_PLAY_STEP_FORWARD =
-  'howToPlayReducer/how-to-play-step-forward';
+  'howToPlay/how-to-play-step-forward';
 export const HOW_TO_PLAY_STEP_BACKWARD =
-  'howToPlayReducer/how-to-play-step-backward';
+  'howToPlay/how-to-play-step-backward';
 export const HOW_TO_PLAY_STATE_FORWARD =
-  'howToPlayReducer/how-to-play-state-forward';
+  'howToPlay/how-to-play-state-forward';
 
 export const howToPlayClose = () => ({
   type: HOW_TO_PLAY_CLOSE,
