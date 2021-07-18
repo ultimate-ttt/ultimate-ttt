@@ -10,7 +10,7 @@ const moveReducer = (state = initialState, action: GenericAction) => {
     case REGISTER_MOVE: {
       const { boardPosition, tilePosition, player } = action.payload;
 
-      const newState = produce(state, (draftState) => {
+      return produce(state, (draftState) => {
         draftState.push({
           boardPosition: boardPosition,
           tilePosition: tilePosition,
@@ -18,8 +18,6 @@ const moveReducer = (state = initialState, action: GenericAction) => {
           moveNumber: draftState.length + 1,
         });
       });
-
-      return newState;
     }
     case RESTART_GAME: {
       return initialState;

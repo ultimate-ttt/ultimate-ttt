@@ -58,7 +58,7 @@ export interface OnlineState {
   gameId?: string;
   playerId?: string;
   player: Player;
-  createGame: {
+  connectGame: {
     saveState: SaveState;
     errorMessage: string;
   };

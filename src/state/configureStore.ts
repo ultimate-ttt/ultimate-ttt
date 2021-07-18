@@ -63,11 +63,11 @@ export function configureStore() {
 
 function* rootSaga() {
   yield all([
+    fork(onlineSaga),
     fork(playerMovedSaga),
     fork(boardCalculationSaga),
     fork(activeBoardsCalculationSaga),
     fork(checkGameFinishedSaga),
-    fork(onlineSaga),
     fork(loadFinishedGameSaga),
     fork(saveFinishedGameSaga),
     fork(howToPlaySaga),

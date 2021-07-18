@@ -19,3 +19,6 @@ export const getOnlineGameId = (state: AppState) =>
 
 export const getOnlinePlayerId = (state: AppState) =>
   state.currentGame.online.playerId;
+
+export const getOnlinePlayer = (state: AppState) =>
+  state.currentGame.online.player;
