@@ -1,5 +1,4 @@
-import { apiConnect, apiCreate, apiMove } from './environment';
-import { Point } from './index';
+import { environment, Point } from './index';
 
 const POST = 'POST';
 const postHeaders = {
@@ -12,7 +11,7 @@ export type CreateGameResponse = {
 };
 
 export async function postCreateGame(): Promise<CreateGameResponse> {
-  const response = await window.fetch(apiCreate, {
+  const response = await window.fetch(environment.createApi, {
     method: POST,
     headers: postHeaders,
   });
@@ -31,7 +30,7 @@ export type ConnectGameResponse = {
 export async function postConnectGame(
   id: string,
 ): Promise<ConnectGameResponse> {
-  const response = await window.fetch(apiConnect, {
+  const response = await window.fetch(environment.connectApi, {
     method: POST,
     headers: postHeaders,
     body: JSON.stringify({ shortId: id }),
@@ -52,7 +51,7 @@ export async function postMove(
   board: Point,
   tile: Point,
 ): Promise<MoveResponse> {
-  const response = await window.fetch(apiMove, {
+  const response = await window.fetch(environment.moveApi, {
     method: POST,
     headers: postHeaders,
     body: JSON.stringify({

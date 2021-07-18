@@ -4,6 +4,7 @@ import { TicTacToeGame } from './TicTacToeGame';
 import { SimpleTicTacToeGame } from './SimpleTicTacToeGame';
 import { getApiUrl } from './ApiUrl';
 import { Keys } from './Keys';
+import environment from './environment';
 
 export {
   playerToTileValue,
@@ -12,6 +13,7 @@ export {
   SimpleTicTacToeGame,
   getApiUrl,
   Keys,
+  environment,
 };
 // https://github.com/facebook/create-react-app/issues/6054
 export type Point = P;

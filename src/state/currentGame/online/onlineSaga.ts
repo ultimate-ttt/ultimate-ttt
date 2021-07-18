@@ -1,11 +1,13 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
 import {
-  CREATE_GAME,
-  CreateGameAction,
+  CONNECT_GAME_FULFILLED,
   connectGameFulfilled,
+  ConnectGameFulfilledAction,
   connectGamePending,
   connectGameRejected,
+  CREATE_GAME,
+  CreateGameAction,
   JOIN_GAME,
   JoinGameAction,
   playerMovedFulfilled,
@@ -20,6 +22,7 @@ import {
   postCreateGame,
   postMove,
 } from '../../../lib/Api';
+import { RealtimeMoveEvent, subscribeRealtime } from '../../../lib/Realtime';
 import {
   getCurrentPlayer,
   getOnlineGameId,
@@ -79,10 +82,23 @@ function* playerMoved(action: PlayerMovedAction): SagaIterator {
   }
 }
 
+function* startRealtime(action: ConnectGameFulfilledAction): SagaIterator {
+  const insertCallback = (e: RealtimeMoveEvent) => {
+    // TODO program callback
+    //let player = Player.Cross;
+    //if (action.payload.player === Player.Cross) {
+    //   player = Player.Circle;
+    // }
+  };
+
+  yield call(subscribeRealtime, action.payload.gameId, insertCallback);
+}
+
 function* onlineSaga() {
   yield takeEvery(CREATE_GAME, createGame);
   yield takeEvery(JOIN_GAME, joinGame);
   yield takeEvery(PLAYER_MOVED, playerMoved);
+  yield takeEvery(CONNECT_GAME_FULFILLED, startRealtime);
 }
 
 export default onlineSaga;
