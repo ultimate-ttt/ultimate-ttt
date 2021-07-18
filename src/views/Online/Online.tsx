@@ -10,9 +10,17 @@ import {
   joinGame,
 } from '../../state/currentGame/online/onlineAction';
 import styles from './Online.module.css';
+import { useState } from 'react';
+import {
+  getBoards,
+  getCurrentPlayer,
+  getOnlinePlayer,
+} from '../../state/selectors/appStateSelectors';
 
 interface OnlineProps {
+  gameId?: string;
   currentPlayer: Player;
+  onlinePlayer: Player;
   board: SmallBoardInformation[];
   activeBoards: Point[];
   onPlayerMoved: (
@@ -26,17 +34,29 @@ interface OnlineProps {
 }
 
 const Online = (props: OnlineProps) => {
-  const { currentPlayer, board, activeBoards, onPlayerMoved } = props;
+  const {
+    gameId,
+    onlinePlayer,
+    currentPlayer,
+    board,
+    activeBoards,
+    onPlayerMoved,
+  } = props;
+  const [value, setValue] = useState('');
+  const onChange = (event: any) => {
+    setValue(event.target.value);
+  };
 
-  // TODO when current player is not the same player: remove onPlayerMoved
+  const moveAllowed = gameId && currentPlayer === onlinePlayer;
 
   return (
     <div className="centerAll">
       <div className={styles.gameWrapper}>
         <Button onClick={props.onCreateGame}>Create Game</Button>
+        <input value={value} onChange={onChange} />
         <Button
           onClick={() => {
-            props.onJoinGame('xTuYT8');
+            props.onJoinGame(value);
           }}
         >
           Join Game
@@ -45,15 +65,17 @@ const Online = (props: OnlineProps) => {
           currentPlayer={currentPlayer}
           board={board}
           activeBoards={activeBoards}
-          onPlayerMoved={onPlayerMoved}
+          onPlayerMoved={moveAllowed ? onPlayerMoved : undefined}
         />
       </div>
     </div>
   );
 };
 const mapStateToProps = (state: AppState) => ({
-  currentPlayer: state.currentGame.game.currentPlayer,
-  board: state.currentGame.board,
+  gameId: state.currentGame.online.gameId,
+  onlinePlayer: getOnlinePlayer(state),
+  currentPlayer: getCurrentPlayer(state),
+  board: getBoards(state),
   activeBoards: state.currentGame.activeBoards,
 });
 
