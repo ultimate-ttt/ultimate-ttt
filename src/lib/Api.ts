@@ -10,7 +10,13 @@ export type CreateGameResponse = {
   playerId: string;
 };
 
-export async function postCreateGame(): Promise<CreateGameResponse> {
+export type ConnectGameResponse = {
+  playerId: string;
+};
+
+export type MoveResponse = {};
+
+export async function createGame(): Promise<CreateGameResponse> {
   const response = await window.fetch(environment.createApi, {
     method: POST,
     headers: postHeaders,
@@ -23,13 +29,7 @@ export async function postCreateGame(): Promise<CreateGameResponse> {
   }
 }
 
-export type ConnectGameResponse = {
-  playerId: string;
-};
-
-export async function postConnectGame(
-  id: string,
-): Promise<ConnectGameResponse> {
+export async function connectGame(id: string): Promise<ConnectGameResponse> {
   const response = await window.fetch(environment.connectApi, {
     method: POST,
     headers: postHeaders,
@@ -43,9 +43,7 @@ export async function postConnectGame(
   }
 }
 
-export type MoveResponse = {};
-
-export async function postMove(
+export async function move(
   gameId: string,
   playerId: string,
   board: Point,

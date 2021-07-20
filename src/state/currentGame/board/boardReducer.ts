@@ -19,7 +19,7 @@ const initialState = new TicTacToeGame([]).getBoard();
 const boardReducer = (state = initialState, action: GenericAction) => {
   switch (action.type) {
     case SET_TILE_VALUE: {
-      const newBoardState = produce(state, (draftState) => {
+      return produce(state, (draftState) => {
         const smallBoard = getSmallBoard(
           draftState,
           action.payload.boardPosition,
@@ -29,19 +29,15 @@ const boardReducer = (state = initialState, action: GenericAction) => {
         });
         smallBoard.tiles[tileIndex].value = action.payload.tileValue;
       });
-
-      return newBoardState;
     }
     case SET_BOARD_VALUE: {
-      const newBoardState = produce(state, (draftState) => {
+      return produce(state, (draftState) => {
         const smallBoard = getSmallBoard(
           draftState,
           action.payload.boardPosition,
         );
         smallBoard.value = action.payload.tileValue;
       });
-
-      return newBoardState;
     }
     case RESTART_GAME: {
       return initialState;

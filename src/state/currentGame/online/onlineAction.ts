@@ -1,9 +1,4 @@
-import {
-  GenericAction,
-  Player,
-  StringAction,
-  TypeOnlyAction,
-} from '../../AppState';
+import { GenericAction, Player, StringAction } from '../../AppState';
 
 export const CREATE_GAME = 'online/create-game';
 export const JOIN_GAME = 'online/join-game';
@@ -15,7 +10,7 @@ export const PLAYER_MOVED_PENDING = 'online/player-moved-pending';
 export const PLAYER_MOVED_FULFILLED = 'online/player-moved-fulfilled';
 export const PLAYER_MOVED_REJECTED = 'online/player-moved-rejected';
 
-export const createGame = (): CreateGameAction => ({
+export const createGame = () => ({
   type: CREATE_GAME,
 });
 
@@ -51,7 +46,6 @@ export const playerMovedRejected = (errorMessage: string) => ({
   payload: errorMessage,
 });
 
-export interface CreateGameAction extends TypeOnlyAction {}
 export interface JoinGameAction extends StringAction {}
 
 export interface ConnectGameFulfilledAction extends GenericAction {

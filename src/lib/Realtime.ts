@@ -1,4 +1,8 @@
-import { RealtimeClient, Transformers } from '@supabase/realtime-js';
+import {
+  RealtimeClient,
+  RealtimeSubscription,
+  Transformers,
+} from '@supabase/realtime-js';
 import { environment } from './index';
 
 // From https://github.com/supabase/realtime-js#event-responses
@@ -40,34 +44,34 @@ type RealtimeEventColumn = {
 };
 
 export type RealtimeMoveEvent = {
+  id: number;
+  fk_game_short_id: string;
+  fk_player: number;
   board_x: number;
   board_y: number;
-  created_on: string;
-  fk_game_short_id: string;
-  fk_player: string;
-  id: string;
   tile_x: number;
   tile_y: number;
+  created_on: string;
 };
 
-type RealtimeSubscriptionResponse = {};
-
-export async function subscribeRealtime(
-  gameId: string,
-  insertCallback: (e: RealtimeMoveEvent) => void,
-): Promise<RealtimeSubscriptionResponse> {
-  // TODO handle multiple connects. we should probably not reconnect!
+export const connect = async (): Promise<RealtimeClient> => {
   const client = new RealtimeClient(environment.realtimeApi, {
     params: { apikey: environment.realtimeToken },
   });
   client.connect();
+  return client;
+};
 
-  const rowChanges = client.channel(`${environment.realtimeFilter}${gameId}`);
-  rowChanges.on('INSERT', (e: RealtimeEvent) => {
+export function subscribe(
+  client: RealtimeClient,
+  gameId: string,
+  insertCallback: (e: RealtimeMoveEvent) => void,
+): RealtimeSubscription {
+  const subscription = client.channel(`${environment.realtimeFilter}${gameId}`);
+  subscription.on('INSERT', (e: RealtimeEvent) => {
     const result = Transformers.convertChangeData(e.columns, e.record);
     insertCallback(result as RealtimeMoveEvent);
   });
-  rowChanges.subscribe();
-
-  return {};
+  subscription.subscribe();
+  return subscription;
 }

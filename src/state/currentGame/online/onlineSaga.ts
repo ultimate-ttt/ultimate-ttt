@@ -1,5 +1,5 @@
-import { call, put, select, takeEvery } from 'redux-saga/effects';
-import { SagaIterator } from 'redux-saga';
+import { call, put, select, take, takeEvery } from 'redux-saga/effects';
+import { eventChannel, SagaIterator } from 'redux-saga';
 import {
   CONNECT_GAME_FULFILLED,
   connectGameFulfilled,
@@ -7,22 +7,17 @@ import {
   connectGamePending,
   connectGameRejected,
   CREATE_GAME,
-  CreateGameAction,
   JOIN_GAME,
   JoinGameAction,
   playerMovedFulfilled,
   playerMovedPending,
   playerMovedRejected,
 } from './onlineAction';
-import { PLAYER_MOVED, PlayerMovedAction } from '../game/gameAction';
 import {
-  ConnectGameResponse,
-  CreateGameResponse,
-  postConnectGame,
-  postCreateGame,
-  postMove,
-} from '../../../lib/Api';
-import { RealtimeMoveEvent, subscribeRealtime } from '../../../lib/Realtime';
+  PLAYER_MOVED,
+  playerMoved,
+  PlayerMovedAction,
+} from '../game/gameAction';
 import {
   getCurrentPlayer,
   getOnlineGameId,
@@ -30,11 +25,18 @@ import {
   getOnlinePlayerId,
 } from '../../selectors/appStateSelectors';
 import { Player } from '../../AppState';
+import { Await, pointFromXY } from '../../../lib';
+import { RealtimeClient } from '@supabase/realtime-js';
+// TODO fix those imports so that I don't have to import as *? export as * doesn't seem to work.
+import * as Api from '../../../lib/Api';
+import * as Realtime from '../../../lib/Realtime';
 
-function* createGame(action: CreateGameAction): SagaIterator {
+function* createGame(): SagaIterator {
   yield put(connectGamePending());
   try {
-    const data: CreateGameResponse = yield call(postCreateGame);
+    const data: Await<ReturnType<typeof Api.createGame>> = yield call(
+      Api.createGame,
+    );
     yield put(connectGameFulfilled(data.shortId, data.playerId, Player.Cross));
   } catch (e) {
     yield put(connectGameRejected(e.message));
@@ -44,8 +46,8 @@ function* createGame(action: CreateGameAction): SagaIterator {
 function* joinGame(action: JoinGameAction): SagaIterator {
   yield put(connectGamePending());
   try {
-    const data: ConnectGameResponse = yield call(
-      postConnectGame,
+    const data: Await<ReturnType<typeof Api.connectGame>> = yield call(
+      Api.connectGame,
       action.payload,
     );
     yield put(
@@ -56,7 +58,7 @@ function* joinGame(action: JoinGameAction): SagaIterator {
   }
 }
 
-function* playerMoved(action: PlayerMovedAction): SagaIterator {
+function* move(action: PlayerMovedAction): SagaIterator {
   const currentPlayer = yield select(getCurrentPlayer);
   const onlinePlayer = yield select(getOnlinePlayer);
 
@@ -70,7 +72,7 @@ function* playerMoved(action: PlayerMovedAction): SagaIterator {
     const gameId = yield select(getOnlineGameId);
     const playerId = yield select(getOnlinePlayerId);
     yield call(
-      postMove,
+      Api.move,
       gameId,
       playerId,
       action.payload.boardPosition,
@@ -82,22 +84,48 @@ function* playerMoved(action: PlayerMovedAction): SagaIterator {
   }
 }
 
-function* startRealtime(action: ConnectGameFulfilledAction): SagaIterator {
-  const insertCallback = (e: RealtimeMoveEvent) => {
-    // TODO program callback
-    //let player = Player.Cross;
-    //if (action.payload.player === Player.Cross) {
-    //   player = Player.Circle;
-    // }
-  };
+const createChannel = (client: RealtimeClient, gameId: string) => {
+  return eventChannel((emitter) => {
+    const eventHandler = (event: Realtime.RealtimeMoveEvent) => {
+      emitter(event);
+    };
 
-  yield call(subscribeRealtime, action.payload.gameId, insertCallback);
+    const subscription = Realtime.subscribe(client, gameId, eventHandler);
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  });
+};
+
+function* startRealtime(action: ConnectGameFulfilledAction): SagaIterator {
+  const client = yield call(Realtime.connect);
+  const channel: Await<ReturnType<typeof createChannel>> = yield call(
+    createChannel,
+    client,
+    action.payload.gameId,
+  );
+
+  while (true) {
+    try {
+      const event = yield take(channel);
+      if (event.fk_player !== action.payload.player) {
+        const action = playerMoved(
+          pointFromXY(event.board_x, event.board_y),
+          pointFromXY(event.tile_x, event.tile_y),
+        );
+        yield put(action);
+      }
+    } catch (err) {
+      console.error('socket error:', err);
+    }
+  }
 }
 
 function* onlineSaga() {
   yield takeEvery(CREATE_GAME, createGame);
   yield takeEvery(JOIN_GAME, joinGame);
-  yield takeEvery(PLAYER_MOVED, playerMoved);
+  yield takeEvery(PLAYER_MOVED, move);
   yield takeEvery(CONNECT_GAME_FULFILLED, startRealtime);
 }
 
