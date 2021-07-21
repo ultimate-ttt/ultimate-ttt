@@ -6,7 +6,7 @@ import {
   SmallBoardInformation,
   TileValue,
 } from '../../../state/AppState';
-import { arePointsEqual, Point } from '../../../lib';
+import { Point } from '../../../lib';
 import styles from './BigBoard.module.css';
 
 export interface BigBoardProps {
@@ -29,7 +29,7 @@ const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
   }
 
   if (highlight.condition && highlight.position) {
-    if (arePointsEqual(point, highlight.position.boardPosition)) {
+    if (Point.equal(point, highlight.position.boardPosition)) {
       return highlight;
     }
   }
@@ -39,7 +39,7 @@ const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
 
 const isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
   const theBoardPlayedOnIsActive = activeBoards.some((board) =>
-    arePointsEqual({ x, y }, board),
+    Point.equal({ x, y }, board),
   );
   return theBoardPlayedOnIsActive;
 };
@@ -62,7 +62,7 @@ export function BigBoard(props: BigBoardProps) {
     for (let x = 0; x < 3; x++) {
       for (let y = 0; y < 3; y++) {
         const smallBoard = board.find((tile) =>
-          arePointsEqual(tile.position, { x, y }),
+          Point.equal(tile.position, { x, y }),
         );
 
         if (smallBoard) {

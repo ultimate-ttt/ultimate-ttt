@@ -6,7 +6,7 @@ import {
   TileValue,
 } from '../../../state/AppState';
 import { Tile } from '../Tile/Tile';
-import { arePointsEqual, Point } from '../../../lib';
+import { Point } from '../../../lib';
 import styles from './SmallBoard.module.css';
 
 export interface SmallBoardProps {
@@ -27,7 +27,7 @@ const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
   }
 
   if (highlight.condition && highlight.position) {
-    if (arePointsEqual(point, highlight.position.tilePosition)) {
+    if (Point.equal(point, highlight.position.tilePosition)) {
       return true;
     }
   }

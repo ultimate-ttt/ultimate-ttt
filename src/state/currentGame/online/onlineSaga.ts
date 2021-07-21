@@ -25,7 +25,7 @@ import {
   getOnlinePlayerId,
 } from '../../selectors/appStateSelectors';
 import { Player } from '../../AppState';
-import { Await, pointFromXY } from '../../../lib';
+import { Await, Point } from '../../../lib';
 import { RealtimeClient } from '@supabase/realtime-js';
 // TODO fix those imports so that I don't have to import as *? export as * doesn't seem to work.
 import * as Api from '../../../lib/Api';
@@ -111,8 +111,8 @@ function* startRealtime(action: ConnectGameFulfilledAction): SagaIterator {
       const event = yield take(channel);
       if (event.fk_player !== action.payload.player) {
         const action = playerMoved(
-          pointFromXY(event.board_x, event.board_y),
-          pointFromXY(event.tile_x, event.tile_y),
+          Point.fromXY(event.board_x, event.board_y),
+          Point.fromXY(event.tile_x, event.tile_y),
         );
         yield put(action);
       }

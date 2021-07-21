@@ -3,10 +3,12 @@ export interface Point {
   readonly y: number;
 }
 
-export function arePointsEqual(point1: Point, point2: Point) {
-  return point1.x === point2.x && point1.y === point2.y;
-}
+export class Point {
+  public static equal(point1: Point, point2: Point) {
+    return point1.x === point2.x && point1.y === point2.y;
+  }
 
-export function pointFromXY(x: number, y: number): Point {
-  return { x, y };
+  public static fromXY(x: number, y: number) {
+    return { x, y };
+  }
 }

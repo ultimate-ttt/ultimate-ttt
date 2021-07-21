@@ -2,14 +2,14 @@ import { GenericAction, SmallBoardInformation } from '../../AppState';
 import produce from 'immer';
 import { SET_BOARD_VALUE, SET_TILE_VALUE } from './boardActions';
 import { RESTART_GAME } from '../../commonAction';
-import { TicTacToeGame, Point, arePointsEqual } from '../../../lib';
+import { TicTacToeGame, Point } from '../../../lib';
 
 const getSmallBoard = (
   bigBoard: SmallBoardInformation[],
   boardPosition: Point,
 ) => {
   const smallBoardIndex = bigBoard.findIndex((board) => {
-    return arePointsEqual(board.position, boardPosition);
+    return Point.equal(board.position, boardPosition);
   });
   return bigBoard[smallBoardIndex];
 };
@@ -25,7 +25,7 @@ const boardReducer = (state = initialState, action: GenericAction) => {
           action.payload.boardPosition,
         );
         const tileIndex = smallBoard.tiles.findIndex((tile) => {
-          return arePointsEqual(tile.position, action.payload.tilePosition);
+          return Point.equal(tile.position, action.payload.tilePosition);
         });
         smallBoard.tiles[tileIndex].value = action.payload.tileValue;
       });

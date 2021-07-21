@@ -7,7 +7,7 @@ import {
   TileValue,
   Winner,
 } from '../state/AppState';
-import { Point, arePointsEqual } from './Point';
+import { Point } from './Point';
 import { playerToTileValue } from './PlayerToTile';
 
 export class TicTacToeGame {
@@ -30,7 +30,7 @@ export class TicTacToeGame {
 
   protected applyPartialMove(move: Move) {
     const boardToChange = this.board.find((board) =>
-      arePointsEqual(board.position, move.boardPosition),
+      Point.equal(board.position, move.boardPosition),
     );
 
     if (!boardToChange) {
@@ -38,7 +38,7 @@ export class TicTacToeGame {
     }
 
     const tileToChange = boardToChange.tiles.find((tile) =>
-      arePointsEqual(tile.position, move.tilePosition),
+      Point.equal(tile.position, move.tilePosition),
     );
 
     if (!tileToChange) {
@@ -67,7 +67,7 @@ export class TicTacToeGame {
 
   getWinResultForSmallBoard(boardPosition: Point) {
     const affectedBoard = this.board.find((board) =>
-      arePointsEqual(board.position, boardPosition),
+      Point.equal(board.position, boardPosition),
     );
     return this.getWinResultForGivenBoard(affectedBoard!.tiles);
   }
@@ -92,8 +92,7 @@ export class TicTacToeGame {
     const lastMove = this.moves[this.moves.length - 1].tilePosition;
     let activeBoards = [lastMove];
     const boardLastMovePointsTo = this.board.find(
-      (board: SmallBoardInformation) =>
-        arePointsEqual(board.position, lastMove),
+      (board: SmallBoardInformation) => Point.equal(board.position, lastMove),
     );
     const boardIsFinished = boardLastMovePointsTo!.value !== TileValue.Empty;
     if (boardIsFinished) {
