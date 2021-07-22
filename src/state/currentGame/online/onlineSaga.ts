@@ -1,5 +1,5 @@
 import { call, put, select, take, takeEvery } from 'redux-saga/effects';
-import { eventChannel, SagaIterator } from 'redux-saga';
+import { END, eventChannel, SagaIterator } from 'redux-saga';
 import {
   CONNECT_GAME_FULFILLED,
   connectGameFulfilled,
@@ -25,11 +25,8 @@ import {
   getOnlinePlayerId,
 } from '../../selectors/appStateSelectors';
 import { Player } from '../../AppState';
-import { Await, Point } from '../../../lib';
+import { Await, Point, Realtime, RealtimeMoveEvent, Api } from '../../../lib';
 import { RealtimeClient } from '@supabase/realtime-js';
-// TODO fix those imports so that I don't have to import as *? export as * doesn't seem to work.
-import * as Api from '../../../lib/Api';
-import * as Realtime from '../../../lib/Realtime';
 
 function* createGame(): SagaIterator {
   yield put(connectGamePending());
@@ -59,18 +56,20 @@ function* joinGame(action: JoinGameAction): SagaIterator {
 }
 
 function* move(action: PlayerMovedAction): SagaIterator {
+  const gameId = yield select(getOnlineGameId);
+  const playerId = yield select(getOnlinePlayerId);
+  if (gameId === undefined || playerId === undefined) {
+    return;
+  }
+
   const currentPlayer = yield select(getCurrentPlayer);
   const onlinePlayer = yield select(getOnlinePlayer);
-
-  // TODO not sure if this works correctly
   if (onlinePlayer !== currentPlayer) {
     return;
   }
 
   yield put(playerMovedPending());
   try {
-    const gameId = yield select(getOnlineGameId);
-    const playerId = yield select(getOnlinePlayerId);
     yield call(
       Api.move,
       gameId,
@@ -86,11 +85,15 @@ function* move(action: PlayerMovedAction): SagaIterator {
 
 const createChannel = (client: RealtimeClient, gameId: string) => {
   return eventChannel((emitter) => {
-    const eventHandler = (event: Realtime.RealtimeMoveEvent) => {
-      emitter(event);
-    };
+    const eventHandler = (event: RealtimeMoveEvent) => emitter(event);
+    const closeHandler = () => emitter(END);
 
-    const subscription = Realtime.subscribe(client, gameId, eventHandler);
+    const subscription = Realtime.subscribe(
+      client,
+      gameId,
+      eventHandler,
+      closeHandler,
+    );
 
     return () => {
       subscription.unsubscribe();

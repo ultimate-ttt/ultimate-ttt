@@ -54,24 +54,30 @@ export type RealtimeMoveEvent = {
   created_on: string;
 };
 
-export const connect = async (): Promise<RealtimeClient> => {
-  const client = new RealtimeClient(environment.realtimeApi, {
-    params: { apikey: environment.realtimeToken },
-  });
-  client.connect();
-  return client;
-};
+export class Realtime {
+  public static async connect(): Promise<RealtimeClient> {
+    const client = new RealtimeClient(environment.realtimeApi, {
+      params: { apikey: environment.realtimeToken },
+    });
+    client.connect();
+    return client;
+  }
 
-export function subscribe(
-  client: RealtimeClient,
-  gameId: string,
-  insertCallback: (e: RealtimeMoveEvent) => void,
-): RealtimeSubscription {
-  const subscription = client.channel(`${environment.realtimeFilter}${gameId}`);
-  subscription.on('INSERT', (e: RealtimeEvent) => {
-    const result = Transformers.convertChangeData(e.columns, e.record);
-    insertCallback(result as RealtimeMoveEvent);
-  });
-  subscription.subscribe();
-  return subscription;
+  public static subscribe(
+    client: RealtimeClient,
+    gameId: string,
+    insertCallback: (e: RealtimeMoveEvent) => void,
+    closeCallback: () => void,
+  ): RealtimeSubscription {
+    const subscription = client.channel(
+      `${environment.realtimeFilter}${gameId}`,
+    );
+    subscription.on('INSERT', (e: RealtimeEvent) => {
+      const result = Transformers.convertChangeData(e.columns, e.record);
+      insertCallback(result as RealtimeMoveEvent);
+    });
+    subscription.onClose(closeCallback);
+    subscription.subscribe();
+    return subscription;
+  }
 }

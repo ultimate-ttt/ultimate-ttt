@@ -16,55 +16,57 @@ export type ConnectGameResponse = {
 
 export type MoveResponse = {};
 
-export async function createGame(): Promise<CreateGameResponse> {
-  const response = await window.fetch(environment.createApi, {
-    method: POST,
-    headers: postHeaders,
-  });
+export class Api {
+  public static async createGame(): Promise<CreateGameResponse> {
+    const response = await window.fetch(environment.createApi, {
+      method: POST,
+      headers: postHeaders,
+    });
 
-  if (response.ok) {
-    return await response.json();
-  } else {
-    return Promise.reject(`${response.status}: ${response.statusText}`);
+    if (response.ok) {
+      return await response.json();
+    } else {
+      return Promise.reject(`${response.status}: ${response.statusText}`);
+    }
   }
-}
 
-export async function connectGame(id: string): Promise<ConnectGameResponse> {
-  const response = await window.fetch(environment.connectApi, {
-    method: POST,
-    headers: postHeaders,
-    body: JSON.stringify({ shortId: id }),
-  });
+  public static async connectGame(id: string): Promise<ConnectGameResponse> {
+    const response = await window.fetch(environment.connectApi, {
+      method: POST,
+      headers: postHeaders,
+      body: JSON.stringify({ shortId: id }),
+    });
 
-  if (response.ok) {
-    return await response.json();
-  } else {
-    return Promise.reject(`${response.status}: ${response.statusText}`);
+    if (response.ok) {
+      return await response.json();
+    } else {
+      return Promise.reject(`${response.status}: ${response.statusText}`);
+    }
   }
-}
 
-export async function move(
-  gameId: string,
-  playerId: string,
-  board: Point,
-  tile: Point,
-): Promise<MoveResponse> {
-  const response = await window.fetch(environment.moveApi, {
-    method: POST,
-    headers: postHeaders,
-    body: JSON.stringify({
-      gameId: gameId,
-      playerId: playerId,
-      boardX: board.x,
-      boardY: board.y,
-      tileX: tile.x,
-      tileY: tile.y,
-    }),
-  });
+  public static async move(
+    gameId: string,
+    playerId: string,
+    board: Point,
+    tile: Point,
+  ): Promise<MoveResponse> {
+    const response = await window.fetch(environment.moveApi, {
+      method: POST,
+      headers: postHeaders,
+      body: JSON.stringify({
+        gameId: gameId,
+        playerId: playerId,
+        boardX: board.x,
+        boardY: board.y,
+        tileX: tile.x,
+        tileY: tile.y,
+      }),
+    });
 
-  if (response.ok) {
-    return {};
-  } else {
-    return Promise.reject(`${response.status}: ${response.statusText}`);
+    if (response.ok) {
+      return {};
+    } else {
+      return Promise.reject(`${response.status}: ${response.statusText}`);
+    }
   }
 }
