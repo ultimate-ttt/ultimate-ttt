@@ -1,4 +1,12 @@
-import { call, put, select, take, takeEvery } from 'redux-saga/effects';
+import {
+  call,
+  put,
+  select,
+  take,
+  takeEvery,
+  cancelled,
+  race,
+} from 'redux-saga/effects';
 import { END, eventChannel, SagaIterator } from 'redux-saga';
 import {
   CONNECT_GAME_FULFILLED,
@@ -14,12 +22,14 @@ import {
   playerMovedRejected,
 } from './onlineAction';
 import {
+  GAME_FINISHED,
   PLAYER_MOVED,
   playerMoved,
   PlayerMovedAction,
 } from '../game/gameAction';
 import {
   getCurrentPlayer,
+  getIsOnlineGame,
   getOnlineGameId,
   getOnlinePlayer,
   getOnlinePlayerId,
@@ -27,6 +37,7 @@ import {
 import { Player } from '../../AppState';
 import { Await, Point, Realtime, RealtimeMoveEvent, Api } from '../../../lib';
 import { RealtimeClient } from '@supabase/realtime-js';
+import { restartGame } from '../../commonAction';
 
 function* createGame(): SagaIterator {
   yield put(connectGamePending());
@@ -35,6 +46,7 @@ function* createGame(): SagaIterator {
       Api.createGame,
     );
     yield put(connectGameFulfilled(data.shortId, data.playerId, Player.Cross));
+    yield put(restartGame());
   } catch (e) {
     yield put(connectGameRejected(e.message));
   }
@@ -50,18 +62,20 @@ function* joinGame(action: JoinGameAction): SagaIterator {
     yield put(
       connectGameFulfilled(action.payload, data.playerId, Player.Circle),
     );
+    yield put(restartGame());
   } catch (e) {
     yield put(connectGameRejected(e.message));
   }
 }
 
 function* move(action: PlayerMovedAction): SagaIterator {
-  const gameId = yield select(getOnlineGameId);
-  const playerId = yield select(getOnlinePlayerId);
-  if (gameId === undefined || playerId === undefined) {
+  const isOnlineGame = yield select(getIsOnlineGame);
+  if (!isOnlineGame) {
     return;
   }
 
+  const gameId = yield select(getOnlineGameId);
+  const playerId = yield select(getOnlinePlayerId);
   const currentPlayer = yield select(getCurrentPlayer);
   const onlinePlayer = yield select(getOnlinePlayer);
   if (onlinePlayer !== currentPlayer) {
@@ -101,28 +115,44 @@ const createChannel = (client: RealtimeClient, gameId: string) => {
   });
 };
 
-function* startRealtime(action: ConnectGameFulfilledAction): SagaIterator {
-  const client = yield call(Realtime.connect);
+function* subscribeRealtime(action: ConnectGameFulfilledAction): SagaIterator {
+  const client: Await<ReturnType<typeof Realtime.connect>> = yield call(
+    Realtime.connect,
+  );
   const channel: Await<ReturnType<typeof createChannel>> = yield call(
     createChannel,
     client,
     action.payload.gameId,
   );
 
-  while (true) {
-    try {
-      const event = yield take(channel);
-      if (event.fk_player !== action.payload.player) {
-        const action = playerMoved(
-          Point.fromXY(event.board_x, event.board_y),
-          Point.fromXY(event.tile_x, event.tile_y),
-        );
-        yield put(action);
+  try {
+    while (true) {
+      try {
+        const event: RealtimeMoveEvent = yield take(channel);
+        if (event.fk_player !== action.payload.player) {
+          const action = playerMoved(
+            Point.fromXY(event.board_x, event.board_y),
+            Point.fromXY(event.tile_x, event.tile_y),
+          );
+          yield put(action);
+        }
+      } catch (err) {
+        console.error('socket error:', err);
       }
-    } catch (err) {
-      console.error('socket error:', err);
+    }
+  } finally {
+    if (yield cancelled()) {
+      channel.close();
+      yield call(client.disconnect);
     }
   }
+}
+
+function* startRealtime(action: ConnectGameFulfilledAction): SagaIterator {
+  yield race({
+    realtime: call(subscribeRealtime, action),
+    unsubscribe: take(GAME_FINISHED),
+  });
 }
 
 function* onlineSaga() {

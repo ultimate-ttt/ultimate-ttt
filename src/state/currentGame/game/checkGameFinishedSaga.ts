@@ -1,7 +1,7 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from './gameAction';
-import { getMoves } from '../../selectors/appStateSelectors';
+import { getIsOnlineGame, getMoves } from '../../selectors/appStateSelectors';
 import { setActiveBoards } from '../activeBoards/activeBoardsActions';
 import { saveGame } from '../../finishedGames/saveFinishedGameActions';
 import { getFinishedGame } from '../../selectors/finishedGameStateSelectors';
@@ -18,7 +18,12 @@ function* checkIfGameFinished(action: GenericAction): SagaIterator {
   if (isGameFinished) {
     yield put(gameFinished(winningPlayer));
     yield put(setActiveBoards([]));
-    yield put(saveGame(yield select(getFinishedGame)));
+
+    const isOnlineGame = yield select(getIsOnlineGame);
+    if (!isOnlineGame) {
+      // TODO change analysis so that analysis also works for online games
+      yield put(saveGame(yield select(getFinishedGame)));
+    }
   }
 }
 
