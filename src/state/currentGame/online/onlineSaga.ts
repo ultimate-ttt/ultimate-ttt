@@ -74,14 +74,14 @@ function* move(action: PlayerMovedAction): SagaIterator {
     return;
   }
 
-  const gameId = yield select(getOnlineGameId);
-  const playerId = yield select(getOnlinePlayerId);
   const currentPlayer = yield select(getCurrentPlayer);
   const onlinePlayer = yield select(getOnlinePlayer);
   if (onlinePlayer !== currentPlayer) {
     return;
   }
 
+  const gameId = yield select(getOnlineGameId);
+  const playerId = yield select(getOnlinePlayerId);
   yield put(playerMovedPending());
   try {
     yield call(
