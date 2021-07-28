@@ -3,7 +3,8 @@ const routes = {
   AnalysisParam: '/analysis/:param',
   AnalysisOverview: '/analysis',
   HowToPlay: '/how-to-play',
-  Online: '/online',
+  OnlineCreate: '/online',
+  OnlinePlay: '/online/:id',
   Home: '/',
   GitHub: 'https://github.com/ultimate-ttt/ultimate-ttt',
   GitHubBug:

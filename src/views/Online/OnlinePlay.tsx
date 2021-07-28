@@ -1,3 +1,6 @@
+// @ts-nocheck
+/* eslint-disable */
+// TODO
 import * as React from 'react';
 import { BigBoard } from '../../components/Board/BigBoard/BigBoard';
 import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
@@ -10,15 +13,17 @@ import {
   joinGame,
 } from '../../state/currentGame/online/onlineAction';
 import styles from './Online.module.css';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import {
   getBoards,
   getCurrentPlayer,
+  getIsOnlineGame,
   getOnlinePlayer,
 } from '../../state/selectors/appStateSelectors';
+import { useParams } from 'react-router';
 
 interface OnlineProps {
-  gameId?: string;
+  isOnlineGame: boolean;
   currentPlayer: Player;
   onlinePlayer: Player;
   board: SmallBoardInformation[];
@@ -29,38 +34,37 @@ interface OnlineProps {
     tileX: number,
     tileY: number,
   ) => void;
-  onCreateGame: () => void; // TODO do this somewhere else?
   onJoinGame: (id: string) => void;
+  shouldJoinGame: boolean;
 }
 
-const Online = (props: OnlineProps) => {
+const OnlinePlay = (props: OnlineProps) => {
   const {
-    gameId,
+    shouldJoinGame,
+    onJoinGame,
+    isOnlineGame,
     onlinePlayer,
     currentPlayer,
     board,
     activeBoards,
     onPlayerMoved,
   } = props;
-  const [value, setValue] = useState('');
-  const onChange = (event: any) => {
-    setValue(event.target.value);
-  };
 
-  const moveAllowed = gameId && currentPlayer === onlinePlayer;
+  // TODO: do this
+  /* let { id }: { id: string } = useParams();
+  console.log(shouldJoinGame);
+  console.log(id);
+  useEffect(() => {
+    if (shouldJoinGame && id !== undefined && id.length === 6) {
+      onJoinGame(id);
+    }
+  });
+*/
+  const moveAllowed = isOnlineGame && currentPlayer === onlinePlayer;
 
   return (
     <div className="centerAll">
       <div className={styles.gameWrapper}>
-        <Button onClick={props.onCreateGame}>Create Game</Button>
-        <input value={value} onChange={onChange} />
-        <Button
-          onClick={() => {
-            props.onJoinGame(value);
-          }}
-        >
-          Join Game
-        </Button>
         <BigBoard
           currentPlayer={currentPlayer}
           board={board}
@@ -71,12 +75,16 @@ const Online = (props: OnlineProps) => {
     </div>
   );
 };
+
 const mapStateToProps = (state: AppState) => ({
-  gameId: state.currentGame.online.gameId,
+  isOnlineGame: getIsOnlineGame(state),
   onlinePlayer: getOnlinePlayer(state),
   currentPlayer: getCurrentPlayer(state),
   board: getBoards(state),
   activeBoards: state.currentGame.activeBoards,
+  shouldJoinGame:
+    state.currentGame.online.connectGame.saveState === '' &&
+    !getIsOnlineGame(state),
 });
 
 const mapDispatchToProps = {
@@ -86,8 +94,7 @@ const mapDispatchToProps = {
     tileX: number,
     tileY: number,
   ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
-  onCreateGame: () => createGame(),
   onJoinGame: (id: string) => joinGame(id),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Online);
+export default connect(mapStateToProps, mapDispatchToProps)(OnlinePlay);

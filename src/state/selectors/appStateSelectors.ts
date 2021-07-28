@@ -25,4 +25,4 @@ export const getOnlinePlayer = (state: AppState) =>
 
 export const getIsOnlineGame = (state: AppState) =>
   state.currentGame.online.gameId !== undefined &&
-  state.currentGame.online.playerId;
+  state.currentGame.online.playerId !== undefined;
