@@ -1,74 +1,48 @@
-// @ts-nocheck
-/* eslint-disable */
-// TODO
 import * as React from 'react';
 import { BigBoard } from '../../components/Board/BigBoard/BigBoard';
-import { AppState, Player, SmallBoardInformation } from '../../state/AppState';
 import { playerMoved } from '../../state/currentGame/game/gameAction';
-import { connect } from 'react-redux';
-import { Point } from '../../lib';
-import { Button } from '@rmwc/button';
-import {
-  createGame,
-  joinGame,
-} from '../../state/currentGame/online/onlineAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { joinGame } from '../../state/currentGame/online/onlineAction';
 import styles from './Online.module.css';
 import { useEffect } from 'react';
 import {
+  getActiveBoards,
   getBoards,
   getCurrentPlayer,
+} from '../../state/selectors/appStateSelectors';
+import {
   getIsOnlineGame,
   getOnlinePlayer,
-} from '../../state/selectors/appStateSelectors';
+  getShouldJoinGame,
+} from '../../state/selectors/onlineStateSelectors';
 import { useParams } from 'react-router';
+import { Point } from '../../lib';
 
-interface OnlineProps {
-  isOnlineGame: boolean;
-  currentPlayer: Player;
-  onlinePlayer: Player;
-  board: SmallBoardInformation[];
-  activeBoards: Point[];
-  onPlayerMoved: (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => void;
-  onJoinGame: (id: string) => void;
-  shouldJoinGame: boolean;
-}
+const OnlinePlay = () => {
+  const dispatch = useDispatch();
 
-const OnlinePlay = (props: OnlineProps) => {
-  const {
-    shouldJoinGame,
-    onJoinGame,
-    isOnlineGame,
-    onlinePlayer,
-    currentPlayer,
-    board,
-    activeBoards,
-    onPlayerMoved,
-  } = props;
-
-  // TODO: do this
-  /* let { id }: { id: string } = useParams();
-  console.log(shouldJoinGame);
-  console.log(id);
+  let { id }: { id: string } = useParams();
+  const shouldJoinGame = useSelector(getShouldJoinGame);
   useEffect(() => {
     if (shouldJoinGame && id !== undefined && id.length === 6) {
-      onJoinGame(id);
+      dispatch(joinGame(id));
     }
   });
-*/
-  const moveAllowed = isOnlineGame && currentPlayer === onlinePlayer;
 
+  const onPlayerMoved = (board: Point, tile: Point) =>
+    dispatch(playerMoved(board, tile));
+  const currentPlayer = useSelector(getCurrentPlayer);
+  const onlinePlayer = useSelector(getOnlinePlayer);
+  // TODO don't allow first move before other player joined
+  const moveAllowed =
+    useSelector(getIsOnlineGame) && currentPlayer === onlinePlayer;
   return (
     <div className="centerAll">
       <div className={styles.gameWrapper}>
         <BigBoard
           currentPlayer={currentPlayer}
-          board={board}
-          activeBoards={activeBoards}
+          board={useSelector(getBoards)}
+          activeBoards={useSelector(getActiveBoards)}
           onPlayerMoved={moveAllowed ? onPlayerMoved : undefined}
         />
       </div>
@@ -76,25 +50,4 @@ const OnlinePlay = (props: OnlineProps) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
-  isOnlineGame: getIsOnlineGame(state),
-  onlinePlayer: getOnlinePlayer(state),
-  currentPlayer: getCurrentPlayer(state),
-  board: getBoards(state),
-  activeBoards: state.currentGame.activeBoards,
-  shouldJoinGame:
-    state.currentGame.online.connectGame.saveState === '' &&
-    !getIsOnlineGame(state),
-});
-
-const mapDispatchToProps = {
-  onPlayerMoved: (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
-  onJoinGame: (id: string) => joinGame(id),
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(OnlinePlay);
+export default OnlinePlay;

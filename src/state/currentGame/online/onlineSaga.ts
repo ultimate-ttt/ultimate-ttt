@@ -27,13 +27,13 @@ import {
   playerMoved,
   PlayerMovedAction,
 } from '../game/gameAction';
+import { getCurrentPlayer } from '../../selectors/appStateSelectors';
 import {
-  getCurrentPlayer,
   getIsOnlineGame,
   getOnlineGameId,
   getOnlinePlayer,
   getOnlinePlayerId,
-} from '../../selectors/appStateSelectors';
+} from '../../selectors/onlineStateSelectors';
 import { Player } from '../../AppState';
 import { Await, Point, Realtime, RealtimeMoveEvent, Api } from '../../../lib';
 import { RealtimeClient } from '@supabase/realtime-js';
@@ -88,8 +88,8 @@ function* move(action: PlayerMovedAction): SagaIterator {
       Api.move,
       gameId,
       playerId,
-      action.payload.boardPosition,
-      action.payload.tilePosition,
+      action.payload.board,
+      action.payload.tile,
     );
     yield put(playerMovedFulfilled());
   } catch (e) {

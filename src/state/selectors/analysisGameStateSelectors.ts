@@ -1,6 +1,6 @@
 import { AnalysisGame, AppState, FinishedGameState, Winner } from '../AppState';
 import { createSelector } from 'reselect';
-import { getFinishedGames } from './appStateSelectors';
+import { getFinishedGames } from './finishedGameStateSelectors';
 
 const stringToWinner = (winnerString: 'X' | 'O' | null) => {
   if (winnerString === 'X') {

@@ -13,12 +13,7 @@ export interface BigBoardProps {
   currentPlayer: Player;
   board: SmallBoardInformation[];
   activeBoards: Point[];
-  onPlayerMoved?: (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => void;
+  onPlayerMoved?: (board: Point, tile: Point) => void;
   highlight?: Highlight;
   animate?: boolean;
 }
@@ -38,10 +33,7 @@ const shouldHighlight = (highlight: Highlight | undefined, point: Point) => {
 };
 
 const isMoveOnBoardAllowed = (x: number, y: number, activeBoards: Point[]) => {
-  const theBoardPlayedOnIsActive = activeBoards.some((board) =>
-    Point.equal({ x, y }, board),
-  );
-  return theBoardPlayedOnIsActive;
+  return activeBoards.some((board) => Point.equal({ x, y }, board));
 };
 
 export function BigBoard(props: BigBoardProps) {
@@ -84,7 +76,7 @@ export function BigBoard(props: BigBoardProps) {
               })}
               {...(onPlayerMoved && {
                 onTileClicked: (tileX: number, tileY: number) => {
-                  onPlayerMoved(x, y, tileX, tileY);
+                  onPlayerMoved(Point.fromXY(x, y), Point.fromXY(tileX, tileY));
                 },
               })}
             />,

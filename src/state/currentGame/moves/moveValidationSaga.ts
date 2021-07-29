@@ -13,15 +13,15 @@ import { getCurrentPlayer } from '../../selectors/appStateSelectors';
 import { SagaIterator } from 'redux-saga';
 
 function* playerMoved(action: PlayerMovedAction): SagaIterator {
-  const { boardPosition, tilePosition } = action.payload;
+  const { board, tile } = action.payload;
   const currentPlayer = yield select(getCurrentPlayer);
 
   const tileValue = playerToTileValue(currentPlayer);
 
-  yield put(registerMove(boardPosition, tilePosition, currentPlayer));
-  yield put(setTileValue(boardPosition, tilePosition, tileValue));
+  yield put(registerMove(board, tile, currentPlayer));
+  yield put(setTileValue(board, tile, tileValue));
   yield put(changePlayer());
-  yield put(calculateBoardValue(boardPosition));
+  yield put(calculateBoardValue(board));
   yield put(calculateActiveBoards());
   yield put(checkGameFinished());
 }

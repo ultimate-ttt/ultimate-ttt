@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
 import { getBoards, getMoves, getWinningPlayer } from './appStateSelectors';
-import { Winner } from '../AppState';
+import { AppState, Winner } from '../AppState';
+
+export const getFinishedGames = (state: AppState) => state.finishedGames;
 
 const getWinningPlayerAsString = createSelector(
   [getWinningPlayer],

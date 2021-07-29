@@ -1,7 +1,8 @@
 import { createSelector } from 'reselect';
-import { getHowToPlay } from './appStateSelectors';
-import { HowToPlay } from '../AppState';
+import { AppState, HowToPlay } from '../AppState';
 import { howToPlaySteps } from '../howToPlay/howToPlaySteps';
+
+export const getHowToPlay = (state: AppState) => state.howToPlay;
 
 export const getCurrentHowToPlayText = createSelector(
   [getHowToPlay],

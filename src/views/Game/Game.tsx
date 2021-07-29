@@ -11,17 +11,13 @@ interface GameProps {
   currentPlayer: Player;
   board: SmallBoardInformation[];
   activeBoards: Point[];
-  onPlayerMoved: (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => void;
+  onPlayerMoved: (board: Point, tile: Point) => void;
 }
 
 const Game = (props: GameProps) => {
   const { currentPlayer, board, activeBoards, onPlayerMoved } = props;
 
+  // TODO migrate to hooks
   return (
     <div className="centerAll">
       <div className={styles.gameWrapper}>
@@ -44,12 +40,7 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = {
-  onPlayerMoved: (
-    boardX: number,
-    boardY: number,
-    tileX: number,
-    tileY: number,
-  ) => playerMoved({ x: boardX, y: boardY }, { x: tileX, y: tileY }),
+  onPlayerMoved: (board: Point, tile: Point) => playerMoved(board, tile),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

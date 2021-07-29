@@ -19,21 +19,18 @@ export const checkGameFinished = () => ({
   type: CHECK_GAME_FINISHED,
 });
 
-export const playerMoved = (
-  boardPosition: Point,
-  tilePosition: Point,
-): PlayerMovedAction => ({
+export const playerMoved = (board: Point, tile: Point): PlayerMovedAction => ({
   type: PLAYER_MOVED,
   payload: {
-    boardPosition: boardPosition,
-    tilePosition: tilePosition,
+    board: board,
+    tile: tile,
   },
 });
 
 export interface PlayerMovedAction {
   type: string;
   payload: {
-    boardPosition: Point;
-    tilePosition: Point;
+    board: Point;
+    tile: Point;
   };
 }

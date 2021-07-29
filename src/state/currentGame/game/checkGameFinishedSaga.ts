@@ -1,12 +1,13 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { GenericAction } from '../../AppState';
 import { CHECK_GAME_FINISHED, gameFinished } from './gameAction';
-import { getIsOnlineGame, getMoves } from '../../selectors/appStateSelectors';
+import { getMoves } from '../../selectors/appStateSelectors';
 import { setActiveBoards } from '../activeBoards/activeBoardsActions';
 import { saveGame } from '../../finishedGames/saveFinishedGameActions';
 import { getFinishedGame } from '../../selectors/finishedGameStateSelectors';
 import { TicTacToeGame } from '../../../lib';
 import { SagaIterator } from 'redux-saga';
+import { getIsOnlineGame } from '../../selectors/onlineStateSelectors';
 
 function* checkIfGameFinished(action: GenericAction): SagaIterator {
   const moves = yield select(getMoves);

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { createGame } from '../../state/currentGame/online/onlineAction';
 import { useState } from 'react';
-import { getOnlineGameId } from '../../state/selectors/appStateSelectors';
+import { getOnlineGameId } from '../../state/selectors/onlineStateSelectors';
 import { Redirect } from 'react-router';
 import routes from '../../routes';
 import { Button } from '@rmwc/button';

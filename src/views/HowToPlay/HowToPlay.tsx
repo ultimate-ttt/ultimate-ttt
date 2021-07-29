@@ -8,7 +8,7 @@ import {
   howToPlayStepForward,
 } from '../../state/howToPlay/howToPlayActions';
 import { connect } from 'react-redux';
-import { getHowToPlay } from '../../state/selectors/appStateSelectors';
+import { getHowToPlay } from '../../state/selectors/howToPlayStateSelectors';
 import { getCurrentHowToPlayText } from '../../state/selectors/howToPlayStateSelectors';
 import { HowToPlayDialog } from './HowToPlayDialog';
 
