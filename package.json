@@ -61,7 +61,7 @@
     "@types/redux-logger": "^3.0.9",
     "cypress": "^8.2.0",
     "cypress-image-snapshot": "^4.0.1",
-    "msw": "^0.33.2",
+    "msw": "^0.34.0",
     "prettier": "^2.3.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
