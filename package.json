@@ -42,7 +42,7 @@
     "@storybook/addon-links": "^6.3.7",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.7",
-    "@storybook/testing-react": "^0.0.21",
+    "@storybook/testing-react": "^0.0.22",
     "@testing-library/cypress": "^8.0.0",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
