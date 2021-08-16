@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
-    "@cypress/react": "^5.9.3",
+    "@cypress/react": "^5.9.4",
     "@cypress/webpack-dev-server": "^1.4.0",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/addon-links": "^6.3.7",
