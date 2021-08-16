@@ -50,7 +50,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/classnames": "^2.3.1",
     "@types/cypress-image-snapshot": "^3.1.6",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.1",
     "@types/node": "^16.4.13",
     "@types/react": "^17.0.16",
     "@types/react-dom": "^17.0.9",
