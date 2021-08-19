@@ -39,6 +39,7 @@ jobs:
 
     - name: Setup .env ✉️
       run: |
+        cp .env.example .env
         dotenv -q never set REACT_APP_CREATE_API "$STAGING_CREATE_API"
         dotenv -q never set REACT_APP_CONNECT_API "$STAGING_CONNECT_API"
         dotenv -q never set REACT_APP_MOVE_API "$STAGING_MOVE_API"
