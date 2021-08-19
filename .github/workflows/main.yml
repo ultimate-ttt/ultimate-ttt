@@ -64,7 +64,7 @@ jobs:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       with:
-        args: deploy --dir=dist -m '${{ github.head_ref }}'
+        args: deploy --dir=build -m '${{ github.head_ref }}'
 
     - name: Save build folder 🆙
       uses: actions/upload-artifact@v2
