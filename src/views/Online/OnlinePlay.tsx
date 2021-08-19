@@ -34,6 +34,7 @@ const OnlinePlay = () => {
   const currentPlayer = useSelector(getCurrentPlayer);
   const onlinePlayer = useSelector(getOnlinePlayer);
   // TODO don't allow first move before other player joined
+  // -> create a table for joins where just the first player subscribes to and then unsubscribes?
   const moveAllowed =
     useSelector(getIsOnlineGame) && currentPlayer === onlinePlayer;
   return (
