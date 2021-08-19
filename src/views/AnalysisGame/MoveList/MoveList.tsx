@@ -6,7 +6,7 @@ import { ScrollElement } from 'react-scroll';
 import { moveScrollElementBaseName } from '../ScrollElementConstants';
 import styles from './MoveList.module.css';
 import classNames from 'classnames';
-import { OIcon, XIcon } from "../../../components/Icons";
+import { OIcon, XIcon } from '../../../components/Icons';
 
 export interface MoveListProps {
   reversedMoves: MoveState[];
@@ -81,4 +81,5 @@ export function MoveList(props: MoveListProps) {
 const ListElement: React.FC = ({ children, ...props }) => {
   return <li {...props}>{children}</li>;
 };
+// TODO: This is causing an error. See: https://github.com/fisshy/react-scroll/issues/471
 const ScrollListElement = ScrollElement(ListElement);

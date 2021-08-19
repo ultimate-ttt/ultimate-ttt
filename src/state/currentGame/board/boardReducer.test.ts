@@ -7,7 +7,7 @@ import {
   TileValue,
 } from '../../AppState';
 import { restartGame } from '../../commonAction';
-import { arePointsEqual } from '../../../lib';
+import { Point } from '../../../lib';
 
 describe('boardReducer', () => {
   it('should return init state', () => {
@@ -28,10 +28,10 @@ describe('boardReducer', () => {
       const newState = boardReducer(undefined, action);
 
       const foundBoard = newState.find((board: SmallBoardInformation) => {
-        return arePointsEqual(board.position, boardPosition);
+        return Point.equal(board.position, boardPosition);
       });
       const foundTile = foundBoard!.tiles.find((tile: SmallTileInformation) => {
-        return arePointsEqual(tile.position, tilePosition);
+        return Point.equal(tile.position, tilePosition);
       });
 
       expect(foundTile).not.toBeUndefined();
@@ -46,10 +46,10 @@ describe('boardReducer', () => {
       const newState = boardReducer(undefined, action);
 
       const foundBoard = newState.find((board: SmallBoardInformation) => {
-        return arePointsEqual(board.position, boardPosition);
+        return Point.equal(board.position, boardPosition);
       });
       const foundTile = foundBoard!.tiles.find((tile: SmallTileInformation) => {
-        return arePointsEqual(tile.position, tilePosition);
+        return Point.equal(tile.position, tilePosition);
       });
 
       expect(foundTile).not.toBeUndefined();

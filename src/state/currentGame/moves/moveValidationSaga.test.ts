@@ -5,12 +5,13 @@ import { Player } from '../../AppState';
 import {
   CHANGE_PLAYER,
   CHECK_GAME_FINISHED,
-  PLAYER_MOVED,
+  playerMoved,
 } from '../game/gameAction';
 import { select } from 'redux-saga/effects';
 import { REGISTER_MOVE } from './moveAction';
 import { CALCULATE_BOARD_VALUE, SET_TILE_VALUE } from '../board/boardActions';
 import { CALCULATE_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
+import { Point } from '../../../lib';
 
 describe('moveValidationSaga', () => {
   it('should dispatch at least the following actions', () => {
@@ -36,13 +37,7 @@ describe('moveValidationSaga', () => {
       .put({ type: CALCULATE_BOARD_VALUE, payload: { x: 1, y: 1 } })
       .put({ type: CALCULATE_ACTIVE_BOARDS })
       .put({ type: CHECK_GAME_FINISHED })
-      .dispatch({
-        type: PLAYER_MOVED,
-        payload: {
-          boardPosition: { x: 1, y: 1 },
-          tilePosition: { x: 2, y: 2 },
-        },
-      })
+      .dispatch(playerMoved(Point.fromXY(1, 1), Point.fromXY(2, 2)))
       .silentRun();
   });
 });
