@@ -1,10 +1,9 @@
 name: Continuous Integration
 
 on:
-  workflow_dispatch:
-  push:
-    branches: [ main ]
   pull_request:
+    branches: [ main ]
+  push:
     branches: [ main ]
 
 jobs:
@@ -22,21 +21,13 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 14.x
-    
-    - name: Get Yarn cache directory 📂
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-
-    - name: Use Yarn cache 💾
-      uses: actions/cache@v2
-      id: yarn-cache
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
 
     - name: Install dependencies 🔌
       # `--prefer-offline` gives cache priority
-      run: yarn install --prefer-offline --frozen-lockfile
+      run: |
+        yarn install --prefer-offline --frozen-lockfile
+        pip install python-dotenv
+        pip install dotenv-linter
 
     - name: Run Tests 🧪
       run: yarn test
@@ -46,8 +37,34 @@ jobs:
       with:
         runTests: false
 
+    - name: Setup .env ✉️
+      run: |
+        cp .env.example .env
+        dotenv -q never set REACT_APP_CREATE_API "$STAGING_CREATE_API"
+        dotenv -q never set REACT_APP_CONNECT_API "$STAGING_CONNECT_API"
+        dotenv -q never set REACT_APP_MOVE_API "$STAGING_MOVE_API"
+        dotenv -q never set REACT_APP_REALTIME_API "$STAGING_REALTIME_API"
+        dotenv -q never set REACT_APP_REALTIME_TOKEN "$STAGING_REALTIME_TOKEN"
+        dotenv -q never set REACT_APP_REALTIME_FILTER "$STAGING_REALTIME_FILTER"
+        dotenv-linter .env .env.example
+      env:
+        CREATE_API: ${{ secrets.STAGING_CREATE_API }}
+        CONNECT_API: ${{ secrets.STAGING_CONNECT_API }}
+        MOVE_API: ${{ secrets.STAGING_MOVE_API }}
+        REALTIME_API: ${{ secrets.STAGING_REALTIME_API }}
+        REALTIME_TOKEN: ${{ secrets.STAGING_REALTIME_TOKEN }}
+        REALTIME_FILTER: ${{ secrets.STAGING_REALTIME_FILTER }}
+
     - name: Build site 🏗
       run: yarn build
+
+    - name: Deploy Preview
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      with:
+        args: deploy --dir=build -m '${{ github.head_ref }}'
 
     - name: Save build folder 🆙
       uses: actions/upload-artifact@v2
@@ -136,3 +153,4 @@ jobs:
           # It is possible that the videos are lagging.
           name: cypress-videos
           path: cypress/videos
+
