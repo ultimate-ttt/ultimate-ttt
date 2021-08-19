@@ -8,6 +8,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    # TODO: introduce environment: prod
 
     steps:
       - name: Checkout 🛎️
@@ -28,7 +29,7 @@ jobs:
           pip install dotenv-linter
 
       - name: Setup .env ✉️
-        # TODO: Change secrets to Prod secrets when I have a PROD environment
+        # TODO: Change secrets to Prod secrets when I have a PROD backend environment
         run: |
           dotenv -q never set REACT_APP_CREATE_API "$STAGING_CREATE_API"
           dotenv -q never set REACT_APP_CONNECT_API "$STAGING_CONNECT_API"
