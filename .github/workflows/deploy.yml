@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Use Node.js 14.x 🧳
         uses: actions/setup-node@v2
@@ -31,6 +29,7 @@ jobs:
       - name: Setup .env ✉️
         # TODO: Change secrets to Prod secrets when I have a PROD backend environment
         run: |
+          cp .env.example .env
           dotenv -q never set REACT_APP_CREATE_API "$STAGING_CREATE_API"
           dotenv -q never set REACT_APP_CONNECT_API "$STAGING_CONNECT_API"
           dotenv -q never set REACT_APP_MOVE_API "$STAGING_MOVE_API"
@@ -38,7 +37,6 @@ jobs:
           dotenv -q never set REACT_APP_REALTIME_TOKEN "$STAGING_REALTIME_TOKEN"
           dotenv -q never set REACT_APP_REALTIME_FILTER "$STAGING_REALTIME_FILTER"
           dotenv-linter .env .env.example
-        working-directory: src/connection
         env:
           CREATE_API: ${{ secrets.STAGING_CREATE_API }}
           CONNECT_API: ${{ secrets.STAGING_CONNECT_API }}

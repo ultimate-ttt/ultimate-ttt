@@ -60,6 +60,7 @@ jobs:
 
     - name: Deploy Preview
       uses: netlify/actions/cli@master
+      if: github.event_name == 'pull_request'
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
