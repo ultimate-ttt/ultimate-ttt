@@ -5,7 +5,6 @@ import { select } from 'redux-saga/effects';
 import { CHECK_GAME_FINISHED, GAME_FINISHED } from './gameAction';
 import { Player } from '../../AppState';
 import { SET_ACTIVE_BOARDS } from '../activeBoards/activeBoardsActions';
-import { SAVE_GAME_DATA } from '../../finishedGames/saveFinishedGameDataActions';
 import { getFinishedGameData } from '../../selectors/finishedGameStateSelectors';
 import {
   circleFinishedGameMock,
@@ -27,11 +26,6 @@ describe('checkGameFinishedSaga', () => {
         ])
         .put({ type: GAME_FINISHED, payload: Player.Circle })
         .put({ type: SET_ACTIVE_BOARDS, payload: [] })
-        .put({
-          type: SAVE_GAME_DATA,
-          payload: circleFinishedGameMock,
-          saveOnline: true,
-        })
         .dispatch({ type: CHECK_GAME_FINISHED })
         .silentRun();
     },
@@ -48,11 +42,6 @@ describe('checkGameFinishedSaga', () => {
         ])
         .put({ type: GAME_FINISHED, payload: Player.Cross })
         .put({ type: SET_ACTIVE_BOARDS, payload: [] })
-        .put({
-          type: SAVE_GAME_DATA,
-          payload: crossFinishedGameMock,
-          saveOnline: true,
-        })
         .dispatch({ type: CHECK_GAME_FINISHED })
         .silentRun();
     },

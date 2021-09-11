@@ -18,13 +18,13 @@ A browser game implementation of ultimate tic-tac-toe using React, Redux and CSS
 ## Demo
 
 Below you see a quick demo of the game mechanics.
-You can test it out yourself [here](https://playtictactoe.xyz/)
+You can test it out yourself [here](https://ultimatettt.netlify.com/)
 
 <img src="https://user-images.githubusercontent.com/16801528/38771159-2815f1ec-401e-11e8-8edb-157b58403761.gif" alt="demo of the game" width="500">
 
 ## Game Rules
 
-> For an interactive explanation you can go to our [how to play page](https://playtictactoe.xyz/how-to-play).
+> For an interactive explanation you can go to our [how to play page](https://ultimatettt.netlify.com/how-to-play).
 
 Ultimate Tic-Tac-Toe is played with 9 small tic-tac-toe boards.
 Each turn a player marks a field. When you get three signs in a row (diagonal, vertical or horizontal) on a small board, you’ve won that board.
